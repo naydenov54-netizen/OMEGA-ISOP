@@ -1,0 +1,103 @@
+OI-COSMO-IDENT-RL-PACKET-2026-10-27-v2.txt
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+1. Output for OMEGA-ISOP/M3.2 must be clean plain text, directly copyable on Android, in one continuous block when a complete artifact is requested.
+2. Frozen Core remains unchanged unless the user explicitly authorizes a change and a documented change-control decision records it.
+3. RL_REGISTRATION_REQUIRED is not RL_REGISTERED. Never claim registration without authoritative registry confirmation and readback.
+
+OMEGA-ISOP — RL REGISTRATION CANDIDATE PACKET
+RECORD DATE: 2026-10-27
+PACKET VERSION: v2
+PREDECESSOR: OI-COSMO-IDENT-RL-PACKET-2026-10-27.txt
+CHANGE TYPE: REGISTRATION WORKFLOW STATUS CLARIFICATION ONLY
+PROJECT: OI-COSMO-IDENT
+RL-ID: PENDING REGISTRY ASSIGNMENT
+TITLE: Future event-horizon non-identifiability under matched FLRW past histories
+CLAIM: In the class of smooth expanding flat-FLRW histories for which the future event-horizon integral converges, two scale factors can agree on the entire history through a chosen time T and nevertheless have different future event-horizon radii; the construction can be realized by reconstructing an effective fluid with positive density and NEC for sufficiently small compactly supported deformation, under the stated Einstein-FLRW assumptions.
+
+RECORD TYPE / EVIDENCE CLASS:
+Analytical conditional result; explicit geometric construction plus effective-fluid reconstruction.
+
+SOURCE AND VERSION:
+Working derivation OI-COSMO-IDENT-16 through OI-COSMO-IDENT-19 in the conversation dated 2026-10-27. This packet records that derivation; it does not claim a separately saved or independently reviewed source derivation.
+
+DEFINITIONS / DOMAIN / ASSUMPTIONS:
+- Spatially flat FLRW geometry; cosmic time t; positive scale factor a(t).
+- Event-horizon proper radius at t0: D(t0) = a(t0) integral from t0 to infinity of c dt/a(t), assuming convergence.
+- Choose T > t0, T2 > T and f in C_c^infinity((T,T2)), f >= 0, f not identically zero.
+- Define a2(t) = a1(t) exp(epsilon f(t)), epsilon > 0.
+- For the effective-fluid realization, assume standard Einstein-FLRW equations with fixed Lambda and reconstruct rho_X and p_X from H2 and its derivative. The result is conditional on these external physical assumptions; they are not derived from the OMEGA-ISOP Frozen Core.
+
+RESULT AND SUPPORTING DERIVATION OR METHOD:
+Because f(t)=0 for t <= T, a2=a1 and all time derivatives agree throughout that past region. Thus local expansion observables determined by any finite set of time derivatives agree at t0.
+Since a1(t0)=a2(t0),
+D2(t0)-D1(t0) = c a1(t0) integral_T^T2 [(exp(-epsilon f(t))-1)/a1(t)] dt < 0.
+Strictness follows from f >= 0 and f not identically zero, with f smooth and positive on a nonempty open subset.
+For the effective fluid, with c=1:
+rho_X = (3H^2-Lambda)/(8 pi G),
+p_X = -(2 Hdot+3H^2-Lambda)/(8 pi G),
+rho_X+p_X = -Hdot/(4 pi G).
+For H2=H1+epsilon f_dot, Hdot2=Hdot1+epsilon f_ddot, the perturbation of rho+p is -epsilon f_ddot/(4 pi G). If the baseline has rho_X,1>0 and rho_X,1+p_X,1>0 on the compact support, boundedness of f_dot and f_ddot permits sufficiently small epsilon to preserve H2>0, rho_X,2>0 and NEC. The conservation equation follows from the reconstructed Friedmann quantities and the Bianchi identity/equivalent algebraic identity.
+An explicit baseline used in the derivation is a1(t)=sinh^2(alpha t)/sinh^2(alpha t0), t>0, with Lambda=12 alpha^2 and rho_X,1=3 alpha^2 csch^2(alpha t)/(2 pi G), p_X,1=-2 rho_X,1/3, which has positive density and satisfies NEC.
+
+CHECKS PERFORMED:
+- Analytic sign of the horizon difference: CHECKED.
+- Agreement of scale factor and all derivatives before T: CHECKED by compact support of f.
+- Effective-fluid reconstruction formulas: CHECKED algebraically.
+- Small-epsilon preservation argument for expansion, positive density and NEC: CHECKED under the stated strict baseline margins on the compact support.
+- Finite horizon for the explicit baseline and compactly supported perturbation: CHECKED from the asymptotic exponential growth of a1.
+- Compatibility with the OMEGA-ISOP Frozen Core: CHECKED in the limited sense that no Core change or OMEGA-derived physical law is asserted; standard FLRW/Einstein dynamics are external assumptions.
+
+CHECKS NOT PERFORMED / NOT APPLICABLE:
+- Full literature novelty search: NOT CHECKED EXHAUSTIVELY.
+- Independent mathematical review: NOT PERFORMED.
+- Microphysical realization by a fixed scalar potential or specified microscopic matter theory: NOT ESTABLISHED.
+- Formal interval certification of the separate numerical A/B example: NOT PERFORMED; remains pending and is not needed for this analytic claim.
+- Authoritative RL registry schema/write interface and registration readback: NOT AVAILABLE/NOT IDENTIFIED in the currently inspected project records and tool interfaces.
+
+LIMITATIONS / COUNTEREXAMPLES / NON-IMPLICATIONS:
+- This is a conditional result in a specified FLRW/Einstein effective-fluid class, not a new universal physical law.
+- It does not show that a pure de Sitter model with fixed Lambda has an undetermined horizon; in pure de Sitter the horizon is fixed by H_Lambda.
+- It does not establish a microscopic matter realization, empirical validation, or an OMEGA-ISOP-specific observational prediction.
+- The general fact that event horizons depend on future expansion history is standard cosmology. Originality of this particular constructive formulation has not been established.
+- Numerical A/B values are not part of the proof and are not promoted to formally certified results.
+
+FROZEN CORE COMPATIBILITY:
+No Frozen Core change. Standard GR/FLRW assumptions are explicitly external test assumptions, not derived from OMEGA-ISOP.
+
+RELATED RL / CE-V REFERENCES AND TRACEABILITY:
+Related local source: OI-COSMO-EXPANSION-LAMBDA-001_RL-CLOSURE-RECORD_2026-10-26.txt, which records limits on OMEGA-specific cosmological derivation and the need to separate standard GR/FLRW inputs from OMEGA premises. Relationship is contextual; no automatic CE-V promotion or claim of registration is made.
+
+PROVENANCE / REPRODUCIBILITY MATERIAL:
+Analytic construction and formulas are included above. Literature anchors consulted for context:
+- L. J. Boya, M. A. Per, A. J. Seguí, “Graphical and kinematical approach to cosmological horizons,” Physical Review D 66, 064009 (2002), DOI: 10.1103/PhysRevD.66.064009.
+- “Through the looking glass: why the ‘cosmic horizon’ is not a horizon,” Monthly Notices of the Royal Astronomical Society 404 (2010), 1633. Article page located; DOI omitted here rather than risk an unverified identifier.
+These sources support the standard background that horizon existence and location depend on the scale factor and future conformal-time integral; they do not by themselves establish novelty of this candidate.
+
+PROPOSED STATUS:
+RL_PACKET_PREPARED; candidate claim conditionally established under stated assumptions; literature novelty not established.
+
+REGISTRY SUBMISSION STATUS:
+NOT SUBMITTED. Authoritative RL registry and authorized write interface have not been identified from available records.
+
+AUTHORITATIVE REGISTRY READBACK:
+NOT PERFORMED.
+
+VERIFIED REGISTRY ID:
+NONE. RL-ID remains PENDING REGISTRY ASSIGNMENT.
+
+VERIFIED CONTENT MATCH:
+NOT YET CHECKED.
+
+DECISION:
+SEND. The candidate claim and packet are sufficiently prepared for the next applicable registration step. SEND means ready for submission, not registered.
+
+LOCAL BLOCKER — REGISTRY WRITE / READBACK ONLY:
+The authoritative RL corpus, its entry schema, and the authorized write interface are not identified in the currently available project files or tool interfaces. This prevents external submission and authoritative readback; it does not block the prepared result or other independent work. No external registry write has been attempted because no authorized target/interface is known.
+
+EVIDENCE CHECKED FOR THE BLOCKER:
+- M3.2 v0.8, Sections 5, 5.1, 5.2 and 6, including the mandatory result-to-registration workflow and local-blocker rule.
+- Available OMEGA-ISOP Library records and the existing OI-COSMO-EXPANSION-LAMBDA-001 closure record.
+- Available connected tool interfaces; none identifies an authoritative RL registry write/readback action.
+
+SMALLEST UNBLOCKING ACTION:
+Provide or identify the authoritative RL corpus/location and its authorized submission interface (or its governing documentation/connector). Then submit this packet and read back the resulting record, verifying the assigned ID, title/claim, evidence class, traceability and status. Until successful readback, do not use RL_REGISTERED.
