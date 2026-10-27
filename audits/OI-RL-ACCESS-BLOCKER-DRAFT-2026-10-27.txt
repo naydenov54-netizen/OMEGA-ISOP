@@ -1,0 +1,76 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+1. Output for OMEGA-ISOP/M3.2 must be clean plain text, directly copyable on Android, in one continuous block when a complete artifact is requested.
+2. Frozen Core remains unchanged unless the user explicitly authorizes a change and a documented change-control decision records it.
+3. RL_REGISTRATION_REQUIRED is not RL_REGISTERED. Never claim registration without authoritative registry confirmation and readback.
+4. RL_PACKET_PREPARED, SEND, actual submission, and authoritative readback are separate states.
+5. No automatic RL record creation. Do not invent N4/N6/N8/N9 criteria without canonical definitions.
+6. Do not insert Δ_OI into physical equations without derivation.
+7. Do not claim formal numerical proof without certified error bounds.
+8. Mathematical phase is CLOSED. Do not reopen it unless a concrete reason arises.
+9. Project goal: work toward possible registration. If it becomes clear that registration is impossible, report the evidence and stop.
+10. Do not claim that a repository, file, registry, or submission was inspected or modified unless that action actually occurred and its result was verified.
+
+OMEGA-ISOP — RL REGISTRY ACCESS BLOCKER AND PROPOSED INTERFACE SPECIFICATION
+DOCUMENT_ID: OI-RL-ACCESS-BLOCKER-DRAFT-2026-10-27
+VERSION: 1
+STATUS: DRAFT / NON-CANONICAL / NOT AN OFFICIAL RL REGISTRY
+PURPOSE: Record the verified access gap and define the minimum evidence required before any real RL submission can be attempted.
+CHANGE CONTROL: This document does not modify the Frozen Core and does not create an RL registration record.
+
+1. VERIFIED CURRENT STATE
+- GitHub repository inspected: naydenov54-netizen/OMEGA-ISOP
+- Repository visibility: private
+- Default branch: main
+- GitHub access: read/write permissions available to the connected integration at time of inspection.
+- Project files inspected: docs/PROJECT_STATUS.md; audits/README.md; CHANGELOG.md; docs/source-materials/OI-COSMO-IDENT-RL-PACKET-2026-10-27-v2.txt; docs/source-materials/OI-COSMO-EXPANSION-LAMBDA-001_RL-CLOSURE-RECORD_2026-10-26.txt; docs/source-materials/OMEGA-ISOP-VOLUME-III-v1.1-VAL-RESTORED.txt.
+- Searches for RL registry schema, submission/readback instructions, and RL-028 in the repository returned no results.
+- These checks do not establish that an external registry does not exist.
+
+2. REGISTRATION STATUS OF THE CURRENT CANDIDATE
+- Candidate packet: OI-COSMO-IDENT-RL-PACKET-2026-10-27-v2.txt
+- Packet decision: SEND, meaning prepared and ready for a submission step only.
+- Registry submission: NOT SUBMITTED.
+- Authoritative readback: NOT PERFORMED.
+- Verified registry ID: NONE.
+- Literature novelty: NOT ESTABLISHED.
+- A/B numerical certificate: PENDING.
+- No RL-028 record has been verified.
+
+3. REQUIRED AUTHORITY EVIDENCE BEFORE SUBMISSION
+At least one authoritative source must identify:
+A. The official RL corpus or registry location.
+B. The canonical entry schema and required fields.
+C. The identity/role authorized to submit or modify records.
+D. The approved submission mechanism, including any API, connector, or documented manual workflow.
+E. The authoritative readback mechanism used to confirm the committed record and assigned ID.
+F. The governing rules for duplicate checks, versioning, evidence classes, and status transitions.
+
+A GitHub repository, local schema, file name, commit, or self-authored record is not by itself evidence of official RL registration.
+
+4. MINIMUM READBACK CHECKLIST
+After a submission through an authorized route, retrieve the record independently and verify:
+- assigned registry ID;
+- exact title and claim;
+- evidence class and stated assumptions;
+- source/version traceability;
+- status and submission timestamp, where available;
+- registry location and durable record reference;
+- no silent divergence from the submitted packet.
+
+Only a successful authoritative readback may support the status RL_REGISTERED. A successful GitHub commit is not a registry readback.
+
+5. STATUS VOCABULARY
+RL_REGISTRATION_REQUIRED: a project/workflow requirement; not a completed action.
+RL_PACKET_PREPARED: a packet exists in prepared form.
+SEND: ready for the next applicable submission step; not proof of sending.
+SUBMITTED: the authorized external workflow confirms that submission occurred.
+RL_REGISTERED: the authoritative registry record and assigned ID have been confirmed by readback.
+READBACK_FAILED or NOT_PERFORMED: registration must not be claimed.
+
+6. SAFE NEXT ACTION
+Locate the official RL corpus and governing documentation through the project's authoritative source or maintainer. Once found, inspect the schema and authorization boundary before any write. If no authorized route can be identified, record the blocker and stop; do not simulate registration locally.
+
+7. NON-CANONICAL PROPOSAL BOUNDARY
+This document is a project-side access-control and evidence checklist created to prevent unsupported registration claims. It is not the canonical RL schema, not a registry endpoint, not a submission interface, and not an RL record. No RL-ID is assigned by this document.
+
+END OF DOCUMENT
