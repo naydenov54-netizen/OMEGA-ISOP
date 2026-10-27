@@ -1,0 +1,105 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+1. Output for OMEGA-ISOP/M3.2 must be clean plain text, directly copyable on Android, in one continuous block when a complete artifact is requested.
+2. Frozen Core remains unchanged unless the user explicitly authorizes a change and a documented change-control decision records it.
+3. RL_REGISTRATION_REQUIRED is not RL_REGISTERED. Never claim registration without authoritative registry confirmation and readback.
+
+OMEGA-ISOP — RL CLOSURE RECORD
+PROJECT: OI-COSMO-EXPANSION-LAMBDA-001
+RECORD DATE: 2026-10-26
+RECORD TYPE: ANALYTICAL CLOSURE / COSMOLOGY BRIDGE AUDIT
+STATUS: PREPARED RECORD; OFFICIAL REGISTRATION NOT PERFORMED OR VERIFIED
+
+1. PURPOSE
+Assess whether the available OMEGA-ISOP specification derives a non-standard constraint on cosmological expansion, superluminal recession velocity, or the cosmological constant Lambda, with an observationally distinguishable consequence.
+
+2. CLAIM UNDER TEST
+Candidate claim: OMEGA-ISOP relational structure alone may constrain or determine cosmological expansion and/or Lambda beyond standard FLRW/General Relativity.
+
+3. TESTS COMPLETED
+TEST 01 — STANDARD COSMOLOGY BOUNDARY
+Established under the stated FLRW assumptions:
+- 1+z = a(t0)/a(te) for comoving source and observer.
+- H = adot/a.
+- For proper distance D on a chosen cosmological-time slice, recession velocity v_rec = H D.
+- v_rec > c iff D > c/H for that slice.
+- This recession velocity is not a local special-relativistic velocity measured in one local inertial frame.
+- The Hubble radius is not generally identical to the particle horizon or event horizon.
+- FLRW/Friedmann equations and the de Sitter limits used in the investigation are standard results, not new OMEGA-ISOP derivations.
+
+TEST 02 — CAUSAL-STRUCTURE COUNTERMODEL
+For idealized spatially flat de Sitter metrics:
+  ds_i^2 = a_i(eta)^2(-c^2 d eta^2 + d chi^2 + chi^2 d Omega^2), eta < 0
+  a_i(eta) = -1/(H_i eta), H_i > 0
+  Lambda_i = 3 H_i^2/c^2
+with H_1 != H_2, the metrics have different Lambda values while being related by a positive constant conformal rescaling. Their light-cone/causal structure is the same. Therefore causal structure alone does not fix the metric scale or Lambda in this model class.
+LIMIT: This is a countermodel for the specified causal structure, not a demonstrated countermodel to a fully formalized OMEGA-ISOP cosmological realization, because R_cosmo and Phi_cosmo have not been specified in the available record.
+
+TEST 03 — R/PHI SPECIFICATION AUDIT
+Available specification does not fully define:
+- D_CC_cosmo as a categorical diagram;
+- its index category and diagram functor;
+- a verified colimit construction R_cosmo;
+- Real(R_cosmo), Phi_cosmo, X_cosmo;
+- A(R_cosmo;Phi_cosmo) in a computable form.
+This is an underspecification finding for the available records, not a proof that a construction is impossible.
+
+TEST 04 — INDEPENDENT PHYSICAL-BRIDGE AUDIT
+Standard mathematical results (including the Hawking-King-McCarthy-Malament line of results under appropriate spacetime assumptions) support that causal structure determines conformal geometry, not the full metric scale. Volume information can supply additional geometric information under suitable assumptions, but this does not by itself select Einstein dynamics or a unique Lambda.
+Candidate external bridge components considered:
+  R_causal + mu + E + M_matter
+where mu is a volume measure, E is an independently specified gravitational-dynamics law, and M_matter is a matter/stress-energy sector.
+These are external candidate assumptions, not OMEGA-ISOP Frozen Core elements and not derived by this audit.
+
+4. CONSOLIDATED FINDINGS
+F1. RELATIONAL STRUCTURE ALONE -> nonzero redshift: NOT DERIVED.
+F2. RELATIONAL STRUCTURE ALONE -> cosmological constant Lambda: NOT DERIVED.
+F3. RELATIONAL STRUCTURE ALONE -> unique cosmological dynamics: NOT DERIVED.
+F4. Causal structure alone -> full metric scale/Lambda: NOT FIXED in the tested standard causal-geometry class.
+F5. OMEGA-ISOP -> Einstein field equations: NOT ESTABLISHED.
+F6. OMEGA-ISOP -> unique Lambda: NOT ESTABLISHED.
+F7. OMEGA-specific, observationally distinguishable cosmological prediction: NOT DERIVED.
+F8. Available cosmological realization specification: INSUFFICIENTLY FORMALIZED FOR A DEFINITIVE OMEGA-SPECIFIC COUNTERMODEL OR DERIVATION.
+
+5. NECESSITY VS EXTERNAL ASSUMPTION
+The generic OMEGA-ISOP conventions R, Phi, and A(R;Phi) express structural constraints, a selected realization, and a class of admissible dynamics. They do not, without further premises, entail:
+- a spacetime volume measure mu;
+- Einstein gravitational dynamics;
+- a matter sector or stress-energy tensor T_munu;
+- a rule selecting Lambda;
+- a unique cosmological solution.
+These elements may be used as explicitly labelled external test assumptions. They must not be silently inserted into the Frozen Core or described as OMEGA-derived.
+
+6. MINIMUM ADDITIONAL SPECIFICATION REQUIRED FOR CONTINUATION
+A. Explicitly define R_cosmo, including primitive objects, relations/constraints, the index category, diagram functor, compatibility conditions, and any required universal property.
+B. Define the realization class Real(R_cosmo), the realization map Phi_cosmo, the state/model space X_cosmo, and the admissible dynamics A(R_cosmo;Phi_cosmo).
+C. State which physical bridge inputs are external: metric/volume information, gravitational field equations, matter model, boundary/initial conditions, and operational observables.
+D. State whether Lambda is an input parameter, a fitted parameter, a derived quantity conditional on a model, or the target of a selection principle. Do not conflate these roles.
+E. Specify the comparison class: standard FLRW/GR models with matching assumptions and data.
+F. Define at least one observable and a quantitative criterion for distinguishability, including uncertainty/tolerance and the data regime.
+G. Derive a result from the declared premises and test whether it is algebraically or operationally equivalent to standard GR/FLRW. If equivalent, it is not a novel OMEGA prediction.
+
+7. CRITERION FOR A GENUINE NEW OMEGA COSMOLOGICAL PREDICTION
+A candidate qualifies only if all conditions hold:
+1. The OMEGA-specific premises and realization are explicit and traceable.
+2. The conclusion follows mathematically from those premises, rather than from an unlabelled external law.
+3. The result is not merely a reparameterization or restatement of standard GR/FLRW under the same assumptions.
+4. It predicts a measurable difference in a declared observable or a rigorously defined allowed parameter region.
+5. The difference survives comparison with standard alternatives and stated uncertainties.
+6. A reproducible derivation and, where applicable, numerical or empirical test are supplied.
+Current result: no candidate meets these criteria yet.
+
+8. FINAL STATUS
+FROZEN CORE: UNCHANGED.
+CE-V: NO PROMOTION.
+RL REGISTRATION: NOT PERFORMED / NOT VERIFIED.
+EMPIRICAL VALIDATION: NOT ESTABLISHED.
+INDEPENDENT REVIEW: NOT ESTABLISHED.
+NOVEL OMEGA PHYSICAL LAW: NOT DERIVED.
+UNIQUE LAMBDA: NOT DERIVED.
+NOVEL OBSERVATIONAL PREDICTION: NOT DERIVED.
+CURRENT ANALYTICAL STAGE: CLOSED WITH NEGATIVE/UNRESOLVED FINDINGS; RESEARCH PROGRAM REMAINS OPEN.
+
+9. NEXT ACTION
+Proceed to TEST 05: NECESSITY VS EXTERNAL ASSUMPTION. Build an explicit dependency table for mu, Einstein dynamics, matter/stress-energy, and Lambda-selection. For each item, identify either (i) an exact source location and derivation from the current OMEGA-ISOP specification, or (ii) mark it EXTERNAL ASSUMPTION / NOT DERIVED. Then select the smallest well-defined R_cosmo and Phi_cosmo construction that can be tested without changing the Frozen Core.
+
+END OF RL CLOSURE RECORD
