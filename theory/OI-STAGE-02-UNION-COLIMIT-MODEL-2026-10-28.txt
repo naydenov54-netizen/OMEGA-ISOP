@@ -1,0 +1,77 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+1. Output for OMEGA-ISOP/M3.2 must be clean plain text, directly copyable on Android, in one continuous block when a complete artifact is requested.
+2. Frozen Core remains unchanged unless the user explicitly authorizes a change and a documented change-control decision records it.
+3. RL_REGISTRATION_REQUIRED is not RL_REGISTERED. Never claim registration without authoritative registry confirmation and readback.
+4. Distinguish established facts, external assumptions, conditional results, and unresolved claims.
+5. Do not claim that a repository, file, registry, or submission was inspected or modified unless the corresponding action succeeded and its result was verified.
+
+OMEGA-ISOP — STAGE 2: EXPLICIT UNION-COLIMIT TEST MODEL
+DOCUMENT_ID: OI-STAGE-02-UNION-COLIMIT-MODEL-2026-10-28
+VERSION: 0.1
+DATE: 2026-10-28
+STATUS: CONDITIONAL COLIMIT THEOREM PROVED IN A RESTRICTED SUBSET CATEGORY
+FROZEN CORE: UNCHANGED
+RL REGISTRATION: NOT PERFORMED OR VERIFIED
+CE-V PROMOTION: NOT CLAIMED
+CANONICAL ACCEPTANCE: NOT CLAIMED
+
+PURPOSE
+Give one fully specified instance in which the conditional construction R = colim(D_CC) exists, and state exactly which assumptions make the proof work. This is a test model, not a claim that the Frozen Core uniquely prescribes this category.
+
+1. FIXED CARRIER AND APARTNESS
+Fix a set U0 with an apartness relation # on U0. For each selected subset S of U0, define the configuration C_S=(S,#_S), where #_S is the restriction of # to S×S.
+Let F be a family of admissible subsets of U0. Assume F is closed under the union of the particular diagram under study, and that the union is an admissible configuration. If the framework requires nontrivial configurations, also assume the union satisfies the chosen nontriviality criterion.
+
+2. CATEGORY OF CONFIGURATIONS
+Define P_F as the poset category:
+- objects are configurations C_S for S in F;
+- there is exactly one morphism C_S -> C_T iff S⊆T, and no morphism otherwise;
+- composition is inclusion composition, and identity arrows are inclusions S⊆S.
+Every morphism is an inclusion and therefore an embedding preserving and reflecting the inherited apartness relation.
+This is deliberately a restricted category: it retains only literal subset inclusions, not every abstract embedding between isomorphic configurations.
+
+3. INDEXING CATEGORY AND DIAGRAM
+Let J be a small category and D:J -> P_F a functor. Write D(j)=C_{S_j}. Functoriality requires that for each arrow α:j->k in J, S_j⊆S_k, and that identities and compositions are sent to the corresponding inclusions.
+Assume S_R := ⋃_{j∈Ob(J)} S_j belongs to F, so C_{S_R} is an object of P_F.
+
+4. THEOREM
+The colimit of D in P_F exists and is C_{S_R}, where S_R=⋃_j S_j.
+
+PROOF
+For every j, S_j⊆S_R, so there is an inclusion cocone ι_j:C_{S_j}->C_{S_R}. These arrows are compatible with every arrow of D because all arrows are inclusions.
+
+Let C_T be any object of P_F with a cocone q_j:C_{S_j}->C_T. Since q_j exists in P_F, S_j⊆T for every j. Therefore ⋃_j S_j⊆T, i.e. S_R⊆T. Hence there exists a unique inclusion q:C_{S_R}->C_T. For each j, q∘ι_j is the inclusion S_j⊆T and thus equals q_j, because a poset category has at most one arrow between any two objects. This proves the universal property. QED.
+
+5. RELATION TO COMPATIBILITY
+In this model, define CC_F(C_S,C_T)=1 exactly when there exists an admissible configuration C_W in F with embeddings of C_S and C_T into C_W that agree on the selected shared subconfiguration, where the embeddings used in this model are inclusions. In the simplest fixed-carrier realization, if the relevant union S∪T is admissible, then C_{S∪T} is an amalgam and CC_F=1.
+For a diagram D whose arrows are inclusions and whose union is admissible, the theorem establishes the colimit. The proof uses more than a Boolean compatibility value: it uses the common carrier, the inclusion-only morphisms, a functorial diagram, and closure of F under the particular union.
+
+6. FINITE EXAMPLE
+Let U0={0,1,2}, with x#y iff x≠y. Let F contain all subsets of U0 with at least two elements, together with any additional base objects needed by the diagram. Consider the diagram with objects C_{ {0,1} } and C_{ {1,2} } and the shared base C_{ {1} } if singleton configurations are admitted in the chosen category. Its colimit carrier is {0,1,2}. If the chosen object class excludes singleton configurations, use the diagram with the two objects and their inclusion ordering where applicable; do not claim a shared-base span exists in that restricted object class unless the base is admitted.
+The colimit proof depends on union closure. If the union is excluded by an additional global constraint, this proof does not apply.
+
+7. WHAT THIS ESTABLISHES
+PROVED: In P_F, for any functorial diagram whose union is an admissible object, the union is its colimit.
+PROVED: The construction preserves the inherited apartness relation because the colimit object uses # restricted from the same U0.
+CONDITIONAL: The result gives a valid R for this particular realization when D_CC is supplied as such a functorial inclusion diagram and its union is admissible.
+NOT PROVED: That P_F is the intended or uniquely mandated C_METACORE category.
+NOT PROVED: That the project's compatibility relation always reduces to union-admissibility.
+NOT PROVED: That arbitrary embeddings, non-hereditary constraints, or a different category have the same colimit.
+NOT PROVED: A universal existence theorem for R.
+
+8. COMPARISON WITH THE AMALGAMATION OBSTRUCTION AUDIT
+The prior audit showed that in the category of finite discrete-apartness structures with all embeddings as morphisms, an admissible amalgam need not be a pushout. There is no contradiction: P_F is a different, more restrictive category whose only arrows are literal inclusions among subsets of one fixed carrier. Its colimit property follows from the subset order and union closure. Changing the morphism class changes the categorical universal property and may change whether a colimit exists.
+
+9. NEXT REQUIRED TEST
+To move from this conditional model to the project construction, compare the intended C_METACORE morphisms with P_F:
+(a) Are morphisms all embeddings, only inclusions, or another explicitly defined class?
+(b) Is there a fixed carrier U0 and a single ambient # whose restrictions define all local configurations?
+(c) Is the family of admissible configurations closed under the relevant unions/amalgams?
+(d) Do the arrows of D_CC form a genuine category and does D_CC act as a functor?
+(e) Does the resulting candidate satisfy the required constraint-preserving universal property?
+Until these are answered from the intended model, this theorem remains a valid conditional realization, not a resolution of the project-level R-existence question.
+
+CHANGE CONTROL
+Research artifact only. Frozen Core unchanged. No RL registration, CE-V promotion, or canonical acceptance claimed.
+
+END OF DOCUMENT
