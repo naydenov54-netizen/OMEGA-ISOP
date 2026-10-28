@@ -1,0 +1,70 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+1. Output for OMEGA-ISOP/M3.2 must be clean plain text, directly copyable on Android, in one continuous block when a complete artifact is requested.
+2. Frozen Core remains unchanged unless the user explicitly authorizes a change and a documented change-control decision records it.
+3. RL_REGISTRATION_REQUIRED is not RL_REGISTERED. Never claim registration without authoritative registry confirmation and readback.
+4. Distinguish established facts, external assumptions, conditional results, and unresolved claims.
+5. Do not claim that a repository, file, registry, or submission was inspected or modified unless the corresponding action succeeded and its result was verified.
+
+OMEGA-ISOP — STAGE 1: DIFFERENCE
+DOCUMENT_ID: OI-STAGE-01-DIFFERENCE-2026-10-28
+VERSION: 0.1
+DATE: 2026-10-28
+STATUS: CANDIDATE FORMALIZATION; CORE IMPLICATION TESTED
+FROZEN CORE: PRESERVED; NOT AMENDED
+RL REGISTRATION: NOT PERFORMED OR VERIFIED
+CE-V PROMOTION: NOT CLAIMED
+CANONICAL ACCEPTANCE: NOT CLAIMED
+
+1. AIM
+Give “Difference” an explicit, minimal mathematical meaning. Do not assume that a difference by itself produces a direction, a law, dynamics, persistence, or organization.
+
+2. DEFINITION: SIGNATURE-BASED DIFFERENCE
+Let X be a nonempty set of states or objects. Let I be a set of features, and for each i∈I let V_i be a feature-value set and f_i:X→V_i a feature map. Define the observed difference predicate D:X×X→{0,1} by:
+D(x,y)=1 iff there exists i∈I such that f_i(x)≠f_i(y).
+Otherwise D(x,y)=0.
+The feature family is part of the model. Difference is therefore relative to a declared signature, not an unqualified metaphysical primitive.
+
+3. IMMEDIATE PROPERTIES
+P1 (irreflexivity): D(x,x)=0 for every x∈X, because f_i(x)=f_i(x) for every feature i.
+P2 (symmetry): D(x,y)=D(y,x), because inequality of feature values is symmetric.
+P3 (non-identity limitation): D(x,y)=0 does not necessarily imply x=y. It implies only that the selected feature family fails to distinguish x and y. If the combined signature map F(x)=(f_i(x))_{i∈I} is injective, then D(x,y)=0 iff x=y.
+P4 (signature dependence): adding or removing features can change D. Therefore a claim that two states differ must specify which features are admitted.
+
+4. FINITE TEST
+Take X={a,b,c}, with one feature f:X→{0,1} defined by f(a)=0, f(b)=1, f(c)=0.
+Then D(a,b)=1, D(b,c)=1, and D(a,c)=0.
+This confirms that D need not be transitive. It also shows that two distinct objects may be indistinguishable under the chosen feature family.
+
+5. NON-DERIVATION TEST: DIFFERENCE DOES NOT DETERMINE A UNIQUE RELATION
+A binary relation on X is any subset R⊆X×X. The difference predicate D from Section 4 is compatible with more than one distinct relation. For example:
+R₁={(a,b)}
+R₂={(a,b),(b,c)}
+Both selected pairs are difference-positive, so both relations can be formed using only D-positive pairs, yet R₁≠R₂. Difference data alone therefore do not uniquely select a relation.
+Moreover, D is symmetric, whereas R₁ and R₂ are directed. Any directional interpretation requires an additional orientation rule, order, causal convention, or other input.
+This is a proof of non-uniqueness for the explicit finite example, not a theorem that no richer theory can derive relations from richer difference data.
+
+6. THEOREM
+The signature-based difference predicate D is irreflexive and symmetric. It is not necessarily transitive. In general, D alone does not determine a unique directed binary relation on X.
+
+PROOF
+Irreflexivity and symmetry follow directly from the definition in Section 2. Non-transitivity is witnessed by the finite test: D(a,b)=1 and D(b,c)=1 but D(a,c)=0. Non-uniqueness of a compatible directed relation is witnessed by R₁ and R₂ in Section 5. QED.
+
+7. WHAT THIS DOES AND DOES NOT ESTABLISH
+Established mathematically: the stated properties of D and the finite non-uniqueness counterexample.
+Model-dependent: which features I and maps f_i are appropriate for a given OMEGA-ISOP application.
+Not established: that the existing Frozen Core uniquely entails this exact definition; that every difference produces a relation; that direction, constraint, dynamics, persistence, or organization follows from difference alone.
+The arrow “Difference → Relation” is therefore not accepted as an unconditional theorem. It remains a conditional construction problem for Stage 2.
+
+8. STAGE-1 AUDIT CHECKLIST
+[PASS] Definition specifies carrier, feature family, and predicate.
+[PASS] Irreflexivity proof.
+[PASS] Symmetry proof.
+[PASS] Finite test demonstrates non-transitivity.
+[PASS] Counterexample demonstrates that difference alone does not select a unique directed relation.
+[OPEN] Determine whether the OMEGA-ISOP source text imposes a preferred feature/signature construction.
+[OPEN] Compare this candidate definition with the protected Frozen Core before any integration decision.
+
+9. DECISION
+Keep as a candidate foundational section for the working theory. Do not silently modify Frozen Core. Stage 2 must add and justify the rule that selects relations from distinctions; it must not assume the arrow is already proven.
+
+END OF DOCUMENT
