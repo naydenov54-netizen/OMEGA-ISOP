@@ -1,0 +1,119 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+OMEGA-ISOP — COSMOLOGICAL SCALE IDENTIFIABILITY AUDIT #10
+TITLE: SYMMETRY BREAKING, LOCAL IDENTIFIABILITY, AND GLOBAL IDENTIFIABILITY
+DATE: 2026-10-28
+STATUS: MATHEMATICAL AUDIT; CONDITIONAL RESULTS ONLY
+
+1. PURPOSE AND SCOPE
+
+This audit separates three claims that must not be conflated:
+(A) an added observation breaks a particular continuous symmetry;
+(B) the parameter map is locally identifiable near a specified regular point;
+(C) the parameter of interest is globally identifiable over the stated parameter domain, including variation of nuisance parameters.
+
+The examples below concern an idealized observation model. They do not claim that the model is a complete cosmological observation model or that OMEGA-ISOP derives a physical clock calibration.
+
+2. BASE OBSERVATION AND DEGENERACY
+
+Let z > 0 be fixed and let H,q > 0. The base observation is
+s = F0(H,q) = z H/q.
+
+For every a > 0, the transformation
+T_a(H,q) = (aH, aq)
+preserves the observation:
+F0(T_a(H,q)) = z(aH)/(aq) = zH/q = F0(H,q).
+
+Therefore F0 alone does not globally identify H when q is unknown. It identifies only the ratio H/q = s/z.
+
+3. SYMMETRY BREAKING DOES NOT GUARANTEE GLOBAL IDENTIFIABILITY
+
+Add the observation
+u = G(H,q) = q/(1+q)^2.
+
+This observation is independent of H, and generally changes under q -> aq, so the specific continuous symmetry T_a is not preserved by the joint observation map for arbitrary a.
+
+However,
+G(1/q) = (1/q)/(1+1/q)^2 = q/(1+q)^2 = G(q).
+
+For any H,q > 0, define
+H' = H/q^2,
+q' = 1/q.
+
+Then
+H'/q' = (H/q^2)/(1/q) = H/q,
+and G(H',q') = G(q') = G(1/q) = G(q).
+
+Consequently,
+F(H,q) = (zH/q, q/(1+q)^2)
+       = F(H/q^2, 1/q).
+
+For q != 1, the paired parameter values generally differ, including H' != H. The joint map is therefore not globally injective on (0,infinity)^2. The added observation breaks the original continuous scaling symmetry but leaves a distinct discrete ambiguity. This is an explicit counterexample to the claim that breaking one symmetry is sufficient for global identifiability.
+
+4. LOCAL IDENTIFIABILITY CAN HOLD WHILE GLOBAL IDENTIFIABILITY FAILS
+
+For
+F(H,q) = (zH/q, q/(1+q)^2),
+the Jacobian is
+J(H,q) =
+[ z/q                 -zH/q^2             ]
+[ 0                   (1-q)/(1+q)^3       ].
+
+Its determinant is
+det J = z(1-q)/(q(1+q)^3).
+
+Because z,q > 0, det J != 0 whenever q != 1. By the inverse function theorem, the full two-parameter map is locally invertible in a neighborhood of each point with q != 1. Thus both parameters are locally identifiable there under this exact model.
+
+Nevertheless, the explicit pair (H,q) and (H/q^2,1/q) has identical observations. At generic q != 1 these are distinct parameter points. Local invertibility near either point does not prevent the two separated neighborhoods from mapping to overlapping observation values. Hence local identifiability does not imply global identifiability.
+
+At q = 1 the Jacobian determinant vanishes. The inverse-function-theorem argument does not establish local invertibility at that point; the rank calculation alone should not be overstated as a complete classification of every possible local notion at singular points.
+
+5. A SUFFICIENT EXAMPLE FOR GLOBAL IDENTIFIABILITY
+
+Instead add an independently calibrated observation
+u = G(H,q) = q,
+with the calibration assumption that the measured u uniquely equals q on the parameter domain.
+
+The joint map is
+F(H,q) = (s,u) = (zH/q,q).
+
+Given any compatible observation pair (s,u), with z,u > 0, recover
+q = u,
+H = su/z.
+
+This inverse is unique. Therefore the joint map is globally injective on H,q > 0 for fixed z > 0. This conclusion is conditional on the calibration observation truly identifying q and on the specified observation equations being valid.
+
+If the calibration of u itself contains an unknown multiplicative factor or additional nuisance parameters, those must be included in the complete model and the injectivity claim reassessed. Merely attaching physical units to a quantity does not establish independent calibration.
+
+6. GENERAL CRITERIA
+
+Let theta = (H,lambda) denote the parameter of interest and nuisance parameters, and let F(theta) be the complete observation map.
+
+6.1 Symmetry breaking:
+An added observation G can break a known symmetry T if G(T(theta)) != G(theta) for some relevant theta and T. This rules out that exact symmetry as a universal invariance of the augmented map, but does not by itself establish injectivity.
+
+6.2 Local regular identifiability:
+For a differentiable map with equal finite dimensions, a nonsingular square Jacobian at theta0 gives local invertibility near theta0. In more general models, rank conditions require the appropriate hypotheses and parameter-of-interest analysis. Full rank at one point is not a global injectivity theorem.
+
+6.3 Global identifiability of H:
+The relevant condition is that for all admissible theta1=(H1,lambda1) and theta2=(H2,lambda2),
+F(theta1)=F(theta2) implies H1=H2.
+This allows nuisance parameters to differ. Injectivity of the full parameter vector is sufficient but stronger than necessary if only H is sought.
+
+6.4 Calibration:
+A proposed independent observable breaks the degeneracy only if its operational model is specified and the resulting complete map meets the required identifiability criterion. If the observable introduces new unknown calibration parameters, they must be included rather than silently held fixed.
+
+7. OMEGA-ISOP INTERPRETATION LIMITS
+
+The audit establishes distinctions within explicitly specified mathematical observation maps. It does not derive H, q, a physical clock standard, or a semantic bridge from the OMEGA-ISOP Frozen Core. It does not establish a universal claim about every cosmological observation model.
+
+No change to Frozen Core, Volume II, Volume III, or Volume V is proposed. No CE-V promotion is proposed. No RL registration is requested or claimed.
+
+8. CONCLUSION
+
+The hierarchy is strict:
+- Breaking a particular symmetry is weaker than global identifiability.
+- Local regular identifiability is weaker than global identifiability.
+- Global identifiability of H requires that equal complete observations force equal H even when nuisance parameters vary.
+- An independently calibrated observation can provide a sufficient route in a specified model, but the calibration and injectivity assumptions must be explicit.
+
+END OF DOCUMENT
