@@ -1,0 +1,188 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+OMEGA-ISOP
+JOINT ROBUST BOUNDS WITH UNCERTAIN CALIBRATION COEFFICIENTS AND SHARED SYSTEMATICS
+AUDIT ID: OI-COSMO-JOINT-BOUNDS-SHARED-SYSTEMATICS-2026-10-29
+STATUS: CONDITIONAL MATHEMATICAL AUDIT
+DATE: 2026-10-29
+
+1. PURPOSE AND SCOPE
+
+This audit studies how to bound a target H when both the calibration channels and the cosmological observation contain bounded uncertainties, including shared systematic terms. The central rule is to build one joint feasible set and project it onto H. Independently computed intervals may be combined only when their independence or Cartesian-product structure is justified.
+
+No physical calibration, cosmological model, or OMEGA-ISOP derivation is assumed beyond the equations explicitly stated below.
+
+2. JOINT MODEL
+
+Let q>0 be a calibration scale, b an unknown additive calibration offset, H>0 the target, and z>0 a known redshift. A calibration channel may be modeled as
+
+u_j = (c_hat_j + delta_j)q + b + lambda d_j + xi_j,
+
+where:
+- c_hat_j is a nominal coefficient;
+- delta_j is its unknown bounded error;
+- lambda is a shared systematic amplitude;
+- d_j is a known channel loading for that shared systematic;
+- xi_j is a channel-specific residual error.
+
+The cosmological observation is modeled as
+
+s_obs = zH/q + alpha + epsilon_s,
+
+where alpha is an additive systematic offset and epsilon_s is a residual measurement error. Other observation models are possible, but must be stated explicitly.
+
+Let D be the complete set of admissible parameter tuples satisfying all coefficient, systematic, residual-error, domain, and observation constraints. The identified set for H is
+
+I_H = {H : there exist q,b,delta_j,lambda,xi_j,alpha,epsilon_s such that all constraints hold}.
+
+This projection is the primary definition of the robust target set. It preserves dependencies among parameters and errors.
+
+3. CALIBRATION DIFFERENCES AND SHARED SYSTEMATICS
+
+Subtracting channels j and k gives
+
+u_j-u_k = (c_hat_j-c_hat_k)q
+          + q(delta_j-delta_k)
+          + lambda(d_j-d_k)
+          + (xi_j-xi_k).
+
+The common offset b cancels. The shared systematic lambda cancels only if d_j=d_k. A systematic being shared does not automatically mean it cancels: cancellation depends on the channel loadings.
+
+If |delta_j|<=eta_j, |xi_j|<=eps_j, |lambda|<=L, then a conservative difference-residual bound is
+
+|q(delta_j-delta_k) + lambda(d_j-d_k) + xi_j-xi_k|
+<= q(eta_j+eta_k) + L|d_j-d_k| + eps_j+eps_k.
+
+This bound is valid for q>0 but can be conservative because it allows all terms to take worst-case signs simultaneously. If the uncertainties are correlated or share further constraints, use the joint feasible set instead of treating the bound as sharp.
+
+If d_j=d_k, the lambda term cancels exactly. If d_j differs from d_k, the shared systematic remains in the difference and can mimic part of the coefficient contrast.
+
+4. COEFFICIENT SEPARATION UNDER UNCERTAINTY
+
+For two channels, define nominal contrast c_hat_delta=c_hat_1-c_hat_2 and true contrast delta_c=(c_hat_1+delta_1)-(c_hat_2+delta_2). Then
+
+|delta_c-c_hat_delta| <= eta_1+eta_2.
+
+Consequently,
+
+|delta_c| >= |c_hat_delta|-(eta_1+eta_2).
+
+If |c_hat_delta|>eta_1+eta_2, a positive lower bound on the magnitude of the true contrast is guaranteed. This is a sufficient separation condition. It is not sufficient by itself to identify q if an uncancelled shared systematic or other unknown term can also enter the channel difference without adequate constraints.
+
+If |c_hat_delta|<=eta_1+eta_2, the interval information does not guarantee a nonzero contrast. This does not prove that every particular dataset is non-identifiable; it means that a uniform contrast-based inversion guarantee is unavailable.
+
+5. JOINT FEASIBILITY, NOT UNJUSTIFIED INTERVAL MULTIPLICATION
+
+The calibration constraints can be written
+
+|u_j-c_hat_j q-b-lambda d_j| <= q eta_j + eps_j,
+
+provided the coefficient perturbation and residual error are independently bounded as stated. This is an outer feasible constraint derived from |delta_j|<=eta_j and |xi_j|<=eps_j. If delta_j and xi_j have coupled restrictions, retain their exact joint constraints instead.
+
+For a given observation vector u, define
+
+Q_cal = {q>0 : there exist b, lambda and allowed coefficient/error variables satisfying every calibration channel simultaneously}.
+
+The same b and lambda must be used across channels when the model specifies shared nuisance parameters. It is invalid to choose a different b or lambda independently for each channel merely because that makes interval arithmetic easier.
+
+If the cosmological systematic constraints are also coupled to calibration parameters, define one combined feasible set and project it once. Do not first create a q interval under one assumed systematic value and then combine it with an H interval calculated under an incompatible value.
+
+6. ROBUST BOUNDS FOR H WITH AN ADDITIVE COSMOLOGICAL SYSTEMATIC
+
+From
+
+s_obs = zH/q + alpha + epsilon_s,
+
+write r=s_obs-alpha-epsilon_s. For any feasible tuple,
+
+H = qr/z.
+
+Suppose only for a simple outer-bound case that Q_cal=[q_low,q_high] with 0<q_low<=q_high<infinity, and alpha+epsilon_s is independently constrained to [a_low,a_high]. Then r lies in
+
+[r_low,r_high]=[s_obs-a_high, s_obs-a_low].
+
+If 0<r_low<=r_high, the product interval gives the outer bound
+
+H in [q_low r_low/z, q_high r_high/z].
+
+This is an outer bound, and is sharp only if all endpoint combinations are jointly feasible. If the intervals are correlated or share nuisance parameters, the interval product can be too wide and may include combinations that cannot occur.
+
+If r_low<=0<r_high, positivity H>0 means the feasible set may have zero as an infimum, with upper bound q_high r_high/z in the independent-box case. If r_high<=0, the model with H>0 and q>0 is infeasible under these constraints. If q_high is infinite or r_high is unbounded, no finite upper bound follows from this product argument.
+
+7. SHARED SYSTEMATIC OFFSET AND IDENTIFIABILITY
+
+If the cosmological equation contains an unknown alpha with no independent constraint,
+
+s_obs = zH/q + alpha,
+
+then for any candidate q>0 and H>0 one can choose alpha=s_obs-zH/q. The observation alone does not identify H or q. A bounded alpha yields a set-valued constraint, not necessarily point identification.
+
+Similarly, if calibration channels contain u_j=c_jq+b+lambda d_j and all d_j are equal, the shared lambda term is confounded with b: only b+lambda d is observed through those channels. The separate values of b and lambda are not identified from these channels alone. This does not necessarily prevent identification of q if known coefficient contrasts remain nonzero and other terms cancel, but it must be proved from the complete map.
+
+If the shared loading vector d lies in the span of the nominal intercept and coefficient columns, the systematic may be confounded with those parameters in a linearized or fixed-coefficient model. Rank and local diagnostics can expose such confounding, but global identifiability requires checking the complete observation map over the admissible domain.
+
+8. MANY-CHANNEL MATRIX FORM
+
+With m channels, define nominal design matrix X_hat whose j-th row is [c_hat_j, 1], beta=(q,b), and vectors delta, d, xi, u. Then
+
+u = X_hat beta + q delta + lambda d + xi.
+
+If a nominal least-squares estimator uses X_hat with full column rank,
+
+beta_hat = X_hat^+ u,
+
+then
+
+beta_hat-beta = X_hat^+(q delta + lambda d + xi),
+
+where X_hat^+ is the Moore-Penrose left inverse for the full-column-rank matrix. Thus
+
+||beta_hat-beta||_2
+<= ||X_hat^+||_2 (q||delta||_2 + |lambda|||d||_2 + ||xi||_2)
+= (q||delta||_2 + |lambda|||d||_2 + ||xi||_2)/sigma_min(X_hat).
+
+If q<=q_max, |delta_j|<=eta_j, |lambda|<=L and |xi_j|<=eps_j, then
+
+||beta_hat-beta||_2
+<= [q_max sqrt(sum_j eta_j^2) + L||d||_2 + sqrt(sum_j eps_j^2)]/sigma_min(X_hat).
+
+This is a deterministic bound for the stated nominal estimator and model. It does not automatically establish unbiasedness, a confidence interval, or global identifiability. It can be loose because it ignores correlations and structure in the error vectors. If X_hat is rank deficient, this inverse-based bound is unavailable.
+
+9. SHARED ERRORS MUST NOT BE COUNTED AS INDEPENDENT REPLICATES
+
+Repeating measurements can reduce independent residual noise under appropriate assumptions, but does not necessarily reduce a shared systematic. For example, if every cosmological measurement has the same unknown additive offset alpha, averaging n measurements leaves alpha in the mean. Treating alpha as n independent zero-mean errors would give a falsely optimistic uncertainty estimate.
+
+Likewise, adding channels with the same coefficient loading and same shared systematic loading may repeat the same information rather than create an independent calibration direction. Additional channels improve identification only when their complete joint constraints add information relevant to the target and do not preserve the same target-changing equivalence.
+
+10. REPORTING REQUIREMENTS
+
+A defensible robust result should report:
+(a) the complete observation equations;
+(b) which errors are shared, which are channel-specific, and their loading structure;
+(c) coefficient and systematic domains, including all dependencies;
+(d) the joint feasible set and its projection onto q and H, or a clearly labeled outer bound;
+(e) whether each bound is sharp, conservative, local, or probabilistic;
+(f) infeasibility checks and whether bounds are finite;
+(g) any target-changing transformations preserving all observations;
+(h) the separate roles of point identifiability, set identification, numerical stability, and statistical uncertainty.
+
+11. CONDITIONAL CONCLUSIONS AND NON-CLAIMS
+
+Established conditionally:
+- Common additive calibration offsets cancel in channel differences; shared systematics cancel only when their channel loadings match.
+- A nominal coefficient contrast larger than the total coefficient uncertainty gives a positive lower bound on the true contrast, but other uncancelled nuisance terms still require analysis.
+- Joint feasible-set projection preserves dependencies that naive interval multiplication can lose.
+- Independent box bounds yield simple outer bounds on H when the relevant quantities are positive and finite.
+- Repeated measurements do not average away a fixed shared systematic merely by increasing sample count.
+- A nominal least-squares estimator admits the stated deterministic perturbation bound under full column rank and the specified bounded-error model.
+
+Not established:
+- That any particular physical calibration has the assumed coefficient or systematic bounds.
+- That the derived outer bounds are sharp in every constrained model.
+- That multiple channels automatically remove shared-systematic confounding.
+- That OMEGA-ISOP alone derives H, q, or a physical calibration standard.
+
+12. OMEGA-ISOP STATUS
+
+This is a conditional mathematical audit. Frozen Core, Volume V, the dependency chain, and the CE-V archive remain unchanged. No CE-V promotion or RL registration is asserted.
+
+END OF DOCUMENT
