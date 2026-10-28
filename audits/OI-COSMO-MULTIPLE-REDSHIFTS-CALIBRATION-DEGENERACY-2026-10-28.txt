@@ -1,0 +1,90 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+OMEGA-ISOP — MULTIPLE-REDSHIFT CALIBRATION-DEGENERACY AUDIT
+Date: 2026-10-28
+Status: CONDITIONAL MATHEMATICAL RESULT; AUDIT RECORD ONLY; NO RL REGISTRATION
+
+1. PURPOSE
+
+This audit tests whether collecting redshift-drift observations at multiple redshifts resolves the degeneracy between the exact de Sitter expansion parameter H and one unknown shared clock-calibration factor q. The result is conditional on the stated ideal model. It does not establish that OMEGA-ISOP derives the model, H, or q.
+
+2. MODEL
+
+Assume an ideal spatially flat exact de Sitter/FLRW model with comoving source and observer. For each observed redshift z_i > 0, the standard redshift-drift relation under this model is
+
+dz_i/d tau_0 = z_i H,
+
+where tau_0 is observer proper time and H > 0 is constant.
+
+Suppose every observation uses the same clock display t, with unknown fixed calibration q > 0:
+
+dt = q d tau_0.
+
+The measured drift for observation i is therefore
+
+s_i = dz_i/dt = z_i H/q.
+
+For n observations, define the observation map
+
+F(H,q) = (z_1 H/q, z_2 H/q, ..., z_n H/q),
+
+where the redshifts z_1,...,z_n are fixed observed inputs, at least one is positive, and the model treats q as one shared calibration parameter.
+
+3. THEOREM: MULTIPLE REDSHIFTS DO NOT SEPARATE H AND q
+
+Theorem. Under the model above, any finite collection of exact redshift-drift observations at fixed redshifts identifies at most the ratio H/q, not H and q separately, when q is unrestricted.
+
+Proof. For any a > 0, transform the parameters by
+
+H' = aH,
+q' = aq.
+
+For every i,
+
+z_i H'/q' = z_i(aH)/(aq) = z_i H/q.
+
+Thus F(H',q') = F(H,q) for every a > 0. Choosing a not equal to 1 changes H while preserving all predicted observations. Therefore F is not injective in (H,q), and H is not globally identifiable from these observations while q remains unknown. QED.
+
+4. WHAT MULTIPLE OBSERVATIONS DO ESTABLISH
+
+In the exact, noise-free model, each nonzero-redshift observation satisfies
+
+s_i/z_i = H/q.
+
+Consequently, consistency requires all ratios s_i/z_i to agree. Multiple redshifts can test the exact de Sitter model against the data, expose departures from the assumed relation, and improve statistical precision when measurement noise is modeled. They do not, by themselves, separate H from the shared unknown q.
+
+The Jacobian of F with respect to (H,q) has entries
+
+partial F_i / partial H = z_i/q,
+partial F_i / partial q = -z_i H/q^2.
+
+The q-column is -H/q times the H-column. Hence the Jacobian has rank 1 when at least one z_i is nonzero, despite there being two unknown parameters. This rank statement is a local diagnostic consistent with the explicit global symmetry proved above; rank deficiency alone is not a universal proof of global non-identifiability.
+
+5. SUFFICIENT CALIBRATION CONDITION
+
+If q is independently known and fixed, then any observation with z_i > 0 identifies
+
+H = q s_i/z_i
+
+within this model. Additional redshifts provide consistency checks and may improve precision under a specified noise model. An independent calibration measurement can serve the same role only if its own observation model uniquely determines q in the adopted units.
+
+If q is unknown but shared, merely adding more observations of the same form does not remove the symmetry. If each observation instead has its own unconstrained calibration q_i, the model is at least as underdetermined; a separate q_i can absorb each drift measurement.
+
+6. SCOPE LIMITS
+
+A. This theorem is specific to the exact de Sitter relation s_i = z_i H/q with one shared unknown calibration factor.
+
+B. In a general FLRW model, H may depend on redshift and on other parameters. Multiple-redshift data can constrain model shape or combinations of parameters, but identifiability must be analyzed for the full specified observation map. No universal conclusion for general FLRW follows from this exact de Sitter theorem.
+
+C. Other independently calibrated dimensional observables, justified matter-sector assumptions, boundary conditions, or external constraints may break the degeneracy. Their equations and calibration assumptions must be included explicitly; they are not supplied by this proof.
+
+D. The result does not show that every cosmological observation is scale-blind, nor that an unknown clock calibration is necessarily present in a real experiment.
+
+E. The result does not derive a physical clock unit, H, or a semantic assignment from the OMEGA-ISOP Frozen Core.
+
+7. CONCLUSION
+
+For the exact de Sitter observation map F(H,q) = (z_i H/q) across any finite set of fixed redshifts, the transformation (H,q) -> (aH, aq) preserves every observation. Multiple redshifts therefore test consistency and can improve precision, but do not identify H separately from a shared unknown q. Independently fixing q makes H identifiable within the stated model.
+
+This is a conditional mathematical audit record only. No Frozen Core change, CE-V promotion, or RL registration is made.
+
+END OF DOCUMENT
