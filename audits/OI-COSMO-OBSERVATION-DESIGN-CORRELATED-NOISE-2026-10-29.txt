@@ -1,0 +1,179 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+OMEGA-ISOP
+COSMOLOGICAL OBSERVATION DESIGN UNDER UNKNOWN CALIBRATION AND CORRELATED NOISE
+AUDIT ID: OI-COSMO-OBSERVATION-DESIGN-CORRELATED-NOISE-2026-10-29
+STATUS: CONDITIONAL MATHEMATICAL AUDIT
+DATE: 2026-10-29
+
+1. PURPOSE AND SCOPE
+
+This audit studies when an added observation can identify a target scale parameter H in the presence of an unknown calibration parameter q and correlated measurement errors. It distinguishes exact structural identifiability, identifiability of a mean map, statistical identifiability of the full data distribution, and practical precision.
+
+No universal optimal design is asserted. An optimization claim requires a specified observation family, parameter domain, noise model, cost or resource constraint, and objective function.
+
+All results below are conditional on the assumptions stated in each section. This audit does not modify Frozen Core, establish a new CE-V result, or register an RL item.
+
+2. REPEATED OBSERVATIONS WITH SHARED UNKNOWN CALIBRATION
+
+Let H>0 and q>0 be unknown. Let z_i>0, i=1,...,n, be fixed known design values. Consider observations
+
+s_i = z_i H/q + epsilon_i.
+
+Write theta = H/q and v = (z_1,...,z_n)^T. The mean vector is
+
+mu(H,q) = v H/q = v theta.
+
+Its Jacobian with respect to (H,q) is
+
+J(H,q) = [ v/q, -v H/q^2 ].
+
+The two columns are linearly dependent. Since v is nonzero and H,q are positive, rank(J)=1. Therefore the mean map does not locally identify H and q separately, regardless of the number of these repeated observations. It identifies only their ratio H/q.
+
+More strongly, for every a>0,
+
+T_a(H,q) = (aH, aq)
+
+leaves H/q unchanged and hence leaves mu unchanged. The mean map is globally non-injective in (H,q), and H changes when a differs from 1.
+
+Suppose additionally that the observation vector is multivariate Gaussian with a fixed known positive-definite covariance matrix Sigma. Its Fisher information from the mean is
+
+I(H,q) = J^T Sigma^{-1} J.
+
+Because rank(J)=1, rank(I)=1. Correlation in Sigma changes the information magnitude and the precision with which theta can be estimated, but it cannot raise this matrix rank or identify H separately from q.
+
+This statistical conclusion extends beyond Gaussian noise if the entire conditional data distribution depends on (H,q) only through H/q. Under that condition, T_a leaves the full data distribution unchanged. No estimator, sample size, or reduction of measurement noise can distinguish parameter points related by T_a using those observations alone.
+
+Important limitation: invariance of the mean alone does not prove invariance of the full data distribution. If the covariance or another distributional feature depends separately on H or q, that feature may contain additional information. It must be specified and analyzed as part of the full statistical model rather than silently assumed absent.
+
+3. ADDING A GENUINE CALIBRATION OBSERVATION
+
+Now add a measurement
+
+u = q + eta,
+
+where u directly measures q in the declared calibration convention. The joint mean map is
+
+mu_plus(H,q) = (z_1 H/q, ..., z_n H/q, q)^T.
+
+Its Jacobian has columns
+
+J_plus = [ v/q, -v H/q^2
+           0,       1      ],
+
+where the bottom row represents the added calibration mean. For any i, the 2 by 2 minor formed from s_i and u has determinant z_i/q, which is nonzero. Thus rank(J_plus)=2.
+
+The joint mean map is also globally injective on H>0, q>0: q is recovered from the calibration mean u, and then H = (q/z_i) times the corresponding cosmological mean for any z_i>0. With multiple s_i, the exact model also imposes consistency of s_i/z_i across i.
+
+If the full observation vector is Gaussian with known positive-definite covariance, including any allowed correlations between cosmological and calibration errors, then I_plus = J_plus^T Sigma_plus^{-1} J_plus is positive definite. Correlation changes uncertainty and can increase or decrease the effective precision, but does not destroy the full rank of this regular mean model while Sigma_plus remains positive definite.
+
+The substantive premise is not merely that a second number was measured. It is that the second observation supplies a calibration constraint that distinguishes q rather than only another function invariant under the same parameter transformation. If the alleged calibration has unmodelled scale freedom, its identifiability must be reassessed.
+
+4. AN APPARENT CALIBRATION THAT PRESERVES THE DEGENERACY
+
+Consider instead an added observation with mean q/r, where r>0 is another unknown calibration parameter:
+
+s_i = z_i H/q + epsilon_i,
+u = q/r + eta.
+
+The transformation
+
+(H,q,r) -> (aH, aq, ar), for any a>0,
+
+preserves both H/q and q/r, while changing H for a not equal to 1. Therefore this joint mean map does not globally identify H. If the full observation distribution also remains invariant under this transformation, H is statistically non-identifiable from these data.
+
+This example shows why counting observables is insufficient. An additional measurement can constrain a new ratio without fixing the absolute calibration. The decisive question is whether any admissible equivalence of parameter values preserves the complete observation law while changing the target H.
+
+5. GENERAL TARGET-IDENTIFIABILITY CRITERION
+
+Let the full parameter be (H, lambda), where lambda collects calibration and all other nuisance parameters. Let P_(H,lambda) denote the full joint probability distribution of all designed observations.
+
+The target H is globally statistically identifiable exactly when
+
+P_(H1,lambda1) = P_(H2,lambda2) implies H1 = H2
+
+for every pair of admissible parameter points.
+
+For a deterministic or mean observation map F, the corresponding mean-map criterion is
+
+F(H1,lambda1) = F(H2,lambda2) implies H1 = H2.
+
+The second criterion is not generally equivalent to the first. Two parameter values can share the same mean but have different covariance or higher distributional features; conversely, a non-injective mean map is insufficient for statistical non-identifiability if other fully specified distributional features distinguish the target.
+
+A useful audit procedure is therefore:
+(a) list the full parameter vector and admissible domain;
+(b) write the complete observation map and, separately, the complete probability model;
+(c) search for transformations or pairs of parameter points that preserve the full model while changing H;
+(d) prove injectivity in H if possible, allowing nuisance parameters to differ;
+(e) distinguish a global result from a local rank diagnostic;
+(f) quantify precision under the declared noise and calibration assumptions.
+
+6. EFFECTIVE INFORMATION FOR H AFTER ACCOUNTING FOR NUISANCE PARAMETERS
+
+Under a regular differentiable statistical model, let the Fisher information matrix be partitioned into target H and nuisance vector lambda:
+
+I = [ I_HH   I_Hlambda
+      I_lambdaH I_lambdalambda ].
+
+If I_lambdalambda is invertible, the efficient or nuisance-adjusted information for H is the Schur complement
+
+I_eff(H) = I_HH - I_Hlambda I_lambdalambda^{-1} I_lambdaH.
+
+Under the usual regularity conditions, this quantifies information about H after accounting for estimation of the nuisance parameters. A positive value is a local information diagnostic; it does not by itself prove global identifiability. If the nuisance block or full information matrix is singular, the formula above cannot be applied as written; an appropriate tangent-space, generalized-inverse, or model-specific analysis is required.
+
+For the repeated-observation mean model of Section 2 with fixed positive-definite Gaussian covariance, the information matrix for (H,q) has rank one. The score directions for H and q are collinear, and the nuisance-adjusted information for H is zero in the regular identifiable-combination analysis. The data inform H/q, not H separately.
+
+For the augmented mean model in Section 3 with a genuine q calibration and known positive-definite covariance, the Jacobian has rank two and the Fisher information is positive definite. Consequently the nuisance-adjusted information for H is positive. Its numerical value depends on the covariance, the design values z_i, the parameter point, and the calibration measurement precision.
+
+If the covariance depends on unknown parameters, the Fisher information generally includes covariance-derivative terms in addition to J^T Sigma^{-1} J. Those terms must not be omitted. They may carry information, but whether they do so is a property of the specified likelihood, not a generic consequence of correlated noise.
+
+7. CORRELATED NOISE AND REPEATED MEASUREMENTS
+
+For a fixed known positive-definite covariance, the information contributed by the complete Gaussian observation vector is J^T Sigma^{-1} J. Replacing Sigma with a diagonal approximation when errors are correlated can misstate uncertainty and can mis-rank candidate designs.
+
+Adding observations does not guarantee a proportional precision gain. The gain depends on their covariance and their sensitivity directions. Independent repeated observations of the same ratio can improve estimation of H/q, while the shared calibration symmetry remains intact. Strong correlation can reduce the effective gain relative to an independence assumption. In a singular or perfectly redundant observation system, additional nominal measurements may contribute no new independent noise information; such cases require analysis on the covariance support rather than an assumption of positive definiteness.
+
+No claim is made that correlation always worsens precision: its effect depends on the covariance structure and the estimator or target contrast. The robust conclusion is that covariance affects information magnitude and uncertainty, while exact target identifiability must be assessed from the complete observation law.
+
+8. DESIGN OBJECTIVES: NO UNIVERSAL OPTIMUM WITHOUT A CRITERION
+
+“Optimal design” is incomplete unless the optimization criterion and constraints are specified. Examples under regularity conditions include:
+
+- D-optimality: maximize det(I), often to reduce joint parameter-volume uncertainty.
+- A-optimality: minimize tr(I^{-1}) when the inverse exists, targeting average parameter variance under a declared parameterization.
+- Targeted or c-optimal design: minimize the variance bound for a declared target contrast, such as H, subject to nuisance parameters.
+- Profile/effective-information design: maximize I_eff(H) or a suitable target-specific analogue.
+- Cost-constrained design: optimize one of these criteria under explicit measurement costs, time, exposure, or sample constraints.
+
+These objectives can rank designs differently. Maximizing total information about (H,q) is not automatically the same as maximizing information about H after calibration uncertainty is accounted for. For the present target, the design should first remove target-changing observational symmetries; only then is precision optimization meaningful for H itself.
+
+A defensible design workflow is:
+1. establish the target and nuisance parameter domain;
+2. establish global target identifiability from the complete observation model;
+3. identify which candidate observations break remaining target-changing equivalences;
+4. specify the joint noise distribution, including correlations and calibration uncertainty;
+5. select an explicit target-specific objective and resource constraints;
+6. compare designs using the full covariance or likelihood;
+7. report both identifiability and precision, not one as a substitute for the other.
+
+9. CONDITIONAL RESULTS AND NON-CLAIMS
+
+Established conditionally in this audit:
+- Repeated observations with means z_i H/q have a rank-one mean Jacobian for (H,q) and preserve the exact scaling symmetry.
+- If the complete data distribution depends only on H/q, H is not statistically identifiable from those data alone.
+- Adding a genuine q measurement yields a globally injective joint mean map on the stated positive domain and rank-two Jacobian.
+- An added q/r observation with unknown r preserves a target-changing scaling symmetry.
+- Correlated errors alter information and precision through the full joint noise model; they do not, by themselves, imply either identifiability or non-identifiability.
+- Optimality requires an explicit objective, noise model, domain, and constraints.
+
+Not established:
+- A universal minimum number of observations for every possible model.
+- A universal optimal measurement design independent of the noise model and objective.
+- That OMEGA-ISOP derives an absolute physical calibration, a physical value of H, or the semantic bridge from formal parameters to measured quantities.
+- That mean-map rank alone proves global statistical identifiability.
+- Any change to Frozen Core, any CE-V promotion, or any RL registration.
+
+10. RELATION TO OMEGA-ISOP
+
+This is a conditional mathematical audit of observation design and parameter identifiability. It does not alter the dependency chain, Frozen Core, Volume V, or CE-V archive. It does not make an RL registration claim. Any future physical application must explicitly supply the operational observation map, calibration semantics, admissible parameter domain, noise law, and design objective.
+
+END OF DOCUMENT
