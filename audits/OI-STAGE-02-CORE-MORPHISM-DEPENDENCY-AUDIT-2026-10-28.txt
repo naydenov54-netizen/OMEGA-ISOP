@@ -1,0 +1,75 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+1. Output for OMEGA-ISOP/M3.2 must be clean plain text, directly copyable on Android, in one continuous block when a complete artifact is requested.
+2. Frozen Core remains unchanged unless the user explicitly authorizes a change and a documented change-control decision records it.
+3. RL_REGISTRATION_REQUIRED is not RL_REGISTERED. Never claim registration without authoritative registry confirmation and readback.
+4. Distinguish established facts, external assumptions, conditional results, and unresolved claims.
+5. Do not claim that a repository, file, registry, or submission was inspected or modified unless the corresponding action succeeded and its result was verified.
+
+OMEGA-ISOP — STAGE 2: CORE MORPHISM-CLASS DEPENDENCY AUDIT
+DOCUMENT_ID: OI-STAGE-02-CORE-MORPHISM-DEPENDENCY-AUDIT-2026-10-28
+VERSION: 0.1
+DATE: 2026-10-28
+STATUS: SOURCE-BASED CATEGORY IDENTIFICATION OPEN; RESTRICTED TEST THEOREM VALID
+FROZEN CORE: UNCHANGED
+RL REGISTRATION: NOT PERFORMED OR VERIFIED
+CE-V PROMOTION: NOT CLAIMED
+CANONICAL ACCEPTANCE: NOT CLAIMED
+
+PURPOSE
+Determine whether the project source fixes the morphism class strongly enough to identify the union-colimit test category P_F with the intended category C_METACORE. Also audit the finite example against the stated configuration nontriviality condition.
+
+1. SOURCE FACTS RECOVERED FROM THE PROTECTED LIBRARY
+Volume II states:
+(a) A configuration has form C=(S_C,#_C), with S_C a subset of U0 and #_C the selected apartness restricted to the configuration.
+(b) A minimal nontrivial configuration satisfies |S_C| >= 2.
+(c) C_METACORE may represent the admissible configurations and has morphisms that preserve selected structural properties.
+(d) An embedding f:C1 -> C2 is injective and preserves and reflects apartness: x #1 y iff f(x) #2 f(y).
+(e) CC(C1,C2)=1 iff an admissible amalgamation exists.
+(f) R=colim(D_CC) is conditional on the categorical construction existing.
+Volume III further states that the indexing category J, functor D:J -> C_METACORE, relevant objects and morphisms, compatibility conditions, and universal property must be specified. Until then, categorical formalization remains open.
+
+2. IDENTIFICATION RESULT
+The source identifies a relevant embedding condition, but the statements recovered here do not explicitly say that every embedding is a morphism of C_METACORE. Nor do they say that morphisms are restricted to literal subset inclusions. The phrase “morphisms preserve the selected structural properties” is not a complete definition of the morphism class.
+Therefore neither of the following is established from the source:
+(A) C_METACORE has all embeddings as morphisms.
+(B) C_METACORE has only literal inclusions among subsets of one fixed carrier as morphisms.
+The category P_F from the union-colimit model is a legitimate restricted test category, but it cannot yet be identified with the intended C_METACORE. The all-embeddings category used in the amalgamation obstruction is also a legitimate test category, but cannot yet be identified with the intended C_METACORE.
+This is an underspecification finding, not a contradiction in the Core.
+
+3. WHAT THE TWO PRIOR THEOREMS ACTUALLY SHOW
+In P_F, where objects are admissible subsets of a fixed carrier and arrows are only literal inclusions, a functorial diagram has a colimit given by the union whenever that union is an admissible object. The proof follows from the subset order and the universal property.
+In the category of finite discrete-apartness structures with all embeddings as morphisms, the tested span A <- S -> B has an admissible amalgam but no pushout.
+These results do not conflict. They use different morphism classes and object conventions. Together they show that existence of a weak amalgam does not settle colimit existence independently of the category.
+
+4. NONTRIVIALITY AND THE SINGLETON BASE
+The source's stated minimal nontriviality condition is |S_C| >= 2. Consequently, the span using A={s,a}, B={s,b}, and S={s} is not automatically a diagram in a category whose objects are only minimal nontrivial configurations: its shared base S is a singleton.
+The all-embeddings obstruction proof is valid in the explicitly declared test category that admits the singleton object S. It must not be presented as a direct instantiated Core obstruction unless the singleton base is admissible under the selected realization or the example is adapted to the actual object class.
+Similarly, the finite example in the union-colimit model properly flags this condition, but its shared-base-span illustration is conditional on admitting the singleton configuration.
+
+5. A NONTRIVIAL UNION-COLIMIT TEST THAT RESPECTS |S| >= 2
+Let U0={0,1,2}, with x # y iff x != y. Let F={{0,1},{1,2},{0,1,2}} and use the category whose objects are C_S for S in F and whose arrows are literal inclusions whenever the source subset is contained in the target subset.
+Let J be the discrete category with two objects j1,j2 and only identity arrows. Define D(j1)=C_{ {0,1} } and D(j2)=C_{ {1,2} }. Both objects satisfy |S| >= 2. Their union R-set {0,1,2} belongs to F.
+Then C_{ {0,1,2} } is a colimit of D in this inclusion-only category: its two inclusions form a cocone. For any cocone into C_T, both {0,1} and {1,2} must be subsets of T, so {0,1,2} is a subset of T; hence there is a unique inclusion from the union object to C_T, and it factors the cocone. QED.
+This example proves the restricted union-colimit theorem without relying on a singleton configuration. It does not encode a shared-base arrow or establish that the project compatibility diagram is this discrete diagram.
+
+6. EXACT UNRESOLVED DEPENDENCIES FOR THE PROJECT-LEVEL R
+A project-level construction requires explicit answers to:
+(a) What exactly are the objects of C_METACORE, including any nontriviality or admissibility restrictions?
+(b) Is every injective apartness-preserving-and-reflecting embedding a morphism, or only a designated subclass?
+(c) Are configurations all realized as subsets of one fixed U0 with inherited #, or may their carriers and realizations vary?
+(d) What is the indexing category J and which arrows encode overlap or compatibility?
+(e) Is D_CC a functor into the declared C_METACORE?
+(f) What is the candidate cocone and what precise universal property defines R?
+(g) What closure or stronger amalgamation assumptions are available, and are they stated in the Core or introduced only for a test realization?
+
+7. DECISION
+Established: the union-colimit theorem holds in the specified inclusion-only test category under union admissibility.
+Established: weak amalgamation does not by itself imply pushout existence in the specified all-embeddings test category.
+Established: the recovered project source does not fully fix the morphism class needed to identify either test category with C_METACORE.
+Open: project-level existence or nonexistence of R.
+No inference is made that the Core is inconsistent, that R is impossible, or that a universal R-existence theorem has been proved.
+
+CHANGE CONTROL
+Research audit only. Frozen Core unchanged. No RL registration performed or verified. No CE-V promotion or canonical acceptance claimed.
+
+END OF DOCUMENT
