@@ -1,0 +1,100 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+1. Output for OMEGA-ISOP/M3.2 must be clean plain text, directly copyable on Android, in one continuous block when a complete artifact is requested.
+2. Frozen Core remains unchanged unless the user explicitly authorizes a change and a documented change-control decision records it.
+3. RL_REGISTRATION_REQUIRED is not RL_REGISTERED. Never claim registration without authoritative registry confirmation and readback.
+4. Distinguish established facts, external assumptions, conditional results, and unresolved claims.
+5. Do not claim that a repository, file, registry, or submission was inspected or modified unless the corresponding action succeeded and its result was verified.
+
+OMEGA-ISOP — CLOCK-CALIBRATED IDENTIFIABILITY OF THE DE SITTER SCALE
+DOCUMENT_ID: OI-COSMO-CLOCK-CALIBRATED-HUBBLE-IDENTIFIABILITY-2026-10-28
+VERSION: 1
+DATE: 2026-10-28
+STATUS: CONDITIONAL OPERATIONAL IDENTIFIABILITY RESULT
+CHANGE TYPE: RESEARCH AUDIT
+RELATED RECORD:
+- OI-COSMO-OBSERVABLE-SCALE-BREAKING-2026-10-28
+FROZEN CORE: PRESERVED; NO CHANGE PROPOSED
+RL REGISTRATION: NOT PERFORMED OR CLAIMED
+CE-V: NO PROMOTION
+
+1. QUESTION
+Can an independently calibrated observer clock make the de Sitter expansion scale H identifiable from an observable without supplying a standard ruler or an external volume measure?
+
+2. MODEL AND OBSERVABLE
+Assume an ideal spatially flat de Sitter/FLRW model with constant H > 0, comoving source and observer, and a well-defined cosmological redshift z > 0. In the standard FLRW redshift-drift relation:
+dz/dtau_0 = (1 + z) H_0 - H(z),
+where tau_0 is the observer's proper time and H(z) is the expansion rate at the source redshift in the specified FLRW model.
+
+For exact de Sitter:
+H(z) = H_0 = H.
+Therefore:
+dz/dtau_0 = z H.
+If z is nonzero and the derivative is measured per independently calibrated observer proper-time unit:
+H = (1/z) dz/dtau_0.
+
+This is a conditional identifiability formula for the ideal de Sitter model, not a claim that redshift drift has already been measured with sufficient precision in a real survey.
+
+3. INJECTIVITY TEST
+Define the ideal observable:
+O(H) = (1/z) dz/dtau_0.
+Under the stated model and fixed calibration of tau_0:
+O(H) = H.
+For H_1 != H_2:
+O(H_1) != O(H_2).
+Thus the map H -> O(H) is injective on H > 0 when z > 0 and the observer-time unit is fixed independently.
+
+PROOF STATUS: PROVED UNDER THE MODEL AND CALIBRATION ASSUMPTIONS IN SECTION 2.
+
+4. WHERE THE SCALE ENTERS
+The result is not a derivation of an absolute time scale from causal order alone. The observable dz/dtau_0 is a rate per observer proper time, and its numerical value requires an operational time unit. That unit is supplied by an independently calibrated clock or equivalent physical process.
+
+If the clock's calibration or all matter parameters co-transform with the metric rescaling, the numerical value of H in the corresponding rescaled units also changes, and the apparent scale determination does not establish an absolute scale independent of that calibration.
+
+For g' = k^2 g in the de Sitter family:
+H' = H/k.
+Proper-time intervals computed from the rescaled metric satisfy:
+d tau' = k d tau.
+The product H' d tau' = H d tau is invariant. Hence dimensionless redshift histories remain compatible with the same rescaled geometry. The inverse-time numerical value of H becomes identifiable only relative to a time unit whose physical calibration is held fixed in the stated model.
+
+5. WHAT THIS DOES AND DOES NOT SHOW
+It shows:
+- A scale-sensitive, operationally calibrated observable can break the scale degeneracy conditionally.
+- In ideal exact de Sitter, redshift drift per calibrated observer time gives H through H = (1/z) dz/dtau_0.
+- A standard ruler or independent volume measure is not logically necessary if another independently calibrated scale-sensitive observable is available.
+
+It does not show:
+- That the observer clock scale is derived from the OMEGA-ISOP relational core.
+- That redshift drift alone identifies H in a general FLRW model with arbitrary H(z), unknown source dynamics, peculiar accelerations, or unmodelled systematics.
+- That the formula determines Lambda without the additional vacuum Einstein/de Sitter model identification.
+- That the required signal is practically measurable with current instruments.
+- That an absolute physical scale can be obtained without any dimensional calibration or equivalent scale-bearing structure.
+
+6. GENERAL-FL RW CAUTION
+For general FLRW cosmology:
+dz/dtau_0 = (1 + z) H_0 - H(z).
+A single redshift-drift datum does not generally determine H_0 if H(z) and other model parameters are unknown. Identifiability then requires additional redshift coverage, a restricted model family, independent data, and a rank/injectivity analysis of the joint observation map. The exact de Sitter simplification must not be generalized without proof.
+
+7. OMEGA-ISOP DEPENDENCY CLASSIFICATION
+Input: causal structure alone.
+Result: global scale not identifiable.
+
+Input: redshift ratio at fixed events only.
+Result: global scale not identifiable under global scale-factor normalization.
+
+Input: redshift drift per independently calibrated observer time, within exact de Sitter.
+Result: H is conditionally identifiable by the formula in Section 2.
+
+Missing provenance:
+The clock calibration remains an additional physical input unless separately derived. This audit identifies a possible scale-breaking measurement channel, not an OMEGA-internal derivation of the clock or the scale standard.
+
+8. NEXT TEST
+For a proposed OMEGA-specific application, replace the ideal assumptions with an explicit observation model. Specify the source/observer worldlines, how z and dz/dtau_0 are operationally estimated, which clock calibration is used, the model parameters, and uncertainty/systematic terms. Test local and global identifiability of H against the full parameter vector. Do not label the scale as derived from relational structure if the calibration is imported.
+
+9. RELEASE AND TRACEABILITY
+FROZEN CORE: UNCHANGED.
+VOLUME II / VOLUME III: UNCHANGED.
+CE-V: NO PROMOTION.
+RL REGISTRATION: NOT PERFORMED OR VERIFIED.
+CANONICAL ACCEPTANCE: NOT CLAIMED.
+STATUS: CONDITIONAL OPERATIONAL IDENTIFIABILITY RESULT; CLOCK-SCALE PROVENANCE REMAINS EXTERNAL/UNRESOLVED.
+END OF DOCUMENT
