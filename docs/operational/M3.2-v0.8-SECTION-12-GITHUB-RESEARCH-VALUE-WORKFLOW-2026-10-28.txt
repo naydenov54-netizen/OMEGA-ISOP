@@ -1,0 +1,49 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+1. Output for OMEGA-ISOP/M3.2 must be clean plain text, directly copyable on Android, in one continuous block when a complete artifact is requested.
+2. Frozen Core remains unchanged unless the user explicitly authorizes a change and a documented change-control decision records it.
+3. RL_REGISTRATION_REQUIRED is not RL_REGISTERED. Never claim registration without authoritative registry confirmation and readback.
+4. RL_PACKET_PREPARED, SEND, actual submission, and authoritative readback are separate states.
+5. No automatic RL record creation. Do not invent N4/N6/N8/N9 criteria without canonical definitions.
+6. Do not insert Δ_OI into physical equations without derivation.
+7. Do not claim formal numerical proof without certified error bounds.
+8. Mathematical phase is CLOSED. Do not reopen it unless a concrete reason arises.
+9. Project goal: work toward possible registration. If it becomes clear that registration is impossible, report the evidence and stop.
+10. Do not claim that a repository, file, registry, or submission was inspected or modified unless that action actually occurred and its result was verified.
+
+OMEGA-ISOP/M3.2 v0.8 — AMENDMENT: GITHUB RESEARCH-VALUE WORKFLOW
+DOCUMENT_ID: OMEGA-ISOP-M3.2-v0.8-SECTION-12-2026-10-28
+STATUS: OPERATIONAL AMENDMENT TEXT; SOURCE LIBRARY OVERWRITE NOT YET VERIFIED
+PURPOSE: Preserve the scientific value extracted from research sessions, not the conversations themselves, and ensure continuity across chat transitions.
+
+12.1 CANONICAL WORKING PRINCIPLE
+Use naydenov54-netizen/OMEGA-ISOP as the durable project record for relevant, reviewed scientific results and their audit trail. Chat conversations are temporary workspaces and are not the target archive. Record only the useful result, its mathematical basis, assumptions, evidence class, limitations, provenance, status, and next action.
+
+12.2 EXTRACT VALUE, NOT CHAT HISTORY
+Identify results with checked derivations, conditional results with explicit assumptions, meaningful negative findings/counterexamples, corrections, or unresolved boundaries that materially guide the next test. Do not archive routine dialogue, repeated explanations, abandoned arithmetic, or exploratory steps with no durable value. Consolidate related tests only when logical distinctions and traceability are preserved.
+
+12.3 REVIEW BEFORE WRITING
+Inspect current repository records for duplicates, conflicts, prior corrections, and status constraints. Recheck definitions, assumptions, units/types, algebra, boundary conditions, and the logical link from premises to conclusion at a level proportional to the claim. Test material counterexamples and alternatives where they could change the conclusion. Separate checks performed from checks not performed. Identify external physical assumptions and check Frozen Core compatibility. Correct defects narrowly, state why, and preserve source/version traceability.
+
+12.4 DURABLE RECORD STANDARD
+Prefer the smallest record that preserves the precise claim, evidence/status classification, definitions/domain/assumptions, derivation or reproducible method, checks performed and not performed, material limitations/counterexamples/non-implications, source/version traceability, and a specific next action if useful. Include negative findings when they narrow the theory, eliminate a route, expose underdetermination, or prevent an invalid inference. Do not promote every exploratory observation to a formal result.
+
+12.5 STATUS DISCIPLINE
+Use evidence-matched language: PROVED UNDER STATED ASSUMPTIONS, CONDITIONALLY DERIVED, ALGEBRAICALLY CHECKED, COMPUTATIONALLY CHECKED, SUPPORTED WITH LIMITATIONS, UNRESOLVED, or NOT ESTABLISHED. A checked calculation is not automatically an independent proof; a conditional countermodel is not a universal theorem; literature novelty requires a separate adequate review. A GitHub commit does not upgrade scientific status.
+
+12.6 WRITE, READ BACK, VERIFY
+Confirm the exact target path and intended change. Write only the relevant result, audit, correction, or changelog update, never a chat transcript. Confirm write/commit success, then fetch or read back the saved file and verify its content. If readback fails or differs, report the failure and do not claim verification. Keep file-write success, commit success, readback verification, scientific status, RL registration, and canonical acceptance as separate status dimensions.
+
+12.7 CORRECTIONS AND CHANGE CONTROL
+Correct working summaries when review reveals a real mathematical or factual defect. Keep changes narrow and traceable. Do not alter Frozen Core, overwrite protected source records, or change canonical project rules without explicit authorization and documented change control. Inspect the current version before changing an existing record and verify after writing.
+
+12.8 RL AND CE-V BOUNDARY
+Do not create RL records automatically. A GitHub audit or commit is not RL registration, does not assign an official RL-ID, and does not promote a result to CE-V. Consider RL preparation only after review and when warranted. RL_REGISTERED requires authoritative registry readback. Do not claim registration if the authoritative registry/interface remains unidentified or inaccessible.
+
+12.9 NEW-CHAT CONTINUITY
+At the beginning of a new chat, read M3.2 and inspect current GitHub state, relevant project-status documents, and the latest records for the active research thread. Resume from verified artifacts and commit history, not assumptions about remembered conversation details. If repository access is unavailable, state that limitation and do not pretend to have inspected or updated files.
+
+12.10 SESSION EXIT CHECK
+Before ending a substantial session, identify the durable result, checks actually performed, files written and read back, what remains conditional/unresolved/unverified, and the next concrete research action. Do not create a record merely to show activity. If no material result emerged, do not force a repository write.
+
+CHANGE CONTROL
+This amendment does not alter the Frozen Core, automatically register RL items, promote CE-V, or establish canonical acceptance of M3.2 v0.8. The user's explicit request authorizes adding this operational workflow to M3.2 v0.8; the existing v0.8 text and status are otherwise preserved.
