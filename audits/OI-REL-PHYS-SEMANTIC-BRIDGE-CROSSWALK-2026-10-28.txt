@@ -1,0 +1,157 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+1. Output for OMEGA-ISOP/M3.2 must be clean plain text, directly copyable on Android, in one continuous block when a complete artifact is requested.
+2. Frozen Core remains unchanged unless the user explicitly authorizes a change and a documented change-control decision records it.
+3. RL_REGISTRATION_REQUIRED is not RL_REGISTERED. Never claim registration without authoritative registry confirmation and readback.
+4. Distinguish established facts, external assumptions, conditional results, and unresolved claims.
+5. Do not claim that a repository, file, registry, or submission was inspected or modified unless the corresponding action succeeded and its result was verified.
+
+OMEGA-ISOP — RELATIONAL, DYNAMICAL, OBSERVATIONAL, AND SEMANTIC BRIDGE CROSSWALK
+DOCUMENT_ID: OI-REL-PHYS-SEMANTIC-BRIDGE-CROSSWALK-2026-10-28
+VERSION: 1
+DATE: 2026-10-28
+STATUS: SYNTHESIS AUDIT; CONDITIONAL RESULTS AND DEPENDENCIES
+CHANGE TYPE: RESEARCH AUDIT
+BASIS: USER-SUPPLIED CONSOLIDATED SUMMARIES AND CURRENT COSMOLOGICAL SCALE AUDITS
+FROZEN CORE: PRESERVED; NO CHANGE PROPOSED
+RL REGISTRATION: NOT PERFORMED OR CLAIMED
+CE-V: NO PROMOTION
+
+1. PURPOSE
+This audit relates three logically distinct questions:
+(A) what follows from relational structure and admissible dynamics;
+(B) what is identifiable or observable in a physical model;
+(C) what licenses a physical or OMEGA-semantic interpretation.
+It also distinguishes structural/information cost from physical energy cost. This is a crosswalk of dependencies, not a declaration that the supplied research records have been re-registered or independently re-audited in full.
+
+2. CORE DISTINCTIONS
+Representability is not derivability.
+Admissibility is not realization.
+Realization is not observation.
+Observation is not unique parameter identification.
+Parameter identification is not, by itself, semantic legitimacy.
+Structural or information minimality is not, by itself, physical-energy minimality.
+
+Each implication requires either a proof from the existing premises or an explicitly stated bridge assumption. A missing derivation is not a proof of the negation.
+
+3. CONDITIONAL DEPENDENCY GRAPH
+Relational specification R
+-> admissible dynamics A(R; Phi), only after dynamics and constraints are specified
+-> realized trajectory or transition, only after a realization/selection rule is supplied
+-> physical observable, only after a physical identification and measurement model is supplied
+-> identifiable parameter, only if the forward observation map is injective over the admitted parameter domain
+-> OMEGA semantic assignment, only if an independently justified semantic bridge is supplied.
+
+This graph is a dependency discipline, not a universal theorem that every application must be implemented as a linear pipeline. A model may supply multiple bridges together, but supplied assumptions must not be redescribed as consequences of R alone.
+
+4. OBSERVABILITY AND IDENTIFIABILITY
+Let theta be a model parameter and let O(theta) be the full observation map on the stated model domain.
+Unique identification of theta from exact data requires injectivity of O on that domain, or an equivalent condition after declared symmetries and nuisance parameters are accounted for.
+
+If O(theta_1) = O(theta_2) for theta_1 != theta_2, the observation does not uniquely identify theta over that domain.
+This does not prove that theta is false or physically meaningless; it proves only non-identifiability from the selected observation map and assumptions.
+
+Physical observability requires a specified operational map from model quantities to data. A mathematical scalar or ratio does not automatically have the semantic interpretation of a wavelength, redshift, energy, duration, or other physical observable.
+
+5. COSMOLOGICAL SCALE APPLICATION
+For the constant rescaling g_k = k^2 g in four spacetime dimensions:
+- causal structure is invariant;
+- metric volume density scales by k^4;
+- proper lengths and proper times scale by k;
+- scalar curvature scales by k^(-2);
+- normalized metric-volume proportions on the same finite positive-volume domain are invariant.
+
+Therefore causal order and normalized volume proportions alone do not identify k.
+A specified compatible unnormalized measure can fix the conformal factor within a fixed conformal class under the matching assumptions, but the measure's provenance remains a separate question.
+A scale-sensitive observable can identify k only if its operational calibration and forward map are specified and the map is injective.
+For ideal exact de Sitter, the conditional relation dz/dtau_0 = zH gives H = (1/z) dz/dtau_0 for z > 0, where tau_0 is independently calibrated observer proper time. This is an operational identification relative to the clock calibration, not an OMEGA-internal derivation of the time unit.
+The inference Lambda = 3H^2/c^2 additionally assumes the standard vacuum Einstein/de Sitter model and its conventions. It is not entailed by the redshift-drift relation alone.
+
+6. STRUCTURAL COST AND PHYSICAL ENERGY
+Let K be a structural or information-cost criterion and E a physical energy function over a declared common domain X.
+Without a bridge between K and E, neither of the following is generally entailed:
+argmin_X K = argmin_X E;
+K(x) < K(y) implies E(x) < E(y).
+
+A sufficient order-preserving bridge can be E = f composed with K, where f is strictly increasing over the relevant range and both quantities are defined on the same domain. This is sufficient, not necessary in every possible model. More generally, the exact condition needed depends on whether only minimizers, a preorder, or full rankings are to be preserved.
+The comparison domain, admissibility constraints, units, degeneracies, and whether E is an objective physical quantity or an effective model cost must be fixed before a minimum-energy claim can be evaluated.
+A quotient or compressed representation may reduce a search space, but computational improvement is not guaranteed: preprocessing and per-state costs must be included in the comparison.
+
+7. IDENTIFICATION VERSUS SEMANTIC SELECTION
+Let P be a fixed mathematical/physical construction and let B_Omega denote an additional bridge from that construction to an OMEGA semantic assignment.
+A uniquely identifiable physical structure does not alone prove that one OMEGA interpretation is semantically legitimate or uniquely selected.
+If multiple semantic assignments remain compatible with the same P, physical identifiability does not imply semantic uniqueness.
+Conversely, failure to derive a semantic bridge does not establish that no such bridge could exist; it leaves the bridge unresolved.
+
+A valid semantic-selection claim must state:
+- the input construction and its interpretation domain;
+- the candidate semantic assignments;
+- the bridge or selection rule;
+- why the rule is independently justified rather than chosen merely to recover the desired conclusion;
+- whether the result is unique, domain-bounded, or only one admissible interpretation.
+
+8. SPECTRAL CHANGE AND REDSHIFT
+A relational scalar ratio can be represented formally without being a physical wavelength ratio.
+To derive a physical nonzero redshift, the model must establish the relevant physical identification, spectral coupling, dynamics of source and observer, direction/orientation conventions, temporal comparison, and mapping from emitted to observed spectral quantities.
+Relational asymmetry, persistence, or an abstract directional relation alone does not entail z != 0 unless a theorem explicitly connects those properties to the physical spectral observable.
+This is a non-entailment claim, not a claim that relational models cannot represent or model redshift when additional physical bridges are provided.
+
+9. FORMAL COUNTERMODEL STANDARD
+For a theory T and target claim J, a countermodel is a model satisfying T and not J. If such a model exists, then T does not entail J.
+But T not entailing J does not imply T entails not-J.
+Likewise, the existence of a countermodel to an unqualified implication does not prove that every possible strengthened theory fails; an added assumption may exclude that countermodel. The added assumption must be stated and independently defended where its status matters.
+
+10. AUDIT MATRIX
+Claim: R uniquely determines realized dynamics.
+Status: NOT GENERALLY ENTAILED; requires a dynamic-selection/realization result.
+
+Claim: relational asymmetry entails nonzero physical redshift.
+Status: NOT GENERALLY ENTAILED; requires a physical spectral bridge and relevant dynamics.
+
+Claim: a physical observable uniquely determines a parameter.
+Status: CONDITIONAL; requires an injective observation map on the declared domain, accounting for nuisance parameters and symmetries.
+
+Claim: unique physical identification entails unique OMEGA semantics.
+Status: NOT GENERALLY ENTAILED; requires an independently justified semantic bridge.
+
+Claim: minimum information/structural cost entails minimum physical energy.
+Status: NOT GENERALLY ENTAILED; requires a validated order/minimizer-preserving bridge and a fixed comparison domain.
+
+Claim: a smaller quotient guarantees lower computation cost.
+Status: NOT GENERALLY ENTAILED; total preprocessing and search costs must be compared.
+
+Claim: causal order fixes absolute cosmological scale.
+Status: NO under the audited conformal-rescaling family; causal order is invariant under positive conformal rescaling.
+
+Claim: calibrated redshift drift can identify H in exact de Sitter.
+Status: CONDITIONAL YES under the specified ideal model, z > 0, and independently calibrated observer proper time.
+
+11. CLASSIFICATION OF RESULT TYPES
+TYPE 1 — DERIVED: follows logically from stated premises with proof.
+TYPE 2 — CONDITIONAL: follows after explicitly declared external or model-specific assumptions.
+TYPE 3 — REPRESENTATIONAL: a quantity or relation can be encoded, but physical interpretation is not established.
+TYPE 4 — IDENTIFIABLE: the declared observation map uniquely distinguishes a parameter over a declared domain.
+TYPE 5 — SEMANTICALLY SELECTED: an independently justified bridge uniquely licenses the semantic assignment.
+TYPE 6 — OPEN: the required bridge, uniqueness proof, or empirical validation is not established.
+
+These types are not automatically mutually exclusive; one result may be conditional and identifiable while remaining semantically unselected.
+
+12. CONCLUSION
+The shared methodological result is a prohibition on collapsing distinct logical relations:
+relational structure != realized dynamics;
+formal representation != physical observable;
+observation != unique identification;
+identification != semantic selection;
+structural/information minimality != physical-energy minimality.
+
+The correct research task is to identify the exact missing bridge for each proposed implication, test it with proofs or countermodels, and label assumptions and conclusions separately. This preserves the possibility of future positive derivations without promoting an unproved universal implication.
+
+13. RELEASE AND TRACEABILITY
+This document is a crosswalk based on supplied summaries and the current cosmological scale audits. It does not independently certify every underlying RL record or empirical claim.
+FROZEN CORE: UNCHANGED.
+VOLUME II / VOLUME III: UNCHANGED.
+VOLUME V: NO MODIFICATION PROPOSED.
+CE-V: NO PROMOTION.
+RL REGISTRATION: NOT PERFORMED OR VERIFIED.
+CANONICAL ACCEPTANCE: NOT CLAIMED.
+STATUS: SYNTHESIS AUDIT; BRIDGE REQUIREMENTS EXPLICIT; PHYSICAL AND SEMANTIC UNIVERSALITY NOT CLAIMED.
+END OF DOCUMENT
