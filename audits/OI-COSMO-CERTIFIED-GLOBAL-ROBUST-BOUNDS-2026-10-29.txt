@@ -1,0 +1,147 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+OMEGA-ISOP
+CERTIFYING GLOBAL SHARP BOUNDS UNDER NONLINEAR CONSTRAINTS
+AUDIT ID: OI-COSMO-CERTIFIED-GLOBAL-ROBUST-BOUNDS-2026-10-29
+STATUS: CONDITIONAL MATHEMATICAL AUDIT
+DATE: 2026-10-29
+
+1. PURPOSE
+
+This audit establishes what is and is not proved when nonlinear numerical optimization is used to compute robust bounds for a target such as H. It distinguishes a feasible numerical candidate, a local optimum, a certified global bound, and an exact sharp bound.
+
+Let theta be the full parameter vector, D the complete feasible set, and h(theta) the target. The exact robust endpoints are
+
+h_inf = inf_{theta in D} h(theta),
+h_sup = sup_{theta in D} h(theta).
+
+Any global certification must refer to the full D, including shared nuisance parameters, coefficient uncertainty, systematic constraints, and all domain restrictions.
+
+2. FOUR DIFFERENT CLAIMS
+
+Claim A: Feasible candidate. A point theta_hat satisfies the constraints within a stated numerical tolerance. This proves only approximate feasibility unless residuals and tolerances are certified.
+
+Claim B: Local optimum. A candidate is optimal in a neighborhood under the specified optimization assumptions. It does not rule out better feasible points elsewhere.
+
+Claim C: Certified global bound. A mathematically justified argument proves h(theta)>=L for every theta in D, or h(theta)<=U for every theta in D. Such a bound may be conservative.
+
+Claim D: Sharp global endpoint. A certified lower or upper bound equals the infimum or supremum over D. If the endpoint is attained, a feasible optimizer must also be certified. If not attained, a convergent feasible sequence and a matching global bound may establish the sharp infimum or supremum.
+
+These claims must not be used interchangeably.
+
+3. COMPACTNESS AND EXISTENCE
+
+If D is nonempty and compact and h is continuous on D, the extreme value theorem guarantees that the minimum and maximum are attained. This does not calculate them and does not guarantee that a numerical optimizer finds them.
+
+If D is closed and bounded in finite-dimensional Euclidean space, it is compact. But an unbounded domain, open constraint, singular denominator, or nonclosed feasible set may prevent attainment. In those cases, use infimum and supremum and explicitly check whether they are finite.
+
+For example, h(q)=q over D=(0,1) has infimum 0 and supremum 1, but neither endpoint is attained. Reporting a minimizer q=0 or maximizer q=1 would be incorrect because neither belongs to D.
+
+4. CERTIFIED GLOBAL METHODS
+
+Depending on the model structure, valid certification strategies include:
+(a) analytic reduction of the feasible set and exact minimization/maximization;
+(b) linear programming for genuinely linear constraints and objectives;
+(c) convex optimization with verified convexity and appropriate global optimality conditions;
+(d) interval branch-and-bound with validated interval arithmetic and a termination criterion;
+(e) verified global optimization methods for polynomial or semialgebraic problems, such as suitable relaxations with proven convergence or exact certificates;
+(f) exhaustive finite enumeration when the domain is genuinely finite.
+
+The method must match the model. A local nonlinear solver, multi-start search, dense grid, or optimizer status flag is not by itself a global certificate. A convex relaxation may provide a valid outer bound, but equality with the original optimum requires a tightness proof or matching feasible solution.
+
+5. A CERTIFICATE TEMPLATE
+
+For a claimed lower endpoint L, a complete certificate should establish:
+(i) feasibility or nonemptiness of D;
+(ii) a proof that h(theta)>=L for all theta in D;
+(iii) either a feasible theta_star with h(theta_star)=L, or a sequence theta_n in D with h(theta_n) tending to L;
+(iv) numerical rounding and solver tolerances are controlled rigorously.
+
+For an upper endpoint U, replace the inequality with h(theta)<=U and establish attainment or an approximating feasible sequence analogously.
+
+If only a relaxation proves h(theta)>=L while a feasible candidate gives h(theta_star)=U with L<U, the interval [L,U] brackets the minimum but does not certify its exact value. The same logic applies to maximization.
+
+6. NONLINEAR CALIBRATION EXAMPLE
+
+Consider
+
+d = delta_c q + e,
+q in [q_min,q_max],
+delta_c in [gamma,Gamma],
+e in [-E,E],
+
+with q_min>0 and 0<gamma<=Gamma, and with independent Cartesian-product uncertainty domains. Feasibility is equivalent to
+
+gamma q-E <= d <= Gamma q+E.
+
+Therefore the exact q interval is the intersection of [q_min,q_max] with [(d-E)/Gamma,(d+E)/gamma], provided the intersection is nonempty. This is an analytic global characterization and needs no numerical optimizer.
+
+Now suppose a coupled nonlinear restriction is added, for example
+
+(delta_c-Gamma/2)^2 + (q-q_0)^2 <= r_0^2.
+
+The previous endpoint formula need not remain exact because not every q and delta_c combination in their marginal intervals is jointly feasible. The target bounds must be recomputed over the intersection of all constraints. Reusing the old formula without proving that the new constraint is redundant is invalid.
+
+7. BILINEAR AND NONCONVEX TERMS
+
+Terms such as delta_c q and lambda d_j may be bilinear when both factors are unknown. The feasible set can then be nonconvex. Local KKT conditions are generally necessary only under regularity assumptions and are not sufficient for global optimality without additional structure such as convexity or a separate global certificate.
+
+Linearizing around a nominal point can support a local approximation. It does not certify the original nonlinear extrema unless a remainder bound and a valid global argument close the gap.
+
+A relaxation that enlarges D gives a lower bound for a minimization problem and an upper bound for a maximization problem when the objective is unchanged and the relaxed feasible set contains D. The relaxation's optimum is not automatically sharp for the original problem.
+
+8. ROBUST BOUNDS FOR H
+
+If H=h(theta)=q(theta)r(theta)/z with z>0, certify bounds by optimizing this full expression over the joint feasible set D. Separate bounds on q and r give a valid product outer bound only under the relevant sign conditions; it is sharp only if the product-extremizing pairs are jointly feasible or approachable.
+
+A numerically returned pair (q_hat,r_hat) that violates shared-systematic constraints cannot certify an endpoint, even if each component lies within its own marginal interval. Every candidate must be checked against the complete joint model.
+
+If D is infeasible, no robust interval exists under the assumed model. If D is feasible but h is unbounded above, a finite upper bound must not be reported. If the infimum is zero but h>0 on D, state that zero is an unattained infimum where applicable.
+
+9. NUMERICAL TOLERANCES AND REPRODUCIBILITY
+
+A reproducible certification record should include:
+- exact equations and parameter domains;
+- all coupling and shared-systematic constraints;
+- objective and optimization direction;
+- solver and method, including versions where relevant;
+- feasibility and optimality tolerances;
+- interval or rounding verification;
+- a global lower/upper certificate or a stated gap between certified bound and feasible candidate;
+- endpoint attainment status;
+- whether the output is exact, conservative, or approximate.
+
+A solver's printed objective value is not a proof of global sharpness. Floating-point residuals close to zero are not automatically exact constraint satisfaction. If rigorous interval arithmetic or rational reconstruction is used, state the resulting certificate and assumptions.
+
+10. DECISION RULE
+
+Classify a result as:
+- EXACT-SHARP: analytic proof or certified global bounds match, with attainment status established;
+- CERTIFIED-OUTER-BOUND: valid global inequality proved, but sharpness not established;
+- NUMERICALLY-BRACKETED: feasible candidate and certified opposite bound provide a nonzero gap;
+- LOCAL-ONLY: local optimization or local identifiability evidence only;
+- UNVERIFIED-NUMERICAL: no reliable feasibility/global certificate;
+- INFEASIBLE-MODEL: constraints have no common solution, with infeasibility certified.
+
+These are audit labels proposed for clarity, not new canonical OMEGA-ISOP ontology or registry categories.
+
+11. CONDITIONAL CONCLUSIONS AND NON-CLAIMS
+
+Established conditionally:
+- Continuity on a nonempty compact feasible set guarantees attained extrema, but not that a chosen algorithm finds them.
+- A local optimum is not a global certificate in a nonconvex problem.
+- Exact sharpness requires matching global bounds and feasible attainment or a sequence approaching the endpoint.
+- Relaxations can produce valid conservative bounds without being sharp.
+- Joint constraints must be retained when computing H bounds.
+- Numerical reproducibility and explicit tolerance reporting are required for credible computational claims.
+
+Not established:
+- That any particular solver output is globally correct without inspecting its certificate.
+- That all nonlinear OMEGA-ISOP-derived problems are convex, compact, or decidable by one method.
+- That a numerical bound is a physical prediction without justified model and calibration inputs.
+- That OMEGA-ISOP alone derives H or the uncertainty domains.
+
+12. OMEGA-ISOP STATUS
+
+This is a conditional mathematical audit. Frozen Core, Volume V, the dependency chain, and the CE-V archive remain unchanged. No CE-V promotion or RL registration is asserted.
+
+END OF DOCUMENT
