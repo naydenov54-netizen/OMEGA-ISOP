@@ -7,16 +7,16 @@ M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
 
 OMEGA-ISOP — STAGE 2: RELATION
 DOCUMENT_ID: OI-STAGE-02-RELATION-2026-10-28
-VERSION: 0.1
+VERSION: 0.2
 DATE: 2026-10-28
-STATUS: CONDITIONAL CONSTRUCTION; NON-UNIQUENESS RESULT PROVED FOR THE CANDIDATE DIFFERENCE MODEL
+STATUS: CORE-ALIGNED CORRECTION; CANDIDATE GRAPH RESULT PROVED; CORE RELATIONAL CONSTRUCTION DISTINGUISHED
 FROZEN CORE: PRESERVED; NOT AMENDED
 RL REGISTRATION: NOT PERFORMED OR VERIFIED
 CE-V PROMOTION: NOT CLAIMED
 CANONICAL ACCEPTANCE: NOT CLAIMED
 
 1. AIM
-Determine what relational structure follows from the Stage 1 signature-based Difference predicate, and distinguish that result from a uniquely selected directed relation. The arrow Difference → Relation is not assumed.
+Determine what follows from the Stage 1 signature-based Difference predicate while respecting the authoritative Library sources for the Frozen Core and Volume II. The candidate graph result is retained at its exact scope; it is not treated as a reconstruction of the Core's full Relation construction.
 
 2. PREMISES AND DEFINITIONS
 Let X be a nonempty set, I an index set, V_i feature-value sets, and f_i:X→V_i feature maps. Let F:X→∏_{i∈I}V_i be the combined signature, and define
@@ -24,7 +24,7 @@ D(x,y)=1 iff F(x)≠F(y).
 
 Define x~y iff F(x)=F(y), equivalently D(x,y)=0. This is equality of signatures and is an equivalence relation. Let [x] denote the equivalence class of x.
 
-Define the canonical undirected distinguishability graph G_D with vertex set X and an edge {x,y} exactly when x≠y and D(x,y)=1. Because D is symmetric and irreflexive, this is a simple undirected graph. Distinct vertices with equal signatures are not connected; every pair from different signature classes is connected. Thus G_D is a complete multipartite graph whose parts are the equivalence classes of ~. This is a theorem about the stated candidate definition, not a claim that the Frozen Core selects this definition.
+Define the canonical undirected distinguishability graph G_D with vertex set X and an edge {x,y} exactly when x≠y and D(x,y)=1. Because D is symmetric and irreflexive, this is a simple undirected graph. Distinct vertices with equal signatures are not connected; every pair from different signature classes is connected. Thus G_D is a complete multipartite graph whose parts are the equivalence classes of ~. This is a theorem about the stated candidate definition only, not a claim that the Frozen Core selects this definition or identifies it with Primitive Difference or apartness #.
 
 3. RESULT R2.1: CANONICAL UNDIRECTED STRUCTURE
 Under the definitions in Section 2, D uniquely determines G_D. The graph records which pairs are distinguished by the selected signature. It does not assign an orientation, temporal order, causal direction, priority, or composition law.
@@ -52,20 +52,28 @@ This construction is conditional on σ. D alone supplies the edges but does not 
 - The relation R=D as a subset of X×X is itself uniquely defined by D, but it is symmetric and merely restates Difference as a binary relation. It does not establish a richer or directed relational structure.
 - No unique relation follows merely from the word “Difference.”
 - No causal, temporal, dynamical, constraint, persistence, or organizational conclusion follows from R2.1 or R2.2.
-- The available Volume III reconstruction describes a conditional colimit form R=colim(D_CC), but a colimit construction requires a specified category, indexing category, diagram/functor, and universal property. The available reconstructed text notes that these details are not supplied by D_CC alone. This candidate Stage 2 result does not fill those missing specifications or claim equivalence with that construction.
-- The available Volume III file is a readability-normalized reconstruction, not a byte-for-byte source. It does not establish the complete canonical Frozen Core definition of Relation.
+- The Library's protected source /OMEGA-ISOP/&OMEGA-ISOP-RELATIONAL-THEORY.txt defines OMEGA-ISOP as a conditional structural framework and treats the chain from structure to organization as a dependency chain requiring independently justified bridges, not as an automatic implication chain.
+- Volume II, version v1.3-MF-AUDIT-RESTORED-FINAL, distinguishes Primitive Difference (PD) from the formal apartness realization #: PD is a meta-level starting condition for admissible distinction; # is a relation on a carrier U0. The standard apartness example is irreflexive, symmetric, and cotransitive, but it is one admissible realization, not the only possible realization.
+- Volume II defines compatibility by CC(C1,C2)=1 iff an admissible amalgamation exists. It then defines R := colim(D_CC) where the required categorical construction exists. The colimit is unique up to the relevant categorical equivalence when it exists, but this does not imply a unique canonical representation across every formalism.
+- Volume II specifies that D_CC is a diagram generated by selected configurations and admissible compatibility relations. A valid diagram, relevant categorical structure, and existence of the colimit or an equivalent constraint-preserving construction are required. The general source does not identify R with an arbitrary directed relation supported on positive pairs of D.
+- Therefore the non-uniqueness counterexample in R2.2 does not refute the Core's colimit construction: it only shows that a candidate signature-based D and the support restriction R subset D-positive pairs are insufficient by themselves to choose an arbitrary directed relation. The Core's R uses additional compatibility-diagram and categorical data.
+- The protected Core file was located and read from the user's Library. The prior claim that the canonical source was unavailable was incorrect. This correction does not authorize editing the Core.
 
 7. EVIDENCE STATUS
 PROVED: Under the stated signature-based definition, D uniquely determines the undirected distinguishability graph G_D, which is complete multipartite over signature-equivalence classes.
 PROVED: D does not uniquely select a directed relation even under the support restriction R⊆D-positive ordered pairs; explicit finite counterexamples are given.
 CONDITIONAL: An orientation selector or other explicit relation rule can construct a particular relation.
-OPEN: Whether the canonical OMEGA-ISOP source imposes a preferred relation construction; whether the project's R=colim(D_CC) formulation can be fully specified from authoritative source material; whether any such construction is compatible with the protected Frozen Core.
+OPEN: Whether the authoritative Core and Volume II provide enough concrete objects, morphisms, compatibility maps, and universal-property details to instantiate a specific D_CC diagram in the current research task. The abstract conditional construction is specified; a concrete instance must still be supplied or derived.
 NOT DERIVED: Difference alone entails a unique directed relation, causal order, or dynamics.
 
 8. DECISION
-Stage 2 yields a proved negative result and a conditional construction for the candidate signature-based model. The arrow Difference → Relation is supported only in the limited sense that Difference determines a canonical undirected distinguishability graph. A richer or directed Relation requires additional explicit structure. Keep Stage 2 conditional and do not advance to Constraint as though the full arrow were established.
+Stage 2 yields a proved graph representation result and a proved non-uniqueness result for the candidate signature-based model. These results are not the Core's complete Difference-to-Relation derivation. The source architecture distinguishes PD, the realization #, configurations, compatibility CC, and the conditional colimit R=colim(D_CC). The next mathematically valid action is to instantiate and audit a concrete compatibility diagram from specified configurations and admissible amalgamations, then establish its categorical setting and colimit existence/universal property. Do not replace this with arbitrary orientation of D, and do not advance to Constraint until a concrete R construction is supplied or a precise obstruction is proved.
 
 CHANGE CONTROL
 This document is a candidate research formalization. It does not amend the Frozen Core, register an RL item, promote CE-V, or claim canonical acceptance.
 
 END OF DOCUMENT
+
+
+SOURCE ALIGNMENT NOTE (VERSION 0.2)
+The protected Core and Volume II were found in the user's ChatGPT Library and reviewed after Version 0.1. Version 0.1's graph theorem and non-uniqueness counterexample remain valid only under their stated signature-based definitions. They must not be read as the Core's canonical derivation of Relation. The Core-aligned chain relevant to this stage is: Primitive Difference (meta-level admissibility) → carrier/apartness realization # → configurations → compatibility CC via admissible amalgamation → compatibility diagram D_CC → conditional colimit R, when the categorical conditions and colimit existence are established. This line is source-grounded but does not mean each arrow has already been proved universally or instantiated in the current candidate model.
