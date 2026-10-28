@@ -1,0 +1,97 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+OMEGA-ISOP/M3.2 — FOUNDATIONAL DERIVABILITY AUDIT
+ID: OI-FOUND-PD-U0-APARTNESS-001
+DATE: 2026-10-28
+STATUS: CONDITIONAL NEGATIVE RESULT / DERIVATION GAP IDENTIFIED
+SCOPE: PD → U0 → #
+FROZEN CORE: UNCHANGED
+RL REGISTRATION: NOT CLAIMED
+CE-V PROMOTION: NOT CLAIMED
+CANONICAL ACCEPTANCE: NOT CLAIMED
+
+1. QUESTION
+
+Can the formal carrier U0 and an apartness relation # be derived from Primitive Difference (PD), rather than independently introduced after PD?
+
+The audit treats the currently stated Core meaning as authoritative for this test: PD is a meta-level formal starting condition establishing the admissibility of formal distinction; PD is not itself an entity, physical object, process, relation, or causal mechanism. The carrier U0 and relation # are then introduced as a formal realization.
+
+2. RESULT IN BRIEF
+
+Under the weak reading “formal distinction is admissible,” neither the existence of a nontrivial carrier nor the properties of an apartness relation follow by logic alone. Admissibility/permission is not existence. A model can permit distinctions without containing a witnessed distinction.
+
+If PD is strengthened to assert that a distinction actually exists, this is a stronger premise and must be explicitly distinguished from the current admissibility reading. Even then, the exact carrier and the axioms of # do not follow automatically unless “distinction” is defined with enough formal content to entail them. Defining distinction as an already-existing pair of distinct objects risks importing the carrier and inequality that the derivation was meant to establish.
+
+Therefore the present transition PD → U0 → # is not yet a derivation. It is a foundational convention / realization bridge. This is a local derivability finding, not a contradiction in the Frozen Core.
+
+3. MINIMAL LOGICAL TEST
+
+Let L0 be a minimal formal language in which PD is a meta-level admissibility condition and does not itself quantify over a carrier or assert an object-level witness x # y.
+
+The following two interpretations are compatible with that weak reading:
+
+Model M1: the formal object domain is empty, or no object-level carrier has yet been introduced. The metatheoretic rule permits a distinction to be represented if a later formalization supplies one, but asserts no actual witness.
+
+Model M2: the formal carrier is a singleton U0 = {u}; the relation # is empty. No pair is apart. The language may still permit a richer realization in a later model, but the weak permission statement does not rule out this interpretation.
+
+These interpretations show that the weak admissibility statement alone does not entail:
+(a) existence of U0;
+(b) |U0| ≥ 2;
+(c) existence of x,y in U0 with x # y;
+(d) irreflexivity, symmetry, or cotransitivity of #.
+
+This is a model-theoretic underdetermination argument relative to the weak formalization of PD. It is not a claim that every possible stronger formalization of PD fails to entail these properties.
+
+4. STRENGTHENED READINGS AND THEIR COST
+
+Option A — PD as admissibility only.
+Formal content: distinction is allowed as a formal move.
+Consequence: no object-level existence theorem follows without a bridge axiom.
+Status: closest to the current Core wording.
+
+Option B — PD as existence of an actual distinction.
+Formal content must specify what “actual distinction” means in the formal language.
+If it means “there exist x,y in a carrier U0 with x # y,” then U0 and # have already been presupposed in the statement. This is not a derivation of U0 and #; it is a stronger axiom expressed using them.
+
+Option C — PD as existence of two formally distinguishable positions.
+This could support a minimal nontrivial carrier only after “position,” “existence,” and “distinguishable” are formally defined. If distinguishability is represented by #, the relation has again been presupposed. If it is represented by a primitive predicate or constructor, that is a revised formal foundation and requires explicit change control rather than silent interpretation.
+
+5. WHAT CAN BE DERIVED AFTER THE BRIDGE IS DECLARED?
+
+Suppose a formal bridge supplies a set U0 and a binary relation # on U0, and suppose the following axioms are independently stated:
+
+(A1) Irreflexivity: for every x in U0, not(x # x).
+(A2) Symmetry: for all x,y in U0, x # y iff y # x.
+(A3) Cotransitivity: for all x,y,z in U0, x # y implies (x # z) or (z # y).
+(A4) Nontrivial witness: there exist x,y in U0 such that x # y.
+
+Then A1 and A4 imply that x and y are distinct: if x = y, A4 gives x # x, contradicting A1. Thus |U0| ≥ 2.
+
+This is a valid conditional derivation of carrier nontriviality from an already supplied carrier, relation, irreflexivity, and witness. It does not derive U0 or # from PD. A2 and A3 remain assumptions unless separately proven from a stronger primitive construction.
+
+6. DERIVATION-STATUS TABLE
+
+PD as admissibility → existence of U0: NOT DERIVED.
+PD as admissibility → existence of #: NOT DERIVED.
+PD as admissibility → nontriviality |U0| ≥ 2: NOT DERIVED.
+PD as admissibility → irreflexivity of #: NOT DERIVED.
+PD as admissibility → symmetry of #: NOT DERIVED.
+PD as admissibility → cotransitivity of #: NOT DERIVED.
+(U0, #, A1, A4) → existence of at least two distinct elements: DERIVED.
+A2 and A3 from PD alone: NOT DERIVED.
+
+7. NEXT MATHEMATICAL DECISION
+
+Do not modify Frozen Core on the strength of this audit alone. First decide which foundational meaning is intended:
+
+(i) PD remains a meta-level admissibility condition, and the transition to U0/# is explicitly marked as a separate formal-realization postulate; or
+(ii) PD is strengthened/reconstructed so that it can generate a formal distinction internally, with the new primitive semantics and inference rules stated precisely.
+
+The second route is closer to the goal that every level be derived from the preceding one, but it may require a documented Core change if the new semantics are not already entailed by the Frozen Core. No such change is made here.
+
+8. AUDIT CONCLUSION
+
+The first gap is localized: the current wording distinguishes PD from its realization #, but does not supply a derivation rule that constructs U0 or # from PD. The honest status is CONDITIONAL / NOT DERIVED, not “false” and not “proven.”
+
+The next task is to design and test the weakest candidate construction that genuinely derives a formal distinction without silently presupposing a carrier, an apartness predicate, or inequality. If no such construction is available from the current PD meaning, the project must acknowledge one explicit bridge premise or consider a controlled foundational revision.
+
+END OF AUDIT
