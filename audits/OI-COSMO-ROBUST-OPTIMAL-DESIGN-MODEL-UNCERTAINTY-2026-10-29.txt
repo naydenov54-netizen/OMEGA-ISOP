@@ -1,0 +1,225 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+OMEGA-ISOP / M3.2
+AUDIT #33: ROBUST OPTIMAL EXPERIMENT DESIGN UNDER MODEL UNCERTAINTY
+Date: 2026-10-29
+Status: Conditional mathematical audit. No Frozen Core amendment, CE-V promotion, or RL registration.
+
+1. PURPOSE AND SCOPE
+
+This audit studies how an experiment-design decision changes when the assumed prediction maps, admissible latent states, noise bounds, or cost model are themselves uncertain. It distinguishes robustness of a design's performance from stability of the identity of the optimizer.
+
+A nominally optimal design is optimal only for the nominal objective and feasible set. It need not remain optimal under plausible model perturbations. Any robust claim must specify the uncertainty set and the performance criterion.
+
+2. NOMINAL DESIGN PROBLEM
+
+Let I={1,...,k} index competing hypotheses, H_i be the admissible state set for hypothesis i, and a belong to a design set A. Let F_{i,a}:H_i→Y_a be the nominal prediction map and P_i(a)={F_{i,a}(z):z in H_i} its prediction set.
+
+Define the nominal worst-pair margin
+Delta_0(a)=min_{i<j} dist(P_i(a),P_j(a)).
+Given a feasible budget set A_B, the nominal design problem is
+max_{a in A_B} Delta_0(a).
+
+If an optimizer exists, write a_0 in argmax_{a in A_B} Delta_0(a). Existence is not automatic: it may require compactness and continuity or, in a finite design set, exhaustive comparison. If there are multiple optimizers, the identity of a single chosen design is not intrinsically unique.
+
+3. SOURCES OF MODEL UNCERTAINTY
+
+Represent model uncertainty by u in U, where U is an explicitly specified uncertainty set. The uncertain prediction map is F_{i,a,u}, giving prediction sets P_i(a,u).
+
+Possible uncertainty sources include:
+(a) uncertainty in physical or nuisance parameters and their admissible domains;
+(b) discrepancy between the nominal model and the true observation process;
+(c) uncertain instrument calibration or shared systematic effects;
+(d) uncertainty in the noise bounds or error geometry;
+(e) uncertainty in cost, availability, or design feasibility;
+(f) numerical approximation of the prediction maps or feasible sets.
+
+These sources should not be merged into one undifferentiated error term unless a valid bound justifies that combination. Measurement noise concerns realized observations; model uncertainty concerns which prediction map or admissible set is correct. They may interact but are not identical.
+
+4. WORST-CASE ROBUST OBJECTIVE
+
+For each model u, define
+Delta(a,u)=min_{i<j} dist(P_i(a,u),P_j(a,u)).
+A worst-case robust margin is
+Delta_rob(a)=inf_{u in U} Delta(a,u).
+
+A robust design solves
+max_{a in A_B} Delta_rob(a).
+
+If Delta_rob(a)>2 epsilon for a shared norm-ball measurement-error radius epsilon, then that design has a sufficient pairwise separation guarantee uniformly over all u in U, provided the same observation norm and error assumptions apply for every u.
+
+The infimum over U matters. Evaluating only the nominal model or a finite set of representative uncertainty scenarios does not certify a worst-case guarantee unless those scenarios rigorously cover U or a separate bound covers the omitted cases.
+
+If U allows models with exactly overlapping prediction sets, the worst-case margin can be zero even if the nominal margin is large. Robustness is determined by the least favorable allowed model.
+
+5. UNCERTAIN ERROR BOUNDS
+
+If the error radius also depends on uncertain model u, write epsilon_i(a,u) for hypothesis i. A sufficient robust condition is
+dist(P_i(a,u),P_j(a,u)) > epsilon_i(a,u)+epsilon_j(a,u)
+for every u in U and every i≠j.
+
+Equivalently, one can define a worst-case adjusted margin
+M_rob(a)=inf_{u in U} min_{i<j}[dist(P_i(a,u),P_j(a,u))-epsilon_i(a,u)-epsilon_j(a,u)].
+A strictly positive value is a sufficient robust-separation certificate under the norm-ball assumptions.
+
+When the error sets are structured, correlated, non-symmetric, or non-ball shaped, use the hypothesis-specific expanded prediction sets and verify pairwise disjointness directly. A scalar margin is only as valid as the geometry and metric used to construct it.
+
+6. PERFORMANCE ROBUSTNESS VERSUS OPTIMIZER STABILITY
+
+Two distinct questions must be answered:
+(A) Does the chosen design continue to achieve an acceptable performance threshold under uncertainty?
+(B) Does the identity of the best design remain unchanged under uncertainty?
+
+A design can remain acceptable while ceasing to be optimal. Conversely, the optimizer can change between two nearly equivalent designs while their performance difference remains negligible.
+
+Define the robust optimal value
+V_rob = sup_{a in A_B} Delta_rob(a).
+A design a_hat is robustly optimal if it attains V_rob. If it only satisfies Delta_rob(a_hat) >= V_rob - tau for a declared tolerance tau>=0, it is tau-optimal, provided V_rob and the bound are certified.
+
+A nominal optimizer a_0 is not thereby robustly optimal. The robust and nominal objectives are different functions.
+
+7. OPTIMALITY GAP AND NEAR-OPTIMAL DESIGNS
+
+Suppose a candidate a_hat has a certified lower bound L_hat on its robust objective, and a valid global upper bound U_star on the best robust objective over the feasible set. Then
+0 <= V_rob - Delta_rob(a_hat) <= U_star - L_hat,
+provided both bounds refer to the same objective and the candidate is feasible.
+
+A small certified gap establishes near-optimal performance, not necessarily uniqueness or stability of the selected design. If several designs lie within the same tolerance, report the near-optimal set rather than asserting a unique optimum.
+
+A useful robustness report includes:
+- a certified performance lower bound for the chosen design;
+- an upper bound on the best achievable robust value;
+- the resulting optimality gap;
+- the performance of alternative designs;
+- sensitivity to the declared uncertainty set.
+
+8. PERTURBATION BOUNDS FOR OBJECTIVES
+
+Let Delta_theta(a) be an objective under model parameter theta, and Delta_0(a) its nominal value. Suppose a uniform perturbation bound holds:
+sup_{a in A_B} |Delta_theta(a)-Delta_0(a)| <= eta
+for every allowed theta.
+
+Then the optimal values satisfy
+|V_theta - V_0| <= eta,
+where V_theta=sup_{a in A_B} Delta_theta(a) and V_0=sup_{a in A_B} Delta_0(a), provided both use the same feasible design set and the suprema are finite.
+
+Proof: for every a, Delta_theta(a) <= Delta_0(a)+eta, so V_theta <= V_0+eta. Reversing the roles gives V_0 <= V_theta+eta. Combining yields the bound.
+
+If the feasible design set also changes with theta, this proof does not apply without accounting for the change in feasibility. A common-domain formulation or explicit feasible-set perturbation analysis is required.
+
+9. WHEN DOES THE OPTIMIZER REMAIN OPTIMAL?
+
+Assume a fixed feasible set A_B and a nominal optimizer a_0. Suppose there is a strict nominal gap gamma>0 between a_0 and every alternative outside a specified neighborhood N:
+Delta_0(a_0) >= sup_{a in A_B\N} Delta_0(a)+gamma.
+
+If the uniform objective perturbation is at most eta and gamma>2 eta, then every perturbed optimizer must lie in N.
+
+Reason: the perturbed value at a_0 is at least Delta_0(a_0)-eta. For any a outside N, its perturbed value is at most Delta_0(a)+eta, which is separated from the lower bound at a_0 by at least gamma-2 eta>0.
+
+This is a localization result, not a claim that a_0 remains the exact optimizer. To prove the exact optimizer is unchanged, additional conditions are needed, such as a finite feasible design set with a strict best-versus-second-best gap and a perturbation bound smaller than half that gap. For continuous design spaces, small perturbations can move the optimizer slightly even when the objective remains well behaved.
+
+10. FINITE DESIGN SET: STABILITY CERTIFICATE
+
+Suppose A_B is finite and a_0 is the unique nominal optimizer. Define the nominal gap
+gamma=Delta_0(a_0)-max_{a≠a_0} Delta_0(a).
+If gamma>0 and the objective perturbation obeys
+sup_{a in A_B}|Delta_theta(a)-Delta_0(a)|<gamma/2,
+then a_0 remains the unique optimizer under theta.
+
+The strict inequality is essential to guarantee a strict ranking under this bound. If the perturbation is at least gamma/2, the certificate fails; that does not prove the optimizer changes, only that this particular bound cannot guarantee stability.
+
+If the nominal optimum is tied, no unique-optimizer stability claim is available from a positive gap argument. A set-valued optimizer analysis is needed.
+
+11. UNCERTAINTY IN FEASIBLE DESIGNS AND COSTS
+
+Model uncertainty can alter which designs are feasible. Let A_B(u) denote the feasible design set under model u.
+
+A design that is feasible only for some u may not be implementable under the uncertainty scenario that governs robust performance. Three formulations should be distinguished:
+(a) common-feasible robust design: a belongs to the intersection of all A_B(u);
+(b) recourse design: the design may be adapted after some uncertainty is observed;
+(c) scenario-dependent feasibility: the chosen design depends on u, which is valid only if u is known at the decision time.
+
+These are different decision problems. Do not optimize a robust objective over designs that may violate budget or operational constraints in an allowed scenario.
+
+If cost is uncertain, use a conservative cost bound, a chance constraint with explicit probabilities, or another stated policy. A nominal cost estimate alone does not certify budget compliance under uncertain costs.
+
+12. MINIMAX, AVERAGE-CASE, AND DISTRIBUTIONAL ROBUSTNESS
+
+Worst-case optimization protects against every model in U but may be conservative if U includes implausible extremes. An average-case objective requires a probability distribution over model uncertainty. Distributionally robust optimization instead specifies a family of allowed distributions and optimizes against the least favorable member of that family.
+
+These approaches answer different questions:
+- minimax: what performance can be guaranteed for every allowed model?
+- average-case: what performance is expected under the stated distribution?
+- distributionally robust: what expected-performance guarantee holds over a family of distributions?
+
+The choice is substantive and must not be hidden in a numerical objective. A worst-case guarantee is conditional on U being a valid enclosure of the models one intends to protect against.
+
+13. CERTIFICATION UNDER NUMERICAL ERROR
+
+Suppose a computed robust margin has numerical uncertainty at most rho. If the computed value is d_hat, a valid lower bound is d_hat-rho only if rho is a proven bound covering all relevant numerical errors.
+
+To certify a threshold q, require the certified lower bound to exceed q, not merely the point estimate d_hat. If an upper bound on the true margin is needed to prove a design cannot meet q, establish that upper bound separately.
+
+A valid certificate should identify:
+(a) the uncertainty set U;
+(b) the full feasible design set or a valid coverage argument;
+(c) lower bounds for the selected design;
+(d) upper bounds for competing designs or the global optimum;
+(e) treatment of rounding, solver tolerances, and set approximation;
+(f) the margin remaining after all stated uncertainty allowances.
+
+Numerical convergence by itself is not a proof of a global robust optimum.
+
+14. CONDITIONAL THEOREMS
+
+Theorem A, robust-value perturbation:
+If the feasible design set is fixed and |Delta_theta(a)-Delta_0(a)|<=eta uniformly over all feasible a, then |V_theta-V_0|<=eta.
+
+Theorem B, finite-set optimizer stability:
+If the feasible design set is finite, the nominal optimizer a_0 is unique with gap gamma>0, and the objective perturbation is uniformly less than gamma/2, then a_0 remains the unique optimizer.
+
+Theorem C, optimizer localization:
+If the nominal best design is separated from every design outside neighborhood N by gap gamma>0, the feasible set is fixed, and the objective perturbation is uniformly bounded by eta with gamma>2 eta, every perturbed optimizer lies in N.
+
+Theorem D, robust separation:
+If the worst-case adjusted margin M_rob(a) is strictly positive, the prediction spaces and norm-ball error assumptions are common and valid, and the infimum covers every allowed uncertainty model, the design is robustly separated for every hypothesis pair and every model in U.
+
+Theorem E, certification gap:
+A feasible design with certified objective lower bound L and a global optimum upper bound U yields an optimality gap at most U-L, provided both bounds concern the same feasible set and objective.
+
+15. AUDIT CHECKLIST
+
+- State the nominal prediction maps and all admissible state sets.
+- Define the model uncertainty set U and justify its coverage.
+- Separate observation noise, model discrepancy, nuisance uncertainty, and numerical error.
+- Specify whether the feasible design set is fixed or model-dependent.
+- Define the robust objective and budget constraints.
+- Compute worst-case pairwise margins or direct expanded-set intersections.
+- Report certified lower and upper bounds rather than unqualified point estimates.
+- Distinguish performance robustness from optimizer identity stability.
+- For finite designs, compute the nominal best-versus-second-best gap.
+- For continuous designs, state the localization or convergence result actually proved.
+- Report near-optimal alternatives and avoid claiming uniqueness without a gap certificate.
+- Record all conditions needed for any robustness claim.
+
+16. NON-IMPLICATIONS
+
+- Nominal optimality does not imply robust optimality.
+- Robust performance does not imply the optimizer identity is stable.
+- A stable optimizer does not imply the model is empirically correct.
+- Small changes in model inputs do not guarantee small changes in the optimizer without regularity and separation conditions.
+- A large nominal separation margin does not protect against an uncertainty set that permits prediction-set overlap.
+- An average-case optimum does not imply a worst-case guarantee.
+- A local numerical optimum does not establish a global optimum.
+- A point estimate of margin does not certify threshold satisfaction.
+- An uncertainty set chosen too narrowly does not provide protection against omitted models.
+- A model-dependent feasible design set cannot be ignored in a fixed-domain perturbation proof.
+- A tie or near-tie does not support a unique-optimizer claim.
+- Failure of a certificate does not by itself prove failure of the design.
+
+17. CONCLUSION
+
+Robust experimental design must account for uncertainty in both predictions and the feasible decision problem. Worst-case margins address performance across an explicit uncertainty set; optimizer-stability results additionally require separation gaps and perturbation bounds. A sound audit reports what is guaranteed, what is only numerically suggested, and which uncertainty assumptions control the result.
+
+This audit does not modify the Frozen Core, promote CE-V, or register an RL item.
+
+END OF DOCUMENT
