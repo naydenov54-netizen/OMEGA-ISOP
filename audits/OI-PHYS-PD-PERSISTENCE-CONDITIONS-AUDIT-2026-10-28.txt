@@ -1,0 +1,78 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+OMEGA-ISOP/M3.2
+AUDIT: PERSISTENCE AND ROBUSTNESS OF PHYSICAL DISTINCTION
+ID: OI-PHYS-PD-PERSIST-001
+DATE: 2026-10-28
+STATUS: CONDITIONAL RESULTS; PERSISTENCE NOT DERIVED FROM PD-A
+FROZEN CORE: UNCHANGED
+RL REGISTRATION: NONE
+CE-V PROMOTION: NONE
+CANONICAL ACCEPTANCE: NOT CLAIMED
+
+1. DEFINITIONS
+
+Let X be a physical state space, T_t an evolution map, and d a specified distinguishability measure. Define d_t(x,y) = d(T_t(x), T_t(y)).
+
+Existence at t=0: d_0(x,y) > 0.
+Persistence over a time domain I: d_t(x,y) > 0 for every t in I.
+Threshold persistence at epsilon > 0: d_t(x,y) >= epsilon for every t in I.
+Robust threshold persistence: the threshold condition continues to hold under a declared class of perturbations with a stated error bound.
+
+These are different claims. Initial distinction alone does not imply either persistence property.
+
+2. COUNTERMODEL: DISTINCTION CAN BE ERASED
+
+Let rho and sigma be distinct quantum states. Consider the reset channel E(omega) = tau for every input omega, where tau is a fixed density operator. Then D(rho,sigma) > 0 may hold initially, but
+D(E(rho), E(sigma)) = D(tau,tau) = 0.
+
+Thus arbitrary initial quantum distinguishability does not imply persistence under all quantum-admissible channels. This is a counterexample to universal persistence, not a claim that every physical system implements a reset channel.
+
+3. CONDITIONAL PERSISTENCE UNDER UNITARY EVOLUTION
+
+If the dynamics is a common unitary U_t, then trace-distance invariance gives
+D(U_t rho U_t†, U_t sigma U_t†) = D(rho,sigma).
+Therefore any initially distinct pair remains equally distinguishable under this specified dynamics.
+
+The result depends on the unitary-dynamics premise. PD-A does not select that premise or derive it in the present Core interpretation.
+
+4. CONTRACTIVITY DOES NOT IMPLY STRICT PERSISTENCE
+
+For a completely positive trace-preserving channel E,
+D(E(rho), E(sigma)) <= D(rho,sigma).
+This is contractivity. It permits equality, strict decrease, and complete erasure of distinguishability. Therefore contractivity alone does not prove D(E(rho), E(sigma)) > 0.
+
+5. ROBUSTNESS BOUND
+
+Suppose D(rho,rho') <= delta and D(sigma,sigma') <= delta. By the triangle inequality for trace distance,
+|D(rho,sigma) - D(rho',sigma')| <= D(rho,rho') + D(sigma,sigma') <= 2 delta.
+
+Consequently, if D(rho,sigma) >= epsilon + 2 delta, then D(rho',sigma') >= epsilon. This is a conditional robustness guarantee for the declared trace-distance error bounds. It does not establish dynamical persistence unless the error bounds hold throughout the time interval under study.
+
+6. DERIVATION LEDGER
+
+PD-A -> initial physical state distinction: NOT DERIVED.
+Initial distinction -> persistence under arbitrary dynamics: REFUTED BY COUNTERMODEL.
+Common unitary -> trace-distance persistence: DERIVED GIVEN UNITARY PREMISE.
+CPTP channel -> non-increase of trace distance: STANDARD QUANTUM RESULT.
+CPTP contractivity -> strict positivity at later times: NOT DERIVED.
+Initial margin epsilon + 2 delta plus perturbation bounds -> threshold retained: DERIVED CONDITIONALLY.
+PD-A -> unique physical dynamics or persistence law: NOT DERIVED.
+
+7. PHYSICAL REQUIREMENTS FOR A PERSISTENCE CLAIM
+
+A physical persistence claim must specify:
+(a) the distinguishability metric and its operational meaning;
+(b) the dynamics and time interval;
+(c) the allowed perturbation/noise family;
+(d) the threshold and uncertainty budget;
+(e) a measurement protocol and failure condition.
+
+Without these, “persistence” remains underspecified and cannot function as a quantitative physical law.
+
+8. CONCLUSION
+
+The current foundational chain does not derive persistence from PD-A. Persistence can be proven under added dynamical conditions, and robustness can be bounded under explicit error assumptions. Those conditions must remain labeled as premises unless they are independently derived from authorized Core content.
+
+Frozen Core unchanged. No RL registration, CE-V promotion, or canonical acceptance is claimed.
+
+END OF AUDIT
