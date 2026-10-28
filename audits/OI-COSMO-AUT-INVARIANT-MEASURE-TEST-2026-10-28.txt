@@ -1,0 +1,79 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+1. Output for OMEGA-ISOP/M3.2 must be clean plain text, directly copyable on Android, in one continuous block when a complete artifact is requested.
+2. Frozen Core remains unchanged unless the user explicitly authorizes a change and a documented change-control decision records it.
+3. RL_REGISTRATION_REQUIRED is not RL_REGISTERED. Never claim registration without authoritative registry confirmation and readback.
+4. Distinguish established facts, external assumptions, conditional results, and unresolved claims.
+5. Do not claim a repository, file, registry, or submission was inspected or modified unless the corresponding action succeeded and its result was verified.
+
+OMEGA-ISOP — AUTOMORPHISM-INVARIANT MEASURE TEST
+DOCUMENT_ID: OI-COSMO-AUT-INVARIANT-MEASURE-TEST-2026-10-28
+VERSION: 1
+DATE: 2026-10-28
+STATUS: CONDITIONAL FINITE-STRUCTURE RESULT; COSMOLOGICAL BRIDGE NOT ESTABLISHED
+CHANGE TYPE: RESEARCH AUDIT
+FROZEN CORE: PRESERVED; NO CHANGE PROPOSED
+
+1. QUESTION
+Can the available relational language yield a canonical measure through symmetry invariance, and would such a measure suffice as a spacetime volume measure for cosmological scale fixing?
+
+2. FINITE TOY MODEL
+Let X be a finite set with n >= 2 elements, equipped only with the complete apartness relation:
+x # y iff x != y.
+Every permutation of X preserves this relation. Therefore its automorphism group is the full symmetric group S_n, acting transitively on X.
+
+Suppose, as an additional requirement, that a measure nu on the power set P(X) must be invariant under every automorphism:
+nu(σ(A)) = nu(A) for all σ in S_n and all A subset X.
+
+For any x,y in X, there exists σ with σ(x)=y. Hence:
+nu({x}) = nu({y}).
+Finite additivity then gives:
+nu(A) = |A| w
+where w is the common singleton weight and A is any subset of X.
+
+Thus automorphism invariance determines equal relative weights in this finite transitive example. It does not determine w.
+
+If one additionally requires probability normalization nu(X)=1, then:
+n w = 1, so w = 1/n
+and the unique invariant probability measure is:
+nu(A) = |A|/n.
+
+This uniqueness follows from two added conditions: invariance under all automorphisms and total probability one. Neither condition is a construction of physical spacetime volume.
+
+3. LIMITS OF THE RESULT
+A. Without normalization, every scalar multiple c nu, c > 0, remains invariant. Absolute measure scale is not fixed.
+B. The finite carrier has no supplied four-dimensional manifold, differentiable structure, Lorentzian metric, or dimensional volume unit.
+C. A normalized counting measure is dimensionless. It is not thereby a measure with units of length^4, and there is no established identification nu = dvol_g.
+D. For a non-transitive relational structure, automorphism invariance need not determine one unique probability measure. Invariant measures may assign different total weights to distinct orbits, subject to normalization.
+E. Even when an invariant probability measure is unique, it is unique relative to the chosen state space, sigma-algebra, and symmetry group. It does not by itself select physical dynamics, Einstein equations, or Lambda.
+
+4. CONSEQUENCE FOR OMEGA-ISOP
+The available framework permits carriers, apartness, configurations, compatibility relations, and conditional colimit constructions. The source material does not specify a general cosmological automorphism group together with a theorem that its invariant measure is unique and corresponds to Lorentzian volume.
+
+The finite toy model demonstrates a limited possibility: symmetry plus an explicit probability-normalization rule can determine a canonical dimensionless probability measure in a finite transitive case. It does not derive a physical spacetime measure from the available Frozen Core.
+
+5. FINDINGS
+F1. A finite transitive relational structure can admit a unique invariant probability measure after invariance and probability normalization are explicitly imposed.
+F2. The same symmetry requirement without normalization leaves an arbitrary positive total scale.
+F3. The finite invariant probability measure is not a spacetime four-volume measure by definition or theorem.
+F4. No cosmological automorphism-invariant measure construction, uniqueness proof, or identification with dvol_g is established in the inspected OMEGA-ISOP materials.
+F5. The proposed symmetry route is therefore a useful toy model, not a successful derivation of cosmological mu.
+
+6. NEXT MATHEMATICAL TEST
+For any proposed cosmological relational structure R_cosmo:
+(i) specify its automorphism group Aut(R_cosmo);
+(ii) define the measurable space and class of candidate measures;
+(iii) determine whether invariant measures exist;
+(iv) determine whether they are unique up to scale, unique after normalization, or non-unique;
+(v) prove whether the measure is regular and compatible with a spacetime realization;
+(vi) prove or explicitly assume any identification with Lorentzian volume;
+(vii) test whether the construction fixes physical scale rather than only relative/probability weights.
+
+Do not add these requirements to the Frozen Core implicitly. If a candidate requires new premises, list them as external or proposed extension assumptions and subject them to separate change control.
+
+7. RELEASE STATUS
+FROZEN CORE: UNCHANGED.
+CE-V: NO PROMOTION.
+RL REGISTRATION: NOT PERFORMED OR VERIFIED.
+CANONICAL ACCEPTANCE: NOT CLAIMED.
+CONCLUSION: CONDITIONAL FINITE SYMMETRY RESULT; COSMOLOGICAL MEASURE DERIVATION REMAINS OPEN.
+END OF DOCUMENT
