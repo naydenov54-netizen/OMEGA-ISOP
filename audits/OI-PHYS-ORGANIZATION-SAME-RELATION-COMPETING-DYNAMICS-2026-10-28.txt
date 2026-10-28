@@ -1,0 +1,108 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+OMEGA-ISOP/M3.2
+AUDIT ID: OI-PHYS-ORGANIZATION-SAME-RELATION-COMPETING-DYNAMICS-2026-10-28
+DATE: 2026-10-28
+STATUS: COMPARATIVE MODEL AUDIT; NO CORE CHANGE; NO REGISTRATION CLAIM
+
+TITLE
+Same relational connectivity, different dynamics: a controlled comparison of organization measures
+
+1. QUESTION
+
+Which properties of organization follow from a relational graph itself, and which depend on the chosen dynamics?
+
+Compare two phase oscillators connected by the same interaction edge, while changing the evolution law. This isolates graph connectivity from dynamical assumptions.
+
+2. COMMON CARRIER AND RELATION
+
+Let X={1,2} and let the interaction graph contain the single undirected edge {1,2}. This graph is identical in both models. Let theta_1 and theta_2 be phases and delta=theta_1-theta_2.
+
+For comparison, define the phase-coherence order parameter
+Q(delta)=|(exp(i theta_1)+exp(i theta_2))/2|=|cos(delta/2)|.
+
+Q is a chosen operational measure of phase coherence for this two-oscillator model, not a universal measure of organization.
+
+3. MODEL A: ATTRACTIVE COUPLING
+
+Dynamics:
+d theta_1/dt = omega + K sin(theta_2-theta_1)
+d theta_2/dt = omega + K sin(theta_1-theta_2), K>0.
+
+Then:
+d delta/dt = -2K sin(delta).
+
+For delta(0) in (-pi,pi), the solution obeys
+tan(delta(t)/2)=tan(delta(0)/2) exp(-2Kt).
+Hence delta(t) tends to zero and Q(t) tends to one, except the special equilibrium delta=pi (modulo 2pi), which is unstable to perturbations.
+
+Under this model, phase coherence typically increases toward synchrony.
+
+4. MODEL B: REPULSIVE COUPLING
+
+Keep the same two nodes and same interaction edge, but reverse the coupling sign:
+d theta_1/dt = omega - K sin(theta_2-theta_1)
+d theta_2/dt = omega - K sin(theta_1-theta_2), K>0.
+
+Then:
+d delta/dt = +2K sin(delta).
+
+The in-phase equilibrium delta=0 is unstable to small perturbations, while the anti-phase equilibrium delta=pi is stable to small perturbations. For initial delta in (0,pi), delta(t) moves toward pi and Q(t) tends to zero. For initial delta in (-pi,0), it moves toward -pi modulo 2pi, also giving Q(t) tending to zero.
+
+Thus the same graph connectivity and same Q definition can accompany opposite collective outcomes under different dynamical laws.
+
+5. COMPARATIVE RESULT
+
+The common relational graph alone does not select:
+- attractive versus repulsive interaction;
+- synchrony versus anti-synchrony;
+- the time scale set by K;
+- the trajectory Q(t).
+
+The outcome is determined by the additional dynamical law and parameters, not by graph connectivity alone.
+
+This is a controlled model comparison. It establishes non-uniqueness of dynamics relative to the chosen relational structure. It does not establish that either law is physically correct for any specific real system.
+
+6. FALSIFIABLE DISCRIMINATION
+
+For a real two-oscillator system:
+A. Measure phase trajectories and estimate delta(t) and Q(t).
+B. Independently characterize the sign and magnitude of coupling where possible.
+C. Fit attractive and repulsive models on a predeclared training segment.
+D. Compare held-out trajectories and uncertainty-aware residuals.
+E. Reject a model in the tested regime if residuals systematically exceed a predeclared tolerance while its assumptions are independently supported.
+
+The models make distinguishable predictions for initial conditions away from equilibria. Near exact equilibria, finite noise and perturbations must be modeled; no discrimination claim should rely on idealized exact initial states alone.
+
+7. DERIVATION LEDGER
+
+Derived from Model A equations:
+- delta_dot=-2K sin(delta);
+- attraction toward delta=0 for initial phase difference in (-pi,pi), excluding the anti-phase equilibrium;
+- Q tends to 1 on those trajectories.
+
+Derived from Model B equations:
+- delta_dot=+2K sin(delta);
+- attraction toward anti-phase for initial delta in (0,pi) or (-pi,0), modulo 2pi;
+- Q tends to 0 on those trajectories.
+
+Shared assumptions:
+- two phase oscillators with equal natural frequency;
+- a single undirected interaction edge;
+- constant coupling magnitude K;
+- adequacy of phase-only dynamics.
+
+Not derived from the graph:
+- the sign of coupling;
+- either evolution law;
+- a unique organizational outcome;
+- a physical law from PD or the Frozen Core.
+
+8. RELATION TO THE FROZEN CORE
+
+The comparison is consistent with the established separation between relational constraints and dynamics: a relational structure may admit multiple dynamics. The models are illustrative realizations, not a claim that all dynamics in A(R;Phi) have been enumerated.
+
+No Frozen Core text is modified. No CE-V promotion, canonical acceptance, or RL registration is asserted.
+
+9. RESULT
+
+The same relational connectivity supports distinct organization trajectories under attractive and repulsive coupling. Therefore, connectivity alone does not entail synchrony or a unique order-parameter trajectory. To make a physical organization claim, the coupling law and parameters must be independently justified and the resulting predictions tested against observations and alternatives.
