@@ -1,0 +1,183 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+OMEGA-ISOP / M3.2
+AUDIT #26: TARGET IDENTIFIABILITY UNDER PARTIAL RANK LOSS AND SHARED SYSTEMATICS
+Date: 2026-10-29
+Status: Mathematical audit artifact. Conditional conclusions only. Not a Frozen Core amendment, CE-V promotion, or RL registration.
+
+1. PURPOSE
+
+This audit examines target-specific identifiability when a calibration system is rank-deficient or nearly rank-deficient and multiple measurements share systematic-error variables. Its principal rule is that identifiability must be assessed for the requested target over the full joint feasible set. It cannot be inferred solely from whether every component parameter is uniquely estimable.
+
+The audit distinguishes:
+(A) algebraic identifiability in an exact model;
+(B) set identification under bounded measurement and systematic errors;
+(C) numerical stability of estimating an identified target;
+(D) empirical adequacy of the model.
+These are distinct claims and require distinct evidence.
+
+2. LINEAR OBSERVATION MODEL WITH SHARED SYSTEMATICS
+
+Let y in R^n be observations, beta in R^p the parameters of interest, and gamma in R^r shared systematic variables. Consider
+
+y = X beta + Z gamma + e,
+
+where X and Z are specified design/loading matrices and e belongs to a stated error set E. A shared systematic means that one component of gamma contributes to multiple observations according to the corresponding column of Z. It is not equivalent to independent per-observation errors unless the model explicitly makes it so.
+
+For exact noiseless analysis, combine the unknowns into
+eta = (beta,gamma),
+A = [X Z],
+and y = A eta.
+
+If gamma is unrestricted and its effects overlap with columns of X, some apparent parameter effects may be confounded with systematics. If gamma is bounded or otherwise constrained, the feasible set can shrink, but the resulting identifiability is conditional on those constraints. An unjustified bound on gamma can create artificial identifiability.
+
+3. EXACT LINEAR TARGET IDENTIFIABILITY
+
+Assume the exact linear system A eta = y is consistent. Its solution set is eta_0 + null(A). Let the target be the linear functional t = c^T eta.
+
+The target is uniquely identified across all exact solutions if and only if
+
+c^T z = 0 for every z in null(A),
+
+equivalently c belongs to row(A).
+
+Proof:
+Every solution is eta_0+z for z in null(A), and the target value is c^T eta_0+c^T z. It is constant over the solution set exactly when c^T z=0 for every null-space direction. The fundamental theorem of linear algebra gives null(A) orthogonal complement = row(A).
+
+If the target concerns beta only, write t = l^T beta. In the augmented vector eta=(beta,gamma), use c=(l,0). Then the target is identified despite unrestricted nuisance systematics precisely when (l,0) belongs to row([X Z]). This criterion correctly accounts for confounding with gamma.
+
+The condition concerns uniqueness of the target value, not uniqueness of eta. It does not address noise, uncertain matrices, model misspecification, or numerical conditioning.
+
+4. SET IDENTIFICATION UNDER BOUNDED ERRORS
+
+Let the joint feasible set be
+
+F = {(beta,gamma): y-X beta-Z gamma in E, beta in B, gamma in G},
+
+where B and G are any explicit parameter/systematic constraints. For target t=l^T beta, its identified set is
+
+I_t = {l^T beta : (beta,gamma) in F}.
+
+If F is nonempty and I_t is bounded, the sharp endpoints are
+L_t = inf over F of l^T beta,
+U_t = sup over F of l^T beta.
+
+The target is point-identified when I_t is a singleton. It is set-identified when the set is nonempty but contains multiple possible values. If F is empty, there is no target value consistent with the stated model; this is not point identification.
+
+If F is compact, the linear objective attains both extrema. If F is a polyhedron and bounded in the target direction, linear programming can calculate sharp endpoints, provided the formulation faithfully represents all joint constraints and any numerical certificate is validated. If the model is nonlinear or includes nonconvex constraints, a linear-programming claim is inapplicable without a valid reduction or relaxation argument.
+
+5. SHARED SYSTEMATICS: CANCELLATION AND NON-CANCELLATION
+
+Consider two observations
+y_1 = a_1 q + b + lambda d_1 + e_1,
+y_2 = a_2 q + b + lambda d_2 + e_2,
+where b is a shared additive offset and lambda is a shared systematic amplitude.
+
+Subtracting gives
+y_1-y_2 = (a_1-a_2)q + lambda(d_1-d_2) + (e_1-e_2).
+
+The shared additive offset b cancels exactly. The shared systematic amplitude lambda does not generally cancel: its contribution cancels only when d_1=d_2, or when another justified restriction makes the difference term vanish. If d_1 and d_2 are uncertain, the cancellation must be evaluated over their joint uncertainty set.
+
+Cancellation of b does not mean b is individually identified. It also does not automatically identify q. If a_1=a_2, the differenced equation contains no q term; if d_1 != d_2 and lambda is unknown, the difference may confound q and lambda. Additional observations or constraints may resolve this, but the rank and feasible-set analysis must show how.
+
+More generally, for y=X beta+Z gamma+e, a linear contrast w^T y eliminates all modeled shared systematic effects when w^T Z=0. It retains the parameter contrast w^T X beta. Such a contrast is useful only if w^T X has the desired nonzero or otherwise informative structure and the transformed error w^T e is properly bounded. Existence of a contrast that cancels systematics does not by itself prove the desired target is identified.
+
+6. EXACT EXAMPLE: PARAMETER NON-IDENTIFIABILITY WITH AN IDENTIFIED TARGET
+
+Consider
+y_1 = beta_1 + gamma,
+y_2 = beta_2 + gamma,
+with exact observations y_1,y_2 and unrestricted gamma.
+
+The augmented design matrix is
+A = [1 0 1; 0 1 1],
+with eta=(beta_1,beta_2,gamma).
+
+The null space is generated by z=(-1,-1,1)^T, because A z=0. Therefore beta_1 and beta_2 individually are not identified: moving along z changes each beta component while preserving observations.
+
+But the difference
+t = beta_1-beta_2
+is invariant along z, since (1,-1,0) z=0. Indeed,
+beta_1-beta_2 = y_1-y_2.
+Thus the difference is exactly identified even though beta_1, beta_2, and gamma are not individually identified.
+
+This result relies on the stated exact observation model and shared additive gamma. With bounded errors e_1,e_2, the difference is no longer generally exact; its identified interval must include the allowed difference e_1-e_2.
+
+7. BOUNDED SYSTEMATICS CAN HELP, BUT THE ASSUMPTION MUST BE AUDITED
+
+Suppose gamma belongs to a known set G. This can narrow I_t, sometimes to a singleton, even where the unrestricted system has a null direction. The inference is conditional on G being correct.
+
+For scalar shared offset gamma in
+y_i = a_i q + gamma + e_i,
+a contrast with coefficients w satisfying sum_i w_i=0 removes gamma:
+w^T y = (w^T a)q + w^T e.
+If w^T a != 0, this yields a direct contrast-based constraint on q. If w^T a=0 as well, that contrast provides no information about q. If errors are bounded by |e_i|<=epsilon_i, then
+|w^T e| <= sum_i |w_i| epsilon_i.
+This is a conservative bound when errors are coupled; a sharper bound requires optimizing over the actual joint error set.
+
+If the systematic loading is not constant across observations, a zero-sum contrast need not remove it. In the general case the cancellation condition is w^T Z=0, not merely sum_i w_i=0.
+
+8. IDENTIFIABILITY VERSUS CONDITIONING
+
+Exact target identifiability says all exact solutions yield the same target. Practical stability asks how much that target can vary when data and model inputs vary within justified uncertainty bounds.
+
+A target can be exactly identified in an algebraic model yet be poorly conditioned: small data perturbations can cause a large change in its estimate. Conversely, the full parameter vector may be poorly conditioned while a particular contrast is stable because it is insensitive to the weakly determined directions.
+
+For a full-column-rank exact design A, least-squares perturbation bounds involve the smallest singular value of A. But the global worst-case parameter bound may be overly pessimistic for a particular target. Target-specific sensitivity should examine how the target functional couples to the singular vectors and, for bounded errors, directly optimize the target over F.
+
+If A is uncertain, rank and row-space membership can change with the inputs. A row-space condition proved for a nominal A is not automatically uniform over an uncertainty set of matrices. Uniform target identification requires a proof across every allowed matrix realization, or a joint set-identification analysis.
+
+9. CORRELATED UNCERTAINTY AND SHARP BOUNDS
+
+Shared systematic variables must remain shared in the optimization. Replacing one common gamma by independent gamma_i enlarges or otherwise changes the model. If the independent-error model contains all shared-systematic realizations, its target interval may be a conservative outer bound, but it can be wider and lose exact cancellations. If it does not contain the original model, no outer-bound guarantee follows.
+
+Likewise, choosing marginal extrema independently for beta, gamma, or calibration coefficients may form a tuple that is not jointly feasible. Sharp target endpoints require joint feasibility. A conservative endpoint requires a proved inclusion between the true joint feasible set and the relaxed set.
+
+When F is empty, report inconsistency or unresolved feasibility according to the strength of the certificate. When I_t is unbounded, do not report a finite sharp interval. When I_t is bounded but wide, report the valid width and the relevant scale rather than inventing a universal informativeness threshold.
+
+10. PRACTICAL AUDIT PROCEDURE
+
+For each target of interest:
+
+(a) Write the complete observation equation, including all shared systematic variables and loading patterns.
+(b) Specify whether matrices and coefficients are exact, estimated, or uncertain.
+(c) State the constraints and uncertainty sets for beta, gamma, and e, including dependencies.
+(d) For an exact linear system, compute or certify consistency, rank, a null-space basis, and the row-space test for the target.
+(e) For bounded/noisy data, define the full joint feasible set F and optimize the target over F.
+(f) Check whether a proposed contrast truly cancels every intended systematic term.
+(g) Propagate the correct joint error set through the contrast; do not assume independent errors without evidence.
+(h) Distinguish point identification, set identification, unbounded target set, empty feasible set, and unresolved status.
+(i) Assess numerical conditioning and target-specific sensitivity separately from algebraic uniqueness.
+(j) State whether the reported endpoints are exact-sharp, certified outer bounds, validated numerical brackets, or unverified numerical outputs.
+
+11. CONDITIONAL THEOREMS AND NON-IMPLICATIONS
+
+Theorem A, exact target criterion:
+For a consistent exact linear system A eta=y, the linear target c^T eta is constant across all solutions if and only if c is in row(A). This is a target-specific algebraic theorem.
+
+Theorem B, contrast cancellation:
+For y=X beta+Z gamma+e, any contrast w with w^T Z=0 eliminates the modeled systematic contribution Z gamma from w^T y. It does not automatically identify a target unless the remaining parameter contrast and error constraints support that conclusion.
+
+Theorem C, bounded-error contrast:
+If |e_i|<=epsilon_i, then |w^T e|<=sum_i |w_i|epsilon_i. This is a valid outer bound. It need not be sharp when the errors are correlated or otherwise constrained.
+
+Non-implications:
+- Rank deficiency does not imply every target is unidentified.
+- Target identifiability does not imply full parameter identifiability.
+- Exact identifiability does not imply numerical stability.
+- A nominal row-space condition does not imply uniform identifiability for uncertain design matrices.
+- Cancellation of one shared offset does not imply cancellation of every shared systematic.
+- A zero-sum contrast does not cancel an arbitrary loading pattern.
+- A bounded systematic prior or constraint does not create unconditional identifiability; the result is conditional on that bound.
+- Marginal parameter intervals do not by themselves determine a sharp joint target interval.
+- A narrow target interval does not validate the empirical adequacy of the model.
+- A failed numerical search does not prove that the feasible set is empty.
+
+12. AUDIT CONCLUSION
+
+Identifiability must be asked at the level of the target and under the complete observation model. Null-space directions describe which parameter changes preserve exact observations; the target is identified precisely when it is invariant along every such direction. Shared systematics alter those directions and can be removed by contrasts only when the loading structure supports cancellation.
+
+With noise or bounded data, replace exact uniqueness with optimization over the joint feasible set. Keep common systematic variables common, preserve dependencies, and separate target-specific uncertainty from parameter-vector conditioning.
+
+This audit is conditional on the definitions and hypotheses stated above. It introduces no change to the Frozen Core, makes no CE-V promotion, and creates no RL registration claim.
+
+END OF DOCUMENT
