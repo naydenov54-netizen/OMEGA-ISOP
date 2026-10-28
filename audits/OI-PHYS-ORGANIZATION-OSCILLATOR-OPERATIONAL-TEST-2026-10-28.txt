@@ -1,0 +1,121 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+OMEGA-ISOP/M3.2
+AUDIT ID: OI-PHYS-ORGANIZATION-OSCILLATOR-OPERATIONAL-TEST-2026-10-28
+DATE: 2026-10-28
+STATUS: CONDITIONAL PHYSICAL MODEL; NO CORE CHANGE; NO REGISTRATION CLAIM
+
+TITLE
+Operational test of organization in a minimal coupled-oscillator model
+
+1. QUESTION
+
+Can a physical realization supply a measurable criterion that distinguishes mere relational connectivity from a dynamically organized state?
+
+This audit constructs a minimal two-oscillator example. It is a model-level demonstration of operationalization, not a derivation of oscillator physics from Primitive Difference (PD) or the Frozen Core.
+
+2. MODEL AND EXPLICIT ASSUMPTIONS
+
+Consider two phase oscillators with measured phases theta_1(t), theta_2(t), equal natural angular frequency omega, and symmetric attractive coupling K>0:
+d theta_1/dt = omega + K sin(theta_2 - theta_1)
+d theta_2/dt = omega + K sin(theta_1 - theta_2).
+
+Assumptions supplied by the physical model:
+- the phase description is adequate over the measurement interval;
+- both oscillators have the same natural frequency;
+- coupling is symmetric and attractive, with constant K>0;
+- phases can be measured with stated uncertainty;
+- the equations above approximate the observed dynamics.
+
+None of these assumptions is derived from PD.
+
+3. RELATIONAL CONNECTIVITY VERSUS ORGANIZATION
+
+For K>0, the two oscillators are linked by a nonzero interaction. That is a relational fact within the model.
+
+Define phase difference delta = theta_1 - theta_2. Subtracting the equations gives:
+d delta/dt = -2 K sin(delta).
+
+Define the measurable phase-coherence order parameter:
+R(t) = |(exp(i theta_1(t)) + exp(i theta_2(t)))/2|
+     = |cos(delta(t)/2)|.
+
+R=1 means equal phases modulo 2 pi. R=0 means anti-phase for this two-oscillator system. Intermediate values quantify partial phase coherence.
+
+Connectivity alone does not imply R=1 at the initial time. For example, K>0 with delta(0)=pi/2 gives R(0)=sqrt(2)/2, not 1.
+
+4. CONDITIONAL DYNAMICAL PREDICTION
+
+On a trajectory with delta(0) in (-pi,pi), away from the unstable endpoint delta=pi and using a continuous phase-difference branch, integration gives:
+tan(delta(t)/2) = tan(delta(0)/2) exp(-2 K t).
+
+Therefore:
+R(t) = |cos(delta(t)/2)|,
+with delta(t) predicted by the expression above.
+
+For initial delta(0) in (-pi,pi), the model predicts convergence toward delta=0 and R(t) tending to 1 as t increases. The exactly anti-phase state delta=pi is an equilibrium and is unstable under perturbations; it is an important exception to an unconditional convergence claim.
+
+This is a quantitative prediction conditional on the stated oscillator model, not a universal prediction of OMEGA-ISOP or PD.
+
+5. OPERATIONAL TEST AND FALSIFIABILITY
+
+Measurement protocol:
+A. Record theta_1(t) and theta_2(t) over a declared time window.
+B. Estimate K independently or fit it on a predeclared training segment.
+C. Compute delta(t) and R(t) from the measured phases.
+D. Compare the held-out trajectory with the model prediction, propagating phase-measurement uncertainty and parameter uncertainty.
+E. Predeclare a tolerance band based on instrument noise and model discrepancy.
+
+A possible operational organization criterion for this model is:
+R(t) >= R_min throughout a declared interval I,
+where R_min and I are fixed before testing.
+
+This criterion is a convention tied to the measurement task, not a universal definition of organization. A separate dynamical criterion is relaxation toward higher R as predicted by the equations.
+
+Failure conditions:
+- observed phase differences systematically depart from the predicted trajectory beyond the predeclared tolerance;
+- the independently measured coupling is not attractive or the equal-frequency assumption fails;
+- coherence does not evolve as predicted under conditions where the model assumptions are supported.
+
+Such failures reject this model or its assumptions in the tested regime; they do not by themselves refute PD or the entire OMEGA-ISOP program.
+
+6. WHAT THIS MODEL DOES AND DOES NOT SHOW
+
+Shows:
+- a concrete physical model can distinguish interaction connectivity from measured collective coherence;
+- an operational order parameter can be defined;
+- a conditional, quantitative, falsifiable time-course prediction can be written down.
+
+Does not show:
+- that PD entails coupled oscillators, the phase equations, or the value of K;
+- that phase coherence is the unique or universal measure of organization;
+- that every connected system synchronizes;
+- a novel empirical effect attributable to OMEGA-ISOP beyond the adopted oscillator model.
+
+7. DERIVATION LEDGER
+
+Derived mathematically from the model equations:
+- d delta/dt = -2K sin(delta);
+- the order parameter R = |cos(delta/2)|;
+- for the stated phase branch, tan(delta(t)/2)=tan(delta(0)/2) exp(-2Kt).
+
+Assumed or measured externally:
+- oscillator ontology and phase description;
+- symmetric attractive coupling and equal natural frequencies;
+- validity of the model over the tested regime;
+- parameter K and measurement uncertainty;
+- the operational threshold R_min and interval I.
+
+Not derived:
+- the physical model from PD;
+- a universal organization principle;
+- any new empirical prediction independent of the chosen physical realization.
+
+8. RELATION TO THE FROZEN CORE
+
+The model is a candidate physical interface consistent with the general methodological separation between core theory, realization, and validation. It does not alter PD, U0, #, R, CC, or any Frozen Core statement.
+
+No CE-V promotion, canonical acceptance, or RL registration is asserted.
+
+9. RESULT
+
+A defensible physical organization claim requires a chosen realization, a measurable order parameter, a specified dynamical model, uncertainty-aware comparison, and explicit failure conditions. The coupled-oscillator example provides these conditionally. The next scientific test would be comparison with real phase data and competing models; until then, this remains a mathematical and methodological model, not validated new physics.
