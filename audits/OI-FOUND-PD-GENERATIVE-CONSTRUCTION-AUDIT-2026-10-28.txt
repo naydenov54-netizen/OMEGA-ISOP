@@ -1,0 +1,55 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+OMEGA-ISOP/M3.2
+AUDIT: PD-GENERATIVE-CONSTRUCTION
+DATE: 2026-10-28
+STATUS: CONDITIONAL CONSTRUCTION; NOT A DERIVATION FROM PD-A
+FROZEN CORE: UNCHANGED
+REGISTRATION: NONE
+CE-V PROMOTION: NONE
+
+1. QUESTION
+
+Can a generative interpretation of Primitive Difference (PD) construct a nontrivial carrier U0 and an apartness relation #, rather than independently postulating them?
+
+2. SEMANTIC DISTINCTION
+
+PD-A denotes the existing weak reading: formal distinction is admissible. It is an admissibility condition, not an object-generating operation. PD-A alone does not entail existence of a carrier, a pair of distinct elements, or an apartness relation.
+
+PD-G is a stronger candidate interpretation: a primitive generative rule produces two formal positions. PD-G must not be silently identified with PD-A. Adopting PD-G would change or strengthen the primitive's semantics and requires separate change-control consideration before any Core modification.
+
+3. CONDITIONAL CONSTRUCTION
+
+Assume a formal syntax with a symbol p and two constructors L and R, interpreted in a free term algebra with distinct-constructor injectivity/disjointness. Define:
+  p_L := L(p)
+  p_R := R(p)
+  U0 := {L(p), R(p)}
+
+Define # on U0 by:
+  x # y iff (x = L(p) and y = R(p))
+          or (x = R(p) and y = L(p)).
+
+Because L and R are distinct constructors in the stipulated free term algebra, L(p) != R(p), hence |U0| = 2.
+
+The relation # is irreflexive: neither element is related to itself under the definition. It is symmetric by the two clauses in its definition. It is cotransitive on this two-element carrier: if x # y, every z in U0 equals either x or y; if z=x then z#y, and if z=y then x#z.
+
+4. WHAT WAS PROVED
+
+Given the stipulated syntax, free-algebra semantics, and generator/construction rule, a two-element carrier and a relation satisfying irreflexivity, symmetry, and cotransitivity can be constructed.
+
+5. WHAT WAS NOT PROVED
+
+The construction does not derive U0 or # from PD-A alone. It assumes a formal syntax, two distinct constructors, free-algebra semantics, and a rule permitting the pair to be generated. The inequality L(p) != R(p) follows from the semantics of distinct constructors, not from PD-A.
+
+The construction is therefore a conditional realization of PD-G, not a derivation of PD-G from the existing PD-A. It is not a physical model: it provides no physical carrier, dynamics, units, observables, or empirical predictions.
+
+6. MODEL-THEORETIC LIMIT
+
+Under the weak admissibility-only interpretation PD-A, a model with no nontrivial object-level carrier, or with a singleton carrier and no nontrivial apartness relation, remains compatible with the primitive as currently characterized. Therefore PD-A does not entail |U0| >= 2 or the existence of x,y with x#y.
+
+7. CORE AND RESEARCH CONSEQUENCE
+
+No Frozen Core text is changed by this audit. No registration or promotion is claimed.
+
+The transition PD -> U0 -> # is still not derived from PD-A. The candidate shows exactly one viable route if a generative bridge is explicitly admitted. The next decision is whether a separately stated bridge premise is acceptable, or whether a controlled proposal to strengthen the primitive should be developed. Neither option should be represented as an already-proven consequence of the current Core.
+
+For a more physical theory, a subsequent layer must independently specify a physical realization map, physical state variables, dynamics, observables, and falsifiable quantitative predictions. None follows from this formal construction alone.
