@@ -4,6 +4,7 @@ All notable repository changes will be recorded here.
 
 ## 2026-10-28
 
+- Added an explicit conditional union-colimit model: for a functorial diagram of admissible subsets of a fixed carrier, with inclusion-only morphisms and union closure, the union is proved to be the colimit. This is a restricted test realization, not a claim that it is the unique intended C_METACORE; Frozen Core unchanged, no RL registration or CE-V promotion claimed.
 - Added a finite category audit proving that, in the category of finite discrete-apartness structures with embeddings, existence of an admissible amalgam does not imply existence of a pushout. This is a conditional obstruction to inferring colimit existence from CC alone, not a claim that the Core's R fails to exist. Frozen Core unchanged; no RL registration or CE-V promotion claimed.
 - Corrected Stage 2 against the protected Frozen Core and Volume II sources found in the Library. Clarified that the signature-graph/non-uniqueness results are limited to the candidate model and do not refute the Core's conditional compatibility-colimit construction; recorded the concrete diagram/colimit work still required. Frozen Core unchanged.
 
