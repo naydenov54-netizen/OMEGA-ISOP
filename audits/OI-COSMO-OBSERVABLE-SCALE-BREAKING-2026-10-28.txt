@@ -1,0 +1,154 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+1. Output for OMEGA-ISOP/M3.2 must be clean plain text, directly copyable on Android, in one continuous block when a complete artifact is requested.
+2. Frozen Core remains unchanged unless the user explicitly authorizes a change and a documented change-control decision records it.
+3. RL_REGISTRATION_REQUIRED is not RL_REGISTERED. Never claim registration without authoritative registry confirmation and readback.
+4. Distinguish established facts, external assumptions, conditional results, and unresolved claims.
+5. Do not claim that a repository, file, registry, or submission was inspected or modified unless the corresponding action succeeded and its result was verified.
+
+OMEGA-ISOP — COSMOLOGICAL OBSERVABLES AND SCALE-BREAKING INPUTS
+DOCUMENT_ID: OI-COSMO-OBSERVABLE-SCALE-BREAKING-2026-10-28
+VERSION: 1
+DATE: 2026-10-28
+STATUS: CONDITIONAL IDENTIFIABILITY THEOREM AND INPUT AUDIT
+CHANGE TYPE: RESEARCH AUDIT
+RELATED RECORDS:
+- OI-COSMO-VOLUME-MEASURE-SCALE-TEST-2026-10-28
+- OI-COSMO-CAUSAL-ORDER-VOLUME-MEASURE-NOGO-2026-10-28
+- OI-COSMO-NORMALIZED-MEASURE-SCALE-DEGENERACY-2026-10-28
+FROZEN CORE: PRESERVED; NO CHANGE PROPOSED
+RL REGISTRATION: NOT PERFORMED OR CLAIMED
+CE-V: NO PROMOTION
+
+1. QUESTION
+Can observational or dynamical data select the global metric scale in a cosmological realization without presupposing that scale? Which inputs distinguish a true scale determination from a re-expression of the same scale freedom?
+
+2. SCALE FAMILY
+On a fixed four-dimensional manifold and under a fixed point identification, consider:
+g_k = k^2 g, k > 0.
+
+For constant k:
+- The causal cones and causal order are unchanged.
+- The metric volume density changes by dvol(g_k) = k^4 dvol(g).
+- Proper lengths and proper-time intervals along corresponding curves scale by k.
+- Scalar curvature scales as R(g_k) = k^(-2) R(g).
+- A normalized metric-volume measure, when defined on the same finite positive-volume domain, is unchanged.
+
+These transformation laws must not be conflated. Some data are scale-blind; other geometric quantities are scale-sensitive but require an independent operational calibration to be interpreted as measured physical quantities.
+
+3. THEOREM O1 — SCALE-BLIND OBSERVATIONS CANNOT IDENTIFY GLOBAL SCALE
+Let O(g) be an observation map whose complete output is invariant under all positive constant rescalings:
+O(k^2 g) = O(g) for every k > 0.
+Assume the model family contains at least two distinct scales k_1 != k_2, with the metrics treated as distinct under the target identification.
+Then O cannot uniquely identify the global scale, because:
+O(k_1^2 g) = O(g) = O(k_2^2 g).
+Thus the inverse map from the observed output to k is not injective.
+
+PROOF STATUS: PROVED directly from the invariance assumption.
+
+Interpretation: this is an identifiability theorem, not a claim that every observable is scale-invariant. It applies only to the declared observation map and its input boundary.
+
+4. EXAMPLES OF SCALE-BLIND OR SCALE-SENSITIVE DATA
+
+A. CAUSAL ORDER
+Causal order is invariant under positive conformal rescaling. By itself it cannot distinguish k.
+
+B. REDSHIFT RATIOS IN THE FIXED FLRW/DE SITTER COORDINATE CONSTRUCTION
+For a scale factor a(eta), the geometric redshift relation for fixed emission and observation events is:
+1 + z = a(eta_obs) / a(eta_emit).
+Under a global rescaling a -> k a, the ratio is unchanged. Therefore this redshift ratio alone does not determine the global normalization of a. This statement assumes the same events and coordinate identification; it does not assert that all physically selected emission/observation events remain fixed when matter dynamics and clocks are changed.
+
+C. NORMALIZED VOLUME PROPORTIONS
+For finite positive total volume, nu_g(A) = Vol_g(A)/Vol_g(M) is invariant under g -> k^2 g in four dimensions. It cannot recover absolute scale.
+
+D. PROPER TIME AND PROPER LENGTH
+For the same curve and endpoints under the fixed identification, metric proper time and length scale by k. These quantities are geometrically scale-sensitive. However, an operational report in seconds or metres presupposes a clock/ruler standard or equivalent calibrated physical process. The scale is identifiable only relative to that standard and under a justified model connecting the standard to the spacetime realization.
+
+E. CURVATURE
+For constant rescaling, R(g_k) = k^(-2) R(g). Curvature is scale-sensitive as a dimensional geometric quantity. A numerical value in physical units, or a dimensionless ratio involving curvature, requires a specified unit system or an independent physical scale. A dimensionless ratio such as R/m^2 can break degeneracy if m is an independently fixed physical mass scale and the coupling of that scale to the realization is specified. It does not arise from causal order alone.
+
+5. DYNAMICAL INPUT: EINSTEIN EQUATIONS
+Under constant rescaling g' = k^2 g:
+- The covariant Ricci tensor R_munu is unchanged for constant k.
+- The scalar curvature transforms as R' = k^(-2) R.
+- The covariant Einstein tensor G_munu = R_munu - (1/2) R g_munu is unchanged.
+- The cosmological term Lambda g_munu changes if Lambda is held fixed.
+
+Consequently, if g solves the vacuum equation:
+G_munu + Lambda g_munu = 0,
+then g' = k^2 g solves the correspondingly rescaled equation with:
+Lambda' = Lambda / k^2,
+not generally with the same fixed nonzero Lambda.
+
+For de Sitter:
+H' = H / k,
+Lambda' = Lambda / k^2,
+when the family is related by g' = k^2 g and the standard vacuum Einstein/de Sitter identification is imposed.
+
+CONCLUSION D1:
+The Einstein-vacuum equation with an independently fixed, nonzero dimensionful Lambda can break the scale degeneracy within this family. But the equation alone, when Lambda is free to vary with the solution, does not select one absolute scale. Treating Lambda as fixed is additional physical input; deriving its value is a separate task.
+
+The same bookkeeping applies to other dynamical laws: identify every dimensionful constant and state whether it is independently fixed, derived, fitted, or allowed to transform with the candidate solution. A law containing an uncalibrated free dimensional parameter does not automatically supply a unique scale.
+
+6. OPERATIONAL CLOCK/RULER TEST
+Suppose a physical clock has a characteristic proper-time period tau_ref that is independently calibrated and held fixed by the declared matter model. If the geometric interval tau_g scales as k tau_g, then the dimensionless ratio:
+Q = tau_g / tau_ref
+scales as Q -> k Q, provided tau_ref does not co-transform. Such a ratio can identify k in a specified injective model.
+
+This does not make the clock scale-free. The independent calibration or matter parameter defining tau_ref is the scale-bearing input. If the clock dynamics are themselves rescaled or not independently specified, the inference may lose identifiability.
+
+A valid observational derivation must therefore document:
+1. The measured datum.
+2. The instrument or matter process defining the unit.
+3. The independently calibrated constants used by that process.
+4. The forward map from candidate metric scale to the datum.
+5. The proof or numerical condition that this map is injective over the admissible range.
+6. The uncertainties and degeneracies with other model parameters.
+7. Whether the result is a fitted scale, a conditional deduction, or a genuinely derived constant.
+
+7. SCALE-BREAKING CLASSIFICATION
+Class I — Scale-blind relational data:
+Causal order; fixed-event redshift ratios under global scale-factor normalization; normalized volume proportions. These cannot identify k alone.
+
+Class II — Scale-sensitive geometric quantities:
+Proper time, proper length, scalar curvature, unnormalized metric volume. These transform under k, but interpretation as an observed physical value requires a realization and unit/calibration protocol.
+
+Class III — Independently calibrated physical references:
+Clock periods, ruler lengths, masses, or other dimensional standards with independently specified dynamics. These may break degeneracy through dimensionless comparisons, if the observation map is injective and assumptions are explicit.
+
+Class IV — Dynamical equations with fixed dimensional parameters:
+Can break scale covariance conditionally. The parameter's provenance must be tracked; a fixed value imported from outside the derivation is not itself derived by the equation.
+
+Class V — Dynamical equations with freely co-varying parameters:
+May admit a family of rescaled solutions and therefore fail to determine absolute scale.
+
+8. OMEGA-ISOP DEPENDENCY AUDIT
+The current formal results establish:
+- A specified compatible volume measure fixes the conformal factor under the scale-fixing lemma, but the provenance of that measure remains unresolved.
+- Causal-order-only data cannot recover the metric volume density across a conformal class.
+- Normalized metric-volume probabilities do not determine constant global scale.
+- Scale-blind observations cannot identify a parameter along a family on which their output is invariant.
+- Scale-sensitive observations can identify scale only relative to the additional physical model, calibration, or dimensionful reference that makes them operationally meaningful.
+
+Not established:
+- An OMEGA-ISOP-internal derivation of a calibrated clock, ruler, mass scale, or dimensionful constant.
+- A derivation of Einstein dynamics or a fixed Lambda from the general relational core.
+- A unique H or Lambda selected from scale-blind observations alone.
+- A novel observational prediction distinguishing OMEGA-ISOP from a matched GR/FLRW model.
+
+9. NEXT MATHEMATICAL STEP
+Select one candidate scale-bearing input explicitly, rather than mixing candidates:
+(a) a fixed Lambda under vacuum Einstein dynamics;
+(b) an independently calibrated clock/ruler/mass scale;
+(c) a specified unnormalized compatible volume measure;
+(d) a different scale-sensitive observable with an explicit forward model.
+
+For that candidate, write the map k -> O(k), establish its units and provenance, test injectivity, and separate the scale it selects from any parameter that was externally fixed. If all scale-bearing quantities are free or co-transform, prove the remaining degeneracy instead of claiming scale selection.
+
+10. RELEASE AND TRACEABILITY
+FROZEN CORE: UNCHANGED.
+VOLUME II / VOLUME III: UNCHANGED.
+CE-V: NO PROMOTION.
+RL REGISTRATION: NOT PERFORMED OR VERIFIED.
+CANONICAL ACCEPTANCE: NOT CLAIMED.
+STATUS: CONDITIONAL IDENTIFIABILITY THEOREM AND SCALE-INPUT AUDIT; OMEGA-INTERNAL ABSOLUTE-SCALE PROVENANCE REMAINS UNRESOLVED.
+END OF DOCUMENT
