@@ -1,0 +1,88 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+OMEGA-ISOP — INDEPENDENT OBSERVABLE AND SCALE-SYMMETRY BREAKING AUDIT
+Date: 2026-10-28
+Status: CONDITIONAL MATHEMATICAL RESULT; AUDIT RECORD ONLY; NO RL REGISTRATION
+
+1. PURPOSE
+
+This audit formulates a general test for whether an additional observation removes the scale-calibration degeneracy found in the exact de Sitter redshift-drift model. It distinguishes breaking one symmetry from proving global identifiability. The analysis is conditional and does not claim that OMEGA-ISOP derives a physical calibration standard.
+
+2. BASE OBSERVATION MAP
+
+Assume the exact de Sitter model at fixed redshift z > 0, with expansion parameter H > 0 and unknown shared clock-calibration factor q > 0. The measured redshift drift is
+
+s = zH/q.
+
+The base observation map is
+
+F_0(H,q) = zH/q.
+
+For every a > 0,
+
+F_0(aH, aq) = z(aH)/(aq) = zH/q.
+
+Thus the base map is invariant under the one-parameter transformation T_a(H,q) = (aH, aq). For a not equal to 1, H changes while the observation remains fixed, so H is not globally identifiable from F_0 when q is unrestricted.
+
+3. ADDING A SECOND OBSERVATION
+
+Let an additional scalar observation be u = G(H,q), so the joint map is
+
+F(H,q) = (zH/q, G(H,q)).
+
+If G(aH, aq) = G(H,q) for all a > 0 in the admissible domain, then the joint map remains invariant under T_a. Therefore this added observation does not remove the identified scale-calibration degeneracy.
+
+If G varies along the T_a orbit, then this particular symmetry may be broken. However, breaking this symmetry alone is not sufficient to prove global identifiability: distinct parameter pairs not related by T_a might still produce the same joint observations. The exact criterion for global identifiability is injectivity of the full joint map over the stated parameter domain, or injectivity in H after allowing all admissible nuisance-parameter values.
+
+4. SUFFICIENT EXAMPLE: INDEPENDENT CALIBRATION OF q
+
+Suppose a separate calibration procedure supplies an observation
+
+u = q
+
+in an independently fixed calibration convention. The joint map is
+
+F(H,q) = (zH/q, q).
+
+For observed (s,u), the second component fixes q = u. Since z > 0, the first then gives
+
+H = us/z.
+
+Hence the joint map is injective on H > 0, q > 0 for fixed z > 0. This proves global identifiability of H and q within this mathematical model when the calibration observation truly and uniquely determines q.
+
+This is a conditional sufficiency result, not a derivation of the calibration procedure, clock unit, or its physical authority. If the alleged calibration itself contains an unknown shared scale or nuisance parameter, it must be included in the joint observation map and analyzed rather than assumed away.
+
+5. GENERAL INDEPENDENT DIMENSIONAL OBSERVABLES
+
+A second route could be an observable linked by a justified model to an independently calibrated dimensional standard, such as a length, time, frequency, or another physical scale. To count as an independent scale constraint, the standard must be operationally defined and its calibration must not co-transform in a way that restores the original degeneracy.
+
+A candidate observable does not qualify merely because it has physical units in its notation. The audit must state:
+A. the exact observable equation;
+B. all unknown parameters and nuisance parameters;
+C. which units or standards are independently fixed;
+D. how the observation transforms under T_a;
+E. whether the joint map is globally injective, or at least identifies H uniquely;
+F. whether its physical interpretation relies on the target metric or on assumptions that already presuppose the scale being inferred.
+
+If the additional observable is only a dimensionless ratio or normalized quantity invariant under the same transformation, it cannot identify the absolute scale by itself.
+
+6. LOCAL DIAGNOSTIC AND ITS LIMITS
+
+For differentiable G, the Jacobian of the joint map is
+
+J =
+[ z/q       -zH/q^2 ]
+[ partial_H G   partial_q G ].
+
+The first row has rank one. If the second row is linearly independent of the first at a point, the Jacobian has rank two there, providing a local regular-identifiability diagnostic. This condition is not a standalone global-identifiability theorem. Conversely, singular Jacobian rank alone does not universally establish global non-identifiability; the explicit symmetry argument in Section 2 does so for the base map.
+
+7. OMEGA-ISOP SCOPE
+
+The relational and dynamical premises do not by themselves supply an independently calibrated physical standard in this audit. No claim is made that the Frozen Core derives H, q, a clock unit, or a scale-breaking observable. Any future proposed bridge must specify the observation model and prove its identifiability properties, while keeping mathematical derivation distinct from physical calibration and semantic interpretation.
+
+8. CONCLUSION
+
+The exact test is not whether more data have been added, but whether the complete observation map removes the parameter ambiguity. An added observable invariant under (H,q) -> (aH, aq) leaves this degeneracy intact. An independently calibrated observation u = q is a sufficient example: together with s = zH/q and z > 0, it uniquely determines H = us/z within the model. Breaking the symmetry is necessary to remove this particular ambiguity but is not by itself sufficient for global identifiability.
+
+This is a conditional mathematical audit record only. No Frozen Core change, CE-V promotion, or RL registration is made.
+
+END OF DOCUMENT
