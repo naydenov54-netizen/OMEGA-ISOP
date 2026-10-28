@@ -4,6 +4,8 @@ All notable repository changes will be recorded here.
 
 ## 2026-10-28
 
+- Added Stage 2 candidate formalization: the signature-based Difference predicate determines a canonical undirected distinguishability graph, but does not uniquely select a directed relation; recorded the conditional orientation construction and source limitations. Frozen Core and registration status unchanged.
+
 - Added a targeted Stage 1 audit distinguishing signature-based Difference from Volume III apartness and model-relative compatibility; retained conditional status and made no Frozen Core or registration changes.
 
 - Added and proved cotransitivity for the signature-based Difference predicate in Stage 1; retained candidate status and did not modify Frozen Core.

@@ -1,0 +1,71 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+1. Output for OMEGA-ISOP/M3.2 must be clean plain text, directly copyable on Android, in one continuous block when a complete artifact is requested.
+2. Frozen Core remains unchanged unless the user explicitly authorizes a change and a documented change-control decision records it.
+3. RL_REGISTRATION_REQUIRED is not RL_REGISTERED. Never claim registration without authoritative registry confirmation and readback.
+4. Distinguish established facts, external assumptions, conditional results, and unresolved claims.
+5. Do not claim that a repository, file, registry, or submission was inspected or modified unless the corresponding action succeeded and its result was verified.
+
+OMEGA-ISOP — STAGE 2: RELATION
+DOCUMENT_ID: OI-STAGE-02-RELATION-2026-10-28
+VERSION: 0.1
+DATE: 2026-10-28
+STATUS: CONDITIONAL CONSTRUCTION; NON-UNIQUENESS RESULT PROVED FOR THE CANDIDATE DIFFERENCE MODEL
+FROZEN CORE: PRESERVED; NOT AMENDED
+RL REGISTRATION: NOT PERFORMED OR VERIFIED
+CE-V PROMOTION: NOT CLAIMED
+CANONICAL ACCEPTANCE: NOT CLAIMED
+
+1. AIM
+Determine what relational structure follows from the Stage 1 signature-based Difference predicate, and distinguish that result from a uniquely selected directed relation. The arrow Difference → Relation is not assumed.
+
+2. PREMISES AND DEFINITIONS
+Let X be a nonempty set, I an index set, V_i feature-value sets, and f_i:X→V_i feature maps. Let F:X→∏_{i∈I}V_i be the combined signature, and define
+D(x,y)=1 iff F(x)≠F(y).
+
+Define x~y iff F(x)=F(y), equivalently D(x,y)=0. This is equality of signatures and is an equivalence relation. Let [x] denote the equivalence class of x.
+
+Define the canonical undirected distinguishability graph G_D with vertex set X and an edge {x,y} exactly when x≠y and D(x,y)=1. Because D is symmetric and irreflexive, this is a simple undirected graph. Distinct vertices with equal signatures are not connected; every pair from different signature classes is connected. Thus G_D is a complete multipartite graph whose parts are the equivalence classes of ~. This is a theorem about the stated candidate definition, not a claim that the Frozen Core selects this definition.
+
+3. RESULT R2.1: CANONICAL UNDIRECTED STRUCTURE
+Under the definitions in Section 2, D uniquely determines G_D. The graph records which pairs are distinguished by the selected signature. It does not assign an orientation, temporal order, causal direction, priority, or composition law.
+
+Proof: D is determined by F. Its positive pairs determine exactly the edges of G_D. Symmetry makes each edge unordered, and irreflexivity excludes loops. If x~y then D(x,y)=0, so there is no edge within an equivalence class. If [x]≠[y], then F(x)≠F(y), so D(x,y)=1 and every cross-class pair is an edge. Therefore G_D is complete multipartite with parts given by the signature-equivalence classes. QED.
+
+4. RESULT R2.2: DIFFERENCE DOES NOT SELECT A UNIQUE DIRECTED RELATION
+Even if we require a directed relation R to contain only difference-positive ordered pairs, D does not in general determine a unique R.
+
+Finite test: let X={a,b,c}, with F(a)=F(c)=0 and F(b)=1. Then D(a,b)=1, D(b,c)=1, and D(a,c)=0. Both
+R₁={(a,b)}
+and
+R₂={(a,b),(b,c)}
+are subsets of the D-positive ordered pairs, but R₁≠R₂. Alternatively, {(a,b)} and {(b,a)} are distinct directed relations both supported on difference-positive pairs.
+
+Therefore a support condition R⊆{(x,y):D(x,y)=1} is insufficient to select one relation. A directed relation requires an additional selection principle or data, such as an orientation rule, order, causal convention, transition specification, or task-specific relation predicate. Which additional input is appropriate is not decided here.
+
+5. CONDITIONAL CONSTRUCTION: ORIENTED RELATIONS
+If an explicit orientation selector σ is supplied on the undirected edges of G_D, choosing one direction for each edge, it induces a relation
+R_σ={(x,y): σ({x,y})=(x,y)}.
+This construction is conditional on σ. D alone supplies the edges but does not supply σ. Different selectors can yield different relations. If the intended relation is not an orientation of distinguishability edges, its own type and construction rule must be specified instead.
+
+6. BOUNDARIES
+- The canonical graph G_D is a representation of the chosen signature-based difference data, not a proof that this representation is the project's intended Relation.
+- The relation R=D as a subset of X×X is itself uniquely defined by D, but it is symmetric and merely restates Difference as a binary relation. It does not establish a richer or directed relational structure.
+- No unique relation follows merely from the word “Difference.”
+- No causal, temporal, dynamical, constraint, persistence, or organizational conclusion follows from R2.1 or R2.2.
+- The available Volume III reconstruction describes a conditional colimit form R=colim(D_CC), but a colimit construction requires a specified category, indexing category, diagram/functor, and universal property. The available reconstructed text notes that these details are not supplied by D_CC alone. This candidate Stage 2 result does not fill those missing specifications or claim equivalence with that construction.
+- The available Volume III file is a readability-normalized reconstruction, not a byte-for-byte source. It does not establish the complete canonical Frozen Core definition of Relation.
+
+7. EVIDENCE STATUS
+PROVED: Under the stated signature-based definition, D uniquely determines the undirected distinguishability graph G_D, which is complete multipartite over signature-equivalence classes.
+PROVED: D does not uniquely select a directed relation even under the support restriction R⊆D-positive ordered pairs; explicit finite counterexamples are given.
+CONDITIONAL: An orientation selector or other explicit relation rule can construct a particular relation.
+OPEN: Whether the canonical OMEGA-ISOP source imposes a preferred relation construction; whether the project's R=colim(D_CC) formulation can be fully specified from authoritative source material; whether any such construction is compatible with the protected Frozen Core.
+NOT DERIVED: Difference alone entails a unique directed relation, causal order, or dynamics.
+
+8. DECISION
+Stage 2 yields a proved negative result and a conditional construction for the candidate signature-based model. The arrow Difference → Relation is supported only in the limited sense that Difference determines a canonical undirected distinguishability graph. A richer or directed Relation requires additional explicit structure. Keep Stage 2 conditional and do not advance to Constraint as though the full arrow were established.
+
+CHANGE CONTROL
+This document is a candidate research formalization. It does not amend the Frozen Core, register an RL item, promote CE-V, or claim canonical acceptance.
+
+END OF DOCUMENT
