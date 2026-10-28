@@ -1,0 +1,65 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+OMEGA-ISOP/M3.2
+AUDIT: PD-A CONSEQUENCE TEST AND PHYSICAL REALIZATION INTERFACE
+DATE: 2026-10-28
+STATUS: CONDITIONAL NEGATIVE DERIVABILITY RESULT; PHYSICAL INTERFACE SPECIFICATION
+FROZEN CORE: UNCHANGED
+RL REGISTRATION: NONE
+CE-V PROMOTION: NONE
+
+1. PURPOSE
+
+Test whether the current weak reading of Primitive Difference (PD-A), as a meta-level admissibility condition for formal distinction, entails a nontrivial carrier and apartness relation. Then state what must be supplied before a formal construction can count as a physical model.
+
+2. CONSEQUENCE CRITERION
+
+For a theory T_A representing PD-A, a claim Q is a logical consequence only if every model satisfying T_A also satisfies Q. Thus derivation of a nontrivial carrier requires T_A |= |U0| >= 2, and derivation of an apartness witness requires T_A |= exists x,y in U0 such that x#y.
+
+This criterion is relative to the formalization of T_A. It does not settle stronger possible interpretations of PD that have not been specified.
+
+3. COUNTERMODEL TO NONTRIVIALITY
+
+Consider U0 = {u} and # = empty relation. This model has no x,y such that x#y. It remains compatible with PD-A insofar as PD-A only permits formal distinction and does not assert an object-level witness.
+
+Therefore, under the weak formalization:
+  T_A does not entail |U0| >= 2.
+  T_A does not entail existence of x,y in U0 with x#y.
+  T_A does not entail existence or the axioms of # unless these are supplied elsewhere.
+
+The conclusion is NOT DERIVED, not impossible and not a contradiction. The argument is a countermodel relative to the stated weak semantics.
+
+4. DEPENDENCE ON FORMALIZATION
+
+If Frozen Core contains stronger formal content that entails an object-level distinction, that content must be quoted/formalized and the consequence test rerun. Neither silently weakening PD nor silently strengthening it is acceptable. This audit does not amend Frozen Core.
+
+5. MINIMUM PHYSICAL-REALIZATION INTERFACE
+
+A formal carrier and an abstract relation are not yet a physical theory. A physical realization must specify at least:
+
+P1. Physical state space X and the interpretation of its elements.
+P2. A realization map Phi from formal structures/states into physical states or configurations, with its domain and codomain explicit.
+P3. Operationally defined observables O_i, including measurement procedures and units where applicable.
+P4. A dynamics or transition law T_t (or another precisely defined evolution rule), including its domain, assumptions, and well-posedness conditions.
+P5. A mapping from formal predictions to measurable quantities, including uncertainty/tolerance and comparison rules.
+P6. At least one quantitative prediction that differs from a relevant alternative model.
+P7. A failure condition: an observation or measurement range that would count against the model.
+P8. A statement of which ingredients are derived from the previous level and which are independent physical inputs.
+
+These are interface requirements, not claims that such ingredients can already be derived from PD-A. They are not sufficient by themselves to guarantee a successful physical theory; they are minimum bookkeeping needed to distinguish formal construction from empirical physics.
+
+6. DERIVATION LEDGER
+
+PD-A -> existence of nontrivial U0: NOT DERIVED.
+PD-A -> existence of apartness witness: NOT DERIVED.
+PD-A -> irreflexivity, symmetry, cotransitivity of #: NOT DERIVED.
+Explicit generator + free term algebra + declared constructors -> two formal terms: CONDITIONALLY DERIVED.
+Formal two-element apartness structure -> physical ontology: NOT DERIVED.
+Physical realization map + specified dynamics + operational observables -> testable predictions: REQUIRES CONSTRUCTION; not supplied by this audit.
+
+7. NEXT DECISION
+
+Keep the current bridge explicitly marked as a realization postulate, or develop a controlled proposal for stronger generative primitive semantics. Before calling the theory physical, build and audit an explicit realization with measurable observables, dynamics, quantitative predictions, and failure conditions.
+
+No Frozen Core modification, RL registration, CE-V promotion, or canonical acceptance is performed or claimed.
+
+END OF AUDIT
