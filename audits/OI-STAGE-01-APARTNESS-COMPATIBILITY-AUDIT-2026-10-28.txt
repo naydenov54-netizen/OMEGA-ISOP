@@ -1,0 +1,59 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+1. Output for OMEGA-ISOP/M3.2 must be clean plain text, directly copyable on Android, in one continuous block when a complete artifact is requested.
+2. Frozen Core remains unchanged unless the user explicitly authorizes a change and a documented change-control decision records it.
+3. RL_REGISTRATION_REQUIRED is not RL_REGISTERED. Never claim registration without authoritative registry confirmation and readback.
+4. Distinguish established facts, external assumptions, conditional results, and unresolved claims.
+5. Do not claim that a repository, file, registry, or submission was inspected or modified unless the corresponding action succeeded and its result was verified.
+
+OMEGA-ISOP — TARGETED COMPATIBILITY AUDIT: STAGE 1 DIFFERENCE VS VOLUME III APARTNESS/COMPATIBILITY
+DOCUMENT_ID: OI-STAGE-01-APARTNESS-COMPATIBILITY-AUDIT-2026-10-28
+DATE: 2026-10-28
+STATUS: CONDITIONAL COMPATIBILITY; PROJECT-LEVEL EQUIVALENCE NOT ESTABLISHED
+SCOPE: Compare the Stage 1 signature-based predicate with the available normalized Volume III source material.
+SOURCE RECORDS:
+- theory/OI-STAGE-01-DIFFERENCE-2026-10-28.txt, version 0.2
+- docs/source-materials/OMEGA-ISOP-VOLUME-III-v1.1-VAL-RESTORED.txt
+SOURCE LIMITATION: The Volume III file explicitly identifies itself as a readability-normalized reconstruction, not a byte-for-byte source copy. This audit does not claim complete inspection of the protected Frozen Core.
+
+1. CANDIDATE DIFFERENCE PREDICATE
+Let X be a set, I a feature index set, and f_i:X→V_i feature maps. Define
+D(x,y)=1 iff there exists i∈I such that f_i(x)≠f_i(y).
+Equivalently, let F:X→∏_{i∈I}V_i be the combined signature map. Then D(x,y)=1 iff F(x)≠F(y).
+
+The zero relation E(x,y) iff D(x,y)=0 is equality of signatures. It is an equivalence relation: reflexive, symmetric, and transitive. D is its complement. In classical set-theoretic logic, D is irreflexive and symmetric; the witness-feature argument also proves cotransitivity. D need not be transitive. If F is not injective, D(x,y)=0 can hold for distinct x,y. If F is injective, D(x,y)=0 iff x=y.
+
+2. COMPARISON WITH VOLUME III APARTNESS
+The available Volume III reconstruction states that a carrier X may be equipped with an apartness relation #, but does not specify the axioms of # in that section. It gives the nontriviality condition |X|≥2 and existence of x,y with x#y. That condition alone does not determine the intended apartness axioms or identify # with D.
+
+Conditional result:
+- D has irreflexivity, symmetry, and cotransitivity under the stated signature-based definition.
+- These properties make D compatible with some apartness-style axiom systems, but do not establish equivalence with the project's intended #.
+- Whether D satisfies the project's intended apartness specification remains OPEN until the exact defining axioms and relevant source text are available and checked.
+- In particular, the signature's identity-of-indiscernibles property depends on injectivity of F; it must not be silently assumed.
+
+3. COMPARISON WITH VOLUME III COMPATIBILITY
+Volume III describes compatibility as relative to a model and its specified constraints, and explicitly says it is not a universal causal relation. This is a model-relative constraint-satisfaction notion, not the same definition as D or #.
+
+No implication between D(x,y) and compatibility is established by the available text. Two objects can be distinguishable yet compatible under a model's constraints; conversely, the word “compatible” alone does not imply that two objects have equal signatures. Any relationship would need a separately stated model, domains, and constraint predicate.
+
+4. TESTS AND LIMITATIONS
+Checked:
+- Algebraic equivalence between D(x,y)=0 and F(x)=F(y).
+- Equivalence-relation properties of equality of signatures.
+- Difference predicate properties recorded in Stage 1 version 0.2, including cotransitivity and the finite non-transitivity example.
+- Wording of the available Volume III reconstruction on apartness and compatibility.
+
+Not checked / not established:
+- Byte-level identity or completeness of the protected Frozen Core source.
+- The full intended axiom set for # in the canonical source.
+- A canonical feature family or preferred signature map derived from the Frozen Core.
+- Any theorem linking difference/apartness to model-relative compatibility.
+- Integration, RL registration, CE-V promotion, or canonical acceptance.
+
+5. DECISION
+Classify the relationship as CONDITIONAL COMPATIBILITY; PROJECT-LEVEL EQUIVALENCE NOT ESTABLISHED. Keep the Stage 1 signature-based definition as a candidate formalization only. Do not replace # with D, do not identify compatibility with difference, and do not advance “Difference → Relation” as an unconditional theorem. The next mathematically meaningful step is to obtain and audit the exact canonical apartness axioms and any Frozen Core passage that defines preferred features/signatures. If those are unavailable, preserve the open status rather than infer equivalence from terminology.
+
+CHANGE CONTROL
+This is a targeted audit of candidate formalization only. It does not modify the Frozen Core or canonical source, register an RL item, promote CE-V, or claim canonical acceptance.
+
+END OF DOCUMENT
