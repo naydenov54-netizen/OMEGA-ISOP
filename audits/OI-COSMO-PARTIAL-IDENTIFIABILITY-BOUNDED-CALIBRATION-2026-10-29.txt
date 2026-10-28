@@ -1,0 +1,172 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+OMEGA-ISOP
+PARTIAL IDENTIFIABILITY WITH BOUNDED CALIBRATION, NOISE, AND MODEL DISCREPANCY
+AUDIT ID: OI-COSMO-PARTIAL-IDENTIFIABILITY-BOUNDED-CALIBRATION-2026-10-29
+STATUS: CONDITIONAL MATHEMATICAL AUDIT
+DATE: 2026-10-29
+
+1. PURPOSE
+
+This audit derives feasible bounds for a positive target H when calibration q is not known exactly but is restricted to an interval. It then adds bounded measurement error, uncertain redshift, bounded model discrepancy, and multiple observations. It distinguishes point identification from set or partial identification.
+
+All bounds are conditional on the stated deterministic uncertainty sets. They are not confidence intervals unless a probability model and coverage procedure are added. They do not establish a physical calibration or a physical value of H from OMEGA-ISOP alone.
+
+2. EXACT OBSERVATION AND INTERVAL CALIBRATION
+
+Assume
+
+s = z H/q,
+
+where z>0 is known, H>0, q>0, and the observed value s>0 is exact. Suppose only that
+
+q_min <= q <= q_max,
+
+with 0<q_min<=q_max<infinity.
+
+Solving for H gives H=sq/z. Since this expression is strictly increasing in q,
+
+H belongs to [s q_min/z, s q_max/z].
+
+If q_min<q_max, this interval generally contains multiple H values and H is not point-identified. The interval is sharp under this model: every H in it corresponds to q=zH/s in the admissible q interval. If q_min=q_max, the interval collapses to a point and H is identified under the exact model.
+
+This is set identification, not a claim that every value in the interval is equally probable.
+
+3. BOUNDED OBSERVATION ERROR
+
+Suppose the measured value s_obs obeys
+
+s_obs = z H/q + e, with |e| <= delta,
+
+where delta>=0 is a deterministic error bound. Define
+
+s_low = s_obs - delta,
+s_high = s_obs + delta.
+
+If s_high<=0, no admissible H>0 and q>0 can satisfy this model. If s_high>0, the sharp closure of the feasible H set is bounded by
+
+H_low = q_min max(0,s_low)/z,
+H_high = q_max s_high/z.
+
+When s_low>0, the feasible interval is [H_low,H_high] under the stated closed bounds. When s_low<=0 and H is strictly positive, the feasible set has lower endpoint 0 as an infimum but does not include H=0; the positive feasible values extend up to H_high. Endpoint conventions should be stated if H is allowed to be nonnegative instead.
+
+These bounds follow because the true signal zH/q must lie in [s_low,s_high] and H=q(zH/q)/z. They are sharp when q and the bounded error can vary independently over their declared sets. Additional constraints or dependencies may narrow the set.
+
+4. COMBINING A BOUNDED CALIBRATION READING
+
+Suppose a calibration reading u_obs obeys
+
+u_obs = q + eta, with |eta| <= delta_q,
+
+and there is also a prior admissible interval q in [q_min,q_max]. The calibration-feasible interval is
+
+Q = [q_min,q_max] intersect [u_obs-delta_q, u_obs+delta_q].
+
+Intersecting intervals must be done explicitly. If Q is empty, the declared calibration constraints are inconsistent with the observed reading. If Q is nonempty, let q_low and q_high be its endpoints. For positive s_low, the observation and calibration bounds give
+
+H in [q_low s_low/z, q_high s_high/z].
+
+If s_low<=0<s_high, the lower bound is 0 as an infimum for H>0, while the upper bound is q_high s_high/z. If s_high<=0, the joint feasible set is empty.
+
+A calibration reading with nonzero bounded error does not normally identify q exactly. It can nevertheless shrink the feasible interval for H. If Q collapses to one value but cosmological observation error remains, H can still be set-identified rather than point-identified.
+
+5. UNCERTAIN REDSHIFT
+
+Now suppose z itself is only known to satisfy
+
+0 < z_min <= z <= z_max.
+
+For positive signal bounds 0<s_low<=s_high and q in [q_low,q_high], the feasible H interval is
+
+H in [q_low s_low/z_max, q_high s_high/z_min].
+
+The monotonic directions matter: the smallest H uses the smallest q, smallest positive signal, and largest z; the largest H uses the largest q, largest signal, and smallest z.
+
+If s_low<=0<s_high, the lower endpoint is 0 as an infimum for H>0. If z_min=0, no finite upper bound follows from this formula because division by an arbitrarily small positive z can make H arbitrarily large. A positive lower bound on z is therefore essential for this particular finite upper bound.
+
+6. BOUNDED MODEL DISCREPANCY
+
+Suppose the observation law is only approximately of the form zH/q:
+
+s_obs = zH/q + d + e,
+
+where |d|<=kappa bounds model discrepancy and |e|<=delta bounds measurement error. Then the combined additive deviation satisfies |d+e|<=kappa+delta. Define Delta=kappa+delta and replace s_low and s_high by
+
+s_low = s_obs-Delta,
+s_high = s_obs+Delta.
+
+The bounds in Sections 3-5 then apply with these expanded limits, provided the uncertainty sets for d and e permit the combined range. This is a conservative bound; if d and e are dependent or have more restrictive joint constraints, a direct feasible-set calculation may be tighter.
+
+A bounded discrepancy can widen the identified set. It does not by itself specify a probability distribution, a likelihood, or a confidence level. Nor does a bound on discrepancy prove the chosen cosmological model is physically adequate.
+
+7. MULTIPLE OBSERVATIONS WITH SHARED H AND q
+
+For observations
+
+s_i = z_i H/q + e_i, with |e_i|<=delta_i,
+
+and known z_i>0, each observation implies a constraint on the common ratio theta=H/q:
+
+theta belongs to [(s_i-delta_i)/z_i, (s_i+delta_i)/z_i].
+
+The jointly feasible ratio interval is the intersection
+
+Theta = intersection over i of [(s_i-delta_i)/z_i, (s_i+delta_i)/z_i].
+
+The intersection must also respect theta>0. If the intersection is empty, no common ratio satisfies all stated bounds, so at least one of the model, data, or error bounds is inconsistent. If it is nonempty, let its positive feasible endpoints be theta_low and theta_high, with endpoint conventions adjusted if the lower bound is nonpositive.
+
+Given q in [q_low,q_high] independently of theta, the feasible H set is
+
+H in [q_low theta_low, q_high theta_high]
+
+when theta_low>0. If theta has zero as an infimum, zero is the infimum for positive H. These bounds are sharp if the admissible sets for theta and q are independent and all combinations are permitted. Shared nuisance dependencies can make the product interval conservative; then calculate the joint feasible set directly.
+
+Adding observations can shrink the intersection Theta or reveal inconsistency. But without any finite bound on q, the exact scaling symmetry H->aH, q->aq remains, and repeated observations constrain H/q rather than H. More observations do not substitute for a calibration constraint.
+
+8. PARTIAL IDENTIFICATION VERSUS PROBABILISTIC INFERENCE
+
+The intervals above are deterministic feasible sets. They answer: which H values are compatible with every stated bound and observation?
+
+They are not automatically:
+- Bayesian credible intervals;
+- frequentist confidence intervals;
+- posterior distributions over H;
+- statements that every feasible H is equally plausible.
+
+Those require a probability model, likelihood or prior assumptions, and an inferential procedure. A bounded-error set can be used alongside probabilistic analysis, but the interpretations must remain distinct.
+
+A robust estimate may report the entire feasible interval, its width, and sensitivity to the declared bounds. Selecting one value inside the interval requires an additional criterion or information source, such as a calibrated q, a justified prior, a new observable, or a model restriction. Such a selection is not implied by set identification alone.
+
+9. FEASIBILITY AND ROBUSTNESS CHECKLIST
+
+For each application:
+(a) state whether z is exact, interval-bounded, or probabilistic;
+(b) state the admissible interval for q and whether it is independent of other errors;
+(c) state deterministic error bounds separately from statistical noise;
+(d) state the model-discrepancy set and its justification;
+(e) intersect all constraints and check for an empty feasible set;
+(f) derive sharp bounds where possible, otherwise label them conservative;
+(g) distinguish a finite interval from a singleton;
+(h) state whether the result is deterministic partial identification or probabilistic inference;
+(i) test whether any target-changing symmetry remains after all constraints are included.
+
+10. CONDITIONAL CONCLUSIONS AND NON-CLAIMS
+
+Established conditionally:
+- Exact s=zH/q with q in a positive interval yields a sharp interval for H.
+- Bounded additive observation error and bounded model discrepancy widen the feasible interval according to the combined admissible signal range.
+- An interval-bounded calibration reading narrows the admissible q set by intersection when the constraints are consistent.
+- Multiple observations with shared H/q intersect constraints on the common ratio; they can tighten that ratio interval or expose inconsistency.
+- Without a finite calibration constraint or another symmetry-breaking condition, repeated observations of H/q do not point-identify H.
+- Deterministic feasible intervals are not automatically confidence or credible intervals.
+
+Not established:
+- A universal numerical bound independent of the declared error and calibration sets.
+- A physical value of H or a physical calibration derived from OMEGA-ISOP.
+- That all possible joint error structures make the product interval sharp.
+- Any Frozen Core change, CE-V promotion, or RL registration.
+
+11. OMEGA-ISOP STATUS
+
+This is a conditional mathematical audit of partial identifiability. It does not change Frozen Core, Volume V, the dependency chain, or the CE-V archive. It makes no RL registration claim. Any physical application must explicitly justify its calibration interval, redshift uncertainty, error bounds, discrepancy allowance, and operational map.
+
+END OF DOCUMENT
