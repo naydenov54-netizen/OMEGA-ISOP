@@ -1,0 +1,120 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+1. Output for OMEGA-ISOP/M3.2 must be clean plain text, directly copyable on Android, in one continuous block when a complete artifact is requested.
+2. Frozen Core remains unchanged unless the user explicitly authorizes a change and a documented change-control decision records it.
+3. RL_REGISTRATION_REQUIRED is not RL_REGISTERED. Never claim registration without authoritative registry confirmation and readback.
+4. Distinguish established facts, external assumptions, conditional results, and unresolved claims.
+5. Do not claim that a repository, file, registry, or submission was inspected or modified unless the corresponding action succeeded and its result was verified.
+
+OMEGA-ISOP — COSMOLOGICAL SCALE TEST: VOLUME MEASURE MU
+DOCUMENT_ID: OI-COSMO-VOLUME-MEASURE-SCALE-TEST-2026-10-28
+VERSION: 1
+DATE: 2026-10-28
+STATUS: CONDITIONAL MATHEMATICAL RESULT; EXTERNAL GEOMETRIC INPUT
+CHANGE TYPE: RESEARCH AUDIT
+FROZEN CORE: PRESERVED; NO CHANGE PROPOSED
+RELATED RECORDS:
+- audits/OI-COSMO-TEST05-DEPENDENCY-AUDIT-2026-10-28.txt
+- audits/OI-COSMO-REALIZATION-FORMALIZATION-2026-10-28.txt
+- OI-COSMO-EXPANSION-LAMBDA-001_RL-CLOSURE-RECORD_2026-10-26.txt
+
+1. QUESTION
+Does adding a spacetime volume measure mu to a causal relational structure remove the conformal-scale degeneracy, and does that determine the cosmological constant Lambda?
+
+2. ASSUMPTIONS AND SCOPE
+Work on a fixed smooth four-dimensional manifold M with a time-oriented Lorentzian metric g. Assume the causal/chronological structure determines the conformal class of g within the selected admissible spacetime class. This is a standard causal-geometry premise under suitable hypotheses, not a theorem derived here from the OMEGA-ISOP Frozen Core.
+
+Let mu be a specified smooth positive spacetime measure/density on M. Compare metrics on the same M under the same point identification. The measure must be fixed independently as data for the test, or explicitly defined as the metric volume measure of a selected metric. These are different input protocols and must not be conflated.
+
+3. SCALE-FIXING LEMMA
+Suppose two admissible Lorentzian metrics are conformally related:
+g_2 = Omega^2 g_1,
+where Omega: M -> (0,infinity) is smooth.
+
+In dimension n, the metric volume densities obey:
+dvol(g_2) = Omega^n dvol(g_1).
+
+In four dimensions:
+dvol(g_2) = Omega^4 dvol(g_1).
+
+If both metrics are required to induce the same specified volume measure mu, then:
+dvol(g_1) = mu = dvol(g_2)
+implies Omega^4 = 1 pointwise, and positivity of Omega gives:
+Omega = 1.
+Therefore g_2 = g_1 under the fixed identification.
+
+CONDITIONAL CONCLUSION S1:
+Within a fixed conformal class on a fixed four-manifold, a specified smooth positive volume measure fixes the conformal factor uniquely, provided the metric volume density is required to equal that measure and the assumed regularity and identification conditions hold.
+
+BOUNDARY:
+This does not say that causal structure alone supplies mu. It also does not guarantee that an arbitrary pair (causal structure, mu) is compatible with a metric in the selected class. Existence must be checked. If metrics are compared only up to diffeomorphism, the measure and metric must be compared under the same declared equivalence.
+
+4. DE SITTER FAMILY CHECK
+For the spatially flat de Sitter family:
+g_H = a_H(eta)^2 [-c^2 d eta^2 + d chi^2 + chi^2 d Omega_2^2],
+a_H(eta) = -1/(H eta), eta < 0, H > 0,
+Lambda_H = 3 H^2 / c^2.
+
+For H_1 != H_2:
+g_H2 = (H_1/H_2)^2 g_H1.
+
+Consequently their four-dimensional volume densities satisfy:
+dvol(g_H2) = (H_1/H_2)^4 dvol(g_H1).
+
+Thus the two metrics have the same causal structure but do not induce the same volume measure under the common coordinate identification unless H_1 = H_2. A single fixed measure mu that is required to equal dvol(g_H) therefore selects at most one H from this constant-rescaling family. It selects an H only if the measure is compatible with a member of the family.
+
+This is a scale-selection result conditional on the supplied measure and matching rule. It is not a derivation of that measure from OMEGA-ISOP.
+
+5. DOES MU DETERMINE LAMBDA?
+No, not by itself as a general physical implication.
+
+The measure can remove the conformal-scale freedom in the specified geometric class. To infer Lambda from the selected metric, further dynamical premises are needed. In the standard vacuum Einstein model with the cosmological constant and spatially flat expanding de Sitter solution, impose externally:
+R_munu - (1/2) R g_munu + Lambda g_munu = 0
+with the conventional curvature/signature conventions for which H^2 = Lambda c^2/3.
+
+Then:
+Lambda = 3 H^2 / c^2.
+
+The inference chain is therefore conditional:
+(causal structure + fixed compatible mu)
+-> (metric in the selected conformal class, if existence/uniqueness assumptions hold)
+-> (H for the specified de Sitter family)
+-> (Lambda only after the vacuum Einstein equations and model identification are imposed).
+
+The last arrow is not supplied by mu. Without the Einstein-vacuum premise, the same geometric input does not establish that Lambda is a physical parameter at all, nor that the metric obeys those field equations.
+
+6. TWO INPUT PROTOCOLS
+Protocol A — Independent fixed measure:
+Supply mu as additional geometric data. Check compatibility with the causal conformal class. If compatible, it can fix the conformal scale under the lemma. This is an external input unless an OMEGA-specific derivation is separately proven.
+
+Protocol B — Metric-induced measure:
+Define mu := dvol(g) after choosing g. This is a definition, not an independent scale-fixing condition. If mu is generated from the already selected metric, it cannot independently explain why that metric or its scale was selected. Treating it as independent afterward would be circular.
+
+7. OMEGA-ISOP DEPENDENCY AUDIT
+Established by this test, conditionally:
+- A fixed volume measure compatible with a fixed conformal class fixes the conformal factor in four dimensions under the stated assumptions.
+- In the tested de Sitter family, the volume density scales as H^(-4) relative to the common conformal-coordinate reference density, so different H values yield different volume measures.
+- Under the externally imposed vacuum Einstein model, Lambda = 3 H^2/c^2.
+
+Not established:
+- The Frozen Core derives a spacetime manifold or Lorentzian metric.
+- The Frozen Core derives a unique volume measure mu.
+- OMEGA-ISOP selects Protocol A rather than Protocol B.
+- A compatible mu exists for every causal relational structure.
+- The volume measure alone entails Einstein dynamics, vacuum energy, or a cosmological constant.
+- The resulting construction yields an OMEGA-specific observable prediction distinguishable from GR/FLRW under matched assumptions.
+
+8. FINDING
+The volume-measure test removes one precise degeneracy: within a fixed four-dimensional conformal class, an independently specified compatible volume measure fixes the conformal factor. In the stated de Sitter family this selects at most one H, and therefore at most one Lambda only after the external vacuum Einstein equations are imposed.
+
+The crucial unresolved OMEGA-specific question is the provenance of mu. If mu is added as external data, the scale-fixing result is conditional and mathematically standard. If mu is defined from a metric already chosen, it is not an independent selection principle. No derivation of mu from the Frozen Core is established by this record.
+
+9. NEXT TEST
+Search the formal OMEGA-ISOP premises for an explicit, mathematically typed construction that yields a spacetime measure on the cosmological realization without assuming the target Lorentzian metric in advance. If no such construction is present, record the dependency as external/unresolved rather than inserting it into the Frozen Core. If a candidate construction exists, test existence, uniqueness, coordinate/diffeomorphism covariance, compatibility with the causal structure, and whether it fixes an absolute scale rather than only a normalized or probability measure.
+
+10. RELEASE AND TRACEABILITY
+FROZEN CORE: UNCHANGED.
+CE-V: NO PROMOTION.
+RL REGISTRATION: NOT PERFORMED OR VERIFIED.
+CANONICAL ACCEPTANCE: NOT CLAIMED.
+STATUS: CONDITIONAL GEOMETRIC SCALE-FIXING RESULT; PHYSICAL DYNAMICS REMAIN EXTERNAL.
+END OF DOCUMENT
