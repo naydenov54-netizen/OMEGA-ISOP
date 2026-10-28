@@ -1,0 +1,56 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+1. Output for OMEGA-ISOP/M3.2 must be clean plain text, directly copyable on Android, in one continuous block when a complete artifact is requested.
+2. Frozen Core remains unchanged unless the user explicitly authorizes a change and a documented change-control decision records it.
+3. RL_REGISTRATION_REQUIRED is not RL_REGISTERED. Never claim registration without authoritative registry confirmation and readback.
+4. Distinguish established facts, external assumptions, conditional results, and unresolved claims.
+5. Do not claim that a repository, file, registry, or submission was inspected or modified unless the corresponding action succeeded and its result was verified.
+
+OMEGA-ISOP — CONSOLIDATED MATHEMATICAL RESULTS FROM THE COSMOLOGY TEST SERIES
+DOCUMENT_ID: OI-COSMO-RESULTS-CONSOLIDATED-2026-10-28
+VERSION: 1
+DATE: 2026-10-28
+STATUS: CONSOLIDATION OF VALID CONDITIONAL RESULTS AND SCOPE LIMITS
+FROZEN CORE: PRESERVED; NO CHANGE PROPOSED
+RL REGISTRATION: NOT PERFORMED OR VERIFIED
+CE-V PROMOTION: NOT CLAIMED
+CANONICAL ACCEPTANCE: NOT CLAIMED
+
+PURPOSE
+The cosmology-focused research line is closed as the current priority. Preserve the mathematical results that are valid under their stated hypotheses; do not treat external test realizations as consequences of the OMEGA-ISOP Frozen Core.
+
+RESULT 1 — CONFORMAL VOLUME SCALING
+For an n-dimensional pseudo-Riemannian metric g and a positive conformal factor Ω, let g' = Ω²g. The metric volume density obeys dvol_g' = Ω^n dvol_g. In four dimensions, dvol_g' = Ω⁴ dvol_g. This follows from the determinant scaling det(g') = Ω^(2n) det(g), hence sqrt(|det(g')|) = Ω^n sqrt(|det(g)|).
+Status: established mathematical identity, conditional on the stated smooth metric/conformal setup.
+
+RESULT 2 — INDEPENDENT COMPATIBLE MEASURE CAN FIX A CONFORMAL FACTOR
+If g₂ = Ω²g₁ on the same identified n-dimensional manifold, Ω>0, and both metrics induce the same independently fixed positive volume measure μ, then Ω^n=1 almost everywhere in the measure-density sense, and for continuous Ω this gives Ω=1 everywhere. In four dimensions the density ratio is Ω⁴.
+Important qualification: μ must be independently fixed and genuinely compatible with both metric volume densities. Defining μ := dvol_g after choosing g does not independently determine g or its scale.
+Status: conditional lemma. It does not construct μ from OMEGA-ISOP.
+
+RESULT 3 — FINITE TRANSITIVE SYMMETRY TOY MODEL
+Let X be a finite set of n elements with full symmetric group S_n acting on it, and let ν be a measure on P(X) invariant under every permutation. All singleton weights are equal, so ν(A)=|A|w. If additionally ν(X)=1, then w=1/n and ν(A)=|A|/n is the unique invariant probability measure. Without normalization, positive scalar multiples remain invariant.
+Status: proved finite result. It establishes relative weights under transitivity and invariance; it does not establish a physical spacetime volume or units of length^4.
+
+RESULT 4 — CONDITIONAL MINKOWSKI SYMMETRY NO-GO
+On R^4 with Borel sets, suppose μ is a locally finite Borel measure invariant under all translations. By uniqueness of Haar measure, μ=cλ⁴ for c≥0. If μ is also invariant under all positive uniform dilations x↦sx, then μ(sA)=s⁴μ(A) and invariance forces c=0. Therefore no nonzero locally finite Borel measure is invariant under both all translations and all positive uniform dilations.
+Status: proved conditional result for this explicit external model and measure class. Minkowski volume itself is translation-invariant and Lorentz-invariant, but not invariant under uniform dilations. This does not establish that OMEGA-ISOP requires the tested group.
+
+RESULT 5 — SYMMETRY DOES NOT FIX ABSOLUTE NORMALIZATION
+For any group action preserving μ, every positive scalar multiple cμ is also invariant whenever the same measure class permits it. Therefore invariance alone cannot fix absolute normalization. Probability normalization may fix a dimensionless scalar under appropriate finite-measure assumptions, but does not identify μ with Lorentzian spacetime volume or calibrate physical units.
+Status: general direct consequence of the invariance definition.
+
+SCOPE BOUNDARY — WHAT THE TEST SERIES DID NOT ESTABLISH
+The available project specification does not instantiate a complete cosmological relational structure R_cosmo, its automorphism group Aut(R_cosmo), a sigma-algebra and measure constructed from that structure, a Lorentzian metric derived from the Frozen Core, Einstein dynamics, a cosmological constant, or a unique empirical cosmological prediction.
+The de Sitter comparison is conditional on an external model: conformally related de Sitter metrics can share causal/conformal structure while having different metric scales; under external vacuum Einstein assumptions Λ=3H²/c². It is not an OMEGA-ISOP derivation.
+This is a specification-boundary finding, not an impossibility theorem for every future extension of OMEGA-ISOP.
+
+DISPOSITION
+Retain the four mathematical result records:
+- audits/OI-COSMO-VOLUME-MEASURE-SCALE-TEST-2026-10-28.txt
+- audits/OI-COSMO-AUT-INVARIANT-MEASURE-TEST-2026-10-28.txt
+- audits/OI-COSMO-MINKOWSKI-SYMMETRY-MEASURE-NOGO-2026-10-28.txt
+- this consolidated record.
+Redundant repeated boundary/realization audits may be removed after this consolidation. The cosmology line is not a current theory-development priority.
+No Frozen Core change. No registration or promotion.
+
+END OF DOCUMENT
