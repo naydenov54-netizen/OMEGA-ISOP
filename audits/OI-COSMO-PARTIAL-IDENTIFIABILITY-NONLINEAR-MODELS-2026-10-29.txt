@@ -1,0 +1,193 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+OMEGA-ISOP / M3.2
+AUDIT #27: PARTIAL IDENTIFIABILITY UNDER BOUNDED SYSTEMATICS AND NONLINEAR OBSERVATION MODELS
+Date: 2026-10-29
+Status: Mathematical audit artifact. Conditional conclusions only. Not a Frozen Core amendment, CE-V promotion, or RL registration.
+
+1. PURPOSE AND CENTRAL DISTINCTIONS
+
+This audit extends target-identifiability analysis beyond exact linear systems. It studies nonlinear observation maps, bounded nuisance/systematic variables, and target ranges over joint feasible sets.
+
+Four questions must remain separate:
+(A) Is the model feasible for the stated observations and constraints?
+(B) Is the target point-identified, meaning it has exactly one possible value?
+(C) If not point-identified, is the target set nevertheless bounded and informative?
+(D) Are the calculated endpoints certified globally, rather than estimated by local numerical search?
+
+A parameter can be non-identifiable while a nonlinear target is point-identified. A target can be non-point-identified but tightly bounded. A finite target interval can also be produced entirely by imposed parameter bounds; its dependence on those assumptions must be explicit.
+
+2. GENERAL NONLINEAR OBSERVATION MODEL
+
+Let x denote parameters of interest, gamma nuisance or systematic variables, p uncertain input data, and y the observed data. Let the observation map be F(x,gamma,p), with an allowed residual set E. Define the joint feasible set
+
+J = {(x,gamma,p) : p in P, gamma in G, x in X, y-F(x,gamma,p) in E, and all other stated constraints hold}.
+
+For a scalar target T(x,gamma,p), define its identified set
+
+I_T = {T(x,gamma,p) : (x,gamma,p) in J}.
+
+If J is empty, the model is inconsistent with the stated data and constraints, or feasibility has not been correctly represented. If J is nonempty, point identification means I_T contains exactly one value. Partial identification means I_T contains more than one value. If I_T is bounded, its sharp endpoints are
+
+L_T = inf over J of T,
+U_T = sup over J of T.
+
+The target may be bounded even if J itself is unbounded, and J may be bounded while the target set is not well-behaved if the target is not defined everywhere. For continuous T on a nonempty compact J, both endpoints are attained. Compactness is sufficient for attainment under continuity, not necessary in every individual problem.
+
+3. GEOMETRIC CRITERION FOR POINT IDENTIFICATION
+
+For a nonempty feasible set J, the target T is point-identified exactly when T is constant on J:
+
+T(z_1)=T(z_2) for every z_1,z_2 in J.
+
+This criterion is general and exact, including nonlinear models. It is a definition-level global condition, not automatically an easy computational test.
+
+A useful equivalent statement is that the image T(J) is a singleton. The geometry of the target map matters: J may contain many parameter configurations, while all of them map to the same target value.
+
+Local differential tests are weaker. If the Jacobian of F loses rank at a point, that fact may indicate local parameter ambiguity, but it does not by itself establish global non-identifiability. Conversely, a full-rank Jacobian at one point does not prove global injectivity or global identifiability across a disconnected feasible set.
+
+4. LOCAL NULL DIRECTIONS VERSUS GLOBAL IDENTIFICATION
+
+For a differentiable observation map F(z), a vector v in the null space of the Jacobian J_F(z) satisfies J_F(z)v=0 and is an infinitesimal direction that produces no first-order change in the observations at z. For a differentiable target T, if the target is locally constant along every feasible ambiguity direction, its directional derivative satisfies
+
+grad T(z)^T v = 0
+
+for those directions v, under the relevant regularity assumptions.
+
+This is only a local necessary diagnostic in regular settings, not a general sufficient condition for global point identification. Nonlinear curves can bend; singular points can invalidate simple tangent-space reasoning; constraints can block some directions; disconnected branches can produce distinct target values even when each branch is locally identifiable.
+
+Global identification must be evaluated over the full feasible set or proved through a valid global theorem.
+
+5. BOUNDED SYSTEMATICS AND PARTIAL IDENTIFICATION
+
+Bounded nuisance variables can reduce the target set. For example, suppose
+
+y = a q + gamma,
+|gamma| <= G,
+with known scalar a != 0 and exact y.
+
+Then q belongs to the interval defined by
+(y-G)/a <= q <= (y+G)/a when a>0.
+For a<0, the endpoint order reverses; equivalently one may write
+q in [(y-G)/a,(y+G)/a] and sort the two endpoints.
+
+If a is also uncertain, or if y has error, the feasible target set must be recomputed jointly. Substituting independent marginal extremes is not generally sharp when variables are coupled.
+
+The interval is conditional on the assumed bound |gamma|<=G. If that bound is not justified by calibration, physics, or a stated sensitivity analysis, the resulting identification claim is only conditional on an unsupported assumption. A bound can create a finite identified set without the observations themselves identifying the parameter.
+
+If G grows without bound in this simple model, q becomes unbounded. Thus a finite interval can depend materially on the nuisance bound, and that dependence should be reported rather than hidden.
+
+6. NONLINEAR EXAMPLE: PARAMETER AMBIGUITY WITH POINT-IDENTIFIED TARGET
+
+Suppose the exact observation is
+y = x^2,
+with x in R, and the target is T(x)=x^2.
+
+For y>0, the feasible parameter set is {sqrt(y), -sqrt(y)}. The parameter x is not point-identified, but the target T is point-identified at y. This example demonstrates that parameter uniqueness is not required for target uniqueness.
+
+If instead the target is T(x)=x, its identified set contains two values for y>0 and is not point-identified. If y=0, the feasible parameter set is {0}, so x is point-identified under this exact model. These statements depend on the exact observation equation and domain.
+
+With bounded observational error, such as |y-x^2|<=epsilon, the target x^2 belongs to the intersection of the nonnegative domain with [y-epsilon,y+epsilon], while the parameter x may have two branches. Domain constraints and error bounds must be applied jointly.
+
+7. NONLINEAR IDENTIFIED SETS AND SHARP ENDPOINTS
+
+For a nonlinear model, sharp target endpoints require solving
+
+minimize T(z) over z in J,
+maximize T(z) over z in J.
+
+Local optimization alone does not certify either endpoint. Depending on structure, possible methods include analytical elimination, monotonicity proofs, interval branch-and-bound, validated global optimization, semialgebraic optimization with checkable certificates, or exhaustive analysis of all branches and boundary components.
+
+If a relaxation J subset J_outer is proved, optimization over J_outer can produce conservative outer bounds in the appropriate direction:
+inf over J_outer T <= inf over J T,
+sup over J T <= sup over J_outer T,
+assuming the same well-defined objective is used and the extrema comparisons are meaningful.
+
+An outer relaxation may be loose. If the supposed outer set accidentally excludes feasible points, its bounds need not be valid for the original problem. The inclusion proof is part of the certificate.
+
+For noncompact or open J, sharp infima or suprema may fail to be attained. Report infimum/supremum separately from minimum/maximum unless attainment is proved.
+
+8. DISCONNECTED FEASIBLE SETS AND BRANCHES
+
+Nonlinear observations can generate disconnected feasible sets. A local solver may explore only one branch and return a narrow interval that is valid for that branch but not for the full model.
+
+For example, y=x^2 with y>0 has two disconnected parameter solutions. The target x^2 agrees across both branches, but a target depending on the sign of x does not. Thus branch completeness can matter for target identification even when each branch is individually simple.
+
+A global proof must either enumerate all feasible branches, prove omitted branches cannot exist, or use a certified method that covers the entire feasible domain. A random multistart search is not a substitute for branch-completeness certification.
+
+9. SENSITIVITY TO THE NUISANCE BOUND
+
+Let the identified set depend on a nuisance bound G, written I_T(G), with G increasing the permitted nuisance set. If enlarging G only relaxes constraints and all other model components remain fixed, then the feasible sets are nested:
+
+G_1 <= G_2 implies J(G_1) subset J(G_2).
+
+Consequently, the target identified sets are nested:
+I_T(G_1) subset I_T(G_2).
+
+Therefore the lower endpoint is nonincreasing and the upper endpoint is nondecreasing as G expands, whenever these endpoints are defined. This monotonicity follows from set inclusion and does not require differentiability. It does not imply that endpoints vary smoothly or at a bounded rate.
+
+If the nuisance constraint changes other parts of the model or the parameterization, the nested-set premise must be checked rather than assumed.
+
+A useful sensitivity report varies G across justified values and records how the target interval changes. This is a sensitivity analysis, not proof that any one G is empirically correct.
+
+10. CONSTRAINTS CAN ARTIFICIALLY CREATE IDENTIFICATION
+
+Suppose observations alone admit multiple target values, but an added restriction removes all but one. Then the target is identified in the constrained model, but the conclusion depends on the added restriction.
+
+The audit must state whether each restriction comes from:
+- direct observation;
+- independently validated calibration;
+- a physical or mathematical law explicitly assumed;
+- a regularization convention or prior constraint;
+- a numerical convenience.
+
+These categories have different evidential status. A regularization choice can select one solution without proving that the observations uniquely support it. A prior may yield a posterior distribution or constrained estimate, but that is not the same claim as data-only point identification.
+
+No constraint should be silently introduced solely to make an optimization problem well-posed and then treated as empirical evidence.
+
+11. PRACTICAL REPORTING TEMPLATE
+
+For each nonlinear target claim, record:
+(a) The complete observation map and domain.
+(b) All nuisance/systematic variables, uncertainty sets, and correlations.
+(c) The exact residual or likelihood/feasibility interpretation used.
+(d) The full feasible-set definition and whether nonemptiness is certified.
+(e) The target map and its identified set.
+(f) Whether the claim is point identification, partial identification, unbounded target, infeasibility, or unresolved.
+(g) Whether extrema are attained or only approached.
+(h) The global method or theorem used to certify endpoints.
+(i) How bounds change under justified variations of nuisance limits.
+(j) Whether restrictions are observational, independently justified, prior-based, regularizing, or computational.
+(k) Whether the output is exact-sharp, a certified outer interval, a validated numerical bracket, local-only, or unverified.
+
+12. CONDITIONAL THEOREMS AND NON-IMPLICATIONS
+
+Theorem A, general target criterion:
+For a nonempty joint feasible set J and a well-defined target T, T is point-identified if and only if T is constant on J, equivalently T(J) is a singleton. This is global and model-relative.
+
+Theorem B, nested nuisance bounds:
+If G_1<=G_2 and the only change is a relaxation of the nuisance constraint so that J(G_1) subset J(G_2), then I_T(G_1) subset I_T(G_2). Where finite endpoints exist, L_T(G_2)<=L_T(G_1) and U_T(G_2)>=U_T(G_1).
+
+Theorem C, outer relaxation:
+If J subset J_outer and T is the same well-defined objective on both, then inf over J_outer T <= inf over J T and sup over J T <= sup over J_outer T. The relaxation gives an enclosing target range only when the relevant endpoints are properly established and the set inclusion is valid.
+
+Non-implications:
+- Non-unique parameters do not imply a non-unique target.
+- A full-rank local Jacobian does not prove global identifiability.
+- A rank-deficient Jacobian does not alone prove global non-identifiability.
+- Local optimization does not prove a global sharp endpoint.
+- A finite interval does not imply the observations alone identify the target; imposed bounds may be responsible.
+- A regularization convention does not prove data-only uniqueness.
+- A disconnected feasible set cannot be ignored without a branch-completeness argument.
+- A wider nuisance allowance cannot narrow the identified set when it only enlarges the feasible set.
+- Endpoint monotonicity under nested sets does not imply smooth sensitivity.
+- A certified interval does not establish empirical model adequacy.
+
+13. AUDIT CONCLUSION
+
+For nonlinear models, the fundamental object is the image of the full joint feasible set under the target map. Point identification means that this image is a singleton; partial identification means it contains multiple possible values; sharp finite bounds require global optimization over that set.
+
+Bounded systematics can make the target range finite, but the resulting conclusion is conditional on those bounds. Nonlinear branches, disconnected feasible sets, and regularization choices must be explicitly accounted for. A local numerical result must not be promoted to a global identification claim without proof.
+
+This audit is conditional on the definitions and hypotheses stated above. It introduces no change to the Frozen Core, makes no CE-V promotion, and creates no RL registration claim.
+
+END OF DOCUMENT
