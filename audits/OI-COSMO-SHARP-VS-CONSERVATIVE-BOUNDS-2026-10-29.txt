@@ -1,0 +1,148 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+OMEGA-ISOP
+SHARP VERSUS CONSERVATIVE ROBUST BOUNDS UNDER COUPLED UNCERTAINTY
+AUDIT ID: OI-COSMO-SHARP-VS-CONSERVATIVE-BOUNDS-2026-10-29
+STATUS: CONDITIONAL MATHEMATICAL AUDIT
+DATE: 2026-10-29
+
+1. PURPOSE
+
+This audit distinguishes sharp identified bounds from conservative outer bounds in the joint calibration and cosmological observation model. The central issue is whether endpoint choices used to calculate a bound can occur simultaneously under the full constraint system.
+
+A bound is sharp relative to a specified model and data if every endpoint is attainable by a feasible parameter tuple, or if it is the exact infimum or supremum of the feasible target set. A conservative bound contains all feasible values but may include values that no admissible tuple can attain.
+
+2. JOINT FEASIBLE-SET DEFINITION
+
+Let theta collect all unknowns, including H, q, calibration offsets, coefficient perturbations, shared systematic amplitudes, and residual errors. Let D be the set satisfying the complete observation equations and all domain, interval, dependence, and cross-channel constraints. Define the target set
+
+I_H = {H(theta) : theta in D}.
+
+The exact lower and upper bounds, when they exist, are
+
+H_inf = inf {H(theta) : theta in D},
+H_sup = sup {H(theta) : theta in D}.
+
+These are sharp bounds by definition, even if an endpoint is not attained. If D is empty, the model is infeasible and no target interval should be reported. If H_sup is infinite, there is no finite upper bound. If H_inf=0 with H>0, zero is an infimum, not an attainable positive value.
+
+3. A SIMPLE PRODUCT-INTERVAL BOUND
+
+Suppose z>0 and H=qr/z, with q in Q=[q_low,q_high] and r in R=[r_low,r_high], where both intervals are positive and finite. The interval product gives
+
+H in [q_low r_low/z, q_high r_high/z].
+
+This is sharp if and only if the joint feasible set permits the endpoint pairs (q_low,r_low) and (q_high,r_high), or permits sequences approaching them if only infimum and supremum are required. If q and r are coupled, these corner pairs may be impossible. The product interval remains an outer bound but can be strictly wider than the exact identified set.
+
+For example, let q in [1,2], r in [1,2], and impose r=3-q. Then q and r are individually in [1,2], but their product is q(3-q), whose range is [2, 9/4], not the naive interval [1,4]. The naive interval contains all feasible products but is not sharp. This example shows why marginal intervals do not encode dependence.
+
+4. SHARED ADDITIVE SYSTEMATIC: EXACT CANCELLATION VERSUS OUTER BOUNDS
+
+Consider
+
+u_j = c_j q+b+lambda d_j+xi_j.
+
+If d_j=d_k, subtracting channels exactly cancels both b and lambda:
+
+u_j-u_k=(c_j-c_k)q+(xi_j-xi_k).
+
+If only separate bounds |xi_j|<=eps_j and |xi_k|<=eps_k are known, then |xi_j-xi_k|<=eps_j+eps_k. This difference bound is sharp if xi_j and xi_k may independently take opposite extreme signs. If there is a dependence constraint such as xi_j=xi_k, then the difference is exactly zero and eps_j+eps_k is conservative. If the residuals have a known covariance but are not bounded deterministic errors, covariance alone does not define a sharp deterministic interval.
+
+If d_j!=d_k, the difference contains lambda(d_j-d_k). The triangle inequality gives
+
+|q(delta_j-delta_k)+lambda(d_j-d_k)+xi_j-xi_k|
+<=q(eta_j+eta_k)+L|d_j-d_k|+eps_j+eps_k.
+
+This is sharp only if the joint domain allows all relevant terms to align at their extreme signs at the same q. Shared constraints, sign restrictions, or correlation can make it conservative.
+
+5. CORRELATED UNCERTAINTY: A TWO-VARIABLE EXAMPLE
+
+Suppose e_1,e_2 satisfy |e_1|<=eps, |e_2|<=eps. Without other constraints, the exact range of e_1-e_2 is [-2eps,2eps], so the triangle bound is sharp.
+
+If the same model additionally requires e_1=e_2, then e_1-e_2=0 exactly. The same marginal bounds now yield a conservative triangle bound, while the joint constraint yields the sharp bound zero.
+
+More generally, the range of a linear expression a^T e under a joint uncertainty set E is
+
+[min_{e in E} a^T e, max_{e in E} a^T e].
+
+Computing it over the true E preserves dependence. Replacing E by a larger box produces a valid outer range, but may enlarge it. If E is empty, the assumed model is inconsistent.
+
+6. SHARP BOUNDS FOR THE TWO-CHANNEL DIFFERENCE MODEL
+
+Let d=u_1-u_2 and
+
+d=delta_c q+e_d,
+q in [q_min,q_max],
+delta_c in [gamma,Gamma],
+e_d in [-E,E],
+
+where 0<q_min<=q_max, 0<gamma<=Gamma, and the displayed domains form an independent Cartesian product. The feasible q set is exactly
+
+Q_d={q in [q_min,q_max] : there exists delta_c in [gamma,Gamma] such that |d-delta_c q|<=E}.
+
+For fixed q>0, the possible values of delta_c q+e_d form [gamma q-E, Gamma q+E]. Therefore feasibility is equivalent to
+
+gamma q-E <= d <= Gamma q+E.
+
+Consequently,
+
+q >= (d-E)/Gamma,
+q <= (d+E)/gamma,
+
+with intersection against [q_min,q_max]. Thus the exact identified interval is
+
+Q_d = [q_min,q_max] intersect [(d-E)/Gamma,(d+E)/gamma],
+
+provided the intersection is nonempty. If lower endpoints are not positive or the signal does not meet the assumptions, the formula must be interpreted with the domain restriction q>0 and the actual feasibility inequalities. Under the stated positive compact domains, this intersection formula is exact. It is sharp because delta_c and e_d are allowed to vary independently throughout their intervals.
+
+If delta_c and e_d are coupled, the interval formula is generally only an outer bound. The exact set must be recomputed from the coupled feasible set.
+
+7. SHARPNESS AFTER PROPAGATION TO H
+
+If the exact identified set for q is Q and the independent cosmological residual r lies in a positive interval R, then the exact H set is
+
+I_H={qr/z : q in Q, r in R}
+
+only when every pair (q,r) in Q x R is jointly admissible. Under that Cartesian-product assumption and positive intervals, its lower and upper endpoints are the products of the respective lower and upper endpoints. If calibration and cosmological systematics share parameters, the correct set is instead
+
+I_H={q(theta)r(theta)/z : theta in D}.
+
+Multiplying separate marginal intervals is then generally only conservative. The sharp lower and upper bounds require minimizing and maximizing the joint expression over D.
+
+8. COMPUTATIONAL VERIFICATION
+
+For a finite-dimensional model with continuous constraints over a compact feasible set D, continuous H(theta), and nonempty D, the extreme value theorem guarantees that minimum and maximum are attained. This existence result does not itself calculate the extrema.
+
+If D is noncompact, extrema may fail to be attained or may be infinite; infimum and supremum remain the appropriate definitions. If the constraints are nonlinear or nonconvex, a local numerical optimizer does not certify global sharpness. A claim of sharpness requires a proof, a certified global optimization method, or a complete analytic characterization of the feasible set.
+
+For linear constraints and a linear target, linear programming can certify extrema when the feasible set and objective meet the required conditions. For bilinear terms such as q times an uncertain coefficient or q times a systematic-dependent quantity, ordinary linear programming does not apply directly without a valid reformulation or relaxation. A relaxation may yield a conservative bound unless tightness is proved.
+
+9. REPORTING LABELS
+
+Every reported bound should be labeled as one of:
+- exact sharp bound, with endpoint attainability or infimum/supremum status stated;
+- conservative outer bound, with the relaxation or interval enlargement identified;
+- local approximation, with its expansion point and error order stated;
+- statistical confidence or credible interval, with the probability model and construction stated.
+
+Do not call a deterministic feasible interval a confidence interval. Do not call a local optimizer's result globally sharp without certification.
+
+10. CONDITIONAL CONCLUSIONS AND NON-CLAIMS
+
+Established conditionally:
+- Sharpness is a property of the joint model and feasible set, not of marginal intervals alone.
+- The interval product for positive q and r is sharp when the relevant endpoint combinations are jointly feasible.
+- Triangle-inequality error bounds are sharp only when the joint error set permits simultaneous extremal alignment.
+- The two-channel difference interval derived in Section 6 is exact under the stated independent Cartesian-product assumptions.
+- Shared and correlated nuisance parameters can make marginal interval combinations unattainable.
+- Certified global optimization or analytic characterization is required to claim global sharpness in nontrivial nonlinear models.
+
+Not established:
+- That any specific physical uncertainty set is independent or Cartesian-product shaped.
+- That all previous outer bounds are sharp.
+- That an arbitrary numerical optimization output certifies global extrema.
+- That OMEGA-ISOP alone specifies the physical uncertainty set or derives H.
+
+11. OMEGA-ISOP STATUS
+
+This is a conditional mathematical audit. Frozen Core, Volume V, the dependency chain, and the CE-V archive remain unchanged. No CE-V promotion or RL registration is asserted.
+
+END OF DOCUMENT
