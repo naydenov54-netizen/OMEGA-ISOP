@@ -69,7 +69,7 @@ It does not show:
 - That the required signal is practically measurable with current instruments.
 - That an absolute physical scale can be obtained without any dimensional calibration or equivalent scale-bearing structure.
 
-6. GENERAL-FL RW CAUTION
+6. GENERAL-FLRW CAUTION
 For general FLRW cosmology:
 dz/dtau_0 = (1 + z) H_0 - H(z).
 A single redshift-drift datum does not generally determine H_0 if H(z) and other model parameters are unknown. Identifiability then requires additional redshift coverage, a restricted model family, independent data, and a rank/injectivity analysis of the joint observation map. The exact de Sitter simplification must not be generalized without proof.
