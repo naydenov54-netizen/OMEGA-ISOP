@@ -1,0 +1,142 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+OMEGA-ISOP
+QUANTITATIVE STABILITY FOR NEARLY COLLINEAR CALIBRATION CHANNELS
+AUDIT ID: OI-COSMO-CALIBRATION-NEAR-COLLINEAR-STABILITY-2026-10-29
+STATUS: CONDITIONAL MATHEMATICAL AUDIT
+DATE: 2026-10-29
+
+1. PURPOSE
+
+The previous multichannel audit established that distinct known channel coefficients can, in an exact affine model, separate a calibration q from a shared additive offset b. This audit quantifies how errors are amplified when the coefficients are distinct but close together.
+
+The key distinction is between structural identifiability and numerical stability. A model can have a unique exact solution and still produce an extremely uncertain estimate under small measurement errors.
+
+2. TWO-CHANNEL EXACT MODEL
+
+Assume
+
+u_1 = c_1 q + b + e_1,
+u_2 = c_2 q + b + e_2,
+
+where c_1,c_2 are known, q and b are unknown, and the errors satisfy |e_1|<=eps_1, |e_2|<=eps_2. For the exact noiseless model with c_1 != c_2,
+
+q = (u_1-u_2)/(c_1-c_2),
+b = (c_1 u_2-c_2 u_1)/(c_1-c_2).
+
+Thus distinct coefficients give algebraic identifiability for q and b in this model. If c_1=c_2, only the combination c_1 q+b is determined by the two channels, and q,b cannot be separated without more information.
+
+3. SHARP ERROR AMPLIFICATION BOUND
+
+Let u_1,u_2 denote the measured values, and define the direct two-channel estimate
+
+q_hat = (u_1-u_2)/(c_1-c_2).
+
+Because the shared b cancels,
+
+q_hat-q = (e_1-e_2)/(c_1-c_2).
+
+Therefore,
+
+|q_hat-q| <= (eps_1+eps_2)/|c_1-c_2|.
+
+This bound is sharp under independently selectable errors in the declared intervals: opposite-signed endpoint errors can attain the numerator eps_1+eps_2.
+
+For the corresponding estimate
+
+b_hat = (c_1 u_2-c_2 u_1)/(c_1-c_2),
+
+the error obeys
+
+|b_hat-b| <= (|c_1| eps_2 + |c_2| eps_1)/|c_1-c_2|.
+
+Both error bounds grow as the coefficient separation |c_1-c_2| shrinks. If the coefficients are mathematically distinct but their separation is comparable to or smaller than the observation uncertainty, the exact inverse may be practically uninformative.
+
+4. PROPAGATION TO THE COSMOLOGICAL TARGET
+
+Suppose the cosmological relation is
+
+s = z H/q,
+
+with z>0 known and s>0 known exactly for this subsection. Then H=sq/z. If q is estimated by q_hat and the bound from Section 3 is d_q=(eps_1+eps_2)/|c_1-c_2|, the feasible calibration interval is
+
+q in [q_hat-d_q, q_hat+d_q] intersect Q_domain,
+
+where Q_domain is any independently justified admissible q domain. Intersect with q>0 as well. If the intersection is empty, the observations and declared constraints are inconsistent. If it is nonempty with endpoints q_low and q_high, then
+
+H in [s q_low/z, s q_high/z].
+
+If s also has bounded error, with 0<s_low<=s_high, the interval becomes
+
+H in [q_low s_low/z, q_high s_high/z].
+
+If z is uncertain but bounded by 0<z_min<=z<=z_max, the conservative interval is
+
+H in [q_low s_low/z_max, q_high s_high/z_min].
+
+These propagated bounds are conditional on the error sets and on the stated observation map. If the calibration estimate is not positive or the constraints conflict, do not silently clip the result and claim consistency; explicitly compute the joint feasible set.
+
+For a fixed exact s,z, a calibration error radius d_q yields an H error radius s d_q/z before domain intersection. Relative error, when q>0, is |H_hat-H|/H = |q_hat-q|/q for the direct estimate H_hat=s q_hat/z. Hence near-equal coefficients can dominate the uncertainty in H even when the cosmological observation itself is precise.
+
+5. MANY CHANNELS: LINEAR DESIGN MATRIX
+
+For m calibration channels,
+
+u_j = c_j q + b + e_j, j=1,...,m.
+
+Write y=X beta+e, where beta=(q,b)^T and row j of X is (c_j,1). Exact noiseless identifiability of both q and b requires rank(X)=2, equivalent to the c_j not all being equal.
+
+For ordinary least squares with full column rank,
+
+beta_hat-beta = X^+ e,
+
+where X^+ is the Moore-Penrose pseudoinverse. In Euclidean norm,
+
+||beta_hat-beta||_2 <= ||e||_2 / sigma_min(X),
+
+where sigma_min(X)>0 is the smallest singular value of X. This deterministic bound follows from ||X^+||_2=1/sigma_min(X). It is a worst-case bound, not a probability statement.
+
+If all c_j approach a common value, the columns of X approach linear dependence and sigma_min(X) approaches zero (for a fixed finite number of channels and ordinary unweighted Euclidean design). The inverse becomes ill-conditioned. Replicating channels at exactly the same coefficient may reduce independent random noise under a justified noise model, but it does not separate q from b in the noiseless mean map. Multiple coefficient levels are needed to distinguish slope q from intercept b.
+
+The smallest singular value depends on scaling and weighting. Comparisons across designs require a declared normalization, units, error covariance, and cost model. For heteroscedastic or correlated errors, use the full covariance or the corresponding weighted design, not an unexamined unweighted formula.
+
+6. SIMPLE COEFFICIENT-SPREAD DIAGNOSTIC
+
+For the unweighted matrix X with rows (c_j,1), let c_bar be the arithmetic mean of the c_j values. The determinant of the information-like Gram matrix is
+
+det(X^T X) = m sum_j (c_j-c_bar)^2.
+
+This identity follows from
+
+X^T X = [[sum c_j^2, sum c_j],[sum c_j,m]]
+
+and expanding its determinant. The determinant is zero exactly when every c_j is identical. Small coefficient spread makes this determinant small, but the determinant alone is not a complete condition number or a complete error bound. Use sigma_min(X) or an explicitly defined condition number for quantitative stability.
+
+For two channels, sum_j(c_j-c_bar)^2=(c_1-c_2)^2/2, so the determinant equals (c_1-c_2)^2. This agrees with the inverse amplification singularity at c_1=c_2.
+
+7. DESIGN TRADE-OFFS
+
+A calibration design should not simply maximize coefficient separation without regard to the physical validity of the response model. The coefficients must be known accurately, the affine form must be justified, and error behavior must be specified. If c_j themselves are uncertain, their errors introduce additional nuisance parameters and can restore or worsen non-identifiability.
+
+A quantitative design criterion may minimize a worst-case bound, maximize sigma_min(X), minimize a covariance-based variance, or optimize cost-adjusted information. These criteria are not interchangeable. Any claim of an optimal design must specify the admissible coefficient choices, measurement costs, uncertainty model, and objective.
+
+8. CONDITIONAL CONCLUSIONS
+
+Established under the stated affine model:
+- Two channels identify q and b in the exact model if and only if c_1 != c_2.
+- With bounded channel errors, the two-channel q error is at most (eps_1+eps_2)/|c_1-c_2|.
+- The q and b estimates become unstable as the coefficient separation tends to zero.
+- For multiple channels, exact separation of q and b requires rank(X)=2; error amplification is controlled by 1/sigma_min(X).
+- Propagating a bounded q interval through H=sq/z yields a bounded H interval only under the stated positive finite domain constraints.
+- Additional channels at the same response coefficient do not, by themselves, separate q from a shared additive offset.
+
+Not established:
+- That a real calibration system obeys the affine model or that its coefficients are known without error.
+- A universal numerical stability threshold for coefficient separation.
+- A universal optimal channel design without a specified objective and cost/error model.
+- A physical H value or calibration derived from OMEGA-ISOP alone.
+
+9. OMEGA-ISOP STATUS
+
+This is a conditional mathematical stability audit. It does not modify Frozen Core, Volume V, the dependency chain, or the CE-V archive. No CE-V promotion or RL registration is asserted.
+
+END OF DOCUMENT
