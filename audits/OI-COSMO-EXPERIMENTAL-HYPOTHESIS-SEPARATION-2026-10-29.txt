@@ -1,0 +1,193 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+OMEGA-ISOP / M3.2
+AUDIT #31: EXPERIMENTAL SEPARATION OF HYPOTHESES AND TARGET-INFORMATION GAIN
+Date: 2026-10-29
+Status: Conditional mathematical audit. No Frozen Core amendment, CE-V promotion, or RL registration.
+
+1. PURPOSE AND SCOPE
+
+This audit formalizes when an additional observation can distinguish two hypotheses, when it can reduce a target's feasible range, and when no experiment from a declared class can distinguish the hypotheses under the stated observation and error model.
+
+A hypothesis is represented by a set of admissible states, not necessarily by one parameter point. Distinguishability is relative to the chosen experiment, observation map, domain, noise model, and decision criterion. The conclusions below do not by themselves establish empirical adequacy or assign probabilities to hypotheses.
+
+2. HYPOTHESIS AND PREDICTION SETS
+
+Let H_0 and H_1 be two nonempty sets of admissible states in a common state space Z. For a proposed experiment a in a design class A, let F_a:Z→Y_a be its prediction map.
+
+The prediction sets are
+P_i(a) = {F_a(z): z in H_i}, for i in {0,1}.
+
+In the exact deterministic setting, the hypotheses are distinguishable by experiment a if
+P_0(a) ∩ P_1(a) = empty.
+
+If the prediction sets intersect, at least one predicted observation is compatible with both hypotheses, so the observation cannot uniformly distinguish every state in H_0 from every state in H_1. Disjointness is a set-level criterion; it does not guarantee that an actual measurement is available, feasible, or correctly modeled.
+
+3. BOUNDED OBSERVATION ERROR
+
+Let E_a be the allowed error set for experiment a. The observation-compatible sets under each hypothesis are
+P_i^E(a) = P_i(a) + E_a
+= {p+e : p in P_i(a), e in E_a}.
+
+Robust separation under bounded errors requires
+P_0^E(a) ∩ P_1^E(a) = empty.
+
+If the expanded prediction sets intersect, there is an observation that can be explained under either hypothesis with an allowed error, so deterministic guaranteed classification is impossible for that observation.
+
+For norm-ball errors E_a={e:||e||<=epsilon}, a sufficient separation condition is
+dist(P_0(a),P_1(a)) > 2 epsilon,
+where dist(P_0,P_1)=inf{||p_0-p_1||:p_i in P_i}.
+
+When the prediction sets are not closed or the infimum is not attained, strict distance greater than 2 epsilon still ensures disjoint expanded sets. If the distance equals 2 epsilon, disjointness depends on the geometry and endpoint inclusion; equality alone is not enough to conclude either separation or overlap.
+
+For a general non-symmetric or structured error set, use the exact expanded sets. A scalar distance threshold may not faithfully represent correlated or anisotropic errors.
+
+4. EXPERIMENTAL DESIGN AS SET SEPARATION
+
+An experiment design a is useful for separating H_0 and H_1 when its prediction sets are disjoint after accounting for the declared error model. One design may distinguish the hypotheses while another does not.
+
+A design objective can maximize a separation margin such as
+m(a) = dist(P_0(a),P_1(a))
+for normed prediction spaces, or an appropriate set-separation functional for structured errors. Maximizing this margin is meaningful only when the output norms, scaling, noise levels, and costs are comparable across designs.
+
+If experiment cost c(a) matters, a design criterion might compare certified separation margin against cost or choose the least-cost design satisfying a required robust-separation threshold. The criterion must be specified; there is no universally optimal experiment independent of costs and uncertainty assumptions.
+
+A numerical estimate of m(a) is not a certificate of separation unless the optimization method establishes a valid lower bound on the distance between the full prediction sets.
+
+5. TARGET INFORMATION GAIN
+
+Let J be the current feasible set and T:Z→R the target. The current target set is I_T={T(z):z in J}. After adding experiment a with observed value y_a and error set E_a, the feasible set becomes
+J_new = {z in J : y_a-F_a(z) in E_a},
+and the updated target set is I_T,new=T(J_new).
+
+Since J_new is a subset of J, it follows that
+I_T,new is a subset of I_T.
+
+Thus an additional observation, when added as a retained constraint, cannot enlarge the exact feasible target set. It may leave the set unchanged, shrink it, or make it empty if the new observation is inconsistent with the current model and constraints.
+
+A smaller feasible set does not guarantee a strict reduction in target uncertainty. If removed states all had target values already represented by remaining states, the target image can remain unchanged even when the state set shrinks substantially.
+
+The realized information gain depends on the observed value. Before collecting the data, one can evaluate possible outcomes or worst-case design criteria, but cannot assert the realized shrinkage in advance without additional assumptions.
+
+6. WHEN AN EXPERIMENT REDUCES TARGET AMBIGUITY
+
+For a fixed possible result y_a, the new target set is strictly smaller than the old target set exactly when
+T(J_new) is a proper subset of T(J).
+
+This is a target-specific condition. A useful experiment need not distinguish every state; it needs to remove or separate states that carry target values relevant to the scientific question.
+
+For point identification, the target becomes identified if T is constant on J_new. It is not necessary for J_new to be a singleton.
+
+A design can be highly informative about nuisance parameters but useless for the target, or it can leave nuisance parameters unresolved while identifying the target. Therefore, design evaluation should state whether its objective is full-state identification, target identification, interval-width reduction, or hypothesis discrimination.
+
+7. IMPOSSIBILITY RESULTS FOR A CLASS OF EXPERIMENTS
+
+Let A be the allowed experiment class. If for every a in A,
+P_0(a) ∩ P_1(a) is nonempty,
+then no single experiment from A guarantees exact separation of the two composite hypotheses for all admissible states.
+
+With bounded errors, if for every a in A,
+P_0^E(a) ∩ P_1^E(a) is nonempty,
+then no single experiment in A guarantees robust separation under the stated error model.
+
+This conclusion is relative to the declared class A and the model. It does not prove that the hypotheses are indistinguishable under every imaginable experiment, nor that a sequence or joint combination of experiments cannot distinguish them.
+
+For a finite or joint design a=(a_1,...,a_n), use the joint prediction map
+F_a(z)=(F_{a_1}(z),...,F_{a_n}(z))
+and the joint error set with its actual dependence structure. Do not infer impossibility for combined experiments merely because each individual experiment is ambiguous: complementary experiments can jointly separate hypotheses.
+
+8. JOINT EXPERIMENTS AND COMPLEMENTARY INFORMATION
+
+For two experiments a and b, the joint prediction is
+F_(a,b)(z)=(F_a(z),F_b(z)).
+The joint prediction set is not generally determined by independently combining arbitrary points from the marginal prediction sets. The same underlying state z must generate both outputs.
+
+Consequently, marginal prediction-set overlap for each experiment does not prove joint overlap. The state that matches H_0 and H_1 in experiment a may differ from the state that matches them in experiment b. A joint feasibility test must preserve cross-experiment state consistency and correlated errors.
+
+The joint design separates the hypotheses exactly if its two joint prediction sets are disjoint, and robustly if their expansions by the joint error set are disjoint.
+
+9. STATISTICAL DISTINGUISHABILITY IS A DIFFERENT CRITERION
+
+For stochastic observation models, each hypothesis may induce a family of probability distributions rather than a deterministic prediction set. Distributional overlap, total variation distance, Kullback-Leibler divergence, likelihood ratios, and testing error rates address different statistical questions and require additional assumptions.
+
+Disjoint deterministic prediction sets under bounded errors can support guaranteed separation within that bounded-error model. Statistical models generally do not permit a zero-error guarantee merely because two distributions differ. If two hypotheses induce the same probability law for every admissible experiment, no statistical test can distinguish them better than allowed by prior information and the chosen loss criterion.
+
+Do not transfer deterministic set-separation conclusions to a stochastic model, or statistical power claims to a bounded-error model, without stating the connection.
+
+10. DISTANCE AND CERTIFICATION
+
+A robust margin can be defined as
+m_E(a)=dist(P_0(a)+E_a, P_1(a)+E_a)
+when the same additive error set applies to both hypotheses. A positive margin certifies separation in the selected metric. For noncompact sets, a zero infimum can occur even when the sets are disjoint, so zero distance does not necessarily mean intersection.
+
+For equal norm-ball errors of radius epsilon, a positive pre-error distance greater than 2 epsilon is a sufficient robust-separation certificate. If the error sets differ by hypothesis, expand each set with its own error set and evaluate the resulting pair directly.
+
+A reliable certificate must cover the full prediction sets, including boundaries and all branches. Sampling a finite number of parameter values can reveal overlap but cannot generally prove disjointness of continuous sets. Certified optimization, analytical bounds, interval methods, or structural arguments may be needed.
+
+11. DESIGN UNDER COSTS AND CONSTRAINTS
+
+Let A_feasible be the subset of designs that can actually be executed under resource, safety, timing, and instrument constraints. A theoretical separating design outside A_feasible is not an operational solution.
+
+A defensible design procedure:
+(a) state the competing hypotheses and domains;
+(b) define feasible designs and their prediction maps;
+(c) specify observation errors and shared systematics;
+(d) prove or estimate the separation margin;
+(e) assess target-specific feasible-set shrinkage;
+(f) account for cost and execution constraints;
+(g) distinguish certified guarantees from heuristic rankings.
+
+If every feasible design fails a specified separation threshold, that establishes failure relative to the threshold and design class, not universal impossibility of all future measurements.
+
+12. CONDITIONAL THEOREMS
+
+Theorem A, exact separation:
+For a fixed deterministic experiment a, if P_0(a) and P_1(a) are disjoint, then no exact output belongs to both prediction sets; the hypotheses are uniformly distinguishable in the exact set-membership sense.
+
+Theorem B, robust separation:
+If the error-expanded prediction sets P_0(a)+E_a and P_1(a)+E_a are disjoint, then no observation can be compatible with both hypotheses under the stated additive error model.
+
+Theorem C, target-set monotonicity:
+If J_new is obtained by intersecting J with an additional observation constraint, then T(J_new) is a subset of T(J). If J_new is empty, the new observation is inconsistent with the retained model and constraints or the feasibility representation requires review.
+
+Theorem D, class-relative impossibility:
+If every allowed single experiment in A has intersecting expanded prediction sets, no single experiment from A provides guaranteed robust separation of the composite hypotheses. This does not rule out a joint design unless the premise also holds for every allowed joint design.
+
+All results are conditional on the exact hypothesis sets, experiment class, observation maps, and error assumptions.
+
+13. AUDIT CHECKLIST
+
+Record:
+- The competing hypothesis sets and their parameter/state domains.
+- The candidate experiment or joint design and full prediction maps.
+- Whether predictions are deterministic or stochastic.
+- The error sets, norms, correlations, and shared systematic variables.
+- The exact or robust prediction-set intersection test.
+- The separation margin and whether it is certified globally.
+- The target and its current and updated feasible sets.
+- Whether the experiment removes target-distinct states or only nuisance ambiguity.
+- Whether conclusions concern one experiment or a joint sequence.
+- Design feasibility, cost, and the operational constraints.
+- The difference between guaranteed separation, statistical power, and heuristic evidence.
+
+14. NON-IMPLICATIONS
+
+- Different point predictions do not guarantee robust separation when errors are large.
+- A zero set distance does not always imply intersection for nonclosed sets.
+- Overlap of each marginal experiment's prediction sets does not imply overlap of the joint prediction sets.
+- A smaller state-feasible set does not necessarily yield a smaller target set.
+- A finite sample of predictions does not certify disjointness of continuous prediction sets.
+- Failure of every experiment in one declared class does not prove universal indistinguishability.
+- Deterministic separation does not automatically imply a statistical zero-error test.
+- A statistically detectable difference does not imply a practical or affordable experiment.
+- A new measurement does not necessarily identify all parameters.
+- An unverified numerical margin is not a global separation certificate.
+
+15. CONCLUSION
+
+Experimental distinguishability is a relation between competing hypothesis sets and a specified observation design under a stated uncertainty model. Exact separation requires disjoint prediction sets; robust separation requires disjoint error-expanded prediction sets. Target-information gain is separately assessed by the image of the updated feasible set under the target map.
+
+Impossibility claims must remain relative to the complete allowed design class, and joint experiments must preserve common-state and error dependencies. The audit supplies conditional criteria for design and certification, not a claim that any particular physical hypothesis has been separated.
+
+This audit does not modify the Frozen Core, promote CE-V, or register an RL item.
+
+END OF DOCUMENT
