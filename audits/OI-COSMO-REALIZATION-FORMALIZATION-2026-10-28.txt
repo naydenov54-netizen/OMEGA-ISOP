@@ -1,0 +1,129 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+1. Output for OMEGA-ISOP/M3.2 must be clean plain text, directly copyable on Android, in one continuous block when a complete artifact is requested.
+2. Frozen Core remains unchanged unless the user explicitly authorizes a change and a documented change-control decision records it.
+3. RL_REGISTRATION_REQUIRED is not RL_REGISTERED. Never claim registration without authoritative registry confirmation and readback.
+4. Distinguish established facts, external assumptions, conditional results, and unresolved claims.
+5. Do not claim that a repository, file, registry, or submission was inspected or modified unless the corresponding action succeeded and its result was verified.
+
+OMEGA-ISOP — COSMOLOGICAL REALIZATION FORMALIZATION: R_cosmo / Phi_cosmo
+DOCUMENT_ID: OI-COSMO-REALIZATION-FORMALIZATION-2026-10-28
+VERSION: 1
+DATE: 2026-10-28
+STATUS: CONDITIONAL FORMAL CONSTRUCTION; NOT AN RL REGISTRATION
+CHANGE TYPE: RESEARCH AUDIT / EXPLICIT REALIZATION SPECIFICATION
+FROZEN CORE: PRESERVED; NO CHANGE PROPOSED
+SOURCE BASIS:
+- OMEGA-ISOP Volume II, Sections II and V: realization map Phi and admissible-dynamics class A(R;Phi).
+- OMEGA-ISOP Volume III, Sections 8-10 and 17: conditional colimit construction and dynamic-selection boundary.
+- OMEGA-ISOP Volume V, Sections II-III and IX: realization/dynamics distinction and global realization filtering.
+- OI-COSMO-EXPANSION-LAMBDA-001_RL-CLOSURE-RECORD_2026-10-26.txt.
+- audits/OI-COSMO-TEST05-DEPENDENCY-AUDIT-2026-10-28.txt.
+
+1. QUESTION
+Can the previously underspecified cosmological relational structure R_cosmo and realization map Phi_cosmo be stated explicitly enough to test the claim that causal relational structure alone determines a unique metric scale or cosmological constant Lambda?
+
+2. MINIMAL RELATIONAL CONSTRUCTION
+2.1 External carrier for this test
+Let E be a set of events. Let ≪ be a strict chronological relation on E satisfying:
+- irreflexivity: not(x ≪ x);
+- transitivity: x ≪ y and y ≪ z imply x ≪ z.
+For a spacetime-derived test, additionally require the selected relation to be the chronological relation of at least one time-oriented Lorentzian realization. E and ≪ are inputs to this construction; their existence is not derived here from the OMEGA-ISOP Frozen Core.
+
+2.2 Local relational configurations
+Choose a cover U = {U_i} of E by local domains. For each nonempty finite intersection U_I, define C_I = (U_I, ≪ restricted to U_I). Morphisms are inclusion embeddings that preserve and reflect the selected relation.
+
+Let J be the category of these local domains and inclusion/overlap maps. Define D_CC_cosmo: J -> C_REL by D_CC_cosmo(U_I) = C_I, where C_REL is the chosen category of relational structures and embeddings.
+
+2.3 Colimit and its boundary
+If overlap identifications satisfy the required compatibility/cocycle conditions and the colimit exists in C_REL, define:
+R_cosmo := colim(D_CC_cosmo).
+The colimit represents the glued global relational structure (E, ≪), up to the relevant relational isomorphism.
+
+This is a conditional construction, not a universal existence theorem. If the category, overlap maps, or universal property are not supplied, the colimit must not be presumed to exist. The construction formalizes a chosen causal relational input; it does not derive a physical spacetime or metric from the Frozen Core.
+
+3. REALIZATION CLASS AND Phi_cosmo
+3.1 Define Real(R_cosmo) as the class of tuples (M, g, iota) such that:
+- M is a smooth four-dimensional manifold;
+- g is a time-oriented Lorentzian metric on M in the selected admissible class;
+- iota: E -> M is a bijection;
+- x ≪ y iff iota(x) is chronologically before iota(y) under g.
+Identify tuples related by the declared relational isomorphisms. This class is nonempty only if at least one such realization exists.
+
+3.2 Define the model target M_cosmo as the class of explicitly parameterized cosmological models:
+M_cosmo = (M, g, a(t), k, matter model, stress-energy, Lambda, initial/boundary data, observables).
+
+Define Phi_cosmo: Real(R_cosmo) -> M_cosmo by mapping each realization to its chosen cosmological model tuple, with all extra metric, matter, dynamical, and data fields supplied as explicit model inputs. Phi_cosmo is a realization map, not a law selecting a unique model from R_cosmo. If the additional inputs are not fixed, the resulting model class may contain multiple elements.
+
+3.3 State space and admissible dynamics
+For a spatially flat FLRW test model, let X_cosmo consist of admissible states such as x(t) = (a(t), H(t), epsilon(t), p(t), q(t)), where a(t) > 0, H = adot/a, epsilon is energy density, p is pressure, and q denotes any additional matter variables required by the chosen model.
+
+For fixed Phi_cosmo and fixed external assumptions theta_ext, define A(R_cosmo; Phi_cosmo | theta_ext) as the subset of evolution histories on X_cosmo that:
+(a) realize the selected relational constraints;
+(b) satisfy the explicitly chosen dynamical equations;
+(c) satisfy the specified matter, conservation, and initial/boundary conditions.
+
+The notation after the vertical bar is an explanatory refinement for this audit; it does not replace the canonical OMEGA-ISOP notation A(R;Phi). Nonemptiness and uniqueness must be checked for the particular model. The general framework does not guarantee either.
+
+4. EXTERNAL PHYSICAL BRIDGE
+For the standard spatially flat FLRW/Einstein test, explicitly impose the following external equations using energy density epsilon:
+H^2 = 8 pi G epsilon / (3 c^2) + Lambda c^2 / 3
+epsilon_dot + 3 H (epsilon + p) = 0
+H_dot = -4 pi G (epsilon + p) / c^2
+
+These equations are not derived from R_cosmo or the OMEGA-ISOP Frozen Core by this record. The matter equation of state, matter model, value or role of Lambda, and initial/boundary data must also be specified. For vacuum de Sitter, epsilon = 0 and p = 0, so the imposed equations give H^2 = Lambda c^2 / 3 for the expanding branch.
+
+Dependency labels:
+- Causal relation ≪: specified relational input for this test, not derived from the Core.
+- Smooth manifold and Lorentzian metric: external realization structure.
+- Volume measure mu: not fixed by ≪ alone in this construction; if needed, supply the metric volume form or another explicit measure.
+- Einstein equations: external dynamics assumption.
+- Matter/stress-energy: external model input unless separately derived.
+- Lambda: external parameter in the vacuum test; no OMEGA-specific selection rule is established.
+- Initial/boundary data: external solution-selection input.
+- Observables and measurement tolerances: must be declared for an empirical comparison.
+
+5. CONDITIONAL DE SITTER COUNTERMODEL
+For eta < 0 and H > 0, consider the spatially flat de Sitter metric:
+g_H = a_H(eta)^2 [-c^2 d eta^2 + d chi^2 + chi^2 d Omega^2]
+a_H(eta) = -1 / (H eta)
+Lambda_H = 3 H^2 / c^2.
+
+For H_1 != H_2:
+g_H2 = (H_1 / H_2)^2 g_H1,
+while Lambda_H1 != Lambda_H2.
+
+A positive constant conformal rescaling preserves the null cones and chronological relation. Thus these two models have the same selected causal relational structure R_cosmo but different metric scales and different Lambda values. They are both standard vacuum de Sitter solutions only under their respective externally imposed Einstein-vacuum assumptions.
+
+CONCLUSION C1: Within this specified de Sitter realization class, the causal relational structure alone does not determine the metric scale or Lambda.
+CONCLUSION C2: If Lambda is fixed externally and the vacuum Einstein equations are imposed, the de Sitter H is conditionally fixed by H^2 = Lambda c^2 / 3. This does not conflict with C1; the added physical premise removes the scale freedom.
+LIMIT: This is a conditional model-class counterexample to causal-structure-only determination, not a proof that no richer OMEGA-specific realization could select a scale using additional premises.
+
+6. MATHEMATICAL STATUS AND CHECKS
+EVIDENCE CLASS: Explicit conditional formal construction plus standard analytical de Sitter relations.
+CHECKED IN THIS RECORD:
+- Definition of a local relational diagram and the conditions under which its colimit may be invoked.
+- Separation of R_cosmo, Real(R_cosmo), Phi_cosmo, X_cosmo, and A(R_cosmo;Phi_cosmo).
+- Algebraic relation g_H2 = (H_1/H_2)^2 g_H1.
+- Conditional difference in Lambda for H_1 != H_2.
+- Conditional recovery of H from a fixed Lambda in the imposed vacuum Einstein model.
+
+NOT CHECKED / NOT ESTABLISHED:
+- A unique categorical colimit from the Frozen Core alone.
+- A derivation of Lorentzian geometry, the physical volume measure, Einstein equations, matter content, or Lambda from OMEGA-ISOP.
+- A unique cosmological dynamics or a unique global solution.
+- An OMEGA-specific observable prediction distinguishable from standard GR/FLRW.
+- Exhaustive literature novelty or independent mathematical review.
+
+7. FINDING
+The former specification gap can be narrowed by giving an explicit conditional R_cosmo and Phi_cosmo. The resulting causal-only realization class admits multiple metric scales and Lambda values in the stated de Sitter family. Therefore no unique Lambda follows from that causal input alone. The result remains a formalization and boundary result for an explicitly selected class, not a new physical law and not a refutation of OMEGA-ISOP.
+
+8. NEXT TEST
+Add a declared scale-sensitive input, such as a specified volume measure mu, a fixed metric normalization, or a physical boundary/initial datum, and determine exactly which degeneracy it removes. Then test whether any proposed scale-selection rule follows from OMEGA-specific premises or is still external. Compare all resulting observables against standard GR/FLRW under matched assumptions.
+
+9. RELEASE AND TRACEABILITY
+FROZEN CORE: UNCHANGED.
+CE-V: NO PROMOTION.
+RL REGISTRATION: NOT PERFORMED OR VERIFIED.
+CANONICAL ACCEPTANCE: NOT CLAIMED.
+GITHUB FILE OPERATION: THIS DOCUMENT IS A PROPOSED NEW AUDIT RECORD UNTIL THE WRITE AND READBACK SUCCEED.
+END OF DOCUMENT
