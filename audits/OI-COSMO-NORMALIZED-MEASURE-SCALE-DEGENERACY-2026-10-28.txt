@@ -1,0 +1,117 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+1. Output for OMEGA-ISOP/M3.2 must be clean plain text, directly copyable on Android, in one continuous block when a complete artifact is requested.
+2. Frozen Core remains unchanged unless the user explicitly authorizes a change and a documented change-control decision records it.
+3. RL_REGISTRATION_REQUIRED is not RL_REGISTERED. Never claim registration without authoritative registry confirmation and readback.
+4. Distinguish established facts, external assumptions, conditional results, and unresolved claims.
+5. Do not claim that a repository, file, registry, or submission was inspected or modified unless the corresponding action succeeded and its result was verified.
+
+OMEGA-ISOP — NORMALIZED MEASURE AND GLOBAL SCALE DEGENERACY
+DOCUMENT_ID: OI-COSMO-NORMALIZED-MEASURE-SCALE-DEGENERACY-2026-10-28
+VERSION: 1
+DATE: 2026-10-28
+STATUS: CONDITIONAL MATHEMATICAL THEOREM
+CHANGE TYPE: RESEARCH AUDIT
+RELATED AUDIT: OI-COSMO-CAUSAL-ORDER-VOLUME-MEASURE-NOGO-2026-10-28
+FROZEN CORE: PRESERVED; NO CHANGE PROPOSED
+RL REGISTRATION: NOT PERFORMED OR CLAIMED
+CE-V: NO PROMOTION
+
+1. QUESTION
+Can a normalized probability measure derived from a metric volume measure determine the absolute global scale of a four-dimensional Lorentzian metric?
+
+2. ASSUMPTIONS
+Let M be a measurable four-dimensional spacetime with a Lorentzian metric g whose total metric volume is finite and positive:
+0 < Vol_g(M) < infinity.
+For measurable A subset M, define:
+Vol_g(A) = integral over A of dvol(g).
+Define the normalized metric-volume probability measure:
+nu_g(A) = Vol_g(A) / Vol_g(M).
+
+For a constant k > 0, let:
+g_k = k^2 g.
+This is a global constant conformal rescaling. The result below concerns this global scale degree of freedom and does not claim that normalized measures are invariant under arbitrary nonconstant conformal rescalings.
+
+3. THEOREM N2 — NORMALIZATION DOES NOT FIX GLOBAL SCALE
+In dimension n, the metric volume density transforms under g_k = k^2 g as:
+dvol(g_k) = k^n dvol(g).
+In four dimensions:
+dvol(g_k) = k^4 dvol(g).
+
+For each measurable A:
+Vol_gk(A) = k^4 Vol_g(A),
+and for the total space:
+Vol_gk(M) = k^4 Vol_g(M).
+
+Therefore:
+nu_gk(A)
+= Vol_gk(A) / Vol_gk(M)
+= [k^4 Vol_g(A)] / [k^4 Vol_g(M)]
+= nu_g(A).
+
+Hence:
+nu_gk = nu_g for every k > 0.
+
+PROOF STATUS: PROVED under the assumptions in Section 2.
+
+4. CONSEQUENCE
+The normalized measure identifies relative volume proportions but is blind to the constant global scale k. Consequently, it cannot by itself select a unique metric from the family {k^2 g : k > 0}, nor determine an absolute four-volume or an absolute length scale.
+
+If a target model maps the scale to a parameter such as the de Sitter Hubble parameter H, the normalized measure alone does not select H within a family whose metrics differ only by a global constant conformal factor and whose normalized volume measures therefore coincide.
+
+5. DE SITTER APPLICATION
+For the spatially flat de Sitter family:
+g_H = a_H(eta)^2 [-c^2 d eta^2 + d chi^2 + chi^2 d Omega_2^2],
+a_H(eta) = -1/(H eta), eta < 0.
+
+For H_1,H_2 > 0:
+g_H2 = (H_1/H_2)^2 g_H1.
+
+Setting k = H_1/H_2 gives:
+dvol(g_H2) = k^4 dvol(g_H1).
+When normalized over the same finite-volume domain, with the same domain and identification:
+nu_gH2 = nu_gH1.
+
+Thus a normalized measure over that domain cannot distinguish H_1 from H_2. This conclusion is conditional on a finite, positive total volume over the domain used for normalization. If the full spacetime has infinite volume, a global normalized volume probability measure of this form is not defined; that failure does not supply an absolute scale.
+
+The standard relation Lambda = 3 H^2/c^2 requires the additional Einstein-vacuum/de Sitter model premise. The present theorem neither derives that premise nor determines Lambda.
+
+6. WHAT EXTRA INFORMATION COULD BREAK THE DEGENERACY?
+At least one extra condition must fail to be invariant under g -> k^2 g. Examples of possible additional inputs include:
+- a specified positive total physical four-volume;
+- an independently calibrated dimensional density or fundamental length scale;
+- a measured dimensionful observable with a justified mapping to the metric scale;
+- a separately justified dynamical law that selects a scale.
+
+These are candidates, not established OMEGA-ISOP derivations. Any candidate must be typed, constructed, and tested for independence from the target metric scale. A dimensional constant inserted by hand is an external scale unless its provenance is separately derived.
+
+7. RELATION TO THE CAUSAL-ORDER NO-GO AUDIT
+The causal-order no-go audit establishes that causal-order-only data cannot recover the metric volume density for every conformally related metric when those metrics share the same causal structure but have different volume densities.
+The present result adds a distinct limitation: even after a volume measure is converted to a normalized probability measure, global scale information is erased by normalization.
+These are separate arguments:
+- causal-order-only input does not determine the metric volume density across a conformal class;
+- normalized volume proportions do not determine the constant global scale.
+
+Neither argument prohibits a successful construction from richer data. Both require that any additional scale-bearing input be stated explicitly rather than silently treated as a consequence of relational structure alone.
+
+8. OMEGA-ISOP STATUS
+The general OMEGA-ISOP framework allows conditional measures on specified measurable structures but does not universally guarantee an invariant measure or derive a unique physical metric scale.
+This audit establishes a conditional mathematical degeneracy theorem. It does not establish a new universal physical law, does not alter the Frozen Core, and does not warrant automatic RL registration or CE-V promotion.
+
+9. NEXT TEST
+For any proposed cosmological measure, classify it as one of:
+A. unnormalized metric volume;
+B. normalized probability measure;
+C. discrete counting measure;
+D. independently calibrated measure;
+E. dynamically selected invariant measure.
+
+Then test whether its inputs and transformation law distinguish g from k^2 g. If they do not, absolute scale selection has not been achieved. If they do, identify exactly which independent scale-bearing premise or proved mechanism breaks the degeneracy.
+
+10. RELEASE AND TRACEABILITY
+FROZEN CORE: UNCHANGED.
+VOLUME II / VOLUME III: UNCHANGED.
+CE-V: NO PROMOTION.
+RL REGISTRATION: NOT PERFORMED OR VERIFIED.
+CANONICAL ACCEPTANCE: NOT CLAIMED.
+STATUS: CONDITIONAL MATHEMATICAL THEOREM; OMEGA-INTERNAL ABSOLUTE-SCALE SELECTION REMAINS UNRESOLVED.
+END OF DOCUMENT
