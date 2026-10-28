@@ -1,0 +1,118 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+OMEGA-ISOP — COSMOLOGICAL SCALE IDENTIFIABILITY AUDIT #11
+TITLE: NOISE, FINITE PRECISION, AND NUISANCE-PARAMETER ROBUSTNESS
+DATE: 2026-10-29
+STATUS: MATHEMATICAL AUDIT; CONDITIONAL RESULTS ONLY
+
+1. PURPOSE
+
+This audit distinguishes:
+(A) structural identifiability in an exact observation model;
+(B) practical stability under finite measurement precision;
+(C) identifiability after the parameter model is expanded to include additional unknown nuisance or calibration parameters.
+
+These are distinct properties. Noise does not cure exact observational equivalence, and an identifiable idealized model need not remain identifiable after adding unknown parameters.
+
+2. EXACT OBSERVATIONAL EQUIVALENCE CANNOT BE FIXED BY BETTER PRECISION
+
+Let z > 0 and H,q > 0. Consider the observation map
+F0(H,q) = zH/q.
+
+For every a > 0,
+F0(aH, aq) = F0(H,q).
+
+Thus distinct parameter pairs on the same scaling orbit produce exactly the same ideal observation. If a statistical noise model depends on parameters only through F0, then these pairs also induce identical observation distributions. No estimator can distinguish them from these data alone, regardless of sample size or instrument precision.
+
+More generally, if two parameter values theta1, theta2 with H1 != H2 satisfy F(theta1)=F(theta2), and the complete probability law of the data depends on theta only through F(theta), then theta1 and theta2 are observationally indistinguishable under that model. This conclusion is conditional on the stated observation/noise model; other parameter-dependent information could alter it.
+
+3. A GLOBALLY IDENTIFIABLE EXAMPLE WITH FINITE ERROR
+
+Suppose the ideal observation map is
+s = zH/q,
+u = q,
+where z > 0 is known and the second observation independently calibrates q. The ideal inverse is
+H = su/z.
+
+This map is globally identifiable for H,q > 0. Now suppose measured values satisfy
+s_hat = s + e_s,
+u_hat = u + e_u,
+with absolute error bounds
+|e_s| <= epsilon_s,
+|e_u| <= epsilon_u.
+Assume z is exact and the measured quantities are interpreted in the same calibration convention.
+
+Define H_hat = s_hat u_hat/z. Then
+H_hat - H = (u e_s + s e_u + e_s e_u)/z,
+so
+|H_hat - H| <= (u epsilon_s + s epsilon_u + epsilon_s epsilon_u)/z.
+
+For s,u > 0, if the errors are small relative to the corresponding observations, the first-order relative error is approximately
+(H_hat-H)/H ≈ e_s/s + e_u/u.
+A conservative magnitude approximation is
+|H_hat-H|/H ≲ epsilon_s/s + epsilon_u/u,
+with the second-order product term retained when a rigorous bound is needed.
+
+This shows that global identifiability does not itself guarantee good practical precision. The precision depends on measurement errors, signal sizes, and the conditioning of the inverse map. The exact bound above is the rigorous statement under the assumed deterministic error bounds.
+
+4. UNKNOWN CALIBRATION CAN RESTORE NONIDENTIFIABILITY
+
+Suppose the added calibration observation is not u=q but instead
+u = q/r,
+where r > 0 is an additional unknown calibration factor. The complete observation map becomes
+F(H,q,r) = (zH/q, q/r),
+with z > 0 known and H,q,r > 0.
+
+For every a > 0, define
+T_a(H,q,r) = (aH, aq, aq/r?).
+
+The transformation must preserve q/r. Choose
+T_a(H,q,r) = (aH, aq, ar).
+Then
+z(aH)/(aq) = zH/q
+and
+(aq)/(ar) = q/r.
+Therefore
+F(T_a(H,q,r)) = F(H,q,r)
+for every a > 0, while H changes whenever a != 1.
+
+Consequently H is not globally identifiable in this expanded model. The second observation identifies only q/r, not q independently. A calibration observation resolves the original degeneracy only if its own calibration status is justified and its additional unknowns are accounted for.
+
+5. NOISE AND IDENTIFIABILITY: WHAT CAN AND CANNOT BE CONCLUDED
+
+5.1 Structural identifiability is a property of the complete ideal observation model and its admissible parameter domain. It asks whether different target-parameter values can yield the same complete observations.
+
+5.2 Practical identifiability concerns whether the parameter can be estimated with useful precision from finite, noisy data. It requires an explicit noise model, sample design, parameter domain, and precision criterion. Structural identifiability is necessary for unique recovery under the model but is not sufficient for stable estimation.
+
+5.3 Statistical identifiability should be stated in terms of the complete data distributions: distinct target values must not be capable of inducing the same distribution after nuisance parameters are varied. Equality of deterministic mean maps proves statistical nonidentifiability when the noise law depends on parameters only through that map; it need not do so if the noise law contains additional parameter-dependent information.
+
+5.4 More observations help only when their complete joint model contributes independent identifying information or constrains nuisance parameters. Repeating measurements of a map that retains the same exact symmetry can reduce random error in the identifiable combinations while leaving the symmetry-related parameters unseparated.
+
+5.5 A local Jacobian or sensitivity calculation can diagnose local regularity and poor conditioning. It does not by itself prove global identifiability or quantify statistical uncertainty without further assumptions.
+
+6. CHECKLIST FOR ANY CLAIM OF PHYSICAL SCALE RECOVERY
+
+A defensible claim should specify:
+- the full parameter vector, including all nuisance and calibration parameters;
+- the complete observation map and, for statistical claims, the data distribution;
+- the admissible parameter domain and any fixed quantities;
+- a proof of global target identifiability, or a clearly limited local result;
+- error bounds or a stated statistical precision criterion;
+- which dimensional standard is independently calibrated and why it does not co-transform;
+- whether added observations genuinely break all target-changing equivalences.
+
+7. OMEGA-ISOP INTERPRETATION LIMITS
+
+The calculations establish conditional results for the explicit observation maps above. They do not derive a physical clock standard, H, q, or a semantic bridge from the OMEGA-ISOP Frozen Core. No universal statement is made about all cosmological observation models.
+
+No change to Frozen Core, Volume II, Volume III, or Volume V is proposed. No CE-V promotion is proposed. No RL registration is requested or claimed.
+
+8. CONCLUSION
+
+The three cases differ:
+- Exact observational equivalence is structural nonidentifiability and cannot be cured by improved precision alone under the same observation model.
+- A globally identifiable inverse can still be practically unstable or imprecise under finite measurement error.
+- Adding an unknown calibration parameter can restore an exact degeneracy and destroy identifiability that held in a smaller model.
+
+Global identifiability, practical precision, and calibration independence must therefore be audited separately.
+
+END OF DOCUMENT
