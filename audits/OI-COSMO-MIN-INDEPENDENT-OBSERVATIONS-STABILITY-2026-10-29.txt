@@ -1,0 +1,187 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+
+OMEGA-ISOP/M3.2
+COSMOLOGICAL SCALE IDENTIFIABILITY AUDIT #12
+MINIMAL INDEPENDENT OBSERVATIONS AND STABILITY CONDITIONS
+Date: 2026-10-29
+Status: Conditional mathematical audit; research artifact only
+Scope: Observation-map identifiability and stability for an ideal exact de Sitter model
+Frozen Core: unchanged
+CE-V status: no promotion or integration decision
+RL status: no registration requested or claimed
+
+1. PURPOSE AND SCOPE
+
+This audit asks what makes an observation set sufficient to identify the de Sitter expansion parameter H when the clock calibration is an unknown nuisance parameter. The question is not simply how many measurements exist. It is whether the complete observation map separates target-changing parameter choices, and whether its inverse is sufficiently stable for the intended precision.
+
+All conclusions below are conditional on the stated observation model, parameter domain, and calibration assumptions. They do not establish that OMEGA-ISOP derives a physical clock, a calibration standard, H, or a semantic bridge from relational premises.
+
+2. BASE MODEL AND DEGENERACY
+
+Assume an ideal spatially flat exact de Sitter/FLRW model, comoving source and observer, and a fixed redshift z > 0. Let H > 0 be the model's Hubble parameter and q > 0 an unknown multiplicative clock calibration, with displayed time related to observer proper time by dt = q dτ0.
+
+For exact de Sitter, the proper-time redshift drift is
+
+dz/dτ0 = z H.
+
+The displayed-time observation is therefore
+
+s = z H / q,
+
+with observation map F0(H,q) = zH/q.
+
+For any a > 0, define T_a(H,q) = (aH, aq). Then
+
+F0(T_a(H,q)) = z(aH)/(aq) = zH/q = F0(H,q).
+
+When a differs from 1, H changes while the observation remains fixed. Thus H is not globally identifiable from s alone when q is unrestricted and unknown. This is an exact structural degeneracy, not merely a consequence of noisy measurements.
+
+3. WHY OBSERVATION COUNT IS NOT A UNIVERSAL MINIMUM
+
+There is no model-independent rule that a fixed number of scalar observations is sufficient. The relevant object is the full map from the admissible parameter vector to all observations, including nuisance parameters, fixed quantities, calibration equations, and any constraints linking them.
+
+Repeated measurements that depend on parameters only through zH/q may reduce uncertainty in that identifiable combination, but they preserve the transformation T_a and cannot separate H from q. Conversely, one observation can in principle encode more than one constraint if its mathematical structure genuinely does so; counting displayed numbers alone is not a general identifiability theorem.
+
+For the two-parameter model (H,q), a pair of scalar observations can be sufficient, but only if the joint map resolves the target-changing ambiguity. The following is a transparent sufficient construction, not a claim that two is universally minimal in every possible model.
+
+4. SUFFICIENT INDEPENDENT CALIBRATION
+
+Add an independently calibrated observation
+
+u = q.
+
+The joint map is
+
+F(H,q) = (s,u) = (zH/q, q).
+
+For z > 0 and q > 0, it has the explicit inverse
+
+q = u,
+H = su/z.
+
+Hence equality of both observations for two admissible parameter pairs implies equality of q and then equality of H. The target H is globally identifiable in this model, conditional on u truly measuring q in the stated calibration convention.
+
+The Jacobian is
+
+J = [[z/q, -zH/q^2],
+     [0,    1       ]].
+
+Its determinant is det(J) = z/q > 0. The map is locally regular and, by the explicit inverse, globally injective on H > 0, q > 0.
+
+The independent calibration condition is substantive. If u is itself reported in an unknown unit or contains another free multiplicative factor, that factor must be included in the parameter vector and the enlarged map re-audited.
+
+5. A GENERAL SUFFICIENT CONDITION FOR A CALIBRATION OBSERVATION
+
+Suppose the added observation has the form
+
+u = h(q),
+
+where h is known and injective on the admissible q-domain. Retain s = zH/q, with z > 0 and H,q > 0. Then
+
+q = h^{-1}(u),
+H = s h^{-1}(u)/z.
+
+Thus the joint map (H,q) -> (zH/q, h(q)) is globally sufficient to identify H, and in fact both H and q, on that domain.
+
+A simple example is h(q) = q^2 restricted to q > 0. Then q = sqrt(u) and H = s sqrt(u)/z. If the admissible domain instead permits both positive and negative q, the same h is not injective; domain restrictions are part of the theorem, not optional decoration.
+
+Injectivity of h is a sufficient condition for this calibration-form observation. It is not necessary for every possible joint observation G(H,q): a non-injective auxiliary function can still yield a globally target-identifying joint map in a more constrained or differently coupled model. The full map must be checked directly.
+
+6. INDEPENDENCE, LOCAL RANK, AND GLOBAL IDENTIFIABILITY
+
+For a differentiable observation map F from a two-dimensional parameter domain into a two-dimensional observation space, a Jacobian of rank two at a point is a local regular-identifiability diagnostic. Under the inverse function theorem's hypotheses, it gives a locally invertible map near that point.
+
+Full local rank does not establish global injectivity. Distinct parameter pairs may still map to the same observations elsewhere, including through discrete ambiguities. Conversely, failure of the full-rank condition does not, by itself, prove every form of non-identifiability; a map can be injective with a singular derivative at a point. Global claims require a global argument or an explicit inverse on the stated domain.
+
+For identifying H in the presence of nuisance parameters λ, the appropriate global target criterion is:
+
+For all admissible (H1, λ1) and (H2, λ2),
+F(H1, λ1) = F(H2, λ2) implies H1 = H2.
+
+The nuisance parameters need not be equal for this criterion. Full parameter identifiability would require the stronger conclusion that equality of observations implies equality of the entire parameter vector.
+
+7. IDENTIFIABILITY IS NOT THE SAME AS STABILITY
+
+An exact inverse may exist while small observational errors produce large parameter errors. To expose this distinction, suppose u = h(q), with h differentiable, injective, and h'(q) nonzero at the point of interest. Locally,
+
+dq/du = 1/h'(q),
+H = s q/z,
+
+so
+
+∂H/∂s = q/z,
+∂H/∂u = s/[z h'(q)].
+
+These derivatives quantify first-order sensitivity in the chosen coordinates. If |h'(q)| is small, the recovered q and H can be highly sensitive to error in u even though the model is locally identifiable. A local derivative calculation is a diagnostic, not a complete global noise analysis.
+
+A useful sufficient stability condition over a specified domain Q is a lower Lipschitz bound: there exists m > 0 such that
+
+|h(q1) - h(q2)| >= m |q1 - q2|
+
+for every q1,q2 in Q. Then errors in u control errors in q:
+
+|q1 - q2| <= |u1 - u2|/m.
+
+If Q is bounded away from zero and h(q)=q^2, for q1,q2 in Q with q >= q_min > 0,
+
+|q1^2 - q2^2| = |q1-q2|(q1+q2) >= 2 q_min |q1-q2|.
+
+Therefore m = 2 q_min is valid on that domain. As q_min approaches zero, this uniform bound degenerates, illustrating that global injectivity alone does not guarantee uniform stability near a domain boundary.
+
+8. ERROR PROPAGATION FOR THE DIRECT CALIBRATION u = q
+
+For u=q, let measured values be
+
+s_hat = s + e_s,
+u_hat = u + e_u,
+
+with deterministic bounds |e_s| <= epsilon_s and |e_u| <= epsilon_u, and exact known z > 0. Use
+
+H_hat = s_hat u_hat/z,
+H = su/z.
+
+Then the exact error identity is
+
+H_hat - H = (u e_s + s e_u + e_s e_u)/z.
+
+Consequently,
+
+|H_hat - H| <= (u epsilon_s + s epsilon_u + epsilon_s epsilon_u)/z,
+
+where s,u are the true positive model values. This bound assumes the measured quantities and units match the stated model and that z is treated as exact. If z is uncertain, its error and its dependence structure must also be included. For stochastic errors, a statistical uncertainty statement additionally requires an explicit joint error distribution or a justified statistical procedure.
+
+9. PRACTICAL CHECKLIST FOR A CLAIM OF SUFFICIENT OBSERVATIONS
+
+Before asserting that observations identify H, specify:
+
+1. The full parameter vector, including every unknown calibration and nuisance parameter.
+2. The complete observation map and, for statistical claims, the data distribution.
+3. The admissible parameter domain and which quantities are held fixed.
+4. The exact equivalence or symmetry transformations that preserve all observations.
+5. A proof of global target identifiability, or a clearly scoped local result.
+6. The source and operational meaning of any independent calibration.
+7. A stability or uncertainty analysis appropriate to the noise model and domain.
+8. Whether added observations break every target-changing ambiguity, rather than merely breaking one visible continuous symmetry.
+9. Whether conclusions concern structural identifiability, practical conditioning, or statistical precision. These are distinct questions.
+
+10. RESULT CLASSIFICATION
+
+Established conditionally:
+- The base observation s=zH/q does not globally identify H when q is unknown and unrestricted, because T_a(H,q)=(aH,aq) preserves s while changing H.
+- Adding u=q makes H globally identifiable, with inverse H=su/z for z>0.
+- More generally, an auxiliary observation u=h(q) with h injective on the admissible domain is sufficient in this model.
+- Identifiability does not by itself guarantee stable recovery; conditioning and noise must be separately analyzed.
+- A uniform lower Lipschitz bound on h is a sufficient condition for stable recovery of q from u on the specified domain.
+
+Not established:
+- A universal minimum number of observations for all cosmological models.
+- That a particular real-world calibration is independent, uniquely known, or derivable from OMEGA-ISOP.
+- That the ideal exact de Sitter model adequately describes arbitrary cosmological data.
+- That local Jacobian rank alone proves global identifiability.
+- Any change to the Frozen Core, any CE-V promotion, or any RL registration.
+
+11. ARCHITECTURAL AND REGISTRATION STATUS
+
+This is a conditional observation-map audit. It does not modify the Frozen Core, establish a new foundational layer, or change the Volume V dependency chain. No CE-V archive integration decision is made. No RL registration is requested or claimed. Any future registration decision must be made separately after mathematical and compatibility review.
+
+END OF DOCUMENT
