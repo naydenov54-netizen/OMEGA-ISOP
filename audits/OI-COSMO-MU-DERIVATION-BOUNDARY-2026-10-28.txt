@@ -1,0 +1,93 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+1. Output for OMEGA-ISOP/M3.2 must be clean plain text, directly copyable on Android, in one continuous block when a complete artifact is requested.
+2. Frozen Core remains unchanged unless the user explicitly authorizes a change and a documented change-control decision records it.
+3. RL_REGISTRATION_REQUIRED is not RL_REGISTERED. Never claim registration without authoritative registry confirmation and readback.
+4. Distinguish established facts, external assumptions, conditional results, and unresolved claims.
+5. Do not claim that a repository, file, registry, or submission was inspected or modified unless the corresponding action succeeded and its result was verified.
+
+OMEGA-ISOP — AUDIT OF DERIVING A SPACETIME MEASURE FROM RELATIONAL DATA
+DOCUMENT_ID: OI-COSMO-MU-DERIVATION-BOUNDARY-2026-10-28
+VERSION: 1
+DATE: 2026-10-28
+STATUS: FORMAL NON-DERIVATION FINDING FOR THE AVAILABLE SPECIFICATION
+CHANGE TYPE: RESEARCH AUDIT
+FROZEN CORE: PRESERVED; NO CHANGE PROPOSED
+RELATED RECORDS:
+- audits/OI-COSMO-REALIZATION-FORMALIZATION-2026-10-28.txt
+- audits/OI-COSMO-VOLUME-MEASURE-SCALE-TEST-2026-10-28.txt
+- audits/OI-COSMO-TEST05-DEPENDENCY-AUDIT-2026-10-28.txt
+- OI-COSMO-EXPANSION-LAMBDA-001_RL-CLOSURE-RECORD_2026-10-26.txt
+
+1. QUESTION
+Does the available OMEGA-ISOP relational specification construct a unique spacetime volume measure mu from relational data R, without presupposing the target Lorentzian metric or inserting an external physical measure?
+
+2. INPUTS AND REQUIRED TYPE
+For the cosmological test, take R_cosmo to include a carrier E and a selected chronological relation ≪, as explicitly supplied in the prior conditional realization audit. This is already a test input; its derivation from the Frozen Core was not established there.
+
+A spacetime measure suitable for the scale-fixing test requires at least:
+(a) a measurable space (M, Sigma), or a specified measurable structure on E transported through a realization;
+(b) a countably additive measure mu on Sigma;
+(c) for a smooth four-dimensional metric interpretation, a specified relation between mu and the metric volume density, such as mu = dvol_g;
+(d) a compatibility and regularity condition ensuring that the measure and causal/conformal structure can be represented together;
+(e) if absolute physical scale is claimed, a normalization or dimensional calibration that is not merely an arbitrary convention.
+
+The bare carrier and relation (E, ≪) do not, by their definitions alone, provide Sigma, countable additivity, a numerical assignment to measurable sets, a metric-volume matching condition, or an absolute physical unit.
+
+3. UNDERDETERMINATION TEST
+Suppose a measurable space (E, Sigma) and a nonzero measure mu have been added as extra data. For every constant c > 0, define:
+mu_c(A) = c mu(A), for every A in Sigma.
+
+Then mu_c is also a measure on the same measurable space. The underlying carrier and relational relation ≪ are unchanged. Unless the specification supplies a normalization, dimensional calibration, or independent rule that distinguishes c, the relational data do not choose between mu and mu_c.
+
+If the total measure is finite and one imposes probability normalization mu(E) = 1, that fixes a dimensionless normalization by convention. It does not by itself supply a physical four-volume with units of length^4 or establish that the probability measure equals dvol_g for the target spacetime metric.
+
+This scaling test shows that even after adding a measurable structure and a measure, absolute volume normalization is not supplied by the bare relational relation alone. It does not show that no richer relational structure or additional axiom could determine a measure.
+
+4. MEASURE EXISTENCE IS A SEPARATE PROBLEM
+The scaling test assumes a measure already exists. It does not prove existence of a suitable measure on every R_cosmo. The available specification does not provide a general construction:
+R_cosmo -> (Sigma, mu)
+with a proof of existence, uniqueness, regularity, covariance, and compatibility with a Lorentzian realization.
+
+A rule that defines mu := dvol_g after selecting g is metric-induced. It is mathematically valid as a definition, but it does not independently select g or its scale. Using it as an independent scale selector after g has already been chosen would be circular.
+
+Likewise, an invariant probability measure for a Markov kernel or dynamical map is not automatically a spacetime volume measure. It requires a measurable state space and dynamics, and its invariance property does not identify it with dvol_g.
+
+5. CONDITIONAL BRIDGE RESULT
+Under suitable spacetime assumptions, causal structure can constrain conformal geometry; adding compatible volume information can then fix the conformal factor. The previous OI-COSMO-VOLUME-MEASURE-SCALE-TEST record proves the elementary four-dimensional scaling statement conditionally:
+g_2 = Omega^2 g_1 implies dvol(g_2) = Omega^4 dvol(g_1);
+if both volume densities equal the same independently specified mu, then Omega = 1.
+
+That result is downstream of the provision of mu. It does not construct mu from R_cosmo.
+
+6. AUDIT FINDING
+F1. Available OMEGA-ISOP relational definitions do not specify a cosmological measurable space and a spacetime volume measure as a derived output.
+F2. No verified map R_cosmo -> mu, with existence and uniqueness conditions, is present in the inspected source material.
+F3. Relational data plus an already supplied measure do not by themselves fix its absolute normalization: mu and c mu are distinct candidate measures for c > 0 unless an extra rule distinguishes them.
+F4. A metric-induced measure mu = dvol_g is not an independent metric-scale selection principle.
+F5. The existence of probability/invariant measures in the dynamics framework does not establish a spacetime volume measure or Einstein dynamics.
+F6. Therefore, derivation of a unique physical spacetime measure from the available OMEGA-ISOP Frozen Core is NOT ESTABLISHED.
+
+LOGICAL STATUS:
+This is a non-derivation finding for the available specification, not an impossibility theorem. It does not prove that a future explicitly stated OMEGA-specific extension could never define or derive a measure. Such an extension would require separate formalization and change control if it modifies the Frozen Core.
+
+7. MINIMUM REQUIREMENTS FOR A CANDIDATE DERIVATION
+Any candidate must state:
+1. Its domain and codomain, including the measurable-space structure.
+2. The exact OMEGA-specific premises used, without presupposing the target metric or its volume form.
+3. The measure-construction rule and proof of countable additivity.
+4. Existence and uniqueness conditions, including treatment of automorphisms and equivalent relational presentations.
+5. Whether the output is a probability measure, an unnormalized measure, or a physical spacetime volume measure with dimensional calibration.
+6. How the measure is compatible with the causal/conformal realization.
+7. Whether absolute scale is genuinely selected or remains free under mu -> c mu.
+8. What is predicted beyond standard causal geometry plus an independently supplied volume measure.
+
+8. NEXT TEST
+Do not add mu to the Frozen Core. Instead, test whether a candidate construction can be built from the already declared OMEGA relational objects and compatibility diagram. If the construction needs a measurable structure, a metric, an external length scale, a probability normalization, or a new axiom not currently present, label that dependency explicitly. Compare the resulting construction against the trivial alternatives mu and c mu and against metric-induced dvol_g to expose circularity.
+
+9. RELEASE AND TRACEABILITY
+FROZEN CORE: UNCHANGED.
+CE-V: NO PROMOTION.
+RL REGISTRATION: NOT PERFORMED OR VERIFIED.
+CANONICAL ACCEPTANCE: NOT CLAIMED.
+STATUS: FORMAL NON-DERIVATION BOUNDARY; FUTURE CONSTRUCTION REMAINS OPEN.
+END OF DOCUMENT
