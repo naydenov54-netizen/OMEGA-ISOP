@@ -1,0 +1,157 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+OMEGA-ISOP
+QUANTITATIVE BUDGETED OBSERVATION DESIGN WITH UNKNOWN CALIBRATION
+AUDIT ID: OI-COSMO-BUDGETED-OBSERVATION-DESIGN-2026-10-29
+STATUS: CONDITIONAL MATHEMATICAL AUDIT
+DATE: 2026-10-29
+
+1. PURPOSE AND MODEL
+
+This audit gives a concrete budgeted comparison of repeated cosmological observations and calibration measurements. It separates structural identifiability from precision and shows how correlated errors can create a precision plateau. The calculation is conditional on the stated observation model; it is not a universal experimental optimum.
+
+Let H>0 and q>0 be unknown. For n observations at a fixed known redshift z>0, use
+
+s_i = z H/q + epsilon_i, i=1,...,n.
+
+Assume initially that epsilon_i are independent, zero-mean Gaussian errors with variance sigma_s^2. Add one genuine calibration observation
+
+u = q + eta,
+
+where eta is zero-mean Gaussian with variance sigma_q^2, independent of all epsilon_i. Treat z, sigma_s^2, and sigma_q^2 as known positive constants. The calibration convention must genuinely make u a measurement of q; otherwise the identifiability analysis changes.
+
+2. IDENTIFIABILITY BEFORE OPTIMIZATION
+
+Without u, the mean of every s_i is zH/q. For every a>0, the transformation
+
+(H,q) -> (aH, aq)
+
+preserves all means. Under the specified noise model, the full distribution of the cosmological data is also preserved. Therefore H is not statistically identifiable from the s_i alone, no matter how large n becomes.
+
+The sample mean s_bar has variance sigma_s^2/n, so increasing n improves estimation of the identifiable combination H/q. It does not identify H separately from q.
+
+With the genuine calibration observation u=q+eta, the joint mean map is
+
+(H,q) -> (zH/q, q).
+
+This map is globally injective on H>0, q>0: the second coordinate determines q and the first then determines H. The noise affects precision but, under this specified model, does not undo structural identifiability.
+
+3. LOCAL VARIANCE BOUND FOR H
+
+Write the means of (s_bar,u) as
+
+mu(H,q) = (zH/q, q),
+
+with covariance matrix diag(sigma_s^2/n, sigma_q^2). The Jacobian is
+
+J = [ z/q, -zH/q^2
+      0,       1     ].
+
+The Gaussian Fisher information is I=J^T Sigma^{-1}J. It is positive definite for z,q,sigma_s,sigma_q>0. Its entries are
+
+I_HH = n z^2/(q^2 sigma_s^2),
+I_Hq = -n z^2 H/(q^3 sigma_s^2),
+I_qq = n z^2 H^2/(q^4 sigma_s^2) + 1/sigma_q^2.
+
+The nuisance-adjusted information for H is the Schur complement
+
+I_eff(H) = I_HH - I_Hq^2/I_qq
+         = 1 / [q^2 sigma_s^2/(n z^2) + H^2 sigma_q^2/q^2].
+
+Thus the Cramer-Rao lower bound for any regular unbiased estimator of H is
+
+Var(Hhat) >= 1/I_eff(H)
+           = q^2 sigma_s^2/(n z^2) + H^2 sigma_q^2/q^2.
+
+The same expression is the first-order delta-method variance for Hhat = s_bar u/z. In this independent Gaussian product model, the displayed Cramer-Rao statement is a local regular bound, not a claim that every estimator attains it exactly at finite sample size.
+
+Interpretation:
+- The first term decreases as 1/n and is the cosmological measurement contribution.
+- The second term is the calibration contribution and does not decrease by repeating only s_i.
+- For fixed nonzero calibration uncertainty sigma_q^2, the bound approaches H^2 sigma_q^2/q^2 as n grows without bound.
+- If sigma_q^2 is reduced, the calibration floor falls. If calibration uncertainty is not represented by a true independent measurement of q, this formula is not justified.
+
+4. CORRELATED COSMOLOGICAL ERRORS
+
+Now keep the same marginal variance sigma_s^2 but assume equicorrelated cosmological errors:
+
+Cov(epsilon_i, epsilon_j) = sigma_s^2 rho for i not equal to j,
+Var(epsilon_i) = sigma_s^2.
+
+For a valid positive-definite equicorrelation matrix, -1/(n-1) < rho < 1 (with the usual interpretation for n=1). The sample mean variance is exactly
+
+Var(s_bar) = sigma_s^2 [rho + (1-rho)/n].
+
+If the calibration error remains independent of the cosmological errors, the preceding information calculation applies with sigma_s^2/n replaced by this sample-mean variance. Therefore
+
+Var(Hhat) >= q^2 sigma_s^2 [rho + (1-rho)/n]/z^2
+             + H^2 sigma_q^2/q^2
+
+as the corresponding regular local Cramer-Rao bound for this two-summary Gaussian model.
+
+For rho=0 this reduces to the independent-error expression. For fixed rho>0, increasing n leaves a cosmological noise floor sigma_s^2 rho in the sample mean. Repetition then has diminishing returns and cannot remove the separate calibration floor.
+
+This result depends on the equicorrelation model. Arbitrary covariance structures must be analyzed using the full covariance matrix; correlation does not universally increase or decrease the variance of every estimator.
+
+5. EXPLICIT BUDGET ALLOCATION
+
+Let total budget be B. Each cosmological observation costs c_s>0 and the calibration observation costs c_q>0. If one calibration is required and B>=c_q+c_s, the feasible number of cosmological observations is
+
+n(B) = floor((B-c_q)/c_s).
+
+Under the independent-error model, the target-specific local variance bound is
+
+V(B;c_q) = q^2 sigma_s^2/[z^2 n(B)] + H^2 sigma_q^2/q^2.
+
+This expression is conditional on the calibration precision sigma_q^2 being fixed for the selected calibration procedure. If calibration precision itself depends on its cost or repeated calibration effort, that cost-to-variance function must be supplied before an allocation can be optimized.
+
+Under the correlated equicorrelation model, replace the first term by
+
+q^2 sigma_s^2 [rho + (1-rho)/n(B)]/z^2.
+
+These formulas permit comparison of feasible designs but do not establish a universal optimum. The floor operation, discrete measurement counts, calibration cost, and actual cost-to-precision relationship all matter.
+
+6. WHEN SHOULD BUDGET GO TO CALIBRATION?
+
+Suppose, as a further explicit design assumption, calibration effort C_q yields a known decreasing variance function sigma_q^2(C_q), and cosmological effort C_s yields n(C_s) observations. With C_s+C_q<=B, the independent-error variance criterion becomes
+
+V(C_s,C_q) = q^2 sigma_s^2/[z^2 n(C_s)] + H^2 sigma_q^2(C_q)/q^2.
+
+An interior allocation, when differentiability and continuous relaxation are appropriate, balances marginal reductions in the two terms subject to the budget constraint. For example, with C_s+C_q=B, a stationary point satisfies
+
+q^2 sigma_s^2 z^{-2} n'(C_s)/n(C_s)^2
+=
+- H^2 q^{-2} d sigma_q^2(C_q)/d C_q.
+
+This equality equates the marginal variance reduction from added cosmological effort to the marginal variance reduction from added calibration effort. It is only a necessary condition for an interior optimum; global optimality requires checking the feasible domain, boundary designs, and curvature. The equation is not usable numerically until n(C_s) and sigma_q^2(C_q) are specified.
+
+If calibration variance is fixed regardless of cost, this continuous allocation equation is not a valid model for optimizing calibration effort. In that case, calibration cost is a fixed overhead and n should be maximized among feasible designs, subject to any other constraints.
+
+7. DESIGN COMPARISON PROCEDURE
+
+For each candidate design:
+(a) specify the complete parameter vector and admissible domain;
+(b) write the full mean map and full joint noise distribution;
+(c) check whether any transformation preserves the full distribution while changing H;
+(d) reject as an H-identification design any scheme with such an unresolved symmetry;
+(e) calculate the full Fisher information using the complete covariance, if the regularity assumptions apply;
+(f) calculate target-specific nuisance-adjusted information, not just total information;
+(g) impose explicit costs and compare feasible designs under the chosen objective;
+(h) report the calibration floor, correlation assumptions, and sensitivity to model misspecification.
+
+A design with many observations but no independent calibration can estimate H/q precisely while remaining structurally unable to identify H. A design with a genuine calibration can identify H, but the uncertainty may remain dominated by calibration. Those are different failure modes and should not be conflated.
+
+8. LIMITATIONS AND NON-CLAIMS
+
+- The equations are conditional on the exact de Sitter-like observation law s_i=zH/q, known z, and the declared error distributions.
+- No universal optimum, universal minimum number of measurements, or universal cost allocation is established.
+- No physical calibration standard or numerical value of H is derived from OMEGA-ISOP.
+- A Gaussian Fisher-information calculation is not a substitute for checking global identifiability of the full likelihood.
+- If covariance depends on unknown parameters, its contribution to Fisher information must be included.
+- No changes to Frozen Core or Volume V are proposed.
+- No CE-V promotion or RL registration is claimed.
+
+9. OMEGA-ISOP STATUS
+
+This is a conditional quantitative audit of an observation-design model. It does not change the OMEGA-ISOP dependency chain or make a claim that the physical calibration semantics follow from the formal core. Any further physical application must state its observation map, noise law, calibration mechanism, budget model, and optimization objective.
+
+END OF DOCUMENT
