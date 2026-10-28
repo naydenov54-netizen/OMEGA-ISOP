@@ -1,0 +1,185 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+OMEGA-ISOP / M3.2
+AUDIT #25: NEAR-DEGENERATE FEASIBLE SETS, ILL-CONDITIONED CALIBRATION, AND PRACTICAL INFORMATIVENESS OF CERTIFIED BOUNDS
+Date: 2026-10-29
+Status: Mathematical audit artifact. Conditional conclusions only. Not a Frozen Core amendment, CE-V promotion, or RL registration.
+
+1. PURPOSE
+
+Audit #24 separated uncertainty in input data from arithmetic error. This audit studies a further issue: a bound can be mathematically valid and rigorously certified yet provide little practical information because the feasible set is nearly empty, constraints are nearly active, or the calibration equations are ill-conditioned.
+
+The central distinction is between:
+(A) VALIDITY: the stated interval really encloses the target values of the stated model.
+(B) INFORMATIVENESS: the interval is narrow enough, relative to the scientific question and data precision, to distinguish relevant possibilities.
+(C) IDENTIFIABILITY: the data and model uniquely determine the target, or constrain it to a specified equivalence class or interval.
+These properties are distinct. A certificate of validity alone does not guarantee informativeness or identifiability.
+
+2. FEASIBLE SETS: EMPTY, NONEMPTY, AND NEARLY INFEASIBLE
+
+Let
+D(p) = {theta in X : g_i(theta,p) <= 0, i=1,...,m; h_j(theta,p)=0, j=1,...,k}.
+
+The exact model may have D(p)=empty, a nonempty set with small volume, a lower-dimensional set, or a set whose constraints are almost inconsistent. “Nearly empty” is not a standalone topological category: it must be operationalized through a stated measure, such as distance to infeasibility, a slack margin, diameter, volume where meaningful, or sensitivity to perturbations.
+
+A numerical solver returning “infeasible” within tolerance does not prove exact infeasibility unless its certificate is validated. Similarly, a solver finding a point with small positive constraint violations does not prove that D(p) is nonempty.
+
+For inequalities g_i(theta)<=0, define the maximum violation at theta by
+v(theta) = max(0, g_1(theta),...,g_m(theta)).
+A small computed v(theta_hat) is evidence of approximate feasibility only. A rigorous feasibility claim requires a validated upper enclosure for each g_i(theta_hat) that is <=0, together with exact or validated handling of equality constraints.
+
+If exact feasibility is disproved by a valid infeasibility certificate, the target set over D(p) is empty and ordinary finite sharp-bound language needs care: the infimum and supremum over the empty set follow the chosen extended-real convention and do not represent an empirically constrained parameter interval. Do not report an empty-model result as an ordinary numerical confidence interval.
+
+3. SLACK MARGINS AND DISTANCE TO THE FEASIBLE BOUNDARY
+
+For a feasible point theta, define inequality slack s_i(theta)=-g_i(theta)>=0. A small slack indicates that the point lies near the corresponding constraint boundary in function-value units. It does not, without a gradient or error-bound condition, directly specify geometric distance to that boundary.
+
+If a constraint function is Lipschitz in theta with constant K_i on a domain, then
+|g_i(theta_1)-g_i(theta_2)| <= K_i ||theta_1-theta_2||.
+This inequality can translate a known geometric displacement into a bound on constraint-value change. It does not give a lower bound on distance from slack alone. A reverse estimate requires additional regularity, such as a local error-bound condition or a suitable nonzero gradient with appropriate local hypotheses.
+
+Suppose the computed constraint value has absolute error at most epsilon_i. If the nominal slack is s_i=-g_comp(theta_hat), then a sufficient margin for guaranteed satisfaction under this error model is
+g_comp(theta_hat)+epsilon_i <= 0,
+equivalently s_i >= epsilon_i.
+If s_i<epsilon_i, feasibility may still hold, but it is not guaranteed by that error bound alone. The correct conclusion is “not certified by this test,” not automatically “infeasible.”
+
+4. A BASIC ILL-CONDITIONING RESULT FOR CALIBRATION
+
+Consider the linear calibration model
+y = X beta + e,
+where X is a known matrix, beta is the parameter vector, and e is the measurement or model error.
+
+If X has full column rank, the least-squares solution's perturbation from a data perturbation Δy obeys, in the unweighted Euclidean setting,
+||Δ beta_hat||_2 <= ||Δy||_2 / sigma_min(X),
+when X is fixed and the perturbation is interpreted through the least-squares solution for the same X. This bound follows from the operator norm of the left pseudoinverse, ||X^+||_2=1/sigma_min(X).
+
+As sigma_min(X) approaches zero, this worst-case amplification bound becomes large. If sigma_min(X)=0, beta is not uniquely identifiable in all directions without additional constraints or information.
+
+For uncertain design/calibration matrix X, this simple formula is not sufficient by itself: perturbations in X introduce additional terms, and bounds require hypotheses on rank preservation and perturbation size. One must not reuse the fixed-X formula as a theorem for an uncertain X without derivation.
+
+The condition number kappa_2(X)=sigma_max(X)/sigma_min(X), when defined with sigma_min>0, measures relative sensitivity for the specified norm and matrix problem. It is not a universal measure of physical uncertainty, and it does not alone establish the uncertainty in every derived observable.
+
+5. TARGET IDENTIFIABILITY CAN SURVIVE PARAMETER NON-IDENTIFIABILITY
+
+For the exact linear system X beta=y, all solutions, if any, have the form
+beta = beta_0 + z, with z in null(X).
+
+A linear target c^T beta is uniquely identified across all solutions if and only if
+c^T z=0 for every z in null(X),
+equivalently c lies in the row space of X.
+
+Therefore:
+- A parameter vector can be non-unique while a particular linear target is uniquely determined.
+- A full-rank parameter estimate can still be poorly conditioned and practically uninformative.
+- Rank deficiency does not automatically make every derived observable unidentified.
+- A narrow interval for one target does not imply that all model parameters are identified.
+
+For noisy or interval-valued data, replace exact uniqueness with a target identified set. Its width must be computed over the joint feasible set, retaining dependencies between parameters, calibration coefficients, and systematics. Coordinate-wise parameter intervals combined independently may create unattainable target combinations and overstate or understate the true target range unless the enclosure direction is proved.
+
+6. NEAR-ACTIVE CONSTRAINTS AND DISCONTINUOUS FEASIBILITY
+
+A small perturbation of input data can make a feasible problem infeasible, or the reverse, when the nominal problem lies near the boundary of feasibility. It can also move the optimizer to a different active constraint or a different disconnected component.
+
+No universal continuity statement for the feasible set or optimum follows from a small perturbation norm alone. Such a result needs suitable assumptions, for example a common compact domain, continuity, a constraint qualification, an error-bound condition, or a problem-specific stability theorem.
+
+A simple scalar example illustrates the issue. Let
+D(p)={x in [0,1] : x<=p}.
+For p in [0,1], D(p)=[0,p]. Its diameter is p and collapses to zero as p approaches zero. If p is allowed to cross below zero, D(p) becomes empty. Thus an arbitrarily small change near p=0 can change the problem from feasible to infeasible. The exact behavior here is elementary; more complex models need their own analysis.
+
+A second example shows why parameter conditioning and target conditioning differ. Let
+X = [1 1; 1 1+epsilon], with epsilon nonzero but small. The matrix is full rank, but its smallest singular value becomes small as epsilon approaches zero. Estimation of both coordinates can be highly sensitive. Yet a target aligned with a well-determined combination may be substantially more stable than the worst-case parameter-vector bound suggests. The target's own sensitivity must be evaluated, not inferred solely from the largest parameter uncertainty.
+
+7. WHY A VALID BOUND CAN BE UNINFORMATIVE
+
+Let the certified target interval be [L,U] and its width be W=U-L. Validity means the true target set is contained in the interval. Informativeness requires a comparison scale chosen for the task, such as:
+- the separation between competing hypotheses;
+- the required measurement or decision tolerance;
+- the natural scale and units of the target;
+- the input-data precision and systematic uncertainty;
+- the width of a relevant prior or physically allowed domain, if such a domain is explicitly part of the analysis.
+
+There is no universal threshold for “narrow enough.” A ratio W/S can be useful only after the reference scale S>0 is justified and the interpretation is specified. A zero or very small S makes that ratio inappropriate or unstable.
+
+A wide but valid interval must not be artificially narrowed to appear useful. The correct result may be that the available data do not discriminate among the target values of interest.
+
+8. JOINT UNCERTAINTY AND CORRELATION
+
+If calibration coefficients share systematic errors, the feasible set must preserve the common variables and their allowed ranges. Replacing a shared error by independent errors can enlarge the feasible set, which may produce a safe but conservative outer target interval if the enlarged set truly contains the original one. It can also destroy cancellations and lose useful information.
+
+Conversely, assuming a correlation or cancellation that is not supported by the data can shrink the feasible set incorrectly and make the reported interval invalid.
+
+For a target H(theta,p), calculate the range over the joint feasible set
+J={(theta,p):p in P, theta in D(p)}.
+Do not independently select marginal extrema for correlated quantities and then treat the resulting combination as jointly feasible. Sharp endpoints require joint feasibility; conservative endpoints require a proved outer-set inclusion.
+
+9. CERTIFICATION STRATEGY FOR DEGENERATE CASES
+
+A practical audit should distinguish at least these cases:
+
+9.1 Validated feasible
+A point or witness satisfies all constraints under rigorous evaluation. This proves nonemptiness when all equality and domain conditions are also handled.
+
+9.2 Validated infeasible
+A mathematically valid infeasibility certificate excludes every candidate in the stated domain. This is stronger than solver failure or failure to find a feasible point.
+
+9.3 Feasibility unresolved
+The numerical procedure cannot establish either feasibility or infeasibility within its validated tolerances. Report unresolved, not infeasible.
+
+9.4 Global target bracket certified but broad
+A valid global interval is established, but its width does not resolve the intended scientific or decision question.
+
+9.5 Parameter ill-conditioning with target-specific analysis
+The parameter reconstruction is sensitive, but the target's own identified set or sensitivity has been evaluated separately.
+
+9.6 Local or heuristic result only
+A local optimizer, sampling method, or unvalidated numerical search has produced a candidate, but global certification is absent.
+
+Suitable methods can include verified interval evaluation, interval branch-and-bound, exact rank/nullspace analysis for rational matrices, singular-value enclosures with validated numerics, verified convex certificates where hypotheses hold, or explicit algebraic reduction. Method choice must follow the model structure. No method label should be treated as proof without its actual certificate and assumptions.
+
+10. REPORTING REQUIREMENTS
+
+For each reported bound in a near-degenerate or ill-conditioned problem, record:
+(a) The exact domain and all constraints, including equality constraints.
+(b) Whether feasibility is proved, infeasibility is proved, or the status remains unresolved.
+(c) The uncertainty set and dependencies for data and systematic terms.
+(d) Relevant slack margins and their units, without equating function-value slack with geometric distance unless justified.
+(e) Rank information and, where relevant, a certified or adequately bounded smallest singular value.
+(f) Whether the matrix is treated as exact or uncertain.
+(g) Parameter-vector sensitivity separately from target-specific sensitivity.
+(h) A global lower/upper certificate, its numerical gap, and the verification method.
+(i) A stated scale for judging informativeness, if such a judgement is made.
+(j) Whether the interval is sharp, a certified outer bound, a validated numerical bracket, or uncertified numerical output.
+
+11. CONDITIONAL THEOREMS AND NON-IMPLICATIONS
+
+Theorem A, fixed-design least-squares perturbation:
+If X has full column rank and is fixed, then the Euclidean perturbation of the least-squares solution induced by Δy satisfies
+||Δ beta_hat||_2 <= ||Δy||_2/sigma_min(X).
+This does not cover perturbations in X unless additional terms and assumptions are established.
+
+Theorem B, target identification in a consistent exact linear system:
+For X beta=y with at least one solution, c^T beta is constant across all solutions if and only if c is orthogonal to null(X), equivalently c belongs to row(X). This is an exact algebraic criterion and does not by itself address noise, model misspecification, or practical conditioning.
+
+Theorem C, robust constraint margin:
+If g_true(theta)=g_comp(theta)+delta with |delta|<=epsilon, then g_comp(theta)+epsilon<=0 guarantees g_true(theta)<=0 for all allowed delta. Failure of this sufficient test does not prove infeasibility.
+
+Non-implications:
+- Solver failure does not imply infeasibility.
+- Approximate feasibility does not imply exact feasibility.
+- Small data perturbation does not universally imply small optimizer perturbation.
+- Parameter non-identifiability does not imply every target is non-identifiable.
+- Full rank does not imply good conditioning.
+- A small condition number or singular value alone does not determine all target uncertainties.
+- A valid global interval does not imply that it is scientifically informative.
+- A wide interval does not imply a defective proof; it may correctly reflect weak information.
+- A nominally feasible model does not imply feasibility for all uncertain inputs.
+- A certified numerical bound does not validate the empirical adequacy of the model.
+
+12. AUDIT CONCLUSION
+
+A rigorous certificate has two independent jobs: establish that the interval is valid for the stated joint feasible set, and report whether that interval actually resolves the target question. Near-empty feasible regions and nearly singular calibration systems make this distinction especially important.
+
+The correct response to degeneracy is not to silently regularize, narrow, or relabel the result. State the feasible-set status, retain data dependencies, quantify target-specific uncertainty, and report whether the result is sharp, conservative, broad-but-certified, or unresolved.
+
+This audit is conditional on the definitions and hypotheses stated above. It introduces no change to the Frozen Core, makes no CE-V promotion, and creates no RL registration claim.
+
+END OF DOCUMENT
