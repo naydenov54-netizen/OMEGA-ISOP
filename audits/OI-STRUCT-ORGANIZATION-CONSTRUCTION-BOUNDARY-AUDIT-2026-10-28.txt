@@ -1,0 +1,93 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+OMEGA-ISOP/M3.2
+AUDIT ID: OI-STRUCT-ORGANIZATION-CONSTRUCTION-BOUNDARY-AUDIT-2026-10-28
+DATE: 2026-10-28
+STATUS: MATHEMATICAL AUDIT; NO CORE CHANGE; NO REGISTRATION CLAIM
+
+TITLE
+Can organization be constructed from relations without assuming organization?
+
+1. QUESTION AND RESULT
+
+Given only a set of elements and a relation, can a nontrivial organization be derived without adding an organizational criterion?
+
+Result: a precise relational clustering can be constructed under stated conditions, but organization in the stronger sense of global compatibility, composition, function, or persistence does not follow from a relation alone. The construction boundary is explicit below.
+
+2. RELATIONAL CONSTRUCTION THEOREM
+
+Let X be a set and let R be a symmetric binary relation on X. Define x ~ y iff there exists a finite R-path from x to y, allowing a path of length zero from x to itself.
+
+Then ~ is an equivalence relation:
+- Reflexive: every x has a length-zero path to itself.
+- Symmetric: reversing an R-path gives an R-path because R is symmetric.
+- Transitive: concatenating a path from x to y with a path from y to z gives a path from x to z.
+
+Therefore X is partitioned into equivalence classes [x]~, the connected components of the undirected graph induced by R.
+
+This is a genuine mathematical construction from (X,R), once symmetry and the path-based definition are given. It does not require a pre-existing object named “organization.”
+
+3. LIMIT OF THE THEOREM: CONNECTIVITY IS NOT GLOBAL COMPATIBILITY
+
+Let X={a,b,c} and R contain exactly the symmetric edges aRb and bRc, but not aRc.
+
+The graph is connected, so all three elements lie in one connected component under ~. Yet R does not hold between a and c.
+
+Consequently, connected-component construction does not prove that every pair in the component is compatible, that all constraints admit one common realization, or that the component forms a globally consistent system.
+
+If R denotes compatibility, a path of compatible pairs cannot in general be promoted to universal pairwise compatibility or global amalgamation.
+
+4. LIMIT OF THE THEOREM: A RELATION DOES NOT SPECIFY COMPOSITION OR FUNCTION
+
+A set and a binary relation do not, by themselves, specify:
+- an operation that composes elements into a whole;
+- a system-level function or purpose;
+- a boundary separating the proposed organization from its environment;
+- an admissible state space for the whole;
+- a physical observable that detects organization.
+
+Such features may be supplied by an explicit model, but they are not consequences of the connected-component theorem.
+
+Formally, the same (X,R) can be interpreted as mere adjacency, as interaction, or as a compatibility relation. These interpretations have different substantive consequences although the underlying mathematical pair (X,R) is unchanged. Semantic interpretation is therefore additional model data.
+
+5. LIMIT OF THE THEOREM: CONNECTIVITY DOES NOT ENTAIL PERSISTENCE
+
+Take X={a,b,c}, with R the symmetric path edges aRb and bRc. Define a time-step map T by T(a)=a, T(b)=a, T(c)=c. Under the transported relation at the next step, if relation is required to be preserved by T, the original edge bRc maps to aRc, which is not in R. Thus T is not relation-preserving.
+
+The existence of a connected component at the initial time does not establish that the relation or its components are preserved by an evolution. Persistence requires a stated condition, such as relation preservation:
+xRy implies T(x)R T(y),
+or, more generally, invariance of a separately defined admissible set.
+
+6. CONDITIONAL ORGANIZATION CLAIM
+
+A stronger organization-level theorem can be obtained only after specifying what “organization” means. For example, if organization is defined narrowly as a connected component of a symmetric relation, the theorem in Section 2 constructs such components. This is a valid formal result, but the organizational meaning is exactly the chosen definition.
+
+If organization instead means a globally compatible, composable, functionally characterized, or dynamically persistent whole, then extra conditions must be stated and separately tested. The connected-component theorem does not prove those stronger properties.
+
+7. DERIVATION LEDGER
+
+Derived from explicit mathematical definitions:
+- A symmetric binary relation induces an undirected graph.
+- Path connectivity is an equivalence relation.
+- The equivalence classes partition the carrier into connected components.
+
+Not derived from (X,R) alone:
+- Global compatibility of all members of a component.
+- A joint realization of all constraints.
+- A composition operation, system function, or privileged system boundary.
+- Dynamical invariance or persistence.
+- Physical organization or a novel empirical prediction.
+
+Additional premises used:
+- Symmetry of R for the undirected path argument.
+- The definition of connectivity by finite paths.
+- Any stronger interpretation of organization must be supplied as a separate criterion.
+
+8. RELATION TO THE FROZEN CORE
+
+This audit does not modify Primitive Difference, U0, #, R, CC, or any other Frozen Core content. It does not assert that the path-connectivity construction is already a Core theorem. It is a conditional mathematical result over an explicitly specified set and symmetric relation.
+
+No CE-V promotion, canonical acceptance, or RL registration is asserted.
+
+9. RESULT
+
+There is a legitimate derived construction: relational connected components. But calling them “organization” is justified only under a narrow stipulated definition. No general theorem derives global, functional, or persistent organization from relations alone. The next step toward physical content is to choose a concrete realization and an operational criterion that distinguishes an organized whole from a merely connected relational cluster.
