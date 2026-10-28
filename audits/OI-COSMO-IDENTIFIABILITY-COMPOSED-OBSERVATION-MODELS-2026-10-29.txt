@@ -1,0 +1,178 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+OMEGA-ISOP / M3.2
+AUDIT #29: IDENTIFIABILITY UNDER COMPOSED OBSERVATION MODELS AND LATENT INTERFACES
+Date: 2026-10-29
+Status: Conditional mathematical audit. No Frozen Core amendment, CE-V promotion, or RL registration.
+
+1. SCOPE
+
+This audit studies observation pipelines in which a state or parameter passes through multiple maps, latent variables, measurement interfaces, and post-processing stages. The central question is when identifiability of a target survives composition, and when an intermediate map loses information needed to distinguish target values.
+
+The conclusions are relative to specified domains, maps, constraints, and observation/error models. Composition by itself guarantees neither identifiability nor non-identifiability.
+
+2. BASIC COMPOSITION
+
+Let Z be the state/parameter domain, U an intermediate space, and Y the observation space. Suppose the observation pipeline is
+
+Z --A--> U --B--> Y,
+
+so the composite observation map is F=B∘A.
+
+For an exact observation y, define the feasible fiber
+J_y = {z in Z : B(A(z))=y}.
+
+A target T:Z→W is point-identified at y if and only if T is constant on J_y. Parameter identification is the special case T(z)=z, with an appropriate interpretation of singleton-valued states.
+
+The intermediate value A(z) may be unobserved or only partially observed. The mere existence of an intermediate representation does not imply it can be reconstructed from y.
+
+3. FIBER STRUCTURE OF A COMPOSITION
+
+For any z in Z, the composite fiber can be written
+F^{-1}(y) = A^{-1}(B^{-1}(y)),
+where preimages are taken in their respective domains.
+
+Thus two sources of ambiguity may appear:
+(a) A itself may map different states to the same intermediate representation;
+(b) B may map distinct intermediate representations to the same observation.
+
+If A(z_1)=A(z_2), then F(z_1)=F(z_2) necessarily. Therefore, if T(z_1) differs from T(z_2), the target cannot be identified from the composite observation alone, unless other constraints or observations exclude one of the states.
+
+Even if A is injective, B may collapse distinct A-images to the same y. Even if B is injective on the full U, F can still fail to identify z when A is non-injective. These are distinct failure modes.
+
+4. SUFFICIENT CONDITIONS FOR TARGET IDENTIFIABILITY
+
+Theorem A:
+If T factors through A, meaning there exists a function T_A on A(Z) such that T=T_A∘A, and if T_A is constant on every set
+A(Z) ∩ B^{-1}(y),
+then T is point-identified from y under the composite model.
+
+Proof: If F(z_1)=F(z_2)=y, then B(A(z_1))=B(A(z_2))=y. Both A(z_i) lie in A(Z)∩B^{-1}(y). By the assumed constancy, T_A(A(z_1))=T_A(A(z_2)), hence T(z_1)=T(z_2).
+
+This condition is sufficient and is a restatement of the target criterion at the intermediate level. It can be useful when the intermediate representation is easier to analyze than the full composite map.
+
+A simpler sufficient condition is that B is injective on A(Z) and A itself identifies the target: whenever A(z_1)=A(z_2), T(z_1)=T(z_2). Then equality of composite observations implies equality of A-images and therefore equality of target values.
+
+5. WHEN IDENTIFIABILITY IS LOST
+
+If the target varies among states that share the same A-image, then no later deterministic map B can recover that distinction from A alone. Formally, if A(z_1)=A(z_2) but T(z_1)≠T(z_2), then B(A(z_1))=B(A(z_2)) for every B, so T is not identifiable from B∘A on a domain containing both states.
+
+This is an irreversible information-loss result for the stated deterministic pipeline. It does not preclude recovery using an additional independent measurement H(z) that was not passed through A.
+
+If A preserves the target but B merges intermediate states with different target values, then the loss occurs at the later interface. The correct location of the ambiguity matters when designing a new measurement.
+
+6. TARGET-SUFFICIENT INTERMEDIATE REPRESENTATIONS
+
+An intermediate map A is sufficient for target T over domain Z if
+A(z_1)=A(z_2) implies T(z_1)=T(z_2).
+
+This is weaker than A being injective. It means A may discard distinctions irrelevant to the target while preserving everything needed to determine T.
+
+If A is target-sufficient, there exists a well-defined function T_A on A(Z) satisfying T=T_A∘A: define T_A(u)=T(z) for any z with A(z)=u. Target-sufficiency ensures this value does not depend on the chosen representative.
+
+This statement is purely set-theoretic; continuity, measurability, computability, or numerical stability of T_A require additional assumptions.
+
+7. EXAMPLE: TWO-STAGE LOSS
+
+Let z=(x,s) in R², let A(x,s)=x+s, and let B(u)=u². Then the observation is y=(x+s)².
+
+Neither x nor s is separately identified. The sum x+s is also not globally identified from y because its sign is ambiguous when y>0. The squared sum T(x,s)=(x+s)² is identified exactly under an exact observation.
+
+This example combines information loss at A, which merges all pairs with the same sum, and a further sign ambiguity at B. The target remains identified because it is exactly the final observation.
+
+If the target is instead x+s, its identified set for y>0 is {sqrt(y),-sqrt(y)}. If additional domain restrictions force x+s≥0, then the sum is identified as sqrt(y) in that restricted model. The restriction must be reported as part of the assumptions.
+
+8. INTERMEDIATE OBSERVATIONS AND AUGMENTED PIPELINES
+
+Suppose an additional intermediate observation C(A(z)) or independent measurement H(z) is available. The augmented observation map may be written
+F_aug(z)=(B(A(z)), H(z)).
+
+The augmented feasible fiber is a subset of the original fiber, because every augmented-compatible state must be compatible with the original observation. Therefore its target image can only stay the same or shrink.
+
+If the added measurement distinguishes every pair of formerly feasible states with different target values, the target becomes point-identified. It is not necessary to distinguish states that share the same target value.
+
+A measurement-design objective should thus focus on separating target-distinct states, not necessarily reconstructing every component of z.
+
+9. NOISY AND SET-VALUED INTERFACES
+
+For an error set E, define the feasible set
+J_y={z in Z : y-F(z) in E}.
+The same target-constancy criterion applies. For staged models with uncertainty at intermediate interfaces, the full joint constraints must be written explicitly.
+
+One must not independently choose a best-fitting intermediate value at each stage if the stages share variables or correlated errors. Doing so may enlarge or distort the feasible set and produce bounds that are not sharp for the actual joint model.
+
+For a set-valued intermediate relation A(z)∈K(z), introduce the intermediate variable u and define joint feasibility through all stage constraints. Eliminate u only after preserving the shared constraints. A chain of separately feasible stage results need not correspond to one globally feasible trajectory if the stages are coupled.
+
+10. IDENTIFIABILITY DOES NOT AUTOMATICALLY COMPOSE
+
+Several tempting implications are false without added conditions:
+- Identifiability of an intermediate variable from one stage does not imply the original parameter is identified if the first map is many-to-one.
+- Injectivity of the first map does not imply the composite map is injective if the second map collapses its image.
+- Identifiability of each stage under separately stated or different conditioning information does not guarantee identifiability of the joint pipeline under the actual shared data.
+- A target identifiable from the final observation need not imply all intermediate states are identifiable.
+- A numerically stable stage does not guarantee the full composition is stable; conditioning can deteriorate through composition.
+
+If A and B are injective on the relevant domains, then B∘A is injective. This is a valid sufficient condition for full parameter identification, not a necessary one. The composite may be injective even if one stage is not injective on a larger domain, provided the relevant restricted domain and map structure support it; do not use such a claim without checking the actual restriction.
+
+11. STABILITY UNDER COMPOSITION
+
+Identifiability is qualitative; stability is quantitative. Suppose A and B are Lipschitz on relevant domains with constants L_A and L_B. Then
+||B(A(z_1))-B(A(z_2))|| <= L_B L_A ||z_1-z_2||.
+
+This upper bound controls how much outputs can change with state variation. It does not give an inverse stability bound that recovers state differences from observation differences.
+
+To infer a state or target from noisy observations, one needs a suitable lower separation bound, inverse-Lipschitz condition, restricted injectivity estimate, or target-specific stability theorem. If either stage has a collapsing direction, no general inverse bound follows from forward Lipschitz continuity alone.
+
+When inverse stability constants exist for both stages on the relevant restricted sets, their composition may yield a bound, but the domains, norms, and constants must be compatible. One must not multiply arbitrary local condition estimates and call the result a global certificate.
+
+12. CONDITIONAL RESULTS
+
+Theorem B, irreversible target loss:
+If A(z_1)=A(z_2) and T(z_1)≠T(z_2), then T is not identifiable from B∘A on a domain containing z_1,z_2, for any deterministic B.
+
+Theorem C, composition of injective maps:
+If A is injective on Z and B is injective on A(Z), then B∘A is injective on Z.
+
+Theorem D, target-sufficient factorization:
+A is target-sufficient for T if and only if there exists a well-defined function T_A:A(Z)→W such that T=T_A∘A.
+
+Theorem E, augmentation:
+If J_aug is the feasible set after adding an observation and J_old is the original feasible set, with the original constraints retained, then J_aug⊆J_old and T(J_aug)⊆T(J_old).
+
+All results require the domains and maps to be well-defined. They are mathematical statements, not claims that a particular empirical pipeline satisfies their hypotheses.
+
+13. AUDIT CHECKLIST
+
+For a composed observation model, record:
+- Every stage map, its domain, codomain, and parameter dependencies.
+- Which intermediate variables are observed, latent, or constrained.
+- The full joint feasible set, including correlated errors and shared systematics.
+- Whether each stage is injective on the relevant restricted domain.
+- Whether an intermediate map is sufficient for the target even if it is not injective.
+- The target image of the full composite fiber.
+- Where ambiguity first appears and whether later stages add ambiguity.
+- Whether additional observations separate target-distinct states.
+- Any global or local stability certificate, with norms and constants.
+- Whether the conclusion is exact, set-valued, approximate, or unresolved.
+
+14. NON-IMPLICATIONS
+
+- A latent representation does not imply that the latent state is recoverable.
+- A many-to-one intermediate map irreversibly loses target information if it merges states with different target values and no independent data are added.
+- Target identifiability does not imply full state identifiability.
+- Injectivity of only one stage does not imply injectivity of the composite.
+- Separate stagewise feasibility does not guarantee joint feasibility under shared constraints.
+- Forward Lipschitz continuity does not imply inverse stability.
+- An added observation can reduce ambiguity without making every parameter identifiable.
+- A finite numerical solution list does not prove that all branches were found.
+- A well-defined quotient or latent representation does not establish physical identity.
+- Composition alone neither guarantees nor rules out target identifiability.
+
+15. CONCLUSION
+
+For a composed observation pipeline, identifiability must be evaluated over the full fiber of the composite map, with all intermediate constraints and shared uncertainties retained. Information discarded by a deterministic stage cannot be reconstructed by a later deterministic stage alone when the discarded distinction changes the target. Conversely, intermediate representations may discard irrelevant state detail while preserving a particular target.
+
+The correct object is the target image of the full joint feasible set, not the apparent uniqueness of one intermediate estimate. Stability requires additional quantitative inverse bounds and does not follow from identifiability alone.
+
+This audit is conditional on the stated maps and assumptions. It does not modify the Frozen Core, promote CE-V, or register an RL item.
+
+END OF DOCUMENT
