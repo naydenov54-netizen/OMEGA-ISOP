@@ -1,0 +1,101 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+OMEGA-ISOP — COSMOLOGICAL SCALE AND CALIBRATION IDENTIFIABILITY AUDIT
+Date: 2026-10-28
+Status: CONDITIONAL MATHEMATICAL AUDIT; NOT A FROZEN CORE AMENDMENT; NOT AN RL REGISTRATION
+
+1. PURPOSE AND SCOPE
+
+This audit formalizes when a cosmological scale parameter H can be identified from observations in the presence of an independently variable calibration parameter. It distinguishes mathematical identifiability within a specified physical model from derivation of the model, calibration of physical units, and semantic assignment inside OMEGA-ISOP.
+
+No claim is made that the OMEGA-ISOP Frozen Core derives a metric, a clock unit, a cosmological parameter, Einstein dynamics, or a unique physical realization.
+
+2. OBSERVATION MAP
+
+Let M denote a specified physical model, H a parameter of interest, lambda a collection of nuisance parameters and calibration choices, and D the predicted observable data. Write
+
+D = F_M(H, lambda).
+
+For fixed lambda, global identifiability of H requires
+
+F_M(H1, lambda) = F_M(H2, lambda) implies H1 = H2.
+
+When lambda is free, the relevant condition is stronger:
+
+F_M(H1, lambda1) = F_M(H2, lambda2) implies H1 = H2
+
+for all admissible parameter pairs. If there exist admissible pairs with H1 not equal to H2 and identical predicted data, H is not globally identifiable from those data in that model.
+
+This is a definition-level criterion. It does not establish that any particular observation map is injective.
+
+3. SCALE TRANSFORMATION AND CALIBRATION
+
+For a four-dimensional Lorentzian metric g and constant k > 0, define g' = k^2 g. Under the corresponding metric rescaling, proper-time intervals scale as d tau' = k d tau. For a de Sitter family related by this constant metric rescaling, the Hubble parameter scales as H' = H/k, when H is expressed relative to the rescaled proper-time unit.
+
+Consequently,
+
+H' d tau' = H d tau.
+
+This dimensionless product is invariant under the paired transformation. Therefore, if an observation map depends only on such invariant combinations and does not include an independently fixed clock calibration, the numerical value assigned to H cannot be uniquely recovered from those invariant observations alone.
+
+Important qualification: this conclusion applies only to an observation map that is invariant under the full paired transformation. It is not a claim that all observables are invariant under metric rescaling. Dimensional observables, fixed calibration standards, matter-sector parameters, boundary conditions, or dynamics may break the degeneracy. Each such proposed scale-breaking input must be explicitly included and audited.
+
+4. CONDITIONAL NON-IDENTIFIABILITY PROPOSITION
+
+Proposition. Let P be an admissible parameter space containing pairs (H, lambda). Suppose that for every parameter point relevant to the inference, there is a nontrivial admissible transformation T_k taking (H, lambda) to (H_k, lambda_k), with H_k not equal to H for at least one k, such that
+
+F_M(H_k, lambda_k) = F_M(H, lambda).
+
+Then H is not globally identifiable from F_M on P.
+
+Proof. By hypothesis, at least two admissible parameter points have different H values and identical predicted data. This directly violates the defining implication for global identifiability. QED.
+
+The proposition is conditional on the existence of the transformation and on its preserving the complete observation map. A metric rescaling alone does not prove that condition for an arbitrary physical model.
+
+5. DE SITTER REDSHIFT-DRIFT EXAMPLE
+
+Under the standard ideal spatially flat de Sitter/FLRW model, with comoving source and observer and redshift z > 0, the standard redshift-drift relation is
+
+dz/d tau_0 = (1 + z) H_0 - H(z).
+
+For exact de Sitter expansion H(z) = H_0 = H, so
+
+dz/d tau_0 = z H,
+
+and therefore
+
+H = (1/z) dz/d tau_0.
+
+This identifies H relative to the observer's proper-time calibration, provided z and its drift are known and the exact de Sitter model is assumed. It does not derive that calibration from OMEGA-ISOP. If the clock unit is transformed together with the metric, the numerical value of H changes inversely with that unit while H d tau remains invariant.
+
+At z = 0 this particular formula gives zero drift and does not identify H. In a general FLRW model, a single drift datum does not generally identify H_0 if H(z) and other model parameters are unconstrained.
+
+6. FOUR CLAIMS THAT MUST NOT BE COLLAPSED
+
+A. Structural derivation: whether H follows from the relational premises. Not established by this audit.
+
+B. Conditional physical identifiability: whether H is unique under a specified physical model, observation map, and calibration. This can be established only by an injectivity proof or equivalent model-specific argument.
+
+C. Dimensional calibration: which independently justified clock, ruler, or other dimensional standard assigns a numerical unit to H. Not supplied by identifiability alone.
+
+D. OMEGA-ISOP semantic assignment: why a physical parameter should receive a particular interpretation within OMEGA-ISOP. Requires an independently justified semantic bridge and does not follow from mathematical identifiability alone.
+
+7. REQUIRED AUDIT FOR ANY CLAIM OF SCALE SELECTION
+
+For each proposed scale-breaking input, state:
+- its exact mathematical type and domain;
+- whether it is derived internally or supplied externally;
+- which dimensional unit or physical standard it introduces;
+- whether the full observation map is invariant under a nontrivial scale transformation;
+- whether the resulting map is injective in H after nuisance parameters are included;
+- whether uniqueness holds globally or only locally and under which restrictions;
+- whether the physical interpretation relies on a model assumption not derived by OMEGA-ISOP.
+
+A candidate input such as a calibrated clock, a fixed dimensional constant, or a fixed nonzero cosmological constant is not by itself a proof of unique scale selection. The resulting equations and admissible parameter space must be checked for uniqueness.
+
+8. CONCLUSION
+
+A numerical Hubble parameter is identifiable only relative to a specified model, observation map, admissible parameter space, and calibration convention. If a nontrivial scale transformation changes H while preserving all included observations, H is not identifiable from those observations. If an independent calibrated observable breaks that invariance, identifiability may become possible, but it must be demonstrated for the complete model.
+
+This result does not show that OMEGA-ISOP internally derives H or the clock calibration. It does not alter the Frozen Core, make a CE-V promotion, or create an RL registration.
+
+END OF DOCUMENT
