@@ -1,0 +1,195 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+OMEGA-ISOP / M3.2
+AUDIT #32: OPTIMAL EXPERIMENT DESIGN FOR MULTIPLE HYPOTHESES UNDER A BUDGET
+Date: 2026-10-29
+Status: Conditional mathematical audit. No Frozen Core amendment, CE-V promotion, or RL registration.
+
+1. PURPOSE
+
+This audit formalizes how to select experiments to separate multiple competing hypotheses under finite resources. It distinguishes exact separation, worst-case robust separation, target-specific information gain, statistical criteria, and optimization certification.
+
+No design is universally optimal without a declared hypothesis class, admissible design set, observation/error model, cost function, and decision criterion.
+
+2. HYPOTHESES AND EXPERIMENTS
+
+Let the hypothesis index set be I={1,...,k}, with k>=2. Hypothesis i has admissible state set H_i. Let A be the set of feasible experiments, and let F_{i,a}:H_i→Y_a be the prediction map for experiment a.
+
+The prediction set under hypothesis i is
+P_i(a)={F_{i,a}(z):z in H_i}.
+
+For a single exact deterministic experiment, all hypotheses are uniformly distinguishable by set membership if their prediction sets are pairwise disjoint:
+P_i(a) ∩ P_j(a)=empty for every i≠j.
+
+Pairwise disjointness is a worst-case criterion. If sets overlap, some outputs remain ambiguous, although other outputs may still identify a unique hypothesis. The criterion does not say how probable any output is.
+
+3. ROBUST SEPARATION UNDER BOUNDED ERRORS
+
+Let E_{i,a} be the allowed error set under hypothesis i and experiment a. Define the compatible observation set
+Q_i(a)=P_i(a)+E_{i,a}
+={p+e:p in P_i(a), e in E_{i,a}}.
+
+Guaranteed robust separation requires
+Q_i(a) ∩ Q_j(a)=empty for every i≠j.
+
+If this fails for a pair, at least one observation is compatible with both hypotheses under the stated error model. If the sets are disjoint, no allowed observation can be attributed to both hypotheses within that model.
+
+For a shared norm-ball error set of radius epsilon in a common normed space, a sufficient pairwise condition is
+dist(P_i(a),P_j(a))>2 epsilon,
+where dist(S,T)=inf{||s-t||:s in S,t in T}.
+
+For different error radii epsilon_i and epsilon_j, the analogous sufficient condition is
+dist(P_i(a),P_j(a))>epsilon_i+epsilon_j.
+
+These strict inequalities are sufficient. The exact test is disjointness of the expanded sets. At equality, endpoint inclusion and geometry matter. For nonclosed prediction sets, zero distance need not imply intersection.
+
+4. MULTI-HYPOTHESIS SEPARATION MARGIN
+
+For a design a, define the worst pairwise nominal margin
+Delta(a)=min_{i<j} dist(P_i(a),P_j(a)).
+
+When all hypotheses share the same norm-ball error radius epsilon, Delta(a)>2 epsilon is sufficient to guarantee robust pairwise separation. If error radii vary by hypothesis, define a normalized or adjusted margin, for example
+Delta_E(a)=min_{i<j}[dist(P_i(a),P_j(a))-epsilon_i(a)-epsilon_j(a)].
+
+A positive adjusted margin is a sufficient certificate under the stated norm-ball assumptions. A negative or zero value does not by itself prove overlap in every geometry; evaluate the expanded sets directly when a definitive result is needed.
+
+The margin should be evaluated in a meaningful observation metric. Mixing units or arbitrarily rescaling output coordinates can change the ranking of designs. If outputs have different noise scales or covariance, use a justified weighted norm or an explicit error set, and report the choice.
+
+5. BUDGET-CONSTRAINED DESIGN
+
+Let c(a)>=0 be the cost of experiment a and B the total budget. For a single experiment, the feasible set is
+A_B={a in A:c(a)<=B}.
+
+A worst-case separation design can be posed as
+maximize Delta(a) subject to a in A_B.
+
+For a collection S of experiments with cost c(S), the corresponding problem is
+maximize Delta(S) subject to c(S)<=B,
+where Delta(S) is computed from the joint prediction sets, not by blindly adding the marginal margins.
+
+The objective may be replaced or supplemented by a target-specific criterion, a required robust-separation threshold, or a statistical loss. The optimization statement is incomplete until the objective, constraints, and uncertainty model are explicit.
+
+If no feasible design reaches a required margin, the correct conclusion is that the requirement was not met within the searched or certified feasible design class. It is not a universal proof that no conceivable experiment could work.
+
+6. JOINT DESIGNS AND SHARED LATENT STATES
+
+For a fixed sequence S=(a_1,...,a_n), define the joint prediction map
+F_{i,S}(z)=(F_{i,a_1}(z),...,F_{i,a_n}(z)).
+The joint prediction set is
+P_i(S)={F_{i,S}(z):z in H_i}.
+
+All coordinates must arise from the same state z unless the model explicitly allows state evolution between experiments. The joint error set must represent cross-measurement correlation, shared calibration error, and any known dependence.
+
+It is generally incorrect to form the joint prediction set as an unrestricted Cartesian product of the individual prediction sets. Such a product can combine outputs that no single admissible state can generate.
+
+Individual experiments can be ambiguous while their joint design separates the hypotheses. Conversely, nominally strong marginal margins may be reduced by shared nuisance variables or correlated errors. Joint optimization must preserve these dependencies.
+
+7. SEQUENTIAL AND ADAPTIVE DESIGNS
+
+In an adaptive policy, the next experiment may depend on previous observations. The object to assess is then the complete policy, including its decision rules, feasible actions, stopping rule, and total cost.
+
+A guarantee for a fixed design does not automatically extend to an adaptive policy, and a fixed-design impossibility result does not automatically rule out adaptive designs. For guaranteed discrimination, compare the sets of possible complete observation histories under each hypothesis, including allowed errors and policy-dependent actions.
+
+If actions depend on noisy observations, the analysis must include all admissible branches rather than only the branch expected under a nominal parameter value.
+
+8. TARGET-SPECIFIC OBJECTIVES
+
+Let J be the current feasible state set and T the target map. An experiment with outcome y and error set E updates the feasible set to
+J_new={z in J:y-F_a(z) in E}.
+Then J_new is a subset of J and T(J_new) is a subset of T(J).
+
+A design that best separates every pair of hypotheses need not best identify the target. If the scientific goal is target estimation, candidate objectives include the worst-case diameter of the updated target set, a guaranteed reduction in that diameter, or the worst-case target-specific separation.
+
+For a set J, define diam(T(J))=sup{|T(z)-T(z')|:z,z' in J}. A worst-case design criterion may minimize the largest possible post-experiment target diameter over all observations consistent with the model. The optimization must include the outcome-dependent feasible set; evaluating only a nominal expected outcome does not establish a worst-case guarantee.
+
+If two hypotheses overlap observationally but assign the same target value to every shared-compatible state, discriminating those hypotheses may be unnecessary for the target. Conversely, separating hypothesis labels does not guarantee parameter or target stability within each hypothesis.
+
+9. STATISTICAL DESIGN IS DISTINCT
+
+In a stochastic observation model, each design and hypothesis induce probability distributions or families of distributions. Possible objectives include power at a specified significance level, worst-case testing risk, expected information gain under explicit priors, or decision-theoretic expected loss.
+
+These criteria are not interchangeable with the deterministic separation margin. A design with disjoint bounded-error prediction sets may yield guaranteed separation under that model; a design with different probability distributions generally supports probabilistic rather than zero-error claims unless stronger conditions are established.
+
+Expected information gain depends on the prior and likelihood model. If priors are unavailable or not justified, do not present a prior-dependent ranking as a model-free optimum.
+
+10. GLOBAL OPTIMUM VERSUS NUMERICAL CANDIDATE
+
+A numerical optimizer may return a candidate design a_hat and an estimated objective value. This alone does not prove global optimality.
+
+A global optimality certificate requires a valid upper bound U on the objective over the entire feasible design set and a feasible candidate with a certified lower bound L such that the gap U-L is within the declared tolerance. For a maximization problem, the candidate value is a lower bound only if evaluated with a valid certification method; an upper bound must cover all feasible designs.
+
+For continuous design spaces, local optimization, finite grids, random search, or repeated convergence from starting points can suggest promising candidates but do not by themselves prove global optimality. Global certificates may require analytical structure, convexity, branch-and-bound, interval methods, or other validated optimization methods.
+
+If the feasible design set is finite and fully enumerated, exact evaluation of every feasible design can certify the optimum, provided each objective value is itself computed or bounded reliably.
+
+11. CERTIFIED SEPARATION AND NUMERICAL UNCERTAINTY
+
+A computed prediction-set distance is not automatically a certified margin. The prediction sets may be continuous, nonconvex, unbounded, or defined by nuisance constraints.
+
+To certify robust separation, establish a valid lower bound on every relevant pairwise distance, or prove directly that the expanded sets are disjoint. Sampling states can expose counterexamples to separation but cannot usually prove disjointness over a continuum.
+
+To disprove robust separation, a single valid common observation in two expanded prediction sets is enough for the relevant pair. To prove separation, the full sets must be covered by the argument.
+
+Numerical tolerance must not silently replace the physical error model. Report separately:
+(a) measurement uncertainty;
+(b) model or nuisance uncertainty;
+(c) numerical optimization error;
+(d) rounding and representation error.
+
+These components may be combined only under an explicit and valid error accounting rule.
+
+12. CONDITIONAL RESULTS
+
+Theorem A, robust multi-hypothesis separation:
+For a fixed design a, if Q_i(a)∩Q_j(a)=empty for all i≠j, then every observation allowed by the model is compatible with at most one hypothesis. This is a uniform set-membership separation guarantee.
+
+Theorem B, sufficient margin:
+If all prediction sets lie in a common normed space and each hypothesis has a norm-ball error radius epsilon_i, then
+dist(P_i(a),P_j(a))>epsilon_i+epsilon_j
+is sufficient for Q_i(a)∩Q_j(a)=empty.
+
+Theorem C, target-set monotonicity:
+Adding an observation constraint by intersection cannot enlarge the feasible target image: T(J_new) is a subset of T(J). Strict reduction is not guaranteed.
+
+Theorem D, budget-relative conclusion:
+If every design in the fully specified feasible set A_B has a certified objective value below a required threshold, then no design in A_B satisfies that threshold. This is a class-relative conclusion and depends on completeness of the feasible-set coverage and validity of the certificates.
+
+Theorem E, finite exhaustive design:
+If A_B is finite, every feasible design is enumerated, and all objective values are exactly or rigorously bounded, then comparing those values can certify a global optimum or a rigorous optimality gap.
+
+13. RECOMMENDED WORKFLOW
+
+Step 1. State all competing hypotheses and their admissible state sets.
+Step 2. Specify the feasible design space, budget, and operational constraints.
+Step 3. Define the joint observation maps and preserve shared-state constraints.
+Step 4. Specify measurement errors, shared systematics, and statistical assumptions.
+Step 5. Choose one explicit objective: robust margin, target diameter, testing risk, or another justified criterion.
+Step 6. Compute or bound the objective over candidate designs.
+Step 7. Search for counterexamples to claimed separation and certify the surviving lower bounds.
+Step 8. Distinguish a best-found candidate from a globally certified optimum.
+Step 9. Report cost, uncertainty assumptions, numerical tolerances, and unverified conditions.
+Step 10. State conclusions only for the declared design class and model.
+
+14. NON-IMPLICATIONS
+
+- A larger nominal difference between best-fit predictions does not guarantee greater worst-case separation between composite hypotheses.
+- Maximizing pairwise separation need not minimize target uncertainty.
+- The best single experiment need not be part of the best joint design under a shared budget.
+- Marginal prediction sets do not determine the exact joint prediction set when outputs share latent states.
+- A locally optimal design is not necessarily globally optimal.
+- A numerical candidate is not a certificate of robust separation.
+- Failure to find a design is not proof that no feasible design exists.
+- Failure to meet a threshold within a fully enumerated feasible set does not establish impossibility outside that set.
+- A prior-dependent expected information gain is not a prior-free ranking.
+- Hypothesis discrimination does not imply within-hypothesis parameter identification.
+- Target identification does not require identification of every latent state.
+- Numerical rounding error, instrument error, and model uncertainty must not be conflated without a justified bound.
+
+15. CONCLUSION
+
+Optimal experimental design is a constrained optimization problem over explicitly defined prediction sets and uncertainty models. For robust discrimination among multiple composite hypotheses, the relevant objective is controlled by the weakest pairwise separation, evaluated after accounting for allowed errors. Joint and adaptive designs require joint observation histories and shared-state dependencies. Target-specific goals may require a different objective from hypothesis separation.
+
+A mathematically defensible result must distinguish feasibility, candidate quality, robust guarantees, and global optimality certification. All conclusions remain conditional on the declared hypothesis sets, design class, budget, error model, and validation method.
+
+This audit does not modify the Frozen Core, promote CE-V, or register an RL item.
+
+END OF DOCUMENT
