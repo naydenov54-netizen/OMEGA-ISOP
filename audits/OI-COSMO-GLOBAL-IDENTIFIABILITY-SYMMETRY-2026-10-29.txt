@@ -1,0 +1,189 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+OMEGA-ISOP / M3.2
+AUDIT #28: GLOBAL IDENTIFIABILITY, MODEL SYMMETRIES, AND OBSERVATIONAL INVARIANCE
+Date: 2026-10-29
+Status: Conditional mathematical audit. No Frozen Core amendment, CE-V promotion, or RL registration.
+
+1. SCOPE
+
+This audit examines when different parameter values generate identical observations because the observation map has a symmetry or invariance. It distinguishes:
+(a) parameter non-identifiability;
+(b) target identifiability despite parameter ambiguity;
+(c) equivalent representations related by a declared symmetry;
+(d) ambiguity caused by limited observations or bounded error;
+(e) practical instability, where distinct predictions are technically distinguishable but difficult to separate under noise.
+
+These categories can overlap but are not interchangeable. A mathematical symmetry does not, by itself, establish that two states are ontologically identical. It establishes an invariance of the specified mathematical representation or observation map.
+
+2. BASIC SETUP
+
+Let Z be the parameter/state domain, Y the observation space, and F:Z→Y the observation map. For exact observations y, the feasible fiber is
+
+J_y = {z in Z : F(z)=y}.
+
+A scalar target T:Z→R is point-identified at y precisely when T is constant on J_y, assuming J_y is nonempty. Global parameter identifiability on Z means F is injective on Z. Global target identifiability means that F(z_1)=F(z_2) implies T(z_1)=T(z_2) for all z_1,z_2 in Z.
+
+The second condition is weaker than injectivity of F. It asks only that observationally indistinguishable states agree on the target.
+
+With errors, replace the exact fiber by the feasible set determined by the declared residual set and constraints. The same constancy criterion applies to that feasible set. All claims remain relative to the model domain, data, error model, and constraints.
+
+3. SYMMETRY AND INVARIANCE
+
+Let a group G act on Z. Write g·z for the action of g in G on z. The observation map is invariant under this action if
+
+F(g·z)=F(z)
+
+for every z in Z and every g in G for which the action is defined and remains within the domain.
+
+Then each orbit
+Orb(z) = {g·z : g in G}
+lies within the observational fiber of z. Therefore, if an orbit contains distinct parameter points, F is not injective on the full domain.
+
+A target T is symmetry-invariant if
+T(g·z)=T(z)
+for every applicable z and g. This guarantees that T is constant on each symmetry orbit, but it does not guarantee target identifiability if the same observation fiber contains multiple orbits on which T differs.
+
+Sufficient condition: if every observation fiber is a single orbit (or a subset of one orbit) and T is invariant under the group action, then T is constant on that fiber and hence point-identified for exact observations. The condition is sufficient, not necessary. A target can be identified even when fibers contain several symmetry orbits, provided its value agrees across the entire fiber.
+
+4. QUOTIENT REPRESENTATION
+
+The orbit space Z/G treats points in the same orbit as one equivalence class. If F is invariant, it induces a map on the quotient, provided the action and quotient are well-defined:
+
+F_bar([z]) = F(z).
+
+This induced map is well-defined because representatives in the same orbit have the same observation. However, F_bar need not be injective. Removing a known symmetry eliminates one source of ambiguity; it does not eliminate all ambiguity from the observation map.
+
+A quotient representation is a mathematical identification convention. It must not be interpreted as proof that orbit-related states are physically identical unless the model's interpretation independently warrants that conclusion.
+
+If the group action is not free, some states have nontrivial stabilizers. The quotient can then have singular or exceptional structure. Any smooth-manifold arguments on the quotient require additional regularity and should not be assumed automatically.
+
+5. EXAMPLE: SCALE SYMMETRY
+
+Consider the observation
+y = a b,
+where a,b are positive real parameters.
+
+For any k>0, the transformation
+a' = k a,
+b' = b/k
+leaves the observation unchanged:
+a'b' = (ka)(b/k)=ab.
+
+Thus a and b are not separately identifiable from y alone. Their product T(a,b)=ab is identified exactly as y under an exact observation.
+
+If additional independent observations constrain a or b, the symmetry may be broken. Whether it is broken depends on the complete observation map, not on one equation in isolation.
+
+The example also shows that parameter ambiguity and target ambiguity must be assessed separately.
+
+6. EXAMPLE: SIGN SYMMETRY
+
+For F(x)=x^2 on Z=R and exact y>0, the fiber is {sqrt(y), -sqrt(y)}. The transformation x→-x is an invariant symmetry. The target T(x)=x^2 is identified; T(x)=x is not.
+
+If the declared domain is Z=[0,∞), the sign-related alternative is excluded by the domain. In that restricted model, x is identified as sqrt(y). This is a conditional conclusion based on the domain restriction, not evidence that the unrestricted observation map was injective.
+
+7. SYMMETRY VERSUS INSUFFICIENT DATA
+
+A symmetry is a structured reason for invariance: a transformation class can be specified and shown to preserve F. Insufficient data can produce ambiguity without any known group action or smooth transformation linking all alternatives.
+
+For example, if F maps three unrelated parameter branches to the same y, those branches need not form one symmetry orbit. Quotienting by a known symmetry will not necessarily resolve this residual ambiguity.
+
+The correct general test remains the full-fiber criterion:
+F(z_1)=F(z_2) implies T(z_1)=T(z_2)
+for target identification in the exact model.
+
+Do not infer a symmetry group merely because a numerical solver returned several solutions. Conversely, failure to discover a symmetry does not establish injectivity.
+
+8. LOCAL SYMMETRIES AND JACOBIAN TESTS
+
+For a differentiable one-parameter transformation g_s with g_0 the identity, if F(g_s·z)=F(z) throughout a valid interval of s, differentiation at s=0 yields
+
+J_F(z) v(z)=0,
+
+where v(z) is the infinitesimal generator of the transformation at z. Thus a continuous exact symmetry generates a Jacobian null direction wherever the differentiations are valid.
+
+The converse does not generally hold. A Jacobian null direction at a point may be only a first-order degeneracy, may fail to integrate to an exact symmetry, or may be blocked by domain constraints. A discrete symmetry such as x→-x need not generate a continuous Jacobian null direction at a generic point.
+
+Consequently, Jacobian rank is a local diagnostic, not a complete global symmetry classification.
+
+9. OBSERVATIONAL ERROR AND APPROXIMATE SYMMETRY
+
+Under bounded error, two states may both be compatible with the same observed data even if F(z_1) is not exactly equal to F(z_2). Define a compatibility set, for example,
+
+J_y = {z in Z : y-F(z) in E}.
+
+The target is identified over this data and error specification only if T is constant on J_y. Approximate invariance can cause practical ambiguity without exact structural symmetry.
+
+A small prediction difference does not automatically imply a small target difference. That conclusion requires a stability bound connecting observation differences to target differences over the stated domain. Such bounds can fail near singularities, boundaries, or ill-conditioned regions.
+
+Report exact invariance, approximate invariance, and noise-induced compatibility separately.
+
+10. TARGETS ON THE QUOTIENT
+
+If T is invariant under G, it can be represented as a function on the quotient, T_bar([z])=T(z), provided T is well-defined and constant on each orbit. This removes dependence on the choice of representative.
+
+But quotient well-definedness is not the same as observational identifiability. For T_bar to be identified from F_bar, it must also be constant on every fiber of F_bar. Multiple quotient classes can still produce the same observation.
+
+A defensible analysis therefore checks both:
+(i) whether the target is invariant under the chosen symmetry;
+(ii) whether distinct quotient classes compatible with the data share the same target value.
+
+11. BREAKING OR REDUCING A SYMMETRY
+
+An additional observation H:Z→W breaks a symmetry when there exist z and g for which H(g·z) differs from H(z). The augmented observation map is
+
+F_aug(z) = (F(z), H(z)).
+
+The original symmetry is preserved by the augmented map only for transformations that preserve both F and H. A new measurement may therefore reduce an orbit or eliminate it, but it need not make F_aug injective.
+
+A measurement proposal should be assessed against the ambiguity it is intended to resolve. If the target is already invariant and identified, breaking a parameter symmetry may be unnecessary for that target. If the scientific objective requires the individual parameters, target-specific identification is not enough.
+
+12. CONDITIONAL RESULTS
+
+Theorem A, target criterion:
+For a nonempty exact fiber J_y, T is point-identified at y if and only if T is constant on J_y.
+
+Theorem B, symmetry-induced ambiguity:
+If F(g·z)=F(z) and g·z differs from z for some admissible z, then F is not injective on the full domain containing both points.
+
+Theorem C, sufficient condition for a symmetry-invariant target:
+If every fiber J_y is contained in one orbit of a group under which T is invariant, then T is point-identified on each nonempty fiber.
+
+Theorem D, quotient observation map:
+If F is invariant under the group action, then F_bar([z])=F(z) is well-defined on the orbit space. This does not imply that F_bar is injective.
+
+Each theorem is conditional on the stated domain and action being well-defined. None establishes empirical adequacy of the model.
+
+13. AUDIT CHECKLIST
+
+For a claimed identifiability result, record:
+- The exact observation map and full domain.
+- The full feasible fiber or a certified description of it.
+- Any proposed group action and a proof that it preserves the observation map.
+- Whether the target is invariant under that action.
+- Whether distinct orbits remain in the same observation fiber.
+- Whether the claim is global or only local.
+- The effect of error bounds and nuisance constraints.
+- Whether additional observations actually break the relevant invariance.
+- Whether a quotient is a mathematical convention or has an independently justified physical interpretation.
+- The proof method and any unresolved global branches.
+
+14. NON-IMPLICATIONS
+
+- Multiple solutions do not prove the existence of a symmetry group.
+- A known symmetry does not account for every source of non-identifiability.
+- A symmetry-invariant target is not automatically identifiable if a fiber contains multiple orbits with different target values.
+- A quotient representation does not prove physical identity of orbit-related states.
+- A full-rank Jacobian at one point does not prove global injectivity.
+- A Jacobian null direction does not by itself prove an exact continuous symmetry.
+- A new measurement that breaks one symmetry does not guarantee full parameter identifiability.
+- Exact identifiability does not imply numerical stability under noise.
+- Numerical convergence to one solution does not establish uniqueness.
+- Model-relative identifiability does not prove empirical model adequacy.
+
+15. CONCLUSION
+
+The exact global question is whether the target is constant over the entire observation fiber or feasible set. Symmetry provides a structured explanation for some non-identifiability and can motivate quotient representations, but it neither exhausts all ambiguity nor automatically establishes physical equivalence. Target invariance under a symmetry is useful but insufficient unless the remaining observational fiber is also controlled.
+
+This audit is conditional on the stated model, domain, and assumptions. It does not modify the Frozen Core, promote CE-V, or register an RL item.
+
+END OF DOCUMENT
