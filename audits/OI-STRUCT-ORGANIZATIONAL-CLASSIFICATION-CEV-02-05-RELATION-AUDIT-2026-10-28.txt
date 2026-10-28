@@ -1,0 +1,219 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+
+OMEGA-ISOP
+ORGANIZATIONAL CLASSIFICATION: CE-V-02 / CE-V-05 RELATION AUDIT
+DATE: 2026-10-28
+STATUS: RESEARCH AUDIT; NOT A CE-V INTEGRATION DECISION
+
+1. PURPOSE AND SCOPE
+
+This audit compares two retained CE-V constructions concerning classes of organization:
+- CE-V-02: organizational equivalence and degeneracy relative to specified structural and operational criteria.
+- CE-V-05: reachability equivalence under a fixed relational structure R and admissible dynamics A(R).
+
+The question is whether these constructions define the same equivalence relation, whether one entails the other, or whether they are independent unless additional bridge conditions are supplied.
+
+This is a classification of organizational states within the existing Organization level. It does not introduce a new foundational level after Organization.
+
+2. ARCHIVE-BASED INPUTS
+
+CE-V-02 states that distinct realizations may belong to the same operational organizational equivalence class. Its criteria are relative to explicitly specified formal criteria, operational criteria, task conditions, and realization conditions. The retained archive does not give one universal signature formula for all possible CE-V-02 applications.
+
+CE-V-05 defines, for fixed R and A(R):
+
+O_i ≈_reach O_j iff Reach(R,A(R))(O_i) = Reach(R,A(R))(O_j).
+
+Provided Reach is a well-defined set for every organizational state, equality of reachable sets makes ≈_reach reflexive, symmetric, and transitive. The relation is conditional on the specified R, A(R), Reach convention, and organizational domain.
+
+Important status distinction:
+- The CE-V-05 formula is an archive-retained conditional theorem.
+- The signature formalization used below is an explicit audit model for comparing criteria, not a claim that CE-V-02 canonically mandates that one formula.
+
+3. FORMAL COMPARISON SETUP
+
+Fix an organizational state domain Org and a fixed reachability construction Reach.
+
+For a particular operational/structural criterion set C, let:
+
+σ_C : Org → S_C
+
+be a defined organizational signature. The signature may encode only the properties selected by C. Define the criterion-induced equivalence:
+
+O_i ≈_C O_j iff σ_C(O_i) = σ_C(O_j).
+
+Equality of signatures is an equivalence relation. This is one explicit formal realization of criterion-relative organizational equivalence. Different valid choices of C may produce different partitions.
+
+CE-V-05 independently defines:
+
+O_i ≈_reach O_j iff Reach(O_i) = Reach(O_j).
+
+These two equivalence relations need not coincide.
+
+4. COUNTERMODEL A: CRITERION EQUIVALENCE DOES NOT ENTAIL REACHABILITY EQUIVALENCE
+
+Let Org = {a,b}. Define a transition relation with only self-loops:
+
+a → a
+b → b
+
+Include zero-step reachability, so:
+
+Reach(a) = {a}
+Reach(b) = {b}
+
+Choose a criterion signature that records a shared operational label and assigns:
+
+σ_C(a) = 0
+σ_C(b) = 0
+
+Then:
+
+a ≈_C b
+
+but:
+
+Reach(a) ≠ Reach(b)
+therefore a ≉_reach b.
+
+Conclusion:
+≈_C does not entail ≈_reach in general.
+
+Interpretation:
+Two organizational states can be indistinguishable under the selected operational/structural criteria while having different reachable-state sets. This countermodel does not assert that any specific CE-V-02 application has this property; it proves that the archive-level criterion-relative description alone does not rule it out.
+
+5. COUNTERMODEL B: REACHABILITY EQUIVALENCE DOES NOT ENTAIL CRITERION EQUIVALENCE
+
+Let Org = {a,b}, with transitions:
+
+a → b
+b → a
+
+Include zero-step reachability. Then:
+
+Reach(a) = {a,b}
+Reach(b) = {a,b}
+
+Therefore:
+
+a ≈_reach b.
+
+Now define a criterion signature that distinguishes the current operational organizations:
+
+σ_C(a) = 0
+σ_C(b) = 1
+
+Then:
+
+a ≉_C b.
+
+Conclusion:
+≈_reach does not entail ≈_C in general.
+
+Interpretation:
+Two states can have the same reachable future set but differ under a criterion that records their present operational organization. Reachability equivalence does not force equality of every present-state signature.
+
+6. RESULT: LOGICAL RELATION BETWEEN CE-V-02 AND CE-V-05
+
+The two countermodels establish, for the general criterion-relative formalization above:
+
+≈_C ⇏ ≈_reach
+≈_reach ⇏ ≈_C
+
+Therefore neither relation entails the other without additional assumptions.
+
+This is a non-entailment result, not a claim that the relations can never coincide. For a particular system, the partitions may:
+- coincide exactly;
+- one refine the other;
+- overlap without either refining the other.
+
+The relation between them must be established for the chosen domain, signature, dynamics, and reachability convention.
+
+7. WHEN WOULD THEY COINCIDE?
+
+A sufficient condition for ≈_C to imply ≈_reach is that the selected signature be reachability-complete on the domain:
+
+σ_C(O_i) = σ_C(O_j) ⇒ Reach(O_i) = Reach(O_j).
+
+A sufficient condition for ≈_reach to imply ≈_C is that the selected signature be constant on reachability classes:
+
+Reach(O_i) = Reach(O_j) ⇒ σ_C(O_i) = σ_C(O_j).
+
+If both conditions hold, then:
+
+O_i ≈_C O_j iff O_i ≈_reach O_j.
+
+These are additional bridge conditions. They are not established merely by the retained CE-V-02 and CE-V-05 summaries. A specific application would need to define and test them.
+
+8. REFINEMENT AND CLASS PARTITIONS
+
+Let [O]_C denote the ≈_C class of O and [O]_reach the ≈_reach class.
+
+If ≈_C implies ≈_reach, every ≈_C class is contained in a ≈_reach class. Thus the C-partition is at least as fine as the reachability partition.
+
+If ≈_reach implies ≈_C, every reachability class is contained in a C-class. Thus the reachability partition is at least as fine as the C-partition.
+
+If neither implication holds, neither partition globally refines the other.
+
+This gives an operational way to compare classifications without treating “class of organization” as a new ontological entity or a new rung in the foundational dependency chain.
+
+9. IMPORTANT DISTINCTIONS PRESERVED
+
+Criterion-relative equivalence != identity
+Reachability equivalence != ontological identity
+Reachability equivalence != equality of every current observable
+Same operational signature != same reachable futures
+Same reachable futures != same operational signature
+Equivalence != robustness
+Robustness != structural necessity
+Criterion-relative necessity != universal necessity
+
+The countermodels are abstract transition systems. They do not establish a physical realization, universal organizational taxonomy, or a new empirical prediction.
+
+10. RELATION TO CE-V-01 AND CE-V-03
+
+CE-V-01 classifies latent organizational potential relative to accessible transitions under fixed relational constraints and admissible dynamics. Its accessibility distinctions should not be silently identified with CE-V-05 classes: a class of accessible transition potential and equality of complete reachable sets are not automatically the same criterion.
+
+CE-V-03 describes a transition landscape using organizational states, relational transition structure, accessibility, distance-like relations, stability, and barriers. It supplies useful candidate data for a reachability analysis, but its transition geometry does not itself select a realized transition or force a unique organizational classification.
+
+These connections are research interfaces, not additional entailments.
+
+11. CORRECTION TO THE PRIOR AUDIT FRAMING
+
+The earlier artifact titled:
+
+OI-STRUCT-CLASSES-AFTER-ORGANIZATION-AUDIT-2026-10-28.txt
+
+used a misleading title and framing by treating “Classes” as though it might be an extra stage after Organization. The correct interpretation is organizational classification within the Organization level, with multiple possible criterion-relative partitions.
+
+This audit supersedes that framing only. It does not automatically invalidate every mathematical observation in the earlier artifact, and it does not modify the Frozen Core, the Volume V dependency chain, or the CE-V archive. The earlier artifact should be treated as non-canonical until its contents and status are separately reviewed.
+
+12. VALIDATION BOUNDARY AND NEXT TEST
+
+Validated here:
+- ≈_C is an equivalence relation when defined by equality under a total, well-defined signature σ_C.
+- ≈_reach is an equivalence relation when Reach is well-defined as a set for every state.
+- The two relations do not entail each other in general, as shown by finite countermodels.
+- Coincidence requires additional bridge conditions.
+
+Not validated here:
+- a universal CE-V-02 signature;
+- equality or refinement of the actual partitions in a particular physical realization;
+- universal organizational classes;
+- a new CE-V entry;
+- a Frozen Core modification;
+- registration of any RL record.
+
+Recommended next mathematical test:
+Select one concrete organizational model and explicitly define (i) its state domain, (ii) the CE-V-02 operational/structural signature, (iii) its transition relation or dynamics, (iv) the reachability convention, and (v) observable criteria. Compute both partitions and test equality/refinement. Only then decide whether a specific result merits further validation.
+
+13. GOVERNANCE STATUS
+
+FROZEN_CORE_MODIFICATION: NONE
+VOLUME_V_MODIFICATION: NONE
+CE-V-07: RESERVED / UNASSIGNED
+AUTOMATIC_CE-V_PROMOTION: PROHIBITED
+RL_REGISTRATION: NOT REQUESTED BY THIS AUDIT
+RL_REGISTRATION_REQUIRED != RL_REGISTERED
+CANONICAL_ACCEPTANCE: NOT CLAIMED
+
+END OF AUDIT
