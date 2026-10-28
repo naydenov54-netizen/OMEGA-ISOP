@@ -1,0 +1,230 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+OMEGA-ISOP / M3.2
+AUDIT #24: CERTIFIED BOUNDS UNDER ROUNDING, FLOATING-POINT ARITHMETIC, AND UNCERTAIN CONSTRAINT DATA
+Date: 2026-10-29
+Status: Mathematical audit artifact. Conditional conclusions only. Not a Frozen Core amendment, CE-V promotion, or RL registration.
+
+1. PURPOSE AND SCOPE
+
+This audit separates two sources of uncertainty that are often accidentally merged:
+
+(A) DATA UNCERTAINTY: coefficients, measurements, tolerances, or constraint values supplied to the mathematical model are not exact.
+(B) COMPUTATIONAL UNCERTAINTY: finite-precision arithmetic, rounding, termination tolerances, and numerical solver error affect the computed result.
+
+A certificate is valid only to the extent that it explicitly accounts for the applicable source or sources. A small solver residual is not, by itself, a proof of feasibility or a certified global bound.
+
+The audit concerns the validity of bounds for a stated mathematical model. It does not establish that any particular cosmological model is empirically true.
+
+2. BASE MODEL AND QUANTIFIERS
+
+Let p denote input data, with p in a nonempty uncertainty set P. For each admissible p, define
+
+D(p) = {theta in X : g_i(theta,p) <= 0 for i=1,...,m, and h_j(theta,p) = 0 for j=1,...,k}.
+
+Let the target be H(theta,p). The uncertainty-aware target set is
+
+I_H = {H(theta,p) : p in P and theta in D(p)}.
+
+When I_H is nonempty and bounded, define its sharp outer endpoints by
+
+L_* = inf I_H,
+U_* = sup I_H.
+
+These are the sharp lower and upper bounds over all admissible input data and all states feasible for the corresponding data. They are not necessarily attained.
+
+The set of all possible feasible states across uncertain data is
+
+D_union = union over p in P of D(p).
+
+The set of states feasible for every possible data realization is
+
+D_intersection = intersection over p in P of D(p).
+
+These sets answer different questions. D_union describes possible states under at least one admissible data realization. D_intersection describes states satisfying every realization. An uncertainty envelope for possible target values generally uses the joint set of pairs (theta,p) with theta in D(p), not D_intersection alone. Replacing one quantifier by the other without justification changes the problem.
+
+If p affects the objective as well as the constraints, p must remain in the joint optimization. It is generally invalid to optimize theta for one data realization and combine the result with an independently selected objective coefficient from another realization unless that combination is allowed by the joint uncertainty model.
+
+3. DATA UNCERTAINTY IS A CHANGE IN THE MATHEMATICAL FEASIBLE SET
+
+If the model inputs are uncertain, the correct feasible domain is a family D(p), or the joint feasible set
+
+J = {(theta,p) : p in P and theta in D(p)}.
+
+The target bounds are then the infimum and supremum of H over J. A certificate for a nominal value p_hat certifies only the nominal problem unless an additional argument extends it to all p in P.
+
+The uncertainty set P must preserve known dependencies. If two coefficients share a calibration source, they cannot automatically be treated as independent intervals. Independent interval enlargement may be safe as an outer relaxation, but it can be conservative and can include combinations that are physically or statistically impossible.
+
+If J is nonempty and compact and H is continuous on J, the extreme value theorem guarantees that L_* and U_* are attained. These conditions do not guarantee that a numerical algorithm will find the endpoints. If compactness, continuity, or nonemptiness has not been established, attainment must not be asserted.
+
+4. SIGN-CONVENTION-SAFE CONSTRAINT ERROR BOUNDS
+
+Suppose a true inequality is
+
+g_true(theta) <= 0
+
+and a computed or nominal value g_comp(theta) satisfies
+
+g_true(theta) = g_comp(theta) + delta(theta),
+|delta(theta)| <= epsilon,
+
+where epsilon >= 0 is a valid uniform error bound.
+
+Then the following two tests have different meanings.
+
+4.1 Possible feasibility under some allowed error
+
+If there exists an allowed delta for which g_true(theta) <= 0, a necessary condition is
+
+g_comp(theta) <= epsilon.
+
+Indeed, g_comp = g_true - delta <= 0 - delta <= epsilon. This condition alone need not be sufficient when the error is correlated, constrained, or shared across equations. It is a safe outer relaxation under the stated absolute error bound.
+
+4.2 Guaranteed feasibility for every allowed error
+
+To guarantee g_true(theta) <= 0 for every delta satisfying |delta| <= epsilon, it is sufficient and, for an unrestricted scalar interval error, necessary that
+
+g_comp(theta) + epsilon <= 0.
+
+This is stronger than possible feasibility. It is a robust-feasibility test.
+
+For equality constraints g_true(theta)=0, the bound |g_comp(theta)| <= epsilon is a tolerance statement, not exact equality. Exact feasibility requires either an exact equality proof or a validated treatment of the equality and its uncertainty.
+
+For multiple constraints with errors epsilon_i, apply the corresponding bound separately to each constraint, while retaining any known joint dependence between error terms. Adding an uncertainty margin with the wrong sign can invalidate a claimed guarantee.
+
+5. RESIDUALS AND FLOATING-POINT EVALUATION
+
+Let theta_hat be a proposed point. Suppose the computed residual is r_i and a validated evaluation error bound establishes
+
+|g_i(theta_hat) - r_i| <= epsilon_i^eval.
+
+Then
+
+|g_i(theta_hat)| <= |r_i| + epsilon_i^eval.
+
+For an inequality g_i(theta_hat) <= 0, this absolute residual bound does not prove feasibility. A sufficient certified test is an outward-rounded upper bound for g_i(theta_hat) that is at most zero. If the certified upper endpoint is positive, feasibility has not been established, even if the nominal residual is tiny.
+
+If the reported residual is itself computed with unvalidated floating-point arithmetic, epsilon_i^eval is not known merely because the software prints many digits. It must follow from a defensible error analysis, interval enclosure, exact arithmetic, or another validated method.
+
+A solver's termination tolerance is an algorithmic stopping rule. It is not automatically a mathematical error bound, a feasibility certificate, or a global-optimality certificate.
+
+6. OBJECTIVE EVALUATION AND CERTIFIED GLOBAL BRACKETS
+
+Suppose a validated computation gives
+
+H(theta_hat,p_hat) in [H_low, H_high].
+
+If (theta_hat,p_hat) is proved feasible for the joint problem and the objective is minimized, then the candidate provides an upper bound on the global infimum:
+
+L_* <= infimum H <= H_high.
+
+The inequality L_* <= infimum H is tautological only when L_* is itself the true infimum; in a computational certificate, the useful form is that a separately proved global lower certificate L_cert satisfies
+
+L_cert <= infimum over J H <= H_high.
+
+Thus [L_cert,H_high] brackets the minimum value. If H_high - L_cert is positive, the bracket is certified but not exact-sharp. If the endpoints are proved equal, the optimum value is certified exactly.
+
+For maximization, a feasible candidate with validated objective interval [H_low,H_high] and a separately certified global upper bound U_cert yields
+
+H_low <= supremum over J H <= U_cert.
+
+The candidate must be genuinely feasible for the same joint model being optimized. A nearly feasible point cannot be used as a feasible incumbent unless feasibility is corrected or its effect is rigorously bounded.
+
+If the objective also depends on uncertain p, the objective interval must include both input uncertainty and arithmetic evaluation error. For example, an enclosure over a box containing admissible (theta,p) is valid only if the interval evaluation encloses every value over that box. A box relaxation can be conservative; it is not automatically sharp.
+
+7. OUTWARD ROUNDING AND VALIDATED COMPUTATION
+
+A numerical bound intended as a certificate must be rounded in the direction that preserves its guarantee.
+
+For a lower bound, the reported lower endpoint must not exceed the mathematically justified lower value. For an upper bound, the reported upper endpoint must not fall below the mathematically justified upper value. In interval arithmetic this is ordinarily handled by directed outward rounding, with every operation's enclosure guaranteed to contain the exact result.
+
+Suitable certification approaches depend on model structure and may include:
+
+- Exact rational or symbolic derivations where feasible.
+- Interval arithmetic with outward rounding and validated function enclosures.
+- Interval branch-and-bound with rigorous pruning and a justified termination criterion.
+- Verified convex optimization only when convexity, domain assumptions, and the solver's certificate are established.
+- Linear programming certificates only when the relevant model is genuinely linear and the certificate is checked.
+- Polynomial or semialgebraic methods with an independently checkable certificate.
+- Validated root isolation or interval Newton/Krawczyk methods when their hypotheses are satisfied.
+
+Ordinary floating-point optimization, repeated convergence from multiple initial guesses, high apparent precision, or a small primal residual can be useful evidence, but none alone proves a global endpoint.
+
+8. UNCERTAIN CONSTRAINTS AND OUTER RELAXATIONS
+
+Suppose the exact joint feasible set J is contained in a tractable relaxed set J_outer:
+
+J is a subset of J_outer.
+
+Then
+
+inf over J_outer H <= inf over J H
+and
+sup over J H <= sup over J_outer H,
+
+provided the objective is the same well-defined function on the relevant sets and both comparisons are meaningful. Therefore a certified lower bound for the relaxed minimization problem can furnish a lower bound for the original minimum; a certified upper bound for the relaxed maximization problem can furnish an upper bound for the original maximum. The opposite endpoints do not generally transfer as useful tight bounds.
+
+More directly, if every original feasible point is retained by the relaxation, minimizing over the larger set can only decrease the infimum, and maximizing over the larger set can only increase the supremum. Thus the relaxed interval encloses the original target range when both relaxed endpoints are correctly certified.
+
+A relaxation can be safe yet loose. It can also become invalid if it excludes an actually feasible point because uncertainty margins, dependencies, or rounding directions were handled incorrectly. Every relaxation should state which inclusion is proved.
+
+9. SENSITIVITY IS NOT AUTOMATIC
+
+A small perturbation in input data does not universally imply a small perturbation in the optimizer or in the sharp bound.
+
+Stable value-function conclusions may require additional conditions such as compactness of a common domain, continuity or uniform continuity, suitable constraint regularity, an error-bound condition, a constraint qualification, uniqueness or isolation of the optimizer, or a proved sensitivity theorem appropriate to the problem.
+
+Even when objective values vary continuously, the set of minimizers can change discontinuously. Conversely, multiple minimizers do not by themselves prove that the optimal value is unstable.
+
+A condition number or local derivative estimate is informative only within its stated assumptions and neighborhood. It cannot be promoted into a global robustness claim without proof. Near singular calibration matrices or nearly active constraints, small data changes can cause large parameter changes or alter feasibility.
+
+Therefore this audit does not assert a universal Lipschitz bound for L_* or U_* as functions of p. Such a bound must be derived for the specific model and uncertainty set.
+
+10. REQUIRED AUDIT RECORD FOR A CERTIFIED BOUND
+
+A reproducible certification record should state:
+
+(a) The exact mathematical objective and all constraints.
+(b) Which input values are exact, measured, rounded, estimated, or interval-bounded.
+(c) The uncertainty set P, including correlations and shared systematic terms.
+(d) The quantifier: possible over some admissible data, guaranteed for every data realization, or nominal for one fixed realization.
+(e) Whether the target set is empty, bounded, and compact, and which of these properties are proved.
+(f) The arithmetic model, precision, rounding policy, and validated evaluation-error bounds.
+(g) The feasibility proof for any candidate used as an incumbent.
+(h) The global lower and/or upper certificate and the method that validates it.
+(i) The numerical gap between certified endpoints and any candidate value.
+(j) Units, scaling, tolerances, condition estimates, and independent data precision.
+(k) Whether the result is exact-sharp, a certified outer bound, a numerical bracket, local-only, unverified numerical output, or an infeasibility result.
+
+These are audit labels, not new canonical ontology. A label must match the evidence actually supplied.
+
+11. CONDITIONAL THEOREMS AND NON-IMPLICATIONS
+
+Theorem A, uncertainty envelope:
+Given a nonempty joint feasible set J and target H, the sharp possible-value endpoints are inf_J H and sup_J H by definition. If J is compact and H is continuous, both endpoints are attained. No claim of computability follows from this existence result alone.
+
+Theorem B, safe inequality enclosure:
+If g_true = g_comp + delta and |delta| <= epsilon, then true feasibility g_true <= 0 implies g_comp <= epsilon. If g_comp + epsilon <= 0, then g_true <= 0 for every allowed delta. The first condition is an outer necessary condition for possible feasibility; the second is a robust sufficient condition for guaranteed feasibility. These statements depend on the stated sign convention.
+
+Theorem C, interval objective bracket:
+If a candidate is certified feasible, its true objective is enclosed in [H_low,H_high], and L_cert is a certified global lower bound for a minimization problem, then L_cert <= inf_J H <= H_high. For maximization, a certified global upper bound U_cert gives H_low <= sup_J H <= U_cert. A zero gap proves exactness of the value bracket; a nonzero gap does not.
+
+Non-implications:
+- A small residual does not imply exact feasibility.
+- A solver tolerance does not imply a global-optimality certificate.
+- A nominal-data bound does not imply a bound for uncertain data.
+- A robust-feasibility test does not mean the same thing as possible feasibility.
+- A conservative outer bound does not imply an exact-sharp endpoint.
+- A certified value bound does not imply a stable optimizer.
+- High numerical precision does not by itself imply validated arithmetic.
+- Compactness and continuity imply attainment, not that a numerical solver finds the extremum.
+- A mathematical certificate for a stated model does not establish empirical truth of that model.
+
+12. AUDIT CONCLUSION
+
+A certified bound survives rounding and uncertain inputs only when the uncertainty is included in the mathematical problem and the computational enclosure is independently justified. Input uncertainty changes the set over which the bound is defined; arithmetic error changes what can legitimately be claimed about the computed result. They must be tracked separately and then combined where both are present.
+
+For OMEGA-ISOP cosmological identifiability work, any reported interval should therefore be marked as nominal, uncertainty-aware, or robust-guaranteed, and as exact-sharp, certified outer, validated numerical bracket, or uncertified numerical output. These labels prevent an interval produced by ordinary computation from being mistaken for a proven global statement.
+
+This audit is conditional on the definitions and hypotheses stated above. It introduces no change to the Frozen Core, makes no CE-V promotion, and creates no RL registration claim.
+
+END OF DOCUMENT
