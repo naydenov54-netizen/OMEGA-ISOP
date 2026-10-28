@@ -1,0 +1,215 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+OMEGA-ISOP / M3.2
+AUDIT #34: OCCAM'S RAZOR, MODEL COMPLEXITY, AND EXPLANATORY ADEQUACY
+Date: 2026-10-29
+Status: Conditional mathematical audit. No Frozen Core amendment, CE-V promotion, or RL registration.
+
+1. PURPOSE
+
+This audit examines what an Occam-style preference for simpler explanations can and cannot establish within model comparison. It separates empirical fit, representational complexity, parameter count, effective complexity, prior assumptions, and predictive performance.
+
+The principle commonly called Occam's razor is not, by itself, a unique mathematical scoring rule or a theorem that the simplest model is true. It becomes operational only after the candidate model class, complexity measure, data model, loss or evidence criterion, and admissible assumptions have been specified.
+
+2. FORMAL SETUP
+
+Let D denote observed data and let M belong to a candidate model class C. Each model specifies some combination of:
+- a state or parameter space Θ_M;
+- a prediction or likelihood map;
+- admissible nuisance variables and constraints;
+- a rule linking model states to observable data;
+- a representation or description of the model.
+
+A comparison rule selects or ranks models using a score S(M;D). A generic penalized fit criterion has the form
+S(M;D)=Fit(M;D)-λ C(M),
+where Fit is oriented so that larger is better, C(M) is a declared complexity measure, and λ controls the tradeoff.
+
+This expression is a framework, not a unique definition of Occam's razor. Different valid choices of Fit, C, and λ answer different questions. Scores with different scales or conventions cannot be compared without a consistent definition.
+
+3. FIT AND COMPLEXITY ARE DISTINCT
+
+A model may fit observed data well while using many adjustable parameters, elaborate latent structure, or a flexible function class. A simpler model may fit less well but predict comparably on new data. A complexity penalty formalizes a tradeoff; it does not erase the need to examine residual structure, model assumptions, and predictive failures.
+
+The following are different notions and should not be treated as interchangeable:
+(a) raw number of free parameters;
+(b) effective degrees of freedom or flexibility;
+(c) number of assumptions or constraints;
+(d) algorithmic description length under a specified coding language;
+(e) prior concentration or prior volume in a Bayesian model;
+(f) operational cost of fitting, computing, or testing the model;
+(g) explanatory scope and empirical adequacy.
+
+A model with fewer parameters can still encode highly irregular behavior or rely on strong hidden assumptions. A model with more parameters can be strongly constrained, regularized, or scientifically justified. Parameter count alone is not a universal measure of simplicity.
+
+4. REPRESENTATION DEPENDENCE
+
+Complexity is generally representation-dependent. A short formula can conceal a complicated lookup table or a highly specific encoding; a long formula can express a simple regularity in an inconvenient notation.
+
+For a description-length criterion, complexity must be measured relative to a fixed or explicitly chosen coding language and encoding convention. Changing the language can alter finite description lengths. Comparisons are meaningful only when the coding scheme is applied consistently and its choice is disclosed.
+
+A claim that one explanation is intrinsically simplest requires more than showing that its current notation is shorter. The audit should identify which transformations of representation are considered admissible and whether the comparison is invariant under those transformations.
+
+5. IDENTIFIABILITY BEFORE PARSIMONY
+
+Let F_M:Θ_M→Y be the observation map of model M. Within a model, distinct parameter states θ and θ' may satisfy
+F_M(θ)=F_M(θ').
+If so, the observation map does not identify the full parameter state. A complexity penalty cannot manufacture observational information absent from the data.
+
+Between two models M_0 and M_1, let P_i be their possible prediction sets under the specified design. If
+P_0 ∩ P_1 is nonempty,
+then at least one possible observation is compatible with both models. A preference score may still rank them, but that ranking is not the same as empirical discrimination at that observation.
+
+If the prediction sets overlap only partly, some observations may distinguish the models while others do not. If their full distributions coincide under the available design, no data-based procedure using only those observations can discriminate them beyond differences introduced by priors or decision rules.
+
+Occam-style ranking should therefore follow, not replace, an audit of identifiability, prediction overlap, nuisance freedom, and the observation design.
+
+6. BAYESIAN MODEL EVIDENCE
+
+For model M with prior density π(θ|M) and likelihood p(D|θ,M), the marginal likelihood or model evidence is
+p(D|M)=∫ p(D|θ,M) π(θ|M) dθ.
+
+Posterior model odds satisfy
+p(M_1|D)/p(M_0|D)
+= [p(D|M_1)/p(D|M_0)] [p(M_1)/p(M_0)],
+for models with well-defined prior probabilities and marginal likelihoods.
+
+The integral averages fit over the prior rather than selecting only the best-fitting parameter point. A flexible model can have a high maximum likelihood yet lower marginal likelihood if high likelihood is confined to a small fraction of its prior mass. This is often called an Occam factor, but its value depends on the prior, parameterization, likelihood, and data.
+
+Consequences:
+- Bayesian evidence is not prior-free.
+- Improper priors generally make ordinary marginal likelihoods undefined up to arbitrary constants, so standard Bayes factors may be invalid.
+- A broad prior can dilute evidence, but changing the prior is a substantive modeling choice, not a free correction.
+- Model evidence does not prove that one candidate is true if all candidates are misspecified.
+- Posterior odds depend on prior model probabilities as well as evidence.
+
+7. AIC AND BIC: DIFFERENT OBJECTIVES
+
+For a regular likelihood model with maximized log likelihood ℓ_hat and k estimated parameters, the Akaike information criterion is
+AIC = -2 ℓ_hat + 2k.
+
+AIC is motivated by an estimate of expected out-of-sample predictive information loss under its regularity conditions. It is not a universal probability that a model is true, and the basic formula may require correction in small-sample settings or modification for nonstandard models.
+
+A common Bayesian information criterion is
+BIC = -2 ℓ_hat + k log n,
+where n is sample size. Under suitable regularity conditions, BIC approximates a model-evidence-based comparison asymptotically. Its standard derivation does not apply without qualification to every singular, nonidentifiable, or irregular model.
+
+AIC and BIC can select different models because their penalties and target justifications differ. They should not be described as two interchangeable implementations of one uniquely defined Occam rule. The sampling assumptions, effective sample size, likelihood, parameter count, and regularity conditions must be checked.
+
+8. MINIMUM DESCRIPTION LENGTH
+
+A minimum-description-length (MDL) formulation chooses a model or representation that minimizes a total code length such as
+L(M)+L(D|M),
+where L(M) encodes the model and L(D|M) encodes the data conditional on that model.
+
+The intuition is that a useful explanation compresses regularity in the data without requiring an excessively costly model description. This is formal only after a coding scheme or code-length construction is specified.
+
+Important limitations:
+- A code must be valid for the intended data and model class.
+- Code lengths depend on the coding language and conventions, though well-designed universal coding approaches can control some asymptotic dependence.
+- Encoding the data with a model is not proof of causal explanation.
+- A shorter total code is a criterion-relative preference, not a guarantee of truth.
+- Data used to choose the model must not be treated as untouched validation data.
+
+9. ASSUMPTION COST AND HIDDEN FLEXIBILITY
+
+An apparent reduction in explicit parameters can be offset by stronger constraints, special initial conditions, finely chosen functional forms, hidden case distinctions, or prior assumptions. A fair comparison must count the full declared specification rather than only the visible parameter list.
+
+However, there is no universally accepted scalar unit for the cost of every scientific assumption. Any composite score combining parameter count, structural restrictions, coding length, computation, and empirical fit requires explicit weights or a justified common framework.
+
+Therefore:
+(a) enumerate assumptions that materially affect predictions;
+(b) state which are shared across models and which differ;
+(c) identify hidden or fixed quantities;
+(d) test whether a simpler model's apparent economy relies on restrictive assumptions;
+(e) avoid presenting a subjective complexity score as an objective theorem.
+
+The comparison should be reproducible from its stated rule. If no defensible common scalar measure exists, report a multi-criteria comparison rather than forcing unlike quantities into one number.
+
+10. PREDICTIVE VALIDATION AND MODEL MISSPECIFICATION
+
+A complexity penalty cannot rescue a model that systematically fails relevant observations. Candidate models should be evaluated against residual structure, calibration, predictive performance, domain restrictions, and known failure modes.
+
+When feasible, use data not used for model selection, or use a validated resampling or cross-validation procedure appropriate to the data dependence. Repeatedly reusing a validation set for selection can make it function as training data and bias reported performance.
+
+If every candidate model is inadequate, selecting the least inadequate model does not establish adequacy. Report absolute fit and known model failures alongside relative ranking.
+
+11. CAUSAL AND MECHANISTIC CLAIMS
+
+A compact predictive model need not be a causal or mechanistic explanation. Several structurally different mechanisms can generate the same observable distribution under a limited experiment. A simpler observational model may be useful while remaining silent about which mechanism is real.
+
+Causal discrimination generally requires assumptions about interventions, confounding, temporal order, invariance, or other identifying structure. Those assumptions must be stated and justified independently of a complexity preference.
+
+Do not infer ontological uniqueness merely from a unique minimizer of a selected score. Score uniqueness is a property of the criterion and candidate set; physical uniqueness is a stronger claim.
+
+12. ROBUSTNESS OF THE MODEL RANKING
+
+Let S_0(M;D) be the nominal score and let S_u(M;D) vary with allowed uncertainty u in U. The selected model is robustly preferred only if its score ordering survives the declared uncertainty range, using a consistent score orientation.
+
+For a finite model set, suppose M_0 uniquely minimizes a loss L_0 with gap
+gamma = min_{M≠M_0} L_0(M)-L_0(M_0) > 0.
+If every model's loss changes by at most eta uniformly,
+|L_u(M)-L_0(M)|<=eta,
+and 2 eta < gamma, then M_0 remains the unique minimizer for every such u.
+
+Proof: L_u(M_0)<=L_0(M_0)+eta, while every competitor satisfies L_u(M)>=L_0(M)>=L_0(M_0)+gamma-eta. The difference is at least gamma-2 eta>0.
+
+This result requires a fixed finite candidate set and a uniform bound over all candidates. If the model class, feasible parameter domain, or score definition changes, the conclusion does not automatically apply.
+
+13. CONDITIONAL THEOREMS AND PROPOSITIONS
+
+Proposition A, score-relative preference:
+If a specified score S has a unique optimum over a fully specified candidate class, the selected model is uniquely preferred according to that score and class. This does not prove that the model is true or uniquely possible in nature.
+
+Proposition B, observational overlap:
+If two models' prediction sets intersect under an experiment, an observation in the intersection cannot uniformly distinguish the two models by exact prediction membership alone.
+
+Proposition C, finite-set ranking stability:
+For a finite candidate set, if a loss minimizer has gap gamma>0 and all losses are perturbed uniformly by eta with 2 eta<gamma, the unique minimizer remains unchanged.
+
+Proposition D, evidence dependence:
+A Bayesian model-evidence ranking depends on the specified likelihoods and priors. It cannot be interpreted independently of those choices.
+
+Proposition E, criterion-relative simplicity:
+A model is simpler under a given complexity measure only relative to that measure, coding or parameterization convention, and candidate class. No universal ranking follows from an unspecified use of the word "simple."
+
+These are conditional statements about formal comparison procedures. None establishes a universal law that nature always selects the simplest model.
+
+14. AUDIT PROCEDURE
+
+For an Occam-style model comparison, record:
+1. The exact candidate model class and the scientific question.
+2. The observation map, likelihood, noise model, and admissible nuisance variables for each candidate.
+3. Whether candidate prediction sets or distributions overlap under the available experiments.
+4. The chosen complexity measure and why it is relevant.
+5. All penalties, weights, priors, coding conventions, and parameter-count conventions.
+6. The fit criterion and whether it targets interpolation, prediction, evidence, or decision loss.
+7. The regularity and identifiability conditions required by the selected criterion.
+8. The treatment of shared assumptions and model-specific assumptions.
+9. The validation procedure and protection against selection leakage.
+10. The sensitivity of the ranking to plausible changes in data, priors, error bounds, and model specification.
+11. Whether the winner is uniquely separated from alternatives or merely tied/near-optimal.
+12. What remains unidentifiable or empirically undecided after selection.
+
+15. NON-IMPLICATIONS
+
+- Fewer explicit parameters do not necessarily mean lower effective complexity.
+- Better in-sample fit does not imply better out-of-sample prediction.
+- The best score does not prove truth.
+- A unique score minimizer does not prove a unique physical mechanism.
+- Prediction-set overlap does not mean every observation is ambiguous, but it defeats uniform separation for the overlapping case.
+- A complexity penalty does not create information absent from the observations.
+- Bayesian evidence is not independent of prior assumptions.
+- AIC and BIC do not optimize exactly the same target.
+- Shorter description length does not establish causality.
+- Selection of the least inadequate model does not establish absolute adequacy.
+- A robust score ranking does not prove that all candidates include the true data-generating process.
+- A failure to define complexity consistently makes a numerical simplicity ranking underdetermined.
+
+16. CONCLUSION
+
+Occam's razor is most defensible as a disciplined comparison principle: among models that address the same question and satisfy the relevant adequacy checks, prefer the model favored by an explicit, justified criterion that balances fit against a well-defined cost of flexibility or description.
+
+The principle does not determine one universal complexity measure, does not override identifiability limits, and does not prove that the selected model is true. Reliable use requires transparent candidate definitions, explicit assumptions, an appropriate scoring rule, validation, and sensitivity analysis. Where complexity dimensions cannot be defensibly combined, report them separately.
+
+This audit does not modify the Frozen Core, promote CE-V, or register an RL item.
+
+END OF DOCUMENT
