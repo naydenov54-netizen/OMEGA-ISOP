@@ -7,9 +7,9 @@ M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
 
 OMEGA-ISOP — STAGE 1: DIFFERENCE
 DOCUMENT_ID: OI-STAGE-01-DIFFERENCE-2026-10-28
-VERSION: 0.1
+VERSION: 0.2
 DATE: 2026-10-28
-STATUS: CANDIDATE FORMALIZATION; CORE IMPLICATION TESTED
+STATUS: CANDIDATE FORMALIZATION; CORE IMPLICATION TESTED; COTRANSITIVITY PROVED
 FROZEN CORE: PRESERVED; NOT AMENDED
 RL REGISTRATION: NOT PERFORMED OR VERIFIED
 CE-V PROMOTION: NOT CLAIMED
@@ -26,14 +26,21 @@ The feature family is part of the model. Difference is therefore relative to a d
 
 3. IMMEDIATE PROPERTIES
 P1 (irreflexivity): D(x,x)=0 for every x∈X, because f_i(x)=f_i(x) for every feature i.
+
 P2 (symmetry): D(x,y)=D(y,x), because inequality of feature values is symmetric.
+
 P3 (non-identity limitation): D(x,y)=0 does not necessarily imply x=y. It implies only that the selected feature family fails to distinguish x and y. If the combined signature map F(x)=(f_i(x))_{i∈I} is injective, then D(x,y)=0 iff x=y.
+
 P4 (signature dependence): adding or removing features can change D. Therefore a claim that two states differ must specify which features are admitted.
+
+P5 (cotransitivity): If D(x,y)=1, then for every z∈X, D(x,z)=1 or D(z,y)=1. Proof: choose i∈I with f_i(x)≠f_i(y). If f_i(x)≠f_i(z), then D(x,z)=1. Otherwise f_i(x)=f_i(z), so f_i(z)≠f_i(y), and D(z,y)=1. Thus the predicate induced by a feature family is cotransitive.
+
+This property is a theorem about this signature-based definition. It does not establish that the definition is the unique or canonical interpretation of Difference in OMEGA-ISOP.
 
 4. FINITE TEST
 Take X={a,b,c}, with one feature f:X→{0,1} defined by f(a)=0, f(b)=1, f(c)=0.
 Then D(a,b)=1, D(b,c)=1, and D(a,c)=0.
-This confirms that D need not be transitive. It also shows that two distinct objects may be indistinguishable under the chosen feature family.
+This confirms that D need not be transitive. It also shows that two distinct objects may be indistinguishable under the chosen feature family. The example is consistent with cotransitivity: for D(a,b)=1 and z=c, D(a,c)=0 but D(c,b)=1.
 
 5. NON-DERIVATION TEST: DIFFERENCE DOES NOT DETERMINE A UNIQUE RELATION
 A binary relation on X is any subset R⊆X×X. The difference predicate D from Section 4 is compatible with more than one distinct relation. For example:
@@ -44,27 +51,29 @@ Moreover, D is symmetric, whereas R₁ and R₂ are directed. Any directional in
 This is a proof of non-uniqueness for the explicit finite example, not a theorem that no richer theory can derive relations from richer difference data.
 
 6. THEOREM
-The signature-based difference predicate D is irreflexive and symmetric. It is not necessarily transitive. In general, D alone does not determine a unique directed binary relation on X.
+The signature-based difference predicate D is irreflexive, symmetric, and cotransitive. It is not necessarily transitive. In general, D alone does not determine a unique directed binary relation on X.
 
 PROOF
-Irreflexivity and symmetry follow directly from the definition in Section 2. Non-transitivity is witnessed by the finite test: D(a,b)=1 and D(b,c)=1 but D(a,c)=0. Non-uniqueness of a compatible directed relation is witnessed by R₁ and R₂ in Section 5. QED.
+Irreflexivity and symmetry follow directly from the definition in Section 2. Cotransitivity follows from the witness-feature argument in P5. Non-transitivity is witnessed by the finite test: D(a,b)=1 and D(b,c)=1 but D(a,c)=0. Non-uniqueness of a compatible directed relation is witnessed by R₁ and R₂ in Section 5. QED.
 
 7. WHAT THIS DOES AND DOES NOT ESTABLISH
-Established mathematically: the stated properties of D and the finite non-uniqueness counterexample.
+Established mathematically: the stated properties of D, including cotransitivity, and the finite non-uniqueness counterexample.
 Model-dependent: which features I and maps f_i are appropriate for a given OMEGA-ISOP application.
-Not established: that the existing Frozen Core uniquely entails this exact definition; that every difference produces a relation; that direction, constraint, dynamics, persistence, or organization follows from difference alone.
+Not established: that the existing Frozen Core uniquely entails this exact definition; that every difference produces a uniquely selected relation; that direction, constraint, dynamics, persistence, or organization follows from difference alone.
+The signature-based D has properties often associated with an apartness-style relation, but no claim is made here that it satisfies every possible formal definition of apartness used elsewhere in the project.
 The arrow “Difference → Relation” is therefore not accepted as an unconditional theorem. It remains a conditional construction problem for Stage 2.
 
 8. STAGE-1 AUDIT CHECKLIST
 [PASS] Definition specifies carrier, feature family, and predicate.
 [PASS] Irreflexivity proof.
 [PASS] Symmetry proof.
+[PASS] Cotransitivity proof for the signature-based predicate.
 [PASS] Finite test demonstrates non-transitivity.
 [PASS] Counterexample demonstrates that difference alone does not select a unique directed relation.
 [OPEN] Determine whether the OMEGA-ISOP source text imposes a preferred feature/signature construction.
 [OPEN] Compare this candidate definition with the protected Frozen Core before any integration decision.
 
 9. DECISION
-Keep as a candidate foundational section for the working theory. Do not silently modify Frozen Core. Stage 2 must add and justify the rule that selects relations from distinctions; it must not assume the arrow is already proven.
+Keep as a candidate foundational section for the working theory. The cotransitivity property is an additional proved consequence of the candidate definition, not a Frozen Core amendment or a claim of canonical acceptance. Do not silently modify Frozen Core. Stage 2 must add and justify the rule that selects relations from distinctions; it must not assume the arrow is already proven.
 
 END OF DOCUMENT
