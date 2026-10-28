@@ -1,0 +1,77 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+1. Output for OMEGA-ISOP/M3.2 must be clean plain text, directly copyable on Android, in one continuous block when a complete artifact is requested.
+2. Frozen Core remains unchanged unless the user explicitly authorizes a change and a documented change-control decision records it.
+3. RL_REGISTRATION_REQUIRED is not RL_REGISTERED. Never claim registration without authoritative registry confirmation and readback.
+4. Distinguish established facts, external assumptions, conditional results, and unresolved claims.
+5. Do not claim that a repository, file, registry, or submission was inspected or modified unless the corresponding action succeeded and its result was verified.
+
+OMEGA-ISOP — TARGETED CATEGORY AUDIT: AMALGAMATION DOES NOT IMPLY COLIMIT
+DOCUMENT_ID: OI-STAGE-02-AMALGAMATION-COLIMIT-AUDIT-2026-10-28
+VERSION: 0.1
+DATE: 2026-10-28
+STATUS: FINITE CONDITIONAL OBSTRUCTION PROVED; CORE-LEVEL COLIMIT STATUS OPEN
+SCOPE: Test whether the Volume II compatibility condition CC(C1,C2)=1, defined by existence of an admissible amalgamation, is by itself enough to establish a categorical colimit.
+
+SOURCE ALIGNMENT
+The protected Library source Volume II specifies:
+- configurations C=(S_C,#_C), with #_C the selected apartness structure;
+- embeddings that are injective and preserve and reflect apartness;
+- CC(C1,C2)=1 iff an admissible amalgamation exists;
+- R := colim(D_CC) only where the required categorical construction exists;
+- a valid indexing category, functor/diagram, relevant morphisms, and colimit existence/universal property are required.
+This audit tests one explicit category-level realization of those definitions. It does not assert that this realization is the unique or intended project realization.
+
+1. TEST CATEGORY
+Let C be the category whose objects are finite sets X equipped with the discrete apartness relation
+x # y iff x != y,
+and whose morphisms are embeddings: injective functions preserving and reflecting #.
+In this category, every injective function between objects is an embedding, and every morphism is injective.
+
+2. SPAN OF CONFIGURATIONS
+Let S={s}, A={s,a}, and B={s,b}, with all distinct elements apart. Consider the span
+A <- S -> B,
+where both arrows are the evident inclusions.
+
+An admissible amalgam exists: take C={s,a,b}, again with discrete apartness, and the evident embeddings A -> C and B -> C that agree on S. Thus, under the existence-of-amalgam criterion, CC(A,B)=1 for this span.
+
+3. CLAIM
+The span A <- S -> B has no pushout in the stated category of finite discrete-apartness structures and embeddings.
+
+4. PROOF BY CONTRADICTION
+Assume a pushout P exists, with embeddings j_A:A -> P and j_B:B -> P agreeing on S.
+
+First construct a cocone into the three-element object C={s,a,b}, mapping a and b to distinct elements. The pushout universal property supplies a morphism h_3:P -> C with h_3 composed with j_A and j_B equal to those two embeddings. Since h_3 is a morphism in this category, it is injective. The images under h_3 of j_A(a) and j_B(b) are distinct, so j_A(a) and j_B(b) must be distinct in P.
+
+Now let Z={0,1}, again with discrete apartness. Define embeddings f:A -> Z and g:B -> Z by f(s)=g(s)=0, f(a)=1, and g(b)=1. They agree on S, so they form another cocone over the span. The pushout universal property would give a morphism h_2:P -> Z satisfying h_2∘j_A=f and h_2∘j_B=g. But j_A(a) and j_B(b) are distinct in P while both must map to 1. Therefore h_2 is not injective, contradicting the requirement that every morphism in the category be an embedding. Hence no pushout exists. QED.
+
+5. INTERPRETATION
+The example establishes a strict distinction:
+- WEAK AMALGAMATION: some object C receives embeddings of A and B that agree on the shared base.
+- CATEGORICAL PUSHOUT: an amalgam satisfies the universal property for every compatible cocone in the specified category.
+
+The first does not imply the second in the tested category. Therefore CC(C1,C2)=1, when defined only by existence of an admissible amalgamation, does not by itself prove that the corresponding span has a colimit. The existence of an amalgam and the existence of a colimit are logically different claims.
+
+6. WHAT THIS DOES AND DOES NOT ESTABLISH
+PROVED: In the explicit category defined in Section 1, the displayed span has an admissible amalgam but no pushout.
+PROVED: The stated CC criterion alone cannot be used as a general proof of colimit existence across all categories of configurations and embeddings.
+NOT PROVED: That the Frozen Core's particular R=colim(D_CC) fails to exist.
+NOT PROVED: That every possible configuration category or every alternative morphism class lacks the required colimits.
+NOT DERIVED: A project-level obstruction to R without the actual selected indexing category, diagram, morphisms, and target category.
+
+7. REQUIRED NEXT FORMALIZATION
+To instantiate the Core's conditional construction, specify:
+(a) the object class of admissible configurations;
+(b) the exact morphisms and their composition;
+(c) the indexing category J, including arrows encoding compatibility;
+(d) the target category C_METACORE and a functor D:J -> C_METACORE;
+(e) the cocone candidate for R;
+(f) the universal property to be proved, or an explicitly equivalent constraint-preserving construction.
+Then test whether the chosen category admits the relevant colimit. If embeddings are retained as morphisms, the example above warns that ordinary weak amalgamation is insufficient. A different morphism class, a restricted cocone class, or a stronger amalgamation condition may alter the result, but any such choice must be explicit and justified.
+
+8. DECISION
+Record this as a finite conditional obstruction against the inference “admissible amalgam exists, therefore categorical colimit exists.” Preserve the Core's conditional R construction. Do not declare the Core inconsistent or R impossible. Do not advance to Constraint or dynamic realization on this result alone.
+
+CHANGE CONTROL
+Candidate audit only. Frozen Core unchanged. No RL registration performed or verified. No CE-V promotion or canonical acceptance claimed.
+
+END OF DOCUMENT
