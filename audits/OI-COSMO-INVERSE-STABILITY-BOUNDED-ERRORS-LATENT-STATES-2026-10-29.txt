@@ -1,0 +1,187 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+OMEGA-ISOP / M3.2
+AUDIT #30: INVERSE STABILITY UNDER BOUNDED ERRORS AND PARTIALLY OBSERVED LATENT STATES
+Date: 2026-10-29
+Status: Conditional mathematical audit. No Frozen Core amendment, CE-V promotion, or RL registration.
+
+1. PURPOSE
+
+This audit distinguishes exact identifiability from stable recovery in inverse problems. It considers observations with bounded error, latent states that are only partially observed, and target quantities that may remain recoverable even when the full state is not.
+
+The central question is quantitative: when two states are compatible with nearly the same observation, how far apart can their target values be? A uniqueness statement alone does not answer this question.
+
+2. MODEL AND FEASIBLE SET
+
+Let Z be a state domain, Y an observation space with a specified norm, F:Z→Y an observation map, and T:Z→R a target. Given observation y and error tolerance ε>=0, define
+
+J(y,ε) = {z in Z : ||F(z)-y|| <= ε}.
+
+Additional constraints may be included by intersecting this set with the declared admissible domain. If errors are anisotropic or correlated, replace the norm ball with the actual residual set; do not silently approximate a structured error set by a spherical one.
+
+If J(y,ε) is empty, the data and stated model constraints are incompatible at this tolerance, or feasibility has not been resolved. If it is nonempty, the target's feasible range is
+
+I_T(y,ε) = {T(z): z in J(y,ε)}.
+
+Its diameter is
+diam I_T(y,ε) = sup{|T(z_1)-T(z_2)| : z_1,z_2 in J(y,ε)}.
+
+This diameter directly measures target ambiguity for the given observation and tolerance. It is distinct from the error of a particular estimator, which also depends on how that estimator selects a value.
+
+3. EXACT IDENTIFIABILITY VERSUS STABILITY
+
+At ε=0, target point identification means that T is constant on J(y,0), when this set is nonempty. Stable recovery asks whether small observational perturbations force small changes in the target over the relevant domain.
+
+An exactly identified target may still be unstable: distinct states can produce arbitrarily close observations while their target values remain separated. In that case exact noiseless data determine the target uniquely, but finite-precision data may not determine it reliably.
+
+Conversely, the full state can be non-identifiable while the target is stably recoverable. Stability must therefore be assessed for the stated target, not inferred solely from parameter uniqueness.
+
+4. TARGET SEPARATION MODULUS
+
+For a domain Z and observation map F, define the target separation modulus
+
+omega_T(delta) = sup{|T(z_1)-T(z_2)| :
+ z_1,z_2 in Z and ||F(z_1)-F(z_2)|| <= delta}.
+
+The supremum may be infinite. The domain, norms, and any admissibility constraints must be fixed when this quantity is used.
+
+If omega_T(delta) is finite, then any two states whose predicted observations differ by at most delta have target values differing by no more than omega_T(delta). In particular, if z_1,z_2 both lie in J(y,ε), the triangle inequality gives
+||F(z_1)-F(z_2)|| <= 2ε,
+and therefore
+diam I_T(y,ε) <= omega_T(2ε).
+
+This bound is global over the stated domain and may be conservative. It does not require an estimator.
+
+For exact target identification on the domain, a necessary and sufficient condition is that every pair with identical predictions has equal target values. Equivalently, omega_T(0)=0, provided the supremum is interpreted over a nonempty pair set; if there are no admissible pairs, the definition requires a stated convention. In ordinary nonempty domains, pairs z_1=z_2 ensure the pair set is nonempty.
+
+Uniform target stability on the domain is guaranteed if omega_T(delta) tends to zero as delta decreases to zero. This is a useful sufficient characterization of uniform continuity of the target with respect to observational distinguishability. Pointwise continuity on parameter space alone does not establish this property globally.
+
+5. LINEAR ERROR BOUND
+
+Suppose there is a constant K>=0 such that, for every z_1,z_2 in the admissible domain,
+
+|T(z_1)-T(z_2)| <= K ||F(z_1)-F(z_2)||.
+
+Then omega_T(delta)<=K delta and
+
+diam I_T(y,ε) <= 2Kε.
+
+This is a target-specific inverse stability bound. It can hold even when F is not injective, provided the target agrees on every fiber and the inequality holds globally.
+
+If the target is vector-valued, use a specified norm on the target space and state the corresponding inequality explicitly. The constant K is meaningful only relative to the chosen norms, domain, and model.
+
+A forward Lipschitz bound of the form ||F(z_1)-F(z_2)||<=L||z_1-z_2|| does not imply the inverse inequality above. It controls output change from state change, not state or target recovery from output change.
+
+6. PARTIALLY OBSERVED LATENT STATES
+
+Suppose z=(x,u), where x is the parameter of interest and u is a latent or nuisance state, and the observation is F(x,u). Define the joint feasible set using all constraints on both x and u. The target may be T(x) or a function of both variables.
+
+The correct target range is the projection
+I_T(y,ε)={T(x,u):(x,u) in J(y,ε)}.
+
+It is generally invalid to estimate x while fixing u to a single fitted value unless that restriction is independently justified. Ignoring latent-state ambiguity can understate the target range.
+
+If the target is constant across all feasible latent states for each compatible x, latent ambiguity may not affect that target. If latent variables can compensate for changes in x while preserving observations and changing T, then the target may be non-identifiable or unstable.
+
+7. LINEAR EXAMPLE WITH A LATENT NUISANCE
+
+Consider y = x + u + e, with |e|<=ε, x in R and u in [-G,G]. For a fixed observed y, compatibility requires
+|y-x-u|<=ε.
+
+As u ranges over [-G,G], the feasible x values lie in
+[y-G-ε, y+G+ε].
+
+Thus the width of the target interval for T(x)=x is 2G+2ε. The observational error contributes 2ε to the width, while the nuisance bound contributes 2G. If G is unbounded, the target interval is unbounded under this model.
+
+This is an exact calculation for the stated scalar model. It illustrates that bounded error alone does not guarantee a bounded target when a nuisance variable can absorb arbitrary shifts, and that the target bound depends on the justified nuisance constraint.
+
+8. EXAMPLE: EXACT IDENTIFICATION WITH UNSTABLE INVERSE
+
+Let Z=(0,1], F(x)=x^2, and T(x)=x. On this domain, F is injective and the exact target is identified from any exact y in (0,1]. But the inverse x=sqrt(y) is not uniformly Lipschitz near y=0: the ratio
+|sqrt(y_2)-sqrt(y_1)|/|y_2-y_1|
+can become arbitrarily large as the observations approach zero.
+
+The target remains exactly identifiable, yet small absolute observation errors near zero can cause comparatively large target errors. The correct stability modulus is more informative than a yes/no uniqueness label.
+
+9. COMPACTNESS AND EXISTENCE OF BOUNDS
+
+If J(y,ε) is nonempty and compact and T is continuous, then I_T(y,ε) is compact in R. Consequently its minimum and maximum exist and are finite.
+
+Compactness is a sufficient condition, not a necessary condition for finite bounds in every particular problem. If the feasible set is noncompact, bounds may still be finite, but this must be established separately. If T is unbounded on the feasible set, no finite target interval is valid.
+
+Numerical optimization returning finite values does not prove the target is bounded over the whole feasible set. A proof may require coercivity, domain bounds, analytical elimination, validated global optimization, or another certificate appropriate to the model.
+
+10. ERROR SETS AND CORRELATED UNCERTAINTY
+
+For structured uncertainty, let E be a subset of Y and define
+J(y,E)={z in Z : y-F(z) in E}.
+The difference between two feasible predictions belongs to E-E, where
+E-E={e_1-e_2:e_1,e_2 in E}.
+Thus target diameter bounds should use the geometry of E-E rather than automatically using 2ε in an arbitrary norm.
+
+For a norm ball E={e:||e||<=ε}, the triangle inequality gives E-E contained in the radius-2ε ball, recovering the earlier bound. For componentwise, ellipsoidal, or correlated errors, a tailored separation calculation can be tighter and more faithful.
+
+Shared systematic errors must remain shared variables in the joint feasible model. Replacing a common nuisance with independent per-observation errors changes the model and can alter identifiability conclusions.
+
+11. ESTIMATORS AND WORST-CASE GUARANTEES
+
+An estimator maps the observation to an estimate, for example h(y). A worst-case target error guarantee requires a bound on
+sup{|h(y)-T(z)| : z admissible and y-F(z) in E}.
+This is an estimator-specific criterion. The target diameter of the feasible range supplies a lower-level ambiguity measure, but it does not by itself specify which estimator to use.
+
+For a nonempty bounded scalar identified interval [L,U], the midpoint (L+U)/2 has worst-case absolute error at most (U-L)/2 for target values in that interval, assuming the interval endpoints and target range are correctly certified. This does not imply the midpoint corresponds to a feasible state or is a physically realized target value. It is a minimax center for absolute error over that interval.
+
+If the identified set is not an interval, its convex hull may be useful as an enclosing interval, but the hull can include target values that are not feasible. Report the exact set when relevant and label any interval hull as an outer enclosure.
+
+12. CONDITIONAL RESULTS
+
+Theorem A, feasible-set diameter bound:
+If J(y,ε) is nonempty and omega_T(2ε) is finite under a norm-ball residual model, then diam I_T(y,ε)<=omega_T(2ε). This follows from the triangle inequality and the definition of omega_T.
+
+Theorem B, linear target stability:
+If |T(z_1)-T(z_2)|<=K||F(z_1)-F(z_2)|| for all admissible pairs, then diam I_T(y,ε)<=2Kε for norm-bounded residuals of radius ε.
+
+Theorem C, compact feasible range:
+If J(y,ε) is nonempty and compact and T is continuous, then the target range is compact and its finite minimum and maximum are attained.
+
+Theorem D, nuisance-bound dependence:
+If enlarging a nuisance constraint only enlarges the joint feasible set, then the target identified set can only enlarge. This is set inclusion, not a smoothness claim.
+
+All theorems are conditional on the stated domain, norms, residual model, and nonemptiness assumptions.
+
+13. AUDIT CHECKLIST
+
+Record:
+- The complete observation map and admissible domain.
+- The target function, including whether it depends on latent variables.
+- The exact error set, norm, correlations, and shared systematic terms.
+- The joint feasible set and whether nonemptiness is certified.
+- Whether the claim concerns exact identification, partial identification, or stability.
+- A target separation modulus or explicit inverse bound, if available.
+- Whether the bound is local or global and the domain on which it holds.
+- Whether finite endpoints are proven, attained, and globally certified.
+- The effect of nuisance bounds on the identified range.
+- Whether the estimator's guarantee is separate from the feasible target range.
+- Whether a reported interval is sharp or merely an outer enclosure.
+
+14. NON-IMPLICATIONS
+
+- Exact identifiability does not imply stable recovery.
+- Forward continuity or Lipschitz continuity does not imply inverse stability.
+- A bounded observation error does not guarantee a bounded target range.
+- A unique fitted latent state does not prove latent-state uniqueness.
+- Ignoring shared systematics does not preserve the original uncertainty model in general.
+- A finite numerical optimizer output does not prove a global finite bound.
+- A target interval's midpoint need not be feasible.
+- A convex-hull interval can contain values absent from the exact identified set.
+- Full-state non-identifiability does not automatically imply target instability.
+- A local stability estimate does not become global without an appropriate domain-wide proof.
+
+15. CONCLUSION
+
+For inverse problems with bounded errors and partially observed latent states, the target's feasible range and its separation modulus provide a direct bridge between identifiability and stability. The key quantitative question is how much the target can vary among states whose predictions are observationally indistinguishable at the stated error level.
+
+Any bound depends on the complete joint model, including nuisance constraints and correlated errors. Exact uniqueness, bounded partial identification, and stable numerical recovery are distinct conclusions and must be reported separately.
+
+This audit is conditional on the stated maps and assumptions. It does not modify the Frozen Core, promote CE-V, or register an RL item.
+
+END OF DOCUMENT
