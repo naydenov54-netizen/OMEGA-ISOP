@@ -1,0 +1,86 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+OMEGA-ISOP — EXPLICIT OBSERVATION-MAP CALIBRATION DEGENERACY AUDIT
+Date: 2026-10-28
+Status: CONDITIONAL MATHEMATICAL RESULT; AUDIT RECORD ONLY; NO RL REGISTRATION
+
+1. PURPOSE
+
+This audit gives an explicit observation map in which a cosmological parameter H and an unknown clock-calibration parameter q cannot be identified separately. It also states a sufficient calibration condition under which H becomes identifiable within the model. The result is conditional on the ideal de Sitter/FLRW assumptions below and does not claim that OMEGA-ISOP derives those assumptions or the calibration.
+
+2. MODEL AND OBSERVATION MAP
+
+Assume an ideal spatially flat de Sitter/FLRW model with comoving source and observer. Let z > 0 be the observed redshift and let tau_0 be the observer's proper time. Under the exact de Sitter model, the standard redshift-drift relation reduces to
+
+dz/d tau_0 = z H,
+
+where H is constant.
+
+Let t be the clock's reported time coordinate, related to proper time by
+
+dt = q d tau_0,
+
+with unknown calibration factor q > 0. The measured drift relative to t is
+
+s = dz/dt = (1/q)(dz/d tau_0) = z H/q.
+
+Thus the observation map, for fixed measured z, is
+
+F_z(H,q) = z H/q,
+
+with parameter domain H > 0 and q > 0.
+
+3. GLOBAL NON-IDENTIFIABILITY THEOREM
+
+Theorem. For fixed z > 0 and observed s > 0, the observation map F_z(H,q) = zH/q does not globally identify H and q separately.
+
+Proof. For any a > 0, define H' = aH and q' = aq. Then
+
+F_z(H',q') = z(aH)/(aq) = zH/q = F_z(H,q).
+
+For any a not equal to 1, H' differs from H while the predicted observation is unchanged. Therefore the observation map is not injective in the pair (H,q), and H is not globally identifiable when q is unrestricted. QED.
+
+Equivalently, the observation fixes only the ratio
+
+H/q = s/z.
+
+For any chosen q > 0, the compatible H is H = qs/z. The admissible solution set is a one-dimensional family, not a unique parameter point.
+
+4. LOCAL RANK CHECK
+
+The Jacobian of F_z with respect to (H,q) is
+
+J(H,q) = (z/q, -zH/q^2).
+
+Its rank is 1 for H,q,z > 0, while there are two unknown parameters. This is consistent with local underdetermination. The global proof in Section 3 is stronger for this model because it explicitly constructs a nontrivial family preserving the observation. Rank deficiency alone should not be treated as a universal proof of global non-identifiability for arbitrary nonlinear models.
+
+5. CONDITIONS THAT RESTORE IDENTIFIABILITY
+
+Case A: q is independently known and fixed at q0 > 0. Then
+
+H = q0 s/z.
+
+For z > 0, this uniquely identifies H within the assumed model and calibration convention.
+
+Case B: an independent calibration observation determines q uniquely. Combining that calibration with s and z likewise determines H = qs/z, provided the calibration observation is genuinely independent and its own scale is fixed.
+
+Case C: no independent calibration is available. Then the data determine only H/q. Adding another observation does not help if the expanded observation map remains invariant under (H,q) -> (aH, aq). The full map must be checked for injectivity or for a residual symmetry.
+
+6. INTERPRETATION LIMITS
+
+The result proves a specific conditional degeneracy in a specified ideal observation model. It does not prove that every cosmological observation is scale-blind. Other observables, fixed dimensional constants, matter-sector parameters, boundary conditions, or independently calibrated standards may break the degeneracy, but each case requires an explicit model and proof.
+
+The result also separates four issues:
+- mathematical identifiability within the assumed model;
+- independent calibration of the clock;
+- empirical adequacy of the de Sitter model;
+- semantic interpretation of H within OMEGA-ISOP.
+
+None of these four issues automatically entails the others. In particular, this audit does not derive H or q from the OMEGA-ISOP Frozen Core and does not establish a physical or semantic bridge beyond the stated model.
+
+7. CONCLUSION
+
+For F_z(H,q) = zH/q with z > 0 and q unknown, the transformation (H,q) -> (aH, aq) leaves the observation invariant. Hence H is not globally identifiable from this observation alone. An independently fixed q makes H = qs/z unique within the model. This is a conditional mathematical result only.
+
+No Frozen Core change, CE-V promotion, or RL registration is made.
+
+END OF DOCUMENT
