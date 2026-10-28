@@ -1,0 +1,156 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+OMEGA-ISOP
+IDENTIFIABILITY AND STABILITY WITH UNCERTAIN CALIBRATION COEFFICIENTS
+AUDIT ID: OI-COSMO-UNCERTAIN-CALIBRATION-COEFFICIENTS-2026-10-29
+STATUS: CONDITIONAL MATHEMATICAL AUDIT
+DATE: 2026-10-29
+
+1. PURPOSE
+
+The previous audit quantified error amplification when known calibration coefficients are close. This audit removes the assumption that the coefficients are exactly known. It distinguishes coefficient uncertainty treated as a bounded nuisance parameter from random coefficient error, and checks when uncertainty in the coefficients restores non-identifiability or destroys useful finite bounds.
+
+2. TWO-CHANNEL AFFINE CALIBRATION WITH EXACT COEFFICIENTS
+
+As baseline, consider
+
+u_1=c_1 q+b+e_1,
+u_2=c_2 q+b+e_2.
+
+When c_1,c_2 are exactly known and c_1 != c_2, q is identified in the noiseless model. With bounded errors, the estimate error is bounded by
+
+|q_hat-q| <= (eps_1+eps_2)/|c_1-c_2|.
+
+This conclusion depends essentially on the coefficients being known. It cannot simply be carried over to uncertain coefficients by substituting their nominal values.
+
+3. BOUNDED COEFFICIENT UNCERTAINTY: JOINT FEASIBLE SET
+
+Suppose instead that
+
+u_j = c_j q+b+e_j,
+c_j in C_j=[c_j^-,c_j^+],
+|e_j|<=eps_j.
+
+The coefficients are unknown nuisance quantities constrained only to their intervals. The correct feasible set is
+
+F = {(q,b,c_1,c_2,e_1,e_2):
+q in Q_domain, b in B_domain,
+c_j in C_j, |e_j|<=eps_j,
+u_j=c_j q+b+e_j for j=1,2}.
+
+The admissible q set is the projection of F onto q. Identifiability and bounds must be evaluated from this joint set. Treating nominal coefficient values as exact can understate uncertainty.
+
+If coefficient intervals overlap or permit c_1=c_2, there is no uniform lower bound on coefficient separation. The exact inverse's denominator may approach zero, so the previous bound based on a fixed separation cannot be used with a positive uniform denominator. This fact alone does not prove every joint model is globally non-identifiable, but it removes that particular stability guarantee.
+
+4. A DIRECT DIFFERENCE MODEL AND A FINITE-BOUND CONDITION
+
+Subtract the two channels:
+
+d = u_1-u_2 = (c_1-c_2)q + (e_1-e_2).
+
+Let delta_c=c_1-c_2. Suppose an independently justified coefficient-domain constraint guarantees a fixed sign and separation
+
+|delta_c| >= gamma > 0,
+
+and let |e_1-e_2|<=E, where E may be eps_1+eps_2. Then
+
+d = delta_c q + e_d, |e_d|<=E.
+
+For q>0, if delta_c is known to be positive and delta_c in [gamma,Gamma], then the feasible q values satisfy
+
+(d-E)/Gamma <= q <= (d+E)/gamma,
+
+provided d-E>0. If d-E<=0, the lower bound is at most zero and q>0 only has zero as a possible infimum from this inequality. Feasibility also requires that the observed d be compatible with some delta_c in [gamma,Gamma] and an allowed e_d; if no such values exist, the model is inconsistent.
+
+If delta_c is known to be negative with -delta_c in [gamma,Gamma], the sign of d is reversed in the corresponding inequalities. One should transform the difference equation by multiplying by -1 and apply the positive-separation case to -d.
+
+These bounds are conservative if the two coefficient intervals, their shared construction, and the original channel equations impose further constraints. The sharp interval is obtained from the joint feasible set, not by assuming every endpoint combination is attainable.
+
+5. WHEN COEFFICIENT SEPARATION CAN VANISH
+
+If the allowed coefficient domain includes delta_c=0, the difference equation becomes d=e_d at that coefficient value and supplies no information about q. More generally, for any candidate q>0, if coefficients and b can vary freely enough to fit both channels within their error bounds, q may remain unbounded or weakly constrained.
+
+A simple exact countermodel demonstrates non-identifiability when coefficient values are unrestricted nuisance parameters: with b=0, e_1=e_2=0 and observations u_1,u_2>0, for any q>0 choose c_1=u_1/q and c_2=u_2/q. The same observations are produced for every q. Thus q is not identified from these data when c_1,c_2 are free positive unknowns. Restrictions on the coefficient domains can change this conclusion and must be analyzed explicitly.
+
+This countermodel does not assert that every bounded-coefficient calibration problem is non-identifiable. It proves that identifiability cannot be claimed without the coefficient-domain restrictions.
+
+6. PROPAGATION TO H
+
+Suppose the cosmological observation is s=zH/q with z>0 known and s>0 exact. If the joint calibration analysis yields a finite positive interval q in [q_low,q_high], then
+
+H in [s q_low/z, s q_high/z].
+
+If the feasible q set is unbounded above, this relation supplies no finite upper bound on H. If the feasible q set has zero as its infimum, it supplies no positive lower bound on H. If q is not constrained to a finite set or interval, the observation s identifies only H/q and does not identify H.
+
+If s is itself bounded by 0<s_low<=s<=s_high and z is known, the corresponding outer bound is
+
+H in [q_low s_low/z, q_high s_high/z]
+
+when q_low>0 and q_high is finite. If q or s bounds do not meet these conditions, report the appropriate infimum, unbounded direction, or infeasibility rather than a misleading finite interval.
+
+7. FIRST-ORDER SENSITIVITY WHEN NOMINAL COEFFICIENTS ARE USED
+
+For the nominal estimator q_hat=(u_1-u_2)/(c_1-c_2), let delta=c_1-c_2 !=0. If the coefficient difference has perturbation eta_delta, and the measured difference has perturbation eta_d, then
+
+q_tilde = (d+eta_d)/(delta+eta_delta),
+
+where delta+eta_delta !=0. The exact error identity is
+
+q_tilde-q = (eta_d-q eta_delta)/(delta+eta_delta).
+
+When |eta_delta|<|delta|, it follows that
+
+|q_tilde-q| <= (|eta_d|+|q||eta_delta|)/(|delta|-|eta_delta|).
+
+This bound shows two amplification mechanisms: error in the channel difference and error in the coefficient difference. As |eta_delta| approaches |delta|, the denominator approaches zero and the bound becomes uninformative. This is a deterministic perturbation bound, not a stochastic approximation.
+
+For small perturbations relative to |delta|, the first-order expansion is
+
+q_tilde-q approximately eta_d/delta - q eta_delta/delta.
+
+It is only a first-order approximation and must not replace the exact identity or the bounded-error result when perturbations are large.
+
+8. RANDOM COEFFICIENT ERROR IS A DIFFERENT MODEL
+
+If c_j are random variables rather than unknown deterministic values in intervals, the inferential problem depends on their joint distribution and dependence with q, b, and measurement errors. Errors-in-variables models can have bias and different identifiability properties from fixed-design regression. The deterministic bounds above do not automatically provide confidence intervals or unbiased estimators.
+
+A probabilistic analysis must specify whether coefficients are:
+(a) measured with an independent calibration study;
+(b) random with a known joint distribution;
+(c) nuisance parameters with a likelihood;
+(d) bounded but otherwise adversarial.
+
+These cases are not interchangeable. In particular, a covariance matrix alone may not fully specify a non-Gaussian joint distribution or prove global identifiability.
+
+9. DESIGN AND VALIDATION CHECKLIST
+
+For any application:
+(a) state whether each c_j is exact, bounded, or random;
+(b) state whether the coefficient intervals guarantee separation |c_i-c_j|>=gamma>0;
+(c) preserve common dependencies between coefficient errors rather than treating them as independent without evidence;
+(d) compute the joint feasible set and project it onto q;
+(e) test whether q has finite positive lower and upper bounds;
+(f) propagate only valid bounds into H;
+(g) distinguish algebraic identifiability, bounded set identification, numerical stability, and statistical inference;
+(h) test explicit transformations that may preserve all observations while changing q or H.
+
+10. CONDITIONAL CONCLUSIONS AND NON-CLAIMS
+
+Established conditionally:
+- Known distinct coefficients permit exact separation of q and b in the two-channel affine model.
+- A uniform positive lower bound on coefficient separation supports finite deterministic difference-based bounds, subject to signal feasibility and sign conditions.
+- If coefficient uncertainty permits the separation to approach zero, the previous fixed-separation stability bound is unavailable.
+- If coefficients are unrestricted unknown nuisance parameters, an explicit countermodel shows q may be non-identifiable.
+- A finite H interval follows only if the feasible q set and the other observation bounds support one.
+- Random coefficient errors require a separately specified probabilistic model.
+
+Not established:
+- That uncertain coefficients always destroy identifiability.
+- That nominal-coefficient plug-in estimates are reliable without a perturbation analysis.
+- Any universal numeric coefficient-separation threshold.
+- A physical calibration or H derived from OMEGA-ISOP alone.
+
+11. OMEGA-ISOP STATUS
+
+This is a conditional mathematical audit. It does not modify Frozen Core, Volume V, the dependency chain, or the CE-V archive. No CE-V promotion or RL registration is asserted.
+
+END OF DOCUMENT
