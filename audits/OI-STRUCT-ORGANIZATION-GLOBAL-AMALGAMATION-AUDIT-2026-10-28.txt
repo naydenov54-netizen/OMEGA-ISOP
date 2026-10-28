@@ -1,0 +1,112 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+OMEGA-ISOP/M3.2
+AUDIT ID: OI-STRUCT-ORGANIZATION-GLOBAL-AMALGAMATION-AUDIT-2026-10-28
+DATE: 2026-10-28
+STATUS: MATHEMATICAL AUDIT; NO CORE CHANGE; NO REGISTRATION CLAIM
+
+TITLE
+Organization from relations and compatibility: pairwise versus global amalgamation, and dynamical invariance
+
+1. QUESTION
+
+Do a relational structure and model-relative pairwise compatibility entail a global organization? If a global compatible structure exists, does that entail persistence under dynamics?
+
+The answer to both entailment questions is no in general. Explicit additional conditions are required.
+
+2. DEFINITIONS
+
+Let C = {C1,...,Cn} be a finite family of constraints or component descriptions. Let CC(Ci,Cj)=1 mean that Ci and Cj admit a common admissible realization in the specified model. This is a model-relative pairwise predicate.
+
+A global amalgamation of C is one realization satisfying all constraints C1,...,Cn simultaneously. Pairwise amalgamation and global amalgamation are different properties.
+
+For a state space X and relational/constraint specification R, define the admissible set
+Omega_R = {x in X : x satisfies every constraint in R}.
+
+For a chosen evolution map T_t, invariance of Omega_R over a time interval I means
+T_t(Omega_R) subseteq Omega_R for every t in I.
+This is a dynamical condition, not merely a static compatibility condition.
+
+3. COUNTERMODEL A: PAIRWISE COMPATIBILITY DOES NOT ENTAIL GLOBAL AMALGAMATION
+
+Take Boolean variables x,y,z in {0,1}, and constraints:
+C1: x != y
+C2: y != z
+C3: z != x
+
+Each pair of constraints is jointly satisfiable:
+- C1 and C2: choose (x,y,z) = (0,1,0).
+- C2 and C3: choose (x,y,z) = (0,0,1).
+- C1 and C3: choose (x,y,z) = (0,1,1).
+
+Thus every pair has a common realization.
+
+But all three constraints cannot be satisfied simultaneously with only two Boolean values. If x != y and y != z, then x = z, contradicting z != x. Therefore no global amalgamation exists.
+
+Conclusion A:
+Pairwise CC(Ci,Cj)=1 for every pair does not entail a global amalgamation of the whole family. A pairwise compatibility graph alone cannot establish global organization.
+
+Scope note: this is a generic constraint-satisfaction countermodel establishing the logical point. It is not a claim that the Frozen Core itself specifies these Boolean constraints.
+
+4. COUNTERMODEL B: STATIC ORGANIZATION DOES NOT ENTAIL DYNAMICAL PERSISTENCE
+
+Let X = {a,b}, and let the constraint-defined admissible set be Omega_R = {a}. A global admissible structure therefore exists at the initial time.
+
+Define an evolution map T by T(a)=b and T(b)=b. Then
+T(Omega_R) = {b},
+and {b} is not a subset of Omega_R.
+
+The organization exists statically but is not invariant under this evolution.
+
+By contrast, if a chosen T satisfies T(Omega_R) subseteq Omega_R, then Omega_R is invariant under that map. This conclusion is conditional on the invariance premise; it is not derived from the mere existence of Omega_R.
+
+Conclusion B:
+Static compatibility or global amalgamation does not entail persistence. Persistence requires a relation between the admissible set and the specified dynamics.
+
+5. MINIMAL CONDITIONAL RESULT
+
+If:
+(i) the family of constraints is explicitly defined;
+(ii) a single global realization satisfying all constraints exists; and
+(iii) the chosen dynamics preserves the admissible set, T_t(Omega_R) subseteq Omega_R throughout the interval I;
+
+then the organization represented by Omega_R persists as an admissible organization throughout I.
+
+This is a conditional theorem from the stated premises. It does not establish that such a global realization or such dynamics must exist.
+
+For robustness under perturbations, an additional perturbation class and a quantitative stability criterion must be specified. Invariance under one exact evolution does not automatically imply robustness.
+
+6. WHAT IS REQUIRED TO MAKE ORGANIZATION A TESTABLE LEVEL
+
+A concrete organization claim needs at least:
+A. A specified family of components or constraint descriptions.
+B. A precise model-relative meaning of pairwise compatibility.
+C. A global amalgamation rule or a theorem guaranteeing global consistency; pairwise checks alone are insufficient in general.
+D. A specified state space and a realization of the constraints.
+E. A specified evolution law and an invariance or persistence condition.
+F. If physical: operational observables, a measurement protocol, quantitative predictions, uncertainty/tolerance rules, and a failure condition.
+
+These items are a research interface, not a claim that all of them are already derived from the Frozen Core.
+
+7. DERIVATION LEDGER
+
+Derived here:
+- Pairwise satisfiability does not generally imply joint satisfiability; Countermodel A proves this.
+- Existence of an admissible set does not generally imply invariance under a chosen evolution; Countermodel B proves this.
+- Global existence plus an explicitly assumed invariance condition yields conditional persistence of the admissible organization.
+
+Not derived here:
+- A universal global-amalgamation principle.
+- A unique organization from R or CC alone.
+- A unique evolution law.
+- Persistence from static compatibility alone.
+- A physical organization law or new empirical prediction from Primitive Difference alone.
+
+8. RELATION TO THE FROZEN CORE
+
+The audit preserves the existing model-relative interpretation of CC: CC(C1,C2)=1 iff an admissible amalgamation exists for the specified pair in the specified model. It does not reinterpret CC as universal causation and does not infer global amalgamation from pairwise CC.
+
+No Frozen Core text is changed or proposed as silently amended. This audit does not establish CE-V promotion, canonical acceptance, or RL registration. No registration status is asserted.
+
+9. RESULT
+
+Organization is not yet entailed merely by the presence of relations, pairwise compatibility, or persistence of individual distinctions. A defensible organization-level result requires a global compatibility condition and, for persistence, an explicit dynamical invariance condition. Physical status additionally requires operational realization and falsifiable quantitative consequences.
