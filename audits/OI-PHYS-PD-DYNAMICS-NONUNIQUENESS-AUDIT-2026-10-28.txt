@@ -1,0 +1,66 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+OMEGA-ISOP/M3.2
+AUDIT: DYNAMICAL NON-UNIQUENESS OF PHYSICAL DISTINGUISHABILITY
+ID: OI-PHYS-PD-DYN-001
+DATE: 2026-10-28
+STATUS: CONDITIONAL NEGATIVE RESULT; DYNAMICS NOT SELECTED BY PD-A
+FROZEN CORE: UNCHANGED
+RL REGISTRATION: NONE
+CE-V PROMOTION: NONE
+CANONICAL ACCEPTANCE: NOT CLAIMED
+
+1. QUESTION
+
+Does the formal distinction primitive, together with a quantum realization of states, select a unique dynamical law or an additional empirically distinctive prediction?
+
+2. GENERAL RESULT
+
+No such selection follows from PD-A as currently specified. PD-A is a meta-level admissibility condition and does not itself specify a physical state space, generator, transition semigroup, Hamiltonian, or noise model. Even after a quantum state space is chosen, multiple quantum-admissible dynamics can act differently on distinguishability.
+
+3. COMPARISON OF TWO DYNAMICS
+
+Take two qubit states
+rho_plus = |+><+| and rho_minus = |-><-|,
+where |+> = (|0>+|1>)/sqrt(2) and |-> = (|0>-|1>)/sqrt(2).
+
+Initially, these states are orthogonal and their trace distance is
+D(rho_plus,rho_minus) = (1/2)||rho_plus-rho_minus||_1 = 1.
+
+Model U: Apply the same unitary channel to both states. Trace distance is invariant under a common unitary:
+D(U rho_plus U†, U rho_minus U†) = D(rho_plus,rho_minus) = 1.
+
+Model D: Apply a phase-damping channel that leaves diagonal density-matrix entries unchanged and multiplies off-diagonal entries by eta(t) = exp(-gamma t), with gamma >= 0. Then
+D(rho_plus(t),rho_minus(t)) = exp(-gamma t).
+
+Thus the same initial formal/quantum distinction is preserved by Model U and contracts under Model D. Both are compatible with standard quantum theory under their respective dynamical assumptions. PD-A alone does not choose between them.
+
+4. STANDARD QUANTUM CONSTRAINT
+
+For any completely positive trace-preserving channel E, trace distance obeys contractivity:
+D(E(rho),E(sigma)) <= D(rho,sigma).
+
+A common unitary is a special case with equality. This is a standard consequence of quantum channel theory, not a new OMEGA-ISOP law and not derived from PD-A here.
+
+5. WHAT WOULD COUNT AS A FRAMEWORK-SPECIFIC RESULT?
+
+A framework-specific result would need to add a precisely stated constraint C on admissible physical realizations, derive its consequences without circularly assuming the target dynamics, and show that C excludes at least one otherwise quantum-admissible model. The constraint must be independently motivated by the Frozen Core or approved through controlled change management. Its empirical consequences must be quantitative and testable.
+
+A postulate such as “distinguishability must persist” would exclude some noisy dynamics, but it is not implied by PD-A and would be an additional physical axiom unless separately derived. It must not be presented as a theorem of the current Core.
+
+6. DERIVATION LEDGER
+
+PD-A -> quantum state space: NOT DERIVED.
+PD-A -> unique dynamics: NOT DERIVED.
+Quantum CPTP dynamics -> trace-distance contractivity: STANDARD QUANTUM RESULT.
+Common unitary -> trace-distance invariance: DERIVED GIVEN UNITARY MODEL.
+Phase damping with eta(t)=exp(-gamma t) -> D(t)=exp(-gamma t) for the chosen pair: DERIVED GIVEN CHANNEL.
+PD-A -> choose between unitary and phase damping: NOT DERIVED.
+New empirical prediction from PD-A in this audit: NONE.
+
+7. CONCLUSION
+
+The current chain remains underdetermined at the dynamics level. Formal distinction plus a quantum realization does not select a unique evolution or a new physical law. The honest next step is either to derive a dynamical restriction from already-authorized Core content, or to propose an explicit new bridge/physical postulate with change-control and independent empirical consequences.
+
+Frozen Core remains unchanged. No RL registration, CE-V promotion, or canonical acceptance is claimed.
+
+END OF AUDIT
