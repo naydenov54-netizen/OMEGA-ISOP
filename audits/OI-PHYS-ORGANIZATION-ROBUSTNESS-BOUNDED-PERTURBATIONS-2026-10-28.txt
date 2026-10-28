@@ -1,0 +1,149 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+
+OMEGA-ISOP / M3.2
+AUDIT: ROBUST ORGANIZATION UNDER BOUNDED PERTURBATIONS
+ID: OI-PHYS-ORGANIZATION-ROBUSTNESS-BOUNDED-PERTURBATIONS-2026-10-28
+DATE: 2026-10-28
+STATUS: CONDITIONAL MATHEMATICAL RESULT; MODEL-LEVEL AUDIT; NOT A FROZEN-CORE THEOREM
+
+0. PURPOSE AND SCOPE
+
+This audit tests whether the nominal two-oscillator organization result survives bounded disturbances, uncertainty in the coupling parameter, and small changes in initial conditions. It distinguishes nominal synchronization from a quantified robust-coherence guarantee.
+
+The result is conditional on the chosen phase-oscillator model. It does not derive phase variables, the sine-coupling law, the sign of the coupling, or the perturbation bounds from Frozen Core. It does not claim empirical validation of a particular physical system.
+
+1. MODEL
+
+Let theta_1 and theta_2 be phase variables and define the phase difference
+
+delta = theta_2 - theta_1.
+
+For attractive coupling, use the reduced perturbed model
+
+dot(delta) = -2 K(t) sin(delta) + u(t),
+
+where K(t) >= K_min > 0 and |u(t)| <= eta for all times in the interval under consideration. K_min is a declared lower bound on the coupling strength; eta is a declared upper bound on the disturbance magnitude. The model permits parameter variation within the stated bound and an additive disturbance. Solutions are understood in the usual absolutely continuous sense for bounded measurable u and suitably measurable K.
+
+Define the operational coherence observable
+
+Q(delta) = |(exp(i theta_1) + exp(i theta_2))/2|
+         = |cos(delta/2)|.
+
+For |delta| <= r < pi/2, this simplifies to Q(delta) = cos(delta/2).
+
+2. ROBUST-INVARIANCE THEOREM
+
+Choose r with 0 < r < pi/2. Suppose
+
+eta < 2 K_min sin(r).
+
+Then the interval S_r = [-r, r] is positively invariant for the perturbed dynamics: every solution initialized in S_r remains in S_r for all future times for which the assumptions hold.
+
+Proof:
+At the upper boundary delta = r,
+
+dot(delta) = -2 K(t) sin(r) + u(t)
+           <= -2 K_min sin(r) + eta
+           < 0.
+
+At the lower boundary delta = -r,
+
+dot(delta) = 2 K(t) sin(r) + u(t)
+           >= 2 K_min sin(r) - eta
+           > 0.
+
+Thus the vector field points strictly inward at both boundaries. The scalar comparison/invariance argument implies forward invariance of the closed interval. This is an invariance result, not a claim that delta converges to zero under persistent nonzero disturbance.
+
+3. QUANTITATIVE ORGANIZATION GUARANTEE
+
+Within S_r, Q(delta) = cos(delta/2), and cos(delta/2) is even and decreases with |delta| on this range. Therefore
+
+Q(t) >= cos(r/2) > 0
+
+for every future time while the assumptions hold.
+
+For a chosen minimum acceptable organization threshold Q_min in (0,1), set
+
+r = 2 arccos(Q_min).
+
+This choice satisfies r in (0, pi) in general; to use the local invariant interval above, require Q_min > cos(pi/4) = 1/sqrt(2), which ensures r < pi/2. The sufficient disturbance condition then becomes
+
+eta < 2 K_min sin(2 arccos(Q_min)).
+
+This is a sufficient, model-specific robustness condition. It is not claimed to be necessary or optimal.
+
+4. INITIAL-CONDITION ERROR
+
+Suppose a nominal initial phase difference delta_nom(0) is perturbed by an error e_0, so that
+
+delta(0) = delta_nom(0) + e_0,
+|e_0| <= epsilon_0.
+
+A sufficient condition for the perturbed initial condition to enter the invariant set is
+
+|delta_nom(0)| + epsilon_0 <= r.
+
+If this condition holds and the disturbance/coupling bound in Section 2 holds, then the coherence guarantee in Section 3 follows for all future times. A small initial error alone is not enough if the nominal state lies too close to or outside the chosen invariant boundary.
+
+5. WHAT IS AND IS NOT ROBUST
+
+Established conditionally:
+- Bounded additive disturbances do not drive a trajectory out of S_r when eta < 2 K_min sin(r).
+- Coupling uncertainty is covered if a uniform positive lower bound K_min is known.
+- The observable Q has the guaranteed lower bound cos(r/2).
+- Small initial-condition errors are covered when the entire perturbed initial-state set lies inside S_r.
+
+Not established:
+- Convergence to exact synchrony delta = 0 under persistent disturbance.
+- Robustness for unbounded disturbances, unknown sign of coupling, or K_min <= 0.
+- Robustness of a real apparatus without an independently justified model and measured bounds.
+- A universal organization measure or a universal threshold.
+- Derivation of this dynamics from PD, relational connectivity, or Frozen Core.
+
+6. COMPETING-DYNAMICS CHECK
+
+For comparison, the repulsive-sign model is
+
+dot(delta) = +2 K sin(delta), with K > 0 and u(t) = 0.
+
+Near delta = 0, linearization gives dot(delta) approximately +2 K delta, so synchrony is unstable. For an initial delta in (0, pi), delta increases rather than converging to zero; delta = pi is the stable anti-phase equilibrium in the ideal two-oscillator model. The same two-node relational connectivity therefore does not determine the same organizational outcome. The sign and form of the dynamics remain additional model inputs.
+
+A finite-time sign test can distinguish the two ideal models away from equilibria, but a robust empirical discrimination threshold would require an explicit lower bound on the tested initial |delta|, uncertainty in K, measurement error, and disturbance magnitude. No such empirical bounds are supplied here, so no experimental discrimination claim is made.
+
+7. OPERATIONAL TEST PROTOCOL
+
+A physical realization would need to specify before testing:
+1. The measured phase-extraction procedure and its uncertainty.
+2. The calibration procedure and a defensible lower bound K_min.
+3. A disturbance envelope eta and the interval over which it is valid.
+4. The phase-window radius r and the acceptance threshold Q_min = cos(r/2).
+5. The allowed initial-state set, including the bound epsilon_0.
+6. Sampling rate, observation interval, repeat count, and uncertainty propagation.
+7. A competing model and its quantitatively separated predictions.
+
+Record delta(t) and Q(t). The robust-coherence claim passes only if the declared assumptions are independently supported and the observed trajectory remains within |delta(t)| <= r, with uncertainty treated conservatively. It fails if the phase leaves S_r, if the measured lower confidence bound for Q falls below Q_min, or if the declared bounds on K or u are violated. Failure of the sufficient inequality alone means this theorem no longer guarantees invariance; it does not by itself prove that coherence must fail.
+
+8. CLAIM LEDGER
+
+Derived from the stated model and bounds:
+- Positive invariance of S_r under eta < 2 K_min sin(r).
+- The lower bound Q >= cos(r/2).
+- The initial-condition margin condition |delta_nom(0)| + epsilon_0 <= r.
+
+Assumed model inputs:
+- Phase-oscillator description.
+- Sine coupling law and attractive sign.
+- Positive lower bound on coupling and bounded additive disturbance.
+- Definition of Q as the operational organization observable.
+
+Still requiring physical validation:
+- Whether a specific system follows this model.
+- Measured values and uncertainty bounds for K_min, eta, and initial phase error.
+- Whether Q is an appropriate observable for that system.
+- Replication and comparison against competing dynamics.
+
+9. CORE AND REGISTRATION STATUS
+
+No Frozen Core text is modified or proposed for silent modification. No universal theorem is claimed. No registration is requested or asserted by this audit. This is a model-level conditional result and operational test specification, not a validated empirical law and not a CE-V promotion.
+
+END OF AUDIT
