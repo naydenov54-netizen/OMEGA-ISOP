@@ -63,10 +63,8 @@ F(H,q,r) = (zH/q, q/r),
 with z > 0 known and H,q,r > 0.
 
 For every a > 0, define
-T_a(H,q,r) = (aH, aq, aq/r?).
-
-The transformation must preserve q/r. Choose
 T_a(H,q,r) = (aH, aq, ar).
+This transformation preserves q/r.
 Then
 z(aH)/(aq) = zH/q
 and
