@@ -1,0 +1,94 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+1. Output for OMEGA-ISOP/M3.2 must be clean plain text, directly copyable on Android, in one continuous block when a complete artifact is requested.
+2. Frozen Core remains unchanged unless the user explicitly authorizes a change and a documented change-control decision records it.
+3. RL_REGISTRATION_REQUIRED is not RL_REGISTERED. Never claim registration without authoritative registry confirmation and readback.
+4. RL_PACKET_PREPARED, SEND, actual submission, and authoritative readback are separate states.
+5. No automatic RL record creation. Do not invent N4/N6/N8/N9 criteria without canonical definitions.
+6. Do not insert Δ_OI into physical equations without derivation.
+7. Do not claim formal numerical proof without certified error bounds.
+8. Mathematical phase is CLOSED. Do not reopen it unless a concrete reason arises.
+9. Project goal: work toward possible registration. If it becomes clear that registration is impossible, report the evidence and stop.
+10. Do not claim that a repository, file, registry, or submission was inspected or modified unless that action actually occurred and its result was verified.
+
+OMEGA-ISOP — AUDIT NOTE: REALIZATION, PERSISTENCE, AND OPERATIONAL IDENTITY IN GR
+DOCUMENT_ID: OI-AUDIT-REALIZATION-PERSISTENCE-GR-129-132-2026-10-28
+VERSION: 1
+STATUS: AUDITED WORKING RESULT; CONDITIONAL; NOT AN RL REGISTRATION
+SCOPE: Consolidated mathematical review of TESTS 129–132. This note records the useful conclusions and limits, not the originating chat.
+
+1. EXECUTIVE RESULT
+The checks support a narrow conditional conclusion: persistence is not determined by instantaneous intrinsic spatial geometry alone in the tested GR/FLRW class. When the input is expanded to full admissible GR initial data, persistence is functionally determined under standard local well-posedness assumptions and a fixed persistence functional. This functional dependence does not by itself establish structural reduction or independence. A local realization plus local persistence also cannot determine a global operational identity criterion if the criterion explicitly includes a global observable. With global realization and fixed operational inputs, identity is functionally determined by its defining rule; that observation is definitional and does not establish a deeper reduction theorem.
+
+No universal OMEGA-ISOP law, new GR theorem, empirical prediction, or registration claim follows.
+
+2. TEST 129 — INSTANTANEOUS INTRINSIC GEOMETRY DOES NOT FIX THE TESTED PERSISTENCE TIME
+Assumptions:
+- Spatially flat, pressureless-dust FLRW solutions, with Λ = 0.
+- At t = t0, a(t0) = 1 in both models.
+- H1(t0) = H0 and H2(t0) = 2H0, where H0 > 0.
+- Densities are set by the Friedmann constraint: ρi(t0) = 3Hi(t0)^2/(8πG_N).
+- Persistence is defined by the first time the comoving-domain volume ratio reaches 1 + η, for fixed η > 0.
+
+For each model, the dust solution normalized at t0 is:
+a(t) = [1 + (3/2)H(t0)(t − t0)]^(2/3).
+Since a(t0) = 1, the volume ratio for a fixed comoving domain is a(t)^3 = [1 + (3/2)H(t0)Δt]^2.
+Solving a(t)^3 − 1 = η gives:
+Tη = 2[√(1 + η) − 1]/[3H(t0)].
+Therefore Tη,2 = Tη,1/2.
+
+Audit:
+- The algebra is correct under the stated dust-FLRW assumptions.
+- Both models have the same instantaneous intrinsic flat 3-geometry at t0, but different expansion rates and matter densities.
+- The counterexample establishes that instantaneous intrinsic geometry (Σ,hij) alone does not determine this persistence time.
+- It does not refute determination from full GR initial data, because extrinsic curvature and matter data differ.
+
+Status: CONDITIONAL RESULT SUPPORTED.
+
+3. TEST 130 — FULL INITIAL DATA AND FUNCTIONAL DETERMINATION
+Let admissible GR initial data be R_full = (Σ, hij, Kij, Ψ), satisfying the Einstein constraint equations, considered modulo the appropriate gauge/diffeomorphism equivalence. Under standard local existence/uniqueness assumptions, the data determine a spacetime development locally up to gauge. For a fixed persistence functional Pcal on that development:
+P[R_full] = Pcal(Dev(R_full)).
+Thus persistence is a functional of the full initial data, within the stated domain and existence interval.
+
+Audit:
+- This is a conditional functional-dependence statement, not proof that persistence is structurally redundant.
+- The persistence functional, matter model, admissibility conditions, and domain of the development must be fixed.
+- If “realization” is defined to include the entire spacetime history, then persistence being a functional of realization is nearly definitional. That broad definition cannot by itself prove explanatory reduction.
+
+Status: CONDITIONAL FUNCTIONAL DEPENDENCE SUPPORTED; STRUCTURAL REDUCTION NOT ESTABLISHED.
+
+4. TESTS 131–132 — LOCAL VERSUS GLOBAL INPUTS
+Candidate comparison:
+- Spatially flat FLRW spacetime with spatial section R^3.
+- Spatially flat FLRW spacetime with spatial section T^3, represented locally by the same scale factor a(t) and locally identical metric/field data.
+- A fixed operational-identity rule whose observable set Q includes a global-topology-sensitive observable B.
+
+Audit:
+- The local geometries can agree while the global spatial topologies differ.
+- A global observable may distinguish the models in principle, but actual operational accessibility depends on the model, the observable definition, and the causal/measurement domain. No universal accessible B has been established here.
+- Consequently, the example is a conditional boundary result: local realization plus local persistence is insufficient for an identity criterion that explicitly depends on additional global information.
+- It does not refute sufficiency of a genuinely global realization, since the global realizations differ.
+- If global realization G, dynamics D, persistence P, observable set Q, tolerance ε, and identity rule IR are all fixed, then OI = F(G,D,P,Q,ε,IR) is functionally specified by definition. This does not establish structural reducibility of identity to any one of those inputs, nor ontological independence from them.
+
+Status: CONDITIONAL SCOPE BOUNDARY SUPPORTED; UNIVERSAL TOPOLOGICAL-OBSERVABILITY CLAIM NOT ESTABLISHED.
+
+5. CONSOLIDATED CONCLUSIONS
+C1. Instantaneous intrinsic 3-geometry alone does not determine the tested persistence time in the constructed dust-FLRW comparison.
+C2. Full admissible GR initial data determine persistence as a functional, conditional on well-posed evolution and a fixed persistence functional.
+C3. Functional dependence must not be conflated with structural reduction or ontological dependence.
+C4. Local realization plus local persistence need not determine an operational-identity partition that uses additional global observables.
+C5. Global realization plus fixed Q, ε, and IR makes OI functionally specified, but does not prove a nontrivial reduction theorem.
+C6. These tests do not establish a new physical law, a universal OMEGA-ISOP result, an empirical prediction, or novelty relative to the literature.
+
+6. LIMITATIONS AND FOLLOW-UP BAR
+- The FLRW examples are standard GR model constructions with explicit assumptions; no OMEGA-specific dynamics are derived.
+- No exhaustive literature novelty search was performed.
+- No independent external mathematical review was performed.
+- No concrete, universally accessible global-topology observable was established for all models.
+- No numerical certification was needed for the analytic volume-time result; no claim of certified numerical proof is made.
+- No Frozen Core change is proposed.
+- These results alone do not warrant an RL registration claim. Any future registration decision must follow the project’s governing workflow and authoritative registry verification.
+
+AUDIT DISPOSITION:
+Keep as a compact working audit record. Do not promote to a canonical RL record automatically. Reopen only if a concrete formalization, counterexample, independently checked observable, or registration-relevant result materially changes the conclusion.
+
+END OF DOCUMENT
