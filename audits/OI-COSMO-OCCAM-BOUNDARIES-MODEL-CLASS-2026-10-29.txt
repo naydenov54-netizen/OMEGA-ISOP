@@ -1,0 +1,218 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+
+OMEGA-ISOP / M3.2
+AUDIT #35
+FORMAL LIMITS OF OCCAM-STYLE MODEL SELECTION: MODEL CLASSES, HIDDEN ASSUMPTIONS, AND FALSE SIMPLICITY
+Date: 2026-10-29
+Status: CONDITIONAL MATHEMATICAL AUDIT
+Scope: model selection, finite observations, complexity criteria, identifiability, and the logical limits of simplicity arguments.
+
+0. GOVERNANCE AND INTERPRETATION
+
+This document is an audit, not a change to the Frozen Core. It does not promote a claim to CE-V and does not register an RL item. No registration state is inferred from this document.
+
+The audit distinguishes:
+(A) mathematical statements that follow from stated definitions;
+(B) conditional conclusions that depend on a model class, data-generating assumptions, priors, or a score;
+(C) empirical claims that require external evidence;
+(D) unresolved questions.
+
+The phrase "simplest model" is not mathematically complete until both the candidate class and the complexity ordering or penalty have been specified.
+
+1. FORMAL SETUP
+
+Let D denote the observed data, E the observation protocol or experiment, and C a declared class of candidate models. A model M in C specifies at least a family of distributions P_M(D | E), or, in a deterministic setting, a mapping from admissible inputs to outputs.
+
+Let K_C(M) be a declared complexity measure within C. Let L(M;D,E) be a declared data-fit loss or negative log-likelihood. A penalized selector might choose
+
+M_hat = argmin_{M in C} [ L(M;D,E) + lambda K_C(M) ],
+
+where lambda and the units/scaling of both terms must be specified. This is one possible rule, not a universal definition of Occam's razor.
+
+Other selectors include Bayesian model evidence, information criteria, and minimum-description-length (MDL) scores. These criteria have different definitions and target different notions of adequacy. They must not be treated as interchangeable merely because each can penalize some form of complexity.
+
+If C, K_C, the score, the admissible assumptions, or the observation protocol is unspecified, "M is the simplest explanation" is underdefined.
+
+2. FINITE OBSERVATIONS DO NOT UNIQUELY DETERMINE AN EXTENSION
+
+Proposition 1 (finite interpolation ambiguity).
+Let x_1,...,x_n be distinct real inputs, and let g be any function agreeing with the observed pairs (x_j,y_j), so g(x_j)=y_j for every j. Define
+
+h(x) = g(x) + c product_{j=1}^n (x - x_j),
+
+where c is any nonzero real constant. Then h(x_j)=g(x_j)=y_j for every observed input. At any x* outside the observed input set, the added term is nonzero, so h(x*) differs from g(x*) provided c is nonzero.
+
+Conclusion: the finite observations alone do not uniquely determine predictions at unobserved inputs over a sufficiently broad function class.
+
+Boundary: this proposition does not show that the more complex extension is preferable, nor that generalization is impossible. It shows that selecting one extension requires restrictions or inductive assumptions, such as a bounded model class, smoothness, a causal structure, a prior, a regularizer, or additional observations. Simplicity may be a useful rule under such restrictions, but it does not create those restrictions by itself.
+
+3. OBSERVATIONAL EQUIVALENCE AND IMPOSSIBILITY OF DISCRIMINATION
+
+Let M_0 and M_1 be two hypotheses. Suppose that under every experiment E admissible in the current design class, they induce exactly the same distribution over observations:
+
+P_{M_0}(D | E) = P_{M_1}(D | E).
+
+Then any statistic computed from those observations has the same distribution under both hypotheses. No decision rule based only on these observations can distinguish the hypotheses better than its prior information permits.
+
+For two simple hypotheses with equal prior probabilities, if their data distributions are identical, the minimum achievable probability of classification error is 1/2. More generally, for two simple hypotheses with equal priors and distributions P_0 and P_1, the optimal Bayes error is (1 - TV(P_0,P_1))/2, where TV is total variation distance. When P_0=P_1, TV=0 and the error is 1/2.
+
+This is a result about the stated experiment class. It does not establish equivalence under experiments that were not included, and it does not say that all distinct theories are observationally equivalent.
+
+Consequence for Occam-style selection: if available data cannot discriminate the candidates, a complexity rule may select one candidate, but that selection is a rule-governed preference, not empirical proof that the selected candidate is true.
+
+4. MINIMALITY IS RELATIVE TO A DECLARED CLASS AND DESCRIPTION LANGUAGE
+
+A claim of minimality can be precise in the following form:
+
+M* is a minimizer of K_C(M) over M in C, subject to the stated fit or constraint requirements.
+
+To establish it, one must specify:
+1. the complete candidate class C;
+2. the complexity measure K_C;
+3. the admissibility and fit constraints;
+4. the domain over which the minimum is claimed;
+5. a proof that no admissible candidate has lower complexity, or a valid computational certificate for a finite/discretized problem.
+
+Even a valid proof establishes minimality only relative to that class, representation, and measure. It does not prove universal minimality across every possible formalism or explanatory language.
+
+Complexity can depend on representation. A model compact in one notation may require a long encoding in another. Algorithmic description length is a useful conceptual framework, but exact Kolmogorov complexity for arbitrary programs is not computable in general. Practical coding lengths and compression scores are therefore implementations or approximations, not automatic access to a universal, exact simplicity oracle.
+
+A model with few named parameters is not necessarily simple in a complete-description sense. Hard-coded constants, exception lists, elaborate preprocessing, restrictive domain assumptions, and the choice of encoding can carry complexity that a parameter count omits. Any score that ignores these costs must state that convention rather than imply it has measured all complexity.
+
+5. HOW HIDDEN ASSUMPTIONS CAN REVERSE A RANKING
+
+Suppose two models are compared using a declared score S(M;D). The result
+
+S(M_0;D) < S(M_1;D)
+
+means only that M_0 wins under that score, data, candidate set, and convention. It does not imply that M_0 wins under every reasonable score, every prior, every encoding, every future dataset, or the true data-generating process.
+
+A ranking can change when any of the following changes:
+- the candidate class or allowed functional forms;
+- the definition or weight of complexity;
+- the treatment of fixed constants and preprocessing;
+- the noise model or likelihood;
+- prior distributions and prior mass;
+- the data domain or observation protocol;
+- the loss function and the cost of different errors;
+- whether the objective is prediction, explanation, causal identification, compression, or decision quality.
+
+A simplicity claim must expose assumptions that materially affect the ranking. Hiding a strong assumption inside a model definition does not make its cost vanish.
+
+6. BAYESIAN EVIDENCE: A CONDITIONAL OCCAM FACTOR
+
+For model M with parameter theta and prior pi(theta | M), its marginal likelihood is
+
+p(D | M) = integral p(D | theta,M) pi(theta | M) dtheta.
+
+Bayesian model comparison combines this quantity with model prior odds:
+
+p(M_0 | D) / p(M_1 | D)
+= [p(D | M_0) / p(D | M_1)] [p(M_0) / p(M_1)].
+
+A model that fits well only in a small region of its prior parameter space can receive lower marginal likelihood than a model that fits comparably well across a larger prior-supported region. This is one precise sense in which Bayesian evidence can penalize unused flexibility.
+
+But this conclusion is conditional on the likelihoods, priors, parameterization as represented by the probability model, and candidate models. Changing prior width or prior mass can change the evidence and posterior model odds. Evidence is not a prior-free certificate of truth, and a low-dimensional model is not guaranteed to win.
+
+7. AIC, BIC, AND MDL DO NOT PROVE UNIVERSAL TRUTH
+
+AIC is commonly written as
+
+AIC = 2k - 2 log L_hat,
+
+where k is the parameter count and L_hat is the maximized likelihood. Its standard justification concerns expected out-of-sample predictive information loss under its regularity framework; it is not a general theorem that the AIC-minimizing model is the true model.
+
+BIC is commonly written as
+
+BIC = k log n - 2 log L_hat,
+
+where n is sample size. Its familiar approximation to Bayesian evidence and its model-selection consistency results rely on assumptions such as a suitable likelihood, identifiable parameters, regularity, and a specified candidate set. Singular or misspecified settings can require different treatment.
+
+An MDL score has the schematic form
+
+L(M) + L(D | M),
+
+where L(M) encodes the model and L(D | M) encodes the residual data given the model under a specified coding scheme. The result depends on the code, coding conventions, model class, and data assumptions. An MDL optimum is optimal relative to the declared coding setup, not an unrestricted proof of metaphysical truth.
+
+These methods can be powerful when their assumptions and objectives match the task. None removes the need to define the task and assumptions.
+
+8. UNDERFITTING, MISSPECIFICATION, AND RELATIVE OPTIMA
+
+If every model in C is wrong or inadequate for the target, the selected model is at best the preferred candidate under the chosen score. It may still produce poor predictions, misleading causal claims, or unstable extrapolations.
+
+A complexity penalty can reduce overfitting, but excessive penalization can produce underfitting. No penalty level guarantees the right balance for all data-generating processes.
+
+Three distinct statements must not be conflated:
+(A) M is the score-minimizer within C on D.
+(B) M predicts well on a stated target distribution.
+(C) M is the true data-generating or causal model.
+
+(A) is a relative optimization claim. (B) requires an appropriate evaluation target and evidence. (C) requires assumptions and evidence sufficient for the relevant identification problem. Neither (A) nor (B), by itself, logically entails (C).
+
+Predictive adequacy does not automatically establish causal adequacy. Multiple causal structures can sometimes generate the same observational distribution. Distinguishing them may require interventions, natural experiments, additional structural assumptions, or other evidence.
+
+9. ROBUSTNESS OF A SIMPLICITY-BASED CHOICE
+
+Let S_0 and S_1 be scores for two candidates, and define the score gap
+
+gamma = S_1 - S_0.
+
+Suppose S_0 < S_1, so gamma > 0, and each score can change by at most eta under a declared perturbation of data, assumptions, or numerical evaluation. The perturbed score gap can shrink by as much as 2 eta. Therefore, if
+
+gamma > 2 eta,
+
+the ordering remains unchanged under all perturbations satisfying those bounds.
+
+If gamma <= 2 eta, the stated bounds do not certify a stable ranking. This does not prove the ranking will reverse; it means this robustness argument is insufficient to guarantee that it cannot.
+
+This condition certifies only ranking stability within the specified perturbation set and score. It does not certify truth, causal correctness, completeness of the model class, or robustness to unbounded changes in assumptions.
+
+10. AUDIT PROCEDURE
+
+Before accepting a simplicity-based conclusion, record:
+
+1. Target: prediction, compression, explanation, causal inference, or a decision objective.
+2. Data and experiment: what was observed, under which protocol, with what uncertainty.
+3. Candidate class: which models were allowed and which were excluded.
+4. Complexity: exact formula, encoding, parameter count, penalty weight, and treatment of fixed assumptions.
+5. Fit: likelihood or loss function and the noise model.
+6. Priors/coding: prior distributions or description-length convention, if used.
+7. Identifiability: whether distinct candidates can induce the same observations under the available experiments.
+8. Validation: whether performance was evaluated on suitable held-out or prospective data.
+9. Robustness: whether small changes in data, priors, score weights, or assumptions alter the ranking.
+10. Scope of conclusion: whether the evidence supports a score winner, predictive adequacy, causal identification, or a stronger claim.
+11. Falsifiability: which future observation or experiment could discriminate the leading alternatives.
+12. Governance: keep any proposed formal change separate from the audit; no automatic promotion or registration follows from a favorable score.
+
+11. CONDITIONAL RESULTS AND NON-IMPLICATIONS
+
+Result A. If C is finite, K_C is defined, and the admissible subset is nonempty, a minimum complexity value exists on that subset. A unique minimizer requires additional conditions, such as no tied minimum. This is a mathematical result about the defined optimization problem.
+
+Result B. If two candidates induce identical distributions under every admissible experiment in the current design class, data from that class cannot empirically distinguish them. A simplicity rule can choose between them only by introducing a preference or additional assumptions.
+
+Result C. If finite observations are evaluated over a broad enough function class, infinitely many extensions can agree on all observed points and disagree elsewhere. Unique extrapolation therefore requires restrictions, extra observations, or both.
+
+Result D. If a score gap exceeds twice a valid uniform bound on each candidate's score perturbation, the ordering is stable within that perturbation set. It remains a ranking statement, not a truth theorem.
+
+Non-implication 1: simpler under one complexity measure does not mean simpler under every measure.
+Non-implication 2: fewer parameters does not mean lower total specification cost.
+Non-implication 3: best fit or best penalized score does not imply truth.
+Non-implication 4: predictive success does not alone prove a causal explanation.
+Non-implication 5: unique selection within a candidate class does not prove the candidate class is complete.
+Non-implication 6: a stable ranking under bounded perturbations does not certify robustness to assumptions outside those bounds.
+Non-implication 7: Bayesian evidence, AIC, BIC, and MDL are not interchangeable universal tests.
+Non-implication 8: failure to distinguish models with present data does not prove they are equivalent under all possible experiments.
+
+12. FINAL AUDIT CONCLUSION
+
+Occam-style selection is defensible as a declared methodological rule when the target, candidate class, complexity convention, fit measure, and assumptions are explicit. Its mathematical force is conditional: it can establish an optimum within a specified class, support generalization under stated assumptions, or prefer a model according to a chosen objective.
+
+It cannot, by simplicity alone, prove that the selected model is true, that its candidate class is exhaustive, that its assumptions are free, or that no simpler formulation exists in another representation. Finite data and observational equivalence place hard limits on what can be inferred without additional assumptions or discriminating experiments.
+
+The correct audit question is not merely "Which model is simplest?" It is: "Simplest according to which declared measure, among which candidates, for which target, under which assumptions, and with what evidence that the ranking is stable and useful?"
+
+Frozen Core: unchanged.
+CE-V promotion: none.
+RL registration: none.
+Registration state: not asserted.
+END OF DOCUMENT
