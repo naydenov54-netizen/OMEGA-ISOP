@@ -1,0 +1,155 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+OMEGA-ISOP
+MULTI-CHANNEL CALIBRATION AND SHARED SYSTEMATIC ERRORS
+AUDIT ID: OI-COSMO-MULTICHANNEL-CALIBRATION-SYSTEMATIC-ERRORS-2026-10-29
+STATUS: CONDITIONAL MATHEMATICAL AUDIT
+DATE: 2026-10-29
+
+1. PURPOSE AND SCOPE
+
+This audit tests when multiple calibration channels reduce uncertainty in H and when a shared hidden systematic preserves a non-identifiability. The results are conditional on explicit observation maps and admissible parameter sets. A count of channels alone is not an identifiability theorem.
+
+Baseline cosmological observation:
+
+s = z H/q, with z>0, H>0, q>0.
+
+Without additional information, the transformation (H,q) -> (aH,aq), for every a>0, preserves s. Therefore s alone identifies H/q, not H and q separately.
+
+2. MULTIPLE DIRECT CALIBRATION CHANNELS
+
+Assume calibration channels observe the same positive q:
+
+u_j = q + e_j, with |e_j| <= eps_j, j=1,...,m.
+
+Each channel implies q in [u_j-eps_j, u_j+eps_j]. If an independently justified domain q in [q_min,q_max] is also available, the jointly feasible calibration set is
+
+Q = [q_min,q_max] intersect (intersection over j of [u_j-eps_j,u_j+eps_j]).
+
+For positive q, define q_low and q_high as the endpoints of Q after intersecting with q>0. If Q is empty, the channel readings, error bounds, and domain are inconsistent. If Q is nonempty, the channels jointly bound q. With exact cosmological s>0, the corresponding H set is
+
+H in [s q_low/z, s q_high/z].
+
+With bounded cosmological error s_obs = zH/q + e_s, |e_s|<=eps_s, define s_low=s_obs-eps_s and s_high=s_obs+eps_s. If s_high<=0, the joint model is infeasible for H>0. If s_low>0, then
+
+H in [q_low s_low/z, q_high s_high/z].
+
+If s_low<=0<s_high, the lower endpoint is zero as an infimum for strictly positive H, and the upper endpoint is q_high s_high/z.
+
+Important qualification: repeated channels only reduce uncertainty if their readings constrain the same q and their error sets are valid. If errors are correlated or share an unconstrained offset, the independent interval intersection can be invalid or overconfident. The joint constraints must then include the shared error explicitly.
+
+3. SHARED ADDITIVE SYSTEMATIC: IDENTICAL CHANNEL RESPONSE
+
+Suppose all channels have the same unit response and share an unknown additive offset b:
+
+u_j = q + b + e_j.
+
+Even with zero noise and arbitrarily many channels, the data determine q+b, not q and b separately. For any admissible shift c,
+
+q' = q+c, b' = b-c
+
+preserves every noiseless channel value, wherever the transformed parameters remain in the allowed domain. If q has no finite domain restriction and b is unrestricted, q is not identified. Consequently the calibration channels do not by themselves remove the cosmological ambiguity in H.
+
+With bounded noise, channel agreement can constrain q+b and can diagnose inconsistency, but cannot separate q from b without additional information or restrictions. A known bound on b can produce an interval for q; it does not generally produce a point unless the resulting feasible set collapses to a singleton.
+
+4. SHARED ADDITIVE SYSTEMATIC: DISTINCT KNOWN CHANNEL COEFFICIENTS
+
+Consider the more general calibration model
+
+u_j = c_j q + b + e_j,
+
+where coefficients c_j are known, b is a shared unknown offset, and |e_j|<=eps_j.
+
+In the exact two-channel case, if c_1 != c_2,
+
+q = (u_1-u_2)/(c_1-c_2),
+b = (c_1 u_2-c_2 u_1)/(c_1-c_2).
+
+Thus distinct known coefficients can separate q from a common offset under this particular model. If all c_j are equal, the transformation q -> q+d and b -> b-c_1 d preserves all noiseless observations, so q and b are not separately identified.
+
+For bounded errors, each channel imposes
+
+u_j-eps_j <= c_j q+b <= u_j+eps_j.
+
+The feasible set is the intersection of these strips in the (q,b) plane, together with any declared parameter-domain constraints. Projecting this joint feasible set onto the q-axis gives the sharp admissible interval for q. If the intersection is empty, the declared model and bounds are inconsistent. If it is nonempty but its q projection has positive width, q remains set-identified. Distinct c_j can improve identifiability, but bounded noise does not guarantee a singleton.
+
+Numerical stability depends on coefficient separation. For two exact channels, q divides by c_1-c_2; when |c_1-c_2| is small, bounded observation errors can create a large uncertainty in q. Algebraic identifiability and practical stability are different properties.
+
+5. SHARED MULTIPLICATIVE SYSTEMATIC
+
+Suppose calibration channels have known coefficients c_j but share an unknown positive multiplicative scale r:
+
+u_j = c_j q/r + e_j.
+
+In the exact model, the channels constrain q/r. The transformation
+
+(q,r) -> (a q,a r)
+
+preserves all channel means for a>0. If the cosmological observation is s=zH/q, then the joint transformation
+
+(H,q,r) -> (aH,a q,a r)
+
+preserves s and every u_j. Thus even multiple channels do not identify H when q and r are unrestricted and the complete observation map has this symmetry.
+
+Adding more channels with the same dependence on q/r may improve precision for that ratio or test channel consistency, but cannot recover the absolute scale of q or H. A separately calibrated r, a valid finite domain restriction, or an additional observable that breaks the symmetry may reduce the ambiguity. A candidate observable breaks this specific symmetry only if its full dependence is specified; global target identifiability still requires checking all parameter pairs.
+
+6. GENERAL JOINT FEASIBILITY FORMULATION
+
+Let theta=(H,q,b,r,...) collect the target and all nuisance parameters. Let each channel impose a deterministic constraint
+
+y_j - eps_j <= f_j(theta) <= y_j + eps_j,
+
+and let the cosmological channel impose its own bounded constraint. Define the feasible set
+
+F = {theta in Theta_domain : every declared observation constraint holds}.
+
+The identified set for H is the projection
+
+I_H = {H : there exists at least one admissible nuisance tuple lambda with (H,lambda) in F}.
+
+If F is empty, the assumptions and data are incompatible. If I_H contains one value, H is point-identified relative to this model and domain. If I_H contains multiple values, H is set-identified. If I_H is unbounded, the declared constraints do not supply a finite bound in that direction.
+
+This projection formulation is the safe general rule when shared systematics create dependencies. Multiplying marginal intervals can be conservative or wrong if their variables are linked; preserve the joint constraints first, then project.
+
+7. IDENTIFIABILITY TEST WITH NUISANCE PARAMETERS
+
+For an exact observation map F_obs(H,lambda), global target identifiability on a declared domain requires
+
+F_obs(H_1,lambda_1) = F_obs(H_2,lambda_2) implies H_1=H_2
+
+for every pair of admissible parameter tuples. In a probabilistic model, replace equality of deterministic observations by equality of the complete data distributions.
+
+A full-column-rank Jacobian can support local regular identifiability under suitable smoothness assumptions, but it does not establish global injectivity. Conversely, parameter counts alone do not settle identifiability. Explicit symmetry transformations are direct non-identifiability witnesses when they preserve the complete observation map or data distribution while changing H.
+
+8. DESIGN IMPLICATIONS
+
+A useful calibration design should specify:
+(a) which channels share q and which share offset, gain, drift, or noise;
+(b) known channel coefficients and their separation;
+(c) the joint, not merely marginal, error constraints or covariance structure;
+(d) which nuisance parameters are independently bounded or calibrated;
+(e) the feasible-set projection onto H;
+(f) both global identifiability and stability under finite errors.
+
+Independent channels are not necessarily independent information. Different labels or sensors do not remove a degeneracy if their mathematical dependence on the unknown parameters is the same. Conversely, distinct known response coefficients can help separate a shared additive offset, but only under the declared model and adequate conditioning.
+
+9. CONDITIONAL CONCLUSIONS AND NON-CLAIMS
+
+Established conditionally:
+- Multiple direct bounded measurements of a common q combine by intersecting their admissible intervals.
+- Multiple identical-response channels with an unrestricted common additive offset identify q+b rather than q.
+- Distinct known coefficients can separate q and a shared additive offset in the exact affine model; with bounded errors, the joint feasible set determines the remaining interval.
+- Multiple channels depending only on q/r preserve the common multiplicative scaling ambiguity.
+- The robust general method is joint feasibility followed by projection onto H.
+- Local rank, channel count, and improved precision are not substitutes for a global target-identifiability proof.
+
+Not established:
+- That any particular real calibration system follows one of these observation maps.
+- That multiple physical channels are independent or that their systematic errors have the stated bounds.
+- A universal numerical H estimate or universally optimal calibration design.
+- A physical scale or calibration derived from OMEGA-ISOP alone.
+
+10. OMEGA-ISOP STATUS
+
+This is a conditional mathematical audit. It does not alter Frozen Core, Volume V, the dependency chain, or the CE-V archive. No CE-V promotion or RL registration is asserted. Application requires an explicit observation map, admissible nuisance domain, joint error model, and a checked projection onto the target parameter.
+
+END OF DOCUMENT
