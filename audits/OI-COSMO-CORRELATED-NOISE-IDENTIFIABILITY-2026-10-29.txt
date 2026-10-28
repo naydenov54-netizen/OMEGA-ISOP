@@ -1,0 +1,162 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+
+OMEGA-ISOP/M3.2
+COSMOLOGICAL SCALE IDENTIFIABILITY AUDIT #13
+CORRELATED OBSERVATIONAL ERRORS, INFORMATION, AND IDENTIFIABILITY
+Date: 2026-10-29
+Status: Conditional mathematical audit; research artifact only
+Scope: Correlated errors in a two-observation ideal exact de Sitter calibration model
+Frozen Core: unchanged
+CE-V status: no promotion or integration decision
+RL status: no registration requested or claimed
+
+1. PURPOSE
+
+This audit studies how correlated observational errors affect uncertainty in a recovered Hubble parameter H, while distinguishing three different questions:
+(a) structural identifiability of the parameter from the complete observation model;
+(b) statistical identifiability from the full probability distribution of the data;
+(c) practical precision of an estimator under a specified error model.
+
+Correlation can increase or reduce estimator variance. Correlation alone does not automatically remove a structural degeneracy, nor does a covariance matrix alone fully define a statistical model in every setting.
+
+2. MEAN OBSERVATION MODEL
+
+Assume an ideal spatially flat exact de Sitter/FLRW model with comoving source and observer and fixed redshift z > 0. Let H > 0 and let q > 0 be the multiplicative clock calibration. The displayed-time redshift drift is
+
+s = zH/q.
+
+Suppose an independent calibration observation is
+
+u = q.
+
+The exact mean map is
+
+F(H,q) = (zH/q, q).
+
+It has the inverse q=u and H=su/z, so the parameter pair is globally identifiable on H,q>0 under the assumption that u really measures q in the stated calibration convention.
+
+This conclusion concerns the exact map. It does not by itself quantify the effect of measurement noise.
+
+3. ADDITIVE ERRORS AND THE PRODUCT ESTIMATOR
+
+Let the observed values be
+
+s_hat = s + e_s,
+u_hat = u + e_u,
+
+where e_s and e_u are zero-mean random errors with finite second moments. Treat z as known exactly. Consider
+
+H_hat = s_hat u_hat/z.
+
+Since s u/z = H, the exact error identity is
+
+H_hat - H = (u e_s + s e_u + e_s e_u)/z.
+
+If the errors are zero-mean but may be correlated, then
+
+E[H_hat] - H = Cov(e_s,e_u)/z.
+
+Thus the direct product estimator is generally biased when the errors are correlated. This bias follows from the product term and is not captured by a first-order linear approximation. If Cov(e_s,e_u)=0, the estimator is unbiased under these assumptions, though it can still have nonzero variance.
+
+4. FIRST-ORDER VARIANCE AND CORRELATION
+
+For small errors, linearize the estimator around the true values:
+
+δH ≈ (u e_s + s e_u)/z.
+
+Write Var(e_s)=σ_s², Var(e_u)=σ_u² and Cov(e_s,e_u)=σ_su. The first-order variance is
+
+Var(H_hat) ≈ [u² σ_s² + s² σ_u² + 2us σ_su]/z².
+
+For positive s,u, positive covariance increases this first-order variance relative to the same marginal variances with zero covariance; negative covariance decreases it. The covariance is constrained by positive semidefiniteness:
+
+|σ_su| <= σ_s σ_u.
+
+Equivalently, when both marginal variances are nonzero, σ_su = ρ σ_s σ_u with -1 <= ρ <= 1.
+
+In relative-error form, since H=su/z,
+
+δH/H ≈ e_s/s + e_u/u,
+
+and therefore
+
+Var(H_hat)/H² ≈ σ_s²/s² + σ_u²/u² + 2σ_su/(su).
+
+The sign of the covariance term matters. Correlation is not inherently beneficial or harmful; its effect depends on the estimator's sensitivity directions and the sign of the relevant derivatives.
+
+5. PERFECT FIRST-ORDER CANCELLATION DOES NOT GENERALLY REMOVE ALL ERROR
+
+If the relative errors satisfy e_s/s = -e_u/u in a perfectly anticorrelated idealization, the first-order relative error cancels. But the exact error identity still contains e_s e_u/z. Therefore first-order cancellation does not imply exact error-free recovery at finite error amplitude.
+
+Such cancellation also depends on the error structure actually obeying the required relation. A correlation coefficient near -1 alone does not guarantee equal relative error magnitudes, and cannot be treated as a general solution to calibration uncertainty.
+
+6. STRUCTURAL IDENTIFIABILITY VERSUS THE FULL DATA DISTRIBUTION
+
+Structural identifiability is assessed from the exact observation map when the observation model is deterministic, or from the full parameter-to-distribution map in a statistical model. Practical uncertainty is assessed only after a noise model and estimator are specified.
+
+For the base mean observation s=zH/q alone, the transformation
+
+(H,q) -> (aH, aq), a > 0,
+
+preserves s. If the full conditional distribution of the data depends on H and q only through zH/q, then transformed parameter pairs induce the same data distribution. In that case no estimator can distinguish their different H values using those data alone, regardless of sample size or precision under that same model.
+
+However, if the noise distribution, covariance, or other distributional features depend separately on H or q, then the full statistical model may contain additional information even when the mean map is invariant. That possibility must be proved from the complete distribution; it must not be assumed merely because a covariance matrix is written down. A covariance-based distinction is usable only if the covariance law is specified, justified, and estimable from the available data.
+
+With the independent calibration mean u=q, the exact joint mean map is already injective. Correlated errors around its two components affect uncertainty and possibly estimator bias, but do not change the injectivity of that exact mean map. For statistical identifiability, one must still check whether distinct parameters induce distinct complete data distributions.
+
+7. REPEATED OBSERVATIONS AND SHARED CALIBRATION ERRORS
+
+Repeated measurements can reduce random error when their joint error structure provides additional information. They do not necessarily eliminate a shared systematic calibration error. For example, repeating s_i = z_i H/q at several redshifts with one unknown shared q preserves the transformation (H,q) -> (aH,aq) when the observations depend on H and q only through H/q. The repeated data may test the model and improve precision for H/q, but do not identify H separately.
+
+If all observations share a common calibration error, treating them as independent can understate uncertainty. A valid calculation must represent shared latent errors or covariance terms in the joint model. The effective information depends on the full covariance structure and on which parameter combinations the observations constrain.
+
+8. GENERAL LOCAL INFORMATION DIAGNOSTIC
+
+For a differentiable mean map μ(θ), with parameter vector θ and a specified positive-definite Gaussian covariance matrix Σ that is independent of θ, the local Fisher information from the mean is
+
+I(θ) = J(θ)^T Σ^(-1) J(θ),
+
+where J is the Jacobian of μ with respect to θ.
+
+If Σ depends on θ, the Gaussian Fisher information generally also includes covariance-derivative terms; the displayed formula alone is then incomplete. If the error distribution is not Gaussian, Fisher information must be derived from that distribution rather than imported without justification.
+
+Local information rank can diagnose locally unconstrained parameter directions under the model's regularity conditions. It does not, by itself, establish global identifiability, and a numerically ill-conditioned information matrix can indicate poor practical precision even when local rank is full. A global analysis must still rule out distinct parameter values with the same complete data distribution or target-equivalent observations.
+
+9. PRACTICAL AUDIT CHECKLIST
+
+For a claim that correlated observations identify H with a stated precision, record:
+
+1. The full parameter vector, including unknown calibrations and shared systematic effects.
+2. The full joint observation map, not just marginal mean equations.
+3. The joint error distribution or a justified covariance/error model.
+4. Which covariance components are known, estimated, or parameter-dependent.
+5. Whether the error terms are independent, correlated, or share latent systematics.
+6. The exact estimator and whether correlation creates finite-sample bias.
+7. A variance, confidence, or deterministic error analysis appropriate to the assumptions.
+8. Structural and statistical identifiability checks, including all target-changing symmetries.
+9. Whether repeated observations add independent constraints or merely repeat a shared degeneracy.
+10. The calibration convention and the operational basis for calling a calibration independent.
+
+10. RESULT CLASSIFICATION
+
+Established conditionally:
+- For H_hat=s_hat u_hat/z, the exact error contains the cross term e_s e_u.
+- Zero-mean correlated errors produce bias Cov(e_s,e_u)/z for this product estimator, under the stated finite-moment assumptions.
+- First-order variance includes the covariance term 2us Cov(e_s,e_u)/z².
+- Correlation can increase or decrease first-order variance depending on its sign and the estimator's sensitivity directions.
+- Perfect first-order cancellation does not generally remove the exact product-error term.
+- Repeated measurements do not break a parameter symmetry if their complete data distribution remains invariant under that symmetry.
+- The complete statistical model, not only the mean map or covariance symbol, determines statistical identifiability.
+
+Not established:
+- Any particular empirical covariance structure for real cosmological measurements.
+- That correlated noise in a real data set either does or does not independently identify H.
+- That a real-world clock calibration is derived from OMEGA-ISOP.
+- Any universal precision claim independent of the chosen model and noise assumptions.
+- Any change to the Frozen Core, any CE-V promotion, or any RL registration.
+
+11. ARCHITECTURAL AND REGISTRATION STATUS
+
+This is a conditional mathematical audit of observation maps and error propagation. It does not modify the Frozen Core, establish a new foundational layer, or change the Volume V dependency chain. No CE-V archive integration decision is made. No RL registration is requested or claimed.
+
+END OF DOCUMENT
