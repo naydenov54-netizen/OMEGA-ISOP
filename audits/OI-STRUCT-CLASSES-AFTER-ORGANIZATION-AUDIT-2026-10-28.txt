@@ -1,0 +1,126 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+
+OMEGA-ISOP / M3.2
+CANDIDATE LEVEL AUDIT: CLASSES AFTER ORGANIZATION
+ID: OI-STRUCT-CLASSES-AFTER-ORGANIZATION-AUDIT-2026-10-28
+DATE: 2026-10-28
+STATUS: CONDITIONAL FORMAL CONSTRUCTION; DERIVABILITY FROM ORGANIZATION NOT ESTABLISHED
+
+0. QUESTION
+
+Investigate whether the sequence
+
+Difference -> Relation -> Constraint -> Dynamics -> Persistence -> Organization -> Classes
+
+is mathematically justified, and what additional structure is required for a meaningful level called Classes.
+
+The arrow from Organization to Classes is a candidate research transition, not an established entailment. This audit does not modify Frozen Core and does not assert a new universal level.
+
+1. DOMAIN OF ORGANIZED REALIZATIONS
+
+Let S_org be a specified collection of realizations that already satisfy a declared organizational criterion. The criterion may include a relational structure, compatible dynamics, a persistence interval, and an operational organization observable. Membership in S_org is assumed for this construction; the construction does not prove that any particular physical system belongs to S_org.
+
+To classify elements of S_org, define a signature map
+
+sigma : S_org -> V,
+
+where V is a specified space of organizational signatures. A signature could encode selected invariants such as:
+- an explicitly chosen relational or interaction pattern;
+- a dynamical invariant or conjugacy class under a declared family of transformations;
+- a persistence property over a declared interval;
+- an operational observable range and a robustness margin.
+
+These are candidate fields, not mandatory universal primitives. The signature and its fields must be selected for the target domain and justified by the research question.
+
+2. CONDITIONAL CLASSIFICATION THEOREM
+
+Define x ~ y iff sigma(x) = sigma(y).
+
+Then ~ is an equivalence relation on S_org:
+- Reflexivity: sigma(x) = sigma(x), so x ~ x.
+- Symmetry: if sigma(x) = sigma(y), then sigma(y) = sigma(x), so y ~ x.
+- Transitivity: if sigma(x) = sigma(y) and sigma(y) = sigma(z), then sigma(x) = sigma(z), so x ~ z.
+
+The equivalence class of x is
+
+[x] = { y in S_org : sigma(y) = sigma(x) }.
+
+The set of classes S_org / ~ partitions S_org into disjoint, nonempty equivalence classes, provided S_org and sigma are defined and the ordinary set-theoretic framework is adopted.
+
+This is a valid mathematical construction conditional on S_org and sigma. It does not establish that Classes follows from Organization alone, because the domain of organized systems, signature, and sameness criterion are extra inputs.
+
+3. IMPORTANT FAILURE MODE: TOLERANCE IS NOT AUTOMATICALLY EQUIVALENCE
+
+A tempting alternative is to declare x approximately equivalent to y whenever d(sigma(x), sigma(y)) <= epsilon. In general, this relation is reflexive and symmetric but not transitive.
+
+Counterexample: let signatures be real numbers a=0, b=0.75 epsilon, c=1.5 epsilon. Then |a-b| <= epsilon and |b-c| <= epsilon, but |a-c| > epsilon. Thus a is approximately related to b and b to c, while a is not approximately related to c.
+
+Therefore a pairwise tolerance rule alone does not generally define equivalence classes. If robust/noisy classification is needed, specify a genuine equivalence relation, a clustering procedure with explicit rules, or a partition method with its own properties. Do not silently call tolerance similarity an equivalence relation.
+
+4. REFINEMENT AND COARSENING
+
+Two valid signatures may induce different partitions of the same S_org. A richer signature can split classes that a coarser signature merges. For example:
+- sigma_1 records only whether the organization observable exceeds a threshold;
+- sigma_2 records the observable's full exact value together with a declared persistence descriptor.
+
+If sigma_2 contains all information in sigma_1 plus additional distinctions, its partition may refine the sigma_1 partition. The direction and extent of refinement depend on the actual signature maps; they are not universal facts about organization.
+
+This shows that classification is relative to the invariants chosen for a purpose. There need not be one uniquely correct class system for all questions.
+
+5. WHAT WOULD MAKE THE LEVEL SCIENTIFICALLY USEFUL?
+
+For a proposed physical classification, specify:
+1. The population/domain S_org and inclusion criteria.
+2. Measurable or computable signature fields.
+3. Measurement uncertainty and the rule for handling it.
+4. The exact equivalence or partition rule.
+5. Invariants expected to remain unchanged under the allowed transformations or perturbations.
+6. A falsification condition: a counterexample, measurement, or transformation that violates the proposed class assignment.
+7. Predictive value beyond naming groups, such as a class-specific bound, response pattern, or robustness prediction.
+
+A classification that only renames observed examples may be descriptive but need not add explanatory or predictive power.
+
+6. RELATION TO THE PRECEDING LEVELS
+
+Organization can supply candidate properties to classify, but the logical bridge is conditional:
+
+Given a domain S_org of organized realizations and a justified signature sigma, a partition into classes can be constructed.
+
+The following stronger claim is NOT established:
+
+Organization alone entails a unique signature, a unique equivalence relation, or a unique class partition.
+
+The prior levels do not, by themselves, specify which organizational properties must be treated as class-defining, what counts as the same system under transformation, or how observational uncertainty is handled. Those choices require explicit definitions or further derivations.
+
+7. CLAIM LEDGER
+
+Mathematically established:
+- Any defined signature map induces an equivalence relation by exact equality of signatures.
+- Its equivalence classes partition the signature domain.
+- A general epsilon-nearness relation is not necessarily transitive.
+
+Conditional assumptions:
+- A specified domain S_org of organized realizations exists.
+- A signature map sigma is chosen and well-defined.
+- The selected signature is relevant to the classification objective.
+
+Not established:
+- Classes as a necessary consequence of Organization alone.
+- A unique universal classification.
+- A physical taxonomy or empirical prediction without a concrete realization, measurements, and tests.
+- A new fundamental ontological level in Frozen Core.
+
+8. PROVISIONAL SEQUENCE STATUS
+
+Difference -> Relation -> Constraint -> Dynamics -> Persistence -> Organization -> Classes
+
+The final arrow is provisionally meaningful only as:
+"Given organized realizations plus a justified signature/equivalence criterion, construct classes of organizationally equivalent realizations."
+
+It must not be read as an unconditional derivation of Classes from Organization. Whether this candidate level belongs in the canonical sequence remains open pending a broader end-of-sequence audit, including countermodels, dependence on arbitrary choices, and physical usefulness.
+
+9. GOVERNANCE
+
+Frozen Core remains unchanged. This is a conditional formal audit, not a registration, not a CE-V promotion, and not a claim of empirical validation.
+
+END OF AUDIT
