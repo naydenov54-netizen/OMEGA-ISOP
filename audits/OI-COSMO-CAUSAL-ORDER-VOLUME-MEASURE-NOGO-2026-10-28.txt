@@ -1,0 +1,121 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+1. Output for OMEGA-ISOP/M3.2 must be clean plain text, directly copyable on Android, in one continuous block when a complete artifact is requested.
+2. Frozen Core remains unchanged unless the user explicitly authorizes a change and a documented change-control decision records it.
+3. RL_REGISTRATION_REQUIRED is not RL_REGISTERED. Never claim registration without authoritative registry confirmation and readback.
+4. Distinguish established facts, external assumptions, conditional results, and unresolved claims.
+5. Do not claim that a repository, file, registry, or submission was inspected or modified unless the corresponding action succeeded and its result was verified.
+
+OMEGA-ISOP — CAUSAL-ORDER-ONLY VOLUME MEASURE: NO-GO AUDIT
+DOCUMENT_ID: OI-COSMO-CAUSAL-ORDER-VOLUME-MEASURE-NOGO-2026-10-28
+VERSION: 1
+DATE: 2026-10-28
+STATUS: CONDITIONAL NO-GO THEOREM; SCALE PROVENANCE UNRESOLVED
+CHANGE TYPE: RESEARCH AUDIT
+FROZEN CORE: PRESERVED; NO CHANGE PROPOSED
+RL REGISTRATION: NOT PERFORMED OR CLAIMED
+CE-V: NO PROMOTION
+
+1. QUESTION
+Can an absolute smooth spacetime volume measure be uniquely derived from causal order alone, such that it equals the metric volume measure for every admissible Lorentzian metric realizing that same causal structure?
+
+2. SCOPE AND ASSUMPTIONS
+Let M be a fixed smooth four-dimensional manifold. Let g be an admissible time-oriented Lorentzian metric. For a positive smooth function Omega, define g_Omega = Omega^2 g. Such a positive conformal rescaling preserves the null cones and causal/chronological relations. Therefore g and g_Omega induce the same causal order/causal structure under the same point identification, subject to the selected spacetime conventions.
+
+Their metric volume densities obey:
+dvol(g_Omega) = Omega^4 dvol(g).
+
+If Omega is not identically 1, these densities are not equal everywhere in general. For a constant Omega = k > 0 with k != 1:
+dvol(g_Omega) = k^4 dvol(g).
+
+The audit tests a rule that receives only the causal structure C and is required to return a unique measure F(C). It does not rule out constructions that receive additional geometric, dynamical, probabilistic, discrete, or calibration data.
+
+3. NO-GO PROPOSITION
+PROPOSITION N1 — CAUSAL-ORDER-ONLY RULE CANNOT RECOVER EVERY METRIC VOLUME DENSITY
+
+Assume:
+A1. The rule F depends only on the causal structure C, with no additional scale-bearing input.
+A2. F(C) returns a unique measure on M.
+A3. The rule is claimed to recover the metric volume density for every admissible Lorentzian representative of C:
+F(C) = dvol(g) for every such g.
+
+Choose g and g_Omega = Omega^2 g with a positive smooth Omega that is not identically 1. By conformal invariance of the causal structure, both metrics induce the same C. By A1 and A2, the rule must return the same measure:
+F(C) for g = F(C) for g_Omega.
+By A3 this requires:
+dvol(g) = dvol(g_Omega) = Omega^4 dvol(g).
+Since dvol(g) is a positive density, equality implies Omega^4 = 1 pointwise, hence Omega = 1 by positivity. This contradicts the choice of a nontrivial Omega.
+
+Therefore no rule satisfying A1-A3 can recover the metric volume density for every metric in a causal conformal class.
+
+STATUS: PROVED UNDER A1-A3 AND THE STATED GEOMETRIC ASSUMPTIONS.
+
+4. EXACT INTERPRETATION
+The proposition does NOT prove that no measure can ever be assigned to a causal structure.
+It proves the narrower claim that causal-order-only data cannot uniquely recover the metric volume density for every conformally related metric when those metrics share the same causal structure but have different volume densities.
+
+A rule may assign a canonical-looking measure to a causal structure using an extra convention. Unless that measure is shown to equal the volume density of the target metric, it is not a recovery of that metric's physical volume measure. The convention itself may introduce extra structure or a hidden scale.
+
+5. CONSEQUENCE FOR THE DE SITTER SCALE TEST
+For the spatially flat de Sitter family:
+g_H = a_H(eta)^2 [-c^2 d eta^2 + d chi^2 + chi^2 d Omega_2^2],
+a_H(eta) = -1/(H eta), eta < 0, H > 0.
+
+For H_1,H_2 > 0:
+g_H2 = (H_1/H_2)^2 g_H1,
+and:
+dvol(g_H2) = (H_1/H_2)^4 dvol(g_H1).
+
+The family therefore illustrates N1: the causal structure alone does not distinguish H through its conformal scale. An independently specified compatible volume measure can select at most one H within this family under the fixed identification and matching rule. That selection remains conditional on the measure and compatibility.
+
+The relation Lambda = 3 H^2/c^2 follows only after imposing the standard vacuum Einstein/de Sitter model with the corresponding conventions. N1 does not derive Einstein dynamics or Lambda.
+
+6. CANDIDATE CONSTRUCTIONS AND THEIR INPUT COST
+
+CANDIDATE A — METRIC-INDUCED VOLUME
+Define mu := dvol(g).
+This is mathematically standard after g is given. It is not an independent explanation for selecting g or its absolute scale. Using it as an independent scale-fixing premise after deriving it from g would be circular.
+
+CANDIDATE B — CAUSAL ORDER PLUS DISCRETE CARRIER
+A locally finite causal set can carry a counting measure N(A) = number of elements in A, for suitable finite subsets A. This supplies cardinality, not automatically a calibrated smooth physical four-volume. To compare N(A) with physical volume one generally needs a density/calibration scale or an independently justified continuum-limit rule. If such a scale is supplied, it is additional input; if it is claimed to emerge from the order alone, that emergence requires a separate theorem.
+
+CANDIDATE C — INVARIANT PROBABILITY MEASURE
+An invariant probability measure may be defined for a specified measurable state space and dynamics when existence conditions hold. It is normalized and dynamics-dependent. It is not automatically a spacetime volume density, and its existence or uniqueness is not guaranteed by the general OMEGA-ISOP framework.
+
+CANDIDATE D — TOPOLOGICAL OR MEASURABLE STRUCTURE
+A topology or sigma-algebra can specify which sets are measurable/open but does not, without additional conditions or a construction theorem, determine a unique positive measure or absolute physical scale. Many distinct measures may live on the same measurable space.
+
+7. MINIMUM REQUIREMENTS FOR A VIABLE OMEGA-SPECIFIC CONSTRUCTION
+Any proposed internal construction of mu must state:
+1. Its exact input objects and types.
+2. Which input, if any, introduces dimensionful scale.
+3. The construction rule and proof of existence.
+4. Conditions for uniqueness, or an explicit characterization of the remaining freedom.
+5. Covariance under the declared admissible diffeomorphisms/isomorphisms.
+6. Compatibility with the causal structure and the target realization.
+7. Whether it yields a smooth density, a measure on a discrete carrier, or only a probability measure.
+8. Whether an absolute physical volume is obtained or only normalized/relative quantities.
+9. Whether the target metric is used in the construction. If yes, the result cannot independently explain the selection of that metric scale.
+10. A test distinguishing an actual derivation from an added convention or external calibration.
+
+8. OMEGA-ISOP DEPENDENCY AUDIT
+The checked OMEGA-ISOP framework explicitly treats realization as selected/model-dependent, admissible dynamics as non-unique in general, invariant measures as conditional, and fundamental physical laws as not derivable from the general relational framework alone.
+
+Accordingly, the present audit supports the following status:
+- The causal-order-only universal recovery claim is ruled out under Proposition N1's assumptions.
+- An external compatible measure remains a mathematically valid conditional input for fixing conformal scale.
+- A metric-induced measure is not an independent scale-selection explanation.
+- A discrete counting measure or invariant probability measure is not automatically a calibrated spacetime volume density.
+- No OMEGA-ISOP-internal derivation of an absolute smooth spacetime volume measure is established by this audit.
+
+This is a result about the stated input boundary, not a claim that every possible extension of OMEGA-ISOP is impossible.
+
+9. OPEN NEXT STEP
+Investigate whether a specifically declared additional structure already permitted by a cosmological realization can yield a measure without presupposing the target metric scale. Candidate extra structures must be assessed separately rather than silently treated as primitive outputs of causal order. If no candidate meets the requirements in Section 7, retain the dependency as external/unresolved.
+
+10. RELEASE AND TRACEABILITY
+FROZEN CORE: UNCHANGED.
+VOLUME II / VOLUME III: UNCHANGED.
+CE-V: NO PROMOTION.
+RL REGISTRATION: NOT PERFORMED OR VERIFIED.
+CANONICAL ACCEPTANCE: NOT CLAIMED.
+STATUS: CONDITIONAL NO-GO THEOREM ESTABLISHED; INTERNAL ABSOLUTE-MEASURE CONSTRUCTION NOT ESTABLISHED.
+END OF DOCUMENT
