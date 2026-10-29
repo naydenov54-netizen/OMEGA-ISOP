@@ -92,6 +92,8 @@ All of these quantities depend on the prior, likelihoods, action set, loss, expe
 
 Let B be a finite experiment budget and let E_B be the set of experiment sequences admissible under that budget. A stopping rule should be stated against a declared objective, not chosen after observing which result is convenient.
 
+For a probabilistic model, the objective above is expected terminal decision loss plus remaining experiment costs. If the analysis instead uses a robust uncertainty set, define the robust objective explicitly (for example, worst-case terminal loss over that set plus remaining costs) and specify how uncertainty and costs are aggregated. Do not treat an expected-loss criterion and a robust or minimax criterion as interchangeable. Within each model, compare V_stop and V_continue using the same objective, uncertainty treatment, feasible-policy definitions, and cost convention.
+
 At a given information history, define the objective as expected total loss-cost: the expected terminal decision loss plus all experiment costs that remain to be paid under the policy. Define V_stop as the infimum of this objective over all admissible policies that stop now and choose a terminal action. Define V_continue as the infimum of the same objective among admissible policies that take at least one further experiment before terminating. Both values must use the same loss function, uncertainty model, budget constraints, and remaining-cost convention. A continuation policy must include its possible future observations, subsequent experiment choices, terminal action, and all remaining costs. The continuation set must be nonempty for V_continue to be used; if no experiment is feasible, stopping is mandatory.
 
 Express terminal risk and remaining costs in commensurable units, and include only costs that remain to be paid, not sunk costs already incurred.
@@ -126,7 +128,7 @@ Result D.
 Expected value of sample information is decision-relative. Under the stated assumptions, if the experiment does not reduce the minimum expected decision loss, its EVSI is zero, even if it changes beliefs about the hypotheses.
 
 Result E.
-A stopping rule based on expected net decision value is conditional on a sufficiently complete model class, valid probabilities or robust uncertainty sets, a complete loss function, a correctly specified observation process, and consistent cost accounting.
+A stopping rule is conditional on a sufficiently complete model class, a complete loss function, a correctly specified observation process, and consistent cost accounting. Under a probabilistic model, specify the expected-loss objective and valid probabilities. Under a robust model, specify the uncertainty set and robust objective (for example, worst-case loss plus remaining costs). Compare stopping and continuation values only under the same criterion and accounting conventions.
 
 8. NON-IMPLICATIONS
 
