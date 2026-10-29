@@ -22,7 +22,7 @@ Let H be a nonempty set of candidate hypotheses, E a declared set of admissible 
 
 For each hypothesis h in H and experiment e in E, let P_h^e be the probability distribution of observations under that hypothesis and experiment. Let L(a,h) be the loss assigned to taking action a when h is the relevant state of the world.
 
-The observation model, experiment class, action set, and loss function must be specified before a decision-theoretic conclusion can be evaluated. If the loss itself depends on observations, write L(a,d,h) and define expected loss under P_h^e explicitly.
+The observation model, experiment class, action set, and loss function must be specified before a decision-theoretic conclusion can be evaluated. The results in Sections 3–4 use state-based loss L(a,h). If loss depends on the observation, use L(a,d,h) and define the relevant expected loss and posterior risk explicitly; equality of L(a,h) alone is not enough to establish decision equivalence for that observation-dependent objective.
 
 2. EXACT OBSERVATIONAL EQUIVALENCE
 
@@ -86,11 +86,13 @@ All of these quantities depend on the prior, likelihoods, action set, loss, expe
 
 Let B be a finite experiment budget and let E_B be the set of experiment sequences admissible under that budget. A stopping rule should be stated against a declared objective, not chosen after observing which result is convenient.
 
-A conditional decision-based stopping rule is:
+A conditional decision-based stopping rule must evaluate the best remaining admissible continuation, not merely each experiment in isolation:
 
-Stop acquiring data when the maximum expected net value of every remaining admissible experiment is nonpositive, under the specified model set, prior or robust uncertainty rule, loss function, and cost accounting.
+Stop when the maximum expected net value over all admissible remaining experiment sequences or adaptive policies is nonpositive, under the specified model set, prior or robust uncertainty rule, loss function, budget, and cost accounting.
 
-This is a criterion within a specified decision model, not a universal stopping theorem. It may be invalid if the model set omits relevant hypotheses, the loss omits important consequences, the prior is unjustified, or experiment costs are mismeasured.
+If only one-step experiments are evaluated, the rule is myopic and is justified only when the design problem has conditions that make one-step evaluation sufficient. Complementary experiments can have positive joint value even when each experiment has nonpositive value when considered alone. For a sequential design, the continuation value should account for future observations, choices, and costs, for example through a Bellman recursion when its assumptions apply.
+
+This is a criterion within a specified decision model, not a universal stopping theorem. It may be invalid if the model set omits relevant hypotheses, the loss omits important consequences, the prior is unjustified, experiment costs are mismeasured, or the available continuation policies are incompletely enumerated.
 
 A separate identification-based stopping rule may be appropriate when the target is a parameter or hypothesis rather than an action: stop only when the declared target is identified to the required tolerance over the feasible set, or explicitly report that the budget ended before that condition was met. Decision adequacy and scientific identification must not be conflated.
 
