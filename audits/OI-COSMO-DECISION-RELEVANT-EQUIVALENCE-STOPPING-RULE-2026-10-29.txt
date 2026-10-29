@@ -86,11 +86,11 @@ All of these quantities depend on the prior, likelihoods, action set, loss, expe
 
 Let B be a finite experiment budget and let E_B be the set of experiment sequences admissible under that budget. A stopping rule should be stated against a declared objective, not chosen after observing which result is convenient.
 
-A conditional decision-based stopping rule must evaluate the best remaining admissible continuation, not merely each experiment in isolation:
+A conditional decision-based stopping rule must compare the best remaining admissible continuation with stopping now, not merely evaluate each experiment in isolation.
 
-Stop when the maximum expected net value over all admissible remaining experiment sequences or adaptive policies is nonpositive, under the specified model set, prior or robust uncertainty rule, loss function, budget, and cost accounting.
+For the current information state, define the value of a continuation policy as its expected terminal decision risk plus its remaining experiment costs, with all terms expressed in commensurable units. Stop when the minimum expected total value over all admissible continuation sequences or adaptive policies is no lower than the value of stopping now and choosing the best available action. Equivalently, stop when the maximum incremental expected reduction in decision risk minus incremental experiment costs is nonpositive, under the specified model set, prior or robust uncertainty rule, loss function, budget, and cost accounting.
 
-If only one-step experiments are evaluated, the rule is myopic and is justified only when the design problem has conditions that make one-step evaluation sufficient. Complementary experiments can have positive joint value even when each experiment has nonpositive value when considered alone. For a sequential design, the continuation value should account for future observations, choices, and costs, for example through a Bellman recursion when its assumptions apply.
+If only one-step experiments are evaluated, the rule is myopic and is justified only when the design problem has conditions that make one-step evaluation sufficient. Complementary experiments can have positive joint value even when each experiment has nonpositive incremental value when considered alone. For a sequential design, the continuation value should account for future observations, choices, and costs, for example through a Bellman recursion when its assumptions apply.
 
 This is a criterion within a specified decision model, not a universal stopping theorem. It may be invalid if the model set omits relevant hypotheses, the loss omits important consequences, the prior is unjustified, experiment costs are mismeasured, or the available continuation policies are incompletely enumerated.
 
