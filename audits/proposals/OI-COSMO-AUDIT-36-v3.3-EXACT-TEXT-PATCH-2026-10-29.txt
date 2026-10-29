@@ -17,6 +17,7 @@ Governance: This proposal does not modify the Frozen Core, promote any claim to 
 
 ======================================================================
 REPLACEMENT 1: §6.3. OPERATIONAL INFIMUM RULE
+======================================================================
 
 6.3. Operational infimum rule
 
@@ -42,11 +43,13 @@ If V_stop < V_continue, the analogous statement holds: some stopping policy has 
 
 ======================================================================
 REPLACEMENT 2: §7, RESULT B
+======================================================================
 
 Result B. If h ~_L h', moving prior mass between h and h' in the discrete setup of Proposition 1 leaves the pre-data expected loss of every action unchanged. It does not generally preserve EVSI or stopping values. Such invariance is guaranteed by the additional sufficient conditions in Proposition 1b, including protocol equivalence, equal expected policy costs, common policy feasibility, and a well-defined expected-loss objective. These conditions are sufficient for the stated invariance result; they are not asserted to be necessary in every model. Invariance may also hold in particular cases where one or more of these conditions fail, but such cases require a separate argument.
 
 ======================================================================
 REPLACEMENT 3: §6.8. NON-ATTAINMENT EXAMPLE
+======================================================================
 
 6.8. Non-attainment example
 
@@ -61,8 +64,8 @@ Conditional on any revealed prefix of length n, θ is uniform on an interval of 
 For any admissible stopping time N and a terminal action that is conditionally optimal, the expected total objective is therefore
 
 J(N) = E[2^(−N) + ∑_{k=1}^N 4^(−k)]
-= E[2^(−N) + (1−4^(−N))/3]
-= 1/3 + E[g(N)],
+     = E[2^(−N) + (1−4^(−N))/3]
+     = 1/3 + E[g(N)],
 
 where
 
@@ -73,7 +76,7 @@ For every finite integer n≥0, g(n)>0. Since N is finite almost surely, g(N)>0 
 On the other hand, the deterministic policy that stops after n digits has value
 
 V_n = 2^(−n) + ∑_{k=1}^n 4^(−k)
-= 2^(−n) + (1−4^(−n))/3.
+    = 2^(−n) + (1−4^(−n))/3.
 
 The sequence V_n decreases strictly to 1/3. Thus the infimum over the admissible finite-stopping-time class is exactly 1/3, but no admissible policy attains it. The stopping policy N=0 has value 1, so V_stop=1 and V_continue=1/3 in this example.
 
@@ -81,6 +84,7 @@ This non-attainment conclusion is specific to the declared policy class, sequent
 
 ======================================================================
 REPLACEMENT 4: §6.10, RANDOMIZED-GUESS LOWER BOUND
+======================================================================
 
 Add the following after the sentence that the 50/50 randomized guess makes the discrepancy disappear:
 
@@ -88,6 +92,7 @@ For completeness, the ex-ante randomized minimax lower bound is also 1/2. Let q_
 
 ======================================================================
 REPLACEMENT 5: §6.10, CONCRETE STOP/CONTINUE MIXTURE INSTANCE
+======================================================================
 
 Add the following before the final conclusion of §6.10:
 
@@ -105,6 +110,7 @@ This example establishes the claimed possibility only for the stated policy and 
 
 ======================================================================
 REPLACEMENT 6: §5.1, A3 AND A4 CLARIFICATIONS
+======================================================================
 
 Replace A3 with:
 
@@ -116,6 +122,7 @@ The measurable ε-optimal-rule condition is not needed for the inequality R_e(μ
 
 ======================================================================
 REPLACEMENT 7: EDITORIAL CLARIFICATIONS A36R-07
+======================================================================
 
 Section 1: Add after the definition of Law_h^π:
 
@@ -133,6 +140,7 @@ Section 6.8: Use “For a concrete example” instead of “One realization of t
 
 ======================================================================
 FINAL STATUS BLOCK
+======================================================================
 
 Frozen Core: unchanged.
 CE-V promotion: none.
