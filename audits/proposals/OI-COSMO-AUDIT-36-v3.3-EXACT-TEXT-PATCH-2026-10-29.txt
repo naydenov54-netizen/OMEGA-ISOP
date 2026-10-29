@@ -13,7 +13,7 @@ Basis: v3.2 plus targeted corrections addressing findings A36R-01 through A36R-0
 
 Change note: v3.3 clarifies tie-breaking when class infima are equal, distinguishes sufficient from necessary conditions for invariance, formalizes the stopping-time class in the non-attainment example, supplies the missing lower-bound argument for randomized robust guesses, gives a concrete stop/continue mixture example, and makes targeted measurability and editorial clarifications.
 
-Governance: This proposal does not modify the Frozen Core, promote any claim to CE-V, register an RL item, or claim canonical acceptance. The original audit and v3.1/v3.2 proposals remain unchanged as historical records. v3.3 is a proposal responding to the second review; it has not yet received an independent review.
+Governance and review chronology: This patch packet preserves the original replacement blocks and later addenda in sequence. When the initial replacement blocks were prepared, those edits had not yet received an independent review. The merged v3.3 working proposal subsequently received a review assessed as MINOR ISSUES; author-side corrections A36V3-01 through A36V3-12 on the current PR head have not yet received a subsequent independent review. This remains a proposal only: the Frozen Core is unchanged, no claim is promoted to CE-V, no RL item is registered, and canonical acceptance is not claimed. The original audit and v3.1/v3.2 proposals remain unchanged as historical records.
 
 ======================================================================
 REPLACEMENT 1: §6.3. OPERATIONAL INFIMUM RULE
