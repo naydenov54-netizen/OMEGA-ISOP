@@ -475,6 +475,6 @@ Frozen Core: unchanged.
 CE-V promotion: none.
 RL registration: not performed or verified.
 Canonical acceptance: not claimed.
-Independent review status: a second independent mathematical review of v3.2 was completed on 2026-10-29 and reported no critical or major issues, while identifying five minor and two editorial findings. This v3.3 proposal is a targeted response to those findings. The v3.3 changes have not yet received an independent review. The review verdict applies to the reviewed v3.2 text under its stated assumptions and must not be treated as automatic approval of v3.3.
+Independent review status: the independent mathematical review of v3.3 dated 2026-10-29 reported MINOR ISSUES and findings A36V3-01 through A36V3-04, plus editorial clarifications. This working revision incorporates targeted responses to those findings. The responses in this revision have not yet received a subsequent independent review; this status does not constitute canonical acceptance. The earlier review verdict applies only to the reviewed v3.2 text under its stated assumptions and must not be treated as automatic approval of v3.3.
 
 END OF PROPOSED REVISION v3.3
