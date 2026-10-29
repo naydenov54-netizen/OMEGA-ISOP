@@ -151,3 +151,44 @@ Independent review status: a second independent mathematical review of v3.2 was 
 END OF PROPOSED REVISION v3.3 PATCH TEXT
 
 NOTE: This file preserves the exact replacement/addition blocks prepared for v3.3. It is a patch packet, not a merged full copy of the entire v3.2 source document.
+
+======================================================================
+ADDENDUM: POST-CLAUDE INDEPENDENT REVIEW CORRECTIONS — 2026-10-29
+======================================================================
+
+Source: independent mathematical review of the merged v3.3 proposal, verdict MINOR ISSUES. This addendum records the follow-up changes applied to the existing merged proposal on the same PR branch. It does not replace the original patch blocks above and does not declare the proposal canonical.
+
+A36V3-01 — §1, §5.1(A2), §6.1:
+Equip the action space with a sigma-algebra (A, 𝓐); require terminal decision rules (or stochastic kernels for randomized terminal actions) to be measurable; require joint measurability of L:A×H→ℝ with respect to 𝓐⊗𝓗. If extended-real losses are used, explicitly exclude undefined risk integrals.
+
+A36V3-02 — §5.1(A2):
+Retain the bounded-below branch when its risks are well-defined. For the integrability branch, use action-by-action μ-integrability when A is countable. For uncountable A, require a common μ-integrable envelope M with |L(a,h)|≤M(h) for every action and state, or state an alternative common-set condition sufficient to define all posterior risks and their measurable pointwise infimum. This avoids relying on action-dependent exceptional null sets. The envelope is a sufficient condition, not claimed to be necessary.
+
+A36V3-03 — §6.3(c):
+Remove the suggestion that a policy might later be established as optimal when neither class attains the common infimum. State that neither class contains an optimal policy; any operational choice is external to the mathematical optimization, and only an ε-optimal policy may be reported when the relevant class is nonempty and the infimum is finite.
+
+A36V3-04 — §6.8:
+Set the hard budget to B=1/3. Every finite N has cost (1−4^(−N))/3<1/3. Infinite digit revelation would cost 1/3 and achieve zero terminal loss, thereby attaining objective 1/3, but remains excluded by the declared finite-stopping-time class. State explicitly that non-attainment depends on this class restriction.
+
+A36V3-05 — Result B:
+Clarify that EVSI invariance additionally requires a measurable-rule representation of R_e (or the corresponding measurable-selection equality), and either inclusion of the single-run protocol for e in Π or direct assumption h~_e h'. Preserve the discrete-prior limitation of Proposition 1b.
+
+A36V3-07 — §6.7:
+Replace an assumed measurable Bayes selector with a measurable ε-optimal post-experiment rule. State the ε inequality first, then take ε↓0 only where R_e equals the infimum over admissible measurable rules.
+
+A36V3-08 — §6.2:
+Clarify that an expected-cost budget plus a uniform almost-sure lower bound c_min>0 implies E[N]≤B/c_min and finite termination almost surely, but not a deterministic uniform bound on N.
+
+A36V3-09 — §§2.3–2.4:
+Write the repeated-observation counterexample as P_h(T=1)=1 and P_h'(T=1)=1/2. Explicitly state that the continuation kernels after d₁=1 differ and that P(d₁=1)>0 under the common prefix law.
+
+A36V3-10 — §7 Result B:
+Use the sufficient-condition language already present; no necessity claim is added. The robust/minimax formulation remains separate from expected-loss results.
+
+A36V3-11 — §§6.7–6.8:
+Identify the example-specific state variables and state spaces: in §6.7, θ=(x,y) and H={(0,0),(0,1),(1,0),(1,1)}; in §6.8, θ∈[0,1) and H=[0,1).
+
+Governance after this addendum:
+Frozen Core unchanged. No CE-V promotion. No RL registration. Proposal remains non-canonical and unmerged. The corrections recorded here have not yet received a subsequent independent review.
+
+END OF POST-REVIEW CORRECTION ADDENDUM
