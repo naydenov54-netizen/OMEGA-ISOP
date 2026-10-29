@@ -10,7 +10,7 @@ Date: 2026-10-29
 Status: PROPOSAL ONLY — NOT CANONICAL
 Basis: Consolidation of the earlier proposed revision and v2, with a targeted mathematical correction to the robust dynamic-inconsistency example and a clarification of the scope of Proposition 1b.
 Change note: v3.1 corrects the decision-timing/action-class mismatch in Section 6.10 and makes explicit when the post-experiment claim in Proposition 1b applies. No claim of independent external review is made.
-Governance: This proposal does not modify the Frozen Core, promote any claim to CE-V, register an RL item, or claim canonical acceptance. The original audit remains unchanged. This v3 text has not itself received independent external mathematical review.
+Governance: This proposal does not modify the Frozen Core, promote any claim to CE-V, register an RL item, or claim canonical acceptance. The original audit remains unchanged. This v3.1 text has not itself received independent external mathematical review.
 
 0. PURPOSE, SCOPE, AND READING RULE
 
