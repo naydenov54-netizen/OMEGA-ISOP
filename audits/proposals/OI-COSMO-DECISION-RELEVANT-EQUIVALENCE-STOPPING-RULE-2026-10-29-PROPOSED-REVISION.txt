@@ -92,13 +92,18 @@ All of these quantities depend on the prior, likelihoods, action set, loss, expe
 
 Let B be a finite experiment budget and let E_B be the set of experiment sequences admissible under that budget. A stopping rule should be stated against a declared objective, not chosen after observing which result is convenient.
 
-At a given information history, define V_stop as the minimum expected terminal decision risk available by stopping now and choosing an admissible terminal action. Define V_continue as the infimum expected total value among admissible policies that take at least one further experiment before terminating. A continuation policy must include its possible future observations, subsequent experiment choices, terminal action, and all remaining costs. The continuation set must be nonempty for V_continue to be used; if no experiment is feasible, stopping is mandatory.
+At a given information history, define V_stop as the infimum expected total value over all admissible policies that stop now and choose a terminal action. Define V_continue as the infimum expected total value among admissible policies that take at least one further experiment before terminating. Both values must use the same loss, uncertainty model, budget constraints, and remaining-cost convention. A continuation policy must include its possible future observations, subsequent experiment choices, terminal action, and all remaining costs. The continuation set must be nonempty for V_continue to be used; if no experiment is feasible, stopping is mandatory.
 
-Use the same state, loss, uncertainty rule, budget constraints, and cost accounting for both values. Express terminal risk and remaining costs in commensurable units, and include only costs that remain to be paid, not sunk costs already incurred.
+Express terminal risk and remaining costs in commensurable units, and include only costs that remain to be paid, not sunk costs already incurred.
 
-The decision-based stopping rule is: stop when V_stop <= V_continue. If V_continue is lower than V_stop, at least one admissible continuation has lower expected total value and stopping is not optimal under the specified model. If the two values are equal, stopping is optimal but may not be unique. When the infimum is not attained, interpret the rule in terms of infima and state whether an optimal policy exists.
+Compare the two infima as follows:
+- If V_stop < V_continue, the stopping-policy class has strictly lower infimal value.
+- If V_stop > V_continue, the continuation-policy class has strictly lower infimal value.
+- If V_stop = V_continue, neither policy class has a strictly lower infimal value.
 
-Equivalently, when both values are well-defined on the same scale, stop when the best attainable incremental reduction in expected terminal decision risk is no greater than the incremental remaining experiment cost. This equivalence requires consistent accounting and must not be used when the cost and loss terms are not commensurable.
+These comparisons do not, by themselves, guarantee that an optimal policy exists. Calling a particular stopping or continuation policy optimal additionally requires that the relevant infimum be attained. If an infimum is not attained, report the infimal value and non-attainment explicitly rather than claiming that an optimal policy has been found. When the stopping infimum is attained and is no greater than the continuation infimum, an optimal stopping policy exists; when the continuation infimum is attained and is strictly lower than the stopping infimum, an optimal continuation policy exists.
+
+The comparison is valid only when the objective, model, feasible policy classes, budget constraints, and cost accounting are consistently specified. It must not be used when terminal risk and remaining costs are not expressed on a commensurable scale.
 
 If only one-step experiments are evaluated in place of all admissible continuation policies, the rule is myopic and is justified only when conditions of the design problem make one-step evaluation sufficient. Complementary experiments can have positive joint value even when each experiment has nonpositive incremental value when considered alone. For a sequential design, the continuation value should account for future observations, choices, and costs, for example through a Bellman recursion when its assumptions apply.
 
