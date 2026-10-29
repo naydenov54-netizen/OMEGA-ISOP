@@ -1,0 +1,213 @@
+OMEGA-ISOP / M3.2
+AUDIT #36
+
+DECISION-RELEVANT OBSERVATIONAL EQUIVALENCE AND STOPPING RULES
+UNDER A DECLARED EXPERIMENTAL DESIGN
+
+PROPOSED REVISION v3.3
+TARGETED CORRECTIONS AFTER SECOND INDEPENDENT MATHEMATICAL REVIEW
+
+Date: 2026-10-29
+Status: PROPOSAL ONLY, NOT CANONICAL
+Basis: v3.2 plus targeted corrections addressing findings A36R-01 through A36R-07 from the second independent mathematical review dated 2026-10-29.
+
+Change note: v3.3 clarifies tie-breaking when class infima are equal, distinguishes sufficient from necessary conditions for invariance, formalizes the stopping-time class in the non-attainment example, supplies the missing lower-bound argument for randomized robust guesses, gives a concrete stop/continue mixture example, and makes targeted measurability and editorial clarifications.
+
+Governance and review chronology: This patch packet preserves the original replacement blocks and later addenda in sequence. When the initial replacement blocks were prepared, those edits had not yet received an independent review. The merged v3.3 working proposal subsequently received a review assessed as MINOR ISSUES; author-side corrections A36V3-01 through A36V3-12 on the current PR head have not yet received a subsequent independent review. This remains a proposal only: the Frozen Core is unchanged, no claim is promoted to CE-V, no RL item is registered, and canonical acceptance is not claimed. The original audit and v3.1/v3.2 proposals remain unchanged as historical records.
+
+======================================================================
+REPLACEMENT 1: §6.3. OPERATIONAL INFIMUM RULE
+======================================================================
+
+6.3. Operational infimum rule
+
+Compare the infimal values:
+
+• If V_stop < V_continue, the stopping class has the lower infimal value.
+• If V_continue < V_stop, the continuation class has the lower infimal value.
+• If V_stop = V_continue, both classes have the same infimal value; compare attainment status as specified below.
+
+Operational convention and attainment reporting:
+
+(a) If exactly one class attains its infimum, prefer that class, because it contains a policy attaining the common global infimal value.
+
+(b) If both classes attain their infima, both contain globally optimal policies, and either class may be selected.
+
+(c) If neither class attains its infimum, no policy in either class attains the common global infimal value. A tie-breaking convention may still select a class for operational purposes, but the selected class must be reported as non-attaining. Any policy supplied from it must be identified as optimal only if attainment is separately established. Otherwise, report an ε-optimal policy and its achieved value.
+
+This tie-breaking rule presupposes that attainment status is known. It does not provide a method for deciding attainment and does not guarantee that an optimal policy exists. The values V_stop and V_continue are infimal values; they must not be described as attained minima unless attainment has been proved.
+
+If V_continue < V_stop, the definition of infimum guarantees that there exists a feasible continuation policy δ with J(δ)<V_stop, even if V_continue is not attained. This proves that some continuation policy beats every stopping policy; it does not prove that an optimal continuation policy exists.
+
+If V_stop < V_continue, the analogous statement holds: some stopping policy has value below V_continue, even if V_stop is not attained. Thus the comparison identifies the better policy class at the level of infimal values, but does not automatically provide a policy attaining the global infimum.
+
+======================================================================
+REPLACEMENT 2: §7, RESULT B
+======================================================================
+
+Result B. If h ~_L h', moving prior mass between h and h' in the discrete setup of Proposition 1 leaves the pre-data expected loss of every action unchanged. It does not generally preserve EVSI or stopping values. Such invariance is guaranteed by the additional sufficient conditions in Proposition 1b, including protocol equivalence, equal expected policy costs, common policy feasibility, and a well-defined expected-loss objective. These conditions are sufficient for the stated invariance result; they are not asserted to be necessary in every model. Invariance may also hold in particular cases where one or more of these conditions fail, but such cases require a separate argument.
+
+======================================================================
+REPLACEMENT 3: §6.8. NON-ATTAINMENT EXAMPLE
+======================================================================
+
+6.8. Non-attainment example
+
+For a concrete example, let θ∼Uniform[0,1), let A=[0,1], and let terminal loss be L(a,θ)=4|a−θ|. Initially, the minimum expected terminal loss is 1.
+
+Write B₁,B₂,… for the binary digits of θ, using a fixed convention on the measure-zero set of numbers with two binary expansions. Experiment k reveals digit B_k and costs 4^(−k). Digits must be revealed in order: digit k is available only after digits 1,…,k−1 have been revealed. No other information-acquisition actions are allowed in this example.
+
+The admissible policy class consists of stopping times N that are finite almost surely with respect to the filtration generated by the observed digit prefixes, optionally augmented by auxiliary randomization independent of θ. At termination, the policy chooses a measurable terminal action based on the revealed prefix and any permitted independent randomization. The cost of a policy that stops at N is the sum ∑_{k=1}^N 4^(−k). Policies that reveal infinitely many digits are excluded.
+
+Conditional on any revealed prefix of length n, θ is uniform on an interval of length 2^(−n). The unique terminal action minimizing conditional expected absolute-error loss is the midpoint of that interval, and the resulting conditional expected terminal loss is 2^(−n).
+
+For any admissible stopping time N and a terminal action that is conditionally optimal, the expected total objective is therefore
+
+J(N) = E[2^(−N) + ∑_{k=1}^N 4^(−k)]
+     = E[2^(−N) + (1−4^(−N))/3]
+     = 1/3 + E[g(N)],
+
+where
+
+g(n) = 2^(−n) − 4^(−n)/3.
+
+For every finite integer n≥0, g(n)>0. Since N is finite almost surely, g(N)>0 almost surely, and hence E[g(N)]>0. Therefore J(N)>1/3 for every admissible policy with a conditionally optimal terminal action. Any other terminal action has expected terminal loss at least as large, and a non-optimal terminal action cannot improve the objective.
+
+On the other hand, the deterministic policy that stops after n digits has value
+
+V_n = 2^(−n) + ∑_{k=1}^n 4^(−k)
+    = 2^(−n) + (1−4^(−n))/3.
+
+The sequence V_n decreases strictly to 1/3. Thus the infimum over the admissible finite-stopping-time class is exactly 1/3, but no admissible policy attains it. The stopping policy N=0 has value 1, so V_stop=1 and V_continue=1/3 in this example.
+
+This non-attainment conclusion is specific to the declared policy class, sequential digit-revelation protocol, costs, and terminal loss above. It is not a general theorem about arbitrary experiments or arbitrary stopping problems.
+
+======================================================================
+REPLACEMENT 4: §6.10, RANDOMIZED-GUESS LOWER BOUND
+======================================================================
+
+Add the following after the sentence that the 50/50 randomized guess makes the discrepancy disappear:
+
+For completeness, the ex-ante randomized minimax lower bound is also 1/2. Let q_x=P(guess=1 | observed x) for any randomized guessing rule. Conditional on each x, the sum of the error probabilities under P₁ and P₂ is 1, because P₁ assigns y=x and P₂ assigns y=1−x. Averaging over the common uniform marginal distribution of x gives err(P₁)+err(P₂)=1. Consequently, max{err(P₁),err(P₂)}≥1/2 for every randomized rule. The rule that guesses 0 or 1 with equal probability independently of x attains error 1/2 under both measures. The ex-ante randomized minimax value is therefore exactly 1/2, matching the conditional randomized value.
+
+======================================================================
+REPLACEMENT 5: §6.10, CONCRETE STOP/CONTINUE MIXTURE INSTANCE
+======================================================================
+
+Add the following before the final conclusion of §6.10:
+
+Concrete stop/continue mixture instance:
+
+Let the state space be S={s₁,s₂} and let Γ={δ_s₁,δ_s₂}, where δ_s denotes the point-mass probability measure at state s. There are two terminal actions a₁,a₂ with losses L(a₁,s₁)=0, L(a₁,s₂)=1, L(a₂,s₁)=1, and L(a₂,s₂)=0.
+
+The stopping class contains the pure policy that stops immediately and chooses a₁. Its loss vector across (s₁,s₂) is (0,1), so its worst-case expected loss over Γ is 1.
+
+The continuation class contains a policy that performs a feasible, zero-cost, non-informative experiment and then chooses a₂. Its loss vector is (1,0), so its worst-case expected loss over Γ is also 1.
+
+Suppose root randomization between these two policies is admissible, but randomization of the terminal action within either pure class is not admissible. A 50/50 root mixture then has expected loss 1/2 at each state and worst-case expected loss 1/2. Thus the mixture has strictly lower robust value than either pure component.
+
+This example establishes the claimed possibility only for the stated policy and randomization classes. If terminal-action randomization is already admissible within the stopping class, the stopping class itself can attain worst-case value 1/2, and the example no longer demonstrates a strict improvement from mixing across stop and continue. The policy class must therefore be specified before drawing a conclusion about the value of mixtures.
+
+======================================================================
+REPLACEMENT 6: §5.1, A3 AND A4 CLARIFICATIONS
+======================================================================
+
+Replace A3 with:
+
+(A3) For each experiment e, P^e is the measurable Markov kernel specified in Section 1, and the prior-predictive measure is m_e(B)=∫_H P_h^e(B) μ(dh). Assume (H,𝓗) is standard Borel, which is a standard sufficient condition for existence of a regular conditional posterior μ(·|d,e) under the prior-observation joint law. Requiring (D_e,𝓓_e) to be standard Borel as well is a convenient sufficient assumption, not a claim of necessity. Other measurable-space settings are permitted only if the required joint law and regular conditional distribution are separately guaranteed.
+
+Add to the end of A4:
+
+The measurable ε-optimal-rule condition is not needed for the inequality R_e(μ)≤R(μ) when R_e is defined as the integral of measurable pointwise posterior-risk infima and the stated integrability conditions hold. It is included to justify interpreting that integral as the infimum over admissible measurable decision rules, or to support the relevant equality between those two formulations. Do not use the pointwise-infimum and measurable-policy formulations interchangeably without the corresponding measurability or selection justification.
+
+======================================================================
+REPLACEMENT 7: EDITORIAL CLARIFICATIONS A36R-07
+======================================================================
+
+Section 1: Add after the definition of Law_h^π:
+
+If a protocol uses auxiliary randomization U, either include the randomization variables used by the protocol in an augmented history space and define the corresponding joint law, or integrate U out and represent the randomized protocol as a measurable stochastic rule on observable history. All test and policy claims must use the same convention consistently.
+
+Section 2.4: In the counterexample involving a differing continuation kernel after history d₁=1, explicitly state that the common prefix history has positive probability, P(d₁=1)>0, under the hypotheses being compared. A difference confined to a null history does not establish a difference between the induced history laws.
+
+Section 3.3: Replace “the condition is sufficient only if Π includes” with “the condition is sufficient provided Π includes”.
+
+Result D: Replace the final sentence with:
+
+If the post-experiment Bayes risk R_e(μ) equals the pre-experiment Bayes risk R(μ), then EVSI(e)=R(μ)−R_e(μ)=0 under the specified loss and model.
+
+Section 6.8: Use “For a concrete example” instead of “One realization of the sequence is”.
+
+======================================================================
+FINAL STATUS BLOCK
+======================================================================
+
+Frozen Core: unchanged.
+CE-V promotion: none.
+RL registration: not performed or verified.
+Canonical acceptance: not claimed.
+Independent review status: a second independent mathematical review of v3.2 was completed on 2026-10-29 and reported no critical or major issues, while identifying five minor and two editorial findings. This v3.3 proposal is a targeted response to those findings. The v3.3 changes have not yet received an independent review. The review verdict applies to the reviewed v3.2 text under its stated assumptions and must not be treated as automatic approval of v3.3.
+
+END OF PROPOSED REVISION v3.3 PATCH TEXT
+
+NOTE: This file preserves the exact replacement/addition blocks prepared for v3.3. It is a patch packet, not a merged full copy of the entire v3.2 source document.
+
+======================================================================
+ADDENDUM: POST-CLAUDE INDEPENDENT REVIEW CORRECTIONS — 2026-10-29
+======================================================================
+
+Source: independent mathematical review of the merged v3.3 proposal, verdict MINOR ISSUES. This addendum records the follow-up changes applied to the existing merged proposal on the same PR branch. It does not replace the original patch blocks above and does not declare the proposal canonical.
+
+A36V3-01 — §1, §5.1(A2), §6.1:
+Equip the action space with a sigma-algebra (A, 𝓐); require terminal decision rules (or stochastic kernels for randomized terminal actions) to be measurable; require joint measurability of L:A×H→ℝ with respect to 𝓐⊗𝓗. If extended-real losses are used, explicitly exclude undefined risk integrals.
+
+A36V3-02 — §5.1(A2):
+Retain the bounded-below branch when its risks are well-defined. For the integrability branch, use action-by-action μ-integrability when A is countable. For uncountable A, require a common μ-integrable envelope M with |L(a,h)|≤M(h) for every action and state, or state an alternative common-set condition sufficient to define all posterior risks and their measurable pointwise infimum. This avoids relying on action-dependent exceptional null sets. The envelope is a sufficient condition, not claimed to be necessary.
+
+A36V3-03 — §6.3(c):
+Remove the suggestion that a policy might later be established as optimal when neither class attains the common infimum. State that neither class contains an optimal policy; any operational choice is external to the mathematical optimization, and only an ε-optimal policy may be reported when the relevant class is nonempty and the infimum is finite.
+
+A36V3-04 — §6.8:
+Set the hard budget to B=1/3. Every finite N has cost (1−4^(−N))/3<1/3. Infinite digit revelation would cost 1/3 and achieve zero terminal loss, thereby attaining objective 1/3, but remains excluded by the declared finite-stopping-time class. State explicitly that non-attainment depends on this class restriction.
+
+A36V3-05 — Result B:
+Clarify that EVSI invariance additionally requires a measurable-rule representation of R_e (or the corresponding measurable-selection equality), and either inclusion of the single-run protocol for e in Π or direct assumption h~_e h'. Preserve the discrete-prior limitation of Proposition 1b.
+
+A36V3-07 — §6.7:
+Replace an assumed measurable Bayes selector with a measurable ε-optimal post-experiment rule. State the ε inequality first, then take ε↓0 only where R_e equals the infimum over admissible measurable rules.
+
+A36V3-08 — §6.2:
+Clarify that an expected-cost budget plus a uniform almost-sure lower bound c_min>0 implies E[N]≤B/c_min and finite termination almost surely, but not a deterministic uniform bound on N.
+
+A36V3-09 — §§2.3–2.4:
+Write the repeated-observation counterexample as P_h(T=1)=1 and P_h'(T=1)=1/2. Explicitly state that the continuation kernels after d₁=1 differ and that P(d₁=1)>0 under the common prefix law.
+
+A36V3-10 — §7 Result B:
+Use the sufficient-condition language already present; no necessity claim is added. The robust/minimax formulation remains separate from expected-loss results.
+
+A36V3-11 — §§6.7–6.8:
+Identify the example-specific state variables and state spaces: in §6.7, θ=(x,y) and H={(0,0),(0,1),(1,0),(1,1)}; in §6.8, θ∈[0,1) and H=[0,1).
+
+Governance after this addendum:
+Frozen Core unchanged. No CE-V promotion. No RL registration. Proposal remains non-canonical and unmerged. The corrections recorded here have not yet received a subsequent independent review.
+
+END OF POST-REVIEW CORRECTION ADDENDUM
+
+
+Supplement to A36V3-03 — extended-real edge cases:
+
+§6.3 now states that attainment comparisons ordinarily concern nonempty policy classes and finite real infimal values. Under inf ∅=+∞, an empty class does not attain its infimum. If a nonempty class has J(δ)=+∞ for every policy, its extended-real infimum is formally attained, but it is not a finite-value optimum. Cases involving ±∞ must be reported separately; ε-optimal finite-value statements require a nonempty class and finite infimum.
+
+
+======================================================================
+ADDENDUM: A36V3-12 — STATE-WISE VS Γ-MINIMAX NOTATION — 2026-10-29
+======================================================================
+
+Finding: In §6.10, the expression sup_{Q∈Γ} E_Q[·] requires Γ to be a set of probability measures. The previous prose also allowed Γ to mean a set of states/hypotheses for a frequentist minimax criterion, which mixes two distinct formulations unless a mapping is supplied.
+
+Correction applied to the merged v3.3 proposal:
+- The displayed Γ-minimax expression explicitly treats Γ as a set of probability measures on the relevant state/history space.
+- For a state-wise frequentist minimax criterion, use sup_{h∈H} J_h(δ), with J_h(δ) the policy's expected objective under state h.
+- The same distinction is applied to F(δ) in the stop/continue mixture discussion.
+
+This is a notation/scope clarification, not a change to the example's numerical result. It has not yet received independent review. Frozen Core remains unchanged; no CE-V promotion, RL registration, canonical acceptance, or merge is claimed.

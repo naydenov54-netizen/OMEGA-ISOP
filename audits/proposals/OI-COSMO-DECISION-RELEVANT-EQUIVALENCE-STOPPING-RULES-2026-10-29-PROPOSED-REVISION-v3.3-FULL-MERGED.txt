@@ -1,0 +1,480 @@
+OMEGA-ISOP / M3.2
+AUDIT #36
+
+DECISION-RELEVANT OBSERVATIONAL EQUIVALENCE AND STOPPING RULES
+UNDER A DECLARED EXPERIMENTAL DESIGN
+
+PROPOSED REVISION v3.3 — TARGETED CORRECTIONS AFTER SECOND INDEPENDENT MATHEMATICAL REVIEW
+
+Date: 2026-10-29
+Status: PROPOSAL ONLY — NOT CANONICAL
+Basis: v3.2 plus targeted corrections addressing findings A36R-01 through A36R-07 from the second independent mathematical review dated 2026-10-29.
+Change note: v3.3 clarifies tie-breaking when class infima are equal, distinguishes sufficient from necessary conditions for invariance, formalizes the stopping-time class in the non-attainment example, supplies the missing lower-bound argument for randomized robust guesses, gives a concrete stop/continue mixture example, and makes targeted measurability and editorial clarifications. Following the independent Audit #36 review of v3.3, this working revision incorporates corrections A36V3-01 through A36V3-04 and selected clarifications A36V3-05, A36V3-07 through A36V3-11. The corrections remain proposed and have not themselves received a subsequent independent review.
+Governance: This proposal does not modify the Frozen Core, promote any claim to CE-V, register an RL item, or claim canonical acceptance. The original audit and v3.1/v3.2 proposals remain unchanged as historical records. v3.3 received an independent mathematical review on 2026-10-29, assessed as MINOR ISSUES. This working revision incorporates targeted responses to that review; those responses have not themselves received a subsequent independent review.
+
+0. PURPOSE, SCOPE, AND READING RULE
+
+This document provides a conditional decision-theoretic framework for distinguishing observational equivalence, decision-relevant equivalence, value of sample information, and stopping under a declared experimental design.
+
+The claims are mathematical statements conditional on their assumptions. They do not establish that OMEGA-ISOP has a specified physical observation model, complete hypothesis class, justified prior, complete loss function, validated experiment-cost model, or empirical result.
+
+Unless a section explicitly says otherwise:
+• observations and policies are measurable;
+• probabilities and expectations are well-defined;
+• terminal loss is state-based, L(a,h), and does not directly depend on observed data;
+• experiment costs are included in the objective when stated;
+• all comparisons use the same model, feasible policy classes, budget constraints, loss convention, and remaining-cost convention;
+• exact equivalence is considered only relative to the experiment or protocol class explicitly declared.
+
+The robust/minimax discussion is separate from the operative expected-loss results. No expected-loss result should be transferred to a robust criterion without a separate proof.
+
+1. FORMAL SETUP
+
+Let (H, 𝓗) be a nonempty measurable hypothesis/state space, (A, 𝓐) a nonempty measurable space of terminal actions, and E a declared set of admissible experiments. For each experiment e, let (D_e, 𝓓_e) be its observation space. Terminal decision rules must be measurable maps from the relevant history space, augmented by any independent randomization variable U when used, into (A, 𝓐); if randomized terminal actions are represented by stochastic kernels instead, those kernels must be measurable. Require L:A×H→ℝ to be jointly (𝓐⊗𝓗)-measurable. If extended-real losses are allowed, state the relevant conditions explicitly so that no risk integral is undefined.
+
+For each experiment e, assume P^e is a Markov kernel from (H,𝓗) to (D_e,𝓓_e): for each h, P_h^e(·) is a probability measure, and for each B∈𝓓_e, h↦P_h^e(B) is 𝓗-measurable. P_h^e is the observation law for one non-repeated, non-adaptive performance of e under h.
+
+Let L(a,h) be the terminal loss from action a when h is the relevant state. Unless expressly extended, L is state-based. If the actual objective uses L(a,d,h), path-dependent loss, or history-dependent utility, the relevant risks and value-of-information quantities must be defined for that objective separately; the state-based results below do not automatically apply.
+
+A prior μ is a probability measure on (H, 𝓗). In discrete models, write μ(h) for the prior mass at h. All integrals, posterior distributions, and infima below require the relevant measurability and well-definedness assumptions stated in context.
+
+A protocol class Π is a declared class of admissible experiment-selection and stopping protocols. A protocol may select experiments adaptively using observable history and may use internal randomization whose mechanism does not depend on h except through observable history. For each fixed π∈Π, assume h↦Law_h^π is a Markov kernel from (H,𝓗) to the declared measurable space of complete observable histories, including selected experiments and the stopping/termination record where relevant. These kernel assumptions ensure that prior-predictive joint laws can be constructed. For posterior statements, assume (H,𝓗) and the relevant observation/history spaces are standard Borel, or state another set of conditions that guarantees the required regular conditional distributions.
+
+If a protocol uses auxiliary randomization U, either include the randomization variables used by the protocol in an augmented history space and define the corresponding joint law, or integrate U out and represent the randomized protocol as a measurable stochastic rule on observable history. All test and policy claims must use the same convention consistently.
+
+2. OBSERVATIONAL EQUIVALENCE
+
+2.1. Single-experiment equivalence
+
+For a specified experiment e, define
+
+h ~_e h' iff P_h^e = P_{h'}^e
+
+as probability measures on the same observation space (D_e, 𝓓_e).
+
+2.2. Equivalence over a declared experiment set
+
+Define
+
+h ~_E h' iff P_h^e = P_{h'}^e for every e in E.
+
+Thus ~_e concerns one specified experiment; ~_E concerns every experiment in the declared set E. Neither relation makes a claim about experiments outside E.
+
+2.3. Protocol equivalence
+
+Define
+
+h ~_Π h' iff Law_h^π = Law_{h'}^π for every π in Π.
+
+If Π includes every single non-adaptive performance of each e in E, then h ~_Π h' implies h ~_E h'. The converse does not generally hold.
+
+Counterexample: let experiment e be performed twice. Under h, d₂ = d₁; under h', the two observations are independent. Each observation is Bernoulli(1/2) under both hypotheses, so the one-step marginal distributions are equal. But T = 1{d₁ = d₂} satisfies P_h(T=1)=1 and P_{h'}(T=1)=1/2. The full repeated-history laws differ. Equal marginal distributions therefore do not imply equal joint laws.
+
+2.4. Conditional-kernel sufficient condition for protocol equivalence
+
+Suppose that, conditional on h and the observable history, each next observation is governed by a kernel K_h(· | history,e), and the protocol chooses its next experiment according to a rule that depends only on the observable history and h-independent internal randomization. Equality of the relevant kernels under h and h' is sufficient for equality of full-history laws under a fixed protocol, subject to the following conditions:
+
+(a) The initial observation kernel is equal under h and h'.
+
+(b) Subsequent conditional kernels agree almost surely under the common history law, using regular conditional probabilities where needed. In continuous spaces, do not demand equality at every null history merely because it is mathematically describable.
+
+(c) The equality condition covers every history and experiment choice that can be reached under the protocol being considered.
+
+(d) To establish h ~_Π h', the condition must cover the union of histories and experiment choices reachable under every protocol in Π, not just those reached under one selected protocol.
+
+(e) The kernels describe observable histories; any latent states are integrated out unless they are explicitly included in the observed state.
+
+(f) Stopping and experiment selection are measurable functions or kernels of observable history and h-independent internal randomization.
+
+(g) For infinite-horizon protocols, the trajectory law is well-defined from the kernels, for example by an Ionescu–Tulcea construction, and the stopping-time convention is stated.
+
+For a fixed protocol with discrete observations, equality of conditional kernels on histories of positive probability is necessary as well as sufficient for equality of the corresponding history laws. In general measurable spaces, statements of necessity must be phrased up to the appropriate almost-sure equivalence of conditional distributions. The sufficiency argument is an induction on history length: equality of the initial law supplies the base case, and equality of the next-step kernels on histories reached with positive probability supplies the induction step. The kernels must be non-anticipating and consistent, so the law of a history prefix does not depend on future experiment choices that have not yet occurred. Any counterexample based on different continuation kernels must place the differing kernels on a history with positive probability under the common prefix law.
+
+Counterexample to a protocol-specific reachability condition: suppose two hypotheses have equal kernels except after history d₁=1 when experiment e_b is selected, and the continuation kernels for e_b differ between the hypotheses there; explicitly assume P(d₁=1)>0 under the common prefix law. A protocol that never selects e_b after d₁=1 may produce equal laws under both hypotheses. Another admissible protocol that selects e_b there may produce different laws. Equality on histories reached by one protocol is not enough to establish equivalence for all protocols. A difference confined to a null history does not establish a difference between the induced history laws.
+
+2.5. Interpretation boundary
+
+Any distinction made by a test based on a declared protocol must come from a difference in the full observation laws, prior information, additional assumptions, external evidence, or a different experiment/protocol class. Observational equivalence is relative to the declared class, not metaphysical identity or universal scientific equivalence.
+
+3. DECISION-RELEVANT EQUIVALENCE
+
+Define
+
+h ~_L h' iff L(a,h) = L(a,h') for every a in A.
+
+This relation depends on the specified action set and loss function. It can fail if either changes.
+
+3.1. Proposition 1: invariance of pre-data expected action loss
+
+Discrete form. Let H be discrete, let μ be a prior probability mass function, and let h ≠ h' satisfy h ~_L h'. Let μ' be formed by moving an amount t of prior mass from h to h', with
+
+μ'(h) = μ(h) - t,
+μ'(h') = μ(h') + t,
+0 ≤ t ≤ μ(h),
+
+and μ' = μ elsewhere. Assume the expected loss of every action under μ and μ' is well-defined and finite. Then for every a in A,
+
+E_{μ'}[L(a,H)] = E_μ[L(a,H)].
+
+Consequently, the ranking of actions by pre-data expected loss and the pre-data Bayes risk
+
+R(μ) = inf_{a∈A} E_μ[L(a,H)]
+
+are unchanged.
+
+Proof. The change in expected loss for any fixed a is
+
+-t L(a,h) + t L(a,h') = 0,
+
+because L(a,h)=L(a,h'). Thus each action's expected loss is unchanged, and so is the infimum over the same action set. QED.
+
+Scope. This proposition concerns only pre-data expected action loss for state-based L and a fixed action set. It does not, by itself, establish invariance of posterior decisions, EVSI, or stopping values. Observational equivalence is not needed for this pre-data result.
+
+General-measure caution. The phrase “move mass between two hypotheses” is used here in the discrete sense. In a general measurable space, changing a prior requires a separately specified measure transformation; the discrete proof must not be silently applied to continuous priors where individual points may have zero mass.
+
+3.2. Counterexample: loss equivalence alone does not preserve EVSI
+
+Let H={h₁,h₂,h₃}, A={a₁,a₂}, with losses
+
+L(a₁,·)=(0,0,1),
+L(a₂,·)=(1,1,0).
+
+Thus h₁ ~_L h₂. Let one experiment have D={0,1}, with
+
+P_{h₁}(d=1)=1,
+P_{h₂}(d=1)=0,
+P_{h₃}(d=1)=0.
+
+Under prior μ_A=(1/2,0,1/2), the pre-data risk is R=1/2. The experiment reveals whether h₁ or h₃ holds, so post-data risk is R_e=0 and EVSI=1/2.
+
+Under prior μ_B=(0,1/2,1/2), the observation is always d=0 and leaves h₂ and h₃ with equal posterior mass. Either action has expected loss 1/2, so R=1/2, R_e=1/2, and EVSI=0.
+
+The total prior mass on {h₁,h₂} is 1/2 in both cases, and the pre-data action risks agree, but EVSI differs because h₁ and h₂ have different observation laws. This is why Proposition 1 cannot be extended to EVSI on loss equivalence alone.
+
+3.3. Proposition 1b: conditions for invariance of experiment and policy values
+
+Suppose h ~_L h' and h ~_Π h'. Assume:
+
+(a) the same admissible policy class and feasibility rules apply under h and h';
+
+(b) every admissible policy δ induces, through its experiment choices, stopping rule and randomization, a protocol π_δ∈Π; its terminal action is a measurable function of the observable history and h-independent internal randomization;
+
+(c) each relevant policy has the same expected remaining cost under h and h';
+
+(d) terminal loss is state-based, measurable, and integrable enough for the expected objectives below to be well-defined;
+
+(e) terminal actions are selected from the same action set under both hypotheses;
+
+(f) the objective is expected terminal loss plus expected remaining experiment costs, with the same policy class and objective convention under both hypotheses.
+
+For any admissible policy δ, let J_x(δ) be its expected terminal loss plus remaining cost under hypothesis x. Since δ induces a protocol in Π, h~_Πh' gives equal full-history laws; together with equal state-based losses and equal expected costs, this yields J_h(δ)=J_{h'}(δ). Therefore, for a discrete prior, moving prior mass between h and h' leaves the expected objective of every admissible policy unchanged and preserves the infimum over the same policy class. This conclusion applies to a value such as R_e or EVSI only when that value is represented as the infimum over the corresponding measurable decision-rule/policy class, or when the stated measurable-selection conditions establish equality with the pointwise posterior-risk integral.
+
+For the post-experiment risk R_e of a specified experiment e, the protocol-equivalence condition is sufficient provided Π includes the single-run protocol that performs e, or h~_e h' is assumed directly. Equality of full-history laws for a protocol class does not imply equality for an experiment outside that class. Equal likelihood of a past history alone preserves posterior odds where defined; it does not imply equality of future observation kernels or continuation values. A conditional invariance claim requires a conditional protocol-equivalence assumption after the history x: all admissible future protocols must induce equal conditional history laws under h and h' (up to the appropriate almost-sure convention), with the same conditional feasibility, costs and loss assumptions. Such claims are restricted to histories with positive predictive probability, or stated almost surely under the predictive law.
+
+Proof. For every fixed policy δ, equal full-history laws, equal terminal-loss profiles and equal expected costs imply J_h(δ)=J_{h'}(δ). Moving prior mass between hypotheses with equal J-values therefore leaves the prior-weighted value of each policy unchanged. Taking infima over the same policy class preserves equality. QED.
+
+Limitations. If the hypotheses have different observation laws, different policy feasibility, different expected costs, or different terminal loss for some action, the result need not hold. No invariance theorem for a set of priors is asserted here: such a claim would require a separately defined transformation of that set and an explicit updating convention. For a worst-case criterion over a fixed hypothesis set, a prior mass move has no direct effect because that criterion does not use the prior.
+
+4. WHAT OBSERVATIONAL EQUIVALENCE DOES AND DOES NOT MEAN FOR DECISIONS
+
+If h ~_Π h' but their loss profiles differ, the permitted observations cannot discriminate between them by differences in the full observation law, even though the preferred action may depend on which hypothesis is true.
+
+A decision can still be made using an explicit rule, such as expected loss under a stated prior, minimax loss, a robust constraint, or external evidence. Such a decision is a choice under uncertainty; it is not empirical identification of the true hypothesis.
+
+Proposition 2: no data-only resolution within an exact protocol-equivalence class. Let h ~_Π h', and let φ be a measurable test based on the observed history and internal randomization independent of h. Then φ has the same distribution under h and h'. In particular, its rejection probability is equal under the two hypotheses.
+
+Proof. Since the full-history laws are equal and the test applies the same measurable rule and h-independent randomization, its induced distribution is equal under both hypotheses. QED.
+
+In a dominated formulation where likelihoods are defined, equal full-history laws imply a likelihood ratio of 1 almost surely for the two hypotheses on the common support. For hypotheses h,h' with μ(h)>0 and μ(h')>0, posterior odds therefore equal prior odds on histories where the posterior odds are defined, equivalently almost surely under the relevant prior-predictive law. This likelihood-ratio statement should not be used where the required domination or likelihood ratio is undefined.
+
+This result does not prohibit a decision. It prohibits claiming that the permitted observations empirically selected one hypothesis over another when their full observation laws are identical.
+
+5. VALUE OF SAMPLE INFORMATION
+
+An information score and a decision-value score answer different questions. Information can change beliefs without changing the ranking of actions. An experiment can also have modest generic information value yet be decision-relevant if it changes a high-consequence action.
+
+The following EVSI result applies only to state-based loss L(a,h).
+
+5.1. Assumptions
+
+(A1) μ is a proper prior probability measure on (H,𝓗).
+
+(A2) For every a∈A, L(a,·) is measurable, and L is jointly measurable as specified in Section 1. Either (i) L is bounded below by a finite constant and the relevant risks are well-defined, or (ii) use the following integrability condition: if A is countable, require L(a,·) to be μ-integrable for every a∈A; if A is uncountable, require a single μ-integrable envelope M:H→[0,∞) such that |L(a,h)|≤M(h) for every a∈A and h∈H. In case (ii), the envelope ensures that all posterior risks are finite on one common m_e-full-measure set, rather than on action-dependent full-measure sets. Weaker conditions may be used only if the common-set and measurability/selection requirements needed to define the pointwise infimum are stated explicitly.
+
+(A3) For each experiment e, P^e is the measurable Markov kernel specified in Section 1, and the prior-predictive measure is m_e(B)=∫_H P_h^e(B) μ(dh). Assume (H,𝓗) is standard Borel, which is a standard sufficient condition for existence of a regular conditional posterior μ(·|d,e) under the prior-observation joint law. Requiring (D_e,𝓓_e) to be standard Borel as well is a convenient sufficient assumption, not a claim of necessity. Other measurable-space settings are permitted only if the required joint law and regular conditional distribution are separately guaranteed.
+
+(A4) The posterior-risk infimum
+
+d ↦ inf_{a∈A} ∫ L(a,h) μ(dh|d,e)
+
+is measurable for integration, and measurable ε-optimal decision rules exist for every ε>0 under the stated objective (or another explicit condition ensures that the integral of pointwise infima equals the infimum over measurable decision rules). Sufficient conditions may include countable A with measurable risks, or appropriate measurable-selection/standard-Borel conditions. If only universal measurability is available, expectations are taken under the completed predictive measure.
+
+The measurable ε-optimal-rule condition is not needed for the inequality R_e(μ)≤R(μ) when R_e is defined as the integral of measurable pointwise posterior-risk infima and the stated integrability conditions hold. It is included to justify interpreting that integral as the infimum over admissible measurable decision rules, or to support the relevant equality between those two formulations. Do not use the pointwise-infimum and measurable-policy formulations interchangeably without the corresponding measurability or selection justification.
+
+(A5) After observing d, the decision-maker may choose any action in the same set A.
+
+(A6) R(μ) is finite, and R_e(μ)>−∞ when EVSI is required to be a finite real difference. If R_e(μ)=−∞ is permitted under an extended-real convention, define EVSI(e)=+∞ rather than leave an indeterminate expression.
+
+5.2. Definitions
+
+R(μ) = inf_{a∈A} ∫_H L(a,h) μ(dh).
+
+R_e(μ) = ∫_{D_e} [ inf_{a∈A} ∫_H L(a,h) μ(dh|d,e) ] m_e(dd).
+
+EVSI(e) = R(μ) − R_e(μ).
+
+For finite or countable H, the integrals reduce to sums where appropriate. Use a minimum only when attainment is established; otherwise use an infimum.
+
+5.3. Proposition 3: nonnegativity of EVSI
+
+Under (A1)–(A6), with the measurable-rule/selection condition in (A4) and the stated finite or extended-real convention in (A6), R_e(μ) ≤ R(μ), so EVSI(e)≥0.
+
+Proof. Fix any a₀∈A. For m_e-almost every d, the posterior infimum is no greater than the posterior risk of a₀. Integrating and applying the posterior disintegration identity gives
+
+R_e(μ) ≤ ∫_{D_e}∫_H L(a₀,h) μ(dh|d,e)m_e(dd)
+= ∫_H L(a₀,h) μ(dh).
+
+Taking the infimum over a₀ yields R_e(μ)≤R(μ). The stated boundedness/integrability and finiteness conditions ensure the difference is well-defined. QED.
+
+If the post-observation action set is smaller than A, if the risks are not well-defined, or if loss depends directly on observations, this proposition is not asserted. In particular, for L(a,d,h), EVSI must be defined against an explicit reference policy/objective and proved separately.
+
+If every action has infinite expected loss, R and R_e may both be infinite, in which case EVSI as their difference is undefined.
+
+If deterministic experiment cost C(e) is included in a one-step decision, EVSI(e)−C(e) is a net-value criterion only when loss and cost are commensurable and the cost timing/accounting is consistent. It is a one-step criterion, not a substitute for a full sequential policy comparison.
+
+6. FINITE BUDGETS AND STOPPING
+
+6.1. Scope and objective
+
+Let B be a finite experimental budget and let the admissible experiment sequences/policies be defined by the budget and other stated constraints. The operative stopping comparison in this section is for the expected-loss criterion only.
+
+At a given observable history, let δ be an admissible future policy that chooses subsequent experiments, a terminal time, and a terminal action, possibly using internal randomization independent of h. Define
+
+J(δ) = expected terminal decision loss + expected remaining experiment costs,
+
+where expectation is under the posterior/current uncertainty model at the current history. Costs already paid are sunk costs and are excluded. If costs are random or discounted, specify the expectation and discounting convention. Loss and costs must be in commensurable units.
+
+Define:
+
+D_stop = admissible policies that stop at the current history and choose a terminal action.
+
+D_cont = admissible policies that continue by taking at least one further experiment with probability 1 before terminating. A policy that randomizes between stopping now and continuing is a mixed policy and need not belong to either pure class.
+
+Both classes must use the same loss function, uncertainty model, remaining-cost convention, budget constraints and other feasibility rules. A continuation policy includes future observations, later experiment choices, terminal action, and all remaining costs.
+
+6.2. Termination and empty classes
+
+Require every admissible policy to terminate almost surely after finitely many experiments. A finite budget alone does not guarantee this if experiment costs can approach zero. A hard per-trajectory budget together with deterministic costs c(e)≥c_min>0, or a uniform positive lower bound that holds almost surely on every selected experiment cost, implies a finite bound on the number of experiments. Under an expected-cost budget E[Σ cost]≤B and a uniform almost-sure lower bound c_min>0 on each performed experiment, E[N]≤B/c_min and hence N<∞ almost surely, although no uniform deterministic bound on N follows. Without such a positive lower bound, an expected budget or random costs do not by themselves imply finite termination; state the termination condition explicitly.
+
+Use the convention inf ∅ = +∞. Define
+
+V_stop = inf_{δ∈D_stop} J(δ),
+
+V_continue = inf_{δ∈D_cont} J(δ).
+
+Let Δ be the global admissible policy class and assume D_stop∪D_cont⊆Δ, with D_stop and D_cont the pure stopping and pure continuation subclasses. For the expected-loss objective, if every policy in Δ is either in one of these classes or is an admissible random mixture of them, and the objective is linear under such mixtures, then inf_{δ∈Δ}J(δ)=min(V_stop,V_continue): mixtures cannot improve on the smaller component infimum. Do not describe D_stop and D_cont as a partition of Δ when stop/continue mixtures are admissible. If no experiment is feasible, D_cont is empty and stopping is mandatory. If stopping is prohibited by the declared rules, D_stop is empty and V_stop=+∞.
+
+6.3. Operational infimum rule
+
+Compare the infimal values:
+
+• If V_stop < V_continue, the stopping class has the lower infimal value.
+• If V_continue < V_stop, the continuation class has the lower infimal value.
+• If V_stop = V_continue, both classes have the same infimal value; compare attainment status as specified below.
+
+Operational convention and attainment reporting:
+
+(a) If exactly one class attains its infimum, prefer that class, because it contains a policy attaining the common global infimal value.
+
+(b) If both classes attain their infima, both contain globally optimal policies, and either class may be selected.
+
+(c) If neither class attains its infimum, no policy in either class is optimal: no policy attains the common global infimal value. An operational choice between classes is an external convention, not a mathematical tie-break for an optimum. Report the infimal value and, when the common infimum is finite and the chosen class is nonempty, provide an ε-optimal policy with its achieved value; do not describe it as optimal.
+
+This tie-breaking rule presupposes that attainment status is known. It does not provide a method for deciding attainment and does not guarantee that an optimal policy exists. The values V_stop and V_continue are infimal values; they must not be described as attained minima unless attainment has been proved. Unless stated otherwise, the attainment cases below concern nonempty policy classes and finite real infimal values. Under the convention inf ∅=+∞, an empty class does not attain its infimum. If a nonempty class has J(δ)=+∞ for every δ, its extended-real infimum +∞ is attained in the formal extended-real sense, but no finite-value optimum exists. Cases involving ±∞ must therefore be reported separately; the usual ε-optimal finite-value statement applies only to a nonempty class with a finite infimum.
+
+If V_continue < V_stop, the definition of infimum guarantees that there exists a feasible continuation policy δ with J(δ)<V_stop, even if V_continue is not attained. This proves that some continuation policy beats every stopping policy; it does not prove that an optimal continuation policy exists.
+
+If V_stop < V_continue, the analogous statement holds: some stopping policy has value below V_continue, even if V_stop is not attained. Thus the comparison identifies the better policy class at the level of infimal values, but does not automatically provide a policy attaining the global infimum.
+
+6.4. Attainment and global optimality
+
+• If V_stop < V_continue and V_stop is attained, an optimal stopping policy exists.
+• If V_stop < V_continue and V_stop is not attained, no globally optimal policy exists: the global infimum is V_stop and no policy in the lower-valued class attains it.
+• If V_continue < V_stop and V_continue is attained, an optimal continuation policy exists.
+• If V_continue < V_stop and V_continue is not attained, no globally optimal policy exists.
+• If V_stop = V_continue, attainment in either class yields a globally optimal policy in that class. If both are attained, both classes contain an optimal policy. If neither is attained, no global optimum exists.
+• Whenever a class infimum is not attained, report the infimal value and non-attainment explicitly. An ε-optimal policy may exist by the definition of infimum when the class is nonempty and the infimum is finite, but it is not an optimal policy.
+
+These statements assume the infima are well-defined and that the global expected-loss policy class has the mixture property specified in Section 6.2. For a non-linear robust objective, the effect of mixtures must be analysed separately.
+
+6.5. Root versus sequential optimality
+
+The comparison above concerns optimality at the current/root history. It does not automatically establish optimality at every possible future history, especially histories of probability zero under the current prior or selected policy. Sequential optimality requires appropriate Bellman/continuation conditions at the relevant histories and additional assumptions sufficient for the recursion.
+
+6.6. Randomization
+
+For the expected-loss criterion, a randomized mixture of policies has value equal to the average of the component values when the mixture is admissible and the objective is linear in the induced distribution. Therefore randomization cannot yield a value below the infimum of the component policy values. This statement does not carry over unchanged to worst-case criteria.
+
+6.7. One-step versus multi-step evaluation
+
+For deterministic cost C(e), the policy “perform e, then stop and choose a measurable ε-optimal post-experiment decision rule” is a member of D_cont when feasible. For each feasible e and ε>0, provided R_e is the infimum over admissible measurable post-experiment rules,
+
+V_continue ≤ R_e(μ) + C(e) + ε.
+
+Letting ε decrease to zero gives V_continue ≤ R_e(μ)+C(e), and taking the infimum over feasible e gives the displayed one-step bound. If R_e is defined only as an integral of pointwise infima, the equality with the infimum over measurable rules requires the selection condition in §5.1(A4).
+
+Therefore, the test EVSI(e)≤C(e) for every individual experiment only establishes that no evaluated one-step continuation beats the pre-experiment Bayes risk. It is not equivalent to the full multi-step stopping comparison. Complementary experiments may jointly be valuable even if each experiment alone has nonpositive net value.
+
+Complementary-experiment example. Let θ=(x,y) be uniform on {(0,0),(0,1),(1,0),(1,1)}. The available action a∈{0,1} has loss 0 if a=x XOR y and 1 otherwise. Initially R=1/2. Experiment e₁ reveals x and e₂ reveals y. Either experiment alone leaves x XOR y uniform, so each has EVSI 0. Together they identify x XOR y and reduce terminal risk to 0, giving joint EVSI 1/2. If each experiment costs c with 0<c<1/4, each one-step net value is −c, but the two-experiment plan has net value 1/2−2c>0.
+
+6.8. Non-attainment example
+
+In this example, θ is the state variable h and H=[0,1). In §6.7, the state variable is θ=(x,y) with H={(0,0),(0,1),(1,0),(1,1)}; these are separate examples with different state spaces.
+
+For a concrete example, let θ∼Uniform[0,1), let A=[0,1], and let terminal loss be L(a,θ)=4|a−θ|. Initially, the minimum expected terminal loss is 1.
+
+Write B₁,B₂,… for the binary digits of θ, using a fixed convention on the measure-zero set of numbers with two binary expansions. Experiment k reveals digit B_k and costs 4^(−k). Digits must be revealed in order: digit k is available only after digits 1,…,k−1 have been revealed. No other information-acquisition actions are allowed in this example. Set the hard budget to B=1/3. For every finite stopping time N, the total cost is (1−4^(−N))/3<1/3, so the budget does not exclude any finite stopping policy. Revealing infinitely many digits would cost exactly 1/3 and yield terminal loss 0, hence objective 1/3, but that policy is excluded by the declared finite-stopping-time class. The non-attainment conclusion therefore depends on that class restriction; if infinite revelation were admitted, the infimum would be attained.
+
+The admissible policy class consists of stopping times N that are finite almost surely with respect to the filtration generated by the observed digit prefixes, optionally augmented by auxiliary randomization independent of θ. At termination, the policy chooses a measurable terminal action based on the revealed prefix and any permitted independent randomization. The cost of a policy that stops at N is the sum ∑_{k=1}^N 4^(−k). Policies that reveal infinitely many digits are excluded.
+
+Conditional on any revealed prefix of length n, θ is uniform on an interval of length 2^(−n). The unique terminal action minimizing conditional expected absolute-error loss is the midpoint of that interval, and the resulting conditional expected terminal loss is 2^(−n).
+
+For any admissible stopping time N and a terminal action that is conditionally optimal, the expected total objective is therefore
+
+J(N) = E[2^(−N) + ∑_{k=1}^N 4^(−k)]
+     = E[2^(−N) + (1−4^(−N))/3]
+     = 1/3 + E[g(N)],
+
+where
+
+g(n) = 2^(−n) − 4^(−n)/3.
+
+For every finite integer n≥0, g(n)>0. Since N is finite almost surely, g(N)>0 almost surely, and hence E[g(N)]>0. Therefore J(N)>1/3 for every admissible policy with a conditionally optimal terminal action. Any other terminal action has expected terminal loss at least as large, and a non-optimal terminal action cannot improve the objective.
+
+On the other hand, the deterministic policy that stops after n digits has value
+
+V_n = 2^(−n) + ∑_{k=1}^n 4^(−k)
+    = 2^(−n) + (1−4^(−n))/3.
+
+The sequence V_n decreases strictly to 1/3. Thus the infimum over the admissible finite-stopping-time class is exactly 1/3, but no admissible policy attains it. The stopping policy N=0 has value 1, so V_stop=1 and V_continue=1/3 in this example.
+
+This non-attainment conclusion is specific to the declared policy class, sequential digit-revelation protocol, costs, and terminal loss above. It is not a general theorem about arbitrary experiments or arbitrary stopping problems.
+
+6.9. Limitations of the stopping result
+
+The stopping comparison is valid only if the objective, model, feasible policy classes, budget, loss function and cost accounting are consistently specified. It can fail to answer the intended real-world question if the model omits relevant hypotheses, the prior is unjustified, the loss omits important consequences, the observation process is misspecified, costs are mismeasured, or the admissible policy class is incomplete.
+
+A separate identification-based stopping rule may be appropriate when the target is a parameter or hypothesis rather than an action. Such a rule must specify the target, tolerance, uncertainty criterion and feasible set. If the budget is exhausted before the criterion is met, report that identification was not achieved. Decision adequacy and scientific identification are different objectives.
+
+6.10. Robust/minimax criterion — separate, conditional formulation
+
+A robust criterion is not interchangeable with the expected-loss criterion. One possible static robust value is
+
+V_x^rob = inf_{δ∈D_x} sup_{Q∈Γ} E_Q[L_terminal + C_remaining],
+x ∈ {stop, continue},
+
+where the uncertainty set Γ, policy class D_x, terminal-loss convention, and treatment of costs are explicitly stated. The supremum is over the total loss-plus-cost objective, not automatically the sum of separate suprema. For example, if two states have (loss,cost) pairs (1,0) and (0,1), the supremum of loss plus cost is 1, while the sum of the separate suprema is 2.
+
+In the displayed Γ-minimax formulation, Γ is a set of probability measures on the relevant state/history space, so sup_{Q∈Γ} E_Q[·] is well-defined. For a frequentist state-wise minimax criterion, use sup_{h∈H} J_h(δ), where J_h(δ) is the policy’s expected objective under state h; do not use Γ for both objects unless a mapping from states to probability measures is explicitly defined. The same distinction applies to the later functional F(δ). Minimax loss and minimax regret are different objectives. The policy class must state whether randomization is allowed: with losses L(a₁,·)=(0,1) and L(a₂,·)=(1,0), each pure action has worst-case loss 1, whereas the 50/50 randomized mixture has worst-case expected loss 1/2.
+
+If uncertainty sets are updated after observations, the update rule must be specified. Rectangularity or a suitable time-consistency condition is required for many dynamic robust-programming/Bellman recursions, but is not a universal prerequisite for merely defining a static robust objective. Without suitable conditions, an ex-ante robust value and a sequentially re-optimized value can differ.
+
+Example of a robust value-recursion discrepancy under non-rectangular uncertainty (for a specified pure-action class). Let the state be (x,y)∈{0,1}² and Γ={P₁,P₂}, where P₁ is uniform on {(0,0),(1,1)} and P₂ is uniform on {(0,1),(1,0)}. Thus x is uniform under both measures, while y=x under P₁ and y=1−x under P₂. Observe x and then guess y, with 0–1 loss. Restrict terminal guesses to deterministic actions and do not allow randomization, both ex ante and after observing x.
+
+An ex-ante policy is a deterministic function f:{0,1}→{0,1}. The constant policies f(x)=0 and f(x)=1 each have error probability 1/2 under both P₁ and P₂. The policies f(x)=x and f(x)=1−x have worst-case error 1. Therefore the ex-ante minimax value over all deterministic policies is 1/2. After either observed value x, however, the conditional distributions retained from P₁ and P₂ assign y to opposite values. Either deterministic guess then has worst-case conditional error 1. Re-optimizing conditionally thus yields value 1 at each history, although the ex-ante value is 1/2. This is a discrepancy between the ex-ante minimax value and the value obtained by conditionally re-optimizing over pure guesses after each observation under the stated prior-by-prior conditioning rule. It demonstrates failure of that value recursion for this non-rectangular uncertainty set and pure-action class; it does not, by itself, demonstrate a reversal of a previously selected plan or a failure of a stop/continue rule.
+
+The example depends on excluding randomized guesses. If a 50/50 randomized guess is admissible, its error is 1/2 under each conditional model too, so this particular discrepancy disappears. The example therefore illustrates why the action/randomization class and the uncertainty-set update rule must be stated; it is not a universal prescription for every robust updating scheme.
+
+For completeness, the ex-ante randomized minimax lower bound is also 1/2. Let q_x=P(guess=1 | observed x) for any randomized guessing rule. Conditional on each x, the sum of the error probabilities under P₁ and P₂ is 1, because P₁ assigns y=x and P₂ assigns y=1−x. Averaging over the common uniform marginal distribution of x gives err(P₁)+err(P₂)=1. Consequently, max{err(P₁),err(P₂)}≥1/2 for every randomized rule. The rule that guesses 0 or 1 with equal probability independently of x attains error 1/2 under both measures. The ex-ante randomized minimax value is therefore exactly 1/2, matching the conditional randomized value.
+For the Γ-minimax case, define F(δ)=sup_{Q∈Γ}E_Q[L_terminal+C_remaining], with Γ a set of probability measures and the conditioning/updating convention fixed. For the state-wise frequentist minimax case, instead define F(δ)=sup_{h∈H}J_h(δ), where J_h(δ) is the expected total objective under state h. If the global class is exactly D_stop∪D_cont, then inf_{δ∈D_stop∪D_cont}F(δ)=min(inf_{δ∈D_stop}F(δ), inf_{δ∈D_cont}F(δ)); this identity for a union does not require interchanging infimum and supremum. However, if the global class Δ also admits randomized mixtures across stopping and continuation policies, the robust functional F is generally convex rather than linear in the mixture, and a mixture can have lower worst-case value than either pure component. For example, pure policies with loss vectors (0,1) and (1,0) each have worst-case loss 1, while their 50/50 mixture has worst-case expected loss 1/2. Therefore V^rob=min(V_stop^rob,V_continue^rob) is justified only after the global policy class and treatment of mixtures are specified.
+
+Concrete stop/continue mixture instance:
+
+Let the state space be S={s₁,s₂} and let Γ={δ_s₁,δ_s₂}, where δ_s denotes the point-mass probability measure at state s. There are two terminal actions a₁,a₂ with losses L(a₁,s₁)=0, L(a₁,s₂)=1, L(a₂,s₁)=1, and L(a₂,s₂)=0.
+
+The stopping class contains the pure policy that stops immediately and chooses a₁. Its loss vector across (s₁,s₂) is (0,1), so its worst-case expected loss over Γ is 1.
+
+The continuation class contains a policy that performs a feasible, zero-cost, non-informative experiment and then chooses a₂. Its loss vector is (1,0), so its worst-case expected loss over Γ is also 1.
+
+Suppose root randomization between these two policies is admissible, but randomization of the terminal action within either pure class is not admissible. A 50/50 root mixture then has expected loss 1/2 at each state and worst-case expected loss 1/2. Thus the mixture has strictly lower robust value than either pure component.
+
+This example establishes the claimed possibility only for the stated policy and randomization classes. If terminal-action randomization is already admissible within the stopping class, the stopping class itself can attain worst-case value 1/2, and the example no longer demonstrates a strict improvement from mixing across stop and continue. The policy class must therefore be specified before drawing a conclusion about the value of mixtures.
+
+7. CONDITIONAL RESULTS
+
+Result A. If h ~_Π h', no measurable test based only on the full observable history of any admissible protocol in Π has a different distribution under h and h'.
+
+Result B. If h ~_L h', moving prior mass between h and h' in the discrete setup of Proposition 1 leaves the pre-data expected loss of every action unchanged. It does not generally preserve EVSI or stopping values. Such invariance is guaranteed by the additional sufficient conditions in Proposition 1b, including protocol equivalence, equal expected policy costs, common policy feasibility, and a well-defined expected-loss objective. These conditions are sufficient for the stated invariance result; they are not asserted to be necessary in every model. Invariance may also hold in particular cases where one or more of these conditions fail, but such cases require a separate argument. For EVSI of a specified experiment e, the conditions must also justify representing R_e as an infimum over admissible measurable decision rules (or provide the corresponding measurable-selection equality), and must include the single-run protocol for e in Π or assume h~_e h' directly. Proposition 1b's prior-mass-transfer statement is for the discrete-prior setup; no general continuous-prior mass-transfer result is asserted.
+
+Result C. If protocol-equivalent hypotheses have different loss profiles, a decision may still be made using an explicit uncertainty-aware rule, but it must not be described as data-based identification between those hypotheses.
+
+Result D. Under assumptions (A1)–(A6), including the measurable-rule/selection and extended-real conventions, EVSI is nonnegative. If the post-experiment Bayes risk R_e(μ) equals the pre-experiment Bayes risk R(μ), then EVSI(e)=R(μ)−R_e(μ)=0 under the specified loss and model.
+
+Result E. The stopping comparison is conditional on a sufficiently specified hypothesis/model class, loss function, observation process, policy class, termination condition, and consistent cost accounting. The expected-loss operational comparison uses V_stop and V_continue as defined in Section 6. A robust formulation must separately specify the robust objective, uncertainty set, policy/randomization class and update rule. Rectangularity or an appropriate time-consistency condition is required when the chosen robust analysis relies on dynamic programming/Bellman recursion, not merely to define every static robust objective.
+
+8. NON-IMPLICATIONS
+
+• Observational equivalence under E or Π does not imply equivalence under every possible experiment or protocol.
+• Equal single-experiment marginals do not imply equal joint laws for repeated or dependent observations.
+• Failure to identify a hypothesis does not automatically make every decision impossible.
+• A decision defensible under a stated prior or minimax criterion does not prove the selected hypothesis true.
+• More information does not guarantee a better net decision when its acquisition cost or the objective is ignored.
+• Zero EVSI under one loss does not imply that an observation has no scientific value under every other objective.
+• A finite budget does not, by itself, exclude infinitely many experiments or guarantee attainment of an optimum.
+• A posterior preference is not empirical discrimination when the full observation laws are identical.
+• Decision-relevant equivalence depends on the action set and loss function.
+• Loss equivalence alone does not imply invariance of EVSI or stopping values.
+• A one-step EVSI-versus-cost test is not equivalent to a multi-step stopping rule.
+• Exact-equivalence results do not establish approximate equivalence or weak distinguishability; those require quantitative definitions and separate bounds.
+• A static robust criterion does not automatically justify a dynamically consistent Bellman recursion.
+
+9. AUDIT CHECKLIST
+
+Before applying this framework, record:
+
+1. The hypothesis/state space and known omissions.
+2. The observation laws for each experiment, including joint or conditional laws when observations may be dependent.
+3. The declared experiment set E and protocol class Π.
+4. Whether the claim concerns ~_e, ~_E, or ~_Π.
+5. The available action set and complete loss function; state whether loss depends on observations or history.
+6. The prior or robust uncertainty set and its justification.
+7. Whether equivalence is exact or approximate.
+8. Whether uncertainty changes action rankings or only beliefs.
+9. Experiment costs, whether costs depend on h, and the treatment of sunk and remaining costs.
+10. Whether losses and costs are commensurable and how random/discounted costs are treated.
+11. The exact definition of R, R_e, EVSI and any reference policy.
+12. Measurability, integrability, posterior existence and attainment assumptions.
+13. The stop-now and continuation policy classes, including whether either class can be empty.
+14. The termination condition and whether infinitely many experiments are excluded.
+15. Whether the stopping claim is root-optimal or sequentially optimal.
+16. Whether the criterion is expected-loss, minimax, Γ-minimax, minimax regret, or another explicitly defined objective.
+17. For robust sequential reasoning, the uncertainty-set update rule and any required rectangularity/time-consistency conditions.
+18. The consequences of model misspecification and omitted hypotheses.
+19. The tolerance and metric for any approximate-identification claim.
+20. The exact scope of the conclusion and all external assumptions on which it depends.
+
+10. FINAL AUDIT CONCLUSION
+
+A finite experiment program should distinguish at least four outcomes:
+
+(i) hypotheses are empirically separated within the declared design;
+
+(ii) hypotheses remain observationally equivalent but are decision-equivalent under the stated action set and loss;
+
+(iii) hypotheses remain observationally equivalent while their loss profiles differ, requiring an explicit uncertainty-aware decision rule, external evidence, or a more discriminating experiment; or
+
+(iv) hypotheses are not exactly equivalent but are distinguishable only below a specified tolerance.
+
+Case (iv) is outside the exact-equivalence results here and requires a quantitative definition of approximate equivalence and its own bounds.
+
+This framework prevents two opposite errors: treating unresolved model identity as making every decision impossible, and treating a practical decision as proof of which model is true.
+
+The proposed revision gives conditional results for single-experiment and protocol-level observational equivalence, decision-relevant loss equivalence, expected value of sample information, and stopping under a declared expected-loss objective. It explicitly separates the static robust criterion from dynamic robust recursion. It does not establish a physical observation model, empirical result, unique optimal experiment, complete model class, or universally valid stopping rule for OMEGA-ISOP.
+
+Frozen Core: unchanged.
+CE-V promotion: none.
+RL registration: not performed or verified.
+Canonical acceptance: not claimed.
+Independent review status: the independent mathematical review of v3.3 dated 2026-10-29 reported MINOR ISSUES and findings A36V3-01 through A36V3-04, plus editorial clarifications. This working revision incorporates targeted responses to those findings. The responses in this revision have not yet received a subsequent independent review; this status does not constitute canonical acceptance. The earlier review verdict applies only to the reviewed v3.2 text under its stated assumptions and must not be treated as automatic approval of v3.3.
+
+END OF PROPOSED REVISION v3.3
