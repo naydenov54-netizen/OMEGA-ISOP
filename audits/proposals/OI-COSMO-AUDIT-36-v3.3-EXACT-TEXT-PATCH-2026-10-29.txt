@@ -192,3 +192,8 @@ Governance after this addendum:
 Frozen Core unchanged. No CE-V promotion. No RL registration. Proposal remains non-canonical and unmerged. The corrections recorded here have not yet received a subsequent independent review.
 
 END OF POST-REVIEW CORRECTION ADDENDUM
+
+
+Supplement to A36V3-03 — extended-real edge cases:
+
+§6.3 now states that attainment comparisons ordinarily concern nonempty policy classes and finite real infimal values. Under inf ∅=+∞, an empty class does not attain its infimum. If a nonempty class has J(δ)=+∞ for every policy, its extended-real infimum is formally attained, but it is not a finite-value optimum. Cases involving ±∞ must be reported separately; ε-optimal finite-value statements require a nonempty class and finite infimum.
