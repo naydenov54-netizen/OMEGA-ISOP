@@ -424,6 +424,6 @@ Frozen Core: unchanged.
 CE-V promotion: none.
 RL registration: not performed or verified.
 Canonical acceptance: not claimed.
-Independent external review of this v3.1: not yet performed.
+Independent review status: one review report was received and used to prepare v3.2. A second independent review of v3.2 has not been performed.
 
-END OF PROPOSED REVISION v3.1
+END OF PROPOSED REVISION v3.2
