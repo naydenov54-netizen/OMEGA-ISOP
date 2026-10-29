@@ -1,0 +1,56 @@
+OMEGA-ISOP / M3.2
+AUDIT #36 — MATHEMATICAL REVIEW OF PROPOSED REVISION v3.1
+
+Date: 2026-10-29
+Status: INTERNAL MATHEMATICAL REVIEW NOTE — NOT AN INDEPENDENT EXTERNAL REVIEW
+Scope: Targeted review of the v3.1 proposed revision, including the corrected robust/minimax example and cross-checks of the main conditional results.
+
+1. OVERALL ASSESSMENT
+
+The principal expected-loss results appear mathematically sound under the assumptions stated in the document. This is a conditional assessment of the written framework, not evidence that OMEGA-ISOP has a validated physical observation model, complete hypothesis space, justified prior, empirical support, or a universally applicable stopping rule.
+
+2. CORRECTION MADE TO SECTION 6.10
+
+The earlier example compared an action fixed before observing x with a conditional decision after observing x. That comparison changed the timing/action class and did not establish the claimed dynamic inconsistency.
+
+The v3.1 example now specifies:
+• Γ contains two joint distributions P₁ and P₂, with x uniform under both, y=x under P₁, and y=1−x under P₂.
+• The policy class permits deterministic contingent policies ex ante but excludes randomization both ex ante and after observing x.
+• A constant deterministic policy has worst-case ex-ante error 1/2, which is the ex-ante minimax value.
+• After either x is observed, each deterministic guess has worst-case conditional error 1 under the specified update that retains both conditional models.
+• The example explicitly states that allowing a 50/50 randomized guess reduces the conditional worst-case error to 1/2 and removes this particular discrepancy.
+
+With these qualifications, the example demonstrates dynamic inconsistency for the specified non-rectangular uncertainty set and pure-action class. It must not be generalized to randomized policies or other update rules without further argument.
+
+3. OTHER CROSS-CHECKS
+
+A. Observational equivalence:
+The distinctions among single-experiment equivalence, equivalence across E, and protocol equivalence are coherent. Equal single-observation marginals do not generally imply equal joint history laws. The conditional-kernel statement is appropriately framed as sufficient subject to reachability, almost-sure, measurability, and termination conditions.
+
+B. Decision-relevant equivalence:
+Proposition 1 correctly proves invariance of pre-data expected action loss when prior mass is shifted between loss-equivalent states in the stated discrete setting. The counterexample correctly shows that loss equivalence alone does not preserve EVSI.
+
+C. Proposition 1b:
+The policy-value argument is valid under the stated equal full-history laws, equal loss profiles, equal expected costs, and common policy/feasibility classes. v3.1 now clarifies that a claim about R_e for a specified experiment requires that the protocol class include that single-experiment protocol, or that single-experiment equivalence be assumed directly.
+
+D. EVSI:
+The nonnegativity proof is valid under the stated posterior existence, measurability, common action-set, bounded-below/integrability, and finiteness conditions. The document correctly excludes objectives with direct observation-dependent loss unless separately defined and proved.
+
+E. Stopping:
+The stop/continue comparison is valid at the infimum level when the policy universe is partitioned by the two classes, the objective and cost accounting are aligned, and termination is assured. The text correctly distinguishes class-value comparisons from attainment and root optimality from sequential optimality. The non-attainment example is internally consistent: r_n=2^{-n} plus cumulative costs sum_{k=1}^n 4^{-k} approaches 1/3 from above without attaining it at finite n.
+
+F. Robust criteria:
+The document correctly separates static robust objectives from dynamic programming claims and warns that infimum/supremum ordering and uncertainty-set updates need explicit justification.
+
+4. REMAINING LIMITATIONS
+
+• This is an internal review, not an independent external mathematical audit.
+• The results remain conditional on model completeness, measurability, well-defined risks, policy classes, cost conventions, and the chosen uncertainty criterion.
+• The framework does not itself specify or validate a physical observation model for OMEGA-ISOP.
+• No CE-V promotion, RL registration, canonical acceptance, or Frozen Core change is implied.
+
+5. RECOMMENDATION
+
+Keep v3 as an unchanged historical proposal. Use v3.1 as the corrected candidate for independent review. Do not merge it into main or describe it as canonical until the intended review and governance steps have occurred.
+
+END OF MATHEMATICAL REVIEW NOTE
