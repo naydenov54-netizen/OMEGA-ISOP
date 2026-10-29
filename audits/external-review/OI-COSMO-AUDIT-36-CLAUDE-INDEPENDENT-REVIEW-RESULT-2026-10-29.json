@@ -1,0 +1,277 @@
+{
+  "audit_id": "OMEGA-ISOP-M3.2-AUDIT-36-v3.1",
+  "review_type": "independent_mathematical_review_report_received_from_user",
+  "received_date": "2026-10-29",
+  "reviewed_material": [
+    "baseline_audit_36",
+    "proposed_revision_v3.1"
+  ],
+  "overall_status": "MATERIAL_ISSUES",
+  "baseline_status": "MATERIAL_ISSUES",
+  "v3_1_status": "VALID_WITH_ASSUMPTIONS",
+  "findings": [
+    {
+      "id": "F001",
+      "severity": "MAJOR",
+      "category": "ERROR",
+      "location": "Baseline Part A §4 Proposition 2 and §7 Result A",
+      "status": "FALSE_AS_WRITTEN",
+      "confidence": 0.95,
+      "summary": "Single-experiment marginal equivalence does not imply equality of repeated/joint observation laws.",
+      "repair": "Restrict to one non-adaptive run or use protocol-level equivalence."
+    },
+    {
+      "id": "F002",
+      "severity": "MAJOR",
+      "category": "MISSING_ASSUMPTION",
+      "location": "Baseline Part A §6",
+      "status": "NOT_ESTABLISHED",
+      "confidence": 0.9,
+      "summary": "Minimum/maximum formulations require attainment; a continuation infimum may not be attained.",
+      "repair": "Use infimum/supremum and state attainment separately."
+    },
+    {
+      "id": "F003",
+      "severity": "MAJOR",
+      "category": "MISSING_ASSUMPTION",
+      "location": "Baseline Part A §6 robust extension",
+      "status": "NOT_ESTABLISHED",
+      "confidence": 0.85,
+      "summary": "Expected-loss stopping logic cannot be transferred to robust criteria without separate definitions and proof.",
+      "repair": "Separate robust objective, uncertainty set, policy class, update rule, and dynamic assumptions."
+    },
+    {
+      "id": "F004",
+      "severity": "MINOR",
+      "category": "MISSING_ASSUMPTION",
+      "location": "Baseline Part A §5",
+      "status": "VALID_UNDER_ADDITIONAL_ASSUMPTIONS",
+      "confidence": 0.85,
+      "summary": "EVSI nonnegativity needs well-defined risks, posterior, measurability and integrability/extended-real conventions.",
+      "repair": "Use v3.2 §5.1 assumptions."
+    },
+    {
+      "id": "F005",
+      "severity": "MAJOR",
+      "category": "MISSING_ASSUMPTION",
+      "location": "v3.1 §1 and §5.1(A3)",
+      "status": "VALID_UNDER_ADDITIONAL_ASSUMPTIONS",
+      "confidence": 0.9,
+      "summary": "Measurability of h↦P_h^e(B) and h↦Law_h^π(B) is needed to construct joint/prior-predictive laws and posteriors.",
+      "repair": "Specify Markov kernels and standard-Borel or equivalent posterior-existence conditions."
+    },
+    {
+      "id": "F006",
+      "severity": "MAJOR",
+      "category": "MISSING_ASSUMPTION",
+      "location": "v3.1 §3.3 Proposition 1b",
+      "status": "VALID_UNDER_ADDITIONAL_ASSUMPTIONS",
+      "confidence": 0.9,
+      "summary": "Protocol equivalence does not cover an arbitrary policy unless every admissible policy induces a protocol in Π.",
+      "repair": "Add policy-to-protocol condition and h-independent measurable terminal decision rule."
+    },
+    {
+      "id": "F007",
+      "severity": "MAJOR",
+      "category": "AMBIGUITY",
+      "location": "v3.1 §3.3 same-likelihood sentence",
+      "status": "NOT_ESTABLISHED",
+      "confidence": 0.85,
+      "summary": "Equal likelihood of a past history preserves posterior odds but not future kernels or continuation values; root proof alone is insufficient.",
+      "repair": "Require conditional protocol equivalence after the history and prove a conditional result, or remove the broad claim."
+    },
+    {
+      "id": "F008",
+      "severity": "MINOR",
+      "category": "MISSING_ASSUMPTION",
+      "location": "v3.1 §3.3 and §5.2",
+      "status": "VALID_UNDER_ADDITIONAL_ASSUMPTIONS",
+      "confidence": 0.75,
+      "summary": "Equality between integrated pointwise posterior infimum and infimum over measurable decision rules needs measurable-selection/epsilon-optimality conditions.",
+      "repair": "Define post-experiment risk via measurable decision rules or state conditions ensuring equality."
+    },
+    {
+      "id": "F009",
+      "severity": "MINOR",
+      "category": "AMBIGUITY",
+      "location": "v3.1 §§6.1, 6.2, 6.4",
+      "status": "VALID_UNDER_ADDITIONAL_ASSUMPTIONS",
+      "confidence": 0.8,
+      "summary": "Pure stop/continue classes do not partition a universe that admits randomized mixtures; for expected loss mixtures cannot improve below the smaller class infimum.",
+      "repair": "Define pure D_stop/D_cont, global Δ and mixture convention explicitly."
+    },
+    {
+      "id": "F010",
+      "severity": "MINOR",
+      "category": "AMBIGUITY",
+      "location": "v3.1 §5.1(A3)",
+      "status": "AMBIGUOUS",
+      "confidence": 0.8,
+      "summary": "Standard-Borel conditions should identify the conditioned hypothesis space and observation space, not just say 'common setting'.",
+      "repair": "Require H standard Borel and D_e standard Borel, or equivalent regular-conditional-distribution conditions."
+    },
+    {
+      "id": "F011",
+      "severity": "MINOR",
+      "category": "MISSING_ASSUMPTION",
+      "location": "v3.1 §5.1(A2),(A6) and §5.3",
+      "status": "VALID_UNDER_ADDITIONAL_ASSUMPTIONS",
+      "confidence": 0.75,
+      "summary": "R_e may be −∞ under an extended-real loss convention, so EVSI may be +∞ rather than a finite difference.",
+      "repair": "Require R_e>−∞ for finite EVSI or explicitly allow extended-real EVSI."
+    },
+    {
+      "id": "F012",
+      "severity": "MINOR",
+      "category": "VALID_CONDITIONAL_RESULT",
+      "location": "v3.1 §§6.3–6.5",
+      "status": "VALID_UNDER_ADDITIONAL_ASSUMPTIONS",
+      "confidence": 0.85,
+      "summary": "The comparison is root-level; sequential implementation needs Bellman and measurable-selection conditions, and degenerate empty/infinite cases need scope.",
+      "repair": "Label root-level rule and state dynamic-programming assumptions for sequential use."
+    },
+    {
+      "id": "F013",
+      "severity": "MINOR",
+      "category": "MISSING_ASSUMPTION",
+      "location": "v3.1 §6.2",
+      "status": "VALID_UNDER_ADDITIONAL_ASSUMPTIONS",
+      "confidence": 0.8,
+      "summary": "A positive minimum cost plus finite budget ensures finite termination only with a hard pathwise budget and suitable deterministic/almost-sure cost bound.",
+      "repair": "State cost and budget conventions explicitly."
+    },
+    {
+      "id": "F014",
+      "severity": "MINOR",
+      "category": "VALID_CONDITIONAL_RESULT",
+      "location": "v3.1 §6.8",
+      "status": "VALID_UNDER_ADDITIONAL_ASSUMPTIONS",
+      "confidence": 0.85,
+      "summary": "The sequence decreases to 1/3 without attaining it at finite n; non-attainment depends on finite termination and the allowed experiment sequence.",
+      "repair": "Give the θ∼Uniform[0,1) bit-revelation realization and restrict to sequential prefix queries."
+    },
+    {
+      "id": "F015",
+      "severity": "MINOR",
+      "category": "AMBIGUITY",
+      "location": "v3.1 §6.10",
+      "status": "AMBIGUOUS",
+      "confidence": 0.85,
+      "summary": "The example gives ex-ante versus conditionally re-optimized value discrepancy for pure actions, not a plan reversal or stop/continue counterexample.",
+      "repair": "Describe as failure of the specified value recursion and define prior-by-prior conditional re-optimization."
+    },
+    {
+      "id": "F016",
+      "severity": "MINOR",
+      "category": "AMBIGUITY",
+      "location": "v3.1 §6.10 final paragraph",
+      "status": "AMBIGUOUS",
+      "confidence": 0.8,
+      "summary": "For an exact union of pure policy classes inf F equals the minimum of class infima; mixture-admissible robust classes can do better due to convexity.",
+      "repair": "Correct the union identity and explain the mixture effect."
+    },
+    {
+      "id": "F017",
+      "severity": "MINOR",
+      "category": "MISSING_ASSUMPTION",
+      "location": "v3.1 §2.4",
+      "status": "VALID_UNDER_ADDITIONAL_ASSUMPTIONS",
+      "confidence": 0.8,
+      "summary": "Kernel-equality condition needs induction by history length, positive-probability reachability for counterexamples, and non-anticipating consistency.",
+      "repair": "State induction, reachability and non-anticipation explicitly."
+    },
+    {
+      "id": "F018",
+      "severity": "MINOR",
+      "category": "VALID_CONDITIONAL_RESULT",
+      "location": "v3.1 §4 likelihood-ratio paragraph",
+      "status": "VALID_UNDER_ADDITIONAL_ASSUMPTIONS",
+      "confidence": 0.85,
+      "summary": "Equal history laws imply LR=1 almost surely; posterior-odds equality additionally requires positive prior masses and predictive support.",
+      "repair": "State μ(h)>0 and μ(h')>0 and almost-sure scope."
+    },
+    {
+      "id": "F019",
+      "severity": "MINOR",
+      "category": "AMBIGUITY",
+      "location": "v3.1 §3.3 limitations",
+      "status": "AMBIGUOUS",
+      "confidence": 0.8,
+      "summary": "Robust invariance over a set of priors is not defined by a single-prior mass move; a vague 'relevant' sentence is not a theorem.",
+      "repair": "Define a transformation on the prior set or remove the claim."
+    },
+    {
+      "id": "F020",
+      "severity": "MINOR",
+      "category": "VALID_CONDITIONAL_RESULT",
+      "location": "v3.1 §§3.2–3.3 supplementary counterexample",
+      "status": "VALID_AS_WRITTEN",
+      "confidence": 0.9,
+      "summary": "Single-experiment equivalence plus loss equivalence does not preserve EVSI under repeated performance; reported values are 1/2 and 1/4.",
+      "repair": "Optional explanatory remark."
+    },
+    {
+      "id": "F021",
+      "severity": "EDITORIAL",
+      "category": "EDITORIAL",
+      "location": "Whole packet",
+      "status": "AMBIGUOUS",
+      "confidence": 0.9,
+      "summary": "Notation overload (π prior/protocol), Proposition 1b numbering, and redundant cost condition create avoidable ambiguity.",
+      "repair": "Unify notation and proposition labels; remove genuinely redundant condition only after checking the cost model."
+    }
+  ],
+  "verified_calculations": {
+    "repeated_run_counterexample": {
+      "under_h": "d2=d1, d1~Bernoulli(1/2)",
+      "under_h_prime": "d1,d2 independent Bernoulli(1/2)",
+      "probability_equal_indicator": {
+        "under_h": 1,
+        "under_h_prime": 0.5
+      }
+    },
+    "mass_move_counterexample": {
+      "EVSI_mu_A": 0.5,
+      "EVSI_mu_B": 0
+    },
+    "repeated_run_evsi_counterexample": {
+      "EVSI_mu_A": 0.5,
+      "EVSI_mu_B": 0.25
+    },
+    "complementary_experiments": {
+      "single_experiment_EVSI": 0,
+      "joint_EVSI": 0.5,
+      "net_joint_value": "0.5 - 2c > 0 when 0<c<1/4"
+    },
+    "nonattainment": {
+      "V_n": "2^-n + (1 - 4^-n)/3",
+      "limit": 0.3333333333333333,
+      "finite_n_attains_limit": false
+    },
+    "robust_example": {
+      "ex_ante_deterministic_minimax": 0.5,
+      "post_observation_pure_action_worst_case": 1,
+      "randomized_fair_guess_value": 0.5
+    }
+  },
+  "priority_repairs": [
+    "Markov-kernel measurability and posterior-existence assumptions.",
+    "Connect every admissible policy to protocol class Π; remove unsupported same-likelihood continuation claim.",
+    "Specify measurable decision rules/selection conditions for posterior-risk representation.",
+    "Separate pure stopping/continuation classes from mixture-admissible global class.",
+    "Clarify robust value recursion and mixtures.",
+    "State hard budget/cost conditions and finite-termination restriction for non-attainment example.",
+    "Mark baseline claims as superseded by the proposal where applicable."
+  ],
+  "claims_not_established": [
+    "Physical validity or empirical support of OMEGA-ISOP",
+    "Completeness of the hypothesis/model class",
+    "Sequential optimality of the stopping rule without dynamic-programming assumptions",
+    "Canonical acceptance, CE-V promotion, or RL registration"
+  ],
+  "limitations": [
+    "The report states calculations were done by hand without external tools, code or sources.",
+    "Standard measure-theoretic results were assumed by reference rather than reproved.",
+    "The review is not evidence of physical or empirical validity."
+  ]
+}
