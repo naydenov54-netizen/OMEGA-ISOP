@@ -197,3 +197,17 @@ END OF POST-REVIEW CORRECTION ADDENDUM
 Supplement to A36V3-03 — extended-real edge cases:
 
 §6.3 now states that attainment comparisons ordinarily concern nonempty policy classes and finite real infimal values. Under inf ∅=+∞, an empty class does not attain its infimum. If a nonempty class has J(δ)=+∞ for every policy, its extended-real infimum is formally attained, but it is not a finite-value optimum. Cases involving ±∞ must be reported separately; ε-optimal finite-value statements require a nonempty class and finite infimum.
+
+
+======================================================================
+ADDENDUM: A36V3-12 — STATE-WISE VS Γ-MINIMAX NOTATION — 2026-10-29
+======================================================================
+
+Finding: In §6.10, the expression sup_{Q∈Γ} E_Q[·] requires Γ to be a set of probability measures. The previous prose also allowed Γ to mean a set of states/hypotheses for a frequentist minimax criterion, which mixes two distinct formulations unless a mapping is supplied.
+
+Correction applied to the merged v3.3 proposal:
+- The displayed Γ-minimax expression explicitly treats Γ as a set of probability measures on the relevant state/history space.
+- For a state-wise frequentist minimax criterion, use sup_{h∈H} J_h(δ), with J_h(δ) the policy's expected objective under state h.
+- The same distinction is applied to F(δ) in the stop/continue mixture discussion.
+
+This is a notation/scope clarification, not a change to the example's numerical result. It has not yet received independent review. Frozen Core remains unchanged; no CE-V promotion, RL registration, canonical acceptance, or merge is claimed.
