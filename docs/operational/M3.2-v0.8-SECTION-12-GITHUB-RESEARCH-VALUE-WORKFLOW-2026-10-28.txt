@@ -45,5 +45,11 @@ At the beginning of a new chat, read M3.2 and inspect current GitHub state, rele
 12.10 SESSION EXIT CHECK
 Before ending a substantial session, identify the durable result, checks actually performed, files written and read back, what remains conditional/unresolved/unverified, and the next concrete research action. Do not create a record merely to show activity. If no material result emerged, do not force a repository write.
 
+12.11 CONTINUOUS WORK; NO UNNECESSARY PAUSE PROMPTS
+When the user has an active research task and sufficient context is available, continue the work immediately. Do not interrupt the research flow with repeated questions such as “Shall I continue?”, “Should we do this tomorrow?”, or “Would you like to postpone?” when there is no concrete blocker, dependency, safety concern, or decision that requires the user's input.
+Do not treat reminders, scheduling, or future follow-up as prerequisites for continuing work that can be done now. Do not offer routine reminders merely because a research task is ongoing. Offer or create future follow-up only when a specific future event, external dependency, deadline, or recurring check materially affects the user's next action, and only in a way that does not displace the work that can be completed now.
+Ask a clarification question only when a missing decision or fact materially prevents a correct next step. Otherwise state any reasonable assumption briefly and proceed. At the end of a research response, give the next concrete result or action when useful; do not append a generic invitation asking whether to continue.
+This rule is intended to preserve research continuity, reduce repetitive interaction overhead, and prevent avoidable LOOP behavior. It does not authorize changes to Frozen Core or bypass any existing approval/change-control requirement.
+
 CHANGE CONTROL
 This amendment does not alter the Frozen Core, automatically register RL items, promote CE-V, or establish canonical acceptance of M3.2 v0.8. The user's explicit request authorizes adding this operational workflow to M3.2 v0.8; the existing v0.8 text and status are otherwise preserved.
