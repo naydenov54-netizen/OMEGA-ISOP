@@ -1,0 +1,260 @@
+OMEGA-ISOP
+GR-TRANSFER-06C
+THREE-MODE DOP853 STABILITY TEST
+Date: 2026-10-31
+Status: NUMERICAL REPRODUCTION PASSED; CERTIFICATION OPEN
+
+============================================================
+1. PURPOSE
+============================================================
+
+This record documents a three-mode DOP853 stability run for the
+GR-TRANSFER-06C transfer-matrix problem.
+
+The test preserves the original coefficient vectors. It compares
+the six-component residual F and its 6x6 variational Jacobian J
+under three solver configurations.
+
+No Newton correction was applied.
+No coefficient was modified.
+No claim of interval certification or exact-root proof is made.
+
+============================================================
+2. MODEL AND FIXED PARAMETERS
+============================================================
+
+T = 3.0
+w = 0.65
+
+mu_j = 0.25 + (5/14) j, j = 0,...,7
+
+Q = [+1, -1]
+
+Selected transfer-matrix entries:
+(0,0), (0,1), (1,0)
+
+Original c coefficients:
+[
+ -1.303582305223379,
+ -0.3494345846515543,
+  3.327447982782394,
+  1.318295499664510,
+ -3.282794589169293,
+ -0.01040652834386395,
+ -1.246927481976787,
+  0.2972630465040527
+]
+
+Original d coefficients:
+[
+ -1.253582305195751,
+ -0.4553401640470826,
+  3.459891887199010,
+  1.194809408979730,
+ -3.190989850648245,
+ -0.054700673239377,
+ -1.237919242407488,
+  0.2972630465040527
+]
+
+The varied parameters are d0,...,d5.
+d6 and d7 remain fixed at their original values.
+
+Bump functions:
+phi_j(u) = exp(-1/(1-((u-mu_j)/w)^2))
+when |(u-mu_j)/w| < 1, and 0 otherwise.
+
+Profiles:
+a(u) = sum_j c_j phi_j(u)
+b(u) = sum_j d_j phi_j(u)
+
+For q in {+1,-1}:
+A_q(u) = [[0,1],[q*a(u),0]]
+B_q(u) = [[0,1],[q*b(u),0]]
+
+Transfer matrices satisfy:
+M_A,q' = A_q M_A,q,   M_A,q(0)=I
+M_B,q' = B_q M_B,q,   M_B,q(0)=I
+
+For k=0,...,5, sensitivities satisfy:
+S_q,k' = B_q S_q,k + C_q,k M_B,q
+S_q,k(0)=0
+
+where:
+C_q,k(u) = [[0,0],[q*phi_k(u),0]]
+
+Residual convention used in this run:
+F_(q,i,j) = (M_B,q(T))_(i,j) - (M_A,q(T))_(i,j)
+
+Jacobian convention:
+J_(q,i,j),k = (S_q,k(T))_(i,j)
+
+Ordering:
+q = [+1,-1], and within each q:
+(0,0), (0,1), (1,0).
+
+NOTE:
+The residual orientation and ordering above describe the executed
+three-mode cell. This record does not independently establish that
+this convention matches every historical implementation outside
+the archived two-mode numerical reproduction.
+
+============================================================
+3. SOLVER CONFIGURATIONS
+============================================================
+
+All runs used scipy.integrate.solve_ivp with method="DOP853".
+
+MODE 1 - ORIGINAL
+rtol = 2.5e-13
+atol = 2.5e-15
+max_step = 0.015
+nfev = 14564
+
+MODE 2 - TIGHTER
+rtol = 5.0e-14
+atol = 5.0e-16
+max_step = 0.0075
+nfev = 21524
+
+MODE 3 - INTERMEDIATE
+rtol = 1.0e-13
+atol = 1.0e-15
+max_step = 0.010
+nfev = 17876
+
+============================================================
+4. RESIDUAL RESULTS
+============================================================
+
+MODE 1:
+F =
+[
+ 1.96620498e-13,
+ 3.11306536e-13,
+ 2.69784195e-14,
+ 5.48550094e-12,
+ 2.94564373e-12,
+ 3.58260643e-12
+]
+||F||_inf = 5.485500942370436e-12
+
+MODE 2:
+F =
+[
+ 6.89892588e-13,
+ 1.08002496e-12,
+ 2.77555756e-13,
+ 3.80590004e-12,
+ 1.48681067e-12,
+ 2.40903131e-12
+]
+||F||_inf = 3.805900039566268e-12
+
+MODE 3:
+F =
+[
+ 6.71684930e-13,
+ 1.08446585e-12,
+ 2.89657187e-13,
+ 3.66484620e-12,
+ 1.41664458e-12,
+ 2.32054653e-12
+]
+||F||_inf = 3.664846204287642e-12
+
+============================================================
+5. JACOBIAN RESULTS
+============================================================
+
+The printed Jacobian matrices in all three modes agree to the
+displayed precision:
+
+J approximately =
+[
+ [ 0.46708974,  0.47577724,  0.37596559,  0.35204574,  0.35031241,  0.29725210],
+ [ 0.15021225,  0.28405612,  0.39661724,  0.52770391,  0.63466697,  0.60848017],
+ [-0.02887783,  0.00446400,  0.06324668,  0.14148805,  0.23207626,  0.29341663],
+ [-0.67802208, -0.87259152, -0.81961880, -0.61356772, -0.36437685, -0.19467233],
+ [-0.22610250, -0.49723452, -0.69151600, -0.69644113, -0.57327425, -0.44693001],
+ [-0.41258593, -0.56031659, -0.56095182, -0.45144493, -0.30244462, -0.20423697]
+]
+
+Condition numbers:
+MODE 1: 8052.141429703281
+MODE 2: 8052.1414297391975
+MODE 3: 8052.141429749683
+
+============================================================
+6. PAIRWISE STABILITY COMPARISON
+============================================================
+
+MODE 1 vs MODE 2:
+max_abs_difference(F) = 1.679600902804168e-12
+max_abs_difference(J) = 1.936228954946273e-13
+
+MODE 1 vs MODE 3:
+max_abs_difference(F) = 1.8206547380827942e-12
+max_abs_difference(J) = 1.936228954946273e-13
+
+MODE 2 vs MODE 3:
+max_abs_difference(F) = 1.4105383527862614e-13
+max_abs_difference(J) = 3.597122599785507e-14
+
+============================================================
+7. COEFFICIENT PRESERVATION
+============================================================
+
+d_original unchanged: True
+d6 fixed: True
+d7 fixed: True
+
+No Newton step was applied.
+No trial coefficient vector replaced d_original.
+The original coefficients remain unchanged.
+
+============================================================
+8. INTERPRETATION
+============================================================
+
+Observed:
+- MODE 1 and MODE 2 reproduce the previously archived two-mode
+  DOP853 F/J numerical results.
+- MODE 3 provides an additional intermediate solver configuration.
+- J is highly stable across all three configurations.
+- The condition number remains approximately 8052.14143.
+- F remains at the scale of 10^-12, with visible sensitivity to
+  solver configuration.
+- MODE 2 and MODE 3 are closer to one another than MODE 1 and MODE 2.
+
+Limitations:
+- These are numerical solver comparisons, not rigorous error bounds.
+- The three runs share the same implementation and residual convention.
+  They are not independent validations of the mathematical definition
+  or historical sign/order conventions.
+- Stability of J does not prove that F has an exact zero.
+- No interval arithmetic, validated integration, existence proof,
+  uniqueness proof, or certified root enclosure was performed.
+- The reported condition number is a numerical diagnostic, not a
+  proof of well-conditioned global identifiability.
+
+============================================================
+9. AUDIT STATUS AND NEXT STEP
+============================================================
+
+Status:
+THREE-MODE NUMERICAL STABILITY CHECK PASSED.
+MATHEMATICAL CERTIFICATION NOT YET ESTABLISHED.
+
+Recommended next verification:
+Check the variational Jacobian against centered finite differences:
+J[:,k] approximately =
+  (F(d + h*e_k) - F(d - h*e_k)) / (2*h)
+
+This check must be performed with a controlled step-size study.
+It should not modify the original coefficient vector.
+No Newton correction should be applied before this derivative audit.
+
+Frozen Core and original coefficients remain untouched.
+
+END OF RECORD
