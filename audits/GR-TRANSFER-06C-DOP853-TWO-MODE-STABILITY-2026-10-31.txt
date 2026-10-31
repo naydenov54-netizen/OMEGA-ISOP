@@ -1,0 +1,156 @@
+OMEGA-ISOP
+GR-TRANSFER-06C
+TEST: DOP853 TWO-MODE STABILITY
+Date: 2026-10-31
+
+STATUS
+Numerical stability comparison completed for two DOP853 integration settings.
+This is a numerical reproducibility record, not a rigorous error bound, interval certification, or proof of an exact root.
+
+1. MODEL AND TEST CONFIGURATION
+
+Background:
+ds^2 = -2 du dv + dx^2 + dy^2
+H(u,x,y) = a(u)(x^2-y^2)
+
+Vacuum check:
+d^2H/dx^2 + d^2H/dy^2 = 2a(u)-2a(u) = 0
+
+Transverse systems:
+x''(u) = a(u)x(u)
+y''(u) = -a(u)y(u)
+
+Parameters:
+T = 3.0
+w = 0.65
+mu_j = 0.25 + (5/14)j, j=0,...,7
+q signs = [+1,-1]
+
+Bump functions:
+phi_j(u) = exp(-1/(1-((u-mu_j)/w)^2)), when |(u-mu_j)/w| < 1
+phi_j(u) = 0, outside that support
+
+Profiles:
+a(u) = sum_j c_j phi_j(u)
+b(u) = sum_j d_j phi_j(u)
+
+Fixed c coefficients:
+[
+-1.303582305223379,
+-0.3494345846515543,
+ 3.327447982782394,
+ 1.318295499664510,
+-3.282794589169293,
+-0.01040652834386395,
+-1.246927481976787,
+ 0.2972630465040527
+]
+
+Original d coefficients:
+[
+-1.253582305195751,
+-0.4553401640470826,
+ 3.459891887199010,
+ 1.194809408979730,
+-3.190989850648245,
+-0.054700673239377,
+-1.237919242407488,
+ 0.2972630465040527
+]
+
+Unknown parameter vector for the six-dimensional residual:
+z = (d0,d1,d2,d3,d4,d5)
+d6 and d7 remain fixed at their original values.
+
+Transfer system:
+A_q(u) = [[0,1],[q*b(u),0]]
+Phi_q' = A_q Phi_q
+Phi_q(0) = I
+
+Variational equations:
+S_q,j' = A_q S_q,j + B_q,j Phi_q
+S_q,j(0) = 0
+
+B_q,j(u) = [[0,0],[q*phi_j(u),0]]
+dM_q/dz_j = S_q,j(T)
+
+Selected transfer-matrix entries used in the residual/Jacobian construction:
+(0,0), (0,1), (1,0)
+
+2. TWO INTEGRATION MODES
+
+Mode 1, original settings:
+method = DOP853
+rtol = 2.5e-13
+atol = 2.5e-15
+max_step = 0.015
+nfev = 14564
+
+Mode 2, tighter settings:
+method = DOP853
+rtol = 5.0e-14
+atol = 5.0e-16
+max_step = 0.0075
+nfev = 21524
+
+3. SIX-COMPONENT RESIDUAL RESULTS
+
+F, Mode 1:
+[
+1.96620498e-13,
+3.11306536e-13,
+2.69784195e-14,
+5.48550094e-12,
+2.94564373e-12,
+3.58260643e-12
+]
+
+F, Mode 2:
+[
+6.89892588e-13,
+1.08002496e-12,
+2.77555756e-13,
+3.80590004e-12,
+1.48681067e-12,
+2.40903131e-12
+]
+
+Infinity norms:
+||F1||inf = 5.485500942370436e-12
+||F2||inf = 3.805900039566268e-12
+
+Maximum absolute difference:
+max_abs_difference(F1,F2) = 1.679600902804168e-12
+max_abs_difference(J1,J2) = 1.936228954946273e-13
+
+Jacobian condition numbers:
+cond(J1) = 8052.141429703281
+cond(J2) = 8052.1414297391975
+
+Function evaluations:
+nfev(Mode 1) = 14564
+nfev(Mode 2) = 21524
+
+4. NUMERICAL ASSESSMENT
+
+- The Jacobian is empirically highly stable across the two integration modes: the maximum absolute entrywise difference is approximately 1.94e-13.
+- The Jacobian condition number is effectively unchanged, approximately 8052.14.
+- The residual vector is more sensitive to integration settings than the Jacobian.
+- The infinity norm decreases from approximately 5.49e-12 to 3.81e-12 under the tighter settings.
+- The maximum componentwise difference between residual vectors is approximately 1.68e-12. This is not negligible relative to the residual magnitudes themselves.
+
+5. LIMITATIONS AND STATUS
+
+This comparison supports numerical stability of the computed Jacobian across these two DOP853 settings. It does not establish:
+- a rigorous upper bound on integration or rounding error;
+- existence of an exact root;
+- uniqueness of a root;
+- interval-certified satisfaction of the transfer constraints;
+- physical validity of OMEGA-ISOP.
+
+No Newton correction was applied as part of this two-mode comparison. The original coefficient vector was not modified.
+
+Recommended next step:
+Run one third, moderately distinct DOP853 setting and compare all six residual components and the Jacobian entrywise. Do not alter the original coefficients and do not apply a Newton correction as part of that diagnostic comparison.
+
+END OF RECORD
