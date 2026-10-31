@@ -1,0 +1,263 @@
+OMEGA-ISOP
+GR-TRANSFER-06C
+CAPD 6.0.0 VALIDATED ODE SMOKE TEST
+Date: 2026-10-31
+Status: ODE SMOKE TEST PASSED; GR-TRANSFER-06C CERTIFICATION OPEN
+
+============================================================
+1. PURPOSE
+============================================================
+
+This record documents the first executed CAPD interval-ODE smoke
+test in the GR-TRANSFER-06C toolchain evaluation.
+
+Test problem:
+  y'(t) = y(t)
+  y(0) = 1
+  t in [0,1]
+
+Exact solution:
+  y(t) = exp(t)
+  y(1) = e
+
+The purpose is to verify that the selected CAPD build can compile
+and execute an interval ODE integration, return an interval state
+at t=1, and provide an enclosure over the last integration step.
+
+This is a toolchain smoke test only. It is not a validation of the
+GR-TRANSFER-06C model or of its transfer-matrix root.
+
+============================================================
+2. ENVIRONMENT AND BUILD
+============================================================
+
+Platform:
+  Google Colab
+  Ubuntu 24.04 environment
+  g++ 13.3.0
+  CMake 3.31.10
+  Git 2.43.0
+
+Library:
+  CAPD v6.0.0
+  Repository tag: v6.0.0
+  CAPD multiprecision build option: ON
+  CAPD tests: OFF
+  CAPD examples: OFF
+
+Build command:
+  cmake -S . -B build -DCAPD_ENABLE_MULTIPRECISION=ON
+  cmake --build build --parallel 2
+
+Observed build result:
+  [7%] Built target filib
+  [100%] Built target capd
+
+Version file:
+  CAPD_MAJOR_VERSION = 6
+  CAPD_MINOR_VERSION = 0
+  CAPD_PATCH_VERSION = 0
+
+The apt repository warning concerning the r2u source package index
+did not prevent configuration or compilation.
+
+The smoke-test program used the standard CAPD interval aliases
+IMap, IOdeSolver, ITimeMap, IVector, interval, and C0HORect2Set.
+Although the library was configured with multiprecision support,
+this particular test did not instantiate the MPFR-specific Mp*
+aliases. No arbitrary-precision claim is made for this run.
+
+============================================================
+3. API BASIS
+============================================================
+
+The following CAPD 6.0.0 source files were inspected:
+
+- capdDynSys/examples/odesrig/ITimeMapExample.cpp
+- capdDynSys/examples/odesrig/ITimeMapEncloseTrajectoryExample.cpp
+- capdDynSys/examples/odesrig/ITimeMapSolutionCurveExample.cpp
+- capdDynSys/include/capd/poincare/poincareLib.h
+- capdDynSys/include/capd/poincare/typedefs.h
+- capdDynSys/include/capd/poincare/TimeMap.h
+- capdDynSys/include/capd/dynsys/OdeSolver.h
+
+The source confirms:
+  typedef capd::poincare::TimeMap<Taylor> ITimeMap;
+  typedef capd::poincare::TimeMap<IOdeSolver> ITimeMap;
+
+The TimeMap interface documents:
+  stopAfterStep(true)
+  completed()
+  getCurrentTime()
+
+The rigorous trajectory example uses:
+  set.getLastEnclosure()
+
+The inspected example targets are listed in the examples CMake
+file, but the project's configured build had examples disabled.
+The custom smoke-test source below was compiled separately.
+
+============================================================
+4. EXECUTED TEST PROGRAM
+============================================================
+
+The compiled source was:
+
+#include <iostream>
+#include <iomanip>
+#include "capd/capdlib.h"
+
+using namespace capd;
+using namespace std;
+
+int main() {
+    cout << setprecision(17);
+
+    IMap ode("time:t;var:y;fun:y;");
+    IOdeSolver solver(ode, 20);
+    ITimeMap timeMap(solver);
+
+    IVector u(1);
+    u[0] = 1.0;
+
+    interval initTime = 0.0;
+    interval finalTime = 1.0;
+
+    C0HORect2Set set(u, initTime);
+    timeMap.stopAfterStep(true);
+
+    unsigned steps = 0;
+
+    do {
+        timeMap(finalTime, set);
+        ++steps;
+
+        cout << "STEP " << steps << endl;
+        cout << "currentTime = "
+             << set.getCurrentTime() << endl;
+        cout << "state enclosure = "
+             << (IVector)set << endl;
+        cout << "trajectory enclosure = "
+             << set.getLastEnclosure() << endl;
+
+        if (steps > 10000) {
+            cerr << "FAIL: step limit exceeded" << endl;
+            return 2;
+        }
+    } while (!timeMap.completed());
+
+    cout << "FINAL STATE = " << (IVector)set << endl;
+    cout << "FINAL TIME = " << set.getCurrentTime() << endl;
+    cout << "STEP COUNT = " << steps << endl;
+    cout << "ODE INTEGRATION COMPLETED" << endl;
+
+    return 0;
+}
+
+============================================================
+5. COMPILATION AND EXECUTION RESULTS
+============================================================
+
+Compiler command used CAPD's generated flags from:
+  /content/CAPD/build/bin/capd-config --cflags --libs
+
+Compilation:
+  COMPILATION EXIT CODE: 0
+
+Execution:
+  EXECUTION EXIT CODE: 0
+
+Observed stdout:
+
+STEP 1
+currentTime = [1, 1]
+state enclosure = {[2.7182818284590451, 2.718281828459046]}
+trajectory enclosure = {[0.99999999999999989, 2.718281828459046]}
+
+FINAL STATE = {[2.7182818284590451, 2.718281828459046]}
+FINAL TIME = [1, 1]
+STEP COUNT = 1
+ODE INTEGRATION COMPLETED
+
+============================================================
+6. RESULT ASSESSMENT
+============================================================
+
+Observed and supported by the executed output:
+
+- The custom program compiled successfully.
+- The executable returned exit code 0.
+- CAPD reported completion at final time [1,1].
+- Exactly one successful TimeMap step was reported.
+- The initial time passed to C0HORect2Set was 0.
+- The final state interval was printed as:
+    [2.7182818284590451, 2.718281828459046]
+- The last-step trajectory enclosure was printed as:
+    [0.99999999999999989, 2.718281828459046]
+
+Because the run reports one step from the initialized time 0 to
+the requested final time 1, the returned last-step enclosure
+corresponds to the full requested integration interval [0,1].
+The reported trajectory enclosure contains the initial value 1
+and the reported final-state interval.
+
+Exact-solution comparison:
+  e = 2.718281828459045235360287471352...
+
+The displayed final interval contains the known value of e.
+However, the smoke-test source did not perform an internal
+machine-checked interval-inclusion assertion against an
+independently constructed enclosure for exp(1). Therefore:
+
+  ODE endpoint interval: PASS
+  Displayed decimal comparison with e: PASS
+  Programmatic assertion of e inclusion: NOT IMPLEMENTED
+
+The printed decimal endpoints are the CAPD output representation.
+This record does not replace a separate exact/rational-bound
+check or an interval comparison performed inside the test program.
+
+============================================================
+7. LIMITATIONS
+============================================================
+
+This test does NOT establish:
+
+- validated integration of the GR-TRANSFER-06C bump profiles;
+- validated integration of the six-component residual system;
+- validated variational equations or a validated 6x6 Jacobian;
+- correct handling of all support-boundary regularity details
+  of the bump functions in the target model;
+- existence of z such that F(z)=0;
+- uniqueness of such a root;
+- a Krawczyk inclusion K(X) subset interior(X);
+- equality of the two transfer matrices;
+- the proposed physical distinction between the profiles.
+
+The test also does not validate MPFR-specific CAPD aliases or
+arbitrary-precision interval behavior.
+
+============================================================
+8. AUDIT CONCLUSION
+============================================================
+
+CAPD 6.0.0 BUILD: PASS
+CAPD INTERVAL ODE SMOKE TEST: PASS
+FINAL TIME REACHED: PASS
+LAST-STEP TRAJECTORY ENCLOSURE RETURNED: PASS
+DISPLAYED FINAL INTERVAL CONTAINS e: PASS
+IN-PROGRAM e-INCLUSION ASSERTION: NOT IMPLEMENTED
+
+Toolchain decision:
+CAPD 6.0.0 is accepted as a WORKING CANDIDATE for the next
+validated-integration development stage.
+
+Project status:
+GR-TRANSFER-06C MATHEMATICAL CERTIFICATION: OPEN / INCONCLUSIVE
+
+No project coefficients were changed.
+No Newton or Krawczyk step was performed.
+No Frozen Core component was modified.
+No claim of a certified GR-TRANSFER-06C root is made.
+
+END OF RECORD
