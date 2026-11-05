@@ -7,8 +7,8 @@ M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
 
 OMEGA-ISOP — STAGE 2: CORE MORPHISM-CLASS DEPENDENCY AUDIT
 DOCUMENT_ID: OI-STAGE-02-CORE-MORPHISM-DEPENDENCY-AUDIT-2026-10-28
-VERSION: 0.1
-DATE: 2026-10-28
+VERSION: 0.2
+DATE: 2026-10-29
 STATUS: SOURCE-BASED CATEGORY IDENTIFICATION OPEN; RESTRICTED TEST THEOREM VALID
 FROZEN CORE: UNCHANGED
 RL REGISTRATION: NOT PERFORMED OR VERIFIED
@@ -41,10 +41,12 @@ In P_F, where objects are admissible subsets of a fixed carrier and arrows are o
 In the category of finite discrete-apartness structures with all embeddings as morphisms, the tested span A <- S -> B has an admissible amalgam but no pushout.
 These results do not conflict. They use different morphism classes and object conventions. Together they show that existence of a weak amalgam does not settle colimit existence independently of the category.
 
-4. NONTRIVIALITY AND THE SINGLETON BASE
-The source's stated minimal nontriviality condition is |S_C| >= 2. Consequently, the span using A={s,a}, B={s,b}, and S={s} is not automatically a diagram in a category whose objects are only minimal nontrivial configurations: its shared base S is a singleton.
-The all-embeddings obstruction proof is valid in the explicitly declared test category that admits the singleton object S. It must not be presented as a direct instantiated Core obstruction unless the singleton base is admissible under the selected realization or the example is adapted to the actual object class.
-Similarly, the finite example in the union-colimit model properly flags this condition, but its shared-base-span illustration is conditional on admitting the singleton configuration.
+4. NONTRIVIALITY AND THE REVISED SHARED-BASE EXAMPLE
+The source's stated minimal nontriviality condition is |S_C| >= 2. The earlier illustration with A={s,a}, B={s,b}, and S={s} therefore was not automatically a diagram in a category whose objects are only minimal nontrivial configurations. That limitation applied to the earlier illustration, not to the category-level argument in general.
+
+The revised obstruction uses S={s1,s2}, A=S∪{a}, and B=S∪{b}, with all elements distinct and discrete apartness. Each of S, A, and B has at least two elements. The amalgam C0=S∪{a,b} keeps a and b distinct. A second cocone maps both a and b to the same z in Z=S∪{z}; the two cocone legs are individually injective and agree on S. If a pushout existed, its universal property would force a morphism to Z identifying two distinct pushout images, contradicting injectivity. Thus the no-pushout theorem holds in the explicitly declared finite discrete-apartness category with all injective embeddings, without relying on a singleton object.
+
+This repairs the nontriviality limitation of the example. It does not identify the test category with the intended C_METACORE: the project-level morphism class, admissibility rules, indexing category, and diagram remain underspecified. The result remains a conditional category-level obstruction, not a direct proof that the Core's R fails to exist.
 
 5. A NONTRIVIAL UNION-COLIMIT TEST THAT RESPECTS |S| >= 2
 Let U0={0,1,2}, with x # y iff x != y. Let F={{0,1},{1,2},{0,1,2}} and use the category whose objects are C_S for S in F and whose arrows are literal inclusions whenever the source subset is contained in the target subset.
