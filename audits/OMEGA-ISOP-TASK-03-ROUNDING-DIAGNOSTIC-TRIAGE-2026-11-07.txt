@@ -1,0 +1,115 @@
+OMEGA-ISOP — TASK 03
+ROUNDING DIAGNOSTIC TRIAGE
+DATE: 2026-11-07
+TRACK: MATHEMATICAL CERTIFICATION TRACK
+SCOPE: GCC OPTIMIZATION / FLOATING-POINT ENVIRONMENT / TEST VALIDITY
+STATUS: DIAGNOSTIC HYPOTHESES AND REQUIRED CHECKS
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+
+1. SOURCE AND EVIDENCE CLASSIFICATION
+
+The source of the previously reported results is the archived notebook recovery, not an independently repeated execution.
+
+Accordingly:
+- These observations are recovered historical evidence.
+- They are not an independent reproduction.
+- They do not, by themselves, identify the cause of the O2 failure.
+- No causal conclusion is established by this note.
+- The exact notebook source, raw outputs, compiler invocations, and environment must be read back and verified before stronger claims are made.
+
+2. THREE SEPARATE DIAGNOSTIC DIRECTIONS
+
+A. COMPILER SEMANTICS
+
+Question:
+Does GCC under -O2 correctly account for a rounding-mode change performed through inline assembly?
+
+Required checks:
+- Inspect the exact inline assembly and its compiler-visible constraints/clobbers.
+- Inspect the generated assembly for the relevant function at -O0 and -O2.
+- Determine whether the compiler is informed that the floating-point environment or relevant machine state may change.
+- Compare behavior with a controlled implementation using compiler-supported floating-point environment interfaces and appropriate compilation options.
+- Record exact GCC version, complete command lines, and raw outputs.
+
+Status:
+OPEN. The available evidence does not establish a GCC compiler defect.
+
+B. FLOATING-POINT ENVIRONMENT
+
+Question:
+Does CAPD manage the correct processor floating-point environment for every operation and type used by the relevant code paths?
+
+Required checks:
+- Capture MXCSR before and after each relevant operation.
+- Capture x87 Control Word separately from MXCSR.
+- Test all relevant initial rounding states and state transitions.
+- Check whether operations or helper functions alter rounding mode and whether the previous state is restored.
+- Distinguish SSE/AVX operations from x87 operations where applicable.
+- Verify behavior for each relevant floating-point type and code path.
+
+Status:
+OPEN. The available evidence does not establish that CAPD manages the environment incorrectly.
+
+C. TEST VALIDITY
+
+Question:
+Does DoubleRounding::test() reliably distinguish the four rounding modes under optimization, without constant folding or other compiler transformations that invalidate the test?
+
+Required checks:
+- Inspect the exact test source and its dependencies.
+- Inspect generated machine code at -O0 and -O2.
+- Verify that tested operations are actually executed at runtime.
+- Verify that compiler transformations cannot replace, reorder, or precompute the operations in a way that bypasses the intended rounding-mode observation.
+- Record the observed rounding mode and result at each test stage.
+- Compare baseline and controlled variants, preserving complete commands and outputs.
+
+Status:
+OPEN. The validity of the test under the reported optimized configuration has not yet been independently established.
+
+3. TECHNICAL CONCLUSION
+
+There are three distinct candidate areas requiring isolation:
+1. Compiler semantics and visibility of rounding-mode changes to GCC.
+2. Floating-point environment management, including MXCSR and x87 state.
+3. Validity of the DoubleRounding test under optimization.
+
+These areas must not be conflated. A failure in the self-test does not by itself prove which layer is responsible.
+
+The O2 failure remains unexplained. No root cause is established by this diagnostic triage.
+
+4. REQUIRED EVIDENCE BEFORE CAUSAL ATTRIBUTION
+
+For each experiment preserve:
+- Exact source file and SHA256.
+- Exact compiler version and full compiler command.
+- Effective optimization flags and floating-point flags.
+- Generated assembly or disassembly.
+- MXCSR and x87 Control Word snapshots where relevant.
+- Standard output, standard error, and exit code.
+- Environment and build configuration.
+- A reproducible mapping from source to executable and runtime result.
+
+Do not treat a successful build as proof of correct directed rounding.
+Do not treat a finite test as a universal theorem.
+Do not treat recovered notebook output as an independent rerun.
+
+5. TASK 03 STATUS
+
+Compiler semantics investigation: OPEN.
+Floating-point environment investigation: OPEN.
+DoubleRounding test-validity investigation: OPEN.
+O2 failure root cause: NOT ESTABLISHED.
+Independent machine audit: INCOMPLETE.
+Mathematical certification: NOT ESTABLISHED BY THIS NOTE.
+
+6. ARCHITECTURAL GUARDS — UNCHANGED
+
+Frozen Core: UNCHANGED / PRESERVED.
+Volume V: UNCHANGED / ACTIVE RESEARCH ARCHITECTURE.
+CE-V-07: RESERVED.
+TASK 02 MATHEMATICAL CERTIFICATION: PASS / COMPLETE; NOT REOPENED.
+TASK 03 INDEPENDENT MACHINE AUDIT: INCOMPLETE.
+UNIVERSALITY: NOT ESTABLISHED.
+
+This note is a diagnostic audit record only. It does not modify the Frozen Core, Volume V, or the mathematical status of OMEGA-ISOP.
