@@ -1,0 +1,62 @@
+OMEGA-ISOP — UNTITLED109 CONTENT FORENSIC AUDIT — CHUNK 4
+Date: 2026-11-07
+Source notebook: Untitled109.ipynb
+Source path reported by user: /content/drive/MyDrive/Colab Notebooks/Untitled109.ipynb
+Notebook SHA256 recorded in project checkpoint: cea879e7ed6b08e67443588d483f9e4009e6d3a1406398263927bc8d24108499
+Forensic report: /content/drive/MyDrive/Colab Notebooks/OMEGA_ISOP_UNTITLED109_FORENSIC_AUDIT.txt
+Forensic report length: 66,740 characters
+Extracted range: characters 36,000–48,000
+
+SCOPE
+This record audits only the user-supplied CHUNK 4 excerpt. It does not claim to rerun the notebook or reproduce the build.
+
+FACTS OBSERVED IN THE EXCERPT
+1. The excerpt continues the output associated with Cell 21, whose source command was identified in CHUNK 3 as:
+   cmake --build /content/capd/build-o0-verified --parallel 2
+2. The recorded output shows compilation progressing through CAPD components.
+3. The filib static library is linked and reported as:
+   [7%] Built target filib
+4. Compilation includes capdAlg/src/capd/rounding/DoubleRounding.cpp.o at 22%.
+5. Numerous CAPD components are compiled, including interval, vector/matrix, multiprecision, autodiff, differential inclusion, dynamical-system, and geometric-set components.
+6. The excerpt reaches approximately 85% and is cut off mid-output:
+   [85%] Building CXX object CMakeFiles/capd.dir/capdDynSys/src/mpcapd/dynset/C0DoubletonSet.cpp.o
+7. No final [100%] Built target capd line, process exit code, or terminal build summary is present in the supplied excerpt.
+
+AUDIT FINDINGS
+A. The excerpt is positive evidence that the build command proceeded substantially beyond configuration and began compiling the CAPD target in build-o0-verified.
+B. The excerpt does not establish successful completion. The output is truncated at approximately 85%.
+C. The presence of DoubleRounding.cpp in the compilation list does not establish the effective compiler optimization level for that translation unit. CHUNK 3 established that compile_commands.json records wrapper arguments and that a specific wrapper probe translated -O2 to -O0, but did not establish the final effective arguments for every compilation unit in the full build.
+D. The output is stored notebook evidence. It is not an independent rerun performed during this audit.
+E. No runtime rounding test result, MXCSR runtime state, directed-rounding behavior, interval enclosure test, or independent reproduction is established by this excerpt.
+
+EVIDENCE STATUS AFTER CHUNK 4
+- build-o0-verified CMake configuration: PASS (previously established in CHUNK 3).
+- build-o0-verified compilation: SUBSTANTIAL PROGRESS RECORDED; excerpt reaches ~85%.
+- build-o0-verified full build success: NOT ESTABLISHED.
+- Effective -O0 for every relevant compilation unit: NOT ESTABLISHED.
+- Runtime rounding behavior: NOT ESTABLISHED.
+- Interval enclosure validation: NOT ESTABLISHED.
+- Independent reproduction: NOT ESTABLISHED.
+
+MATHEMATICAL STATUS
+No new mathematical contradiction is identified in CHUNK 4.
+Do not reopen or downgrade the previously recorded mathematical certification status solely because this machine-level evidence excerpt is incomplete.
+Do not promote the machine-level evidence audit to PASS.
+
+PROJECT BOUNDARIES PRESERVED
+- Frozen Core: UNCHANGED.
+- Volume V: ACTIVE RESEARCH ARCHITECTURE; not modified.
+- CE-V-07: RESERVED.
+- Universality: NOT ESTABLISHED.
+- CAPD results are not presented as a universal theorem.
+- Conditional validation is not promoted to certified without independent verification.
+- Numerical output is not conflated with interval or analytical proof.
+- Repository presence or commit history is not mathematical certification.
+
+STATUS
+TASK 02 MATHEMATICAL CERTIFICATION: PASS / COMPLETE (prior project status; no new mathematical contradiction in this chunk).
+TASK 02 MACHINE-LEVEL EVIDENCE AUDIT: OPEN / PENDING.
+TASK 02 OVERALL: MATHEMATICS CERTIFIED; MACHINE-LEVEL EVIDENCE AUDIT OPEN.
+
+NEXT REQUIRED EVIDENCE
+Retrieve the remainder of the forensic report beginning at character 48,000. In particular, obtain the remainder of Cell 21 output, including any final build status, exit status, and subsequent test/runtime cells. Continue distinguishing stored notebook outputs from independently reproduced results.
