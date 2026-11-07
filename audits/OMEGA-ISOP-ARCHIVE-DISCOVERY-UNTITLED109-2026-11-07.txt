@@ -1,0 +1,265 @@
+================================================================
+OMEGA-ISOP
+MATHEMATICAL CERTIFICATION TRACK
+ARCHIVE DISCOVERY — GOOGLE DRIVE NOTEBOOK RECOVERY
+================================================================
+
+DOCUMENT ID:
+OMEGA-ISOP-ARCHIVE-DISCOVERY-UNTITLED109-2026-11-07
+
+DATE:
+2026-11-07
+
+TRACK:
+CAPD / INTERVAL VALIDATION / ANALYTICAL VERIFICATION
+ARCHIVE FORENSICS / SOURCE TRACEABILITY
+
+----------------------------------------------------------------
+1. DISCOVERY SUMMARY
+----------------------------------------------------------------
+
+A successful Google Drive mount and recursive inventory scan in
+Google Colab located the previously sought notebook:
+
+Untitled109.ipynb
+
+CONFIRMED PATH:
+/content/drive/MyDrive/Colab Notebooks/Untitled109.ipynb
+
+This resolves the earlier apparent absence from /content:
+the earlier inventory checked the active Colab runtime directory
+without first establishing that the Drive archive was mounted.
+The notebook was present in Google Drive.
+
+----------------------------------------------------------------
+2. VERIFIED FILE IDENTITY
+----------------------------------------------------------------
+
+FILE:
+Untitled109.ipynb
+
+SIZE:
+74,950 bytes
+
+CELLS:
+31
+
+CODE CELLS:
+31
+
+RECORDED ERROR OUTPUTS:
+5
+
+SHA256:
+cea879e7ed6b08e67443588d483f9e4009e6d3a1406398263927bc8d24108499
+
+The SHA256 value is the file identity fingerprint reported by
+the Drive inventory scan. It should be checked again against the
+file before any later forensic extraction or transfer.
+
+----------------------------------------------------------------
+3. ARCHIVE INVENTORY RESULTS
+----------------------------------------------------------------
+
+The recursive Google Drive scan reported:
+
+MATCHING PROJECT FILES:
+128
+
+NOTEBOOK FILES:
+124
+
+NOTEBOOKS WITH RECORDED ERROR OUTPUTS:
+30
+
+These counts describe the scan's matching rules and the archive
+state at the time of the scan. They are not a completeness proof
+for every possible OMEGA-ISOP artifact.
+
+Additional notable notebook records from the same scan:
+
+Untitled107.ipynb
+- Size: 103,769 bytes
+- Cells: 32
+- Recorded errors: 0
+- SHA256: aaf1f1868871c9663e1cd4a31f617f7722f533597d29af227121ca4b96fb47e9
+
+Untitled108.ipynb
+- Size: 59,537 bytes
+- Cells: 16
+- Recorded errors: 0
+- SHA256: 68add5184a08e6819b752b9f35a628cee3a902800d31b7525c6c3e1a3a7efa38
+
+Untitled112.ipynb
+- Size: 262,088 bytes
+- Cells: 60
+- Recorded errors: 9
+- SHA256: 2e7d514a05b8d835abae43050cfc3a9e83a2e689b68f6509ff9262d147daa86c
+
+Untitled114.ipynb
+- Size: 218,144 bytes
+- Cells: 43
+- Recorded errors: 1
+- SHA256: f2d128f5b953cc5a1b069ac1218ceecdd205ef736184e1c2653d4b4ae770c555
+
+Untitled117.ipynb
+- Size: 214,425 bytes
+- Cells: 19
+- Recorded errors: 3
+- SHA256: 5c9e1cb66b2b7f67670d67100d84bd6173f825df520a254c66eb9a97076dadec
+
+Untitled44.ipynb
+- Size: 90,556 bytes
+- Cells: 28
+- Recorded errors: 4
+- SHA256: 1eab663c282c2ed00d236a3bb4992574dad26e53b865ea3d357cf8b64d9db5a4
+
+Related source-audit text:
+Untitled44_SOURCE_AUDIT.txt
+- Size: 87,465 bytes
+- SHA256: a0edfbbcaf2f6f97527a12c5e524287d14515e295f16d942f247c7e792e300fe
+
+Related project records:
+VOLUME 5 v2.1–CAPD.txt
+- Size: 24,729 bytes
+- SHA256: a353105932167d0dceaa7250c43e53b7135e812b8f5abddbfec1713f43a2dc71
+
+TEST 0–12.txt
+- Size: 18,274 bytes
+- SHA256: 2a9354765ff8430af978f77ac0947dbb8f22b5d7ef80768ae33e28461d1f334f
+
+GR-TRANSFER-06C / CAPD TEST 13A record:
+- Size: 2,545 bytes
+- SHA256: b6f35571859bc4a837feeef3c381d2259165e0082c25b1272d2224c738bb4e46
+
+----------------------------------------------------------------
+4. FACTS, HYPOTHESES AND AUDIT FINDINGS
+----------------------------------------------------------------
+
+FACTS REPORTED BY THE COLAB INVENTORY:
+- Google Drive was mounted at /content/drive.
+- Untitled109.ipynb exists at the path stated above.
+- Its reported size is 74,950 bytes.
+- Its reported structure is 31 code cells.
+- Its stored notebook outputs contain 5 recorded error outputs.
+- Its reported SHA256 is recorded in Section 2.
+- The same scan found 124 notebook files matching its rules.
+
+AUDIT FINDINGS:
+- The earlier "NO NOTEBOOK FILES FOUND IN /content" result was
+  not evidence that the Drive notebook had been deleted.
+- The discrepancy is explained by the difference between the
+  active runtime directory and the mounted Drive archive.
+- Untitled109 is now a concrete, traceable candidate for the
+  next forensic inspection step.
+
+NOT ESTABLISHED:
+- The mathematical correctness of any code in Untitled109.
+- Whether its recorded outputs can be reproduced in a clean
+  runtime.
+- Whether any of its five recorded errors are relevant to CAPD.
+- Whether the notebook contains a valid Wronskian or CAPD proof.
+- Whether the notebook is the canonical or latest project source.
+- Any independent CAPD validation or mathematical certification.
+
+A notebook's stored error outputs are historical execution
+artifacts. Five recorded errors do not by themselves invalidate
+a mathematical construction. Conversely, zero recorded errors
+would not prove mathematical correctness.
+
+----------------------------------------------------------------
+5. FORENSIC EXTRACTION STATUS
+----------------------------------------------------------------
+
+A read-only extraction procedure was prepared for Untitled109.
+
+Its intended operations:
+1. Verify file existence.
+2. Recompute and compare the SHA256 fingerprint.
+3. Parse notebook JSON without executing its cells.
+4. Extract cell source and stored outputs.
+5. Preserve error names and tracebacks.
+6. Locate cells containing relevant terms, including:
+   WRONSKIAN, CAPD, INTERVAL, DETERMINANT, JACOBIAN,
+   VALIDATION, CERTIFICATION, RIGOROUS, OUTWARD,
+   ENCLOSURE, CONTRACTION, FIXED POINT, NEWTON,
+   EIGENVALUE and MATRIX.
+7. Write a forensic text report to:
+   /content/drive/MyDrive/Colab Notebooks/
+   OMEGA_ISOP_UNTITLED109_FORENSIC_AUDIT.txt
+
+STATUS OF EXTRACTION:
+PREPARED — EXECUTION RESULT NOT YET REVIEWED IN THIS RECORD
+
+The notebook must not be executed wholesale before its source
+and stored outputs have been inspected.
+
+----------------------------------------------------------------
+6. NEXT ACTIONS
+----------------------------------------------------------------
+
+TASK 02A — COMPLETE THE READ-ONLY EXTRACTION
+- Run the prepared extraction procedure in Colab.
+- Confirm the SHA256 matches the value in Section 2.
+- Preserve the resulting forensic report.
+
+TASK 02B — REVIEW THE EVIDENCE
+- Inspect all five recorded error tracebacks.
+- Inspect all keyword-hit cells in full context.
+- Identify dependencies, external files, package versions,
+  input data and execution assumptions.
+- Separate source code from stored output.
+
+TASK 02C — REPRODUCIBILITY AND MATHEMATICAL AUDIT
+- Reproduce only selected cells after inspection.
+- Use a controlled runtime and record package versions.
+- Independently verify mathematical claims.
+- For interval claims, verify outward rounding and interval
+  semantics rather than relying on ordinary floating-point
+  output or notebook display values.
+
+----------------------------------------------------------------
+7. CERTIFICATION CLASSIFICATION
+----------------------------------------------------------------
+
+ARCHIVE RECOVERY:
+PASS — Untitled109 located in mounted Google Drive archive.
+
+FILE IDENTITY:
+PROVISIONAL — SHA256 reported by inventory; recheck during
+forensic extraction.
+
+SOURCE CONTENT REVIEW:
+PENDING.
+
+RECORDED ERROR REVIEW:
+PENDING.
+
+REPRODUCIBLE EXECUTION:
+NOT ESTABLISHED.
+
+MATHEMATICAL VALIDATION:
+NOT ESTABLISHED.
+
+CAPD CERTIFICATION:
+NOT GRANTED.
+
+This record documents an archive-discovery and traceability
+milestone only. It is not a mathematical proof and must not be
+promoted to a certified CAPD result.
+
+----------------------------------------------------------------
+8. ARCHITECTURAL PROTECTION
+----------------------------------------------------------------
+
+Frozen Core: PRESERVED
+Volume V: NOT MODIFIED
+CE-V-07: RESERVED
+Universality: NOT ESTABLISHED
+
+This audit artifact does not modify governing theory documents,
+registration records, canonical definitions or project status.
+
+================================================================
+END OF RECORD
+================================================================
