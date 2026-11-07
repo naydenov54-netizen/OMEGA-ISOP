@@ -1,0 +1,83 @@
+OMEGA-ISOP — UNTITLED109 FORENSIC AUDIT
+CHUNK 3: CHARACTERS 24000–36000
+DATE: 2026-11-07
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+SOURCE NOTEBOOK: Untitled109.ipynb
+SOURCE SHA256: cea879e7ed6b08e67443588d483f9e4009e6d3a1406398263927bc8d24108499
+FORENSIC REPORT: /content/drive/MyDrive/Colab Notebooks/OMEGA_ISOP_UNTITLED109_FORENSIC_AUDIT.txt
+EXTRACTED RANGE: [24000, 36000)
+TOTAL REPORT CHARACTERS: 66740
+
+1. EVIDENCE EXAMINED
+User-supplied forensic extraction includes the tail of Cell 7 output and Cells 8–21.
+All shown cell execution counts are None.
+
+2. CELL 7 TAIL
+The excerpt begins with a global initialization symbol:
+_GLOBAL__sub_I__ZN4capd8rounding14DoubleRounding12roundNearestEv
+Its recorded disassembly loads an MXCSR-related data value and returns.
+This is static disassembly, not evidence of the runtime MXCSR value or successful directed rounding.
+
+3. CELLS 8–9: OPTIMIZATION FLAG CONFLICT
+Recorded compile command for DoubleRounding.cpp includes:
+-O0 -frounding-math -g -std=gnu++17 ... -O2 -frounding-math
+Recorded flags.make likewise places -O2 after -O0.
+
+For GCC, conflicting optimization options are resolved by the last applicable option. Therefore the initial build-o0 flags do not establish effective -O0 compilation; the displayed command's later -O2 is decisive for that invocation.
+
+4. CELLS 11–13: SOURCE OF THE CONFLICT
+CAPD CMakeLists.txt contains:
+target_compile_options(${PROJECT_NAME} PUBLIC -O2 -frounding-math)
+This explains why -O2 appears after externally supplied -O0 flags.
+Cell 12 shows build-o0-clean flags.make also contains -O2 after -O0.
+Classification: direct source evidence of the optimization-flag conflict.
+
+5. CELLS 14–16: WRAPPER CREATION
+Cell 14 failed with SyntaxError because Bash syntax was submitted in a Python cell.
+Cell 15 correctly uses %%bash and creates /content/cxx-o0.
+The wrapper removes arguments exactly equal to -O2, then invokes /usr/bin/c++ with remaining arguments and appends -O0.
+Cell 16 records that /content/cxx-o0 is executable.
+Cell 14 is a notebook-language execution error, not a CAPD mathematical or source-code failure.
+
+6. CELLS 17–19: VERIFIED CONFIGURATION
+Cell 17 configures build-o0-clean successfully, but this configuration's flags still contain the CAPD-supplied -O2; it is not proof of effective -O0.
+Cell 18 configures build-o0-verified with CMAKE_CXX_COMPILER=/content/cxx-o0 successfully.
+Cell 19's compile_commands.json still displays -O2 because it records arguments passed to the compiler wrapper. This does not establish the final arguments received by GCC.
+
+7. CELL 20: WRAPPER PROBE
+Recorded command:
+ /content/cxx-o0 -O2 -### -c /content/probe.cpp
+The GCC cc1plus command printed in the output contains -O0.
+Classification: PROBE PASS. The wrapper demonstrably strips -O2 and appends -O0 for this probe invocation.
+Limitation: a probe does not prove the full CAPD build completed through the wrapper or that every relevant object was rebuilt.
+
+8. CELL 21: FULL BUILD NOT ESTABLISHED
+Source:
+cmake --build /content/capd/build-o0-verified --parallel 2
+The supplied extraction contains no recorded output for this cell.
+Therefore successful completion, creation of libcapd.a in build-o0-verified, and production of DoubleRounding.cpp.o by this configuration are NOT ESTABLISHED.
+
+9. AUDIT FINDINGS
+- Initial build-o0: NOT VERIFIED AS EFFECTIVE -O0; later -O2 is present.
+- build-o0-clean: NOT VERIFIED AS EFFECTIVE -O0; later -O2 remains.
+- Wrapper behavior: PROBE PASS.
+- build-o0-verified configuration: PASS.
+- build-o0-verified full build: NOT ESTABLISHED FROM THIS CHUNK.
+- Runtime rounding behavior: NOT ESTABLISHED.
+- Interval enclosure correctness: NOT ESTABLISHED.
+- Independent reproduction: NOT ESTABLISHED.
+
+10. STATUS AND ARCHITECTURE
+TASK 02 MATHEMATICAL CERTIFICATION remains PASS / COMPLETE as previously recorded.
+TASK 02 MACHINE-LEVEL EVIDENCE AUDIT remains OPEN / PENDING.
+No new mathematical contradiction is identified in this chunk.
+Frozen Core: UNCHANGED.
+Volume V: ACTIVE RESEARCH ARCHITECTURE; UNCHANGED.
+CE-V-07: RESERVED.
+Universality: NOT ESTABLISHED.
+No CAPD result is promoted to a universal theorem.
+No conditional result is promoted to certified without independent verification.
+
+11. NEXT EVIDENCE REQUIRED
+Inspect the next report chunk for the full build output from Cell 21 and subsequent commands/results.
+If absent from the forensic report, obtain a fresh, explicit build log and verify the resulting artifact path and compiler invocation before drawing conclusions.
