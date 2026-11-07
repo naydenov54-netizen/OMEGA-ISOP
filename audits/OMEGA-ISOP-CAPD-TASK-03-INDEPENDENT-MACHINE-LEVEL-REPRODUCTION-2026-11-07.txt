@@ -84,3 +84,43 @@ ARCHITECTURAL GUARDS — UNCHANGED
 - Do not promote conditional validation to certified without independent verification.
 - Keep FACTS, HYPOTHESES, FORMAL RESULTS, AUDIT FINDINGS, and STATUS separate.
 - Numerical result ≠ analytical theorem; simulation ≠ proof; definition ≠ derivation.
+
+
+SUPPLEMENTAL AUDIT CLARIFICATION — 2026-11-07
+SOURCE CLASSIFICATION: TASK 02 FORENSIC NOTEBOOK VS TASK 03 REPRODUCTION
+
+A later review of the final extracted notebook material confirms that the recorded output
+CAPD_IS_WORKING_O0=1 (notebook Untitled109.ipynb, forensic Cell 26) belongs to the
+TASK 02 notebook forensic record. It was run against the notebook's build-o0-verified
+directory and linked libraries as recorded in that notebook.
+
+The separately reported TASK 03 result
+DoubleRounding::isWorking() = 0
+belongs to a different reproduction invocation/build configuration, recorded above as
+CAPD v6.0.0 with MULTIPRECISION=OFF and CMake -O2 -frounding-math.
+
+These two observations MUST NOT be treated as a controlled O0-versus-O2 comparison.
+The available evidence does not establish identical library binaries, CMake cache,
+dependency configuration, compiler invocation, or runtime environment across the two
+tests. Therefore no causal conclusion about optimization level is justified.
+
+FACT:
+- TASK 02 forensic notebook records CAPD_IS_WORKING_O0=1 for its specific invocation.
+- TASK 03 reproduction record reports DoubleRounding::isWorking()=0 for its specific
+  invocation/configuration.
+
+AUDIT FINDING:
+The apparent O0/O2 discrepancy is cross-task and cross-build evidence, not yet a
+controlled compiler-optimization experiment. It remains unexplained until a same-build,
+same-dependency, same-source controlled matrix is executed and its binaries/configuration
+are hashed and retained.
+
+STATUS:
+- TASK 02 forensic extraction remains COMPLETE; this supplemental classification does
+  not reopen TASK 02 mathematical certification.
+- TASK 03 remains IN PROGRESS.
+- Optimization level as the cause: NOT ESTABLISHED.
+- General directed-rounding correctness: NOT ESTABLISHED.
+- Full independent CAPD reproducibility: NOT ESTABLISHED.
+
+This clarification does not modify the Frozen Core, Volume V, or CE-V-07 status.
