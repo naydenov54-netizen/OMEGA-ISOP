@@ -1,0 +1,101 @@
+OMEGA-ISOP — UNTITLED109 CONTENT FORENSIC AUDIT
+CHUNK: 6 (FINAL EXTRACTED CHUNK)
+DATE: 2026-11-07
+SOURCE REPORT RANGE: characters 60000–66740 of 66740
+SOURCE NOTEBOOK: /content/drive/MyDrive/Colab Notebooks/Untitled109.ipynb
+NOTEBOOK SHA256: cea879e7ed6b08e67443588d483f9e4009e6d3a1406398263927bc8d24108499
+
+SCOPE
+Forensic review of the remainder of Cell 27, Cells 28–30, and the final forensic summary. The source report was produced by read-only JSON parsing. This audit records the stored notebook source and outputs; it is not a fresh notebook execution.
+
+FACTS
+
+1. CELL 27 — REMAINDER OF DoubleRounding::test() DISASSEMBLY
+The remainder of the stored disassembly shows floating-point operations and comparisons. The function assigns return codes 3, 2, 1, or 0 through conditional branches. Combined with Cell 22, the visible control flow supports the conclusion that isWorking() invokes test() after selecting roundUp, roundDown, roundCut, and roundNearest and checks the expected codes 2, 1, 3, and 0 respectively.
+This remains static disassembly evidence. It does not alone establish the runtime rounding mode at every relevant operation or the correctness of all interval arithmetic.
+
+2. CELL 28 — INTERVAL TEST SOURCE
+The cell writes /content/capd_interval_check.cpp. The C++ program constructs:
+DoubleInterval a(1.0);
+DoubleInterval b(0x1p-53);
+DoubleInterval c = a + b;
+It prints the resulting interval and a long-double expression for the expected value.
+The recorded output from the source-file creation is:
+Writing /content/capd_interval_check.cpp
+
+3. CELL 29 — NOTEBOOK EXECUTION ERROR
+The cell contains the bare text:
+Writing /content/capd_interval_check.cpp
+The stored output is NameError: name 'Writing' is not defined.
+This is an execution/interface error caused by treating the preceding cell's output text as Python source. It is not a mathematical contradiction.
+
+4. CELL 30 — INTERVAL TEST EXECUTION
+The stored command compiles the test program with -O0 -frounding-math -std=c++17, includes CAPD headers, links capd, filib, MPFR, and GMP, and runs the executable.
+The recorded output is:
+INTERVAL_RESULT=[1,1.0000000000000002]
+EXPECTED_EXACT_VALUE=1.0000000000000001
+
+The input 0x1p-53 denotes the exactly representable binary value 2^-53. The exact real sum 1 + 2^-53 lies between the adjacent binary64 values 1.0 and 1.0000000000000002. The displayed interval endpoints therefore enclose that exact real value for this specific test, assuming the displayed interval is the actual DoubleInterval result as recorded.
+The printed EXPECTED_EXACT_VALUE is produced using long double and decimal formatting; it is not an independent exact-rational certificate. The program also does not contain an assertion or a systematic test suite.
+
+5. FINAL FORENSIC SUMMARY
+The extracted report states:
+- TOTAL CELLS: 31
+- CODE CELLS: 31
+- RECORDED ERRORS: 5
+- SOURCE SHA256: cea879e7ed6b08e67443588d483f9e4009e6d3a1406398273927bc8d24108499
+- ORIGINAL NOTEBOOK MODIFIED: NO
+- ORIGINAL NOTEBOOK CELLS EXECUTED: NO
+- EXTRACTION METHOD: READ-ONLY JSON PARSING
+- STATUS: EXTRACTION COMPLETED
+
+The SHA256 value above must be compared carefully with the previously established notebook hash. The prior checkpoint records:
+cea879e7ed6b08e67443588d483f9e4009e6d3a1406398273927bc8d24108499
+The values match exactly.
+
+AUDIT FINDINGS
+
+A. INTERVAL ADDITION SMOKE TEST: RECORDED PASS / OBSERVED ENCLOSURE.
+For the single recorded operation 1.0 + 2^-53, the reported interval [1, 1.0000000000000002] contains the exact real sum. This is a concrete positive observation for this input and operation.
+
+B. GENERAL OUTWARD-ROUNDING CORRECTNESS: NOT ESTABLISHED.
+A single addition test cannot establish correctness for all operations, operands, exceptional values, compiler configurations, or execution environments. No broad boundary-value suite or independent exact oracle is included in this chunk.
+
+C. EXPECTED VALUE ORACLE: LIMITED.
+The displayed long-double decimal value is useful as a diagnostic comparison but is not a rigorous exact-rational oracle. The test source contains no assertion proving containment.
+
+D. ROUNDING SELF-CHECK: SUPPORTING EVIDENCE ONLY.
+The disassembly explains the structure of CAPD's internal self-check, and Cell 26 records isWorking() returning 1. Neither item alone certifies the full interval arithmetic implementation.
+
+E. NOTEBOOK EXECUTION ERRORS: NON-MATHEMATICAL.
+The NameError in Cell 29 is a notebook execution/interface error. The final report's five recorded errors must be understood in context; their existence does not itself imply mathematical failure.
+
+F. EXTRACTION PROVENANCE: READ-ONLY AS REPORTED.
+The final summary explicitly states that the original notebook was not modified and its cells were not executed during extraction. This describes the extraction procedure, not necessarily the original provenance of every stored output.
+
+G. NO NEW MATHEMATICAL CONTRADICTION IDENTIFIED.
+This chunk adds a positive single-case interval observation and no contradiction to the previously recorded mathematical result.
+
+FINAL STATUS AFTER CHUNK 6
+
+TASK 02 MATHEMATICAL CERTIFICATION: PASS / COMPLETE — unchanged from the previously recorded certification status.
+TASK 02 MACHINE-LEVEL EVIDENCE AUDIT: OPEN / PENDING — the forensic extraction of all 66740 characters is complete, but the evidence does not establish independent reproducibility or comprehensive machine-level validation.
+TASK 02 OVERALL: MATHEMATICS CERTIFIED; MACHINE-LEVEL EVIDENCE AUDIT OPEN.
+CAPD BUILD TARGET: RECORDED PASS.
+CAPD DoubleRounding::isWorking() SELF-CHECK: RECORDED PASS.
+SINGLE INTERVAL ADDITION TEST: RECORDED PASS / OBSERVED ENCLOSURE.
+GENERAL DIRECTED-ROUNDING CORRECTNESS: NOT ESTABLISHED BY THIS FORENSIC NOTEBOOK EXCERPT.
+EFFECTIVE -O0 FOR ALL RELEVANT LIBRARY OBJECTS: NOT ESTABLISHED.
+INDEPENDENT REPRODUCIBILITY: NOT ESTABLISHED.
+UNIVERSALITY: NOT ESTABLISHED.
+
+ARCHITECTURAL CONSTRAINTS
+Frozen Core remains unchanged.
+Volume V remains the active research architecture.
+CE-V-07 remains RESERVED.
+No CAPD result is promoted to a universal theorem.
+No conditional result is promoted to independently certified status by this forensic extraction.
+No notebook excerpt or stored output is represented as a fresh independent rerun.
+
+NEXT ACTION
+The six-chunk read-only forensic extraction of the 66740-character report is complete. The next phase, if authorized, should be a separately scoped independent reproduction and targeted machine-level validation plan. It must not silently alter the Frozen Core or promote the machine-level audit status without new evidence.
