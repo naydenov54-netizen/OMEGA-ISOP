@@ -153,3 +153,19 @@ print("\\n--- CHUNK END ---")
 print("NEXT START:", min(END, len(content)))
 
 Inspect the remainder of Cell 21 first, especially whether the build reaches 100% or reports an error, then audit subsequent cells. Continue to distinguish stored outputs from independent execution. Do not change mathematical certification status without a new mathematical contradiction or a properly scoped review.
+
+
+CHUNK 5 FORENSIC AUDIT — 2026-11-07
+Audit file: audits/OMEGA-ISOP-UNTITLED109-CONTENT-FORENSIC-AUDIT-CHUNK-5-2026-11-07.txt
+Read-back verification: PASS.
+CHUNK 5 covers forensic report characters 48000–60000 of 66740.
+Recorded Cell 21 build output reaches [100%] Built target capd. This is recorded build completion, not a fresh independent rerun.
+Cell 22 disassembly shows isWorking() calls roundUp/test, roundDown/test, roundCut/test, and roundNearest/test, comparing results with 2, 1, 3, and 0 respectively. Static control-flow evidence only.
+Cells 23–24 contain SyntaxError outputs caused by C++ heredoc text being interpreted in Python cells. These are notebook execution errors, not mathematical contradictions.
+Cell 25 records creation of /content/test13a_o0.cpp.
+Cell 26 records compilation of the test program with -O0 -frounding-math and runtime output CAPD_IS_WORKING_O0=1. This is a recorded pass of CAPD's internal isWorking() self-check for that invocation only.
+Cell 27 begins disassembly of DoubleRounding::test(); excerpt is incomplete.
+Audit limits: effective -O0 across all CAPD library objects NOT ESTABLISHED; independent directed-rounding/outward-enclosure validation NOT ESTABLISHED; independent reproducibility NOT ESTABLISHED. Most relevant execution_count values are None.
+No new mathematical contradiction identified.
+Status unchanged: TASK 02 MATHEMATICAL CERTIFICATION PASS / COMPLETE; TASK 02 MACHINE-LEVEL EVIDENCE AUDIT OPEN / PENDING.
+Next action: extract CHUNK 6, characters 60000–66740, and audit remaining notebook content.
