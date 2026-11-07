@@ -1,0 +1,273 @@
+================================================================
+OMEGA-ISOP
+CAPD MATHEMATICAL CERTIFICATION TRACK
+TASK 01 — INDEPENDENT RATIONAL VERIFICATION OF U
+================================================================
+
+DOCUMENT ID:
+OMEGA-ISOP-CAPD-TASK-01-U-RATIONAL-ENCLOSURE-2026-11-07
+
+DATE:
+2026-11-07
+
+TRACK:
+CAPD / INTERVAL VALIDATION / ANALYTICAL VERIFICATION
+
+TASK:
+Independent mathematical enclosure of
+
+U = exp(-4225/129)
+
+and comparison with the recorded CAPD interval.
+
+----------------------------------------------------------------
+1. SCOPE AND STATUS
+----------------------------------------------------------------
+
+This record documents a rational-arithmetic enclosure of U and
+checks whether that enclosure is contained in the recorded CAPD
+interval.
+
+This task does NOT certify:
+- the complete boundary construction;
+- the complete eight-bump profile;
+- the independent execution of CAPD;
+- the complete CAPD source-to-binary evidence chain;
+- any universal theorem or global OMEGA-ISOP claim.
+
+TASK STATUS:
+PASS — RATIONAL ENCLOSURE OF U
+PASS — CONTAINMENT IN THE RECORDED CAPD INTERVAL
+NOT ESTABLISHED — INDEPENDENT CAPD EXECUTION
+NOT ESTABLISHED — COMPLETE CONSTRUCTION CERTIFICATION
+GLOBAL CERTIFICATION: NOT GRANTED
+
+----------------------------------------------------------------
+2. EXACT RATIONAL PARAMETERS
+----------------------------------------------------------------
+
+eta = 1/100
+w = 13/20
+
+rho = eta/w
+rho = (1/100)/(13/20)
+rho = 1/65
+
+r_max = 2*rho - rho^2
+r_max = 2/65 - 1/4225
+r_max = 129/4225
+
+1/r_max = 4225/129
+
+Define:
+
+x = 4225/129
+U = exp(-x)
+
+All parameters above are exact rational quantities.
+
+----------------------------------------------------------------
+3. RATIONAL TAYLOR ENCLOSURE
+----------------------------------------------------------------
+
+Let
+
+S = SUM(k=0..100) x^k/k!
+
+and
+
+a_101 = x^101/101!
+
+For k >= 101, the ratio of consecutive positive Taylor terms is
+
+(x^(k+1)/(k+1)!) / (x^k/k!) = x/(k+1).
+
+For all k >= 101 this ratio is at most
+
+q = x/102.
+
+Since x = 4225/129, we have 0 < q < 1.
+
+Therefore the positive Taylor tail is bounded by a geometric
+series:
+
+0 < exp(x) - S <= a_101/(1-q).
+
+Define
+
+R = a_101/(1-q).
+
+Then
+
+S < exp(x) <= S + R.
+
+All quantities S, R and q are rational and can be evaluated
+exactly using rational arithmetic.
+
+Taking reciprocals of positive quantities gives
+
+1/(S+R) <= exp(-x) < 1/S.
+
+Thus a rigorous rational enclosure is
+
+U_lower = 1/(S+R)
+U_upper = 1/S
+
+with
+
+U_lower <= U < U_upper.
+
+----------------------------------------------------------------
+4. RECORDED CAPD INTERVAL
+----------------------------------------------------------------
+
+The archive records the following CAPD enclosure:
+
+CAPD_lower =
+5.9705461785525639471E-15
+
+CAPD_upper =
+5.9705461785527019977E-15
+
+Required containment:
+
+CAPD_lower <= U_lower
+and
+U_upper <= CAPD_upper.
+
+The rational-arithmetic assertions below passed in the checking
+run associated with this task.
+
+The approximate central value is:
+
+U approximately
+5.97054617855264993292355E-15
+
+The decimal approximation is informational only. The rational
+inequalities are the proof object for this task.
+
+----------------------------------------------------------------
+5. REPRODUCIBLE PYTHON CHECK
+----------------------------------------------------------------
+
+The following code uses exact fractions for all proof
+inequalities. It does not use floating-point arithmetic to
+establish the enclosure.
+
+from fractions import Fraction
+from math import factorial
+
+x = Fraction(4225, 129)
+N = 100
+
+S = sum(
+    (x**k / factorial(k))
+    for k in range(N + 1)
+)
+
+next_term = x**(N + 1) / factorial(N + 1)
+q = x / Fraction(N + 2)
+
+assert 0 < q < 1
+
+R = next_term / (1 - q)
+
+U_lower = 1 / (S + R)
+U_upper = 1 / S
+
+CAPD_lower = Fraction(
+    "5.9705461785525639471e-15"
+)
+
+CAPD_upper = Fraction(
+    "5.9705461785527019977e-15"
+)
+
+assert CAPD_lower <= U_lower
+assert U_upper <= CAPD_upper
+
+assert U_upper < Fraction(6, 10**15)
+
+print("RATIONAL ENCLOSURE: PASS")
+print("CAPD INTERVAL CONTAINMENT: PASS")
+print("U < 6e-15: PASS")
+
+----------------------------------------------------------------
+6. AUDIT FINDINGS
+----------------------------------------------------------------
+
+FACTS:
+- eta, w, rho and r_max are exact rational values.
+- x = 4225/129 is exact.
+- The exponential Taylor series has positive terms for x > 0.
+- The tail ratio is bounded above by q = x/102 < 1.
+- The geometric tail estimate therefore supplies a rigorous
+  rational upper bound for exp(x).
+- Reciprocal order gives a rigorous enclosure for exp(-x).
+
+COMPUTATIONAL CHECKS:
+- Rational enclosure assertions: PASS.
+- Containment in the recorded CAPD interval: PASS.
+- Upper bound U < 6E-15: PASS.
+
+LIMITATIONS:
+- This check does not independently execute CAPD.
+- It does not validate the CAPD solver implementation,
+  compiler, floating-point environment, or binary.
+- It does not establish that the recorded CAPD interval was
+  generated from the exact source and build claimed elsewhere.
+- It does not certify the complete boundary construction or
+  the eight-bump profile.
+
+----------------------------------------------------------------
+7. CERTIFICATION CLASSIFICATION
+----------------------------------------------------------------
+
+TASK 01:
+RATIONAL MATHEMATICAL ENCLOSURE OF U — PASS
+
+RECORDED CAPD INTERVAL CONTAINMENT — PASS
+
+INDEPENDENT CAPD REPRODUCTION — NOT ESTABLISHED
+
+COMPLETE BOUNDARY CONSTRUCTION — NOT ESTABLISHED
+
+GLOBAL CAPD CERTIFICATION — NOT GRANTED
+
+This result must not be promoted beyond its explicitly stated
+scope.
+
+----------------------------------------------------------------
+8. ARCHITECTURAL PROTECTION
+----------------------------------------------------------------
+
+Frozen Core: PRESERVED
+Volume V: NOT MODIFIED
+CE-V-07: RESERVED
+Universality: NOT ESTABLISHED
+
+This audit record is an independent research/audit artifact.
+It does not modify governing theory documents, registration
+records, or canonical project status.
+
+----------------------------------------------------------------
+9. NEXT TASK
+----------------------------------------------------------------
+
+TASK 02 — INDEPENDENT VERIFICATION OF
+
+exp(z) <= 1 + z/(1-z), for 0 <= z < 1.
+
+Required checks:
+1. Strict mathematical proof.
+2. Exact domain of validity.
+3. Applicability to CELL 46.
+4. Transition to the next representable double value.
+5. Compatibility with CAPD interval semantics.
+
+TASK 01 is closed as a scoped rational-enclosure check.
+No result from TASK 01 is to be silently altered by TASK 02.
+
+================================================================
+END OF RECORD
+================================================================
