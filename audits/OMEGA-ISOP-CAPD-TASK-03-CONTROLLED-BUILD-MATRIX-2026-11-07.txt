@@ -1,0 +1,157 @@
+OMEGA-ISOP — TASK 03 CONTROLLED BUILD MATRIX
+DATE: 2026-11-07
+TRACK: MATHEMATICAL CERTIFICATION TRACK
+TASK: TASK 03 — CONTROLLED O0/O2 BUILD MATRIX
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+
+1. PURPOSE AND SCOPE
+
+This supplemental record captures the controlled CAPD v6.0.0 build matrix executed after the initial TASK 03 machine-level reproduction record.
+
+It supplements, and does not replace, the existing file:
+audits/OMEGA-ISOP-CAPD-TASK-03-INDEPENDENT-MACHINE-LEVEL-REPRODUCTION-2026-11-07.txt
+
+This record concerns build execution and provenance only. Successful compilation is not interval-arithmetic validation, runtime validation, or mathematical certification.
+
+2. SOURCE AND ENVIRONMENT (REPORTED BY EXECUTION REPORT)
+
+CAPD repository: https://github.com/CAPDGroup/CAPD.git
+Source commit: 693998cd6d73a0c4e1b141bfb79fcad1c40c3cbe
+CAPD version: 6.0.0
+Compiler: GNU C/C++ 13.3.0
+Architecture: 64-bit x86 (SSE)
+Multiprecision: OFF
+CAPD tests: OFF
+CAPD examples: OFF
+
+The execution report states that the source commit before and after the builds was identical and that the source working tree was clean after the builds (source_unchanged=true). These are recorded as reported observations; this GitHub entry does not independently re-run the source checkout or verify the Colab environment.
+
+The compiler launcher is reported to remove optimization flags from incoming compiler commands and append the selected optimization flag as the final argument.
+
+3. CONTROLLED BUILD RESULTS
+
+BUILD O0
+Optimization: -O0
+Configure exit code: 0
+Build exit code: 0
+Compiler invocations: 90
+Successful invocations: 90
+Failed invocations: 0
+Optimization flags verified: true
+All exit codes recorded: true
+libcapd.a size: 43,922,446 bytes
+libcapd.a SHA256:
+ee65d9c80738adb8c2ee1c25b5d696fe96e3ccd02d011fd5f598dec0336fa6cd
+libfilib.a SHA256:
+a31eb0ac01b2f2371581c9729ff720f5f9fdf4d3368f47755fe10d4cd61da461
+Configure log SHA256:
+7742362025f1c39a41bcb080cc784250a1e792b201bf579c9cfd177597b0d9bb
+Build log SHA256:
+2943f42955371783f0eb4a8cd6d699413476c42de4d68fa8d5c2fd3bf6a410f5
+Compiler invocation log SHA256:
+f16c1cb0b1fe6f7c07fbfcfdf83d158fa1a40869a2f958ec4cd3df40af7ad8da
+CMake cache SHA256:
+8e0c35771a1e0973ce7c6c070d58c93b8eab1dad913c8a537c5b8e41a5ffcd2f
+compile_commands.json SHA256:
+50d90a7169ec75c03fb162435a1cd19c163420e69a621e4a72e8225552777c60
+Build status: BUILD_COMPLETED_AUDIT_PENDING
+
+BUILD O2
+Optimization: -O2
+Configure exit code: 0
+Build exit code: 0
+Compiler invocations: 90
+Successful invocations: 90
+Failed invocations: 0
+Optimization flags verified: true
+All exit codes recorded: true
+libcapd.a size: 21,745,820 bytes
+libcapd.a SHA256:
+42ac6ee5513489a15515519952563a06c137ec6e0e2815a2686bc48ef1bd99f0
+libfilib.a SHA256:
+37acc79a80fca1ca5a6f6ba4eb543ec91e71329ec4621abb3beec8597fb09d0d
+Configure log SHA256:
+c8eaa1972938b4d16512018a0c617d94f9a04812b66c4bb0f1da3f3ff550034a
+Build log SHA256:
+6c321a39c6ac52d10e1efe509c292fa734256d1909dc26b0601324265e519bcf
+Compiler invocation log SHA256:
+8a8be37072c677d950542e3270ae5ab97db42b887766113f86adc61eadc9c405
+CMake cache SHA256:
+8c091b05a5d197c6fe19079e295af46236cec4db11e2bda02f7b2a6b4c3eed82
+compile_commands.json SHA256:
+c508be4c3f326b1cbc2def31746ae32b8ee9066ecabd2e6739147c42e5204bfb
+Build status: BUILD_COMPLETED_AUDIT_PENDING
+
+4. ARCHIVE AND REPORT IDENTIFIERS
+
+Colab archive path:
+ /content/OMEGA_ISOP_TASK03_MATRIX.zip
+Archive SHA256:
+5aaa9d1347da82c0c994d974cbde42f53376ae4c0e44b0eb4017b238aeee72bc
+
+Execution report SHA256:
+eba47fccebcb007fb4d878f0d560ac553891af6a9da4380681bbe0399d1af3fa
+
+The archive and report hashes are recorded from the execution output. The archive bytes and raw logs have not been independently downloaded and re-hashed by this GitHub commit.
+
+5. FACTS REPORTED
+
+- Both O0 and O2 configure stages returned exit code 0.
+- Both O0 and O2 build stages returned exit code 0.
+- Each build recorded 90 successful compiler invocations and zero failed invocations.
+- The execution report marked the selected optimization flags as verified.
+- Distinct libcapd.a and libfilib.a hashes were recorded for O0 and O2.
+- The execution report states source_unchanged=true and reports an empty source git status after the build.
+
+6. AUDIT FINDINGS AND LIMITATIONS
+
+- This establishes successful completion of two reported build configurations, not correctness of the generated numerical results.
+- The different O0 and O2 artifact hashes are expected to be possible when optimization settings differ; the hash difference alone is not evidence of a defect.
+- Multiprecision was OFF. This remains a configuration deviation from any recipe requiring MULTIPRECISION=ON.
+- CAPD tests and examples were OFF. Therefore this matrix does not establish that the CAPD test suite passed.
+- A successful build does not establish directed-rounding correctness, outward rounding, interval enclosure, tightness, or runtime state restoration.
+- The compiler invocation logs, build logs, CMake caches, compile_commands.json files, and archive must be independently read back and checked against the recorded hashes before this record can be treated as independently verified.
+- The source-unchanged claim is retained as a reported execution observation, not as an independently verified fact in this audit.
+
+7. STATUS
+
+TASK 03 CONTROLLED O0 BUILD: COMPLETED (reported).
+TASK 03 CONTROLLED O2 BUILD: COMPLETED (reported).
+COMPILER INVOCATIONS: 180 TOTAL; 180 SUCCESSFUL; 0 FAILED (reported).
+SOURCE COMMIT: IDENTIFIED.
+SOURCE UNCHANGED: REPORTED; INDEPENDENT CHECK PENDING.
+ARTIFACT HASHES: RECORDED; INDEPENDENT READ-BACK PENDING.
+INTERVAL VALIDATION: NOT ESTABLISHED.
+FLOATING-POINT / ROUNDING AUDIT: PENDING.
+RUNTIME VALIDATION: PENDING.
+INDEPENDENT VERIFICATION: PENDING.
+MATHEMATICAL CERTIFICATION: NOT ESTABLISHED BY THIS BUILD MATRIX.
+
+OVERALL TASK 03 MATRIX STATUS:
+BOTH BUILDS COMPLETED / AUDIT PENDING.
+
+8. NEXT AUDIT ACTIONS
+
+1. Retrieve the archived execution package and independently verify its SHA256.
+2. Extract and inspect the actual compiler invocation records for both configurations.
+3. Verify that each compiler command contains the intended optimization flag and check for conflicting or unsafe floating-point flags.
+4. Independently verify the configure/build logs, CMake caches, and compile_commands.json hashes.
+5. Perform targeted floating-point and interval arithmetic tests, including outward-rounding behavior.
+6. Compare O0 and O2 runtime behavior using the same source, dependencies, inputs, and test harness.
+7. Preserve raw inputs, exact commands, outputs, exit statuses, and hashes for every test.
+
+9. ARCHITECTURAL GUARDS — UNCHANGED
+
+- Frozen Core: UNCHANGED / PRESERVED.
+- Volume V: ACTIVE RESEARCH ARCHITECTURE; this record does not modify it.
+- CE-V-07: RESERVED.
+- Universality: NOT ESTABLISHED.
+- No CAPD result in this record is a universal theorem.
+- No conditionally validated result is promoted to certified.
+- Keep FACTS, HYPOTHESES, FORMAL RESULTS, AUDIT FINDINGS, and STATUS separate.
+- Numerical result is not an analytical theorem.
+- Simulation is not proof.
+- Successful compilation is not mathematical certification.
+
+END OF SUPPLEMENTAL TASK 03 CONTROLLED MATRIX RECORD.
