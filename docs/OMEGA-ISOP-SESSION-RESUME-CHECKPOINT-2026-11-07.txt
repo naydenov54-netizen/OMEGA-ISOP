@@ -285,3 +285,21 @@ Continue with controlled compiler-flag matrix and targeted MXCSR state-transitio
 ARCHITECTURAL GUARDS:
 Frozen Core unchanged; Volume V active and unmodified; CE-V-07 reserved; universality not established; no CAPD universal theorem claim; no conditional result promoted to certified without independent verification.
 ============================================================
+
+
+LATEST TASK 03 CLARIFICATION — 2026-11-07
+A supplemental clarification was committed to:
+audits/OMEGA-ISOP-CAPD-TASK-03-INDEPENDENT-MACHINE-LEVEL-REPRODUCTION-2026-11-07.txt
+Commit: 8ccf8124f344e537a2e7eeda48da82b81ef0ad6b
+Content blob SHA (read-back verified): fdcd82b69e12dad1304cf18b392c6082884b5f31
+Read-back: PASS.
+
+Critical classification:
+- CAPD_IS_WORKING_O0=1 in forensic Cell 26 belongs to TASK 02 notebook Untitled109.ipynb and its build-o0-verified directory.
+- DoubleRounding::isWorking()=0 belongs to the separate TASK 03 reproduction invocation/configuration (MULTIPRECISION=OFF, CMake -O2 -frounding-math).
+- These are cross-task/cross-build observations, NOT a controlled O0-versus-O2 experiment.
+- Optimization level as the cause of the difference: NOT ESTABLISHED.
+- Do not compare them causally without matching source, build cache, dependencies, compiler invocation, library/object hashes, and runtime environment.
+
+NEXT TASK 03 ACTION:
+Perform a controlled same-source, same-dependency build matrix. Preserve exact CMake cache, final compiler commands, library and object hashes, runtime output, exit status, and MXCSR/x87 state. Keep TASK 02 complete and do not re-extract its notebook unless its hash changes or a concrete discrepancy appears.
