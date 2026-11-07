@@ -1,0 +1,92 @@
+OMEGA-ISOP — UNTITLED109 FORENSIC AUDIT
+CHUNK 2: CHARACTERS 12000–24000
+DATE: 2026-11-07
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+SOURCE NOTEBOOK: Untitled109.ipynb
+SOURCE SHA256: cea879e7ed6b08e67443588d483f9e4009e6d3a1406398263927bc8d24108499
+FORENSIC REPORT: /content/drive/MyDrive/Colab Notebooks/OMEGA_ISOP_UNTITLED109_FORENSIC_AUDIT.txt
+EXTRACTED RANGE: [12000, 24000)
+TOTAL REPORT CHARACTERS: 66740
+
+1. EVIDENCE EXAMINED
+
+The user supplied the forensic report extraction for characters 12000–24000.
+The excerpt contains the continuation of Cell 6 build output and Cell 7 source/disassembly output.
+Cell execution_count is None for Cell 7.
+
+2. FACTS FROM RECORDED OUTPUT
+
+CELL 6 — CAPD BUILD
+The recorded build log progresses from approximately 24% to 100%.
+It ends with:
+[100%] Linking CXX static library libcapd.a
+[100%] Built target capd
+
+Classification:
+RECORDED BUILD SUCCESS for the CMake target named capd, producing static library libcapd.a, according to the stored notebook output.
+The build includes visible standard CAPD and mpcapd components.
+This is not independent reproduction and does not establish correctness of interval arithmetic or a specific test executable/backend.
+
+CELL 7 — ROUNDING IMPLEMENTATION DISASSEMBLY
+Source command:
+objdump -dr -C --no-show-raw-insn /content/capd/build-o0/CMakeFiles/capd.dir/capdAlg/src/capd/rounding/DoubleRounding.cpp.o | grep -A100 '<capd::rounding::DoubleRounding::isWorking()>'
+
+Recorded disassembly includes:
+ldmxcsr 0x0(%rip)
+call capd::rounding::DoubleRounding::test()
+cmp $0x2,%eax
+jne ...
+ldmxcsr 0x0(%rip)
+
+Classification:
+The disassembly shows that isWorking() loads MXCSR, calls DoubleRounding::test(), compares its return value with 2, and conditionally loads another MXCSR value.
+This is evidence of an implementation path that inspects/changes floating-point control state through MXCSR.
+
+3. AUDIT LIMITATIONS
+
+The disassembly alone does NOT establish:
+- the runtime return value of DoubleRounding::test();
+- the actual MXCSR value during the certification test;
+- successful activation of the intended directed rounding mode;
+- directed rounding for every relevant arithmetic operation;
+- outward rounding of the interval endpoints;
+- that the target certification test used this exact code path;
+- correctness of a resulting interval enclosure.
+
+A compiler flag such as -frounding-math is not, by itself, proof of runtime rounding behavior.
+
+4. NOTEBOOK TRACEABILITY
+
+Cell 7 has EXECUTION COUNT: None.
+The stored output therefore does not independently establish when the cell ran or whether its output belongs to a single continuous execution sequence with the other cells.
+Stored outputs must not be equated with fresh reproduction.
+
+5. STATUS AFTER CHUNK 2
+
+CAPD LIBRARY BUILD: PASS — based on recorded output.
+ROUNDING IMPLEMENTATION INSPECTION: PARTIAL.
+RUNTIME ROUNDING VALIDATION: NOT ESTABLISHED.
+INTERVAL ENCLOSURE VALIDATION: NOT ESTABLISHED.
+INDEPENDENT REPRODUCTION: NOT ESTABLISHED.
+NEW MATHEMATICAL RESULT: NONE.
+
+TASK 02 MATHEMATICAL CERTIFICATION remains PASS / COMPLETE as previously recorded.
+TASK 02 MACHINE-LEVEL EVIDENCE AUDIT remains OPEN / PENDING.
+No mathematical status is changed by this chunk.
+
+6. NEXT REQUIRED EVIDENCE
+
+Inspect subsequent report chunks for:
+- build/test executable creation and link commands;
+- actual runtime rounding test outputs;
+- MXCSR before/after values or equivalent runtime diagnostics;
+- exact interval backend and test source;
+- raw numerical outputs and reproducibility evidence.
+
+ARCHITECTURE PROTECTION
+Frozen Core: UNCHANGED.
+Volume V: ACTIVE RESEARCH ARCHITECTURE; UNCHANGED.
+CE-V-07: RESERVED.
+Universality: NOT ESTABLISHED.
+No CAPD result is promoted to a universal theorem.
+No conditional result is promoted to certified without independent verification.
