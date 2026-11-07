@@ -1,0 +1,430 @@
+================================================================
+OMEGA-ISOP
+MATHEMATICAL CERTIFICATION TRACK
+UNTITLED109 — CONTENT FORENSIC AUDIT
+================================================================
+
+DOCUMENT ID:
+OMEGA-ISOP-UNTITLED109-CONTENT-FORENSIC-AUDIT-2026-11-07
+
+DATE:
+2026-11-07
+
+TRACK:
+CAPD / INTERVAL VALIDATION / ANALYTICAL VERIFICATION
+SOURCE FORENSICS / MACHINE-LEVEL EVIDENCE
+
+----------------------------------------------------------------
+0. RECORD PURPOSE AND EVIDENCE LIMIT
+----------------------------------------------------------------
+
+This record preserves the first user-provided chunk of the
+read-only forensic extraction report for Untitled109.ipynb.
+
+The extracted report is 66,740 characters and 66,742 UTF-8 bytes.
+Only characters 0–11,999 (the first 12,000-character chunk) have
+been reviewed in this record.
+
+This is a PARTIAL CONTENT AUDIT, not a complete notebook audit.
+No original notebook cells were executed as part of this review.
+No source file, notebook, Frozen Core document, Volume V
+document, or registration record was modified.
+
+Evidence origin:
+- User-provided Colab extraction output in the conversation.
+- The extraction report identifies the original notebook path,
+  size, and SHA256 as listed below.
+- This GitHub record preserves the observed information and
+  the bounded audit interpretations; it is not an independent
+  recomputation of the notebook hash.
+
+----------------------------------------------------------------
+1. SOURCE IDENTITY AS REPORTED BY EXTRACTION
+----------------------------------------------------------------
+
+Original notebook:
+Untitled109.ipynb
+
+Original path:
+/content/drive/MyDrive/Colab Notebooks/Untitled109.ipynb
+
+Reported file size:
+74,950 bytes
+
+Reported SHA256:
+cea879e7ed6b08e67443588d483f9e4009e6d3a1406398263927bc8d24108499
+
+Reported structure:
+- Total cells: 31
+- Code cells: 31
+- Markdown cells: 0
+
+Forensic report:
+OMEGA_ISOP_UNTITLED109_FORENSIC_AUDIT.txt
+
+Reported forensic report size:
+66,742 bytes
+
+Extraction chunk reviewed:
+START = 0
+END = 12,000
+NEXT START = 12,000
+
+The extraction output reports:
+TOTAL CHARACTERS: 66,740
+TOTAL BYTES: 66,742
+
+The earlier source-discovery record documents the same notebook
+identity values. The extraction output reports the same SHA256.
+Independent hash recomputation is not demonstrated by this
+textual chunk alone.
+
+----------------------------------------------------------------
+2. CELL-BY-CELL FINDINGS IN THE REVIEWED CHUNK
+----------------------------------------------------------------
+
+CELL INDEX 0
+Cell type: code
+Execution count: None
+
+Stored source text:
+CMake Error: The source directory "/content/capd" does not exist.
+Specify --help for usage, or press the help button on the CMake GUI.
+
+Recorded output:
+- Output type: error
+- Error name: SyntaxError
+- Error value: invalid syntax (1281727112.py, line 1)
+- Traceback points to the literal text "CMake Error:" on line 1.
+
+Audit classification:
+NOTEBOOK / ENVIRONMENT EXECUTION ERROR.
+
+Interpretation:
+The cell source contains CMake diagnostic text rather than a
+valid Python statement or a shell command. The recorded Python
+SyntaxError is consistent with attempting to interpret that
+diagnostic text as Python source.
+
+This is not evidence of a mathematical failure.
+
+CELL INDEX 1
+Cell type: code
+Execution count: None
+
+Source:
+!git clone https://github.com/CAPDGroup/CAPD.git /content/capd && git -C /content/capd checkout 693998cd6d73a0c4e1b141bfb79fcad1c40c3cbe
+
+Recorded output:
+- Git clone completed.
+- Checkout completed.
+- HEAD positioned at:
+  693998cd6d73a0c4e1b141bfb79fcad1c40c3cbe
+- Git reports detached HEAD.
+- Commit subject:
+  "FILIB cflags added to CAPD cflags in capd-config"
+
+Audit classification:
+RECORDED SOURCE CHECKOUT SUCCESS.
+
+Limit:
+This output records a successful clone/checkout in the historical
+notebook output. It does not independently prove that the
+repository currently exists in a runtime or that later build
+artifacts were produced from this source state.
+
+CELL INDEX 2
+Cell type: code
+Execution count: None
+
+Source:
+!pkg-config --modversion gmp mpfr
+
+Recorded output:
+- Package gmp was not found by pkg-config.
+- Package mpfr was not found by pkg-config.
+- pkg-config reports both packages missing from its search path.
+
+Audit classification:
+RECORDED INITIAL DEPENDENCY-DISCOVERY FAILURE.
+
+CELL INDEX 3
+Cell type: code
+Execution count: None
+
+Source:
+!apt-get update -qq && apt-get install -y libgmp-dev libmpfr-dev
+
+Recorded output:
+- apt package operation reports successful installation.
+- libgmp-dev installed.
+- libmpfr-dev installed.
+- libgmpxx4ldbl installed as an additional package.
+- Package versions shown:
+  libgmpxx4ldbl 2:6.3.0+dfsg-2ubuntu6.1
+  libgmp-dev 2:6.3.0+dfsg-2ubuntu6.1
+  libmpfr-dev 4.2.1-1build1.1
+- Several ldconfig symbolic-link warnings are printed.
+
+Audit classification:
+RECORDED DEPENDENCY INSTALLATION SUCCESS, WITH NON-FATAL
+SYSTEM WARNINGS IN THE STORED OUTPUT.
+
+Limit:
+The output records package installation in that notebook run.
+It does not establish the complete runtime environment or
+reproducibility on a fresh machine.
+
+CELL INDEX 4
+Cell type: code
+Execution count: None
+
+Source:
+!pkg-config --modversion gmp mpfr
+
+Recorded output:
+6.3.0
+4.2.1
+
+Audit classification:
+RECORDED PACKAGE VERSION QUERY SUCCESS.
+
+Reported versions:
+GMP = 6.3.0
+MPFR = 4.2.1
+
+CELL INDEX 5
+Cell type: code
+Execution count: None
+
+Source:
+!cmake -S /content/capd -B /content/capd/build-o0 -DCAPD_ENABLE_MULTIPRECISION=ON -DCAPD_BUILD_TESTS=OFF -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS="-O0 -frounding-math"
+
+Recorded CMake output:
+- C compiler identification: GNU 13.3.0
+- CXX compiler identification: GNU 13.3.0
+- CAPD version: 6.0.0
+- Build CAPD tests: OFF
+- Build CAPD examples: OFF
+- CAPD multiprecision: ON
+- Processor architecture: 64-bit x86 (SSE)
+- CMake configure: completed
+- CMake generate: completed
+- Build files written to:
+  /content/capd/build-o0
+
+Recorded configuration arguments:
+- CAPD_ENABLE_MULTIPRECISION=ON
+- CAPD_BUILD_TESTS=OFF
+- CMAKE_BUILD_TYPE=Debug
+- CMAKE_CXX_FLAGS="-O0 -frounding-math"
+
+Audit classification:
+RECORDED CMAKE CONFIGURATION SUCCESS.
+
+Important distinction:
+The flag -frounding-math is a compiler option. Its presence
+does not prove the actual runtime rounding mode, nor by itself
+prove directed rounding or correct interval arithmetic.
+
+CELL INDEX 6
+Cell type: code
+Execution count: None
+
+Source:
+!cmake --build /content/capd/build-o0 --parallel 2
+
+The reviewed chunk shows build output beginning with:
+- FILIB source objects being compiled.
+- FILIB static library linked.
+- CAPD source objects beginning to compile.
+- Build progress reaches approximately 24% in the visible text.
+- The chunk ends in the middle of the build log.
+
+Audit classification:
+RECORDED BUILD START / PARTIAL BUILD LOG.
+
+NOT ESTABLISHED FROM THIS CHUNK:
+- Whether the full build completed.
+- Whether the final build command exited successfully.
+- Whether a target executable or test binary was produced.
+- Whether the intended test binary linked the expected backend.
+
+----------------------------------------------------------------
+3. CROSS-CELL AUDIT OBSERVATIONS
+----------------------------------------------------------------
+
+3.1 Notebook execution metadata
+
+For every cell shown in this chunk, the extraction reports:
+EXECUTION COUNT: None
+
+However, some cells contain stored outputs.
+
+This is a metadata/output discrepancy that requires examination
+of the original notebook JSON and its metadata. It prevents us
+from inferring a reliable cell execution order from execution
+counts alone.
+
+Stored outputs may be historical artifacts. Their presence does
+not independently prove that they were generated by a single
+complete execution of the current source cells.
+
+3.2 CAPD source identity
+
+The stored output records checkout of commit:
+693998cd6d73a0c4e1b141bfb79fcad1c40c3cbe
+
+This is a useful source-version identifier. It is not yet a
+complete source-to-binary provenance chain.
+
+3.3 Compiler and build configuration
+
+The stored CMake output reports GNU 13.3.0, CAPD 6.0.0,
+64-bit x86 (SSE), Debug build, multiprecision enabled, and
+-O0 -frounding-math.
+
+These are reported configuration facts, not independent
+verification of the final binary's compile flags or runtime
+floating-point behavior.
+
+3.4 Interval backend and rounding
+
+The build log visibly compiles FILIB components. This alone
+does not establish which interval backend was selected by the
+later target test or whether directed rounding was active.
+
+The actual runtime rounding mode remains unverified.
+
+----------------------------------------------------------------
+4. FACTS / AUDIT FINDINGS / NOT ESTABLISHED
+----------------------------------------------------------------
+
+FACTS REPORTED IN THE EXTRACTED CHUNK:
+- Notebook source identity values are repeated in the report.
+- Cell 0 contains CMake error text and a recorded Python SyntaxError.
+- Cell 1 records checkout of CAPD commit
+  693998cd6d73a0c4e1b141bfb79fcad1c40c3cbe.
+- Cells 2–4 record initial GMP/MPFR discovery failure,
+  installation, and subsequent version reporting.
+- Cell 5 records successful CMake configuration.
+- Cell 6 records the beginning of a CAPD build.
+- The visible build log is truncated at the end of this chunk.
+- All shown execution counts are None.
+
+AUDIT FINDINGS:
+- Cell 0 is a notebook/environment execution error, not a
+  mathematical counterexample.
+- CAPD source checkout is recorded as successful.
+- GMP 6.3.0 and MPFR 4.2.1 are reported by pkg-config after
+  installation.
+- CMake configuration is recorded as successful.
+- The CAPD build is only partially visible in this chunk.
+- The notebook's stored execution metadata requires scrutiny.
+
+NOT ESTABLISHED:
+- Full CAPD build success.
+- Exact backend used by the target computation.
+- Runtime rounding mode.
+- IEEE-754 rounding behavior of the target computation.
+- Binary identity or binary/source correspondence.
+- Raw machine values, hexfloat values, or 64-bit bit patterns.
+- Correctness of any CAPD interval result.
+- Independent reproduction of the reported results.
+- Any new mathematical certification result.
+
+----------------------------------------------------------------
+5. REQUIRED CONTINUATION
+----------------------------------------------------------------
+
+Continue read-only extraction from the existing report:
+
+START = 12000
+END = 24000
+
+Do not repeat the Drive inventory.
+
+Continue to preserve:
+- Full source text of each cell.
+- All output types and complete output content.
+- Every full traceback.
+- Cell index and execution_count.
+- CAPD build and runtime logs.
+- Raw numerical values and machine representations.
+
+After all chunks are reviewed, reconcile the extracted report
+against the original notebook JSON and verify that no content
+was omitted or truncated.
+
+Do not execute the original notebook wholesale. Any later
+reproduction must be a separately controlled and explicitly
+documented operation after source review.
+
+----------------------------------------------------------------
+6. TASK AND PROJECT STATUS
+----------------------------------------------------------------
+
+TASK 02 — MATHEMATICAL CERTIFICATION:
+PASS / COMPLETE
+(As stated in the supplied project record; this partial
+forensic audit does not reopen or independently re-evaluate it.)
+
+TASK 02 — MACHINE-LEVEL EVIDENCE AUDIT:
+PENDING
+
+Untitled109 — SOURCE DISCOVERY:
+PASS
+
+Untitled109 — SOURCE IDENTITY:
+REPORTED SHA256 MATCH IN THE EXTRACTION RESULT;
+INDEPENDENT RECOMPUTATION NOT SHOWN IN THIS CHUNK.
+
+Untitled109 — CONTENT FORENSIC AUDIT:
+IN PROGRESS — CHUNK 1 OF 6 REVIEWED
+
+CAPD BUILD:
+CONFIGURATION RECORDED AS SUCCESSFUL;
+FULL BUILD COMPLETION NOT YET ESTABLISHED.
+
+CAPD INDEPENDENT REPRODUCIBILITY:
+PENDING
+
+Frozen Core:
+UNCHANGED
+
+Volume V:
+ACTIVE RESEARCH ARCHITECTURE — NOT MODIFIED
+
+CE-V-07:
+RESERVED
+
+Universality:
+NOT ESTABLISHED
+
+----------------------------------------------------------------
+7. ARCHITECTURAL AND EVIDENCE PROTECTION
+----------------------------------------------------------------
+
+This record is an audit artifact only.
+
+It does not:
+- modify the Frozen Core;
+- modify Volume V;
+- promote CE-V-07;
+- modify TASK 02 mathematical certification status;
+- certify CAPD machine-level behavior;
+- establish universal validity;
+- convert recorded notebook outputs into independently
+  reproduced results.
+
+Mandatory distinctions preserved:
+- Recorded output != independently reproduced result.
+- Successful CMake configuration != successful full build.
+- Compiler flag != verified runtime rounding mode.
+- Source checkout != binary provenance.
+- Numerical execution != mathematical proof.
+- Mathematical certification != machine-level certification.
+
+================================================================
+END OF PARTIAL CONTENT FORENSIC AUDIT — CHUNK 1
+================================================================
