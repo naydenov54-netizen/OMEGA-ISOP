@@ -187,3 +187,65 @@ Final status: TASK 02 MATHEMATICAL CERTIFICATION PASS / COMPLETE; TASK 02 MACHIN
 Machine-level evidence now includes recorded CAPD build completion, recorded isWorking() self-check pass, and one recorded interval-addition observed enclosure. General directed-rounding correctness, effective -O0 across all relevant library objects, and independent reproducibility remain NOT ESTABLISHED.
 No new mathematical contradiction identified. Frozen Core unchanged; Volume V remains active; CE-V-07 remains RESERVED; universality not established.
 Next phase, if authorized: separately scoped independent reproduction and targeted machine-level validation, without altering Frozen Core or silently promoting audit status.
+
+
+============================================================
+ACCESS POINT — OMEGA-ISOP SESSION RESUME
+DATE: 2026-11-07
+STATE: SAVED / VERIFIED
+============================================================
+
+PROJECT: OMEGA-ISOP
+ACTIVE TRACK: MATHEMATICAL CERTIFICATION TRACK
+CURRENT PHASE: TASK 02 — UNTITLED109 FORENSIC EXTRACTION
+EXTRACTION STATUS: COMPLETE (6/6 CHUNKS; 66740 CHARACTERS)
+NOTEBOOK: Untitled109.ipynb
+NOTEBOOK SHA256: cea879e7ed6b08e67443588d483f9e4009e6d3a1406398263927bc8d24108499
+
+LATEST AUDIT FILE:
+audits/OMEGA-ISOP-UNTITLED109-CONTENT-FORENSIC-AUDIT-CHUNK-6-2026-11-07.txt
+AUDIT COMMIT:
+58e99be01e76426e9c9097921080a6c44c2357c8
+AUDIT CONTENT BLOB:
+328ea95d92ad849216f8f59eaf3a075f95d6b697
+READ-BACK: PASS
+
+LATEST CHECKPOINT BEFORE THIS ACCESS-POINT UPDATE:
+Commit: d02ca548a7f1d179a63e1087f8388701d27f2d2a
+Content blob: fd31e34fe4e7afe054138bbd0b49f2d27ab2b99f
+Read-back: PASS
+
+CURRENT VERIFIED STATUS:
+- TASK 02 MATHEMATICAL CERTIFICATION: PASS / COMPLETE.
+- TASK 02 MACHINE-LEVEL EVIDENCE AUDIT: OPEN / PENDING.
+- TASK 02 FORENSIC EXTRACTION: COMPLETE.
+- CAPD BUILD TARGET: RECORDED PASS.
+- DoubleRounding::isWorking() SELF-CHECK: RECORDED PASS.
+- SINGLE INTERVAL ADDITION: RECORDED PASS / OBSERVED ENCLOSURE.
+- GENERAL DIRECTED-ROUNDING CORRECTNESS: NOT ESTABLISHED.
+- EFFECTIVE -O0 FOR ALL RELEVANT LIBRARY OBJECTS: NOT ESTABLISHED.
+- INDEPENDENT REPRODUCIBILITY: NOT ESTABLISHED.
+- UNIVERSALITY: NOT ESTABLISHED.
+
+NEXT RESUME ACTION:
+Begin TASK 03 — INDEPENDENT MACHINE-LEVEL REPRODUCTION, as a separately scoped verification phase.
+First inspect the exact CAPD build configuration and actual compiler invocations for relevant translation units. Then design independent runtime tests for rounding modes and outward interval enclosure using exact or rigorously bounded reference values. Record each result as FACT, HYPOTHESIS, FORMAL RESULT, or AUDIT FINDING, with reproducibility details.
+Do not treat stored notebook outputs as fresh executions. Do not infer whole-build -O0 from the standalone test compilation or the single wrapper probe.
+
+DO NOT REPEAT:
+- Do not re-extract CHUNKS 1–6 unless the source notebook/report hash changes or a concrete discrepancy is found.
+- Do not reopen the completed mathematical certification without a new mathematical contradiction.
+- Do not modify the Frozen Core.
+- Do not promote machine-level evidence to certified status without independent verification.
+
+ARCHITECTURAL GUARDS:
+Frozen Core: UNCHANGED.
+Volume V: ACTIVE RESEARCH ARCHITECTURE.
+CE-V-07: RESERVED.
+Universality: NOT ESTABLISHED.
+CAPD results: not a universal theorem.
+Conditional validation: not promoted to independent certification.
+
+RECOVERY RULE:
+Use this access point and the latest verified GitHub repository state as the continuation source. Read back every repository write. Keep audit records separate and append new findings; do not overwrite prior forensic chunks.
+============================================================
