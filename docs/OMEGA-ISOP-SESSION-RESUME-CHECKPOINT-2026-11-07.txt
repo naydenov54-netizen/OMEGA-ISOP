@@ -169,3 +169,21 @@ Audit limits: effective -O0 across all CAPD library objects NOT ESTABLISHED; ind
 No new mathematical contradiction identified.
 Status unchanged: TASK 02 MATHEMATICAL CERTIFICATION PASS / COMPLETE; TASK 02 MACHINE-LEVEL EVIDENCE AUDIT OPEN / PENDING.
 Next action: extract CHUNK 6, characters 60000–66740, and audit remaining notebook content.
+
+
+CHUNK 6 FORENSIC AUDIT — 2026-11-07 (FINAL EXTRACTED CHUNK)
+Audit file: audits/OMEGA-ISOP-UNTITLED109-CONTENT-FORENSIC-AUDIT-CHUNK-6-2026-11-07.txt
+Read-back verification: PASS.
+CHUNK 6 covers report characters 60000–66740 of 66740 and completes the six-chunk read-only extraction.
+Cell 27 remainder shows the test() control flow assigning return codes 3, 2, 1, or 0; static evidence only.
+Cell 28 writes a C++ interval addition test for DoubleInterval(1.0) + DoubleInterval(0x1p-53).
+Cell 29 has a NameError because the text 'Writing /content/capd_interval_check.cpp' was entered as Python source; notebook execution/interface error, not a mathematical contradiction.
+Cell 30 records:
+INTERVAL_RESULT=[1,1.0000000000000002]
+EXPECTED_EXACT_VALUE=1.0000000000000001
+For this single operation, the reported interval contains the exact real sum 1 + 2^-53. The long-double decimal output is diagnostic, not an independent exact-rational certificate; the test has no assertion and is not a comprehensive suite.
+Final forensic summary reports 31 code cells, 5 recorded errors, original notebook unmodified, original cells not executed during extraction, and read-only JSON parsing. Notebook SHA256 matches the previously recorded value: cea879e7ed6b08e67443588d483f9e4009e6d3a1406398263927bc8d24108499.
+Final status: TASK 02 MATHEMATICAL CERTIFICATION PASS / COMPLETE; TASK 02 MACHINE-LEVEL EVIDENCE AUDIT OPEN / PENDING. Overall: MATHEMATICS CERTIFIED; MACHINE-LEVEL EVIDENCE AUDIT OPEN.
+Machine-level evidence now includes recorded CAPD build completion, recorded isWorking() self-check pass, and one recorded interval-addition observed enclosure. General directed-rounding correctness, effective -O0 across all relevant library objects, and independent reproducibility remain NOT ESTABLISHED.
+No new mathematical contradiction identified. Frozen Core unchanged; Volume V remains active; CE-V-07 remains RESERVED; universality not established.
+Next phase, if authorized: separately scoped independent reproduction and targeted machine-level validation, without altering Frozen Core or silently promoting audit status.
