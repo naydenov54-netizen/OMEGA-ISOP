@@ -1,0 +1,94 @@
+OMEGA-ISOP — UNTITLED109 CONTENT FORENSIC AUDIT
+CHUNK: 5
+DATE: 2026-11-07
+SOURCE REPORT RANGE: characters 48000–60000 of 66740
+SOURCE NOTEBOOK: /content/drive/MyDrive/Colab Notebooks/Untitled109.ipynb
+NOTEBOOK SHA256: cea879e7ed6b08e67443588d483f9e4009e6d3a1406398263927bc8d24108499
+
+SCOPE
+Forensic review of stored notebook source and outputs for Cells 21–27 and the tail of Cell 21. This is an audit of recorded machine-level evidence, not a fresh execution or independent mathematical proof.
+
+FACTS
+
+1. CELL 21 — BUILD OUTPUT CONTINUATION
+The stored output continues from the previously reviewed build and reaches:
+[100%] Linking CXX static library libcapd.a
+[100%] Built target capd
+This records successful completion of the capd build target in /content/capd/build-o0-verified.
+The excerpt does not itself provide an exit code or a fresh rerun transcript.
+
+2. CELL 22 — DISASSEMBLY OF DoubleRounding::isWorking()
+The stored disassembly shows calls to:
+- DoubleRounding::roundUp(), followed by DoubleRounding::test(), compared with 2;
+- DoubleRounding::roundDown(), followed by DoubleRounding::test(), compared with 1;
+- DoubleRounding::roundCut(), followed by DoubleRounding::test(), compared with 3;
+- DoubleRounding::roundNearest(), followed by DoubleRounding::test(), compared with 0.
+The function returns false on a failed comparison and true after all comparisons pass.
+This is static disassembly evidence of the check's control flow. It does not independently establish runtime processor state or correctness of all interval operations.
+
+3. CELLS 23–24 — NOTEBOOK EXECUTION ERRORS
+Both cells contain C++ source entered through a shell-style heredoc in a Python cell and both have stored SyntaxError outputs at the C++ line 'int main()'.
+These are notebook execution/interface errors. They are not mathematical contradictions and do not show a CAPD library failure.
+
+4. CELL 25 — TEST SOURCE CREATION
+Python writes a C++ test program to /content/test13a_o0.cpp.
+The recorded output is SOURCE_FILE_CREATED.
+
+5. CELL 26 — RUNTIME SELF-CHECK
+The stored command compiles the test program with:
+-O0 -frounding-math -std=c++17
+It includes CAPD headers and links capd, filib, MPFR, and GMP from the recorded build locations.
+The stored runtime output is:
+CAPD_IS_WORKING_O0=1
+This records a successful return from CAPD's DoubleRounding::isWorking() in that particular recorded test invocation.
+It is not an independent test suite for outward interval enclosure.
+
+6. CELL 27 — DISASSEMBLY OF DoubleRounding::test()
+The visible beginning contains scalar double-precision operations and comparisons, including movsd, subsd, divsd, addsd, and ucomisd.
+The excerpt ends in the middle of the function. The complete implementation and all branches cannot be assessed from this chunk.
+Cell 27 has execution_count 28. Cells 21–26 show execution_count None in the extracted report.
+
+AUDIT FINDINGS
+
+A. CAPD BUILD TARGET: RECORDED PASS.
+The stored output explicitly reaches 100% and reports [100%] Built target capd. This closes the truncation observed at 85% in CHUNK 4 for the recorded output.
+
+B. CAPD ROUNDING SELF-CHECK: RECORDED PASS.
+The test executable's recorded output is CAPD_IS_WORKING_O0=1. This supports the limited statement that the CAPD self-check returned true in that invocation.
+
+C. EFFECTIVE OPTIMIZATION MODE ACROSS THE COMPLETE LIBRARY: NOT ESTABLISHED.
+The test executable is explicitly compiled with -O0. This does not establish that every CAPD library translation unit was compiled with effective -O0. Earlier wrapper-probe evidence applies only to the probed invocation and cannot be generalized to the entire build without command-level or compiler-invocation evidence.
+
+D. DIRECTED ROUNDING AND OUTWARD ENCLOSURE: NOT INDEPENDENTLY CERTIFIED BY THIS CHUNK.
+The internal isWorking() self-check is relevant machine-level evidence, but it does not replace independent tests against known exact or rigorously bounded results, nor does it alone establish outward enclosure for the interval operations used by the target construction.
+
+E. EXECUTION PROVENANCE: LIMITED.
+Most relevant cells have execution_count None in the extracted report. The stored outputs therefore cannot establish a single continuous execution sequence or independently reproducible run. The Cell 27 count does not repair this limitation for the other cells.
+
+F. NOTEBOOK ERRORS: NON-MATHEMATICAL.
+The SyntaxError outputs in Cells 23–24 arise from the notebook execution method. They do not constitute evidence against the mathematical construction.
+
+G. NO NEW MATHEMATICAL CONTRADICTION IDENTIFIED.
+Nothing in this excerpt changes the previously recorded mathematical certification status.
+
+STATUS AFTER CHUNK 5
+
+TASK 02 MATHEMATICAL CERTIFICATION: PASS / COMPLETE — unchanged.
+TASK 02 MACHINE-LEVEL EVIDENCE AUDIT: OPEN / PENDING.
+CAPD BUILD TARGET: RECORDED PASS.
+CAPD DoubleRounding::isWorking() SELF-CHECK: RECORDED PASS.
+EFFECTIVE -O0 FOR ALL RELEVANT LIBRARY OBJECTS: NOT ESTABLISHED.
+INDEPENDENT DIRECTED-ROUNDING VALIDATION: NOT ESTABLISHED.
+INDEPENDENT REPRODUCIBILITY: NOT ESTABLISHED.
+UNIVERSALITY: NOT ESTABLISHED.
+
+ARCHITECTURAL CONSTRAINTS
+Frozen Core remains unchanged.
+Volume V remains the active research architecture.
+CE-V-07 remains RESERVED.
+No CAPD result is promoted to a universal theorem.
+No conditional result is promoted to independently certified status by this chunk.
+Stored notebook output is not represented as a fresh independent rerun.
+
+NEXT ACTION
+Continue forensic extraction with CHUNK 6, covering characters 60000–66740. Review the remainder of Cell 27 and all subsequent cells/outputs. Keep new findings separate from prior audit chunks and read back every repository write.
