@@ -249,3 +249,39 @@ Conditional validation: not promoted to independent certification.
 RECOVERY RULE:
 Use this access point and the latest verified GitHub repository state as the continuation source. Read back every repository write. Keep audit records separate and append new findings; do not overwrite prior forensic chunks.
 ============================================================
+
+
+============================================================
+TASK 03 — CURRENT ACCESS POINT UPDATE
+DATE: 2026-11-07
+STATUS: IN PROGRESS / INITIAL FINDINGS RECORDED
+============================================================
+
+LATEST TASK 03 AUDIT RECORD:
+Path: audits/OMEGA-ISOP-CAPD-TASK-03-INDEPENDENT-MACHINE-LEVEL-REPRODUCTION-2026-11-07.txt
+Commit: 3dd3c68f521169b0aceef75483d88e25a5108987
+Read-back: PASS
+Read-back blob SHA: b78cfcb11843c6f8e845355d5c5cc7447f405aaa
+URL: https://github.com/naydenov54-netizen/OMEGA-ISOP/blob/main/audits/OMEGA-ISOP-CAPD-TASK-03-INDEPENDENT-MACHINE-LEVEL-REPRODUCTION-2026-11-07.txt
+
+TASK 03 CURRENT REPORTED RESULTS:
+- CAPD v6.0.0; source commit 693998cd6d73a0c4e1b141bfb79fcad1c40c3cbe; tag v6.0.0; GCC 13.3.0.
+- Build PASS with MULTIPRECISION=OFF because MPFR/GMP development packages were unavailable and apt had no network. This deviates from notebook cell 0 recipe MULTIPRECISION=ON.
+- Fresh DoubleRounding::isWorking() = 0: FAIL for the tested CMake build (-O2 -frounding-math); causal diagnosis not yet complete.
+- TASK 01E.1 Wronskian and TASK 01A phi2 outputs reported bitwise-identical to notebook outputs at -O2 and -O0. Scope limited to these two outputs/configurations.
+- DInterval +,-,*,/ directed rounding reported PASS across 120,000 test cases.
+- sqrt and exp reported strictly enclosing, but not necessarily tight.
+- Outputs reported bitwise-identical across -O0/-O1/-O2/-O3 and -fno-rounding-math.
+- FILIB observed to leave MXCSR in round-up; contract, impact, and restoration behavior still under investigation.
+- Volume V §23 CWDiffInclSolver is being reconstructed, not recovered historical source.
+
+TASK 03 STATUS:
+IN PROGRESS. Initial observations recorded separately. General directed-rounding correctness and full independent CAPD reproducibility remain NOT ESTABLISHED. Universality NOT ESTABLISHED.
+TASK 02 MATHEMATICAL CERTIFICATION remains PASS / COMPLETE and is not reopened by these machine-level findings.
+
+NEXT RESUME ACTION:
+Continue with controlled compiler-flag matrix and targeted MXCSR state-transition tests. Capture MXCSR before/after each FILIB operation and sequences, test initial round-down/round-nearest/round-up, and separate x87 control-word from SSE/AVX MXCSR. Preserve exact test sources, inputs, reference oracle, raw logs, exit statuses, environment details, and SHA256 hashes. Complete CWDiffInclSolver reconstruction with explicit labeling. Repeat MULTIPRECISION=ON in a suitable MPFR/GMP environment. Read back every GitHub write.
+
+ARCHITECTURAL GUARDS:
+Frozen Core unchanged; Volume V active and unmodified; CE-V-07 reserved; universality not established; no CAPD universal theorem claim; no conditional result promoted to certified without independent verification.
+============================================================
