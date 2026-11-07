@@ -1,0 +1,86 @@
+OMEGA-ISOP — TASK 03 STATUS / INITIAL MACHINE-LEVEL REPRODUCTION RECORD
+DATE: 2026-11-07
+TRACK: MATHEMATICAL CERTIFICATION TRACK
+TASK: TASK 03 — INDEPENDENT MACHINE-LEVEL REPRODUCTION
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+
+SCOPE AND STATUS
+This is a separately scoped TASK 03 audit record. It does not reopen or alter TASK 02 mathematical certification. It records the current execution observations supplied during the active TASK 03 work. Where raw logs, exact test sources, full compiler commands, environment manifests, or hashes have not yet been committed with this record, the observations remain provisional audit inputs pending attachment and independent read-back.
+
+FACTS REPORTED FOR TASK 03
+1. CAPD source was cloned and checked out at commit:
+   693998cd6d73a0c4e1b141bfb79fcad1c40c3cbe
+   Tag: v6.0.0
+   Reported environment compiler: GCC 13.3.0.
+
+2. The build recipe in notebook cell 0 specifies CAPD v6.0.0 with MULTIPRECISION=ON.
+   In the current reproduction environment, libmpfr-dev and libgmp-dev were unavailable and apt had no network access.
+   A successful build was therefore performed with MULTIPRECISION=OFF.
+   This is an explicit configuration deviation from the notebook recipe. It is not configuration-equivalent reproduction.
+
+3. A fresh runtime test using the CMake-built library, configured with -O2 -frounding-math, reported:
+   DoubleRounding::isWorking() = 0
+   Status: FAIL for this invocation/configuration.
+   Disassembly observation: after the second ldmxcsr, the function returns false without additional checks, consistent with the reported runtime observation. This is a scoped observation, not a complete causal diagnosis.
+
+4. The two programs identified as notebook TASK 01E.1 Wronskian and TASK 01A phi2 core were compiled from the original source using the current build. Their stdout was reported bitwise-identical to the stored notebook stdout at both -O2 and -O0.
+   This supports reproduction of these two specific outputs only. It does not establish whole-project or whole-CAPD reproducibility.
+
+5. A machine test of DInterval arithmetic reported:
+   - Addition, subtraction, multiplication, division: directed rounding passed 120,000 tested cases.
+   - sqrt and exp: strictly enclosing results, but not necessarily tight enclosures.
+   - Outputs were reported bitwise-identical across -O0, -O1, -O2, -O3, and -fno-rounding-math.
+   The test corpus, exact input-generation procedure, reference oracle, raw logs, and test-source hashes must be retained to independently audit coverage and reproducibility. The result is scoped to the tested cases and environment; it is not a universal theorem.
+
+6. FILIB was observed to leave MXCSR in round-up after operations.
+   This is an audit finding requiring targeted state-transition tests. It must not be called a defect until the intended API contract and caller/callee state-management requirements are checked.
+
+7. A test corresponding to Volume V §23 (CWDiffInclSolver) is being reconstructed.
+   It is a reconstruction, not recovered historical source. Any result must be labeled accordingly and must not be represented as execution of the original historical test.
+
+AUDIT FINDINGS / LIMITATIONS
+- MULTIPRECISION=OFF differs from the documented notebook recipe MULTIPRECISION=ON.
+- The reported DoubleRounding self-check failure is configuration- and invocation-specific until isolated by the controlled flag matrix and runtime state capture.
+- The 120,000-case arithmetic test is finite empirical evidence, not proof of correctness for all representable inputs, architectures, compilers, or execution environments.
+- Strict enclosure for sqrt and exp does not imply tightness.
+- Bitwise equality of two program outputs does not establish complete independent reproducibility.
+- MXCSR persistence in round-up requires investigation of state restoration and API contracts.
+- CWDiffInclSolver reconstruction must remain distinct from historical-source reproduction.
+- No new mathematical contradiction is reported in this TASK 03 update.
+
+CURRENT TASK STATUS
+TASK 02 MATHEMATICAL CERTIFICATION: PASS / COMPLETE (unchanged; do not reopen without a new mathematical contradiction).
+TASK 03 INDEPENDENT MACHINE-LEVEL REPRODUCTION: IN PROGRESS.
+CAPD v6.0.0 build: PASS WITH CONFIGURATION DEVIATION (MULTIPRECISION=OFF).
+DoubleRounding::isWorking(): FAIL (reported fresh invocation under CMake -O2 -frounding-math).
+TASK 01E.1 Wronskian output reproduction: PASS for reported tested source/configurations (-O2 and -O0).
+TASK 01A phi2 output reproduction: PASS for reported tested source/configurations (-O2 and -O0).
+DInterval +,-,*,/: PASS for 120,000 reported test cases.
+DInterval sqrt/exp: STRICT ENCLOSURE REPORTED; TIGHTNESS NOT ESTABLISHED.
+FILIB MXCSR state: ROUND-UP PERSISTENCE OBSERVED; contract/impact not yet established.
+Volume V §23 CWDiffInclSolver: RECONSTRUCTION IN PROGRESS; NOT HISTORICAL SOURCE REPRODUCTION.
+GENERAL DIRECTED-ROUNDING CORRECTNESS: NOT ESTABLISHED.
+FULL INDEPENDENT CAPD REPRODUCIBILITY: NOT ESTABLISHED.
+UNIVERSALITY: NOT ESTABLISHED.
+
+NEXT REQUIRED WORK
+1. Preserve the complete compiler/build configuration, actual compiler invocations, environment details, and build logs; record SHA256 hashes.
+2. Complete and retain the controlled compiler-flag matrix, including exact commands and raw outputs.
+3. Run MXCSR state-transition tests: capture state before and after each FILIB operation and operation sequence; test initial round-down, round-nearest, and round-up states; determine whether and where state is restored.
+4. Separate x87 control-word state from SSE/AVX MXCSR state and test their interaction.
+5. Preserve exact test source, inputs, reference-oracle method, output, exit status, and hashes for all 120,000 DInterval cases.
+6. Test sqrt and exp enclosure and tightness separately against exact or rigorously bounded reference values.
+7. Complete CWDiffInclSolver reconstruction and label every deviation from Volume V §23.
+8. Repeat the documented MULTIPRECISION=ON build in an environment with MPFR/GMP dependencies; do not erase the current OFF deviation.
+9. Read back every committed record and verify the exact content.
+
+ARCHITECTURAL GUARDS — UNCHANGED
+- Frozen Core: UNCHANGED / PRESERVED.
+- Volume V: ACTIVE RESEARCH ARCHITECTURE; no modification authorized by this record.
+- CE-V-07: RESERVED.
+- Universality: NOT ESTABLISHED.
+- Do not present CAPD results as a universal theorem.
+- Do not promote conditional validation to certified without independent verification.
+- Keep FACTS, HYPOTHESES, FORMAL RESULTS, AUDIT FINDINGS, and STATUS separate.
+- Numerical result ≠ analytical theorem; simulation ≠ proof; definition ≠ derivation.
