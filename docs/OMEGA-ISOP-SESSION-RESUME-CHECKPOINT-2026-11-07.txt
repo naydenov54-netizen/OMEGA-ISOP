@@ -117,3 +117,39 @@ When the user supplies the output:
 
 USER REQUEST
 The user explicitly instructed: "Да така записвай си каквото трябва в git hub за да можеш после да продължиш след спиране на чата." Therefore maintain GitHub handoff/checkpoint records proactively. Do not merely promise. Confirm actual successful writes and read-back checks.
+
+
+CHUNK 4 FINDINGS (characters 36000–48000; continuation of Cell 21)
+- The supplied output continues the command identified in Cell 21: cmake --build /content/capd/build-o0-verified --parallel 2.
+- Recorded output shows CAPD compilation progressing; filib links successfully and reports [7%] Built target filib.
+- Compilation includes capdAlg/src/capd/rounding/DoubleRounding.cpp.o at 22%, followed by many CAPD components.
+- The supplied excerpt reaches approximately 85% and ends mid-output while compiling C0DoubletonSet.cpp.o.
+- No [100%] Built target capd line, process exit status, or final build summary is present.
+- This is stored notebook output, not a fresh independent rerun.
+- Full build success remains NOT ESTABLISHED.
+- Effective -O0 for every relevant compilation unit remains NOT ESTABLISHED; the wrapper probe in Cell 20 only validates that particular probe invocation.
+- Runtime rounding behavior, MXCSR runtime state, directed-rounding behavior, interval enclosure validation, and independent reproduction remain NOT ESTABLISHED.
+- No new mathematical contradiction found.
+- Mathematical certification status remains PASS / COMPLETE as previously recorded; machine-level evidence audit remains OPEN / PENDING.
+- Project boundaries preserved: Frozen Core unchanged; Volume V active research architecture and unmodified; CE-V-07 reserved; universality not established; no CAPD universal theorem claim.
+
+CHUNK 4 AUDIT FILE
+Path: audits/OMEGA-ISOP-UNTITLED109-CONTENT-FORENSIC-AUDIT-CHUNK-4-2026-11-07.txt
+Commit: a3ea683c8e09abba3bd47f7aede0ad6937de3b63
+Read-back: PASS. Fetched file content and verified the recorded scope, ~85% truncation, non-establishment of full build success, and unchanged status.
+Blob SHA of read-back file: ae2372dc0c7f1c3113a323a3c24b8ee66555d887
+
+NEXT ACTION — CHUNK 5
+Extract the forensic report beginning at character 48000. Use:
+START = 48000
+END = 60000
+
+print("OMEGA-ISOP FORENSIC AUDIT")
+print("TOTAL CHARACTERS:", len(content))
+print("EXTRACTING:", START, "-", min(END, len(content)))
+print("=" * 60)
+print(content[START:END])
+print("\\n--- CHUNK END ---")
+print("NEXT START:", min(END, len(content)))
+
+Inspect the remainder of Cell 21 first, especially whether the build reaches 100% or reports an error, then audit subsequent cells. Continue to distinguish stored outputs from independent execution. Do not change mathematical certification status without a new mathematical contradiction or a properly scoped review.
