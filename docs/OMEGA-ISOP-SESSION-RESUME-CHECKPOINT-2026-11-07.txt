@@ -1,0 +1,119 @@
+OMEGA-ISOP — SESSION RESUME CHECKPOINT
+DATE: 2026-11-07
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+
+PURPOSE
+This file is the durable handoff point for continuing OMEGA-ISOP work after a chat interruption or in a new conversation. Read this file first, then the linked audit records.
+
+PROJECT ARCHITECTURE — DO NOT ALTER
+- Frozen Core: UNCHANGED / PRESERVED.
+- Volume V: ACTIVE RESEARCH ARCHITECTURE; do not modify without explicit authorization.
+- CE-V-07: RESERVED.
+- Universality: NOT ESTABLISHED.
+- Do not present CAPD results as a universal theorem.
+- Do not promote conditional validation to certified without independent verification.
+- Keep FACTS, HYPOTHESES, FORMAL RESULTS, AUDIT FINDINGS, and STATUS separate.
+- Preserve distinctions: Representation ≠ Mechanism; Relation ≠ Causation; Organization ≠ Causation; Persistence ≠ Robustness; Persistence ≠ Invariance; Invariance ≠ Ontology; Observerhood ≠ Consciousness; Adaptive response ≠ Intention / Free Will; Admissibility ≠ Realization; Possibility ≠ Necessity; Definition ≠ Derivation; Simulation ≠ Proof; Numerical Result ≠ Analytical Theorem.
+- Do not conflate numerical approximation with interval or analytical status.
+
+CURRENT WORKSTREAM
+OMEGA-ISOP — MATHEMATICAL CERTIFICATION TRACK
+Scope: CAPD / INTERVAL VALIDATION / ANALYTICAL VERIFICATION
+Current task: TASK 02 MACHINE-LEVEL EVIDENCE AUDIT for notebook Untitled109.ipynb.
+Source path reported by user: /content/drive/MyDrive/Colab Notebooks/Untitled109.ipynb
+Source SHA256 reported and matched by the notebook extraction process: cea879e7ed6b08e67443588d483f9e4009e6d3a1406398263927bc8d24108499
+Notebook size: 74,950 bytes
+Notebook cells: 31 (31 code, 0 markdown)
+Stored error outputs: 5
+Forensic report: /content/drive/MyDrive/Colab Notebooks/OMEGA_ISOP_UNTITLED109_FORENSIC_AUDIT.txt
+Forensic report size: 66,742 bytes / 66,740 characters.
+
+STATUS — KEEP THESE SEPARATE
+TASK 02 MATHEMATICAL CERTIFICATION: PASS / COMPLETE (previously recorded project status; do not reopen without a new mathematical contradiction).
+TASK 02 MACHINE-LEVEL EVIDENCE AUDIT: OPEN / PENDING.
+TASK 02 OVERALL: MATHEMATICS CERTIFIED; MACHINE-LEVEL EVIDENCE AUDIT OPEN.
+The current notebook excerpts do not alter the mathematical status.
+
+AUDIT RECORDS ALREADY COMMITTED
+1. audits/OMEGA-ISOP-ARCHIVE-DISCOVERY-UNTITLED109-2026-11-07.txt
+2. audits/OMEGA-ISOP-CAPD-TASK-01-U-RATIONAL-ENCLOSURE-2026-11-07.txt
+3. audits/OMEGA-ISOP-UNTITLED109-CONTENT-FORENSIC-AUDIT-2026-11-07.txt
+   Commit when created: 86649fe73a1fab2ccaadb1b9a368051ddd597408
+4. audits/OMEGA-ISOP-UNTITLED109-CONTENT-FORENSIC-AUDIT-CHUNK-2-2026-11-07.txt
+   Commit: 531a8f112af115c7aceacf981bc6094411666246
+5. audits/OMEGA-ISOP-UNTITLED109-CONTENT-FORENSIC-AUDIT-CHUNK-3-2026-11-07.txt
+   Commit: 9e80e71e8e992deb74e063154f9bf47406aea441
+6. docs/PROJECT_STATUS.md (existing project status file; inspect before any update).
+
+CHUNK 1 FINDINGS (characters 0–12000; Cells 0–6)
+- Cell 0: CMake source directory missing error recorded as Python SyntaxError; environment/notebook execution error, not mathematical failure.
+- Cell 1: CAPD repository cloned and checked out at commit 693998cd6d73a0c4e1b141bfb79fcad1c40c3cbe. Recorded successful checkout; does not prove binary provenance.
+- Cell 2: initial pkg-config discovery did not find GMP/MPFR.
+- Cell 3: recorded successful installation of libgmp-dev 6.3.0 and libmpfr-dev 4.2.1, with non-fatal linker-cache warnings.
+- Cell 4: pkg-config reports GMP 6.3.0 and MPFR 4.2.1.
+- Cell 5: CMake configure succeeded; CAPD 6.0.0, multiprecision ON, tests OFF, flags include -O0 -frounding-math.
+- Cell 6: initial build log was partial in chunk 1; chunk 2 later contains its completion.
+- All visible execution_count values were None; stored outputs cannot establish one continuous execution sequence.
+
+CHUNK 2 FINDINGS (characters 12000–24000; Cell 6 tail and Cell 7)
+- Cell 6 build output reaches 100% and reports linking static library libcapd.a and [100%] Built target capd.
+- This establishes recorded build success for the capd library target, not interval correctness or test success.
+- Cell 7 disassembly of DoubleRounding::isWorking() shows MXCSR load, call to DoubleRounding::test(), comparison of return value with 2, and conditional MXCSR load.
+- Static disassembly does not establish runtime return value, actual MXCSR state, directed rounding activation, or outward interval rounding.
+- Cell 7 execution_count None.
+
+CHUNK 3 FINDINGS (characters 24000–36000; Cells 7 tail and 8–21)
+- Cell 7 tail includes global initialization disassembly with MXCSR load; static evidence only.
+- Cells 8–9 show compile command/flags for DoubleRounding.cpp containing -O0 followed later by -O2. For GCC, last applicable optimization flag controls; initial build-o0 is NOT verified as effective -O0.
+- Cells 11 and 13 identify CAPD CMakeLists.txt line: target_compile_options(${PROJECT_NAME} PUBLIC -O2 -frounding-math). This is the source of the conflict.
+- Cell 12 shows build-o0-clean flags still include -O2 after -O0; not verified as effective -O0.
+- Cell 14 failed because Bash syntax was entered in a Python cell; notebook execution error.
+- Cell 15 correctly creates /content/cxx-o0 using %%bash. Wrapper removes arguments exactly equal to -O2, then invokes /usr/bin/c++ and appends -O0.
+- Cell 16 records wrapper executable.
+- Cell 17 configures build-o0-clean successfully, but does not resolve the optimization flag conflict.
+- Cell 18 configures build-o0-verified using CMAKE_CXX_COMPILER=/content/cxx-o0 successfully.
+- Cell 19 compile_commands.json still lists -O2 because it records arguments passed to the wrapper; not proof of final GCC arguments.
+- Cell 20 probe invokes wrapper with -O2 -###; resulting cc1plus command shows -O0. Wrapper PROBE PASS for this probe invocation only.
+- Cell 21 source requests cmake --build /content/capd/build-o0-verified --parallel 2, but no output is present in the supplied extraction through character 36000. Full verified build is NOT ESTABLISHED in this chunk.
+- All shown execution_count values are None.
+
+CURRENT EVIDENCE STATUS
+- Recorded CAPD library build in build-o0: PASS.
+- Initial build-o0 effective optimization level: NOT VERIFIED AS -O0; -O2 conflict established.
+- build-o0-clean effective optimization level: NOT VERIFIED AS -O0.
+- Compiler wrapper probe: PASS.
+- build-o0-verified CMake configuration: PASS.
+- build-o0-verified full build: NOT ESTABLISHED FROM AVAILABLE CHUNK 3.
+- Runtime rounding behavior: NOT ESTABLISHED.
+- Interval enclosure validation: NOT ESTABLISHED.
+- Independent reproduction: NOT ESTABLISHED.
+- No new mathematical contradiction found.
+
+NEXT ACTION — CHUNK 4
+The user has been asked to extract characters 36000–48000 from the forensic report using this Colab code:
+
+START = 36000
+END = 48000
+
+print("OMEGA-ISOP FORENSIC AUDIT")
+print("TOTAL CHARACTERS:", len(content))
+print("EXTRACTING:", START, "-", min(END, len(content)))
+print("=" * 60)
+
+print(content[START:END])
+
+print("\n--- CHUNK END ---")
+print("NEXT START:", min(END, len(content)))
+
+When the user supplies the output:
+1. Analyze it carefully; likely it will include Cell 21 build output and later test/runtime commands.
+2. Distinguish recorded notebook output from fresh reproduction.
+3. Record facts, findings, unresolved items, and status.
+4. Create a new separate GitHub audit chunk file, not overwrite prior chunks.
+5. Read the new file back and verify key content before claiming success.
+6. Update this checkpoint later with the next continuation pointer, using fetch_file then update_file with the returned blob SHA. Do not update it until the new chunk is analyzed and written, and do not run same-path writes in parallel.
+7. Continue to preserve architecture and mathematical status.
+
+USER REQUEST
+The user explicitly instructed: "Да така записвай си каквото трябва в git hub за да можеш после да продължиш след спиране на чата." Therefore maintain GitHub handoff/checkpoint records proactively. Do not merely promise. Confirm actual successful writes and read-back checks.
