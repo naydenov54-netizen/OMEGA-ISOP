@@ -1,0 +1,314 @@
+OMEGA-ISOP
+GR-TRANSFER-06C
+TASK BOUNDARY-02 — U-BOUND / TEMPORAL INTERVAL LINKAGE AUDIT
+Date: 2026-11-09
+Status: PARTIAL AUDIT / OPEN
+Scope: CAPD boundary majorant, temporal interval semantics, parameter consistency
+
+======================================================================
+1. PURPOSE AND ARCHITECTURAL CONTROLS
+======================================================================
+
+This record documents the audit of the attempted connection between the
+local analytical boundary majorant U and the interval time representation
+used by the GR-TRANSFER-06C CAPD boundary test.
+
+This is an audit record, not a certification.
+
+Frozen Core: UNCHANGED.
+Volume V: UNCHANGED.
+CE-V-07: RESERVED.
+Original coefficients and project architecture: UNCHANGED.
+No Newton/Krawczyk operation performed.
+No universal theorem claim is made.
+
+The Library reference materials are treated as the user's previously audited
+and reconciled baseline. This record does not claim a new independent
+re-execution of the historical notebooks or CAPD computations.
+
+======================================================================
+2. FACTS RECOVERED FROM THE ARCHIVE
+======================================================================
+
+2.1 Local U-bound
+
+The archived local derivation uses:
+
+rho = eta / w
+rmax = 2*rho - rho^2
+U = exp(-1/rmax)
+
+For eta = 0.01 and w = 0.65:
+
+rho = 1/65
+rmax = 129/4225
+1/rmax = 4225/129
+U = exp(-4225/129)
+
+The archived numerical interval is approximately:
+
+U in [5.9705461785525639471e-15,
+      5.9705461785527019977e-15]
+
+The analytical majorant is valid under its stated geometric assumptions.
+The archived numerical interval is not an independent CAPD reproduction.
+
+2.2 Boundary-cell source
+
+The archived Untitled44 CELL 24 source records:
+
+boundaryWidth =
+    boundary.rightBound() - boundary.leftBound()
+
+hEff = eta + boundaryWidth
+
+rho = hEff / w
+
+Therefore, when boundaryWidth is nonzero, the parameter used by this
+boundary-cell construction is not automatically eta/w.
+
+The corresponding effective geometric parameter is:
+
+rho_eff = (eta + boundaryWidth) / w
+
+2.3 Parameter discrepancy
+
+The archived boundary test in Untitled44 uses:
+
+eta = 1/10
+w = 13/20
+boundary = 22/70
+
+The project U-bound record uses:
+
+eta = 1/100
+w = 13/20
+
+The two eta values differ by a factor of ten. The available records do not
+establish whether these represent distinct test scopes or an unintended
+parameter mismatch. No silent correction is authorized.
+
+2.4 Execution status
+
+The archived Untitled44 boundary test was not compiled or executed in the
+later runtime because the CAPD installation and capd-config were absent.
+The source-generation output is not evidence of compilation, execution,
+interval inclusion, or a validated result.
+
+======================================================================
+3. FORMAL GENERALIZATION
+======================================================================
+
+If:
+
+0 < rho_eff < 1
+
+where:
+
+rho_eff = (eta + boundaryWidth) / w
+
+then define:
+
+rmax_eff = 2*rho_eff - rho_eff^2
+
+U_eff = exp(-1/rmax_eff)
+
+For a normalized boundary coordinate satisfying:
+
+1 - rho_eff <= |s| < 1
+
+we obtain:
+
+1 - s^2 <= 2*rho_eff - rho_eff^2
+
+and consequently:
+
+exp(-1/(1-s^2)) <= U_eff
+
+This proves the generalized geometric majorant under the stated
+boundary-strip condition. It does not prove that the complete CAPD
+time interval lies inside that strip.
+
+Illustrative parameter check only, with boundaryWidth = 0:
+
+eta = 0.1
+w = 0.65
+rho_eff = 2/13
+rmax_eff = 2*(2/13) - (2/13)^2
+rmax_eff = 48/169
+U_eff = exp(-169/48)
+U_eff approximately 0.029574779246646133
+
+Thus eta = 0.1 does not reproduce U < 6e-15.
+A positive boundaryWidth increases rho_eff and, while rho_eff remains
+below one, increases the resulting U_eff.
+
+This numerical illustration is not a replacement for evaluating the
+actual interval-valued boundaryWidth.
+
+======================================================================
+4. TEMPORAL PROPAGATION REQUIREMENT
+======================================================================
+
+For the scalar differential inequality:
+
+x'(t) = e(t)*x(t)
+0 <= e(t) <= U_eff
+
+over an actual time interval [t0,t1] of duration:
+
+H = t1 - t0
+
+the analytical estimate is:
+
+x(t1) <= x(t0)*exp(U_eff*H)
+
+The quantity H is the actual integration duration. It must not be
+identified with eta unless the source and interval semantics establish
+that equality.
+
+To justify a CAPD enclosure based on this estimate, the evidence must
+establish all of the following:
+
+1. The entire time interval is covered by the stated boundary strip.
+2. The interval-valued boundaryWidth is included in rho_eff.
+3. U_eff bounds the differential coefficient throughout that interval.
+4. H is the actual duration represented by the solver step or time set.
+5. The CAPD set propagation and rounding configuration preserve the
+   required interval inclusion.
+6. The final state enclosure contains the propagated solution set.
+
+The current archive does not establish this complete chain.
+
+The archived expression exp(U*eta) is not by itself proof that eta is the
+solver's actual integration duration.
+
+The archived product U*step approximately 5.9705e-17 is consistent with
+step approximately 0.01 for the archived U. This is an inference from
+the recorded product, not independent proof of the actual solver step
+used by the separate boundary test.
+
+A separate smoke-test record uses step = 1/200 = 0.005. That value belongs
+to a different test context and must not be substituted into the boundary
+test without source-level linkage.
+
+======================================================================
+5. NUMERICAL DISCREPANCY
+======================================================================
+
+Finding BOUNDARY-02-A:
+The expression rho = eta/w is insufficient for the archived CELL 24
+construction whenever boundaryWidth is nonzero.
+
+Finding BOUNDARY-02-B:
+The generalized parameter is rho_eff = (eta + boundaryWidth)/w.
+
+Finding BOUNDARY-02-C:
+The archived eta = 0.1 boundary test is inconsistent with the archived
+claim U < 6e-15 derived using eta = 0.01.
+
+Finding BOUNDARY-02-D:
+The temporal uncertainty eta is not automatically the actual integration
+duration H.
+
+Finding BOUNDARY-02-E:
+The archived U*step product does not establish that the same step was
+used in the separate CAPD boundary cell.
+
+Finding BOUNDARY-02-F:
+The boundary test source was generated, but the archived later runtime
+did not compile or execute it because the CAPD build environment was
+missing.
+
+======================================================================
+6. REQUIRED OPEN ITEMS
+======================================================================
+
+OPEN-BOUNDARY-01:
+Resolve the provenance and intended scope of eta = 0.01 versus eta = 0.1.
+Do not choose either value by assumption.
+
+OPEN-BOUNDARY-02:
+Recover the actual interval endpoints of boundary.leftBound() and
+boundary.rightBound(), or their exact interval representation, to evaluate
+boundaryWidth and rho_eff.
+
+OPEN-BOUNDARY-03:
+Establish that the entire temporal interval is contained in the boundary
+strip used by the geometric majorant.
+
+OPEN-BOUNDARY-04:
+Establish the actual solver step H, including the semantics of the
+time interval and the relevant CAPD step-control behavior.
+
+OPEN-BOUNDARY-05:
+Connect the local U_eff bound to the exact differential inclusion passed
+to the solver.
+
+OPEN-BOUNDARY-06:
+Establish the validated final state enclosure, including the relevant
+CAPD set type, encloseC0Map behavior, and outward-rounding configuration.
+
+OPEN-BOUNDARY-07:
+Establish source-to-binary provenance and the exact CAPD/compiler
+configuration for any claimed execution.
+
+======================================================================
+7. STATUS MATRIX
+======================================================================
+
+Local analytical U-bound:
+PROVED UNDER STATED ASSUMPTIONS.
+
+Generalized geometric bound using rho_eff:
+PROVED UNDER 0 < rho_eff < 1 AND THE STATED STRIP CONDITION.
+
+Parameter consistency for eta = 0.1 against U < 6e-15:
+FAILED.
+
+Actual boundaryWidth evaluation:
+NOT ESTABLISHED.
+
+Full time-interval coverage:
+NOT ESTABLISHED.
+
+Actual solver duration H:
+NOT ESTABLISHED FOR THE BOUNDARY TEST.
+
+CAPD temporal propagation:
+NOT ESTABLISHED.
+
+Boundary test execution:
+NOT EXECUTED IN THE ARCHIVED LATER RUNTIME.
+
+Full boundary validation:
+NOT CERTIFIED.
+
+Global CAPD certification:
+NOT GRANTED.
+
+======================================================================
+8. SOURCE TRACEABILITY
+======================================================================
+
+Primary records consulted:
+
+- CAPD-Mathematical-Certification-Results-Archive.txt
+  Relevant archived sections: U-bound, CELL 24 boundary source,
+  CELL 44 temporal expression, CELL 46 local analytical justification,
+  compiler/execution limitations.
+
+- OMEGA-ISOP-GR-TRANSFER-06C-Machine-Handover-2026-11-01.txt
+  Relevant archived sections: Untitled44 Julia/CAPD test results,
+  eta discrepancy, missing CAPD runtime, and final state.
+
+- GR-TRANSFER-06C checkpoint repaired Samsung notes.
+  Used as a checkpoint record, not as a substitute for original notebook
+  source or an independent execution.
+
+Audit limitation:
+This report is based on the archived records available in the Library.
+It does not claim access to every original notebook cell or a fresh
+execution of the historical CAPD boundary test.
+
+END OF TASK BOUNDARY-02 AUDIT RECORD
