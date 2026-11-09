@@ -1,0 +1,337 @@
+OMEGA-ISOP
+GR-TRANSFER-06C
+TASK BOUNDARY-03 — EXACT BUMP-ALIGNMENT / CONDITIONAL TIME-GEOMETRY AUDIT
+Date: 2026-11-10
+Status: PARTIAL ANALYTICAL ADVANCE / OPEN
+Relation: Additive follow-up to TASK BOUNDARY-02
+Scope: Exact rational alignment, normalized coordinate, interval-time qualification
+
+======================================================================
+1. PURPOSE AND ARCHITECTURAL CONTROLS
+======================================================================
+
+This record preserves the analytical progress made after TASK BOUNDARY-02.
+It does not replace or silently close any BOUNDARY-02 finding.
+
+Frozen Core: UNCHANGED.
+Volume V: ACTIVE RESEARCH ARCHITECTURE.
+CE-V-07: RESERVED.
+Universality: NOT ESTABLISHED.
+GR-TRANSFER-06C: MATHEMATICAL CERTIFICATION OPEN / INCONCLUSIVE.
+CAPD execution for the Untitled44 boundary source: NOT ESTABLISHED.
+Independent certification: NOT GRANTED.
+No Newton/Krawczyk operation performed.
+No GitHub source or coefficient modification is implied.
+
+Important source limitation:
+The exact profile definition and the identities for mu_2 and w must be
+checked against the authoritative profile source before this conditional
+geometric derivation is treated as source-linked. This report records the
+algebraic consequence of the definitions stated below; it does not claim
+that the complete original notebook or profile source has been re-audited.
+
+======================================================================
+2. EXACT RATIONAL ALIGNMENT
+======================================================================
+
+The stated values are:
+
+boundary = 22/70 = 11/35
+w = 13/20
+mu_2 = 1/4 + (5/14)*2
+
+Then:
+
+mu_2 = 1/4 + 10/14
+mu_2 = 7/28 + 20/28
+mu_2 = 27/28
+
+And:
+
+mu_2 - w = 27/28 - 13/20
+         = 135/140 - 91/140
+         = 44/140
+         = 11/35
+
+Therefore, under the stated definitions:
+
+boundary = mu_2 - w
+
+This is an exact rational identity, not a floating-point approximation.
+
+Interpretation, conditional on the authoritative profile definition:
+boundary is the left endpoint mu_2-w of the support interval
+[mu_2-w, mu_2+w] of the bump centered at mu_2 with half-width w.
+
+Evidence classification:
+EXACT ALGEBRA VERIFIED.
+SOURCE LINKAGE OF THE PROFILE DEFINITIONS: TO BE CONFIRMED.
+
+======================================================================
+3. NORMALIZED COORDINATE AND EXACT-BOUNDARY CASE
+======================================================================
+
+For the stated bump coordinate:
+
+s(t) = (t-mu_2)/w
+
+Using boundary = mu_2-w:
+
+s(t) = (t-boundary)/w - 1
+
+If the starting time is the exact rational boundary and the interval is
+[b, b+eta], with:
+
+b = boundary
+eta = 1/10
+w = 13/20
+
+then:
+
+eta/w = (1/10)/(13/20) = 2/13
+
+Consequently:
+
+s([b,b+eta]) = [-1, -1+2/13]
+             = [-1, -11/13]
+
+Thus:
+
+11/13 <= |s(t)| <= 1
+
+and:
+
+1 - eta/w = 1 - 2/13 = 11/13
+
+This establishes the normalized boundary-strip relation for the
+EXACT-BOUNDARY, EXACT-TIME model.
+
+The majorant algebra then gives:
+
+rho = 2/13
+rmax = 2*rho-rho^2 = 48/169
+1/rmax = 169/48
+U = exp(-169/48)
+U approximately 0.029574779246646133
+
+This is the nominal analytical value with boundaryWidth = 0.
+It is not the actual interval-valued CAPD result.
+
+======================================================================
+4. INTERVAL BOUNDARY CASE: NECESSARY QUALIFICATION
+======================================================================
+
+The source construction uses an interval boundary B=[b_lower,b_upper],
+not necessarily the exact point b.
+
+Assume, to be verified from the actual interval endpoints:
+
+b in B
+and
+boundaryWidth = b_upper-b_lower >= 0.
+
+The full time hull associated with a start-time interval B and a
+duration eta is:
+
+T_hull = [b_lower, b_upper+eta].
+
+This hull may contain times t < b. For such times, if the bump is
+defined to vanish outside its support, the bump contribution is zero.
+The normalized coordinate may satisfy s(t) < -1 there; it is therefore
+incorrect to claim that the entire hull T_hull maps exactly into
+[-1,-11/13].
+
+For the portion at or to the right of the exact boundary:
+
+T_inside = [b, b_upper+eta],
+
+we have:
+
+0 <= t-b <= eta+boundaryWidth = hEff.
+
+Therefore:
+
+-1 <= s(t) <= -1 + hEff/w.
+
+Define:
+
+rho_eff = hEff/w
+        = (eta+boundaryWidth)/w.
+
+If:
+
+0 < rho_eff < 1,
+
+then:
+
+-1 <= s(t) <= -(1-rho_eff)
+
+and equivalently:
+
+1-rho_eff <= |s(t)| <= 1.
+
+This proves the required strip inclusion for the inside-support
+portion, subject to:
+1. b is contained in B;
+2. the actual time set is contained in T_hull;
+3. the profile support and zero-extension definitions are as stated;
+4. the solver's actual time semantics agree with this interval model.
+
+The outside-support portion must be handled separately by proving
+that the profile is exactly zero there.
+
+This is the correct interval-geometric decomposition. The entire
+interval hull must not be described as lying in the support strip.
+
+======================================================================
+5. GENERALIZED MAJORANT
+======================================================================
+
+For 0 < rho_eff < 1, set:
+
+rmax_eff = 2*rho_eff-rho_eff^2
+U_eff = exp(-1/rmax_eff).
+
+On the inside-support strip:
+
+1-rho_eff <= |s| <= 1,
+
+we obtain:
+
+s^2 >= (1-rho_eff)^2
+1-s^2 <= 1-(1-rho_eff)^2
+1-s^2 <= 2*rho_eff-rho_eff^2
+1/(1-s^2) >= 1/rmax_eff
+
+and hence:
+
+exp(-1/(1-s^2)) <= exp(-1/rmax_eff) = U_eff.
+
+At |s|=1, the bump is interpreted by its zero boundary extension;
+the displayed interior expression has a limiting value of zero there.
+
+For boundaryWidth = 0 and eta=1/10:
+
+rho_eff = 2/13
+rmax_eff = 48/169
+U_eff = exp(-169/48)
+U_eff approximately 0.029574779246646133.
+
+For positive boundaryWidth, rho_eff is larger than 2/13.
+While 0<rho_eff<1, rmax_eff increases with rho_eff and U_eff also
+increases. Therefore the nominal value is not an upper bound for the
+actual interval-width construction unless boundaryWidth is zero.
+
+The actual interval value of boundaryWidth and the outward-rounded
+CAPD evaluation remain uncomputed.
+
+======================================================================
+6. WHAT THIS ADVANCE DOES AND DOES NOT CLOSE
+======================================================================
+
+CLOSED ANALYTICALLY, UNDER STATED DEFINITIONS:
+- The rational identity boundary = mu_2-w.
+- The normalized coordinate for the exact-boundary model.
+- The exact-boundary nominal strip relation for eta=1/10.
+- The generalized majorant on the explicitly stated strip.
+
+CONDITIONALLY ESTABLISHED:
+- The interval-boundary strip inclusion for the inside-support portion,
+  if the exact boundary is contained in B and the actual time set is
+  bounded by [b_lower,b_upper+eta].
+- Zero contribution on the pre-boundary portion, if the bump is
+  defined by zero extension outside its support.
+
+NOT ESTABLISHED:
+- Source-level confirmation of the mu_2 and w definitions in the
+  authoritative profile implementation.
+- Actual CAPD boundary endpoints and boundaryWidth.
+- Actual CAPD setCurrentTime / move temporal semantics.
+- Actual solver duration H.
+- CAPD interval evaluation of U_eff and the bump enclosure.
+- Source-to-binary provenance and execution of the Untitled44 boundary
+  test in a correctly identified CAPD environment.
+- Validation of any of the other seven profiles.
+- Full transfer matrix, root existence/uniqueness, Krawczyk inclusion,
+  or GR-TRANSFER-06C certification.
+
+======================================================================
+7. AUDIT FINDINGS
+======================================================================
+
+BOUNDARY-03-A — EXACT RATIONAL ALIGNMENT
+STATUS: ANALYTICALLY VERIFIED; PROFILE SOURCE LINKAGE OPEN.
+Finding: 22/70 = 27/28 - 13/20.
+
+BOUNDARY-03-B — EXACT-BOUNDARY NORMALIZED GEOMETRY
+STATUS: ANALYTICALLY VERIFIED FOR THE STATED EXACT-TIME MODEL.
+Finding: s([b,b+eta])=[-1,-11/13] for eta=1/10, w=13/20.
+
+BOUNDARY-03-C — INTERVAL-BOUNDARY DECOMPOSITION
+STATUS: CONDITIONALLY VERIFIED.
+Finding: split the time hull into pre-support and inside-support
+portions; do not claim the entire hull maps into the support strip.
+
+BOUNDARY-03-D — EFFECTIVE MAJORANT
+STATUS: ANALYTICALLY VERIFIED UNDER 0<rho_eff<1 AND STRIP CONDITIONS.
+Finding: rho_eff=(eta+boundaryWidth)/w.
+
+BOUNDARY-03-E — ACTUAL INTERVAL WIDTH
+STATUS: OPEN.
+Finding: no actual endpoint values or CAPD result recorded here.
+
+BOUNDARY-03-F — CAPD TEMPORAL SEMANTICS / EXECUTION
+STATUS: OPEN / NOT ESTABLISHED.
+
+======================================================================
+8. NEXT REQUIRED ACTIONS
+======================================================================
+
+1. Fetch and inspect the authoritative source defining mu_2, w, and
+   the support/zero-extension convention for phi_2.
+2. Recover boundary.leftBound() and boundary.rightBound() outputs.
+3. Verify exact-boundary containment in B.
+4. Inspect the source/API semantics of setCurrentTime(boundary),
+   solver.setStep(eta), and set.move(solver).
+5. Establish the actual time hull and solver duration H.
+6. Implement a minimal interval-geometry test that separately checks
+   the pre-support zero region and the inside-support strip.
+7. Only then perform a controlled CAPD build/run, preserving compiler,
+   flags, CAPD identity, source hash, binary hash, stdout, stderr,
+   exit code, and raw interval endpoints.
+
+No full-profile integration is authorized by this record.
+No Newton/Krawczyk operation is authorized by this record.
+
+======================================================================
+9. FINAL STATUS
+======================================================================
+
+BOUNDARY-03:
+PARTIAL ANALYTICAL ADVANCE / OPEN.
+
+BOUNDARY-02:
+REMAINS OPEN; NOT SUPERSEDED.
+
+GR-TRANSFER-06C:
+OPEN / INCONCLUSIVE.
+
+CAPD EXECUTION:
+NOT ESTABLISHED FOR THE NEW BOUNDARY CONFIGURATION.
+
+INDEPENDENT CERTIFICATION:
+NOT GRANTED.
+
+Frozen Core:
+UNCHANGED.
+
+Volume V:
+ACTIVE RESEARCH ARCHITECTURE.
+
+CE-V-07:
+RESERVED.
+
+Universality:
+NOT ESTABLISHED.
+
+END OF TASK BOUNDARY-03 AUDIT RECORD
