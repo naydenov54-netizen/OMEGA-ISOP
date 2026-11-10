@@ -294,3 +294,361 @@ When Parts 2 and 3 arrive:
 - update the next-action pointer only after reviewing all three parts.
 
 END OF PART 1 CHECKPOINT
+
+
+============================================================
+APPENDED RECORD — PART 2 OF 3
+DATE: 2026-11-10
+SOURCE: User-supplied historical notebook recovery excerpt
+MODE: ARCHIVAL / READ-ONLY RECORD
+STATUS: PART 2 MATERIAL RECEIVED; SUPPLIED EXCERPT ENDS MID-CELL
+============================================================
+
+8. PART 2 — RECOVERY CELLS 34–42
+
+CELL 34
+- Type: code; execution count: None; keywords: none; recorded errors: 0.
+- No matched source was included.
+
+CELL 35
+- Type: code; execution count: None; keywords: none; recorded errors: 0.
+- No matched source was included.
+
+CELL 36
+- Type: code; execution count: None; keyword: ODE; recorded errors: 0.
+- Source imports os and hashlib, then inspects /content/c4_1_O2 and /content/c4_1_O2.asm.
+- For each file it reports existence, byte size, SHA-256, identifies ELF binaries by magic bytes, or decodes text and prints first/last 30 lines.
+- This is inspection source only; no resulting hashes, file sizes, or output were supplied.
+
+CELL 37
+- Type: code; execution count: None; keywords: none; recorded errors: 0.
+- No matched source was included.
+
+CELL 38
+- Type: code; execution count: None; keywords: none; recorded errors: 0.
+- No matched source was included.
+
+CELL 39
+- Type: code; execution count: None; keywords: none; recorded errors: 0.
+- No matched source was included.
+
+CELL 40
+- Type: code; execution count: None; keywords: none; recorded errors: 0.
+- No matched source was included.
+
+CELL 41
+- Type: code; execution count: None; keyword: ODE; recorded errors: 0.
+- Source inspects /content/omega_c4_v02_original.cpp, reporting existence, size, line count, SHA-256, and first 30 lines.
+- No resulting output or hash was supplied.
+
+CELL 42
+- Type: code; execution count: None; keyword: ODE; recorded errors: 0.
+- Source repeats a compact existence/size/line-count/SHA-256 inspection of /content/omega_c4_v02_original.cpp and prints its first five lines.
+- No resulting output or hash was supplied.
+
+9. PART 2 — NOTEBOOK Untitled107.ipynb
+
+RECOVERED NOTEBOOK METADATA
+- Filename: Untitled107.ipynb
+- SHA-256: aaf1f1868871c9663e1cd4a31f617f7722f533597d29af227121ca4b96fb47e9
+- Cell count: 32
+- The hash and cell count are reported in the supplied recovery output. They are historical reported metadata; this checkpoint has not independently recomputed them.
+
+CELL 0
+- Installs libgmp-dev, libmpfr-dev, cmake, git, build-essential.
+- Clones CAPD into /content/capd.
+- Checks out CAPD commit 693998cd6d73a0c4e1b141bfb79fcad1c40c3cbe and prints HEAD.
+- Execution count: None; recorded errors: 0.
+- No command output was supplied; successful clone/build dependency installation is not established by this source excerpt.
+
+CELL 1
+- Runs /content/capd/build/bin/capd-config --cflags --libs.
+- Execution count: None; recorded errors: 0.
+- No flags output supplied.
+
+CELL 2
+- Prints CAPD DoubleRounding.h, DoubleInterval.h, and Interval.h.
+- Execution count: None; recorded errors: 0.
+- No header output supplied.
+
+CELL 3
+- Configures CAPD with CMake:
+  cmake -S /content/capd -B /content/capd/build -DCAPD_ENABLE_MULTIPRECISION=ON -DCAPD_BUILD_TESTS=OFF
+- Execution count: None; recorded errors: 0.
+- No configuration output supplied.
+
+CELL 4
+- Builds /content/capd/build with parallelism 2.
+- Execution count: None; recorded errors: 0.
+- No build output supplied.
+
+CELL 5
+- Lists CAPD interval headers, searches for capd-config/libcapd.a/libfilib.a, and searches for DoubleInterval declarations.
+- Execution count: None; recorded errors: 0.
+- No output supplied.
+
+CELL 6
+- Greps rounding and interval headers for rounding/bounds symbols.
+- Execution count: None; recorded errors: 0.
+- No output supplied.
+
+CELL 7
+- Greps CAPD sources for DoubleRounding::isWorking and constructor implementations, and prints a range of Interval_Base.h.
+- Execution count: None; recorded errors: 0.
+- No output supplied.
+
+CELL 8
+- Inspects Interval constructors/operators and DoubleInterval.h.
+- Execution count: None; recorded errors: 0.
+- No output supplied.
+
+CELL 9
+- Writes test13a.cpp.
+- Test source checks:
+  (a) DoubleRounding::isWorking();
+  (b) an independent IEEE directed-rounding witness using 1.0 + 2^-53 under FE_DOWNWARD and FE_UPWARD;
+  (c) CAPD DoubleInterval addition for [1,1] + [2^-53,2^-53].
+- It expects downward result 1.0 and upward result nextafter(1.0,+infinity), and checks the CAPD interval bounds.
+- Prints TEST_13A_R1=PASS or FAIL and returns a corresponding exit code.
+- Execution count: None; recorded errors: 0.
+- Source does not establish that this test compiled or ran.
+
+CELL 10
+- Compiles and executes test13a.cpp using capd-config flags and libraries.
+- Execution count: None; recorded errors: 0.
+- No compiler output, test output, or exit code supplied.
+
+CELL 11
+- Inspects DoubleRounding enum and implementation source.
+- Execution count: None; recorded errors: 0.
+- No output supplied.
+
+CELL 12
+- Writes test13a_modes.cpp to call roundUp, roundDown, roundCut, roundNearest and print DoubleRounding::test() values.
+- Execution count: None; recorded errors: 0.
+
+CELL 13
+- Compiles and executes test13a_modes.cpp.
+- Execution count: None; recorded errors: 0.
+- No compiler or runtime output supplied.
+
+CELL 14
+- Writes test13a_repeat.cpp, calling DoubleRounding::isWorking() five times.
+- Execution count: None; recorded errors: 0.
+
+CELL 15
+- Repeats the same test13a_repeat.cpp source write.
+- Execution count: None; recorded errors: 0.
+- The duplicate source-write cell is preserved as part of the historical record.
+
+CELL 16
+- Compiles and executes test13a_repeat.cpp.
+- Execution count: None; recorded errors: 0.
+- No output supplied.
+
+CELL 17
+- Writes test13a_trace.cpp, manually testing the four CAPD rounding modes, comparing enum values against expected values, then calling isWorking().
+- Execution count: None; recorded errors: 0.
+
+CELL 18
+- Compiles and executes test13a_trace.cpp.
+- Execution count: None; recorded errors: 0.
+- No output supplied.
+
+CELL 19
+- Code cell; execution count: None; no keywords; recorded errors: 0.
+- No matched source included.
+
+CELL 20
+- Runs:
+  !sed -n 'ц' /content/capd/capdAlg/src/capd/rounding/DoubleRounding.cpp
+- Execution count: None; recorded errors: 0.
+- STATIC COMMAND DEFECT: the supplied sed address argument 'ц' is not a valid numeric line address or supported sed address expression. No evidence was supplied that this command was executed, and no runtime error is recorded for it.
+
+CELL 21
+- Writes test13a_clean.cpp. It calls isWorking(), tests roundUp/roundDown/roundCut/roundNearest, prints integer enum values, and checks the expected sequence 2,1,3,0.
+- Execution count: None; recorded errors: 0.
+
+CELL 22
+- Compiles and executes test13a_clean.cpp.
+- Execution count: None; recorded errors: 0.
+- No output supplied.
+
+CELL 23
+- Prints CAPD compile flags and searches build files for DoubleRounding.cpp.
+- Execution count: None; recorded errors: 0.
+- No output supplied.
+
+CELL 24
+- Uses objdump on libcapd.a to inspect DoubleRounding::isWorking().
+- Execution count: None; recorded errors: 0.
+- No disassembly output supplied.
+
+CELL 25
+- Uses nm -C on DoubleRounding.cpp.o to list DoubleRounding symbols.
+- Execution count: None; recorded errors: 0.
+- No symbol output supplied.
+
+CELL 26
+- Uses objdump on a selected address range of DoubleRounding.cpp.o.
+- Execution count: None; recorded errors: 0.
+- No disassembly supplied.
+
+CELL 27
+- Lists /content/capd and /content/capd/build directories.
+- Execution count: None; recorded errors: 0.
+- No output supplied.
+
+CELL 28
+- Runs cmake --build /content/capd/build-o0 --parallel 2.
+- Execution count: 4; recorded errors: 0.
+- Execution count is recorded, but no saved build output or exit status was supplied.
+
+CELL 29
+- Repeats the build-o0 command.
+- Execution count: None; recorded errors: 0.
+- No output supplied.
+
+CELL 30
+- Runs the build-o0 command.
+- Execution count: 6; recorded errors: 0.
+- No saved build output or exit status supplied.
+
+CELL 31
+- Configures a separate build-o0 directory with:
+  -DCAPD_ENABLE_MULTIPRECISION=ON
+  -DCAPD_BUILD_TESTS=OFF
+  -DCMAKE_BUILD_TYPE=Debug
+  -DCMAKE_CXX_FLAGS="-O0 -frounding-math"
+- Execution count: 7; recorded errors: 0.
+- No CMake output supplied.
+
+10. PART 2 — NOTEBOOK Untitled44.ipynb
+
+RECOVERED NOTEBOOK METADATA
+- Filename: Untitled44.ipynb
+- SHA-256: 1eab663c282c2ed00d236a3bb4992574dad26e53b865ea3d357cf8b64d9db5a4
+- Cell count: 28
+- The hash and cell count are reported in the supplied recovery output; they have not been independently recomputed in this checkpoint.
+
+CELL 0
+- Uses juliacall to activate project /content/drive/MyDrive/OMEGA_GR_TRANSFER_06C_JULIA.
+- Instantiates packages and loads TaylorModels and IntervalArithmetic.
+- Constructs a one-variable JetSpace of order 20.
+- Defines x' = x with initial interval [1,1], then calls validated_integ3 over [0,1].
+- Prints solution metadata and attempts to compare a final validated enclosure against exp(interval(1.0)) using bound_taylor1.
+- Execution count: None; recorded errors: 0.
+- No output supplied. The absence of a recorded error is not proof of successful execution.
+
+CELL 1
+- Repeats the validated ODE setup and attempts to inspect expansion times, flowpipe steps, Taylor model matrix, and bound_taylor1 ranges.
+- Recorded error: 1.
+- Exact recorded error:
+  JuliaError: MethodError: no method matching differentiate!(::Taylor1{TaylorModelN{1, Float64, Float64}}, ::Taylor1{TaylorModelN{1, Float64, Float64}}, ::Int64)
+- Closest candidate methods reported by Julia include differentiate!(::Taylor1, ::Taylor1), and nested Taylor1-specific methods whose type constraints do not match the supplied Taylor1{TaylorModelN{...}} arguments.
+- Stack trace locates the failure in TaylorSeries calculus.jl, called by TaylorModels bounds.jl from bound_taylor1.
+- Evidence classification: this is a recorded Julia API/type-method compatibility failure in the bound_taylor1 diagnostic path. It does not, by itself, prove that validated_integ3 failed or that the underlying validated integration is mathematically invalid.
+
+CELL 2
+- Code cell; execution count None; no keywords; recorded errors 0.
+- No matched source included.
+
+CELL 3
+- Installs juliacall, prints its version, and tests the Julia connection/version/executable path.
+- Execution count: None; recorded errors: 0.
+- No output supplied.
+
+CELL 4
+- Markdown cell; execution count None; no recorded errors.
+
+CELL 5
+- Repeats validated_integ3 for x' = x, then calls VI.mince_in_time(sol; var=0, timediv=1), prints time domains, and inspects flowpipe intervals against exp(interval(1.0)).
+- Execution count: None; recorded errors: 0.
+- No output supplied.
+
+CELL 6
+- Repeats the validated integration, prints time domains and the result of mince_in_time with var=1, dumps Taylor model structure, and prints exp(0), exp(0.5), exp(1) reference values.
+- Execution count: None; recorded errors: 0.
+- No output supplied.
+
+CELL 7
+- Attempts manual Taylor model evaluation step-by-step using tm.pol(tau), monotonicity_bounder(P), and addition of tm.rem.
+- Prints remainder guarantee status and compares resulting enclosures against exponential reference intervals.
+- Catches and prints evaluation exceptions.
+- Execution count: None; recorded errors: 0.
+- No output supplied; source alone does not establish that evaluation succeeded or that the computed enclosures were guaranteed.
+
+CELL 8
+- Attempts VI.domain(sol,k) for each flowpipe step and VI.reconstruct_rho(sol).
+- If reconstruction succeeds, reports monotonicity bounds, guarantee flags, and whether each range lies inside [-1,1].
+- Exceptions are caught and printed.
+- Execution count: None; recorded errors: 0.
+- No output supplied; success/failure of reconstruct_rho is unknown.
+
+CELL 9
+- Begins a fresh isolated test with a new JetSpace and a new validated_integ3 call.
+- The supplied message ends inside this cell immediately after the opening of:
+  let
+      sp = TS.JetSpace(order=20, variables=[:x])
+- The rest of CELL 9 and the remaining cells 10–27 were not included in the received message.
+- Therefore, the supplied Part 2 excerpt is incomplete and must not be treated as a complete recovery of Untitled44.ipynb.
+
+11. PART 2 — EVIDENCE CLASSIFICATION
+
+FACTS REPORTED IN THE SUPPLIED RECOVERY EXCERPT
+- Untitled107.ipynb is reported as a 32-cell notebook with SHA-256 aaf1f1868871c9663e1cd4a31f617f7722f533597d29af227121ca4b96fb47e9.
+- Untitled44.ipynb is reported as a 28-cell notebook with SHA-256 1eab663c282c2ed00d236a3bb4992574dad26e53b865ea3d357cf8b64d9db5a4.
+- The recovered CAPD source includes a test13a.cpp directed-rounding/interval-addition test and several further diagnostic programs for DoubleRounding modes and isWorking().
+- The recovered CAPD notebook includes commands for source/header inspection, CMake configuration/build, object/library symbol inspection, and disassembly.
+- The recovered Julia notebook includes a validated ODE test for x' = x and a recorded MethodError in bound_taylor1/differentiate!.
+- The displayed cells predominantly have execution_count=None. Some CAPD build cells have execution counts 4, 6, and 7, but their output is not included.
+
+NOT ESTABLISHED
+- Whether CAPD checkout at the specified commit succeeded in the historical session.
+- Whether CAPD was configured or built successfully in /content/capd or /content/capd/build-o0.
+- Whether test13a.cpp, test13a_modes.cpp, test13a_repeat.cpp, test13a_trace.cpp, or test13a_clean.cpp compiled or executed.
+- Whether any CAPD test passed.
+- Whether DoubleRounding::isWorking() returned true or false in any run.
+- Whether objdump/nm inspection completed or what machine instructions were observed.
+- Whether the O0 build succeeded; execution counts alone do not supply a build result.
+- Whether the Julia validated integration completed and produced a valid flowpipe.
+- Whether the Julia error is resolved by later cells; the received excerpt ends before those cells.
+- Whether the Julia project environment and package versions are reproducible.
+- Whether any reported interval inclusion or rho condition was actually established.
+
+12. TECHNICAL AUDIT FLAGS FOR PART 2
+
+A. Do not infer successful execution from execution_count alone. Saved stdout/stderr, exit status, and the corresponding notebook JSON are needed.
+B. CELL 20 contains a statically defective sed command using the character 'ц' as an address. It is not a recorded runtime failure.
+C. The CAPD test13a source includes a directed-rounding witness and interval-enclosure witness, but no actual output was supplied. Treat it as test design/source, not a PASS.
+D. The CAPD diagnostic source and build commands are not independent verification until reproduced with recorded compiler identity, exact flags, source/dependency hashes, binary hashes, and runtime outputs.
+E. The CAPD build-o0 execution counts do not prove successful configuration or compilation.
+F. The Julia MethodError is specifically associated with differentiate! dispatch from bound_taylor1. Keep the failure localized to the recorded diagnostic call; do not generalize it to the whole integrator without further evidence.
+G. The Julia cells depend on a mutable session object named sol in several places. A clean-session reproduction should reconstruct sol before running dependent diagnostics.
+H. The received excerpt is truncated in CELL 9 of Untitled44.ipynb. Cells 10–27 remain absent from this submission and require recovery if they are part of the intended Part 2 material.
+I. Notebook hashes and cell counts are reported historical metadata, not independently recomputed in this checkpoint.
+
+13. RELATION TO PART 1 AND OMEGA-ISOP STATUS
+
+- This section is appended to the existing Part 1 checkpoint; the Part 1 text above is preserved.
+- Part 2 adds historical source and metadata; it does not convert any source into execution evidence.
+- The recorded Julia MethodError is an additional audit finding, separate from the Part 1 CELL 29 SyntaxError.
+- CAPD rounding and interval validation remain unconfirmed by supplied outputs.
+- TASK 02 status is not changed by this appended material.
+- TASK 03 independent machine-level reproduction remains OPEN / IN PROGRESS pending complete reproducible evidence.
+- Frozen Core: UNCHANGED.
+- Volume V: UNCHANGED.
+- CE-V-07: RESERVED.
+- Universality: NOT ESTABLISHED.
+- No certification status is upgraded.
+- No Newton correction or Krawczyk certification is authorized by this appended record.
+
+14. CONTINUATION PROTOCOL AFTER PART 2
+
+- Part 1 remains preserved above.
+- Part 2 is recorded as an appended archival section, with its incompleteness explicitly marked.
+- The user will supply Part 3; record it without overwriting the existing Part 1 or Part 2 material.
+- After Part 3, perform a cross-part comparison, identify duplicate evidence, distinguish source from executed results, and produce a consolidated list of actual remaining verification tasks.
+- Do not silently fill missing notebook cells or invent missing outputs.
+
+END OF APPENDED PART 2 RECORD
