@@ -1294,3 +1294,80 @@ INDEPENDENT VERIFICATION: NOT ACHIEVED.
 
 END OF COLAB MANIFEST FRAGMENT VERIFICATION ADDENDUM
 ========== END OF ADDENDUM ==========
+
+================================================================================
+PART 4 — FULL MANIFEST STATIC AUDIT
+DATE: 2026-11-10
+STATUS: TOML_PARSE_PASS_SEMANTIC_REVIEW_REQUIRED
+SCOPE: SOURCE INTEGRITY / TOML SYNTAX / STATIC STRUCTURAL REVIEW
+================================================================================
+
+SOURCE
+/content/drive/MyDrive/OMEGA_GR_TRANSFER_06C_JULIA/Manifest.toml.SOURCE_BACKUP
+
+SOURCE INTEGRITY
+- Size: 25,895 bytes
+- Line count: 763
+- Expected SHA-256: 76c9602c16bff4bcfcbaeb8561a711d8cdfeab197f98d157a92107815ecbab75
+- Actual SHA-256:   76c9602c16bff4bcfcbaeb8561a711d8cdfeab197f98d157a92107815ecbab75
+- Integrity: PASS
+
+TOML SYNTAX
+- Parser: Python tomllib
+- Result: PASS
+
+MANIFEST METADATA
+- julia_version: 1.11.9
+- manifest_format: 2.0
+- project_hash: b9bd1b5c254baca24b784042eb27bcb72fae2ce5
+
+STATIC STRUCTURAL STATISTICS
+- Package names: 102
+- Package records: 102
+- Valid UUID records: 102
+- Unresolved dependencies: 0
+- Extension issues: 0
+- Errors: 0
+- Warnings: 0
+- Findings: none
+
+AUDIT FINDINGS
+1. The complete original Manifest source passed the recorded SHA-256 integrity check.
+2. The complete 763-line source parsed successfully with Python tomllib.
+3. The executed static structural checks reported no errors, warnings, unresolved dependencies, or extension issues.
+4. Earlier concerns raised from partial excerpt 442–561 about a possible duplicate TOML key and a possible extension-trigger inconsistency were not reproduced by this full-file audit. This does not independently establish their absence under every parser or Julia Pkg interpretation; Julia-native validation remains pending.
+
+EVIDENCE CLASSIFICATION
+- FACT: The supplied audit output reports the values and PASS statuses recorded above.
+- FACT: The expected and actual source SHA-256 values are identical in the supplied output.
+- FACT: Python tomllib parsing and the reported static checks passed.
+- NOT ESTABLISHED: Julia 1.11.9 native Pkg acceptance of the Manifest.
+- NOT ESTABLISHED: Project.toml / Manifest project_hash compatibility under Julia Pkg.
+- NOT ESTABLISHED: Successful package installation, loading, compilation, or runtime execution.
+- NOT ESTABLISHED: CAPD build success, directed-rounding correctness, interval enclosure validity, or mathematical certification.
+
+NEXT REQUIRED STEPS
+1. Perform read-only Julia-native TOML/Manifest validation using Julia 1.11.9.
+2. Verify Project.toml / Manifest compatibility using Julia Pkg's own logic.
+3. Consider environment restoration only as a separate controlled step, documenting any downloads or depot/environment changes.
+4. Continue CAPD reproduction only after the environment checks, keeping runtime evidence separate from mathematical proof.
+
+STATUS BOUNDARIES
+MANIFEST SOURCE INTEGRITY: PASS
+PYTHON TOML SYNTAX: PASS
+STATIC STRUCTURAL AUDIT: PASS
+SEMANTIC REVIEW: REQUIRED
+JULIA-NATIVE VALIDATION: PENDING
+PROJECT-MANIFEST COMPATIBILITY: PENDING
+JULIA ENVIRONMENT VALIDATION: PENDING
+CAPD REPRODUCTION: NOT ESTABLISHED
+CAPD MATHEMATICAL CERTIFICATION: NOT ESTABLISHED
+
+SOURCE FILE MODIFICATION: NONE
+FROZEN CORE: UNCHANGED
+VOLUME V: ACTIVE RESEARCH ARCHITECTURE
+CE-V-07: RESERVED
+UNIVERSALITY CLAIM: NONE
+
+END PART 4
+================================================================================
