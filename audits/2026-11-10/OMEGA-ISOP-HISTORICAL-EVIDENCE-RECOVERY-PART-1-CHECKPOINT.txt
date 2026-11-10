@@ -1221,3 +1221,76 @@ No numerical approximation is promoted to an analytical theorem.
 
 END OF MANIFEST RECOVERY COMPLETION ADDENDUM
 ========== END OF ADDENDUM ==========
+
+
+========== ADDENDUM — COLAB MANIFEST FRAGMENT HASH VERIFICATION ==========
+DATE: 2026-11-10
+SOURCE: User-supplied Google Colab execution output
+MODE: ARCHIVAL / READ-ONLY RECORD
+STATUS: FRAGMENT EXTRACTION AND HASH CHECK PASSED
+
+1. SOURCE DISCOVERY
+Colab reported:
+- Drive already mounted at /content/drive.
+- Exactly one source candidate found.
+- Source:
+  /content/drive/MyDrive/OMEGA_GR_TRANSFER_06C_JULIA/Manifest.toml.SOURCE_BACKUP
+- SIZE: 25,895 bytes.
+- SOURCE SHA-256:
+  76c9602c16bff4bcfcbaeb8561a711d8cdfeab197f98d157a92107815ecbab75
+- TOTAL LINES: 763.
+
+These values match the previously recorded source identity and checksum.
+
+2. FRAGMENT EXTRACTION AND VERIFICATION
+Colab reported:
+- ORIGINAL LINES: 562–763.
+- FRAGMENT LINE COUNT: 202.
+- EXPECTED SHA-256:
+  99b91e1e7cb6594d2b2fade9d4904a787421657b1441dd734dbeaab307c0e205
+- ACTUAL SHA-256:
+  99b91e1e7cb6594d2b2fade9d4904a787421657b1441dd734dbeaab307c0e205
+- VERIFICATION: PASS.
+
+Generated Colab paths:
+- Numbered recovery output:
+  /content/OMEGA_ISOP_MANIFEST_562_763_1.txt
+- Raw TOML fragment:
+  /content/MANIFEST_562_763_1.toml
+
+Colab final status:
+RECOVERY FINISHED
+No source files modified.
+No Manifest reconstruction claimed.
+
+3. EVIDENCE CLASSIFICATION
+FACTS:
+- The Colab output reports one source file with the expected byte size, full-source SHA-256, and 763-line count.
+- The extracted 202-line fragment has an actual SHA-256 exactly matching the expected fragment SHA-256.
+- The extraction script reported that no source files were modified.
+
+VERIFIED SCOPE:
+- Source identity/checksum match against the previously recorded expected checksum.
+- Exact extracted fragment checksum match against the supplied expected fragment checksum.
+- The 562–763 fragment extraction passed the stated hash test.
+
+NOT ESTABLISHED:
+- The complete Manifest has not yet been reconstructed as a single file from all source ranges.
+- TOML syntax validity has not yet been tested on the complete Manifest.
+- Dependency, UUID, weakdeps, and extensions consistency has not yet been fully audited.
+- No Julia Pkg environment instantiation or runtime validation is established by this extraction result.
+- No CAPD mathematical certification or independent CAPD verification follows from this archival hash check.
+
+4. NEXT ACTION
+Perform a read-only full-file TOML audit using the verified source backup. Preserve the original file and checksum. Report TOML parse errors separately from semantic dependency findings. Inspect any suspected duplicate extension declarations and weakdeps/extension trigger inconsistencies against the complete source before classifying them as defects. Do not auto-repair the source.
+
+5. ARCHITECTURAL STATUS — UNCHANGED
+Frozen Core: UNCHANGED.
+Volume V: ACTIVE RESEARCH ARCHITECTURE; UNCHANGED.
+CE-V-07: RESERVED.
+Universality: NOT ESTABLISHED.
+CAPD MATHEMATICAL CERTIFICATION: PENDING.
+INDEPENDENT VERIFICATION: NOT ACHIEVED.
+
+END OF COLAB MANIFEST FRAGMENT VERIFICATION ADDENDUM
+========== END OF ADDENDUM ==========
