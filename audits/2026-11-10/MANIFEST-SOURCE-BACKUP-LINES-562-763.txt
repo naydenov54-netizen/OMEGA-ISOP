@@ -1,0 +1,220 @@
+OMEGA-ISOP MANIFEST RECOVERY
+DATE: 2026-11-10
+SOURCE_FILE: Manifest.toml.SOURCE_BACKUP
+SOURCE_PATH: /content/drive/MyDrive/OMEGA_GR_TRANSFER_06C_JULIA/Manifest.toml.SOURCE_BACKUP
+SOURCE_SIZE_BYTES: 25895
+SOURCE_SHA256: 76c9602c16bff4bcfcbaeb8561a711d8cdfeab197f98d157a92107815ecbab75
+EXPECTED_SHA256: 76c9602c16bff4bcfcbaeb8561a711d8cdfeab197f98d157a92107815ecbab75
+SHA256_STATUS: VERIFIED
+TOTAL_LINES: 763
+EXTRACTED_LINES: 202
+FIRST_LINE: 562
+LAST_LINE: 763
+FRAGMENT_SHA256: 99b91e1e7cb6594d2b2fade9d4904a787421657b1441dd734dbeaab307c0e205
+SOURCE_MODIFIED: FALSE
+RECOVERY_STATUS: EXTRACTED
+
+========== MANIFEST SOURCE LINES 562-763 ==========
+562:     Zygote = "e88e6eb3-aa80-5325-afca-941959d7151f"
+563:
+564: [[deps.Reexport]]
+565: git-tree-sha1 = "45e428421666073eab6f2da5c9d310d99bb12f9b"
+566: uuid = "189a3867-3050-52da-a836-e630ba90ab69"
+567: version = "1.2.2"
+568:
+569: [[deps.Requires]]
+570: deps = ["UUIDs"]
+571: git-tree-sha1 = "62389eeff14780bfe55195b7204c0d8738436d64"
+572: uuid = "ae029012-a4dd-5104-9daa-d747884805df"
+573: version = "1.3.1"
+574:
+575: [[deps.RoundingEmulator]]
+576: git-tree-sha1 = "40b9edad2e5287e05bd413a38f61a8ff55b9557b"
+577: uuid = "5eaf0fd0-dfba-4ccb-bf02-d820a40db705"
+578: version = "0.2.1"
+579:
+580: [[deps.RuntimeGeneratedFunctions]]
+581: deps = ["ExprTools", "PrecompileTools", "SHA", "Serialization"]
+582: git-tree-sha1 = "9bb075002b40849582905394bb3031fb77aa102d"
+583: uuid = "7e49a35a-f44a-4d26-94aa-eba1b4ca6b47"
+584: version = "0.5.27"
+585:
+586: [[deps.SHA]]
+587: uuid = "ea8e919c-243c-51af-8825-aaa63cd721ce"
+588: version = "0.7.0"
+589:
+590: [[deps.SciMLPublic]]
+591: deps = ["PrecompileTools"]
+592: git-tree-sha1 = "74685afb51732a464fbce79a72708f7c4203ceb7"
+593: uuid = "431bcebd-1456-4ced-9d72-93c2757fff0b"
+594: version = "1.3.0"
+595:
+596: [[deps.SciMLStructures]]
+597: deps = ["ArrayInterface", "PrecompileTools"]
+598: git-tree-sha1 = "4b8fc0ffe22b4ecba7a02f1fec0b3757db014d0c"
+599: uuid = "53ae85a6-f571-4167-b2af-e1d143709226"
+600: version = "1.10.6"
+601:
+602: [[deps.ScopedValues]]
+603: deps = ["HashArrayMappedTries", "Logging"]
+604: git-tree-sha1 = "67a144433c4ce877ee6d1ada69a124d6b1ecf7be"
+605: uuid = "7e506255-f358-4e82-b7e4-beb19740aa63"
+606: version = "1.6.2"
+607:
+608: [[deps.Serialization]]
+609: uuid = "9e88b42a-f829-5b0c-bbe9-9e923198166b"
+610: version = "1.11.0"
+611:
+612: [[deps.SparseArrays]]
+613: deps = ["Libdl", "LinearAlgebra", "Random", "Serialization", "SuiteSparse_jll"]
+614: uuid = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
+615: version = "1.11.0"
+616:
+617: [[deps.SpecialFunctions]]
+618: deps = ["IrrationalConstants", "LogExpFunctions", "OpenLibm_jll", "OpenSpecFun_jll"]
+619: git-tree-sha1 = "88ef0d98204515bc53dd4aaea5f7788882d1b66c"
+620: uuid = "276daf66-3868-5448-9aa4-cd146d93841b"
+621: version = "2.9.1"
+622:
+623:     [deps.SpecialFunctions.extensions]
+624:     SpecialFunctionsChainRulesCoreExt = "ChainRulesCore"
+625:
+626:     [deps.SpecialFunctions.weakdeps]
+627:     ChainRulesCore = "d360d2e6-b24c-11e9-a2a3-2a2ae2dbcce4"
+628:
+629: [[deps.StaticArrays]]
+630: deps = ["LinearAlgebra", "PrecompileTools", "Random", "StaticArraysCore"]
+631: git-tree-sha1 = "8a8a52f887f38d44014e24ee46b8a7311c625f6d"
+632: uuid = "90137ffa-7385-5640-81b9-e52037218182"
+633: version = "1.9.24"
+634:
+635:     [deps.StaticArrays.extensions]
+636:     StaticArraysChainRulesCoreExt = "ChainRulesCore"
+637:     StaticArraysStatisticsExt = "Statistics"
+638:
+639:     [deps.StaticArrays.weakdeps]
+640:     ChainRulesCore = "d360d2e6-b24c-11e9-a2a3-2a2ae2dbcce4"
+641:     Statistics = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
+642:
+643: [[deps.StaticArraysCore]]
+644: git-tree-sha1 = "6ab403037779dae8c514bad259f32a447262455a"
+645: uuid = "1e83bf80-4336-4d27-bf5d-d5a4f845583c"
+646: version = "1.4.4"
+647:
+648: [[deps.Statistics]]
+649: deps = ["LinearAlgebra"]
+650: git-tree-sha1 = "e2b53ce13a53367e96601081e33d34746b571bad"
+651: uuid = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
+652: version = "1.11.5"
+653: weakdeps = ["SparseArrays"]
+654:
+655:     [deps.Statistics.extensions]
+656:     SparseArraysExt = ["SparseArrays"]
+657:
+658: [[deps.SuiteSparse_jll]]
+659: deps = ["Artifacts", "Libdl", "libblastrampoline_jll"]
+660: uuid = "bea87d4a-7f5b-5778-9afe-8cc45184846c"
+661: version = "7.7.0+0"
+662:
+663: [[deps.SymbolicIndexingInterface]]
+664: deps = ["Accessors", "ArrayInterface", "PrecompileTools", "RuntimeGeneratedFunctions", "StaticArraysCore"]
+665: git-tree-sha1 = "7eb6da9656581ac9fbffaef3ef7950a090a5002a"
+666: uuid = "2efcf032-c050-4f8e-a9bb-153293bab1f5"
+667: version = "0.3.55"
+668:
+669:     [deps.SymbolicIndexingInterface.extensions]
+670:     SymbolicIndexingInterfacePrettyTablesExt = "PrettyTables"
+671:
+672:     [deps.SymbolicIndexingInterface.weakdeps]
+673:     PrettyTables = "08abe8d2-0d0c-5749-adfa-8a2ac140af0d"
+674:
+675: [[deps.TOML]]
+676: deps = ["Dates"]
+677: uuid = "fa267f1f-6049-4f14-aa54-33bafae1ed76"
+678: version = "1.0.3"
+679:
+680: [[deps.Tar]]
+681: deps = ["ArgTools", "SHA"]
+682: uuid = "a4e569a6-e804-4fa4-b0f3-eef7a1d5b13e"
+683: version = "1.10.0"
+684:
+685: [[deps.TaylorIntegration]]
+686: deps = ["AutoHashEquals", "Espresso", "InteractiveUtils", "JLD2", "LinearAlgebra", "Markdown", "Parameters", "RecursiveArrayTools", "Reexport", "StaticArrays", "TaylorSeries"]
+687: git-tree-sha1 = "9d3b6ef8acc55d9f9760017b530247eccea0c493"
+688: uuid = "92b13dbe-c966-51a2-8445-caca9f8a7d42"
+689: version = "0.18.19"
+690:
+691:     [deps.TaylorIntegration.extensions]
+692:     TaylorIntegrationDiffEqExt = ["DiffEqBase", "OrdinaryDiffEqCore", "SciMLBase"]
+693:     TaylorIntegrationIAExt = "IntervalArithmetic"
+694:
+695:     [deps.TaylorIntegration.weakdeps]
+696:     DiffEqBase = "2b5f629d-d688-5b77-993f-72d75c75574e"
+697:     IntervalArithmetic = "d1acc4aa-44c8-5952-acd4-ba5d80a2a253"
+698:     OrdinaryDiffEqCore = "bbf590c4-e513-4bbe-9b18-05decba2e5d8"
+699:     SciMLBase = "0bca4576-84f4-4d90-8ffe-ffa030f20462"
+700:
+701: [[deps.TaylorModels]]
+702: deps = ["InteractiveUtils", "IntervalArithmetic", "IntervalRootFinding", "LinearAlgebra", "Logging", "Markdown", "Parameters", "Random", "RecipesBase", "Reexport", "StaticArrays", "TaylorIntegration", "TaylorSeries"]
+703: git-tree-sha1 = "33efce7cf833808dced7d6229873da7069691846"
+704: uuid = "314ce334-5f6e-57ae-acf6-00b6e903104a"
+705: version = "0.13.1"
+706:
+707: [[deps.TaylorSeries]]
+708: deps = ["FixedSizeArrays", "LinearAlgebra", "Markdown", "Reexport", "SparseArrays"]
+709: git-tree-sha1 = "b704291e6afb80043be8fe1b7b9dd3f9a6d2c9c7"
+710: uuid = "6aa5eb33-94cf-58f4-a9d0-e4b2c4fc25ea"
+711: version = "0.23.3"
+712: weakdeps = ["IntervalArithmetic", "JLD2", "RecursiveArrayTools", "StaticArrays"]
+713:
+714:     [deps.TaylorSeries.extensions]
+715:     TaylorSeriesIAExt = "IntervalArithmetic"
+716:     TaylorSeriesJLD2Ext = "JLD2"
+717:     TaylorSeriesRATExt = "RecursiveArrayTools"
+718:     TaylorSeriesSAExt = "StaticArrays"
+719:
+720: [[deps.Test]]
+721: deps = ["InteractiveUtils", "Logging", "Random", "Serialization"]
+722: uuid = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+723: version = "1.11.0"
+724:
+725: [[deps.UUIDs]]
+726: deps = ["Random", "SHA"]
+727: uuid = "cf7118a7-6976-5b1a-9a39-7adc72f591a4"
+728: version = "1.11.0"
+729:
+730: [[deps.UnPack]]
+731: git-tree-sha1 = "387c1f73762231e86e0c9c5443ce3b4a0a9a0c2b"
+732: uuid = "3a884ed6-31ef-47d7-9d2a-63182c4928ed"
+733: version = "1.0.2"
+734:
+735: [[deps.Unicode]]
+736: uuid = "4ec0a83e-493e-50e2-b9ac-8f72acf5a8f5"
+737: version = "1.11.0"
+738:
+739: [[deps.Zlib_jll]]
+740: deps = ["Libdl"]
+741: uuid = "83775a58-1f1d-513f-b197-d71354ab007a"
+742: version = "1.2.13+1"
+743:
+744: [[deps.Zstd_jll]]
+745: deps = ["Artifacts", "JLLWrappers", "Libdl"]
+746: git-tree-sha1 = "446b23e73536f84e8037f5dce465e92275f6a308"
+747: uuid = "3161d3a3-bdf6-5164-811a-617609db77b4"
+748: version = "1.5.7+1"
+749:
+750: [[deps.libblastrampoline_jll]]
+751: deps = ["Artifacts", "Libdl"]
+752: uuid = "8e850b90-86db-534c-a0d3-1478176c7d93"
+753: version = "5.11.0+0"
+754:
+755: [[deps.nghttp2_jll]]
+756: deps = ["Artifacts", "Libdl"]
+757: uuid = "8e850ede-7688-5339-a07c-302acd2aaf8d"
+758: version = "1.59.0+0"
+759:
+760: [[deps.p7zip_jll]]
+761: deps = ["Artifacts", "Libdl"]
+762: uuid = "3f19e933-33d8-53b3-aaab-bd5110c3b7a0"
+763: version = "17.4.0+2"
+========== END MANIFEST SOURCE LINES 562-763 ==========
