@@ -55,3 +55,91 @@ CE-V-07: RESERVED
 Universality: NOT ESTABLISHED
 No conditional result promoted to certified.
 No numerical result treated as an analytical theorem.
+
+
+STRUCTURAL INDEX UPDATE
+DATE: 2026-11-10
+STATUS: STRUCTURAL INDEX GENERATED; PER-NOTEBOOK CLASSIFICATION PENDING
+
+The source report was re-read in Colab as raw bytes. The latest verified inventory is:
+- Lines: 9781
+- Bytes: 274964
+- SHA-256: 73f4dde18da01191bac081c38ab340e806ddb67ea14afd539e9df9d97f7b1afd
+
+A prior initial display header supplied by the user stated:
+- TOTAL LINES: 1352
+- TOTAL PARTS: 14
+This conflicts with the later direct file inventory of 9781 lines. The 1352 figure is therefore retained as an earlier displayed audit statistic, not accepted as the current physical line count of the source report. The meaning of TOTAL PARTS is not yet established.
+
+NOTEBOOK SECTION HEADERS FOUND (15 occurrences; 14 unique notebook names):
+- Line 3: Untitled47.ipynb
+- Line 300: Untitled75.ipynb
+- Line 377: Untitled76.ipynb
+- Line 382: Untitled77.ipynb
+- Line 442: Untitled96.ipynb
+- Line 481: Untitled102.ipynb
+- Line 1008: Untitled107.ipynb
+- Line 1697: Untitled108.ipynb
+- Line 2113: Untitled109.ipynb
+- Line 2631: Untitled114.ipynb
+- Line 4345: Untitled112.ipynb
+- Line 7132: Untitled117.ipynb
+- Line 8006: Untitled117.ipynb (second occurrence)
+- Line 9002: Untitled118.ipynb
+- Line 9459: Untitled119.ipynb
+
+Interpretation:
+- There are 15 NOTEBOOK header occurrences and 14 distinct notebook filenames because Untitled117.ipynb occurs twice.
+- Do not equate this with the report's TOTAL PARTS: 14 without checking the report-generation format.
+- The structural scan is a text-marker inventory, not a semantic audit and not a count of verified successful executions.
+
+SELECTED STRUCTURAL MARKERS
+- Line 209: COMPILER EXIT CODE: 0
+- Line 212: CAPD_PHI2_CORE_SUCCESS
+- Line 221: DOP853 REFERENCE (NON-VALIDATED)
+- Line 288: COMPILER EXIT CODE: 0
+- Line 291: RUNTIME EXIT CODE: -6
+- Line 294: Logic error: This solver can integrate C0Sets and C1Sets, only.
+- Line 297: RuntimeError: Runtime failed.
+- Line 1241: comment identifies an "Independent IEEE directed-rounding witness" test; its full code and result still require inspection.
+- Lines 1669, 1684, 1692, 2121: CAPD build/source directory missing or unavailable.
+- Line 3413: report states compiler flags are reported as found, not independently validated.
+- Line 3414: report states historical outputs are not independent reproductions.
+- Lines 55561? No: the exact indexed marker is line 5556: EXPECTED EXACTLY ONE capd-config; FOUND: 2.
+- Lines 5815 and 5887: CAPD BOUNDARY TEST FAILED.
+- Line 7206: CAPD SOURCE DIRECTORY NOT FOUND.
+- Line 7464: TASK 01E.1 C++ source was not found.
+- Line 7514: CAPD CONFIG NOT FOUND.
+- Line 8342: HTTP 404.
+- Line 8762: CAPD clone failed.
+- Line 8925: report contains the phrase "Actual compiler exit codes: YES"; underlying evidence must be checked.
+- Line 9072: required archive OMEGA_ISOP_TASK03_MATRIX.zip not found.
+- Line 9743: HASH_ERROR marker.
+
+NOTE: The marker list above is selective. Several line numbers are retained exactly from the structural scan; where a marker is a substring match, it is only a locator. The earlier summary also recorded multiple NameError, SyntaxError, FileNotFoundError, PermissionError, and RuntimeError entries. Each must be classified by cause and relevance before drawing mathematical conclusions.
+
+AUDIT INTERPRETATION / LIMITS
+1. Compiler exit code 0 does not establish runtime success, numerical validity, interval correctness, or proof validity.
+2. Runtime failures and missing build/source/archive dependencies are operational or reproducibility failures unless further evidence connects them to a mathematical defect.
+3. CAPD_BOUNDARY_TEST_FAILED and duplicate capd-config discovery are significant audit findings requiring inspection of the exact code, environment, and captured output.
+4. A text search for SUCCESS, EXIT CODE: 0, ERROR, or FAILED can produce false positives and false negatives. It must not be treated as a verified pass/fail ledger.
+5. Historical notebook outputs are not independent reruns.
+6. No universal theorem, full CAPD certification, or independent reproduction is established by this structural index.
+
+NEXT EXECUTION STEP
+A Colab script has been prepared to segment the report at each NOTEBOOK: header and print, per section:
+- start/end line and section length;
+- counts of text markers containing SUCCESS or EXIT CODE: 0;
+- counts of ERROR, negative runtime exit-code, or FAILED markers;
+- up to eight failure-marker lines.
+
+The script output has NOT yet been received or audited. Its counts are provisional text-marker counts only, not validated execution outcomes. Next step is to inspect the per-section summary, then select the highest-value sections for detailed source/output review.
+
+PRESERVATION
+- Original source report remains in Google Drive at the recorded path.
+- This GitHub checkpoint is an audit-state record, not the full source report.
+- Do not overwrite or delete original artifacts.
+- Frozen Core remains unchanged.
+- Volume V remains unchanged.
+- CE-V-07 remains RESERVED.
+- CAPD results remain conditional until independent mathematical and computational verification.
