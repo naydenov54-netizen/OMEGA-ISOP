@@ -1,0 +1,57 @@
+OMEGA-ISOP — FORENSIC AUDIT CHECKPOINT
+DATE: 2026-11-10
+STATUS: SOURCE IDENTIFIED; STRUCTURAL AUDIT IN PROGRESS
+
+SOURCE REPORT
+Filename: OMEGA_FORENSIC_AUDIT_PARTS.txt
+Google Drive path: /content/drive/MyDrive/OMEGA_FORENSIC_AUDIT_PARTS.txt
+Reported notebook source in first extracted section: Untitled47.ipynb
+Notebook size recorded in report: 22391 bytes
+Notebook cells recorded in report: 4
+Report size: 274964 bytes
+Report lines: 9781
+Report characters reported by earlier read_text extraction: 272817
+Reported parts in display header: 14 (actual part boundaries/count still require verification)
+
+SHA-256 OF EXACT SOURCE REPORT BYTES
+73f4dde18da01191bac081c38ab340e806ddb67ea14afd539e9df9d97f7b1afd
+
+INITIAL OBSERVATIONS FROM FIRST 300 LINES
+1. The report begins with a forensic extraction of Untitled47.ipynb.
+2. A later notebook section begins at report line 300: Untitled75.ipynb. The report therefore aggregates material from more than one notebook.
+3. A CAPD execution record in the Untitled47 section reports:
+   COMPILER EXIT CODE: 0
+   CAPD_PHI2_CORE_SUCCESS
+   STEPS: 256
+   X_ENDPOINT: [1.1898025523640499, 1.1899992515445377]
+   V_ENDPOINT: [0.30097975825628248, 0.30132005245372684]
+4. The same record labels the DOP853 reference as NON-VALIDATED.
+5. A separate CAPD test reports compiler exit code 0 but runtime exit code -6, with:
+   Logic error: This solver can integrate C0Sets and C1Sets, only.
+6. Stored notebook outputs are evidence of recorded execution output, not proof of independent reproduction.
+
+EVIDENCE CLASSIFICATION
+FACTS:
+- The source report exists at the stated Google Drive path, as demonstrated by the user's Colab output.
+- The report byte count and SHA-256 above were computed from the file bytes in Colab.
+- The first 300 displayed lines contain the observations listed above.
+
+NOT YET VERIFIED:
+- Whether all 14 parts are complete, ordered, and contiguous.
+- Full inventory of notebook names and report sections.
+- Whether the six previously discovered Untitled109 GitHub audit chunks have any relation to this report. Current evidence points to a distinct source report.
+- Independent reproduction of the CAPD computations.
+- Mathematical certification of any result.
+
+GITHUB ARCHIVE NOTE
+This checkpoint records metadata, the source-file SHA-256, and the currently established audit state only.
+The full 274964-byte source report has NOT been uploaded in this commit because its complete byte content was not available to the GitHub connector in this operation. No claim is made that this checkpoint is a substitute for the source report.
+No existing repository file was overwritten or deleted.
+
+ARCHITECTURAL SAFEGUARDS
+Frozen Core: UNCHANGED
+Volume V: UNCHANGED
+CE-V-07: RESERVED
+Universality: NOT ESTABLISHED
+No conditional result promoted to certified.
+No numerical result treated as an analytical theorem.
