@@ -652,3 +652,305 @@ I. Notebook hashes and cell counts are reported historical metadata, not indepen
 - Do not silently fill missing notebook cells or invent missing outputs.
 
 END OF APPENDED PART 2 RECORD
+
+
+
+============================================================
+APPENDED RECORD — PART 3 OF 3
+DATE: 2026-11-10
+SOURCE: User-supplied notebook inventory and source-backup inspection
+MODE: ARCHIVAL / READ-ONLY RECORD
+STATUS: PART 3 MATERIAL RECEIVED; EVIDENCE CLASSIFICATION UPDATED
+============================================================
+
+15. PART 3 — CONTINUATION CELLS 19–30 (NOTEBOOK HEADER NOT PRESENT IN EXCERPT)
+
+The received excerpt begins at CELL 19 and does not include the notebook filename/header for these cells. They are therefore recorded as an unattributed continuation excerpt and are not assigned to Untitled108 or another notebook without source confirmation.
+
+CELL 19
+- Shell command greps compile_commands.json for DoubleRounding.cpp, with surrounding lines.
+- Execution count: None; recorded errors: 0.
+- No compiler command entry/output supplied.
+
+CELL 20
+- Code cell; execution count: None; recorded errors: 0.
+- No matched source included.
+
+CELL 21
+- Runs cmake --build /content/capd/build-o0-verified --parallel 2.
+- Execution count: None; recorded errors: 0.
+- No build output or exit status supplied.
+
+CELL 22
+- Runs objdump on DoubleRounding.cpp.o and filters for DoubleRounding::isWorking().
+- Execution count: None; recorded errors: 0.
+- No disassembly output supplied.
+
+CELL 23
+- Attempts to create /content/test13a_o0.cpp using a shell heredoc in a code cell.
+- Recorded error: SyntaxError: invalid syntax (line 5).
+- This is a notebook language/interface error caused by shell syntax being interpreted as Python; it is not a CAPD arithmetic result.
+
+CELL 24
+- Repeats the same heredoc source-write attempt.
+- Recorded error: SyntaxError: invalid syntax (line 5).
+- Same classification as CELL 23.
+
+CELL 25
+- Uses Python source = """...""" and open(...).write(...) to create /content/test13a_o0.cpp.
+- Prints SOURCE_FILE_CREATED.
+- Execution count: None; recorded errors: 0.
+- The print statement is source only in the supplied excerpt; no saved output or execution count confirms file creation.
+
+CELL 26
+- Compiles test13a_o0.cpp with g++ -O0 -frounding-math -std=c++17 and CAPD include/library paths, then attempts to run it.
+- Execution count: None; recorded errors: 0.
+- No compile output, runtime output, or exit status supplied.
+
+CELL 27
+- Runs objdump on DoubleRounding.cpp.o, filtering for DoubleRounding::test().
+- Execution count: 28; recorded errors: 0.
+- The recorded execution count indicates the cell had a historical execution record, but the disassembly output is absent from the supplied excerpt. No instruction-level conclusion can be drawn.
+
+CELL 28
+- Supplies C++ source for an interval addition test:
+  a = DoubleInterval(1.0)
+  b = DoubleInterval(0x1p-53)
+  c = a + b
+- Prints INTERVAL_RESULT and EXPECTED_EXACT_VALUE using setprecision(17) and long double arithmetic.
+- Execution count: 29; recorded errors: 0.
+- Source is present, but no saved output is supplied. The test result is therefore NOT VERIFIED.
+
+CELL 29
+- The recovered source/output includes the text “Writing /content/capd_interval_check.cpp” interpreted as Python.
+- Recorded error: NameError: name 'Writing' is not defined.
+- This is a notebook command/text handling error, not an interval arithmetic failure.
+
+CELL 30
+- Compiles and executes capd_interval_check.cpp with -O0 -frounding-math and CAPD/filib/MPFR/GMP library paths.
+- Execution count: 31; recorded errors: 0.
+- No compiler output, interval output, or exit status supplied.
+
+16. PART 3 — NOTEBOOK Untitled108.ipynb
+
+RECOVERED NOTEBOOK METADATA
+- Filename: Untitled108.ipynb
+- SHA-256: 68add5184a08e6819b752b9f35a628cee3a902800d31b7525c6c3e1a3a7efa38
+- Cell count: 16
+- These are reported metadata from the user-supplied inventory. They have not been independently recomputed by this checkpoint.
+
+CELL 0
+- Code cell; execution count: 1; no keywords; recorded errors: 0.
+- No matched source included.
+
+CELL 1
+- Clones CAPD into /content/capd.
+- Checks out commit 693998cd6d73a0c4e1b141bfb79fcad1c40c3cbe.
+- Prints git rev-parse HEAD.
+- Execution count: 2; recorded errors: 0.
+- No stdout supplied. The commit checkout is not independently confirmed by this excerpt.
+
+CELL 2–6
+- Code cells with execution counts 3–7 respectively.
+- No matched source or recorded errors supplied.
+
+CELL 7
+- Configures CAPD:
+  cmake -S /content/capd -B /content/capd/build -DCAPD_ENABLE_MULTIPRECISION=ON -DCAPD_BUILD_TESTS=OFF
+- Execution count: 8; recorded errors: 0.
+- No CMake output or exit status supplied.
+
+CELL 8
+- Builds /content/capd/build with parallelism 2.
+- Execution count: 9; recorded errors: 0.
+- No build output or exit status supplied.
+
+CELL 9
+- Lists DoubleRounding.cpp.o in /content/capd/build.
+- Execution count: 10; recorded errors: 0.
+- No listing output supplied.
+
+CELL 10
+- Runs objdump over a selected address range of DoubleRounding.cpp.o.
+- Execution count: 11; recorded errors: 0.
+- No disassembly output supplied.
+
+CELL 11
+- Greps DoubleRounding.cpp for the implementation of bool DoubleRounding::isWorking.
+- Execution count: 12; recorded errors: 0.
+- No source excerpt output supplied.
+
+CELL 12
+- Greps DoubleRounding.cpp for roundUp, roundDown, roundCut, and roundNearest implementations.
+- Execution count: 13; recorded errors: 0.
+- No source excerpt output supplied.
+
+CELL 13
+- Prints lines 190–245 of DoubleRounding.cpp.
+- Execution count: 14; recorded errors: 0.
+- No output supplied.
+
+CELL 14
+- Configures a separate build-o0 directory with:
+  CAPD_ENABLE_MULTIPRECISION=ON
+  CAPD_BUILD_TESTS=OFF
+  CMAKE_BUILD_TYPE=Debug
+  CMAKE_CXX_FLAGS="-O0 -frounding-math"
+- Execution count: 15; recorded errors: 0.
+- No CMake output supplied.
+
+CELL 15
+- Runs cmake --build /content/capd/build-o0 --parallel 2.
+- Execution count: None; recorded errors: 0.
+- No build output or exit status supplied.
+
+17. PART 3 — PROJECT/MANIFEST SOURCE BACKUPS
+
+PROJECT.TOML.SOURCE_BACKUP
+- Size: 236 bytes.
+- SHA-256: ce7c1395b6679802bb307489ae6deeebf0d8a35cfca10fac1381ffc2b4d2195e
+- Declared dependencies:
+  IntervalArithmetic
+  IntervalRootFinding
+  StaticArrays
+  TaylorModels
+
+MANIFEST.TOML.SOURCE_BACKUP
+- Size: 25,895 bytes.
+- SHA-256: 76c9602c16bff4bcfcbaeb8561a711d8cdfeab197f98d157a92107815ecbab75
+- Declared Julia version: 1.11.9
+- Manifest format: 2.0
+- Project hash: b9bd1b5c254baca24b784042eb27bcb72fae2ce5
+- The supplied textual content is explicitly truncated ([CONTENT TRUNCATED]). The full manifest has not been reproduced in this checkpoint.
+- Visible package metadata includes IntervalArithmetic 1.0.12, IntervalRootFinding 0.7.2, and multiple dependencies. This is package-lock/source metadata, not proof that the environment was instantiated or that package operations ran successfully.
+
+18. PART 3 — CRITICAL TECHNICAL AUDIT FINDINGS
+
+A. Execution-count interpretation
+- Cells 27 and 28 in the unattributed continuation excerpt have execution counts 28 and 29.
+- Cell 30 has execution count 31.
+- Untitled108 cells 0–14 have execution counts 1–15; cell 15 has None.
+- These counts are historical notebook metadata only. They do not establish success without the corresponding saved outputs, stderr, and exit status.
+- The final triage footer states:
+  CONTENT TRIAGE COMPLETED
+  NO NOTEBOOK CELLS EXECUTED
+  NO FILES MODIFIED
+  This is interpreted as the inventory/triage process itself not executing notebook cells or modifying files during that triage. It does not erase the historical execution_count values recorded in the notebooks.
+
+B. O0 build evidence
+- The supplied material contains build commands for build-o0 and build-o0-verified.
+- The relevant build cells have execution_count=None in the displayed excerpt.
+- No successful build output, compile_commands entry, flags.make content, or object hash is supplied.
+- Therefore the O0 CAPD build remains NOT VERIFIED.
+
+C. DoubleRounding evidence
+- The source inspection and objdump commands are present.
+- No actual disassembly is supplied.
+- No compiler invocation record or runtime result for test13a_o0 is supplied.
+- Therefore no conclusion is established about the generated implementation of isWorking(), the runtime rounding mode, or the correctness of DoubleRounding.
+
+D. Interval addition test
+- The source uses the halfway case 1 + 2^-53.
+- Under IEEE-754 binary64 round-to-nearest, ties-to-even, this exact halfway value rounds to 1.0.
+- However, the source's long double expression is not a universally reliable exact oracle across platforms because long double precision is implementation-dependent.
+- Printing with setprecision(17) is not itself proof of outward rounding or interval containment.
+- A valid interval test must independently establish the exact target value and verify:
+  (1) lower_bound <= exact_value;
+  (2) exact_value <= upper_bound;
+  (3) the bounds are produced under the intended directed-rounding semantics.
+- Since no output is supplied, the test remains NOT VERIFIED.
+
+E. Julia environment provenance
+- Project.toml and Manifest.toml backups have recorded hashes and sizes.
+- The manifest identifies Julia 1.11.9 and package versions in its visible portion.
+- The manifest text is truncated in the supplied message.
+- The hashes identify the reported backup files, but do not independently prove that these exact files were used in the Julia session that produced the earlier MethodError.
+- The relationship between this backup environment and the Julia execution that raised differentiate! MethodError remains to be verified.
+
+F. Notebook source errors
+- The two heredoc SyntaxErrors in cells 23–24 and the NameError in cell 29 are execution-interface/source-entry problems.
+- They must not be classified as CAPD numerical failures.
+- The later Python file-write cell is a reasonable correction in source form, but its execution is not confirmed.
+
+19. PART 3 — EVIDENCE CLASSIFICATION
+
+FACTS REPORTED BY THE SUPPLIED MATERIAL
+- Untitled108.ipynb is reported as a 16-cell notebook with SHA-256 68add5184a08e6819b752b9f35a628cee3a902800d31b7525c6c3e1a3a7efa38.
+- The reported CAPD source commit target is 693998cd6d73a0c4e1b141bfb79fcad1c40c3cbe.
+- CAPD CMake configuration/build commands are present for normal and O0 build directories.
+- DoubleRounding source-inspection and disassembly commands are present.
+- A DoubleInterval halfway-addition test source is present.
+- Project.toml and Manifest.toml backup sizes and SHA-256 values are reported.
+- Julia manifest metadata reports Julia 1.11.9 and manifest format 2.0.
+- The excerpt records two SyntaxErrors and one NameError in the unattributed continuation cells.
+
+NOT ESTABLISHED
+- Successful CAPD clone/checkout at the stated commit.
+- Successful CMake configuration or build for either build directory.
+- Actual compiler flags applied to DoubleRounding.cpp.
+- Successful compilation/execution of test13a_o0 or capd_interval_check.
+- Actual CAPD interval result or proof of exact-value inclusion.
+- Actual disassembly of isWorking() or test().
+- Runtime behavior of the four DoubleRounding modes.
+- Whether the source backup manifest matches the environment used by the earlier Julia tests.
+- Whether the Julia validated integration and rho reconstruction completed successfully.
+- Independent mathematical certification of the CAPD construction.
+
+20. CONSOLIDATED STATUS AFTER PARTS 1–3
+
+PART 1: RECEIVED AND RECORDED.
+PART 2: RECEIVED AND RECORDED, WITH THE SOURCE EXCERPT TRUNCATED INSIDE Untitled44 CELL 9.
+PART 3: RECEIVED AND RECORDED, WITH THE INITIAL CELLS 19–30 EXCERPT MISSING ITS NOTEBOOK HEADER.
+
+The three parts are archival evidence records, not a successful reproduction package.
+
+CAPD:
+- Source-level test design: PRESENT.
+- Build commands: PRESENT.
+- Build success: NOT VERIFIED.
+- Runtime test results: NOT SUPPLIED.
+- Disassembly evidence: NOT SUPPLIED.
+- Directed-rounding correctness: NOT CERTIFIED.
+- Interval enclosure test: NOT VERIFIED.
+
+JULIA / TAYLORMODELS:
+- Project and manifest backup metadata: RECORDED.
+- Julia 1.11.9 manifest metadata: RECORDED.
+- differentiate! MethodError in bound_taylor1 diagnostic path: RECORDED.
+- validated_integ3 success and final enclosure: NOT VERIFIED.
+- reconstruct_rho and guaranteed remainder: NOT VERIFIED.
+
+CERTIFICATION STATUS:
+PARTIAL AUDIT
+CERTIFICATION PENDING
+INDEPENDENT VERIFICATION NOT ACHIEVED
+
+21. ARCHITECTURAL STATUS — PRESERVED
+
+- Frozen Core: UNCHANGED.
+- Volume V: ACTIVE RESEARCH ARCHITECTURE; UNCHANGED.
+- CE-V-07: RESERVED.
+- Universality: NOT ESTABLISHED.
+- No conditional result has been promoted to certified.
+- No numerical approximation has been promoted to an analytical theorem.
+- No CAPD result is presented as a universal theorem.
+- No new theorem, axiom, or Frozen Core modification is introduced by this archival checkpoint.
+
+22. NEXT ACTIONS — EVIDENCE-DRIVEN
+
+1. Recover the missing notebook header for the unattributed cells 19–30, if available.
+2. Recover the omitted remainder of Untitled44.ipynb from CELL 9 onward, if it is part of the intended evidence set.
+3. Obtain actual saved outputs for:
+   - CAPD checkout and git rev-parse;
+   - CMake configure and build;
+   - compile_commands.json and flags.make;
+   - objdump of DoubleRounding::isWorking() and DoubleRounding::test();
+   - compilation and runtime of test13a_o0;
+   - compilation and runtime of capd_interval_check.
+4. Replace the long double halfway-value oracle with a platform-independent exact comparison or a rigorously specified integer/rational reference.
+5. Verify the Project.toml and Manifest.toml hashes against the exact Julia project directory used for execution.
+6. Reproduce the Julia integration and rho diagnostics in a clean, recorded session, preserving stdout, stderr, package versions, and exit status.
+7. Only after the above evidence exists, assess whether the CAPD construction satisfies its stated interval and analytical obligations.
+
+END OF PART 3 CHECKPOINT
+END OF THREE-PART HISTORICAL EVIDENCE RECOVERY RECORD
