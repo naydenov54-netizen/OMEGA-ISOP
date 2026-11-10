@@ -1,0 +1,296 @@
+OMEGA-ISOP
+HISTORICAL EVIDENCE RECOVERY
+PART 1 CHECKPOINT
+DATE: 2026-11-10
+SOURCE: User-provided Colab notebook recovery excerpt
+MODE: ARCHIVAL / READ-ONLY RECORD
+STATUS: PART 1 RECEIVED; PARTS 2 AND 3 PENDING
+
+1. PURPOSE AND CONTEXT
+
+This checkpoint preserves the first supplied part of the historical evidence recovery material so that work can continue in a new chat without treating this excerpt as a complete audit.
+
+The user reports that the transferred result was shortened to the last 5,000 lines. Therefore, the excerpt is a partial recovery record. It must not be represented as the complete output of the underlying scan or notebook extraction.
+
+No source files, CAPD files, or Frozen Core material were modified by the actions described in this excerpt. The supplied code is recorded as historical source text, not as code independently executed by this checkpoint.
+
+2. SUPPLIED RECOVERY SCRIPT: LOCAL FILE SCAN AND GIT INVENTORY
+
+The first supplied Python script:
+- scans /content recursively, excluding .git, __pycache__, node_modules, .cache, and site-packages;
+- searches text-like files for DoubleRounding, CAPD rounding, floating-point environment, FILIB, compiler flags, objdump, and disassembly terms;
+- hashes selected relevant files below 50 MB;
+- attempts to report Git status, recent log, branches, and tracked file names for /content/OMEGA-ISOP;
+- writes /content/OMEGA_ISOP_RECOVERY_REPORT.txt and downloads it from Colab.
+
+IMPORTANT SOURCE-LEVEL DEFECT:
+The pasted script calls os.walk(ROOT), but its import block does not include import os. If executed exactly as pasted, it will fail at the scan stage with NameError: name 'os' is not defined. This is a static inspection finding, not a recorded runtime result.
+
+The report-generation code does not establish that any scan completed. No output counts, hashes, Git status, or command results for this first script were supplied in this excerpt.
+
+3. NOTEBOOK CELLS RECORDED IN THE SUPPLIED EXCERPT
+
+CELL 4
+- Type: code
+- Execution count: None
+- Keywords: none
+- Recorded errors: 0
+
+CELL 5
+- Read-only Google Drive inventory under /content/drive/MyDrive.
+- Searches names containing Untitled47, CAPD, DoubleRounding, 13A-R2, 13A-R3, build-o0-verified, task01e1, and omega-isop.
+- Execution count: None.
+- Recorded errors: 0.
+- No inventory output was supplied.
+
+CELL 6
+- Read-only notebook-cell recovery for:
+  Untitled102.ipynb, Untitled107.ipynb, Untitled108.ipynb,
+  Untitled109.ipynb, Untitled112.ipynb, Untitled113.ipynb,
+  Untitled114.ipynb.
+- Computes source notebook byte size and SHA-256, parses notebook JSON, searches source and saved outputs for DoubleRounding, isWorking, CAPD_IS_WORKING, FE_UPWARD, FE_DOWNWARD, fesetround, FILIB, objdump, disassembly, -O0/-O2, and CMake flags.
+- Writes OMEGA_ISOP_NOTEBOOK_CELL_RECOVERY.txt.
+- Execution count: None.
+- Recorded errors: 0.
+- No resulting report or notebook hashes were supplied here.
+
+CELL 7
+- Read-only CAPD O0/O2 forensic audit.
+- Searches CAPD source roots and attempts to extract DoubleRounding.cpp/.h, CMakeCache, compile_commands, flags.make, link.txt, object files, libcapd.a, ELF comments, and objdump disassembly.
+- Explicitly states that it does not execute or rebuild CAPD and that historical outputs are not independent reproductions.
+- Execution count: None.
+- Recorded errors: 0.
+- No resulting audit report, file hashes, or build metadata were supplied here.
+
+CELL 8
+- Code cell.
+- Execution count: 1.
+- No keywords and no recorded errors.
+
+CELL 9
+- Code cell.
+- Execution count: None.
+- No keywords and no recorded errors.
+
+CELL 10
+- Supplies C++ source c4_1.cpp for a direct SSE2 ADDSD / MXCSR rounding-mode test.
+- Iterates through nearest, down, up, and toward-zero MXCSR modes; prints positive and negative halfway additions and checks restoration of the original MXCSR register.
+- Execution count: None.
+- Recorded errors: 0.
+- The excerpt contains source, not a saved compile or execution result.
+
+CELL 11
+- TASK 01E.3-C0 environment inventory.
+- Prints Python version, platform, working directory, UTC timestamp, and /content directory contents.
+- Execution count: None.
+- Recorded errors: 0.
+- No output values supplied.
+
+CELL 12
+- Code cell.
+- Execution count: None.
+- No keywords and no recorded errors.
+
+CELL 13
+- Displays an existing O0/O2 forensic report and the first 100 lines of a recovery report, then counts evidence keywords in a notebook recovery file.
+- Execution count: None.
+- Recorded errors: 0.
+- No displayed report contents supplied in this excerpt.
+
+CELL 14
+- Read-only Drive notebook extraction for Untitled114.ipynb, Untitled45.ipynb, Untitled75.ipynb, Untitled76 (1).ipynb, Untitled77.ipynb, and Untitled47.ipynb.
+- Prints notebook sizes, SHA-256, cell counts, and up to eight matching cells per notebook.
+- Execution count: None.
+- Recorded errors: 0.
+- No extracted notebook hashes or cell outputs supplied.
+
+CELL 15
+- Compiles c4_1.cpp with:
+  g++ -std=c++17 -O0 -frounding-math -fno-fast-math -msse2
+  g++ -std=c++17 -O2 -frounding-math -fno-fast-math -msse2
+- Executes both binaries.
+- Execution count: None.
+- Recorded errors: 0.
+- This is a recorded source command only; no compile or runtime output was supplied.
+
+CELL 16
+- Requests SSE2/MXCSR instruction inspection via objdump, CPU information via lscpu, SHA-256 of source and binaries, and full disassembly output to c4_1_O2.asm.
+- Execution count: None.
+- Recorded errors: 0.
+- No output or hashes supplied.
+
+CELL 17
+- Code cell.
+- Execution count: None.
+- No keywords and no recorded errors.
+
+CELL 18
+- Supplies an expanded C++ C4 source with:
+  - explicit SSE2 ADDSD arithmetic;
+  - explicit x87 FLD/FADDL/FSTP arithmetic;
+  - MXCSR read/write;
+  - x87 control-word read/write;
+  - positive and negative halfway cases;
+  - MXCSR and x87 rounding-control checks;
+  - x87 precision-control configurations 24-bit, 53-bit, and 64-bit;
+  - register restoration checks.
+- Execution count: None.
+- Recorded errors: 0.
+- Source presence alone does not establish compilation, execution, or a passing result.
+
+CELL 19
+- Code cell.
+- Execution count: None.
+- No keywords and no recorded errors.
+
+CELL 20
+- Supplies a more developed C4 SOURCE V0.1 implementation.
+- Includes FXSAVE/FXRSTOR state preservation, MXCSR configuration, x87 control-word configuration, explicit SSE2 and x87 operations, bitwise comparisons against expected results, exception-flag checks, and final restoration checks.
+- Tests SSE2 across four rounding modes.
+- Tests x87 across four rounding modes and three precision-control modes (24-bit, 53-bit, 64-bit).
+- The source prints TESTS, FAILURES, and a summary result.
+- Execution count: None.
+- Recorded errors: 0.
+- No saved compiler output, executable hash, runtime output, or exit code was supplied.
+
+CELL 21
+- Code cell.
+- Execution count: None.
+- No keywords and no recorded errors.
+
+CELL 22
+- Compiler command for C4:
+  g++ -std=c++17 -O2 -Wall -Wextra -Wpedantic
+  -fno-fast-math -frounding-math -mfpmath=sse -msse2
+  -mno-avx -mno-avx2 c4.cpp -o c4
+- Execution count: None.
+- Recorded errors: 0.
+- No compiler result supplied.
+
+CELL 23
+- Code cell.
+- Execution count: None.
+- No keywords and no recorded errors.
+
+CELL 24
+- Prints compiler version, source and executable sizes, permissions, executes ./c4, and prints stdout, stderr, and exit code.
+- Execution count: None.
+- Recorded errors: 0.
+- No actual output or exit code supplied.
+
+CELL 25
+- Recomputes SHA-256 and size of c4.cpp.
+- Compiles c4.cpp using the explicit O2/frounding-math/no-fast-math/SSE2 command.
+- If compilation succeeds, runs the fresh binary and prints outputs and exit status.
+- Execution count: None.
+- Recorded errors: 0.
+- No actual source hash, compile result, runtime output, or exit status supplied.
+
+CELL 26
+- Code cell.
+- Execution count: None.
+- No keywords and no recorded errors.
+
+CELL 27
+- Code cell.
+- Execution count: None.
+- No keywords and no recorded errors.
+
+CELL 28
+- Code cell.
+- Execution count: None.
+- No keywords and no recorded errors.
+
+CELL 29
+- Contains a g++ command intended to generate assembly from omega_c4.cpp.
+- Recorded error:
+  SyntaxError: cannot assign to expression (1744960510.py, line 1).
+- This is a notebook cell syntax/execution-interface error. It is not evidence of a CAPD mathematical or numerical failure.
+
+CELL 30
+- Repeats the compiler command using notebook shell syntax:
+  g++ -std=c++17 -O2 -frounding-math -fno-fast-math -fno-builtin
+  -Wall -Wextra -Wpedantic -msse2 -S -masm=intel
+  omega_c4.cpp -o omega_c4.s
+- Execution count: None.
+- Recorded errors: 0.
+- No compiler output supplied.
+
+CELL 31
+- Code cell.
+- Execution count: None.
+- No keywords and no recorded errors.
+
+CELL 32
+- Hashes files in /content and prints headers for .cpp and .asm files.
+- Execution count: None.
+- Recorded errors: 0.
+- No resulting hashes supplied.
+
+CELL 33
+- Inspects c4.cpp and c4_1.cpp line counts, version/test markers, and final 25 lines.
+- Execution count: None.
+- Recorded errors: 0.
+- No inspection output supplied.
+
+CELL 34
+- Code cell.
+- Execution count: None.
+- No keywords and no recorded errors.
+
+4. EVIDENCE CLASSIFICATION
+
+FACTS FROM THE SUPPLIED TEXT
+- A set of read-only discovery and extraction scripts was authored for local files, Google Drive, notebook JSON, CAPD source/build metadata, and C4 floating-point tests.
+- C4 source variants were supplied for explicit SSE2/MXCSR and x87 control-word experiments.
+- The notebook excerpt records one SyntaxError in CELL 29.
+- Most displayed cells have execution_count=None.
+- The supplied excerpt contains source code and commands but generally does not contain their saved outputs.
+
+NOT ESTABLISHED
+- Whether the local scan completed.
+- Whether Google Drive inventory completed and what it found.
+- Whether any historical notebooks were actually found or hashed by these cells.
+- Whether C4 source compiled.
+- Whether C4 binaries executed.
+- Whether any C4 checks passed or failed.
+- Whether disassembly confirmed the intended instructions.
+- Whether MXCSR or x87 state behavior explains the CAPD isWorking() discrepancy.
+- Whether any result is reproducible independently.
+
+5. TECHNICAL AUDIT FLAGS FOR LATER REVIEW
+
+A. The first recovery script is missing import os, although it calls os.walk.
+B. Source code in cells 10, 18, and 20 must not be conflated with executed test evidence.
+C. The O0/O2 commands in CELL 15 apply to the standalone C4.1 test, not automatically to CAPD's DoubleRounding implementation.
+D. The C4.1 test in CELL 10 prints values and checks register restoration, but does not itself compare arithmetic outputs against an exact expected-value oracle.
+E. The expanded C4 source in CELL 20 contains explicit assertions/checks, but without compiler/runtime output it remains unvalidated source.
+F. CELL 29's SyntaxError is a notebook syntax error, not a floating-point test result.
+G. The recovery excerpt is incomplete and user reports truncation to the last 5,000 lines. Do not infer that absent output means no matches or no errors.
+
+6. RELATION TO EXISTING OMEGA-ISOP STATUS
+
+- TASK 02 mathematical certification remains PASS/COMPLETE only within its previously recorded scope.
+- TASK 03 independent machine-level reproduction remains IN PROGRESS / OPEN until its outstanding controlled-build and machine-state tests are supported by complete evidence.
+- The older cross-task O0/O2 observations remain non-comparable unless source, dependencies, build cache, compiler invocation, object/library hashes, and runtime environment are controlled.
+- This Part 1 material does not resolve the DoubleRounding::isWorking() root cause.
+- No CAPD general directed-rounding certification is established by the source excerpts alone.
+- Frozen Core: UNCHANGED.
+- Volume V: UNCHANGED.
+- CE-V-07: RESERVED.
+- Universality: NOT ESTABLISHED.
+- No Newton correction or Krawczyk certification is authorized by this checkpoint.
+
+7. CONTINUATION PROTOCOL
+
+This is PART 1 of 3. The user will provide two further parts.
+
+When Parts 2 and 3 arrive:
+- append or create linked checkpoints without overwriting this record;
+- preserve source/output distinctions;
+- preserve exact notebook cell numbers and recorded errors;
+- record hashes and execution outputs only when actually supplied;
+- identify overlaps with existing TASK 02/TASK 03 evidence to avoid duplicate work;
+- update the next-action pointer only after reviewing all three parts.
+
+END OF PART 1 CHECKPOINT
