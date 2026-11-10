@@ -105,7 +105,7 @@ SELECTED STRUCTURAL MARKERS
 - Lines 1669, 1684, 1692, 2121: CAPD build/source directory missing or unavailable.
 - Line 3413: report states compiler flags are reported as found, not independently validated.
 - Line 3414: report states historical outputs are not independent reproductions.
-- Lines 55561? No: the exact indexed marker is line 5556: EXPECTED EXACTLY ONE capd-config; FOUND: 2.
+- Line 5561: EXPECTED EXACTLY ONE capd-config; FOUND: 2.
 - Lines 5815 and 5887: CAPD BOUNDARY TEST FAILED.
 - Line 7206: CAPD SOURCE DIRECTORY NOT FOUND.
 - Line 7464: TASK 01E.1 C++ source was not found.
