@@ -1147,3 +1147,77 @@ Universality: NOT ESTABLISHED.
 
 END OF ADDENDUM
 ========== END OF ADDENDUM ==========
+
+
+========== ADDENDUM — MANIFEST RECOVERY COMPLETION ==========
+DATE: 2026-11-10
+STATUS: VERIFIED SOURCE FRAGMENT RECOVERED AND ARCHIVED
+MODE: ARCHIVAL / READ-ONLY RECORD
+PRESERVATION: ALL PREVIOUS CHECKPOINT CONTENT RETAINED.
+
+1. SOURCE IDENTITY AND INTEGRITY
+
+SOURCE FILE: Manifest.toml.SOURCE_BACKUP
+SOURCE PATH: /content/drive/MyDrive/OMEGA_GR_TRANSFER_06C_JULIA/Manifest.toml.SOURCE_BACKUP
+SIZE_BYTES: 25895
+SOURCE_SHA256: 76c9602c16bff4bcfcbaeb8561a711d8cdfeab197f98d157a92107815ecbab75
+EXPECTED_SHA256: 76c9602c16bff4bcfcbaeb8561a711d8cdfeab197f98d157a92107815ecbab75
+SHA256_STATUS: VERIFIED
+TOTAL_LINES: 763
+SOURCE_MODIFIED: FALSE
+
+2. RECOVERED CONTINUATION
+
+RECOVERED RANGE: LINES 562–763
+EXTRACTED_LINES: 202
+FIRST_LINE: 562
+LAST_LINE: 763
+FRAGMENT_SHA256: 99b91e1e7cb6594d2b2fade9d4904a787421657b1441dd734dbeaab307c0e205
+RECOVERY_STATUS: EXTRACTED
+
+The complete numbered source fragment for lines 562–763 is preserved in the companion archival file:
+
+audits/2026-11-10/MANIFEST-SOURCE-BACKUP-LINES-562-763.txt
+
+The companion file contains the recovery metadata and all 202 extracted lines exactly as supplied in the Colab output. It is linked to this checkpoint by the source file identity, full-source SHA-256, line range, and fragment SHA-256 above.
+
+3. MANIFEST RECOVERY STATUS
+
+Previously recorded continuation: LINES 442–561.
+Newly recovered continuation: LINES 562–763.
+Original Manifest source backup: 763 lines; 25,895 bytes.
+Historical full-source SHA-256: VERIFIED against the expected value.
+
+MANIFEST SOURCE RECOVERY: COMPLETE (LINES 442–763 CONTINUATION ARCHIVED)
+MANIFEST FULL BYTE-FOR-BYTE RECONSTRUCTION IN THIS CHECKPOINT: NOT CLAIMED.
+The original complete backup remains the authoritative source. This checkpoint and companion file preserve the recovered continuation; they do not replace the original Manifest.toml.SOURCE_BACKUP.
+
+4. TECHNICAL SCOPE AND LIMITATIONS
+
+- SHA256_STATUS=VERIFIED establishes that the source file read in Colab matches the historically recorded expected SHA-256.
+- The extracted fragment hash identifies the exact 202-line extraction as archived.
+- This is source-provenance and archival-integrity evidence.
+- It does NOT establish that Julia instantiated this environment successfully.
+- It does NOT establish successful execution of TaylorModels, IntervalArithmetic, IntervalRootFinding, or CAPD.
+- It does NOT establish successful CAPD builds, directed-rounding behavior, interval enclosure correctness, or mathematical certification.
+- No package metadata has been promoted to runtime or proof evidence.
+
+5. CONSOLIDATED CHECKPOINT STATUS
+
+PARTS 1–3: RECORDED.
+MANIFEST LINES 442–561: RECORDED.
+MANIFEST LINES 562–763: RECOVERED; SHA-256 VERIFIED; ARCHIVED IN COMPANION FILE.
+MANIFEST SOURCE BACKUP: IDENTITY VERIFIED AGAINST HISTORICAL SHA-256.
+HISTORICAL EVIDENCE RECOVERY: COMPLETE FOR THE SUPPLIED MATERIAL.
+CAPD MATHEMATICAL CERTIFICATION: PENDING.
+INDEPENDENT VERIFICATION: NOT ACHIEVED.
+
+Frozen Core: UNCHANGED.
+Volume V: ACTIVE RESEARCH ARCHITECTURE; UNCHANGED.
+CE-V-07: RESERVED.
+Universality: NOT ESTABLISHED.
+No CAPD result is promoted to a universal theorem.
+No numerical approximation is promoted to an analytical theorem.
+
+END OF MANIFEST RECOVERY COMPLETION ADDENDUM
+========== END OF ADDENDUM ==========
