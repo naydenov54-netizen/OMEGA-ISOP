@@ -1,0 +1,133 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+1. Output for OMEGA-ISOP/M3.2 must be clean plain text, directly copyable on Android, in one continuous block when a complete artifact is requested.
+2. Frozen Core remains unchanged unless the user explicitly authorizes a change and a documented change-control decision records it.
+3. RL_REGISTRATION_REQUIRED is not RL_REGISTERED. Never claim registration without authoritative registry confirmation and readback.
+4. Distinguish established facts, external assumptions, conditional results, and unresolved claims.
+5. Do not claim that a repository, file, registry, or submission was inspected or modified unless the corresponding action succeeded and its result was verified.
+
+OMEGA-ISOP — STAGE 1 AUDIT CHECKPOINT 02
+DOCUMENT_ID: OI-STAGE-01-AUDIT-TASK-02-2026-11-11
+DATE: 2026-11-11
+STATUS: AUDIT TASK 02 RECORDED; STAGE 1 ACCEPTANCE NOT GRANTED
+SCOPE: EDGE CASES / SIGNATURE SEPARATION / PSEUDOMETRIC STRUCTURE / RELATION UNDERDETERMINATION
+FROZEN CORE: PRESERVED; NOT AMENDED
+VOLUME V: ACTIVE RESEARCH ARCHITECTURE; NOT AMENDED
+STAGE 2: NOT OPENED
+RL REGISTRATION: NOT VERIFIED
+CE-V-07: RESERVED
+UNIVERSAL THEOREM: NOT ESTABLISHED
+
+1. PURPOSE
+Record the results of Stage 1 Audit Task 02, continuing the candidate signature-based Difference formalization. This checkpoint records mathematical consequences of the stated candidate definition only. It does not establish that the definition is canonical for OMEGA-ISOP or entailed by the Frozen Core.
+
+2. TYPE-CORRECT FORMALIZATION
+Let X be a set and I an index set. For each i∈I, let Y_i be a set equipped with equality, and let f_i:X→Y_i.
+Define the signature map:
+σ:X→∏_{i∈I}Y_i
+by σ(x)=(f_i(x))_{i∈I}.
+Define D:X×X→{0,1} by:
+D(x,y)=1 iff ∃i∈I: f_i(x)≠f_i(y).
+D(x,y)=0 iff ∀i∈I: f_i(x)=f_i(y).
+Equivalently:
+D(x,y)=1 iff σ(x)≠σ(y).
+D(x,y)=0 iff σ(x)=σ(y).
+
+The codomains Y_i need not be identical. The product over an empty index set is the singleton consisting of the empty function.
+
+3. EDGE CASES
+3.1 Empty I:
+If I=∅, the existential condition is false and the universal condition is true. Thus D(x,y)=0 for all x,y∈X. Every state has the same empty signature. This is valid and non-contradictory.
+
+3.2 Finite I:
+The definition and proofs remain valid for finite feature families, including a finite family with zero features.
+
+3.3 Infinite I:
+The definition and proofs remain valid for arbitrary set-sized I. No finiteness assumption is required; the definition uses an existential witness for D=1 and pointwise equality for D=0.
+
+3.4 Non-injective signature:
+Define x~y iff σ(x)=σ(y), equivalently D(x,y)=0. Equality of signatures makes ~ an equivalence relation. Its equivalence classes are the sets of states indistinguishable by the declared feature family.
+
+4. SIGNATURE SEPARATION THEOREM
+The following are equivalent:
+(a) σ is injective.
+(b) For all x,y∈X, D(x,y)=0 implies x=y.
+(c) For all x,y∈X, D(x,y)=0 iff x=y.
+(d) For all x,y∈X, D(x,y)=1 iff x≠y.
+
+Proof:
+(a)⇒(b): D(x,y)=0 gives σ(x)=σ(y), and injectivity gives x=y.
+(b)⇒(a): σ(x)=σ(y) is equivalent to D(x,y)=0, so x=y.
+The equivalences with (c) and (d) follow from the definition and classical logic.
+
+Terminology boundary:
+“Complete” or “separating” means injective relative to the identity relation on the declared carrier X. This does not mean that the signature contains every physically, semantically, or ontologically significant feature. Such completeness requires an independently specified target criterion.
+
+5. METRIC CONSEQUENCE
+For all x,y,z∈X, D satisfies:
+(i) D(x,y)≥0.
+(ii) D(x,y)=D(y,x).
+(iii) D(x,x)=0.
+(iv) D(x,z)≤D(x,y)+D(y,z).
+
+For (iv), if D(x,z)=0 the inequality is immediate. If D(x,z)=1, choose i with f_i(x)≠f_i(z). It cannot be the case that both f_i(x)=f_i(y) and f_i(y)=f_i(z); hence at least one of D(x,y), D(y,z) is 1, and their sum is at least 1.
+
+Therefore D is a pseudometric on X. It is a metric on X exactly when σ is injective. Equivalently, it is the pullback along σ of the discrete metric on the signature image σ(X).
+
+This corrects the earlier tentative statement that the triangle inequality had not been established. The finite example showing non-transitivity of positive difference does not violate the triangle inequality.
+
+6. POSITIVE DIFFERENCE IS NOT TRANSITIVE
+For X={a,b,c}, with one feature f(a)=0, f(b)=1, f(c)=0:
+D(a,b)=1, D(b,c)=1, D(a,c)=0.
+Thus D-positive distinction is not transitive. Cotransitivity remains valid.
+
+7. LOGICAL FRAMEWORK
+The cotransitivity proof is valid in standard classical logic. In a constructive setting, the step from the negation of simultaneous equalities to a disjunction of inequalities is not automatic when inequality is defined merely as negated equality. A constructive proof may require decidable equality in the relevant Y_i, or an explicit apartness/witness structure. The present status is therefore: PROVED UNDER CLASSICAL LOGIC.
+
+8. RELATION UNDERDETERMINATION
+Let X={a,b}, with D(a,b)=D(b,a)=1. The following distinct directed relations are all compatible with the same D-positive pair data:
+R1={(a,b)}
+R2={(b,a)}
+R3={(a,b),(b,a)}
+Thus D does not uniquely determine an oriented binary relation. More generally, D fixes symmetric distinguishability information, but it does not select direction, causation, temporal order, interaction, or a unique additional relation without extra structure or a selection rule.
+
+This establishes non-uniqueness for the candidate definition. It does not refute the possibility that a richer OMEGA-ISOP construction, with additional premises, defines a particular relation.
+
+9. RESULT LEDGER
+- Type-correctness: PROVED under stated set/equality assumptions.
+- Empty feature family: VALID; D is identically zero.
+- Finite feature family: VALID.
+- Infinite feature family: VALID for set-sized I.
+- Non-injective signature: induces an equivalence relation of indistinguishability; PROVED.
+- Signature separation iff injectivity: PROVED.
+- Triangle inequality: PROVED.
+- Pseudometric property: PROVED.
+- Metric property: PROVED iff σ is injective.
+- Positive-difference non-transitivity: COUNTEREXAMPLE ESTABLISHED.
+- Cotransitivity: PROVED under classical logic.
+- Unique directed relation from D alone: NOT DETERMINED; non-uniqueness counterexample established.
+- Absolute/ontological completeness of the signature: NOT DEFINED / NOT ESTABLISHED.
+- Canonical status relative to Frozen Core: NOT ESTABLISHED.
+
+10. CHECKPOINT DECISION
+Audit Task 02 is recorded as completed for the stated edge-case and signature-separation checks. This does not constitute final acceptance of Stage 1. Stage 1 remains under formal audit pending structural-consistency and representation-independence checks.
+
+NEXT TASK:
+STAGE 1 — AUDIT TASK 03: STRUCTURAL CONSISTENCY AND REPRESENTATION INDEPENDENCE.
+Required checks:
+A. Invariance under equivalent presentations of the same signature data.
+B. Effect of adding or removing features.
+C. Whether distinct signatures can induce the same D.
+D. Canonical factorization through equivalence classes of indistinguishable states.
+E. Separation of intrinsic properties of D from representation-dependent properties.
+
+ARCHITECTURAL STATUS
+Frozen Core: PRESERVED.
+Volume V: ACTIVE RESEARCH ARCHITECTURE.
+Six-stage program: ACTIVE.
+Stage 1: CANDIDATE FORMALIZATION UNDER AUDIT.
+Stage 2: NOT OPENED.
+CE-V-07: RESERVED.
+RL REGISTRATION: NOT VERIFIED.
+Universal theorem: NOT ESTABLISHED.
+
+END OF CHECKPOINT
