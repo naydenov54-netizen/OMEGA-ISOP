@@ -631,3 +631,143 @@ Volume V v2.4: PRESERVED.
 CE-V-07: RESERVED.
 Universality: NOT ESTABLISHED.
 No certification promotion is made.
+
+
+============================================================
+15. ADDENDUM — PROFILE SPECIFICATION RECOVERY AND ETA DISCREPANCY
+DATE: 2026-11-11
+============================================================
+
+PURPOSE
+Recover the exact mathematical bump specification relevant to phi_2 and reconcile the incompatible eta values in the boundary-test records.
+
+EVIDENCE RECOVERED FROM PROJECT LIBRARY
+A. OMEGA-ISOP-GR-TRANSFER-06C-Machine-Handover-2026-11-01.txt
+Section 2 records:
+T = 3
+w = 0.65 = 13/20
+mu_j = 0.25 + (5/14)j = (7+10j)/28, j=0,...,7
+phi_j(u) = exp(-1/(1-((u-mu_j)/w)^2)) when |(u-mu_j)/w| < 1
+phi_j(u) = 0 when |(u-mu_j)/w| >= 1
+a(u) = sum c_j phi_j(u)
+b(u) = sum d_j phi_j(u)
+
+B. TEST-0-12-Structural-and-Numerical-Record.txt
+Section 0 repeats the same mathematical specification.
+TEST 01 records exact rational parameters, support endpoints, center values, boundary zero checks, outside-support zero checks, and sampled full profiles. It explicitly classifies the profile grid as sampled/numerical, not interval certification.
+
+C. GR-TRANSFER-06C-TASK-BOUNDARY-03-EXACT-BUMP-ALIGNMENT-2026-11-10.txt
+Records the conditional algebraic identity for j=2:
+mu_2 = 27/28
+mu_2 - w = 11/35 = 22/70.
+The report itself explicitly left authoritative source linkage open.
+
+CLASSIFICATION OF PROFILE RECOVERY
+The mathematical profile definition is now recovered consistently in two project-level specification/validation records. This confirms the stated mathematical form and exact parameters as project specification evidence.
+It does NOT yet constitute a line-by-line audit of the original profile implementation in the original source notebook or executable. The original implementation source and its execution provenance remain to be matched.
+
+EXACT PHI_2 PARAMETERS
+mu_2 = 27/28
+w = 13/20
+L_2 = mu_2 - w = 11/35 = 22/70
+R_2 = mu_2 + w = 113/70
+
+Normalized coordinate:
+s(t) = (t-mu_2)/w
+
+Inside support:
+phi_2(t) = exp(-1/(1-s(t)^2))
+for -1 < s(t) < 1.
+
+Zero extension:
+phi_2(t) = 0 for |s(t)| >= 1.
+
+ETA DISCREPANCY — MATERIAL FINDING
+
+Untitled44 CELL 25 source uses:
+eta = 1/10.
+
+Recovered boundary variant and scalar CELL 43/46 records use:
+eta = 1/100.
+
+These are not interchangeable configurations.
+
+For exact point boundary and zero boundary width:
+
+CASE A — eta = 1/10
+rho = eta/w = (1/10)/(13/20) = 2/13
+rmax = 2*rho-rho^2 = 48/169
+1/rmax = 169/48
+U = exp(-169/48)
+U approximately 0.029574779246646133
+
+CASE B — eta = 1/100
+rho = eta/w = (1/100)/(13/20) = 1/65
+rmax = 2*rho-rho^2 = 129/4225
+1/rmax = 4225/129
+U = exp(-4225/129)
+U approximately 5.9705461785526e-15
+
+Therefore the claim U < 6e-15 belongs to eta=1/100, under the exact-boundary/zero-width assumptions. It is false for eta=1/10.
+
+INTERVAL-BOUNDARY CORRECTION
+For boundary interval B=[b_lower,b_upper] containing exact boundary b=L_2, and duration eta:
+boundaryWidth = b_upper-b_lower
+hEff = eta+boundaryWidth
+rho_eff = hEff/w
+rmax_eff = 2*rho_eff-rho_eff^2
+U_eff = exp(-1/rmax_eff), provided 0<rho_eff<1.
+
+For positive boundaryWidth:
+rho_eff > eta/w,
+therefore U_eff > U_nominal(eta)
+as long as rho_eff remains in (0,1).
+
+Consequently:
+- the eta=1/100 nominal U is not automatically valid for an interval-valued boundary;
+- the eta=1/10 nominal U is not automatically valid for an interval-valued boundary;
+- the actual boundary endpoints must be recovered before a final U_eff is computed.
+
+IMPORTANT TEMPORAL DOMAIN QUALIFICATION
+For interval start B and fixed interval step eta, the CAPD 6.0.0 release source path inspected in Addendum 14 yields the time domain:
+T = B + [0,1]*eta
+and final set time B+eta.
+
+This is not the same as replacing B by its midpoint or treating the exact rational boundary as a point. The pre-support part of T must be handled by the zero-extension definition, while the part at or to the right of L_2 must be bounded using rho_eff.
+
+AUDIT FINDINGS
+
+U44-PROFILE-01 — PROJECT BUMP SPECIFICATION
+STATUS: RECOVERED FROM TWO PROJECT SPECIFICATION / VALIDATION RECORDS.
+Original notebook implementation line-by-line match: OPEN.
+
+U44-PROFILE-02 — EXACT PHI_2 PARAMETERS
+STATUS: ALGEBRA VERIFIED FROM RECOVERED SPECIFICATION.
+mu_2=27/28, w=13/20, L_2=22/70, R_2=113/70.
+
+U44-ETA-01 — ETA VALUE IN UNTITLED44
+STATUS: SOURCE VERIFIED AS 1/10 IN CELL 25.
+
+U44-ETA-02 — ETA VALUE IN RECOVERED VARIANTS
+STATUS: SOURCE VERIFIED AS 1/100 IN THE SEPARATE RECOVERED BOUNDARY VARIANT AND CELL 43/46 RECORDS.
+
+U44-ETA-03 — U<6e-15 CLAIM
+STATUS: VALID ONLY FOR THE eta=1/100 NOMINAL EXACT-BOUNDARY MODEL; INVALID FOR eta=1/10.
+For eta=1/10 the nominal bound is approximately 2.9574779246646133e-2.
+
+U44-PROFILE-03 — INTERVAL BOUNDARY MAJORANT
+STATUS: FORMULA VERIFIED; NUMERICAL VALUE OPEN.
+Actual boundaryWidth and outward-rounded U_eff are not available.
+
+NEXT REQUIRED ACTION
+Do not merge the eta=1/10 Untitled44 test with the eta=1/100 recovered scalar tests.
+First recover actual boundary endpoints from the historical source/runtime record. Then compute rho_eff and U_eff for each distinct configuration separately. Finally verify that the coefficient interval passed to CAPD contains phi_2(t) over the complete CAPD time domain, including the zero-extension portion before the exact support boundary.
+
+STATUS CONTROL
+TASK 03: IN PROGRESS.
+GR-TRANSFER-06C: OPEN / INCONCLUSIVE.
+Frozen Core: LOCKED / UNCHANGED.
+Volume V v2.4: PRESERVED.
+CE-V-07: RESERVED.
+Universality: NOT ESTABLISHED.
+No certification promotion is made.
