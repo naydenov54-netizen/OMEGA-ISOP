@@ -1,0 +1,585 @@
+OMEGA-ISOP
+SIX-STAGE FOUNDATIONAL DEVELOPMENT PROGRAM
+
+STAGE 1 — DIFFERENCE
+AUDIT TASK 01 — FOUNDATIONAL DEFINITION AND AXIOMATIC VALIDITY
+
+DOCUMENT ID: OI-STAGE-01-AUDIT-TASK-01-NEW-2026-11-11
+VERSION: 1.0
+DATE: 2026-11-11
+STATUS: NEW INDEPENDENT DEVELOPMENT INITIATED
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+
+======================================================================
+0. DOCUMENT IDENTITY AND SCOPE
+======================================================================
+
+0.1. This document is a newly developed Task 01. It is not a recovery,
+transcription, or reconstruction of the lost original Task 01.
+
+0.2. The lost original Task 01 is treated as unavailable and
+unrecoverable. No claim is made about its exact contents, definitions,
+proofs, or conclusions.
+
+0.3. This audit is developed independently. Existing records Task 02
+through Task 06 are not used as premises, proof sources, or conceptual
+foundations in this document. Similarity between a result here and a
+result in another record, if any, does not establish dependence or
+independent verification.
+
+0.4. Scope is restricted to the mathematical meaning and possible
+formal representations of "difference" or "distinguishability" over
+a set. No physical, causal, temporal, spatial, informational, or
+ontological interpretation is introduced.
+
+0.5. This document does not modify the Frozen Core, Volume V, or any
+other architectural layer of OMEGA-ISOP.
+
+======================================================================
+1. AUDIT QUESTION
+======================================================================
+
+What is the weakest mathematically explicit structure that can
+represent a claim that two elements are distinguishable, without
+silently importing symmetry, transitivity, metric structure,
+causality, or any other property not yet justified?
+
+The audit must distinguish:
+(a) the informal concept being discussed;
+(b) the formal object chosen to represent it;
+(c) axioms imposed on that object;
+(d) theorems that follow from those axioms.
+
+A definition is not a theorem. A representational choice is not
+evidence that the represented structure is uniquely necessary.
+
+======================================================================
+2. DEFINITIONS
+======================================================================
+
+D1. Carrier set
+
+Let X be a set. X is the carrier, or domain, of the elements being
+compared.
+
+No assumption that X is nonempty is made in the general definition.
+The empty-set and singleton cases must therefore be considered
+separately where relevant.
+
+D2. Binary distinguishability relation
+
+A binary distinguishability relation on X is any subset
+
+    R ⊆ X × X.
+
+The statement "x is distinguishable from y" is represented by
+
+    R(x,y)  iff  (x,y) ∈ R.
+
+This is the weakest ordinary set-theoretic representation of a
+two-place claim. At this stage, no axioms are imposed on R.
+
+D3. Boolean encoding
+
+The same relation can be represented by its characteristic function
+
+    D_R : X × X → {0,1}
+
+defined by
+
+    D_R(x,y) = 1  iff  R(x,y),
+    D_R(x,y) = 0  iff  (x,y) ∉ R.
+
+The relation and its characteristic function contain exactly the
+same information. Choosing the notation D_R does not itself imply
+any algebraic or metric property.
+
+D4. Distinguishability is not yet identity inequality
+
+The assertion
+
+    R(x,y)  iff  x ≠ y
+
+is one possible, very strong specification. It makes distinguishability
+coincide exactly with inequality of elements. It is not part of D1-D3
+and must not be assumed without an explicit decision.
+
+A relation may fail to distinguish two unequal elements, or may
+distinguish an element from itself, unless axioms exclude those cases.
+
+D5. Directed versus undirected reading
+
+R(x,y) is an ordered-pair statement. In general, R(x,y) does not imply
+R(y,x). A symmetric, undirected reading requires an additional
+condition. The use of the everyday word "difference" does not by
+itself settle this formal issue.
+
+======================================================================
+3. REPRESENTATION OPTIONS
+======================================================================
+
+3.1. Binary relation
+
+R ⊆ X × X is the minimal standard representation when the question
+has two arguments and a yes/no answer.
+
+3.2. Boolean-valued function
+
+D : X × X → {0,1} is equivalent to a binary relation once 1 and 0
+are assigned the meanings "holds" and "does not hold".
+
+This is a coding choice, not an additional mathematical law.
+
+3.3. Multi-valued comparison
+
+One may instead define
+
+    d : X × X → S
+
+for some set S of comparison outcomes.
+
+Unless S has specified structure and an interpretation, this is only
+a function. If S is ordered, algebraic, probabilistic, or metric,
+those structures must be stated separately. A multi-valued codomain
+does not automatically mean "degree of difference".
+
+3.4. Feature-based distinguishability
+
+Given a set of features I, a family of sets (Y_i)_{i∈I}, and maps
+
+    f_i : X → Y_i,
+
+one can define
+
+    x and y are feature-distinguishable
+    iff there exists i ∈ I such that f_i(x) ≠ f_i(y).
+
+This is a particular model of distinguishability. It presupposes a
+feature family and equality tests in the feature codomains. It is not
+the only possible definition of a binary relation on X.
+
+3.5. Distance-like representation
+
+A function d : X × X → [0,∞) is a distance-like representation.
+It becomes a pseudometric or metric only after the corresponding
+axioms are imposed. It is not justified to identify every
+distinguishability relation with a distance function.
+
+AUDIT FINDING 3-A:
+The binary relation R ⊆ X×X is the least structurally committed
+starting point for a two-place yes/no distinguishability claim.
+The Boolean function is an equivalent encoding. Other representations
+are possible but introduce additional representational choices.
+
+======================================================================
+4. ASSUMPTIONS AND AXIOM CANDIDATES
+======================================================================
+
+No axiom below is silently included in the base definition.
+
+A0. Typedness
+
+    R ⊆ X × X.
+
+This is part of the definition of a binary relation on X, not a
+substantive symmetry or consistency axiom.
+
+A1. Irreflexivity
+
+    For all x ∈ X, not R(x,x).
+
+Interpretation: no element is distinguishable from itself.
+
+This is a natural candidate if "distinguishable" is intended to mean
+"non-self-distinguishing". It is not a consequence of being a binary
+relation. It must be adopted as a semantic requirement.
+
+A2. Symmetry
+
+    For all x,y ∈ X, R(x,y) implies R(y,x).
+
+Interpretation: distinguishability is independent of the order in
+which the pair is written.
+
+This is an additional modeling decision. It does not follow from
+A1 or from the type of R.
+
+A3. Completeness with respect to inequality
+
+    For all x,y ∈ X, if x ≠ y, then R(x,y).
+
+This says every pair of unequal elements is distinguishable in the
+relation.
+
+A3 together with A1 gives
+
+    R(x,y) iff x ≠ y.
+
+A3 is strong. It excludes models in which some unequal elements are
+not distinguished by the chosen relation.
+
+A4. Separation equivalence
+
+    For all x,y ∈ X, R(x,y) iff x ≠ y.
+
+This is a single strong specification equivalent to A1 plus A3.
+It should not be confused with the weaker claim that R is merely
+some relation used to encode distinguishability.
+
+A5. Transitivity
+
+    For all x,y,z ∈ X,
+    R(x,y) and R(y,z) imply R(x,z).
+
+Transitivity is not automatically appropriate for distinguishability.
+It is a separate structural property and may be false in natural
+models of pairwise difference.
+
+A6. Cotransitivity
+
+    For all x,y,z ∈ X,
+    R(x,y) implies (R(x,z) or R(z,y)).
+
+This is also an additional property. It is not included in the
+definition of a binary relation and requires independent motivation.
+Its exact logical interpretation may depend on the underlying logic
+and on whether disjunction is decidable.
+
+A7. Non-degeneracy
+
+    There exist x,y ∈ X such that R(x,y).
+
+This excludes the empty relation. It is meaningful only when the
+carrier has enough elements to support such a pair. It is not
+appropriate as a universal axiom for arbitrary X.
+
+======================================================================
+5. LEMMAS AND DIRECT CONSEQUENCES
+======================================================================
+
+L1. Relation-function correspondence
+
+For every relation R ⊆ X×X, there is exactly one characteristic
+function D_R : X×X → {0,1} with
+
+    D_R(x,y)=1 iff R(x,y).
+
+Conversely, every function D : X×X → {0,1} determines exactly one
+relation
+
+    R_D = {(x,y) ∈ X×X : D(x,y)=1}.
+
+Proof:
+The characteristic function of a subset is uniquely defined by
+membership. Conversely, the inverse image D^{-1}({1}) is a subset
+of X×X. These constructions are inverse to each other.
+
+Status: PROVED in ordinary classical set theory.
+
+L2. Irreflexivity in Boolean encoding
+
+R is irreflexive iff
+
+    for all x ∈ X, D_R(x,x)=0.
+
+Proof:
+By the definition of D_R, D_R(x,x)=0 exactly when (x,x) is not in R.
+
+Status: PROVED.
+
+L3. Symmetry in Boolean encoding
+
+R is symmetric iff
+
+    for all x,y ∈ X, D_R(x,y)=D_R(y,x).
+
+Proof:
+Both sides take values in {0,1}. Equality of the values is equivalent
+to equivalent membership of (x,y) and (y,x).
+
+Status: PROVED.
+
+L4. Exact inequality encoding
+
+R satisfies A4 iff both of the following hold:
+(i) R is irreflexive;
+(ii) every pair of unequal elements belongs to R.
+
+Proof:
+If A4 holds, setting y=x gives irreflexivity, and the forward
+inequality condition follows directly.
+Conversely, if (i) and (ii) hold, then equal pairs are excluded and
+unequal pairs are included, giving the biconditional.
+
+Status: PROVED.
+
+L5. Symmetry is independent of irreflexivity
+
+There exist irreflexive relations that are not symmetric.
+
+Example:
+Let X={a,b} and R={(a,b)}.
+Then no pair (x,x) belongs to R, so R is irreflexive.
+But R(a,b) holds and R(b,a) does not, so R is not symmetric.
+
+Status: COUNTERMODEL ESTABLISHED.
+
+L6. Irreflexivity does not imply transitivity
+
+Let X={a,b,c} and R={(a,b),(b,c)}.
+R is irreflexive. R(a,b) and R(b,c) hold, but R(a,c) does not.
+Therefore R is not transitive.
+
+Status: COUNTERMODEL ESTABLISHED.
+
+L7. Symmetry does not imply irreflexivity
+
+Let X={a} and R={(a,a)}.
+R is symmetric, but it is not irreflexive.
+
+Status: COUNTERMODEL ESTABLISHED.
+
+L8. A1 and A2 do not imply completeness with respect to inequality
+
+Let X={a,b} and R=∅.
+R is irreflexive and symmetric, but a≠b and R(a,b) is false.
+
+Status: COUNTERMODEL ESTABLISHED.
+
+L9. Pairwise distinguishability need not be transitive
+
+Let X={a,b,c} and R={(a,b),(b,a),(b,c),(c,b)}.
+R is irreflexive and symmetric. R(a,b) and R(b,c) hold, but R(a,c)
+does not. Thus symmetry and irreflexivity do not force transitivity.
+
+Status: COUNTERMODEL ESTABLISHED.
+
+L10. The empty carrier
+
+If X=∅, then X×X=∅ and the only relation on X is R=∅.
+Universal statements over X hold vacuously. No pair is available to
+witness non-degeneracy.
+
+Status: PROVED.
+
+L11. Singleton carrier
+
+If X={a}, there are exactly two binary relations on X:
+R=∅ and R={(a,a)}.
+The only irreflexive relation is R=∅. The only relation satisfying
+A4 is also R=∅.
+
+Status: PROVED.
+
+======================================================================
+6. COUNTERMODEL REGISTER
+======================================================================
+
+CM-01 — Empty relation
+X={a,b}; R=∅.
+Shows that irreflexivity and symmetry do not imply that unequal
+elements are distinguished.
+
+CM-02 — Directed edge
+X={a,b}; R={(a,b)}.
+Shows that irreflexivity does not imply symmetry.
+
+CM-03 — Reflexive symmetric relation
+X={a}; R={(a,a)}.
+Shows that symmetry does not imply irreflexivity.
+
+CM-04 — Non-transitive symmetric relation
+X={a,b,c};
+R={(a,b),(b,a),(b,c),(c,b)}.
+Shows that symmetric irreflexive distinguishability need not be
+transitive.
+
+CM-05 — Self-related element
+X={a}; R={(a,a)}.
+Shows that the base definition of a binary relation permits
+self-related pairs. Irreflexivity must be explicitly required if
+self-distinguishability is forbidden.
+
+======================================================================
+7. AUDIT FINDINGS
+======================================================================
+
+AF-01. The most general standard two-place formal object is a binary
+relation R ⊆ X×X. It requires no symmetry, irreflexivity, transitivity,
+or completeness axiom.
+
+AF-02. A Boolean function D:X×X→{0,1} is an equivalent encoding of
+that relation. The Boolean codomain is a representational choice and
+does not itself establish any axioms.
+
+AF-03. Irreflexivity is a plausible semantic requirement for
+distinguishability, but it must be explicitly adopted. It is not a
+logical consequence of the bare definition.
+
+AF-04. Symmetry is an independent requirement. If the intended
+meaning is unordered pairwise distinguishability, symmetry should be
+stated and justified.
+
+AF-05. The claim that all unequal elements are distinguishable is
+stronger than the existence of a distinguishability relation.
+It must not be smuggled into the definition.
+
+AF-06. Transitivity is not a default property of pairwise
+distinguishability. A relation can be symmetric and irreflexive while
+failing transitivity.
+
+AF-07. A distance, metric, feature map, partition, or equivalence
+relation is not forced by the base concept. Each requires additional
+structure or axioms.
+
+AF-08. The phrase "difference" is semantically underdetermined until
+the intended directionality and the intended relationship to
+identity inequality are specified.
+
+AF-09. The empty-set and singleton cases expose hidden assumptions
+that may remain invisible in examples using three or more elements.
+
+AF-10. No universal theorem about physical reality, causation,
+observers, consciousness, or ontology follows from this formal audit.
+
+======================================================================
+8. OPEN QUESTIONS
+======================================================================
+
+OQ-01. Does OMEGA-ISOP intend Difference to be a primitive binary
+relation, or does it intend Difference to coincide with inequality
+of elements?
+
+OQ-02. Is Difference intrinsically symmetric, or can it be directed?
+
+OQ-03. Is irreflexivity part of the intended meaning, or should
+self-relatedness remain formally possible at the foundational stage?
+
+OQ-04. Must every pair of unequal elements be distinguishable, or
+can the formalism represent limited/partial distinguishability?
+
+OQ-05. Is the Boolean representation fundamental, or merely a
+convenient encoding of a more general comparison outcome?
+
+OQ-06. What additional structure, if any, is required before moving
+from Difference to a richer relational concept?
+
+OQ-07. Which underlying logical framework is intended: classical
+set theory, intuitionistic logic, or another formal foundation?
+Claims involving excluded middle or decidability must be scoped
+accordingly.
+
+OQ-08. What exact acceptance criteria will govern completion of
+Stage 1, and what independent verification is required?
+
+======================================================================
+9. PROVISIONAL FORMAL BASELINE
+======================================================================
+
+For the purpose of this new Task 01 only, the provisional baseline is:
+
+    X is a set.
+    R ⊆ X × X.
+
+Optional Boolean encoding:
+
+    D_R : X × X → {0,1}
+    D_R(x,y)=1 iff (x,y)∈R.
+
+No further axiom is accepted as part of the baseline at this stage.
+
+If the project chooses to adopt irreflexivity, symmetry, completeness,
+or any other condition, that choice must be recorded as an explicit
+additional assumption and justified by the intended semantics.
+
+This baseline is intentionally weak. Its weakness is a feature of
+the audit design: it prevents properties from entering the theory
+before they have been justified.
+
+======================================================================
+10. ACCEPTANCE CRITERIA FOR TASK 01
+======================================================================
+
+Task 01 may be considered mathematically complete for its declared
+scope only after the following are resolved:
+
+AC-01. The intended meaning of Difference is stated without ambiguity.
+AC-02. The formal carrier and type of the Difference object are fixed.
+AC-03. Every adopted axiom is explicitly listed and semantically
+       justified.
+AC-04. Non-adopted properties are not treated as implicit.
+AC-05. Each claimed implication between axioms is proved.
+AC-06. Each claimed independence result has a valid countermodel
+       within the declared model class.
+AC-07. Empty and singleton carriers are addressed.
+AC-08. The underlying logic and set-theoretic assumptions are stated.
+AC-09. Proofs and countermodels are independently reviewed.
+AC-10. The audit record distinguishes completed work from unresolved
+       decisions and external verification.
+
+This document establishes a provisional formal baseline and a set
+of initial elementary results. It does NOT satisfy all acceptance
+criteria. In particular, the intended project semantics and the
+final axiom selection remain open.
+
+======================================================================
+11. STATUS AND ARCHITECTURAL SAFEGUARDS
+======================================================================
+
+TASK 01 ORIGINAL:
+LOST / UNRECOVERABLE. NOT RECONSTRUCTED.
+
+TASK 01 NEW:
+INDEPENDENT DEVELOPMENT INITIATED.
+VERSION 1.0.
+PROVISIONAL FORMAL BASELINE ESTABLISHED.
+FULL TASK ACCEPTANCE: NOT GRANTED.
+
+TASK 02–06:
+EXISTING RECORDS PRESERVED.
+NOT USED AS FOUNDATIONAL INPUTS FOR THIS NEW TASK 01.
+
+STAGE 1 FINAL ACCEPTANCE:
+NOT GRANTED.
+
+STAGE 2:
+NOT OPENED.
+
+FROZEN CORE:
+UNCHANGED.
+
+VOLUME V:
+UNCHANGED. ACTIVE RESEARCH ARCHITECTURE.
+
+CE-V-07:
+RESERVED.
+
+RL REGISTRATION:
+NOT VERIFIED.
+
+UNIVERSAL THEOREM:
+NOT ESTABLISHED.
+
+CAPD:
+No CAPD result is asserted, modified, or promoted by this document.
+
+======================================================================
+12. FINAL AUDIT STATEMENT
+======================================================================
+
+The new Task 01 establishes that the weakest ordinary set-theoretic
+representation of a two-place distinguishability claim is a binary
+relation R ⊆ X×X, equivalently encoded by a Boolean characteristic
+function.
+
+The base definition alone entails no symmetry, irreflexivity,
+transitivity, completeness, metric structure, or identity-separation
+property. Those features require explicit assumptions.
+
+The document therefore does not declare a final theory of Difference.
+It identifies the minimal formal starting point, proves elementary
+representation facts, records countermodels to common hidden
+assumptions, and isolates the semantic decisions that remain open.
+
+END OF DOCUMENT
