@@ -350,3 +350,88 @@ STATUS: HISTORICAL EXECUTION EVIDENCE FOR SEPARATE TESTS.
 A usable lowercase-path CAPD config is recorded in the recovery file. This does not retroactively validate the Untitled44 boundary source.
 
 No execution status is promoted by this addendum.
+
+
+============================================================
+13. ADDENDUM — PRIOR CAPD SOURCE-LEVEL TIME AUDIT RECONCILIATION
+DATE: 2026-11-11
+============================================================
+
+PURPOSE
+Avoid duplicating an already-recorded CAPD time-semantics audit and isolate the remaining certification gap.
+
+AUTHORITATIVE PROJECT RECORD REVIEWED
+OMEGA-ISOP-VOLUME-V-v2.4-CONSOLIDATED-CERTIFICATION-TRACK-2026-11-09.txt
+Relevant prior records:
+- Section XXVIII.4: TASK 01E.1 SOURCE-LEVEL TIME SEMANTICS.
+- Section XXV.2: TASK 01E.1 INTERVAL-TIME SEMANTICS.
+
+PRIOR SOURCE-LEVEL FINDINGS RECORDED THERE
+1. TimeRange stores the ScalarType current-time value directly. For interval ScalarType, the interval is retained rather than replaced by its midpoint.
+2. C0Set inherits TimeRange time storage.
+3. C0DoubletonSet::move() passes getCurrentTime() into dynsys.encloseC0Map(...).
+4. After the move, current time is updated using the previous current time plus dynsys.getStep().
+5. The inspected TimeMap / StepControl path computes remaining time as an interval difference and preserves a non-degenerate desired maximum step.
+6. The recorded initial and final time intervals in TASK 01E.1 were checked against the stated exact/target time values and contain those targets.
+
+CLASSIFICATION
+These are PRIOR SOURCE-LEVEL FINDINGS recorded in Volume V v2.4. They are not newly re-executed or independently re-inspected in this addendum. They must not be represented as a fresh CAPD run on 2026-11-11.
+
+RECONCILIATION WITH UNTITLED44
+Untitled44 CELL 25 uses:
+- set.setCurrentTime(boundary)
+- solver.setStep(eta)
+- set.move(solver)
+
+The prior source-level findings support the narrow conclusion that an interval-valued current time can be stored, passed to encloseC0Map(), and updated by adding the solver step on the inspected CAPD 6.0.0 source path.
+
+They do NOT establish, by themselves:
+- exact solver-step semantics for the particular CWDiffInclSolver overload used in Untitled44;
+- the concrete step actually taken internally by the differential-inclusion solver;
+- local Taylor enclosure and remainder validity for the target nonautonomous coefficient;
+- that the resulting state enclosure contains every exact solution over the intended interval;
+- that scalar coefficient bound U is valid over the entire time set propagated by the boundary test.
+
+SOURCE DISCOVERY LIMITATION
+The current Library recovery record exposes source-path inventory and symbol references for InclRect2Set.h, InclRect2Set.hpp, DiffInclusionCW, and TimeRange / C0DoubletonSet. The retrieved snippets do not include the complete implementation bodies needed to independently re-evaluate the solver enclosure path in this audit step. No source body is inferred from a path listing or symbol match.
+
+NEXT TARGET
+Continue with the concrete enclosure path, not another generic TimeRange review:
+A. DiffInclusionCW::encloseC0Map() and its exact dispatch target.
+B. Taylor model/order handling for the interval differential inclusion.
+C. Remainder enclosure and outward-rounding operations.
+D. Step-selection behavior for an interval-valued requested step.
+E. Exact time argument and actual step used by the first move.
+F. A read-only diagnostic recording initial time, requested step, actual step/time update, final time, and state enclosure from the identified CAPD build.
+
+The diagnostic must preserve CAPD version/build identity, compiler identity, full flags, source hash, executable hash, stdout, stderr, and exit code. It must not modify project source files.
+
+AUDIT FINDINGS
+U44-TIME-01 — PRIOR INTERVAL TIME STORAGE / UPDATE
+STATUS: PREVIOUSLY SOURCE-LEVEL CONFIRMED IN VOLUME V v2.4.
+Not a new execution and not a fresh source inspection in this addendum.
+
+U44-TIME-02 — UNTITLED44 REQUESTED STEP / TIME INTENT
+STATUS: SOURCE VERIFIED.
+The source requests eta as solver step and initializes the set at boundary before one move.
+
+U44-TIME-03 — ACTUAL CW SOLVER STEP AND ENCLOSURE
+STATUS: OPEN.
+The exact implementation path and actual interval step/enclosure remain to be checked.
+
+U44-TIME-04 — FULL SOLUTION CONTAINMENT
+STATUS: OPEN.
+Time bookkeeping alone does not establish correctness of the state enclosure for the target nonautonomous differential inclusion.
+
+U44-TIME-05 — SOURCE BODY AVAILABILITY
+STATUS: INCOMPLETE IN CURRENT RECOVERY EXTRACT.
+Path/symbol inventory exists, but the complete implementation bodies were not recovered in the inspected snippets.
+
+STATUS CONTROL
+TASK 03: IN PROGRESS.
+GR-TRANSFER-06C: OPEN / INCONCLUSIVE.
+Frozen Core: LOCKED / UNCHANGED.
+Volume V v2.4: PRESERVED.
+CE-V-07: RESERVED.
+Universality: NOT ESTABLISHED.
+No certification promotion is made.
