@@ -1,0 +1,219 @@
+OMEGA-ISOP
+STAGE 1 — DIFFERENCE
+AUDIT TASK 01 — EXPLICIT RECONSTRUCTION AND SOURCE-COMPATIBILITY RE-AUDIT
+
+DATE: 2026-11-11
+DOCUMENT ID: OI-STAGE-01-AUDIT-TASK-01-RECONSTRUCTION-2026-11-11
+STATUS: RECONSTRUCTION COMPLETED FOR DECLARED SCOPE; STAGE 1 FINAL ACCEPTANCE PENDING
+RECORD TYPE: RECONSTRUCTION / RE-AUDIT
+IMPORTANT: THIS IS NOT THE RECOVERED ORIGINAL TASK 01 RECORD.
+FROZEN CORE: UNCHANGED
+VOLUME II: UNCHANGED
+VOLUME V: UNCHANGED
+CE-V-07: RESERVED
+STAGE 2: NOT OPENED
+RL REGISTRATION: NOT VERIFIED
+UNIVERSAL THEOREM: NOT ESTABLISHED
+
+1. PURPOSE AND TRACEABILITY
+
+The repository contains references stating that Stage 1 Audit Task 01 had previously been completed, but the original standalone Task 01 artifact, its exact wording, and its original evidence trail were not recovered in the audited repository sequence.
+
+This document follows the remediation route expressly identified in Audit Task 06: document the original artifact's unavailability and conduct a clearly labelled reconstruction/re-audit from the primary Stage 1 candidate and the protected source records.
+
+This reconstruction does not claim to reproduce the original Task 01 text, decisions, chronology, or undocumented work. It is a new, traceable audit record.
+
+2. SOURCES EXAMINED
+
+A. Repository candidate:
+theory/OI-STAGE-01-DIFFERENCE-2026-10-28.txt
+Version 0.2; candidate signature-based Difference formalization.
+
+B. Protected Library source:
+&OMEGA-ISOP-RELATIONAL-THEORY.txt
+Frozen Core identity record. This source is protected and was read without modification.
+
+C. Protected Library source:
+&OMEGA-ISOP VOLUME II.txt
+Version v1.3-MF-AUDIT-RESTORED-FINAL; mathematical foundations. This source was read without modification.
+
+D. Repository audit records:
+audits/OI-STAGE-01-AUDIT-TASK-04-2026-11-11.txt
+audits/OI-STAGE-01-AUDIT-TASK-06-2026-11-11.txt
+audits/OI-STAGE-01-APARTNESS-COMPATIBILITY-AUDIT-2026-10-28.txt
+
+The audit uses the source versions actually available during this review. It does not claim byte-level identity between Library source records and any separate archived copies.
+
+3. AUTHORITATIVE CORE DISTINCTION
+
+The protected Volume II source states:
+
+PD is a meta-level formal starting condition.
+PD establishes the admissibility of formal distinction.
+PD is not itself an entity, physical object, process, relation, or causal mechanism.
+
+The same source separately introduces:
+- a formal carrier U0;
+- an apartness structure A=(U0,#);
+- a relation # : U0 × U0 → {true,false};
+- x # y as formal apartness under a selected realization.
+
+The source explicitly requires preservation of the distinction:
+PD = meta-level admissibility of distinction.
+# = formal realization of apartness on U0.
+
+FINDING 01:
+The candidate binary predicate D is not Primitive Difference PD itself. D is a mathematical relation and can serve as a particular formal realization of apartness when its domain and axioms are specified. Identifying D with PD would be a category error and would contradict the protected source distinction.
+
+STATUS: SOURCE-COMPATIBILITY REQUIREMENT ESTABLISHED.
+
+4. AXIOM COMPATIBILITY
+
+The protected Volume II source gives a standard example of apartness satisfying:
+
+A1 — IRREFLEXIVITY:
+not(x # x).
+
+A2 — SYMMETRY:
+x # y iff y # x.
+
+A3 — COTRANSITIVITY:
+x # y implies (x # z) or (z # y), for all z.
+
+The Stage 1 candidate defines, for a declared nonempty set X, an index set I, feature-value sets V_i, and maps f_i:X→V_i:
+
+D(x,y)=1 iff there exists i∈I such that f_i(x)≠f_i(y).
+
+Otherwise D(x,y)=0.
+
+For this signature-based definition:
+- irreflexivity follows because no feature value differs from itself;
+- symmetry follows because inequality is symmetric;
+- cotransitivity follows by selecting a feature witnessing f_i(x)≠f_i(y), then splitting on whether f_i(x) differs from f_i(z) or equals f_i(z).
+
+The cotransitivity proof is valid in classical set theory. In a constructive foundation, the disjunction step requires the relevant decidable equality or an equivalent constructive apartness/witness structure. No unrestricted constructive claim is made here.
+
+FINDING 02:
+The candidate D satisfies the three standard apartness axioms in the declared classical set-theoretic setting. It is therefore compatible with one standard apartness realization.
+
+This is compatibility of mathematical form, not proof that the Core uniquely selects D, its feature family, or its signature construction.
+
+STATUS: PROVED UNDER STATED CLASSICAL SET-THEORETIC ASSUMPTIONS.
+
+5. SIGNATURE DATA ARE ADDITIONAL MODEL INPUT
+
+The candidate requires:
+- a carrier X;
+- an index set I;
+- feature-value sets V_i;
+- feature maps f_i:X→V_i.
+
+These data specify which distinctions are represented by D. The protected Core's meta-level PD does not itself supply this feature family or these maps.
+
+Different feature families can induce different D predicates. Different codomains or injective recodings can represent the same indistinguishability classes.
+
+FINDING 03:
+The signature-based construction is a selected realization/model input. It is not derivable from PD alone and is not established as the unique or canonical OMEGA-ISOP interpretation of Difference.
+
+STATUS: CONDITIONAL COMPATIBILITY; UNIQUENESS NOT ESTABLISHED.
+
+6. ZERO-KERNEL AND QUOTIENT STRUCTURE
+
+For the candidate D, define:
+x ~ y iff D(x,y)=0.
+
+Because D(x,y)=0 exactly when all selected feature values agree, this is equality of signatures and is an equivalence relation. The quotient X/~ is therefore well-defined.
+
+This result is consistent with Volume II, which states that under a complete apartness realization:
+x ~ y iff not(x # y),
+and that the quotient DS=U0/~ is derived when the selected apartness assumptions make ~ an equivalence relation.
+
+FINDING 04:
+The candidate quotient construction is mathematically compatible with the Core's conditional quotient construction, provided the candidate D is explicitly treated as the selected apartness realization on X. It does not establish that X=U0, that D=# in the canonical Core, or that the quotient is a primitive structure.
+
+STATUS: CONDITIONAL COMPATIBILITY.
+
+7. CARRIER AND NONTRIVIALITY BOUNDARY
+
+The Stage 1 candidate specifies X as nonempty.
+
+Nonemptiness alone does not imply that there are two distinct elements, nor that any pair is D-positive. In particular, a nonempty carrier with a constant signature gives D(x,y)=0 for all x,y.
+
+Volume II separately states that a minimal nontrivial local configuration satisfies |S_C|≥2. That condition concerns a nontrivial configuration; it must not be silently transferred to every carrier X or treated as a consequence of PD.
+
+FINDING 05:
+The candidate's X≠∅ assumption is preserved. No nontriviality, positive-difference witness, physical realization, or |X|≥2 conclusion follows from it alone.
+
+STATUS: SCOPE CLARIFICATION REQUIRED; NO CONTRADICTION.
+
+8. DIFFERENCE / RELATION BOUNDARY
+
+As a matter of standard mathematics, D's 1-valued extension is itself a binary relation on X. The accurate Stage 1 / Stage 2 distinction is therefore not “predicate versus relation” in the unrestricted mathematical sense.
+
+Stage 1 studies a selected symmetric distinguishability/apartness predicate and its zero-kernel / quotient structure.
+
+The protected Volume II source constructs its relational constraint structure through selected configurations, compatibility relations, a compatibility diagram D_CC, and a colimit R:=colim(D_CC), where the required categorical construction exists.
+
+The candidate D, or a directed relation merely supported on D-positive pairs, is not that Core construction. The additional configuration, compatibility, diagram, and categorical data cannot be omitted.
+
+FINDING 06:
+The Stage 1 candidate does not derive the Core's relational constraint structure R. The Stage 2 boundary must preserve the Core's compatibility-colimit construction and must not replace it with an arbitrary directed relation.
+
+STATUS: BOUNDARY CLARIFIED.
+
+9. RECONSTRUCTION RESULT LEDGER
+
+R01 — PD is meta-level admissibility, not the candidate binary predicate D.
+STATUS: ESTABLISHED FROM PROTECTED SOURCE.
+
+R02 — The candidate D satisfies the standard irreflexive, symmetric, cotransitive apartness axioms in classical set theory.
+STATUS: PROVED UNDER STATED ASSUMPTIONS.
+
+R03 — The feature family and signature maps are additional realization data, not consequences of PD alone.
+STATUS: ESTABLISHED; CANONICAL UNIQUENESS NOT ESTABLISHED.
+
+R04 — The zero-kernel quotient is compatible with the Core quotient construction under the selected realization.
+STATUS: CONDITIONALLY PROVED.
+
+R05 — X≠∅ does not imply a nontrivial distinction witness or |X|≥2.
+STATUS: PROVED.
+
+R06 — The candidate D does not derive the Core compatibility-colimit R.
+STATUS: SOURCE-BOUNDARY ESTABLISHED.
+
+R07 — The original Task 01 artifact remains unrecovered.
+STATUS: HISTORICAL TRACEABILITY GAP; RECONSTRUCTION NOW RECORDED.
+
+10. OVERALL RE-AUDIT DECISION
+
+No mathematical contradiction was found between the candidate signature predicate and the standard apartness example in Volume II, provided the candidate is treated as one selected realization and not identified with Primitive Difference PD itself.
+
+The central limitation is semantic and derivational:
+PD does not determine the carrier, feature family, signature maps, or a unique apartness realization. These must remain explicit model inputs.
+
+The Stage 1 candidate is therefore retained as a CONDITIONAL CANDIDATE FORMALIZATION, not as a derivation of the Frozen Core and not as a canonical replacement for its PD → U0 → # foundation.
+
+11. REQUIRED FOLLOW-THROUGH
+
+1. Preserve the distinction PD ≠ D and PD ≠ #.
+2. Preserve the candidate's declared X≠∅ scope unless an explicit change-control decision revises it.
+3. Carry the classical/constructive logical-scope qualification into the Stage 1 result ledger.
+4. Carry the nontriviality boundary and the Core R construction boundary into the consolidated Stage 1 closure audit.
+5. Verify all Stage 1 exit criteria against the primary candidate and traceable audit records before deciding acceptance.
+6. Do not open Stage 2 as part of this reconstruction.
+
+12. PROJECT STATUS
+
+TASK 01 ORIGINAL ARTIFACT: NOT RECOVERED.
+TASK 01 RECONSTRUCTION: COMPLETED FOR THE SCOPE STATED IN THIS DOCUMENT.
+TASK 01 HISTORICAL IDENTITY: NOT CLAIMED.
+STAGE 1 FINAL ACCEPTANCE: NOT GRANTED.
+STAGE 2: NOT OPENED.
+FROZEN CORE: UNCHANGED.
+VOLUME II: UNCHANGED.
+VOLUME V: UNCHANGED.
+CE-V-07: RESERVED.
+RL REGISTRATION: NOT VERIFIED.
+UNIVERSAL THEOREM: NOT ESTABLISHED.
+
+END OF RECONSTRUCTED AUDIT TASK 01
