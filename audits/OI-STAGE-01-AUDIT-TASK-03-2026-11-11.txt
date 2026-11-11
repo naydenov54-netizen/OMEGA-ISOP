@@ -1,0 +1,227 @@
+OMEGA-ISOP — STAGE 1 AUDIT TASK 03
+STRUCTURAL CONSISTENCY AND REPRESENTATION INDEPENDENCE
+
+DATE: 2026-11-11
+SCOPE: STAGE 1 — DIFFERENCE
+STATUS: MATHEMATICAL CHECKS COMPLETED FOR THE DECLARED SCOPE
+STAGE 1 FINAL ACCEPTANCE: NOT GRANTED
+STAGE 2: NOT OPENED
+FROZEN CORE: UNCHANGED
+VOLUME V: UNCHANGED
+RL REGISTRATION: NOT VERIFIED
+CE-V-07: RESERVED
+UNIVERSAL THEOREM: NOT ESTABLISHED
+
+0. AUDIT BASIS AND NOTATION
+
+Let X be a set and I an index set. For every i in I, let
+f_i : X -> Y_i,
+where equality is well-defined on Y_i.
+
+Define the signature
+sigma : X -> product_{i in I} Y_i
+by sigma(x) = (f_i(x))_{i in I}.
+
+Define D : X x X -> {0,1} by
+D(x,y)=1 iff there exists i in I such that f_i(x) != f_i(y),
+and D(x,y)=0 iff for every i in I, f_i(x)=f_i(y).
+
+Equivalently,
+D(x,y)=1 iff sigma(x) != sigma(y),
+D(x,y)=0 iff sigma(x) = sigma(y).
+
+The audit tests the structural consequences of this candidate signature-based formalization. It does not establish that this is the only admissible interpretation of Difference in OMEGA-ISOP.
+
+1. A — REPRESENTATION INVARIANCE
+
+Let sigma_1 : X -> A and sigma_2 : X -> B be two signature maps, with their corresponding predicates D_1 and D_2 defined by inequality of signatures.
+
+THEOREM RI-01
+D_1 = D_2 on X x X if and only if
+sigma_1(x)=sigma_1(y) iff sigma_2(x)=sigma_2(y)
+for all x,y in X.
+
+PROOF
+For each k in {1,2}, D_k(x,y)=0 iff sigma_k(x)=sigma_k(y). Therefore equality of D_1 and D_2 is equivalent to equality of their zero-pair relations. This is exactly equality of the indistinguishability equivalence relations induced by the two signatures. QED.
+
+Coordinate recoding:
+If each g_i : Y_i -> Z_i is injective and h_i = g_i composed with f_i, then
+f_i(x)=f_i(y) iff h_i(x)=h_i(y).
+Thus coordinatewise injective recoding preserves D.
+
+If a recoding map is not injective, it may merge distinct feature values and thereby change D. Non-injective recoding does not necessarily change D in every instance, but preservation is not guaranteed.
+
+STATUS: PROVED.
+
+2. B — FEATURE ADDITION AND REMOVAL
+
+Let I be a subset of J and suppose the feature family on J extends the family on I without changing any old coordinate.
+
+For every x,y in X:
+D_I(x,y) <= D_J(x,y).
+
+Reason: any feature witnessing difference in I remains present in J. Added features may distinguish additional pairs, but cannot erase an already witnessed difference.
+
+For K a subset of I, with the retained coordinates unchanged:
+D_K(x,y) <= D_I(x,y).
+
+Reason: removing coordinates cannot create a new witness of difference. It may erase the only witness for a pair.
+
+Consequences:
+- Adding a feature does not necessarily change D. It changes D only if it separates at least one pair previously indistinguishable.
+- Removing a feature does not necessarily change D. Removing a redundant feature leaves D unchanged.
+- These are pointwise monotonicity statements for the {0,1}-valued predicates.
+
+STATUS:
+FA-01 (feature addition monotonicity): PROVED.
+FR-01 (feature removal monotonicity): PROVED.
+
+3. C — DISTINCT SIGNATURES CAN INDUCE THE SAME D
+
+Let X={a,b,c}.
+
+Representation 1:
+sigma_1(a)=0, sigma_1(b)=1, sigma_1(c)=2.
+
+Representation 2:
+sigma_2(a)=(0,0), sigma_2(b)=(0,1), sigma_2(c)=(1,0).
+
+The signature codomains and representations differ, but both maps are injective. Therefore both induce the discrete distinction predicate:
+D(x,y)=0 iff x=y.
+
+THEOREM SI-01
+The signature representation inducing D is not unique.
+
+STATUS: PROVED BY COUNTEREXAMPLE.
+
+More generally, define
+ker_eq(sigma) = {(x,y) in X x X : sigma(x)=sigma(y)}.
+
+THEOREM SI-02
+D_1=D_2 iff ker_eq(sigma_1)=ker_eq(sigma_2).
+
+This follows directly from D_k(x,y)=0 iff (x,y) belongs to ker_eq(sigma_k).
+
+STATUS: PROVED.
+
+Terminology note: ker_eq here means the equality-kernel equivalence relation of a map. It is not necessarily a linear or algebraic kernel.
+
+4. D — CANONICAL FACTORIZATION THROUGH INDISTINGUISHABILITY CLASSES
+
+Define
+x ~ y iff D(x,y)=0 iff sigma(x)=sigma(y).
+
+Equality in the signature codomain makes ~ an equivalence relation.
+
+Let Q = X / ~ be the quotient set of equivalence classes, and let
+q : X -> Q, q(x)=[x].
+
+Define
+sigma_bar : Q -> product_{i in I} Y_i
+by sigma_bar([x])=sigma(x).
+
+WELL-DEFINEDNESS
+If [x]=[y], then x~y, hence sigma(x)=sigma(y). Therefore sigma_bar does not depend on the representative.
+
+INJECTIVITY
+If sigma_bar([x])=sigma_bar([y]), then sigma(x)=sigma(y), hence x~y, so [x]=[y].
+
+FACTORISATION
+sigma = sigma_bar composed with q.
+The quotient map q is surjective, and sigma_bar is injective.
+
+Define the discrete distinction predicate on Q:
+D_Q([x],[y])=0 iff [x]=[y],
+D_Q([x],[y])=1 iff [x] != [y].
+
+Then
+D(x,y)=D_Q(q(x),q(y)).
+
+THEOREM CF-01
+The signature map factors canonically through the quotient by indistinguishability, with an injective induced map on the quotient.
+
+STATUS: PROVED.
+
+LIMITATION
+This quotient is a canonical mathematical construction relative to the chosen D. It does not establish that Q is physically fundamental, ontologically primary, or the uniquely correct state space for OMEGA-ISOP.
+
+5. E — INTRINSIC AND REPRESENTATION-DEPENDENT CONTENT
+
+For fixed X and fixed D, the following are intrinsic to the pair (X,D):
+- irreflexivity;
+- symmetry;
+- cotransitivity under classical logic;
+- the triangle inequality for the {0,1}-valued pseudometric;
+- the equivalence relation x~y iff D(x,y)=0;
+- the quotient set X/~;
+- whether every pair of distinct elements of X is distinguished;
+- whether D is a metric rather than merely a pseudometric.
+
+The following depend on a chosen signature representation and are not recoverable uniquely from D alone:
+- the index set I;
+- coordinate names and feature interpretation;
+- individual feature codomains;
+- raw coordinate values;
+- the number of features;
+- the allocation or decomposition of information among coordinates.
+
+The injectivity of the whole signature map is determined by D: it holds exactly when D(x,y)=0 implies x=y.
+The injectivity of an individual coordinate map f_i is not determined by D alone.
+
+6. F — LIMITS AND NON-IMPLICATIONS
+
+The results above do not establish:
+- a unique signature representation;
+- a unique directed binary relation R from D alone;
+- causation, dynamics, realization, persistence, or organization;
+- physical observability or ontological identity;
+- completeness of the selected feature family relative to any physical target;
+- uniqueness of the signature-based formalization as the intended OMEGA-ISOP meaning of Difference.
+
+In particular, the fact that D is symmetric does not select an orientation for a relation. Additional structure or an explicit orientation rule is required to define a directed R.
+
+The quotient Q is a mathematical quotient, not an ontological conclusion.
+
+7. DOMAIN AND TRACEABILITY NOTE
+
+The mathematical arguments in this task remain valid for arbitrary sets X, including X empty; statements involving elements are then vacuous where appropriate.
+
+However, the existing candidate source document OI-STAGE-01-DIFFERENCE-2026-10-28.txt specifies X as nonempty. This audit does not silently amend that source assumption. The nonempty-carrier condition is retained in the canonical candidate document unless a separately authorized change-control decision revises it.
+
+8. OVERALL AUDIT RESULT
+
+Representation invariance: PROVED.
+Feature addition monotonicity: PROVED.
+Feature removal monotonicity: PROVED.
+Non-uniqueness of signature representations: PROVED BY COUNTEREXAMPLE.
+Equality-kernel characterization: PROVED.
+Canonical quotient factorization: PROVED.
+Intrinsic versus representation-dependent classification: ESTABLISHED FROM THE DEFINITIONS, WITH THE LIMITATIONS ABOVE.
+
+The mathematical checks declared in Audit Task 03 are complete. This is not final acceptance of Stage 1 and does not authorize opening Stage 2.
+
+9. STATUS AND NEXT CONTROL
+
+AUDIT TASK 03: COMPLETE FOR DECLARED SCOPE.
+GITHUB REGISTRATION: THIS FILE IS THE TASK 03 CHECKPOINT.
+STAGE 1 FINAL ACCEPTANCE: NOT GRANTED.
+STAGE 2: NOT OPENED.
+FROZEN CORE: UNCHANGED.
+VOLUME V: UNCHANGED.
+RL REGISTRATION: NOT VERIFIED.
+CE-V-07: RESERVED.
+UNIVERSAL THEOREM: NOT ESTABLISHED.
+
+NEXT PROPOSED TASK:
+STAGE 1 — AUDIT TASK 04: AXIOMATIC CHARACTERIZATION AND MINIMALITY.
+
+Scope:
+A. Test whether irreflexivity, symmetry, and cotransitivity suffice to make D(x,y)=0 an equivalence relation.
+B. Determine whether every such binary distinction predicate admits a signature representation.
+C. Check the representation for arbitrary sets X.
+D. Test independence of the proposed axioms using counterexamples.
+E. Identify weaker sufficient assumptions, if any.
+
+No minimality claim is accepted without proof or counterexample. Stage 2 remains closed pending explicit Stage 1 closure.
+
+END OF AUDIT
