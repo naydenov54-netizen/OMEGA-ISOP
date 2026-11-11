@@ -4,6 +4,8 @@ All notable repository changes will be recorded here.
 
 ## 2026-11-11
 
+- Recorded Stage 1 Audit Task 04 checkpoint covering the equivalence relation induced by the zero predicate, quotient-based signature representation for arbitrary carriers, independence counterexamples for all three axioms, and the equivalent standard equivalence-relation formulation. Clarified that independence is over the class of all set-theoretic models, that the axiom system is irredundant, and that absolute syntactic minimality is not established. Updated the six-stage program's current position and next action to Audit Task 05. Stage 1 remains under audit; Stage 2 is not opened; Frozen Core and Volume V unchanged; CE-V-07 remains reserved; RL registration not verified; no universal theorem claimed.
+
 - Recorded Stage 1 Audit Task 03 checkpoint covering representation invariance, feature addition/removal monotonicity, non-unique signature representations, canonical quotient factorization, and intrinsic versus representation-dependent properties. Updated the six-stage program's current position and next action to Audit Task 04. Stage 1 remains under audit; Stage 2 is not opened; Frozen Core and Volume V unchanged; no RL registration or CE-V promotion claimed.
 
 
