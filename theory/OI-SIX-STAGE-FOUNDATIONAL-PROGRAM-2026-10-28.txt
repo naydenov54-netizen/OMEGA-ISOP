@@ -78,11 +78,15 @@ WORKING METHOD
 - Preserve valid earlier mathematics without allowing unrelated speculative branches to dominate the program.
 - Do not alter Frozen Core, register results, or claim canonical acceptance without the applicable explicit procedure.
 
-CURRENT POSITION
-Stage 1 (Difference) has a first candidate formalization and a finite counterexample showing that difference data alone do not determine a unique directed relation. See:
-theory/OI-STAGE-01-DIFFERENCE-2026-10-28.txt
+CURRENT POSITION (2026-11-11)
+Stage 1 (Difference) remains a candidate formalization under formal audit. Audit Task 02 has been recorded:
+audits/OI-STAGE-01-AUDIT-TASK-02-2026-11-11.txt
+
+Recorded results include type-correctness under stated assumptions; empty, finite, and infinite feature-family cases; the equivalence relation induced by equal signatures; signature separation iff injectivity; the pseudometric property and the metric condition; classical-logic scope for cotransitivity; and non-uniqueness of a directed relation from D alone.
+
+Audit Task 02 is complete for its stated scope. Stage 1 final acceptance is NOT granted. No Frozen Core or Volume V amendment is made. Stage 2 remains NOT OPENED.
 
 NEXT ACTION
-Complete review of Stage 1, then proceed to Stage 2 only after the distinction definition and the non-implication result have passed the stated audit.
+Perform Stage 1 Audit Task 03: Structural Consistency and Representation Independence. Check equivalent presentations, feature addition/removal, non-uniqueness of signature representations inducing the same D, canonical factorization through indistinguishability classes, and representation-dependent versus intrinsic properties. Do not open Stage 2 until Stage 1 audit closure is explicitly justified.
 
 END OF DOCUMENT
