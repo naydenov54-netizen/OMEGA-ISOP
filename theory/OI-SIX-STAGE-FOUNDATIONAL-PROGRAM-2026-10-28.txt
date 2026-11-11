@@ -78,30 +78,46 @@ WORKING METHOD
 - Preserve valid earlier mathematics without allowing unrelated speculative branches to dominate the program.
 - Do not alter Frozen Core, register results, or claim canonical acceptance without the applicable explicit procedure.
 
-CURRENT POSITION (2026-11-11; UPDATED AFTER TASK 01 RECONSTRUCTION)
-Stage 1 (Difference) remains a candidate formalization under formal audit. Audit Tasks 02, 03, 04, 05, and 06 have been recorded. The original standalone Task 01 artifact was not recovered; a clearly labelled reconstruction/re-audit was completed and recorded at:\naudits/OI-STAGE-01-AUDIT-TASK-01-RECONSTRUCTION-2026-11-11.txt\nThis reconstruction is not represented as the original Task 01 record:
+CURRENT POSITION (2026-11-11; AFTER CONSOLIDATED STAGE 1 CLOSURE AUDIT)
+
+Stage 1 (Difference) has been CONDITIONALLY ACCEPTED as a candidate formalization only. Its audit scope is CLOSED for the declared signature-based construction under classical set theory and the explicit model inputs in:
+audits/OI-STAGE-01-CONSOLIDATED-CLOSURE-AUDIT-2026-11-11.txt
+
+The consolidated audit examined the primary candidate and Tasks 01–06, including the separate Task 01 candidate-only verification and the separate Task 01 source-compatibility reconstruction. It found no mathematical contradiction in the checked results within their declared scopes.
+
+The decision is limited:
+- The candidate is not established as the unique or canonical meaning of Primitive Difference.
+- PD is not D and is not #.
+- D is a selected binary apartness-style realization based on explicit carrier/signature inputs.
+- Classical logic is used for the general cotransitivity proof; no unrestricted constructive claim is made.
+- Absolute syntactic minimality is not established.
+- No physical, causal, dynamical, organizational, or universal theorem follows from D alone.
+- D does not derive or replace the Core compatibility-colimit R.
+
+Task 01 traceability remediation:
+- The original historical standalone Task 01 artifact remains NOT RECOVERED.
+- The candidate-only Task 01 mathematical verification is recorded at:
 audits/OI-STAGE-01-AUDIT-TASK-01-2026-11-11.txt
-This candidate-only Task 01 record was reconstructed independently from primary candidate version 0.2; Tasks 02–06 were explicitly excluded from its formation. It is not claimed to be the unavailable historical original.
-audits/OI-STAGE-01-AUDIT-TASK-02-2026-11-11.txt
-audits/OI-STAGE-01-AUDIT-TASK-03-2026-11-11.txt
-audits/OI-STAGE-01-AUDIT-TASK-04-2026-11-11.txt
-audits/OI-STAGE-01-AUDIT-TASK-05-2026-11-11.txt
-audits/OI-STAGE-01-AUDIT-TASK-06-2026-11-11.txt
+- The separate source-compatibility reconstruction is recorded at:
+audits/OI-STAGE-01-AUDIT-TASK-01-RECONSTRUCTION-2026-11-11.txt
+- Neither reconstruction is represented as the historically original artifact.
+- Task 06's earlier TASK 01 TRACEABILITY: OPEN status is a historical checkpoint status and is superseded by the documented reconstruction under its stated remediation option (b).
 
-Audit Task 02 established, within its declared scope, type assumptions; empty, finite, and infinite feature-family cases; the equivalence relation induced by equal signatures; signature separation iff injectivity; the pseudometric property and metric condition; classical-logic scope for cotransitivity; and non-uniqueness of a directed relation from D alone.
+STAGE 1 STATUS:
+CONDITIONALLY ACCEPTED — CANDIDATE FORMALIZATION ONLY.
+AUDIT SCOPE: CLOSED FOR THE DECLARED CONSTRUCTION.
+CANONICAL FROZEN CORE ACCEPTANCE: NOT CLAIMED.
+EXTERNAL INDEPENDENT CERTIFICATION: NOT PERFORMED.
 
-Audit Task 03 established, within its declared scope, representation invariance iff equality-kernel equivalence relations agree; monotonicity under feature addition and removal; non-uniqueness of signature representations inducing the same D; canonical factorization through indistinguishability classes; and the distinction between intrinsic properties of (X,D) and representation-dependent data. The audit explicitly does not infer physical ontology or a unique signature representation.
+FROZEN CORE: UNCHANGED.
+VOLUME II: UNCHANGED.
+VOLUME V: UNCHANGED.
+CE-V-07: RESERVED.
+RL REGISTRATION: NOT PERFORMED OR VERIFIED.
+UNIVERSAL THEOREM: NOT ESTABLISHED.
 
-Audit Tasks 02, 03, 04, and 05 are complete for their stated scopes. Task 04 proved that A1 (irreflexivity), A2 (symmetry), and A3 (cotransitivity) characterize the equivalence relation induced by D(x,y)=0; every qualifying D admits a quotient-based signature representation for arbitrary X; and each axiom is independent over the class of all set-theoretic models, as shown by counterexamples. The system is irredundant, but absolute syntactic minimality and a genuinely weaker alternative system are not established.
-
-Task 05 established the boundary cases (empty and singleton carriers, zero and discrete predicates), the Bell-number count for finite carriers, and a bijection between admissible binary Difference predicates and partitions of X. For infinite |X|=κ, the count |D_ADM(X)|=2^κ is proved in ZFC. The quotient-class bound and isomorphism classification by the multiset of class cardinalities are also stated in ZFC. The basic predicate/partition correspondence and quotient construction do not require AC; the cardinal and assembly arguments that do use choice are explicitly labelled. No physical ontology follows from the partition classification.
-
-A separate candidate-only Task 01 mathematical verification was recorded at audits/OI-STAGE-01-AUDIT-TASK-01-2026-11-11.txt. It was formed from primary candidate version 0.2 alone, explicitly excluding Tasks 02–06. It checks the definition, irreflexivity, symmetry, signature-kernel condition, feature-family dependence, classical cotransitivity, finite non-transitivity example, and finite non-uniqueness example. Its conclusions are limited to the candidate's declared formal scope.\n\nThe subsequent source-compatibility reconstruction at audits/OI-STAGE-01-AUDIT-TASK-01-RECONSTRUCTION-2026-11-11.txt compared the candidate signature predicate against the protected Frozen Core and Volume II sources. It established that PD is a meta-level admissibility condition, while D is a selected binary apartness realization requiring additional carrier/signature data. It found conditional compatibility with the standard apartness axioms in classical set theory, preserved the distinction PD ≠ D and PD ≠ #, and clarified that the candidate D does not derive the Core compatibility-colimit R. The original Task 01 artifact remains historically unrecovered; the reconstruction is explicitly not claimed to be the original.
-
-Audit Task 06 completed the structural-completeness and boundary audit for its stated scope. It proved the equivalence between A1–A3 and the equivalence-kernel condition for a primitive binary predicate, confirmed irredundancy with the scope limitation inherited from Task 04, established classical-set-theoretic compatibility with quotient-signature representation, and proved that D and its induced partition determine one another. It clarified that D is itself a binary relation in the general mathematical sense, while Stage 2 must introduce additional relational structure not determined by D. It also recorded the constructive/classical logical-scope distinction and preserved the base candidate's nonempty-carrier scope. The original standalone Task 01 audit record remains historically unrecovered. The traceability remediation is now recorded in the explicitly labelled reconstruction/re-audit; historical identity is not claimed. This is a documentary limitation, not a mathematical refutation. Task 06 is recorded as a checkpoint only.
-
-Stage 1 final acceptance is NOT granted. No Frozen Core or Volume V amendment is made. CE-V-07 remains RESERVED. Stage 2 remains NOT OPENED.
+STAGE 2: NOT OPENED.
 
 NEXT ACTION
-Conduct a consolidated Stage 1 closure audit. Treat the original Task 01 record as historically unavailable and use the clearly labelled reconstruction as the traceable remediation record, not as a recovered original. Verify that every Stage 1 exit criterion is supported by the primary candidate, Tasks 02–06, the Task 01 reconstruction, and the protected Frozen Core / Volume II sources. Carry forward the logical-scope, nontriviality, PD-versus-D/#, and Core compatibility-colimit boundaries. Decide explicitly whether Stage 1 is accepted, conditionally retained, or requires revision. Do not open Stage 2 until that decision is justified.
+Stage 2 may be opened only as a separate research task. It must define the additional relational data or selection rule not determined by D, preserve the Core compatibility-diagram and colimit construction where applicable, and prove exactly which parts follow from D and which are additional inputs. No unconditional Difference → Relation theorem is assumed.
 END OF DOCUMENT
