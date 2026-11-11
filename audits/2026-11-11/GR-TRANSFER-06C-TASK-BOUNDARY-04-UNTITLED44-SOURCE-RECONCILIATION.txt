@@ -248,3 +248,70 @@ The base set time state is interval-typed when instantiated with an interval sca
 API finding U44-API-02:
 STATUS: OPEN.
 Exact CWDiffInclSolver::setStep and InclRect2Set::move time-endpoint semantics for the project build remain unverified.
+
+
+============================================================
+11. ADDENDUM — DISTINCT RECOVERED BOUNDARY VARIANT AND CELL 43/46
+============================================================
+
+A further targeted read of OMEGA-ISOP-Notebook-Cell-Recovery.txt located a separate generated boundary-test source snippet (recovery-file lines 5540-5575 and continuation).
+
+This recovered variant defines:
+boundary = DInterval(22) / DInterval(70)
+eta = DInterval(1) / DInterval(100)
+w = DInterval(13) / DInterval(20)
+rho = eta / w
+
+It then uses:
+set.setCurrentTime(boundary)
+solver.setStep(eta)
+set.move(solver)
+
+Unlike Untitled44 CELL 25, this recovered variant does NOT calculate boundaryWidth and does NOT use hEff = eta + boundaryWidth in rho.
+
+Its source-generation/build wrapper stopped before compilation because its configuration discovery found two capd-config files where exactly one was required:
+EXPECTED EXACTLY ONE capd-config; FOUND: 2
+
+Therefore this recovered eta=0.01 boundary variant has no established compile or runtime result in that record.
+
+This is a second, distinct boundary-test source variant. It must not be conflated with the eta=0.1 / boundaryWidth-corrected source in Untitled44. Their relationship, intended scope, and chronology remain OPEN.
+
+The same recovery file also contains a separate scalar differential-inclusion test (CELL 42/43) with eta=0.01 and no interval-boundary propagation:
+- the comparison using expected = [1, exp(U*step)] failed subset inclusion;
+- recorded CAPD result: [0.99999999999999988898, 1.000000000000000222];
+- recorded expected upper endpoint: 1.0000000000000015543;
+- recorded runtime exit: 4.
+
+A later scalar one-step test (CELL 46) uses:
+upper = nextafter(1.0, 2.0)
+and records:
+EXPECTED_SUBSET_RESULT = TRUE
+RUNTIME EXIT = 0
+
+Scope limitation:
+CELL 46 is a recorded PASS for its specific scalar interval comparison. It does not include setCurrentTime(boundary), does not calculate boundaryWidth, does not evaluate phi_2, and does not validate either boundary-test variant.
+
+Corrected reconciliation:
+- Untitled44 CELL 25: eta=0.1, boundaryWidth included, source generated; later compile attempt in that notebook failed because CAPD was absent from that runtime.
+- Recovered boundary variant: eta=0.01, boundaryWidth omitted, source generated; compile not reached because two capd-config candidates were found.
+- Recovered CELL 42/43: scalar test, eta=0.01, first subset comparison failed.
+- Recovered CELL 46: scalar one-step comparison, PASS; narrow scope only.
+
+Additional findings:
+U44-SRC-08 — SECOND BOUNDARY SOURCE VARIANT
+STATUS: SOURCE RECOVERED / BUILD NOT ESTABLISHED.
+The recovery record contains a distinct eta=0.01 boundary source without boundaryWidth correction.
+
+U44-SRC-09 — VARIANT RELATIONSHIP
+STATUS: OPEN.
+The eta=0.01 and eta=0.1 boundary sources are not proven to be equivalent, sequential corrections, or identical test scopes.
+
+U44-SRC-10 — SCALAR CELL 43
+STATUS: RECORDED FAILURE.
+The exp(U*step) expected interval was not a subset of the recorded CAPD result.
+
+U44-SRC-11 — SCALAR CELL 46
+STATUS: NARROW CONDITIONAL PASS.
+The next-representable-number expected interval was a subset of the CAPD result for the specific scalar test. No boundary or full-profile certification follows.
+
+This addendum supersedes any broader reading that the recovery file contains only one eta=0.01 scalar test. It does not alter the original Untitled44 source or promote any certification status.
