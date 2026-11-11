@@ -58,6 +58,27 @@ Volume III, Sections 8-9, further requires an explicit indexing category, functo
 SOURCE-LEVEL FINDING:
 The intended C_METACORE morphism class is underdetermined by the inspected source text.
 
+1.1 FROZEN CORE AND VALIDATION-SOURCE CROSS-CHECK
+
+The complete protected Library file &OMEGA-ISOP-RELATIONAL-THEORY.txt was inspected.
+
+Finding:
+The Frozen Core states the high-level conditional relational architecture and claim-control boundaries, but it does not define C_METACORE, an object class for that category, a morphism class, an indexing category J, or a functor D:J -> C_METACORE.
+
+No categorical morphism choice can therefore be attributed to the Frozen Core text inspected here.
+
+Volume III, Sections 8-9, explicitly leaves D_CC formally open until J, D, relevant objects and morphisms, compatibility conditions, and the universal property are specified.
+
+The existing OI-STAGE-02-UNION-COLIMIT-MODEL research artifact explicitly describes P_F as a deliberately restricted inclusion-only category. It states that P_F is not proved to be the intended or uniquely mandated C_METACORE and that arbitrary embeddings or another category need not have the same colimit.
+
+Combined source finding:
+- Frozen Core: no explicit C_METACORE categorical specification located in the complete inspected file.
+- Volume II: gives admissible configurations, the embedding definition, and a general category description, but does not identify all embeddings or inclusions as the exact C_METACORE morphisms.
+- Volume III: requires the missing categorical data and marks the formalization open until they are supplied.
+- Existing P_F model: explicitly conditional and not identified with the intended C_METACORE.
+
+This cross-check strengthens the source-level underdetermination finding. It does not authorize changing the Frozen Core or selecting a project morphism class by convenience.
+
 ============================================================
 2. EXPLICIT FIXED-CARRIER REALIZATION
 ============================================================
