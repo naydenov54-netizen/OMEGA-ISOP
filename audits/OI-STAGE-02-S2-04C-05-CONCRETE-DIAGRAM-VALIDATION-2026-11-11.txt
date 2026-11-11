@@ -1,0 +1,288 @@
+OMEGA-ISOP
+STAGE 2 PREPARATORY MATHEMATICAL AUDIT
+S2-04C-05 — CONCRETE DIAGRAM RECONSTRUCTION AND VALIDATION
+DATE: 2026-11-11
+STATUS: CONDITIONAL CATEGORY-LEVEL RESULT / C_METACORE HOLD
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+
+============================================================
+0. PURPOSE AND CONTROL
+============================================================
+
+This record reconstructs the missing concrete diagram for S2-04C-05 from the finite amalgamation data already preserved in the S2-04A audit.
+
+The purpose is to test an explicit diagram and its candidate amalgam, not to imply that C_METACORE has already been fully defined.
+
+This is a new continuation record. It does not overwrite the earlier S2-04C checkpoint.
+
+ARCHITECTURAL CONTROLS:
+- Frozen Core: UNCHANGED.
+- Volume II: UNCHANGED.
+- Volume III: UNCHANGED.
+- Volume V: UNCHANGED.
+- CE-V-07: RESERVED.
+- CAPD: conditional; no universal theorem claim.
+- No conditional result is promoted to certified without independent verification.
+- Numerical approximation is not proof or interval validation.
+- Stage 2 is NOT officially opened by this audit.
+- No source document or frozen architecture is modified.
+
+============================================================
+1. CATEGORY USED FOR THE CONCRETE TEST
+============================================================
+
+For this explicit test, use the auxiliary category C_EQ-EMB.
+
+Objects:
+Sets equipped with an equivalence relation.
+
+Morphisms:
+Injective functions f:X -> Y satisfying:
+x ~X y iff f(x) ~Y f(y).
+
+This is a fully specified test category. It is not asserted to be identical to C_METACORE.
+
+Under the standard apartness realization:
+x # y iff not(x ~ y),
+the same morphisms are exactly the injective maps preserving and reflecting apartness.
+
+============================================================
+2. OBJECTS OF THE RECONSTRUCTED DIAGRAM
+============================================================
+
+Let:
+
+C0 = ({o1,o2}, ~0)
+Equivalence classes of C0:
+{o1}, {o2}.
+
+C1 = ({o1,o2,a}, ~1)
+Equivalence classes of C1:
+{o1,a}, {o2}.
+
+C2 = ({o1,o2,b}, ~2)
+Equivalence classes of C2:
+{o1,b}, {o2}.
+
+Candidate amalgam:
+
+M = ({o1,o2,a,b}, ~M)
+Equivalence classes of M:
+{o1,a,b}, {o2}.
+
+All listed carrier elements are distinct except where the same symbol is explicitly shared.
+
+============================================================
+3. SPAN AND CANDIDATE COCONE
+============================================================
+
+The span is:
+
+          f1
+     C0 -------> C1
+      |
+      | f2
+      v
+     C2
+
+Here f1 and f2 are the literal inclusion maps:
+
+f1(o1)=o1, f1(o2)=o2.
+f2(o1)=o1, f2(o2)=o2.
+
+The candidate cocone is:
+
+C1 --j1--> M
+C2 --j2--> M
+
+where j1 and j2 are literal inclusions:
+
+j1(o1)=o1, j1(o2)=o2, j1(a)=a.
+j2(o1)=o1, j2(o2)=o2, j2(b)=b.
+
+The square commutes:
+
+j1 o f1 = j2 o f2.
+
+Both j1 and j2 are injective and preserve and reflect equivalence.
+
+Verification on C1:
+- o1 ~1 a, and j1(o1) ~M j1(a).
+- o1 is not equivalent to o2, and j1(o1) is not equivalent to j1(o2).
+- The equivalence class {o1,a} is exactly the restriction to C1 of {o1,a,b}.
+Thus j1 reflects as well as preserves equivalence.
+
+Verification on C2 is symmetric.
+
+Therefore the displayed square is a valid commutative cocone in C_EQ-EMB.
+
+============================================================
+4. UNIVERSAL PROPERTY TEST
+============================================================
+
+Question:
+Is M a pushout of the span in C_EQ-EMB?
+
+Answer:
+NO. The candidate M is not a pushout in C_EQ-EMB.
+
+Construct a test cocone N:
+
+N = ({p,q,r}, ~N)
+Equivalence classes:
+{p,r}, {q}.
+
+Define:
+
+g1:C1 -> N
+g1(o1)=p
+g1(o2)=q
+g1(a)=r
+
+g2:C2 -> N
+g2(o1)=p
+g2(o2)=q
+g2(b)=r
+
+Check g1:
+- It is injective.
+- o1 ~1 a iff p ~N r.
+- o1 is not equivalent to o2 iff p is not equivalent to q.
+- Therefore g1 preserves and reflects equivalence.
+
+Check g2:
+- It is injective.
+- o1 ~2 b iff p ~N r.
+- o1 is not equivalent to o2 iff p is not equivalent to q.
+- Therefore g2 preserves and reflects equivalence.
+
+Agreement on C0:
+g1 o f1 = g2 o f2,
+because both maps send o1 to p and o2 to q.
+
+Thus (g1,g2) is a valid cocone in C_EQ-EMB.
+
+If M were a pushout, there would have to be a unique morphism h:M -> N such that:
+
+h o j1 = g1
+h o j2 = g2.
+
+The underlying function is forced:
+
+h(o1)=p
+h(o2)=q
+h(a)=r
+h(b)=r.
+
+But a and b are distinct elements of M, while h(a)=h(b)=r.
+
+Therefore h is not injective.
+
+Hence h is not a morphism in C_EQ-EMB.
+
+The required factorization does not exist in the target category. This contradicts the pushout universal property.
+
+FORMAL CONCLUSION:
+M is an amalgam of the span, but M is not its pushout in C_EQ-EMB.
+
+This counterexample disproves the claim that the particular amalgam constructed by the carrier pushout in Set, followed by equivalence closure, is automatically a categorical pushout in the embedding category.
+
+It does NOT prove that no pushout can ever exist for this span in every possible category or under every alternative definition.
+
+============================================================
+5. DISTINCTIONS THAT MUST REMAIN EXPLICIT
+============================================================
+
+1. Commutative square:
+PROVED.
+
+2. Injectivity and equivalence preservation/reflection of j1 and j2:
+PROVED.
+
+3. Existence of a common amalgam M:
+PROVED in C_EQ-EMB.
+
+4. Pushout universal property for M in C_EQ-EMB:
+DISPROVED by the explicit cocone (N,g1,g2).
+
+5. Pushout universal property in C_EQ-HOM:
+The same carrier construction is a pushout in the category whose morphisms are all equivalence-preserving functions, without requiring injectivity or reflection.
+This follows because the carrier is the Set pushout and the equivalence relation on M is generated by the images of the two source equivalence relations.
+
+6. Pushout or colimit in C_METACORE:
+NOT ESTABLISHED.
+The exact objects, morphisms, admissibility conditions, and closure properties of C_METACORE remain insufficiently specified in the source-alignment audit.
+
+7. Fixed-carrier realizability inside one prescribed U0:
+NOT TESTED by this abstract diagram.
+The construction uses an abstract carrier containing o1,o2,a,b. It does not establish that these elements and this induced equivalence relation are available inside a previously fixed U0.
+
+============================================================
+6. AUDIT FINDINGS
+============================================================
+
+FACTS:
+- The finite span and candidate cocone are explicitly defined.
+- The candidate cocone is commutative.
+- Both cocone legs are embeddings.
+- A second valid cocone into N exists.
+- The induced factorization from M to N is forced as a set map.
+- That forced map is not injective.
+
+FORMAL RESULT:
+The displayed M is an amalgam but not a pushout in C_EQ-EMB.
+
+AUDIT FINDING:
+The distinction between amalgamation and categorical pushout is substantive. The embedding requirement on morphisms obstructs the universal factorization in this example.
+
+HYPOTHESES:
+No additional hypothesis about C_METACORE is introduced here.
+No claim is made that C_METACORE equals C_EQ-EMB.
+
+LIMITATIONS:
+- This does not complete the definition of C_METACORE.
+- This does not establish the existence of D_CC or its colimit.
+- This does not settle fixed-carrier amalgamation.
+- This does not open Stage 2 officially.
+
+============================================================
+7. STATUS AND NEXT LOGICAL STEP
+============================================================
+
+S2-04C-05:
+CONCRETE DIAGRAM RECONSTRUCTED.
+COMMUTATIVITY: PASSED.
+EMBEDDING CHECKS: PASSED.
+AMALGAM EXISTENCE: PASSED IN C_EQ-EMB.
+CANDIDATE PUSHOUT IN C_EQ-EMB: FAILED.
+C_METACORE ALIGNMENT: HOLD.
+FIXED-CARRIER REALIZABILITY: NOT TESTED.
+
+The latest user-directed continuation point is S2-04C-05. This instruction supersedes the older continuation label S2-04C-01 in the earlier checkpoint for purposes of the current working sequence. The older checkpoint is retained as historical audit data and is not silently rewritten.
+
+NEXT TASK:
+Determine the exact relation between this test category and the source-defined C_METACORE, then test a diagram whose objects and arrows are admissible under the authoritative C_METACORE definition.
+
+Before any colimit claim:
+- specify the object class;
+- specify all morphisms;
+- specify admissibility and closure;
+- specify the indexing category and diagram functor;
+- test the universal property in that exact category.
+
+Do not infer a C_METACORE pushout from the C_EQ-EMB result.
+
+============================================================
+8. ARCHITECTURAL FREEZE
+============================================================
+
+Frozen Core: UNCHANGED.
+Volume II: UNCHANGED.
+Volume III: UNCHANGED.
+Volume V: UNCHANGED.
+CE-V-07: RESERVED.
+CAPD: CONDITIONAL.
+Stage 2: NOT OFFICIALLY OPENED.
+
+END OF S2-04C-05 RECORD
