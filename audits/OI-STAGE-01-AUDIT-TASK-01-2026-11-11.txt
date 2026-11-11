@@ -1,0 +1,228 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+1. Output for OMEGA-ISOP/M3.2 must be clean plain text, directly copyable on Android, in one continuous block when a complete artifact is requested.
+2. Frozen Core remains unchanged unless the user explicitly authorizes a change and a documented change-control decision records it.
+3. RL_REGISTRATION_REQUIRED is not RL_REGISTERED. Never claim registration without authoritative registry confirmation and readback.
+4. Distinguish established facts, external assumptions, conditional results, and unresolved claims.
+5. Do not claim that a repository, file, registry, or submission was inspected or modified unless the corresponding action succeeded and its result was verified.
+
+OMEGA-ISOP
+STAGE 1 — DIFFERENCE
+AUDIT TASK 01 — INITIAL CANDIDATE MATHEMATICAL VERIFICATION
+
+DOCUMENT_ID: OI-STAGE-01-AUDIT-TASK-01-2026-11-11
+DATE: 2026-11-11
+SOURCE DOCUMENT: theory/OI-STAGE-01-DIFFERENCE-2026-10-28.txt
+SOURCE VERSION: 0.2
+SOURCE DOCUMENT DATE: 2026-10-28
+RECORD STATUS: RECONSTRUCTED FROM THE PRIMARY CANDIDATE ONLY
+HISTORICAL STATUS: ORIGINAL TASK 01 ARTIFACT NOT RECOVERED; THIS FILE DOES NOT CLAIM TO BE ITS BYTE-FOR-BYTE OR HISTORICALLY IDENTICAL COPY
+AUDIT BASIS: SECTIONS 1–9 OF THE PRIMARY STAGE 1 CANDIDATE
+EXCLUSIONS: AUDIT TASKS 02, 03, 04, 05, 06 AND THEIR RESULTS WERE NOT USED TO FORM THE FINDINGS BELOW
+FROZEN CORE: NOT MODIFIED
+VOLUME V: NOT MODIFIED
+CE-V-07: RESERVED
+RL REGISTRATION: NOT PERFORMED OR VERIFIED
+STAGE 1 FINAL ACCEPTANCE: NOT GRANTED
+STAGE 2: NOT OPENED
+UNIVERSAL THEOREM: NOT ESTABLISHED
+
+1. PURPOSE
+
+This record performs the initial mathematical verification of the Stage 1 Difference candidate as it stands in source version 0.2.
+
+The audit asks:
+1. Is the candidate predicate well-defined from its declared data?
+2. Do the stated immediate properties follow from the definition?
+3. Does the finite test establish the claimed failure of transitivity?
+4. Does the finite relation example establish non-uniqueness of a directed relation compatible with the given Difference-positive pairs?
+5. Are the conclusions limited to what the candidate actually proves?
+
+This audit deliberately does not import later Stage 1 audit results.
+
+2. FORMAL SETUP
+
+Let X be a nonempty set.
+Let I be a set of features.
+For each i∈I, let V_i be a set and let f_i:X→V_i be a function.
+
+Define D:X×X→{0,1} by:
+
+D(x,y)=1 iff there exists i∈I such that f_i(x)≠f_i(y).
+D(x,y)=0 otherwise.
+
+The definition is well-typed provided each stated feature map f_i has the declared domain X and codomain V_i.
+
+If I is empty, the existential condition is false for every pair, so D is identically zero. This is a valid degenerate instance of the candidate definition; it produces no positive distinctions.
+
+3. CHECK 1 — IRREFLEXIVITY
+
+For any x∈X and any i∈I, f_i(x)=f_i(x).
+Therefore there is no feature i witnessing f_i(x)≠f_i(x).
+Hence D(x,x)=0.
+
+FINDING 01:
+P1 (irreflexivity) follows directly from the definition.
+
+STATUS: PROVED.
+
+4. CHECK 2 — SYMMETRY
+
+For any x,y∈X and any i∈I:
+f_i(x)≠f_i(y) iff f_i(y)≠f_i(x).
+
+Thus a feature witnesses D(x,y)=1 exactly when it witnesses D(y,x)=1.
+Therefore D(x,y)=D(y,x).
+
+FINDING 02:
+P2 (symmetry) follows directly from the definition.
+
+STATUS: PROVED.
+
+5. CHECK 3 — ZERO VALUE AND IDENTITY
+
+By definition:
+D(x,y)=0 iff for every i∈I, f_i(x)=f_i(y).
+
+Define the combined signature F:X→∏_{i∈I}V_i by F(x)=(f_i(x))_{i∈I}, where the product and the empty-index convention are understood in the usual set-theoretic sense.
+
+Then:
+D(x,y)=0 iff F(x)=F(y).
+
+Consequently:
+D(x,y)=0 iff x=y holds exactly when F is injective.
+
+Without injectivity, D(x,y)=0 establishes only equality of the selected feature signatures, not identity of the underlying elements.
+
+For I=∅, the product has its usual singleton value; F is constant. Since X is nonempty, F is injective only when X has exactly one element.
+
+FINDING 03:
+P3 is correct when read as a statement about the combined signature map. Indistinguishability under the selected features does not, in general, imply x=y.
+
+STATUS: PROVED.
+
+6. CHECK 4 — DEPENDENCE ON THE FEATURE FAMILY
+
+Suppose a feature family is enlarged by adding further feature maps while retaining all original maps.
+
+If D_old(x,y)=1, an original feature already witnesses a difference, so D_new(x,y)=1.
+Adding features can therefore change a zero value to one, but cannot change a one value to zero.
+
+If features are removed, a previously witnessed difference may disappear, but no new witness is created.
+
+FINDING 04:
+The candidate's qualitative claim that D depends on the admitted feature family is correct. More precisely, adding features is monotone with respect to positive distinguishability.
+
+STATUS: PROVED FROM THE DEFINITION.
+
+7. CHECK 5 — COTRANSITIVITY
+
+Assume D(x,y)=1.
+Then there exists i∈I such that f_i(x)≠f_i(y).
+
+For any z∈X, classical equality logic gives:
+- either f_i(x)≠f_i(z), in which case D(x,z)=1;
+- or f_i(x)=f_i(z), in which case f_i(z)≠f_i(y), and D(z,y)=1.
+
+Therefore:
+D(x,y)=1 implies D(x,z)=1 OR D(z,y)=1.
+
+FINDING 05:
+P5 (cotransitivity) follows from the signature definition under classical logic.
+
+LOGICAL-SCOPE NOTE:
+The proof uses a case split on equality versus inequality. A constructive treatment must state the decidability or witness assumptions needed for this split. This audit makes no unrestricted constructive-logic claim.
+
+STATUS: PROVED IN CLASSICAL SET THEORY.
+
+8. CHECK 6 — FINITE TEST AND NON-TRANSITIVITY
+
+Let X={a,b,c}, I={i}, V_i={0,1}, and define:
+f_i(a)=0
+f_i(b)=1
+f_i(c)=0
+
+Then:
+D(a,b)=1
+D(b,c)=1
+D(a,c)=0
+
+Thus D(a,b)=1 and D(b,c)=1 do not imply D(a,c)=1.
+
+The example also satisfies cotransitivity. For the positive pair (a,b) and z=c:
+D(a,c)=0, while D(c,b)=1.
+
+FINDING 06:
+The finite test is valid and proves that D need not be transitive. It does not prove that every instance of D is non-transitive.
+
+STATUS: COUNTEREXAMPLE VALID.
+
+9. CHECK 7 — NON-UNIQUENESS OF A DIRECTED RELATION
+
+Use the same finite model. Its positive ordered pairs include (a,b) and (b,a), and (b,c) and (c,b).
+
+Define:
+R1={(a,b)}
+R2={(a,b),(b,c)}
+
+Then R1 and R2 are distinct subsets of X×X, and every ordered pair included in either relation is D-positive.
+
+Therefore D-positive support alone is compatible with at least these two distinct directed relations. The data D do not uniquely select one of them.
+
+Because D is symmetric while R1 and R2 are directed, the orientation in these examples is additional selection data, not something encoded by D.
+
+SCOPE LIMIT:
+This proves non-uniqueness for the stated finite model and the stated compatibility rule. It does not prove that no richer construction, supplied with additional axioms or data, can select a relation.
+
+FINDING 07:
+The candidate's non-derivation test is valid within its stated scope.
+
+STATUS: COUNTEREXAMPLE VALID.
+
+10. CONSOLIDATED MATHEMATICAL RESULT
+
+For the signature-based predicate defined in Section 2:
+
+A. D is well-defined when the declared feature maps exist with the stated types.
+B. D is irreflexive.
+C. D is symmetric.
+D. D(x,y)=0 exactly when all selected feature values agree.
+E. D(x,y)=0 iff x=y exactly when the combined signature map is injective.
+F. D is cotransitive under classical logic.
+G. D is not necessarily transitive.
+H. D-positive support alone need not select a unique directed binary relation.
+
+All findings above are properties of the candidate definition and its explicit examples. They do not establish that the candidate is the unique or canonical formal meaning of Difference.
+
+11. LIMITATIONS AND UNRESOLVED ITEMS
+
+1. The feature family is model input. The candidate does not determine which features are appropriate in a physical or theoretical application.
+2. The audit does not establish that the protected Frozen Core uniquely entails the signature-based definition.
+3. The audit does not establish that every possible formalization of Difference must be binary or signature-based.
+4. The audit does not establish physical observability, ontology, causation, dynamics, persistence, or organization.
+5. The audit does not derive a unique relation from Difference.
+6. The cotransitivity proof is certified here in classical set theory; constructive assumptions would need separate treatment.
+7. The original historical Task 01 artifact has not been recovered. The present record is a candidate-only reconstruction and must not be represented as the original file.
+
+12. INITIAL AUDIT DECISION
+
+The Stage 1 candidate version 0.2 is mathematically coherent for the stated signature-based definition under the stated classical set-theoretic scope.
+
+The claims of irreflexivity, symmetry, cotransitivity, possible non-transitivity, and finite-model non-uniqueness of a compatible directed relation are supported by the candidate's definitions and arguments.
+
+The candidate remains a CANDIDATE FORMALIZATION. This audit does not grant canonical acceptance, does not amend the Frozen Core, and does not establish the transition Difference → Relation.
+
+13. STATUS
+
+TASK 01 CANDIDATE-ONLY MATHEMATICAL VERIFICATION: COMPLETED FOR THE SCOPE ABOVE.
+ORIGINAL HISTORICAL TASK 01 ARTIFACT: NOT RECOVERED.
+HISTORICAL IDENTITY OF THIS RECORD: NOT CLAIMED.
+TASKS 02–06: NOT USED IN FORMING THIS AUDIT.
+FROZEN CORE: UNCHANGED.
+VOLUME V: UNCHANGED.
+CE-V-07: RESERVED.
+RL REGISTRATION: NOT PERFORMED OR VERIFIED.
+STAGE 1 FINAL ACCEPTANCE: NOT GRANTED.
+STAGE 2: NOT OPENED.
+UNIVERSAL THEOREM: NOT ESTABLISHED.
+
+END OF AUDIT TASK 01
