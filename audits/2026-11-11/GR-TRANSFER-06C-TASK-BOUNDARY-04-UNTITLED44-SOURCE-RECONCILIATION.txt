@@ -215,3 +215,36 @@ CE-V-07: RESERVED.
 Universality: NOT ESTABLISHED.
 
 END OF MACHINE AUDIT RECORD
+
+
+============================================================
+10. TARGETED PUBLIC API DOCUMENTATION CHECK
+============================================================
+
+The public CAPD DynSys 5.2.0 documentation was consulted as a reference, not as proof of the exact version installed in the historical Colab runtime.
+
+Documented facts:
+- TimeRange is the base class for set types and stores the current time for ODE computations.
+- Its ScalarType is the interval template parameter.
+- setCurrentTime(const ScalarType&) assigns the current time value.
+- The DynSets documentation describes dynset.move(dynsys) as the operation that moves/propagates the set with the supplied dynamical system.
+- The differential-inclusion tutorial demonstrates fixed-step propagation using solver.setStep(...) and repeated set.move(solver) calls.
+
+Implication:
+The use of an interval-valued current time is consistent with the documented TimeRange abstraction. The set's current-time state is not necessarily a point timestamp.
+
+Limitation:
+The documentation consulted does not establish, for the exact CAPD version and exact CWDiffInclSolver build used by this project, the precise resulting time interval after one move with an interval-valued eta. Nor does it prove that the interval-valued step overload in this notebook has the assumed endpoint semantics. The exact implementation/version must still be checked.
+
+References:
+https://capd.sourceforge.net/capdDynSys/docs/html/a03147.html
+https://capd.sourceforge.net/capdDynSys/docs/html/a05202.html
+https://ww2.ii.uj.edu.pl/~wilczak/capd-tutorial/CAPD_tutorial_part_III.pdf
+
+API finding U44-API-01:
+STATUS: PARTIALLY DOCUMENTED.
+The base set time state is interval-typed when instantiated with an interval scalar type. This supports, but does not complete, the required temporal-semantics verification.
+
+API finding U44-API-02:
+STATUS: OPEN.
+Exact CWDiffInclSolver::setStep and InclRect2Set::move time-endpoint semantics for the project build remain unverified.
