@@ -435,3 +435,199 @@ Volume V v2.4: PRESERVED.
 CE-V-07: RESERVED.
 Universality: NOT ESTABLISHED.
 No certification promotion is made.
+
+
+============================================================
+14. ADDENDUM — CAPD 6.0.0 RELEASE-SOURCE TRACE OF THE ONE-STEP ENCLOSURE
+DATE: 2026-11-11
+============================================================
+
+SOURCE IDENTITY
+Official repository: CAPDGroup/CAPD
+Release tag/ref inspected: 693998c
+CAPDVersion.txt at this ref declares:
+CAPD_MAJOR_VERSION = 6
+CAPD_MINOR_VERSION = 0
+CAPD_PATCH_VERSION = 0
+Therefore the inspected official release source identifies itself as CAPD 6.0.0.
+
+IMPORTANT IDENTITY LIMIT
+The release source is now inspected directly. The exact commit/build identity of the historical OMEGA-ISOP Colab runtime is still not proven to equal this release ref. The prior Volume V record identifies CAPD 6.0.0, but exact source commit, local modifications, build configuration, and binary identity still require matching metadata.
+
+INSPECTED SOURCE FILES AND BLOB SHAS
+1. capdDynSys/include/capd/diffIncl/InclRect2Set.h
+   blob SHA: 29e9f3ae0997643287eb6266bdae622c1ab61ef8
+2. capdDynSys/include/capd/diffIncl/DiffInclusionCW.h
+   blob SHA: d0e9598180be2aa70f2ad403d148af487fb36100
+3. capdDynSys/include/capd/diffIncl/DiffInclusionCW.hpp
+   blob SHA: 061cf68656d5f7ce012701c602fbf3db4bf091e4
+4. capdDynSys/include/capd/diffIncl/DiffInclusion.h
+   blob SHA: 0cf1227b3f5603670970f09df8eb7193073923f9
+5. capdDynSys/include/capd/dynset/C0DoubletonSet.h
+   blob SHA: c0b4a640a2c1bc32b2cf05764b8ac2ff882e6b22
+6. capdDynSys/include/capd/dynset/C0DoubletonSet.hpp
+   blob SHA: 23b54d4c5cbe931cedeb01d58b752ccd05006afb
+7. capdDynSys/include/capd/dynset/C0Set.h
+   blob SHA: 583157b1b47d5d726280084457a7b54e8c7e5aba
+8. capdDynSys/include/capd/diffAlgebra/TimeRange.h
+   blob SHA: f615d6726bb6349d375b6939e64a3988f297140c
+9. capdDynSys/include/capd/dynsys/FirstOrderEnclosure.h
+   blob SHA: 2553227218978dfcfd94c606c85d471910eaa348
+10. capdDynSys/include/capd/dynsys/FirstOrderEnclosure.hpp
+    blob SHA: 6cfbf142c3e582e939507e23c624a5781dcbb5e3
+11. capdDynSys/include/capd/dynsys/OdeSolver.h
+    blob SHA: 12db3452e7afd6f7bc8f63223fd372954d8ff465
+12. capdDynSys/include/capd/dynsys/OdeSolver.hpp
+    blob SHA: 5c09db66a4638a0bdf11fcf1fdfdf2fb13197617
+13. capdDynSys/include/capd/dynsys/HighOrderEnclosure.h
+    blob SHA: 9d2d62338c0f069b85d2d96e5f20a092a5cf1818
+14. capdDynSys/include/capd/dynsys/BasicOdeSolver.h
+    blob SHA: d9b42f7269edf1ff42193464c9f5ec8203d86cbc
+15. capdDynSys/include/capd/dynsys/BasicOdeSolver.hpp
+    blob SHA: a59632cc7b655ca4c9f4d1d810b803569e237d1b
+16. capdDynSys/include/capd/dynsys/approveRemainder.h
+    blob SHA: 9d2c6c0df61a8f5b36fa4b433ecf208d487c1362
+17. capdDynSys/include/capd/dynsys/StepControl.h
+    blob SHA: e1dd57ed97dd65c734d7d73dc6d2a72090f145e5
+18. capdDynSys/include/capd/dynsys/DynSys.h
+    blob SHA: 7febadfdab3b0e6ca6dd45606ce3747d5fd0cca9
+
+SOURCE-LEVEL CALL CHAIN
+
+A. SET MOVE
+InclRect2Set::move(DiffIncl& diffIncl):
+- stores x = VectorType(*this);
+- stores currentTime = getCurrentTime();
+- calls BaseSet::move(diffIncl.getDynamicalSystem());
+- computes Delta = diffIncl.perturbations(currentTime,x);
+- updates the set representation and adds Delta to m_currentSet.
+
+Thus the unperturbed selected ODE propagation is performed first. The differential-inclusion perturbation is then bounded using the original pre-step time and state.
+
+B. BASE DOUBLETON MOVE
+C0DoubletonSet::move(dynsys,result):
+- calls dynsys.encloseC0Map(getCurrentTime(), ...);
+- computes the new doubleton representation from the validated Taylor image, Jacobian, remainder and enclosure;
+- sets result current time to getCurrentTime() + dynsys.getStep().
+
+The time update is therefore explicitly based on the step value actually held by the underlying ODE solver after encloseC0Map returns.
+
+C. SETSTEP SEMANTICS
+BasicOdeSolver::setStep(newStep):
+- assigns m_fixedTimeStep = newStep;
+- calls turnOffStepControl().
+
+BasicOdeSolver::computeTimeStep():
+- when step control is off, assigns m_step = min(m_fixedTimeStep, getMaxStep()).
+
+DiffInclusion::setStep(newStep) delegates to m_dynamicalSystem.setStep(newStep).
+
+Therefore solver.setStep(eta) does not merely suggest an adaptive maximum step. In this release source it sets the fixed step and disables adaptive step control.
+
+D. MAXIMUM-STEP AND REMAINDER PATH
+computeAndApproveRemainder():
+- temporarily saves step-control state;
+- bounds maxStep by min(maxStep, 2*current step) when the step is nonsingular;
+- calls solver.computeTimeStep(...);
+- computes the Taylor remainder;
+- only enters its remainder-size loop for step reduction when isStepChangeAllowed() is true.
+
+Because setStep() disables step control, that adaptive reduction loop is not enabled by this call path.
+
+HighOrderEnclosure:
+- constructs h = [0,1]*ds.getStep();
+- computes the Taylor polynomial range over h;
+- predicts an enclosure using the next remainder coefficient;
+- recomputes remainder coefficients on the predicted enclosure;
+- checks the required interior inclusion for the remainder;
+- if step change is disabled and inclusion fails, refines the enclosure and retries up to 30 times;
+- throws an error if it cannot establish the enclosure.
+
+This means a successful fixed-step enclosure is not silently converted into a smaller adaptive step by this HighOrderEnclosure branch. Failure is expected to raise an exception after the prescribed refinement attempts.
+
+E. FIRST-ORDER ENCLOSURE FOR THE DIFFERENTIAL INCLUSION
+DiffInclusion::diffInclusionEnclosure(t,x) calls:
+FirstOrderEnclosure::enclosure(m_diffIncl,t,x,getStep()).
+
+The inspected FirstOrderEnclosure implementation forms:
+h = [0,1]*step
+timeRange = currentTime + h
+
+It evaluates the interval vector field on timeRange and a trial state box, then iterates:
+y = x + h * vectorField(timeRange,z)
+until y is contained in the interior of z, or throws a SolverException after the bounded search.
+
+The source comments identify this as an enclosure of the solution over the whole time step. This is the enclosure path used for W2 in DiffInclusionCW.
+
+F. COMPONENT-WISE PERTURBATION BOUND
+DiffInclusionCW::perturbations(time,x):
+- W1 = dynamicalSystemEnclosure(time,x)
+- W2 = diffInclusionEnclosure(time,x)
+- J = m_diffIncl.derivative(time,W2)
+- delta = m_diffIncl.perturbations(time,W1)
+- requires delta to contain zero, otherwise throws;
+- constructs C from an outward upper bound on abs(delta);
+- forms At = getStep()*J;
+- sums a matrix series with an explicit geometric remainder estimate;
+- forms D = getStep()*(Sum*C);
+- returns symmetric component intervals [-D_i.rightBound(), D_i.rightBound()].
+
+The resulting Delta is then added to the unperturbed set enclosure by InclRect2Set::move().
+
+TEMPORAL CONCLUSION FOR THIS RELEASE SOURCE PATH
+
+For a successful move using:
+solver.setStep(eta)
+set.setCurrentTime(boundary)
+set.move(solver)
+
+the inspected CAPD 6.0.0 release source supports:
+- fixed-step mode, not adaptive step control;
+- the interval-valued eta is stored as the fixed step scalar type;
+- the first-order inclusion enclosure uses h = [0,1]*eta and timeRange = boundary + h;
+- the set's final current-time value is updated by boundary + eta, using the interval operations of the scalar type;
+- the perturbation estimate is computed over the same requested step and uses the saved initial time/state.
+
+This is a source-level result for the inspected official CAPD 6.0.0 release ref. It is not a newly executed result and does not yet prove that the historical local Colab build is byte-for-byte or source-identical to this release ref.
+
+MATHEMATICAL LIMITS THAT REMAIN
+1. The source path does not itself verify that the OMEGA-ISOP coefficient U is a valid upper bound for the original phi_2 profile over the entire timeRange.
+2. The source path does not supply the missing authoritative linkage between the tested scalar perturbation g(x,e)=e*x and the full time-dependent bump profile.
+3. The interval Taylor/remainder algorithm must still be checked against the exact map definitions, interval arithmetic backend, compiler flags, and rounding behavior of the historical build.
+4. A successful historical run with preserved raw stdout and source/build hashes is still required.
+5. The interval result and analytical comparison must be recomputed for the exact eta and boundary interval used by Untitled44; no scalar CELL 46 result is transferable.
+
+UPDATED AUDIT FINDINGS
+
+U44-TIME-03 — ACTUAL CW SOLVER STEP AND ENCLOSURE
+STATUS: SOURCE-LEVEL CONFIRMED FOR OFFICIAL CAPD 6.0.0 RELEASE REF; HISTORICAL BUILD MATCH OPEN.
+setStep fixes the step and disables adaptive step control. The solver's enclosure path uses that fixed step.
+
+U44-TIME-04 — FULL SOLUTION CONTAINMENT
+STATUS: ALGORITHM PATH IDENTIFIED; TARGET-SPECIFIC VALIDITY OPEN.
+The release source shows the first-order inclusion enclosure and component-wise perturbation algorithm. The target coefficient/profile linkage and historical build/runtime verification remain open.
+
+U44-TIME-05 — SOURCE BODY AVAILABILITY
+STATUS: RESOLVED FOR OFFICIAL RELEASE SOURCE.
+The relevant implementation bodies were fetched from the official CAPDGroup/CAPD v6.0.0 release ref. Historical local build identity remains open.
+
+U44-TIME-06 — FIXED-STEP SEMANTICS
+STATUS: SOURCE-LEVEL CONFIRMED FOR OFFICIAL RELEASE REF.
+BasicOdeSolver::setStep stores the fixed step and disables step control. A successful fixed-step enclosure does not silently shrink the step through the adaptive remainder loop.
+
+U44-TIME-07 — INTERVAL TIME DOMAIN
+STATUS: SOURCE-LEVEL CONFIRMED FOR OFFICIAL RELEASE REF.
+The first-order inclusion enclosure uses timeRange = currentTime + [0,1]*step; the set update uses currentTime + getStep().
+
+U44-TIME-08 — PERTURBATION COMPUTATION
+STATUS: SOURCE-LEVEL CONFIRMED FOR OFFICIAL RELEASE REF.
+The component-wise algorithm evaluates W1, W2, J, delta and a matrix-series remainder as described above. Target-specific coefficient validity remains open.
+
+STATUS CONTROL
+TASK 03: IN PROGRESS.
+GR-TRANSFER-06C: OPEN / INCONCLUSIVE.
+Frozen Core: LOCKED / UNCHANGED.
+Volume V v2.4: PRESERVED.
+CE-V-07: RESERVED.
+Universality: NOT ESTABLISHED.
+No certification promotion is made.
