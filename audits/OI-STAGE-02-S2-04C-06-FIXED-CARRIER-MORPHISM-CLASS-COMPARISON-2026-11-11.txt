@@ -1,0 +1,356 @@
+OMEGA-ISOP
+STAGE 2 PREPARATORY MATHEMATICAL AUDIT
+S2-04C-06 — FIXED-CARRIER CATEGORY / MORPHISM-CLASS COMPARISON
+DATE: 2026-11-11
+STATUS: CONDITIONAL FINITE RESULT PROVED / C_METACORE SPECIFICATION HOLD
+
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+
+============================================================
+0. PURPOSE AND ARCHITECTURAL CONTROL
+============================================================
+
+This audit compares two explicit categories on the same fixed finite carrier, with the same admissible objects and the same span. The only changed datum is the morphism class.
+
+The purpose is to determine whether the source-level description uniquely fixes the intended C_METACORE category and whether the pushout result is invariant under the unresolved morphism choice.
+
+This is a conditional finite mathematical result. It is not a definition imposed on C_METACORE and does not amend the Frozen Core.
+
+ARCHITECTURAL CONTROLS:
+- Frozen Core: UNCHANGED.
+- Volume II: UNCHANGED.
+- Volume III: UNCHANGED.
+- Volume V: UNCHANGED.
+- CE-V-07: RESERVED.
+- Stage 2: NOT OFFICIALLY OPENED.
+- No universal theorem is claimed.
+- No conditional result is promoted to certified.
+- No RL registration or CE-V promotion is claimed.
+
+============================================================
+1. SOURCE FACTS AND UNRESOLVED SPECIFICATION
+============================================================
+
+AUTHORITATIVE SOURCE INSPECTED:
+Library file: &OMEGA-ISOP VOLUME II.txt
+Version identified in the prior source-alignment checkpoint:
+v1.3-MF-AUDIT-RESTORED-FINAL
+Relevant sections: III.4, III.5, IV.1-IV.3.
+
+Volume II states:
+(a) A local configuration is C=(S_C,#_C), with S_C subset U0 and #_C the restriction of the ambient apartness relation.
+(b) Minimal nontriviality includes |S_C| >= 2.
+(c) Exact admissibility conditions remain realization-dependent.
+(d) C_METACORE may represent admissible configurations as a category whose morphisms preserve selected structural properties.
+(e) An embedding is injective and preserves and reflects apartness:
+    x #1 y iff f(x) #2 f(y).
+
+The source does NOT explicitly state:
+- that every embedding is a C_METACORE morphism;
+- that literal inclusions are the only C_METACORE morphisms;
+- the complete object-admissibility predicate;
+- all selected structural properties beyond the stated embedding condition;
+- closure of the intended object class under any proposed construction.
+
+Volume III, Sections 8-9, further requires an explicit indexing category, functor, objects, morphisms, compatibility conditions, and universal property before D_CC is a complete categorical construction.
+
+SOURCE-LEVEL FINDING:
+The intended C_METACORE morphism class is underdetermined by the inspected source text.
+
+============================================================
+2. EXPLICIT FIXED-CARRIER REALIZATION
+============================================================
+
+Fix one finite carrier:
+
+U0 = {o1,o2,a,b,p,q,r}.
+
+Define one equivalence relation ~ on U0 by its classes:
+
+K = {o1,a,b,p,r}
+L = {o2,q}.
+
+Thus:
+x ~ y iff x and y belong to the same one of K or L.
+
+Define apartness by:
+x # y iff not(x ~ y).
+
+For this finite test realization, define F to be the family of all subsets S of U0 satisfying:
+(1) |S| >= 2;
+(2) there exist x,y in S with x # y.
+
+For each S in F, let:
+C_S = (S, # restricted to S x S).
+
+IMPORTANT SCOPE:
+The above F is an explicit test object class. The nontriviality test is adopted as a condition of this finite realization. This does not claim that Volume III's test is a universal admissibility axiom for every realization.
+
+All objects used below belong to F:
+S0={o1,o2}
+S1={o1,o2,a}
+S2={o1,o2,b}
+SM={o1,o2,a,b}
+SN={p,q,r}.
+
+Their induced equivalence classes are:
+C0: {o1}, {o2}
+C1: {o1,a}, {o2}
+C2: {o1,b}, {o2}
+M:  {o1,a,b}, {o2}
+N:  {p,r}, {q}.
+
+Each object has at least two elements and an apartness witness, since each contains an element from K and an element from L.
+
+============================================================
+3. COMMON SPAN AND CANDIDATE AMALGAM
+============================================================
+
+Use the span:
+
+C0 --f1--> C1
+C0 --f2--> C2
+
+where f1 and f2 are literal inclusions.
+
+Define:
+M = C_SM, where SM=S1 union S2={o1,o2,a,b}.
+
+Define j1:C1 -> M and j2:C2 -> M as literal inclusions.
+
+Because every object carries the restriction of one fixed ambient relation #:
+- f1 and f2 are injective and preserve/reflect apartness;
+- j1 and j2 are injective and preserve/reflect apartness;
+- the square commutes:
+  j1 o f1 = j2 o f2.
+
+Thus M is a common amalgam in each of the two categories defined below.
+
+============================================================
+4. CATEGORY A: INCLUSION-ONLY CATEGORY P_F
+============================================================
+
+Objects:
+All C_S for S in F.
+
+Morphisms:
+There is exactly one morphism C_S -> C_T when S subseteq T, namely the literal inclusion. There is no morphism otherwise.
+
+Category verification:
+- Identity: S subseteq S.
+- Composition: if S subseteq T and T subseteq V, then S subseteq V.
+- Associativity and identity laws follow from composition of inclusions.
+
+Every inclusion is an embedding because all structures are restrictions of the same ambient relation #.
+
+PUSHOUT CLAIM:
+M is the pushout of the span C1 <- C0 -> C2 in P_F.
+
+PROOF:
+The inclusions j1:C1 -> M and j2:C2 -> M form a cocone and agree on C0.
+
+Let C_T be any object of P_F and suppose a cocone is given:
+u1:C1 -> C_T,
+u2:C2 -> C_T.
+
+By the definition of P_F, these arrows exist only as literal inclusions. Therefore:
+S1 subseteq T
+and
+S2 subseteq T.
+
+Hence:
+SM=S1 union S2 subseteq T.
+
+Since M=C_SM is an object of P_F, there is a unique inclusion:
+h:M -> C_T.
+
+By construction:
+h o j1 = u1
+and
+h o j2 = u2.
+
+Uniqueness follows because P_F has at most one arrow between any two objects.
+
+Therefore M satisfies the pushout universal property in P_F.
+
+RESULT A:
+PUSHOUT IN P_F: PROVED for this explicit realization.
+
+============================================================
+5. CATEGORY B: ALL EMBEDDINGS E_F
+============================================================
+
+Objects:
+Exactly the same objects C_S for S in F.
+
+Morphisms:
+All injective functions f:S -> T satisfying:
+x #_S y iff f(x) #_T f(y).
+
+Category verification:
+- Identity maps satisfy injectivity and preserve/reflect apartness.
+- The composite of two injective maps is injective.
+- If f and g preserve and reflect apartness, then:
+  x #_S y
+  iff f(x) #_T f(y)
+  iff g(f(x)) #_V g(f(y)).
+Thus the composite is again an embedding.
+- Associativity and identity laws are inherited from function composition.
+
+The same span maps f1,f2 and cocone maps j1,j2 are morphisms in E_F.
+
+COUNTER-COCONE:
+Take the already defined object N=C_SN, with equivalence classes {p,r} and {q}.
+
+Define:
+g1:C1 -> N
+g1(o1)=p
+g1(o2)=q
+g1(a)=r.
+
+Define:
+g2:C2 -> N
+g2(o1)=p
+g2(o2)=q
+g2(b)=r.
+
+Check g1:
+- It is injective because p,q,r are distinct.
+- o1 #1 a is false because o1 ~1 a; p #N r is false because p ~N r.
+- o1 #1 o2 is true; p #N q is true.
+- a #1 o2 is true; r #N q is true.
+Therefore g1 preserves and reflects apartness.
+
+Check g2:
+- It is injective because p,q,r are distinct.
+- o1 #2 b is false because o1 ~2 b; p #N r is false because p ~N r.
+- o1 #2 o2 is true; p #N q is true.
+- b #2 o2 is true; r #N q is true.
+Therefore g2 preserves and reflects apartness.
+
+Agreement on C0:
+g1 o f1 = g2 o f2,
+since both maps send o1 to p and o2 to q.
+
+Thus (g1,g2) is a valid cocone in E_F.
+
+FAILURE OF THE PUSHOUT PROPERTY:
+If M were a pushout in E_F, there would exist a morphism h:M -> N satisfying:
+h o j1 = g1
+and
+h o j2 = g2.
+
+These equations force:
+h(o1)=p
+h(o2)=q
+h(a)=r
+h(b)=r.
+
+But a and b are distinct elements of M, while h(a)=h(b).
+Therefore h is not injective.
+
+Hence h is not a morphism in E_F.
+
+The required factorization does not exist. Therefore M is not a pushout in E_F.
+
+RESULT B:
+M IS AN AMALGAM BUT NOT A PUSHOUT IN E_F.
+
+============================================================
+6. COMPARATIVE CONCLUSION
+============================================================
+
+The two categories have:
+- the same fixed carrier U0;
+- the same ambient apartness relation #;
+- the same admissible object family F;
+- the same objects C0,C1,C2,M,N;
+- the same span and the same candidate cocone.
+
+They differ only in the morphism class:
+- P_F: literal inclusions only;
+- E_F: all injective apartness embeddings.
+
+For the same span and the same candidate M:
+- M is a pushout in P_F;
+- M is not a pushout in E_F.
+
+Therefore the universal-property result is not determined by the object data and apartness relation alone. It depends materially on the selected morphism class.
+
+FORMAL CONDITIONAL RESULT:
+There exist two categories on the same explicit fixed-carrier admissible-object family, both satisfying the source-level requirement that their morphisms preserve the selected apartness structure, for which the same candidate M has different pushout status.
+
+SOURCE-LEVEL CONSEQUENCE:
+The Volume II description does not uniquely determine the intended C_METACORE pushout result. The unresolved morphism specification is mathematically material, not merely terminological.
+
+============================================================
+7. FACTS / HYPOTHESES / FORMAL RESULTS / AUDIT FINDINGS
+============================================================
+
+FACTS:
+- The finite carrier, global equivalence relation, apartness relation, and object family are explicitly defined.
+- All five objects C0,C1,C2,M,N are admissible under the stated test-family rule.
+- Both candidate categories satisfy the category axioms.
+- The same span and cocone exist in both categories.
+
+FORMAL RESULTS:
+- M is a pushout in P_F.
+- M is not a pushout in E_F.
+- The proof of failure in E_F is the explicit cocone into N whose forced factorization is non-injective.
+
+HYPOTHESES:
+- No claim is made that either P_F or E_F is the uniquely intended C_METACORE.
+- No additional source axiom is assumed to select one of these categories.
+
+AUDIT FINDING:
+The source-level morphism ambiguity changes the categorical universal property even after fixed-carrier realizability is supplied.
+
+LIMITATIONS:
+- This is one explicit finite realization, not a theorem about every U0 or every admissibility predicate.
+- The family F is a declared test family, not a reconstruction of every realization-dependent admissibility condition in the Frozen Core.
+- The result does not prove that the project's R fails to exist.
+- The result does not prove that no pushout exists for the span in E_F; it proves only that this candidate M is not that pushout.
+- The result does not settle the intended C_METACORE category.
+- The result does not complete D_CC or establish a project-level colimit.
+
+============================================================
+8. STATUS AND NEXT VALID ACTION
+============================================================
+
+S2-04C-06:
+FIXED-CARRIER TEST REALIZATION: EXPLICITLY CONSTRUCTED.
+CATEGORY P_F AXIOMS: VERIFIED.
+CATEGORY E_F AXIOMS: VERIFIED.
+PUSHOUT IN P_F: PROVED.
+PUSHOUT OF M IN E_F: REFUTED BY EXPLICIT CO-CONE.
+MORPHISM-CLASS DEPENDENCE: PROVED FOR THIS FINITE REALIZATION.
+C_METACORE IDENTIFICATION: HOLD.
+PROJECT-LEVEL R EXISTENCE: NOT ESTABLISHED.
+
+NEXT ACTION:
+Return to the authoritative Frozen Core / Volume II / Volume III source set and determine whether any additional normative statement selects:
+(a) all apartness embeddings;
+(b) literal inclusions only;
+(c) a restricted embedding class; or
+(d) another explicitly defined morphism class.
+
+If no such statement exists, the project-level C_METACORE category remains under-specified and requires an explicit project-level formal specification decision. Do not silently choose the category whose result is more convenient.
+
+Do not proceed to a C_METACORE colimit claim until the morphism class and object admissibility are fixed.
+
+============================================================
+9. ARCHITECTURAL FREEZE
+============================================================
+
+Frozen Core: UNCHANGED.
+Volume II: UNCHANGED.
+Volume III: UNCHANGED.
+Volume V: UNCHANGED.
+CE-V-07: RESERVED.
+Stage 2: NOT OFFICIALLY OPENED.
+CAPD: NO CHANGE.
+RL: NO REGISTRATION CLAIMED.
+CANONICAL STATUS: NO CHANGE.
+
+END OF S2-04C-06 RECORD
