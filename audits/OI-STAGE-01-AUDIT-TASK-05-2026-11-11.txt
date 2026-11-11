@@ -1,0 +1,258 @@
+OMEGA-ISOP
+STAGE 1 — DIFFERENCE
+AUDIT TASK 05 — BOUNDARY CONDITIONS AND MODEL CLASSIFICATION
+
+DATE: 2026-11-11
+SCOPE: MATHEMATICAL CLASSIFICATION OF ADMISSIBLE BINARY DIFFERENCE PREDICATES
+STATUS: CHECKED FOR THE DECLARED SET-THEORETIC SCOPE; ZFC-DEPENDENT CLAIMS LABELLED
+STAGE 1 FINAL ACCEPTANCE: NOT GRANTED
+STAGE 2: NOT OPENED
+FROZEN CORE: UNCHANGED
+VOLUME V: UNCHANGED
+CE-V-07: RESERVED
+RL REGISTRATION: NOT VERIFIED
+UNIVERSAL THEOREM: NOT ESTABLISHED
+
+0. DEFINITIONS AND SCOPE
+
+Let X be an arbitrary set and let D:X×X→{0,1} satisfy:
+
+A1: D(x,x)=0.
+A2: D(x,y)=D(y,x).
+A3: D(x,z)=1 ⇒ (D(x,y)=1 OR D(y,z)=1).
+
+Define x~_D y iff D(x,y)=0.
+
+Let PART(X) denote the set of all partitions of X, where a partition is a set of pairwise disjoint nonempty subsets whose union is X. The unique partition of the empty set is the empty family ∅.
+
+This task classifies the admissible predicates D and their boundary cases. It does not add physical interpretation.
+
+1. BOUNDARY CASES
+
+BC-01 — EMPTY CARRIER
+
+If X=∅, then X×X=∅ and there is exactly one function D:∅→{0,1}, namely the empty function. A1, A2 and A3 hold vacuously. The quotient X/~_D is ∅, and the corresponding partition is ∅.
+
+RESULT: Exactly one admissible D exists on the empty carrier.
+STATUS: PROVED.
+
+BC-02 — SINGLETON CARRIER
+
+If X={a}, A1 forces D(a,a)=0. There are no other ordered pairs. Thus exactly one admissible D exists, and its partition is {{a}}.
+
+RESULT: Exactly one admissible D exists on a singleton carrier.
+STATUS: PROVED.
+
+BC-03 — ZERO PREDICATE
+
+For any X, D≡0 satisfies A1–A3. If X is nonempty, its equivalence relation has one class X and its partition is {X}. If X=∅, its partition is ∅.
+
+RESULT: D≡0 is admissible for every X.
+STATUS: PROVED.
+
+BC-04 — DISCRETE PREDICATE
+
+Define D(x,y)=1 iff x≠y. Then its zero relation is equality, and its partition is {{x}:x∈X}. This includes the empty and singleton cases.
+
+RESULT: The discrete predicate is admissible for every X.
+STATUS: PROVED.
+
+2. FINITE CARRIERS
+
+BC-05 — COUNT OF ADMISSIBLE PREDICATES
+
+For finite X with |X|=n, the correspondence between admissible predicates and partitions gives:
+
+|D_ADM(X)| = B_n,
+
+where B_n is the nth Bell number.
+
+Values:
+B_0=1
+B_1=1
+B_2=2
+B_3=5
+B_4=15
+B_5=52
+B_6=203
+
+STATUS: PROVED.
+
+The count is a consequence of the bijection established in BC-07, not an independent assumption.
+
+3. PARTITIONS AND THE BIJECTION
+
+BC-06 — CONSTRUCTION FROM A PARTITION
+
+Let P∈PART(X). Define:
+
+D_P(x,y)=0 iff there exists B∈P such that x∈B and y∈B.
+D_P(x,y)=1 otherwise.
+
+Because P is a partition:
+- every x belongs to exactly one block, so D_P(x,x)=0;
+- block membership is symmetric, so D_P(x,y)=D_P(y,x);
+- if D_P(x,z)=1, x and z lie in different blocks; it is impossible for both x,y and y,z to lie in the same block, so D_P(x,y)=1 or D_P(y,z)=1.
+
+Thus D_P satisfies A1–A3.
+
+STATUS: PROVED.
+
+BC-07 — BIJECTION
+
+Define:
+D_ADM(X) = {D:X×X→{0,1} | D satisfies A1,A2,A3}.
+F:D_ADM(X)→PART(X), F(D)=the set of equivalence classes under x~_D y iff D(x,y)=0.
+G:PART(X)→D_ADM(X), G(P)=D_P as defined in BC-06.
+
+For every admissible D, the blocks of F(D) are exactly its zero-equivalence classes. Hence G(F(D))=D.
+
+For every partition P, two elements have D_P(x,y)=0 exactly when they lie in the same block of P. Hence the equivalence classes of D_P are exactly the blocks of P, and F(G(P))=P.
+
+Therefore F and G are mutually inverse bijections:
+
+D_ADM(X) ≅ PART(X).
+
+RESULT: There is a one-to-one correspondence between admissible predicates and partitions of X.
+STATUS: PROVED, WITHOUT AXIOM OF CHOICE.
+
+PRECISION:
+The partition P and the quotient set X/~ are canonically the same collection of subsets of X: the equivalence classes. The terms emphasize different constructions or roles, but here they are not two different underlying sets once the quotient is defined in the standard way.
+
+4. INFINITE CARRIERS AND CARDINALITY
+
+BC-08 — GENERAL INFINITE CARRIER
+
+For arbitrary infinite X, the constructions F and G in BC-07 remain valid. No finiteness or countability assumption is used, and no representative is selected from each equivalence class.
+
+STATUS: PROVED, WITHOUT AXIOM OF CHOICE.
+
+BC-09 — NUMBER OF ADMISSIBLE PREDICATES
+
+Assume ZFC and let |X|=κ be infinite.
+
+Upper bound:
+Every admissible D is a binary relation on X, so
+|D_ADM(X)| ≤ 2^{|X×X|} = 2^κ,
+using κ·κ=κ for infinite cardinals in ZFC.
+
+Lower bound:
+Fix a∈X. For each S⊆X\{a}, define the partition
+P_S = {{a}∪S} ∪ {{x}:x∈X\(S∪{a})}.
+
+The unique block of P_S containing a is {a}∪S, so S can be recovered from P_S. Thus distinct S give distinct partitions. Since |X\{a}|=κ in ZFC, there are 2^κ such partitions.
+
+By BC-07:
+|D_ADM(X)| ≥ 2^κ.
+
+Combining the bounds:
+|D_ADM(X)| = 2^κ.
+
+STATUS: PROVED IN ZFC.
+
+FOUNDATIONAL LIMIT:
+The cardinal arithmetic step κ·κ=κ and the comparison statements are being used in the ZFC setting. This result is not asserted here as a theorem of bare ZF. The bijection in BC-07 does not depend on AC.
+
+5. CARDINALITIES OF CLASSES AND ISOMORPHISM
+
+BC-10 — SIZE OF THE QUOTIENT
+
+In ZFC, if X is nonempty, |X|=κ and the quotient has λ equivalence classes, then:
+1 ≤ λ ≤ κ.
+
+The lower bound follows from X being nonempty. The upper bound follows because the classes form a partition and, in ZFC, a choice of one representative from each class gives an injection of the class set into X.
+
+For X=∅, λ=0.
+
+STATUS: PROVED IN ZFC.
+
+The representative-selection argument is not needed to construct X/~. It is used only for this cardinal comparison.
+
+BC-11 — ISOMORPHISM OF DIFFERENCE STRUCTURES
+
+Let (X,D_X) and (Y,D_Y) satisfy A1–A3. An isomorphism is a bijection φ:X→Y such that, for all x,x'∈X:
+D_X(x,x')=D_Y(φ(x),φ(x')).
+
+Such a bijection maps equivalence classes of X bijectively to equivalence classes of Y and preserves the cardinality of each corresponding class.
+
+In ZFC, the converse also holds: if there is a bijection between the sets of equivalence classes that pairs classes of equal cardinality, then bijections between paired classes can be assembled into an isomorphism.
+
+Therefore, in ZFC, the isomorphism type is completely determined by the multiset of cardinalities of the equivalence classes, including multiplicities.
+
+STATUS: PROVED IN ZFC.
+
+SCOPE NOTE:
+The converse uses the ability to choose/assemble bijections for the paired blocks. No claim is made here that the same classification proof works in bare ZF without additional choice assumptions.
+
+6. AXIOM-OF-CHOICE AUDIT
+
+BC-12 — CONSTRUCTIONS NOT REQUIRING AC
+
+The following do not require the axiom of choice:
+- defining the zero relation from D;
+- proving it is an equivalence relation;
+- forming the quotient set of equivalence classes;
+- defining q:X→X/~ by q(x)=[x];
+- defining D_P from a partition;
+- proving the mutually inverse correspondence between admissible D and partitions;
+- handling X=∅, finite X, and arbitrary infinite X at the level of this correspondence.
+
+BC-13 — STEPS THAT USE ZFC IN THIS TASK
+
+The following arguments were explicitly placed in ZFC:
+- κ·κ=κ for infinite κ in the upper cardinality bound;
+- |X\{a}|=κ for infinite X in the lower bound;
+- the general cardinal comparison of the number of blocks with |X|;
+- assembling a family of bijections between paired equivalence classes for the converse isomorphism classification.
+
+STATUS: FOUNDATIONAL DEPENDENCIES IDENTIFIED.
+
+7. MATHEMATICAL CLASSIFICATION VERSUS INTERPRETATION
+
+The bijection D_ADM(X)≅PART(X) is a mathematical classification of binary predicates satisfying A1–A3.
+
+It does not establish:
+- that the blocks are physical objects or ontological entities;
+- that indistinguishability means identity;
+- that the partition is observable or uniquely measurable;
+- that any physical system realizes every such partition;
+- that Difference alone generates causality, direction, dynamics, or organization;
+- that the construction is a universal law.
+
+These remain outside the proven mathematical scope.
+
+8. RESULT LEDGER
+
+BC-01: Empty carrier; exactly one admissible predicate. PROVED.
+BC-02: Singleton carrier; exactly one admissible predicate. PROVED.
+BC-03: D≡0 is admissible; one-block partition when X is nonempty. PROVED.
+BC-04: Discrete predicate is admissible; singleton-block partition. PROVED.
+BC-05: For finite |X|=n, count is B_n. PROVED.
+BC-06: Every partition defines an admissible predicate. PROVED.
+BC-07: Admissible predicates and partitions are in bijection. PROVED, NO AC.
+BC-08: The correspondence extends to arbitrary infinite carriers. PROVED, NO AC.
+BC-09: For infinite |X|=κ, number of admissible predicates is 2^κ. PROVED IN ZFC.
+BC-10: Number of equivalence classes λ satisfies 1≤λ≤κ for nonempty X. PROVED IN ZFC.
+BC-11: Isomorphism classification by the multiset of class cardinalities. PROVED IN ZFC.
+BC-12: Core constructions independent of AC. PROVED.
+BC-13: ZFC-dependent cardinal and isomorphism steps identified. PROVED AS SCOPE AUDIT.
+
+9. TASK CONCLUSION AND PROJECT STATUS
+
+Audit Task 05 establishes, within the declared set-theoretic scope, a bijection between admissible binary Difference predicates and partitions of the carrier. It handles empty, singleton, finite, and infinite carriers. It distinguishes constructions valid without AC from cardinal and isomorphism claims stated in ZFC.
+
+No physical interpretation is derived from this classification.
+
+STAGE 1 FINAL ACCEPTANCE: NOT GRANTED.
+STAGE 2: NOT OPENED.
+FROZEN CORE: UNCHANGED.
+VOLUME V: UNCHANGED.
+CE-V-07: RESERVED.
+RL REGISTRATION: NOT VERIFIED.
+UNIVERSAL THEOREM: NOT ESTABLISHED.
+
+NEXT PROPOSED TASK:
+STAGE 1 — AUDIT TASK 06: STRUCTURAL COMPLETENESS AND FINAL BOUNDARY AUDIT.
+The next task must check unused or redundant premises, compatibility of the signature and predicate formulations, the exact boundary between Difference and Relation, information in D not represented by the partition (if any under the declared signature), and the acceptance criteria for Stage 1 closure.
+
+END OF AUDIT TASK 05
