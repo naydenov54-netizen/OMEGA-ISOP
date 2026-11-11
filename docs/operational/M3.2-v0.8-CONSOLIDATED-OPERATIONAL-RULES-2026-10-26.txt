@@ -291,10 +291,45 @@ Ask a clarification question only when a missing decision or fact materially pre
 
 This rule is intended to preserve research continuity, reduce repetitive interaction overhead, and prevent avoidable LOOP behavior. It does not authorize changes to Frozen Core or bypass any existing approval/change-control requirement.
 
+12.12 AUTOMATIC GITHUB CHECKPOINT FOR MATERIAL RESEARCH RESULTS
+
+This rule removes the need for the user to repeat the instruction to preserve important OMEGA-ISOP work in GitHub.
+
+TRIGGER:
+During an active OMEGA-ISOP research or audit session, create a durable GitHub record without waiting for a separate checkpoint command whenever a material result is established, including:
+- a proof, derivation, or conditional result that has been checked to the stated level;
+- a meaningful counterexample, failed construction, or negative result that rules out an inference or route;
+- a correction to an earlier result or a material change in its status;
+- completion or closure of an audit task;
+- a decision that changes the next valid research step;
+- a substantial session endpoint at which a verified result or important unresolved boundary must be preserved for continuity.
+
+Do not create a checkpoint for routine dialogue, unverified speculation, trivial intermediate calculations, or repeated content that adds no durable value. When uncertain whether a finding is material, preserve a concise record if losing it would impair mathematical traceability or continuation.
+
+MANDATORY WORKFLOW:
+1. Identify the exact result and its source context.
+2. Review existing GitHub records for duplicates, conflicts, and current status.
+3. Record the narrow claim, definitions, assumptions, evidence class, checks performed, limitations, status, and next action.
+4. Preserve the distinction between FACTS, HYPOTHESES, FORMAL RESULTS, AUDIT FINDINGS, and STATUS where relevant.
+5. Write the record to the correct repository and branch.
+6. Read the saved file back from GitHub and verify its content.
+7. Report the exact path, commit SHA, verification result, and any remaining limitation.
+
+EXPLICIT USER CHECKPOINT COMMAND:
+If the user says to make a GitHub checkpoint, treat it as a direct instruction to record the important current findings. Do not defer, merely promise, or ask the user to repeat the instruction. Perform the write and readback verification immediately when the authorized GitHub tools are available.
+
+NEW-CHAT CONTINUITY:
+Do not rely on the user to remind the assistant that important results belong in GitHub. At the beginning of a new OMEGA-ISOP session, read M3.2 and the latest available session/project checkpoint, identify the active research thread, and inspect the current GitHub state when resuming that thread or when repository-current status is needed. Continue from the latest verified checkpoint. If GitHub access or write permission is unavailable, state that exact limitation and preserve the result in the available working context without claiming a GitHub write.
+
+STATUS SEPARATION:
+A successful GitHub commit and readback verify preservation of the record only. They do not certify the mathematics, establish independent verification, register an RL item, promote CE-V, or change canonical acceptance.
+
+This rule operationalizes Sections 12.1, 12.3, 12.6, 12.9, and 12.10. It does not authorize changes to the Frozen Core, protected source documents, RL registry, CE-V status, or canonical project architecture.
+
 CHANGE SUMMARY FOR SECTION 12
 
-GitHub remains the durable repository record for relevant, reviewed scientific results and their audit trail. The Library is the first retrieval source for project documents and prior research records. GitHub is consulted afterward when repository-specific verification, history, discrepancy investigation, or a repository operation requires it.
+GitHub remains the durable repository record for relevant, reviewed scientific results and their audit trail. The Library is the first retrieval source for project documents and prior research records. For an active research thread, inspect GitHub when resuming from a checkpoint or when repository-current state is needed. Material research results trigger an automatic GitHub checkpoint without requiring the user to repeat the instruction; explicit checkpoint commands require immediate write and readback verification.
 
-This section preserves review-before-write, proportional mathematical checking, correction/traceability rules, readback verification, and new-chat continuity. It prevents redundant checks and duplicate writes while keeping Library file status and GitHub repository status distinct.
+This section preserves review-before-write, proportional mathematical checking, correction/traceability rules, readback verification, and new-chat continuity. It adds an automatic checkpoint obligation for material research results and makes explicit user checkpoint commands immediately actionable. It prevents redundant checks and duplicate writes while keeping Library file status and GitHub repository status distinct.
 
 It does not alter Frozen Core, automatically register RL items, promote results to CE-V, or change canonical acceptance status.
