@@ -79,14 +79,17 @@ WORKING METHOD
 - Do not alter Frozen Core, register results, or claim canonical acceptance without the applicable explicit procedure.
 
 CURRENT POSITION (2026-11-11)
-Stage 1 (Difference) remains a candidate formalization under formal audit. Audit Task 02 has been recorded:
+Stage 1 (Difference) remains a candidate formalization under formal audit. Audit Task 02 and Audit Task 03 have been recorded:
 audits/OI-STAGE-01-AUDIT-TASK-02-2026-11-11.txt
+audits/OI-STAGE-01-AUDIT-TASK-03-2026-11-11.txt
 
-Recorded results include type-correctness under stated assumptions; empty, finite, and infinite feature-family cases; the equivalence relation induced by equal signatures; signature separation iff injectivity; the pseudometric property and the metric condition; classical-logic scope for cotransitivity; and non-uniqueness of a directed relation from D alone.
+Audit Task 02 established, within its declared scope, type assumptions; empty, finite, and infinite feature-family cases; the equivalence relation induced by equal signatures; signature separation iff injectivity; the pseudometric property and metric condition; classical-logic scope for cotransitivity; and non-uniqueness of a directed relation from D alone.
 
-Audit Task 02 is complete for its stated scope. Stage 1 final acceptance is NOT granted. No Frozen Core or Volume V amendment is made. Stage 2 remains NOT OPENED.
+Audit Task 03 established, within its declared scope, representation invariance iff equality-kernel equivalence relations agree; monotonicity under feature addition and removal; non-uniqueness of signature representations inducing the same D; canonical factorization through indistinguishability classes; and the distinction between intrinsic properties of (X,D) and representation-dependent data. The audit explicitly does not infer physical ontology or a unique signature representation.
+
+Audit Tasks 02 and 03 are complete for their stated scopes. Stage 1 final acceptance is NOT granted. No Frozen Core or Volume V amendment is made. Stage 2 remains NOT OPENED.
 
 NEXT ACTION
-Perform Stage 1 Audit Task 03: Structural Consistency and Representation Independence. Check equivalent presentations, feature addition/removal, non-uniqueness of signature representations inducing the same D, canonical factorization through indistinguishability classes, and representation-dependent versus intrinsic properties. Do not open Stage 2 until Stage 1 audit closure is explicitly justified.
+Perform Stage 1 Audit Task 04: Axiomatic Characterization and Minimality. Test whether the proposed axioms characterize the zero-equivalence relation, whether every qualifying distinction predicate admits a signature representation for arbitrary X, and whether the axioms are independent or can be weakened. Do not claim minimality without proof or counterexample. Do not open Stage 2 until Stage 1 audit closure is explicitly justified.
 
 END OF DOCUMENT
