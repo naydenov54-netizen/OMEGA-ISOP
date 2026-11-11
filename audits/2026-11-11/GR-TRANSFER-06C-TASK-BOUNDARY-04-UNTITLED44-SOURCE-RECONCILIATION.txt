@@ -771,3 +771,88 @@ Volume V v2.4: PRESERVED.
 CE-V-07: RESERVED.
 Universality: NOT ESTABLISHED.
 No certification promotion is made.
+
+
+============================================================
+16. ADDENDUM — BOUNDARY ENDPOINT RECOVERY RESULT
+DATE: 2026-11-11
+============================================================
+
+TARGET
+Recover the actual CAPD endpoints of:
+boundary = DInterval(22) / DInterval(70)
+as used by Untitled44 CELL 25, and determine:
+boundaryWidth, hEff, rho_eff, rmax_eff, U_eff.
+
+SEARCH RESULT
+The Library recovery record contains the Untitled44 source expression and
+the later source-generation code. The available CELL 25 output does not
+print boundary.leftBound(), boundary.rightBound(), or boundaryWidth.
+No raw execution output for that exact test was recovered.
+
+RELATED BUT NON-TRANSFERABLE RECORD
+CAPD-Mathematical-Certification-Results-Archive.txt, section 4,
+records a successful, separate Untitled47 ODE integration with:
+INITIAL_TIME =
+[0.32428571428571423, 0.32428571428571434]
+
+This is not the boundary interval from Untitled44. It is a different
+notebook/test and its initial time is offset from the nominal boundary.
+It cannot be substituted for boundary.leftBound()/rightBound().
+
+OTHER RECOVERED BOUNDARY VARIANT
+The separate recovered boundary source uses eta=1/100 and rho=eta/w,
+without boundaryWidth. It is not the Untitled44 CELL 25 configuration.
+No endpoint values are printed there either.
+
+FINDINGS
+U44-BOUNDARY-01
+STATUS: NOT RECOVERED FROM EXISTING RAW OUTPUT.
+The actual left/right endpoints for the Untitled44 DInterval expression
+are not present in the inspected execution records.
+
+U44-BOUNDARY-02
+STATUS: RELATED TIME INTERVAL FOUND, NOT TRANSFERABLE.
+The Untitled47 INITIAL_TIME interval is from a different ODE integration.
+It is not evidence for the Untitled44 boundary interval.
+
+U44-BOUNDARY-03
+STATUS: DIAGNOSTIC REQUIRED.
+A read-only diagnostic must execute in the identified CAPD runtime and
+print the interval endpoints and all derived quantities. It must also
+record capd-config output, compiler identity, compile flags, stdout,
+stderr, and exit codes. It must not modify Untitled44.ipynb or its
+original source.
+
+DIAGNOSTIC SOURCE REQUIREMENTS
+The diagnostic must preserve the Untitled44 configuration:
+eta = 1/10
+w = 13/20
+boundary = DInterval(22)/DInterval(70)
+
+It must compute:
+boundaryWidth = DInterval(boundary.rightBound())
+              - DInterval(boundary.leftBound())
+hEff = eta + boundaryWidth
+rho_eff = hEff / w
+rmax_eff = 2*rho_eff - rho_eff*rho_eff
+U_eff = exp(-DInterval(1)/rmax_eff)
+
+The diagnostic must print:
+boundary, boundary.leftBound(), boundary.rightBound(),
+boundaryWidth, eta, hEff, rho_eff, rmax_eff, U_eff,
+U_eff.rightBound(), CAPD configuration/version metadata,
+compiler version, complete compile command, source/executable hashes,
+build stdout/stderr/exit code, and runtime stdout/stderr/exit code.
+
+No fresh CAPD execution is claimed in this addendum.
+No endpoint value is inferred from the Untitled47 time interval.
+No certification promotion is made.
+
+STATUS CONTROL
+TASK 03: IN PROGRESS.
+GR-TRANSFER-06C: OPEN / INCONCLUSIVE.
+Frozen Core: LOCKED / UNCHANGED.
+Volume V v2.4: PRESERVED.
+CE-V-07: RESERVED.
+Universality: NOT ESTABLISHED.
