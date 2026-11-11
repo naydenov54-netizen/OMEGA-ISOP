@@ -1,0 +1,88 @@
+OMEGA-ISOP — MACHINE AUDIT 01
+STATUS CHECKPOINT: 2026-11-11
+TRACK: TASK 03 — CONTROLLED O0/O2 BUILD MATRIX
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+
+1. PURPOSE
+Preserve the current machine-audit state for continuation across chat sessions.
+This is a status checkpoint, not a new execution report and not a certification decision.
+
+2. ARCHITECTURAL CONTROL
+- Frozen Core: LOCKED / PRESERVED / UNCHANGED.
+- Volume V v2.4 (2026-11-09): ACTIVE RESEARCH ARCHITECTURE / controlling consolidated working master.
+- CE-V-07: RESERVED / NOT ASSIGNED / NOT PROMOTED.
+- Universality: NOT ESTABLISHED.
+- GR-TRANSFER-06C mathematical certification: OPEN / INCONCLUSIVE.
+- TASK 02 mathematical certification: PASS / COMPLETE, as recorded in its handover; do not conflate with TASK 03 machine audit.
+- TASK 03: IN PROGRESS.
+- Global OMEGA-ISOP certification: NOT GRANTED.
+
+3. CONTROLLED BUILD MATRIX — RECORDED RESULTS
+Source record:
+audits/OMEGA-ISOP-CAPD-TASK-03-CONTROLLED-BUILD-MATRIX-2026-11-07.txt
+Blob SHA: 3e6a73d1500c63c115d48bc0b42ba8e322258ca9
+
+Reported configuration:
+- CAPD v6.0.0, source commit 693998cd6d73a0c4e1b141bfb79fcad1c40c3cbe.
+- GNU C/C++ 13.3.0, x86-64 SSE.
+- MULTIPRECISION=OFF; CAPD tests and examples OFF.
+- O0: configure/build exit 0; 90/90 compiler invocations reported successful.
+- O2: configure/build exit 0; 90/90 compiler invocations reported successful.
+- Both builds report optimization-flag verification and complete exit-code recording.
+- Artifact, log, cache and compile_commands SHA256 values are recorded in the source matrix document.
+- Archive SHA256 recorded there: 5aaa9d1347da82c0c994d974cbde42f53376ae4c0e44b0eb4017b238aeee72bc.
+- Build matrix status: BUILD_COMPLETED_AUDIT_PENDING.
+
+Interpretation:
+These are recorded build results. They do not establish interval correctness, runtime correctness, reproducibility of the full target construction, or mathematical certification.
+
+4. INDEPENDENT MACHINE-LEVEL REPRODUCTION — RECORDED FINDINGS
+Source record:
+audits/OMEGA-ISOP-CAPD-TASK-03-INDEPENDENT-MACHINE-LEVEL-REPRODUCTION-2026-11-07.txt
+Blob SHA: fdcd82b69e12dad1304cf18b392c6082884b5f31
+
+- Reproduction environment lacked libmpfr-dev/libgmp-dev and had no apt network access.
+- Reproduction used MULTIPRECISION=OFF although the original notebook recipe specified MULTIPRECISION=ON. This is a configuration deviation; it is not an equivalent reproduction.
+- In the reproduced MULTIPRECISION=OFF O2 configuration, DoubleRounding::isWorking() returned 0 (recorded FAIL for that invocation/configuration).
+- Disassembly observation is consistent with the returned false value but is not a complete causal diagnosis.
+- Two target programs (TASK 01E.1 Wronskian and TASK 01A phi2 core) reportedly produced stdout bitwise identical to stored notebook stdout at O2 and O0. This supports only those two outputs, not whole-project reproducibility.
+- DInterval +, -, *, / reportedly passed 120,000 tested cases.
+- sqrt and exp reportedly produced enclosing intervals, not necessarily tight enclosures.
+- Reported output stability across O0/O1/O2/O3 and -fno-rounding-math is empirical and limited to the recorded tests.
+- FILIB was observed to leave MXCSR in round-up mode. This is not classified as a defect until API contract and state-restoration behavior are tested.
+- General directed-rounding correctness: NOT ESTABLISHED.
+- Full independent CAPD reproducibility: NOT ESTABLISHED.
+
+5. IMPORTANT CROSS-TASK SEPARATION
+- CAPD_IS_WORKING_O0=1 in TASK 02 notebook Untitled109.ipynb, forensic Cell 26, belongs to a different build (build-o0-verified).
+- DoubleRounding::isWorking()=0 belongs to the TASK 03 MULTIPRECISION=OFF CMake O2 reproduction.
+- These observations are from different builds/configurations. They are NOT a controlled O0-versus-O2 comparison.
+- Optimization level as the cause of the differing observations: NOT ESTABLISHED.
+
+6. CURRENT AUDIT CLASSIFICATION
+FACT (documented record): The two build configurations are reported as successfully compiled with 90 successful invocations each.
+RECORDED COMPUTATIONAL RESULT: The reproduction report records the runtime, directed-rounding, and two-program observations above.
+AUDIT FINDING: The reproduction configuration differs from the original MP=ON recipe.
+OPEN: Cause and scope of DoubleRounding::isWorking()=0.
+OPEN: MXCSR state transitions and restoration contract around FILIB / directed-rounding operations.
+NOT ESTABLISHED: General interval arithmetic correctness, complete machine-level reproducibility, target-construction certification, and mathematical certification.
+
+7. NEXT FOCUSED MACHINE-AUDIT STEP
+Investigate the DoubleRounding / MXCSR diagnostic as one isolated issue:
+- Keep the MP=OFF reproduced configuration explicitly identified.
+- Do not compare it causally with the separate TASK 02 O0 result.
+- Establish the expected MXCSR state before and after the relevant calls, the return conditions of DoubleRounding::isWorking(), and whether caller state is restored according to the documented API contract.
+- Record exact source/build configuration and test outcomes.
+- Do not alter coefficients, run Newton/Krawczyk, change the frozen architecture, or promote any certification status as part of this diagnostic.
+
+8. WORKING RULES FOR CONTINUATION
+- Do not repeat broad Library/GitHub/Colab/Drive provenance searches. The user has specified that the Library and GitHub materials originate from Colab / Google Drive; accept that as working provenance context.
+- Verify concrete technical claims, not the archive's origin.
+- Recorded execution != independent reproduction.
+- Tool validation != target-construction certification.
+- Numerical result != analytical theorem.
+- Do not describe finite empirical tests as universal proof.
+- One step -> one check -> one report -> stop and await direction.
+
+END OF CHECKPOINT
