@@ -315,3 +315,38 @@ STATUS: NARROW CONDITIONAL PASS.
 The next-representable-number expected interval was a subset of the CAPD result for the specific scalar test. No boundary or full-profile certification follows.
 
 This addendum supersedes any broader reading that the recovery file contains only one eta=0.01 scalar test. It does not alter the original Untitled44 source or promote any certification status.
+
+
+============================================================
+12. ADDENDUM — CAPD PATH / RUNTIME RECONCILIATION
+============================================================
+
+Untitled44 CELL 26 invokes:
+  /content/CAPD/build/bin/capd-config
+  (uppercase CAPD)
+
+Its own CELL 28 records that /content/CAPD does not exist and that no capd-config or capd/capdlib.h was found in the searched paths.
+
+The separate recovered API/boundary records use:
+  /content/capd/build-o0-verified/bin/capd-config
+  (lowercase capd)
+
+The recovery record's CELL 39 inventory shows:
+- /content/capd/build-o0-verified/bin/capd-config exists and is executable;
+- its --cflags and --libs calls return exit 0;
+- a second capd-config candidate under capdMake/libcapd is not executable and raises PermissionError.
+
+The recovered CELL 42/43 and CELL 46 code explicitly uses the executable lowercase-path config and records successful compilation. Their runtime results are scoped to those scalar tests.
+
+Finding:
+The statement "CAPD is absent" is valid only for the runtime/path checked by Untitled44 CELL 28. It must not be generalized to all recovered project runtimes. A separate recovered runtime contains a usable CAPD build at a lowercase path. The uppercase/lowercase path difference is material on Linux and is a plausible explanation for the local compile failure, but it does not prove both records came from the same runtime or identical CAPD build.
+
+U44-ENV-01 — PATH CASE / RUNTIME DIFFERENCE
+STATUS: SOURCE-RECORDED.
+Untitled44 uses /content/CAPD; the separate recovered build uses /content/capd.
+
+U44-ENV-02 — SEPARATE CAPD BUILD
+STATUS: HISTORICAL EXECUTION EVIDENCE FOR SEPARATE TESTS.
+A usable lowercase-path CAPD config is recorded in the recovery file. This does not retroactively validate the Untitled44 boundary source.
+
+No execution status is promoted by this addendum.
