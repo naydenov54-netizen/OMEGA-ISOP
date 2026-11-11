@@ -1,0 +1,217 @@
+OMEGA-ISOP
+MACHINE AUDIT — TASK 03
+SOURCE-LEVEL RECONCILIATION: UNTITLED44
+DATE: 2026-11-11
+STATUS: PARTIAL SOURCE AUDIT / EXECUTION NOT ESTABLISHED
+
+============================================================
+1. SCOPE AND SOURCE IDENTIFICATION
+============================================================
+
+Source file:
+Library path: /OMEGA-ISOP/05_NOTEBOOKS/Untitled44.ipynb
+File size: 90,556 bytes
+Notebook format: nbformat 4
+Cell count: 28
+
+The original notebook was materialized read-only for programmatic inspection.
+No source file was modified.
+
+The boundary test is the 25th notebook cell (zero-based index 24):
+- CELL 25 writes /content/gr_boundary_test.cpp.
+- CELL 26 attempts compilation.
+- CELL 27 contains a shell-check cell that was parsed as Python and failed with SyntaxError.
+- CELL 28 repeats the directory/header checks with shell escapes and records the missing CAPD installation.
+
+============================================================
+2. SOURCE FINDING — BOUNDARY CONSTRUCTION
+============================================================
+
+The original C++ source defines:
+
+boundary = DInterval(22) / DInterval(70)
+eta = DInterval(1) / DInterval(10)
+w = DInterval(13) / DInterval(20)
+
+boundaryWidth =
+    DInterval(boundary.rightBound())
+    - DInterval(boundary.leftBound())
+
+hEff = eta + boundaryWidth
+rho = hEff / w
+rmax = 2*rho - rho*rho
+U = exp(-1/rmax)
+
+The source therefore explicitly includes the interval diameter in the geometric parameter.
+
+Terminology qualification:
+The code comment calls 22/70 an "Exact rational boundary". The mathematical rational 22/70 is exact, but DInterval(22)/DInterval(70) is an interval enclosure produced by interval division, not a point interval. Future audit text must distinguish the exact rational target from its outward interval enclosure.
+
+No raw leftBound()/rightBound() values are printed or preserved by this test source. The actual boundaryWidth numerical enclosure is therefore NOT RECOVERED from this execution record.
+
+============================================================
+3. SOURCE FINDING — TIME PROPAGATION
+============================================================
+
+The source contains:
+
+solver.setStep(eta)
+set.setCurrentTime(boundary)
+set.move(solver)
+
+The comparison enclosure is constructed as:
+
+expectedUpper =
+    exp(DInterval(U.rightBound()) * eta)
+
+expected = [1, expectedUpper.rightBound()]
+
+This shows that the source intends eta to serve both as the solver step and as the duration in the analytical scalar estimate.
+
+However, the notebook does not record:
+- the solver's actual initial and final time after set.move(solver);
+- the resulting time interval/hull;
+- raw boundary endpoints;
+- an independently inspected CAPD API contract for setCurrentTime, setStep, and move;
+- a successful result interval or subset comparison.
+
+Therefore the equality between the analytical duration H and eta remains NOT INDEPENDENTLY ESTABLISHED. It is a source-level intent, not an audited runtime fact.
+
+============================================================
+4. SCOPE OF THE DIFFERENTIAL INCLUSION
+============================================================
+
+The source constructs:
+
+x' = e*x
+e in [0,U]
+
+This is a scalar differential inclusion with a constant interval parameter.
+
+It does not evaluate the complete bump profile phi_2 over the solver's actual time set. The code does not contain the authoritative definitions of mu_2, phi_2, or the normalized coordinate s(t).
+
+Consequently, this test can at most check a scalar propagation enclosure conditional on the validity of U. It does not independently establish that the original bump coefficient is bounded by U over the complete time set.
+
+Profile-source linkage remains OPEN.
+
+============================================================
+5. CELL NUMBERING AND PARAMETER SCOPE RECONCILIATION
+============================================================
+
+The original Untitled44.ipynb contains 28 cells. Its boundary source is cell 25 (zero-based index 24).
+
+The recovered code labelled CELL 42 / CELL 43 in OMEGA-ISOP-Notebook-Cell-Recovery.txt is not present in this 28-cell source notebook. It is a separate recovered source record unless a direct notebook linkage is established.
+
+That separate recovered scalar majorant code uses:
+eta = 1/100
+w = 13/20
+and does not contain the interval-boundary construction used in Untitled44.
+
+The Untitled44 boundary test uses:
+eta = 1/10
+w = 13/20
+boundary = 22/70
+
+Finding:
+The two eta values belong to different recorded test configurations. The records do not establish that the tests have identical scope. This is a configuration/scope discrepancy, not yet proof of a mathematical contradiction.
+
+No parameter is silently substituted or corrected.
+No PASS is transferred between the two test records.
+
+============================================================
+6. EXECUTION EVIDENCE
+============================================================
+
+CELL 25:
+The source-generation cell records "Overwriting /content/gr_boundary_test.cpp".
+Classification: SOURCE GENERATED.
+
+CELL 26:
+Compilation command fails because:
+- /content/CAPD/build/bin/capd-config does not exist;
+- capd/capdlib.h cannot be found.
+
+CELL 27:
+The shell commands are submitted as Python and produce SyntaxError.
+This cell is not evidence of a CAPD build or execution.
+
+CELL 28:
+The corrected shell checks record:
+- /content/CAPD does not exist;
+- no capd-config found in searched paths;
+- no capd/capdlib.h found in searched paths.
+
+Execution classification:
+CAPD BOUNDARY TEST: NOT COMPILED.
+CAPD BOUNDARY TEST: NOT EXECUTED.
+CAPD INTERVAL INCLUSION: NOT ESTABLISHED.
+No raw CAPD result interval exists in this notebook for this boundary test.
+
+============================================================
+7. AUDIT FINDINGS
+============================================================
+
+U44-SRC-01 — NOTEBOOK IDENTIFICATION
+STATUS: VERIFIED FROM LIBRARY SOURCE.
+The original Untitled44 notebook is a 28-cell notebook. The boundary test is its 25th cell.
+
+U44-SRC-02 — INTERVAL WIDTH INCLUSION
+STATUS: SOURCE VERIFIED.
+The code computes boundaryWidth from the interval endpoints and uses hEff = eta + boundaryWidth in rho.
+
+U44-SRC-03 — RATIONAL BOUNDARY REPRESENTATION
+STATUS: QUALIFICATION REQUIRED.
+22/70 is the exact rational target; DInterval(22)/DInterval(70) is its interval enclosure, not a point interval.
+
+U44-SRC-04 — TEMPORAL SEMANTICS
+STATUS: OPEN.
+The source uses eta as solver step and analytical duration, but actual CAPD time propagation was not observed.
+
+U44-SRC-05 — PROFILE LINKAGE
+STATUS: OPEN.
+The test does not evaluate phi_2, mu_2, or s(t) and does not establish the full bump bound over the actual solver time set.
+
+U44-SRC-06 — CELL 42/43 CROSS-REFERENCE
+STATUS: SCOPE NOT LINKED.
+The recovered eta=0.01 scalar test is not part of the 28-cell Untitled44 source and cannot be merged with its eta=0.1 boundary test without additional linkage.
+
+U44-SRC-07 — CAPD EXECUTION
+STATUS: NOT ESTABLISHED.
+The compile attempt failed because the required CAPD build/configuration and header were absent.
+
+============================================================
+8. REQUIRED NEXT ACTIONS
+============================================================
+
+1. Inspect the authoritative source defining mu_2, w, phi_2, and the zero-extension convention.
+2. Establish whether the exact rational 22/70 is contained in the computed boundary interval; record the actual endpoints from a valid CAPD execution.
+3. Inspect the CAPD API implementation/documentation for setCurrentTime(boundary), solver.setStep(eta), and set.move(solver).
+4. Determine the actual propagated time hull and duration H.
+5. Prove the bump bound separately on the pre-support zero region and the inside-support strip.
+6. Confirm that U bounds the actual coefficient throughout the complete propagated time set.
+7. Only then compile and execute a minimal CAPD boundary test in a controlled runtime, recording CAPD version, compiler, flags, source hash, binary hash, stdout, stderr, exit code, and interval endpoints.
+
+No full-profile integration is authorized by this record.
+No Newton/Krawczyk operation is authorized by this record.
+No source modification is authorized by this record.
+
+============================================================
+9. FINAL STATUS
+============================================================
+
+TASK 03: IN PROGRESS.
+UNTITLED44 SOURCE AUDIT: PARTIAL PASS.
+BOUNDARY GEOMETRIC FORMULA: SOURCE VERIFIED.
+BOUNDARY WIDTH NUMERICAL VALUE: NOT RECOVERED.
+PROFILE LINKAGE: OPEN.
+CAPD TIME SEMANTICS: OPEN.
+CAPD BOUNDARY EXECUTION: NOT ESTABLISHED.
+INDEPENDENT CERTIFICATION: NOT GRANTED.
+
+GR-TRANSFER-06C: OPEN / INCONCLUSIVE.
+Frozen Core: LOCKED / UNCHANGED.
+Volume V v2.4: PRESERVED.
+CE-V-07: RESERVED.
+Universality: NOT ESTABLISHED.
+
+END OF MACHINE AUDIT RECORD
