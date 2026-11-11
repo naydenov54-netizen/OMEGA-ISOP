@@ -85,11 +85,11 @@ This cross-check strengthens the source-level underdetermination finding. It doe
 
 Fix one finite carrier:
 
-U0 = {o1,o2,a,b,p,q,r}.
+U0 = {o1,o2,a,b,p,q,r,s}.
 
 Define one equivalence relation ~ on U0 by its classes:
 
-K = {o1,a,b,p,r}
+K = {o1,a,b,p,r,s}
 L = {o2,q}.
 
 Thus:
@@ -277,6 +277,73 @@ The required factorization does not exist. Therefore M is not a pushout in E_F.
 
 RESULT B:
 M IS AN AMALGAM BUT NOT A PUSHOUT IN E_F.
+
+5.1 STRONGER RESULT: NO PUSHOUT EXISTS IN E_F FOR THIS SPAN
+
+The preceding counterexample shows that the particular object M is not a pushout. In the present fixed-carrier test category E_F, a stronger conclusion can be proved: no pushout object for this span exists.
+
+Assume, for contradiction, that a pushout object P in E_F exists, with embedding cocone maps:
+j1:C1 -> P
+j2:C2 -> P
+satisfying j1 o f1 = j2 o f2.
+
+There are exactly two cases for the two distinguished images j1(a) and j2(b).
+
+CASE 1:
+j1(a) = j2(b).
+
+Use the object N' with carrier {p,q,r,s} and equivalence classes:
+{p,r,s}, {q}.
+
+Define:
+g1':C1 -> N'
+g1'(o1)=p
+g1'(o2)=q
+g1'(a)=r.
+
+Define:
+g2':C2 -> N'
+g2'(o1)=p
+g2'(o2)=q
+g2'(b)=s.
+
+Both maps are injective and preserve/reflect equivalence, hence preserve/reflect apartness. They agree on C0, so they form a cocone.
+
+The pushout property would provide h':P -> N' with:
+h' o j1 = g1'
+h' o j2 = g2'.
+
+But j1(a)=j2(b) would force:
+r = h'(j1(a)) = h'(j2(b)) = s,
+contrary to r and s being distinct.
+
+Thus no factorization exists in Case 1.
+
+CASE 2:
+j1(a) != j2(b).
+
+Use the previous object N with equivalence classes {p,r}, {q}, and the previous cocone g1,g2, where:
+g1(a)=r
+g2(b)=r.
+
+The pushout property would provide h:P -> N satisfying:
+h o j1 = g1
+h o j2 = g2.
+
+It follows that:
+h(j1(a))=r=h(j2(b)).
+
+Since j1(a) and j2(b) are distinct in Case 2, h is not injective. Therefore h is not a morphism in E_F.
+
+Thus no factorization exists in Case 2 either.
+
+Both cases are impossible. Therefore:
+
+FORMAL RESULT:
+The span C1 <- C0 -> C2 has NO PUSHOUT in E_F for this explicit fixed-carrier object family and embedding morphism class.
+
+SCOPE:
+This nonexistence result is specific to the declared finite carrier U0, object family F, and all-embeddings category E_F. It is not a theorem that every embedding category lacks pushouts, and it does not identify E_F with C_METACORE.
 
 ============================================================
 6. COMPARATIVE CONCLUSION
