@@ -1,0 +1,393 @@
+OMEGA-ISOP
+STAGE 2 PREPARATORY MATHEMATICAL AUDIT
+S2-04C-09 — CATEGORY SPECIFICATION DECISION SHEET
+DATE: 2026-11-12
+STATUS: COMPARATIVE FRAMEWORK RECORDED / PROJECT DECISION NOT MADE
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+
+============================================================
+0. PURPOSE AND CONTROL
+============================================================
+
+This document translates the source findings in S2-04C-07 and S2-04C-08 into a controlled decision sheet for a future explicit project-level categorical specification.
+
+It does NOT select the intended C_METACORE category, amend any theory volume, open Stage 2 officially, or establish a project-level amalgamation or colimit theorem.
+
+ARCHITECTURAL CONTROLS:
+- Frozen Core: UNCHANGED.
+- Volume II: UNCHANGED.
+- Volume III: UNCHANGED.
+- Volume V: UNCHANGED.
+- CE-V-07: RESERVED.
+- Stage 2: NOT OFFICIALLY OPENED.
+- No canonical acceptance is claimed.
+- No conditional result is promoted to certified.
+
+============================================================
+1. SOURCE-ALIGNED BASELINE
+============================================================
+
+The inspected Volume II source (v1.3-MF-AUDIT-RESTORED-FINAL), Sections III.4, III.5, IV.1-IV.3, supports:
+
+Configuration:
+C=(S_C,#_C)
+S_C subseteq U0
+#_C is the restriction of the ambient apartness relation.
+
+Candidate embedding:
+f:C1 -> C2 is injective and:
+x #1 y iff f(x) #2 f(y).
+
+The source describes C_METACORE as a category of admissible configurations with morphisms preserving selected structural properties. It does not explicitly say that every candidate embedding is a morphism, that only inclusions are morphisms, or that every morphism extends to a global automorphism.
+
+Volume III, Sections 8-9, requires a specified indexing category J, functor D:J -> C_METACORE, objects, morphisms, compatibility conditions, and universal property.
+
+Volume II leaves exact object admissibility realization-dependent. Volume III's nontriviality test includes |S_C| >= 2 and an apartness witness, but that test must not be silently promoted into a complete universal admissibility predicate.
+
+SOURCE-ALIGNED CONCLUSION:
+The available sources do not uniquely determine the object class and morphism class of C_METACORE.
+
+============================================================
+2. DECISION A — OBJECT CLASS
+============================================================
+
+A project-level category must first define its objects.
+
+Candidate general form:
+C=(S_C,#_C), with S_C subseteq U0 and #_C the induced relation.
+
+The project specification must state an exact admissibility predicate:
+Adm(C).
+
+At minimum, it must answer:
+1. Is |S_C| >= 2 necessary for every object or only for minimal nontrivial objects?
+2. Is an apartness witness required for every object?
+3. Which further realization-dependent constraints apply?
+4. Is admissibility invariant under the proposed morphisms?
+5. Is the class closed under the proposed amalgam construction?
+
+STATUS:
+No complete project-level Adm predicate has been located in the inspected source set.
+
+DECISION REQUIRED:
+Specify Adm(C) explicitly, with every condition classified as source-derived, definitionally introduced, or an additional hypothesis.
+
+============================================================
+3. DECISION B — MORPHISM CLASS
+============================================================
+
+Four principal candidate classes must be distinguished.
+
+OPTION M1 — ALL LOCAL APARTNESS EMBEDDINGS
+
+For admissible C1,C2, morphisms are all injective functions f:S1 -> S2 satisfying:
+x #1 y iff f(x) #2 f(y).
+
+Category checks:
+- Identity maps satisfy the condition.
+- Composites of injective apartness embeddings remain injective apartness embeddings.
+- Associativity and identity laws are inherited from function composition.
+
+Additional issue:
+The object class must be fixed, and the morphism class must be closed between those objects.
+
+Mathematical consequence:
+The finite fixed-carrier category E_F in S2-04C-06 is an example of this option. For its specified span, the record contains a candidate proof of nonexistence of any pushout, subject to the internal consistency audit in Section 8 below.
+
+Source status:
+The embedding notion is source-defined, but its exhaustive identification with C_METACORE morphisms is not source-established.
+
+OPTION M2 — LITERAL INCLUSIONS ONLY
+
+For objects C_S,C_T, a morphism exists exactly when:
+S subseteq T,
+and is the literal inclusion.
+
+Category checks:
+- Identity: S subseteq S.
+- Composition: S subseteq T and T subseteq V imply S subseteq V.
+- Associativity and identity laws follow from inclusion composition.
+
+Mathematical consequence:
+For the declared inclusion-only category P_F, a union object is a pushout of the inclusion span when the union is an admissible object.
+
+Limit:
+This is a restricted category. A local embedding that changes elements or relabels the carrier need not be a morphism.
+
+Source status:
+No inspected authoritative source states that C_METACORE morphisms are inclusions only. The union-colimit artifact explicitly treats P_F as a restricted test category, not as the established intended category.
+
+OPTION M3 — RESTRICTED SUBCLASS OF LOCAL EMBEDDINGS
+
+Morphisms are a specified subclass:
+M(C1,C2) subseteq Emb_#(C1,C2).
+
+The restriction must be given by an explicit predicate P(f), for example:
+f is a morphism iff f is an apartness embedding and P(f).
+
+The predicate P cannot remain an informal phrase such as "preserves the selected structure". It must be mathematically testable.
+
+Required checks:
+- Identity closure: P(id_C).
+- Composition closure: P(f) and P(g) imply P(g o f).
+- Associativity and identity laws.
+- Invariance of object admissibility.
+- Compatibility with the intended amalgam construction.
+
+Mathematical consequence:
+This option can interpolate between all embeddings and inclusions, but its amalgamation and colimit properties must be proved for the exact predicate P. They cannot be inherited automatically from M1 or M2.
+
+Source status:
+The general language about selected structural properties is compatible with the possibility of restrictions, but no exact predicate P has been located.
+
+OPTION M4 — RESTRICTIONS OF GLOBAL AUTOMORPHISMS
+
+Fix the ambient structure (U0,#). A morphism C_S -> C_T is the restriction g|S of an automorphism g of (U0,#), with g(S) subseteq T.
+
+Category checks:
+- Identity automorphism gives identity maps.
+- Composition of restrictions is the restriction of the composite automorphism, provided the intermediate image condition is satisfied.
+- Associativity and identity laws follow from automorphism composition.
+
+Important distinction:
+Not every local apartness embedding necessarily extends to a global automorphism. Extension is an additional restriction, not a consequence of local embedding alone.
+
+Mathematical consequence:
+The earlier C_U0-AUT construction uses M=U0 as a common target. Its amalgamation argument requires U0 itself to be an admissible object in the category and the relevant inverse restrictions to be morphisms.
+
+Source status:
+No inspected authoritative source requires global automorphism extension.
+
+OPTION COMPARISON:
+
+M1: broadest local embedding class; fixed-carrier AP can fail in the explicit E_F test.
+M2: inclusion-only; union pushout is available under admissibility closure.
+M3: depends entirely on explicit P(f); no result until P is fixed.
+M4: ambient-symmetry-restricted; the U0 construction is conditional on U0 being an admissible object.
+
+No option is selected here.
+
+============================================================
+4. DECISION C — AMALGAMATION INPUT
+============================================================
+
+Two mathematically distinct meanings must not be conflated.
+
+C1. PAIR-BASED COMMON EMBEDDABILITY
+
+Input: two objects C1,C2.
+
+A common target consists of an object M and morphisms:
+j1:C1 -> M
+j2:C2 -> M.
+
+This asks whether the two objects embed into a common admissible object. It is a joint-embedding-type condition.
+
+C2. SPAN-BASED AMALGAMATION
+
+Input: a specified span:
+C0 --f1--> C1
+C0 --f2--> C2.
+
+An amalgam consists of an admissible object M and morphisms:
+j1:C1 -> M
+j2:C2 -> M
+
+such that:
+j1 o f1 = j2 o f2.
+
+This requires the two copies of the base C0 to be identified compatibly.
+
+The source formula CC(C1,C2) does not specify which interpretation is intended, nor does it specify a canonical common base if one is implicit.
+
+DECISION REQUIRED:
+State whether CC is pair-based or span-based. If span-based, include C0,f1,f2 in the input or define a unique rule that constructs them.
+
+============================================================
+5. DECISION D — CARRIER CONVENTION
+============================================================
+
+D1. ABSTRACT CARRIER
+
+M may be a newly constructed object, not necessarily a subset of the original U0.
+
+Consequence:
+Abstract pushout constructions may be available, but the resulting object must still satisfy the project admissibility predicate.
+
+D2. FIXED-CARRIER REALIZATION
+
+M must be an induced subconfiguration of the same U0:
+S_M subseteq U0.
+
+Consequence:
+Abstract pushout existence does not establish fixed-carrier realizability. A separate embedding/realization theorem is required.
+
+D3. OTHER REALIZATION RULE
+
+A project may permit a specified class of extensions or representations. That class must be explicitly defined and shown to preserve the required structure.
+
+DECISION REQUIRED:
+Choose and formally define the carrier convention. Do not infer it from an example.
+
+============================================================
+6. DECISION E — ADMISSIBILITY AND CLOSURE OF AMALGAMS
+============================================================
+
+For every proposed amalgam M, prove:
+1. M is an object under Adm.
+2. j1 and j2 are morphisms in the selected category.
+3. The span equation holds:
+   j1 o f1 = j2 o f2.
+4. The construction respects the carrier convention.
+5. Any required nontriviality or realization conditions are satisfied.
+
+If a union is used, prove closure of Adm under that union for the relevant family.
+
+If an abstract quotient or pushout carrier is used, prove that the induced relation and any additional structure satisfy Adm.
+
+No closure theorem is currently established at project level.
+
+============================================================
+7. DECISION F — INDEXING CATEGORY AND DIAGRAM
+============================================================
+
+A categorical diagram must be a functor:
+D:J -> C_METACORE.
+
+The project specification must define:
+
+1. Objects of J.
+2. Arrows of J.
+3. Identity arrows.
+4. Composition in J.
+5. The object assignment D(j).
+6. The arrow assignment D(alpha).
+7. Preservation of identities:
+   D(id_j)=id_D(j).
+8. Preservation of composition:
+   D(beta o alpha)=D(beta) o D(alpha).
+
+A Boolean predicate CC(C1,C2) does not, by itself, define J or D.
+
+DECISION REQUIRED:
+Specify J and D explicitly, and prove functoriality.
+
+============================================================
+8. DECISION G — COLIMIT CLAIM
+============================================================
+
+For a candidate cocone eta_j:D(j) -> R, verify:
+eta_k o D(alpha)=eta_j
+for every arrow alpha:j -> k in J.
+
+Then verify the universal property:
+
+For every object X and every compatible cocone gamma_j:D(j) -> X, there exists a unique morphism u:R -> X such that:
+u o eta_j = gamma_j
+for every j in J.
+
+The quantification over X and over all compatible cocones is essential. A common amalgam alone does not establish a pushout or a general colimit.
+
+The universal property must be checked in the exact selected category, using its exact morphisms.
+
+============================================================
+9. SOURCE-RECORD CONSISTENCY ISSUE — S2-04C-06
+============================================================
+
+The GitHub record:
+audits/OI-STAGE-02-S2-04C-06-FIXED-CARRIER-MORPHISM-CLASS-COMPARISON-2026-11-11.txt
+Blob SHA observed:
+c3313afe0122523233298752a1b3b5a6c73a852c.
+
+Internal inconsistency identified:
+
+Section 5.1 presents a two-case argument intended to prove that no pushout exists for the specified span in E_F:
+- Case 1 assumes j1(a)=j2(b) and constructs a cocone into N' whose factorization would force r=s.
+- Case 2 assumes j1(a) != j2(b) and constructs a cocone into N whose factorization would identify two distinct elements, contradicting injectivity.
+
+However, Section 7 LIMITATIONS states:
+"The result does not prove that no pushout exists for the span in E_F; it proves only that this candidate M is not that pushout."
+
+These statements are inconsistent in strength.
+
+The two-case argument appears designed to establish the stronger nonexistence result, but it must be independently checked for:
+- admissibility of N and N' under the exact declared family F;
+- validity of all four cocone maps;
+- agreement on the base;
+- forced images under any hypothetical pushout cocone;
+- exhaustion of the equality / inequality cases for j1(a),j2(b);
+- the fixed-carrier restriction and morphism definition.
+
+No silent correction is made to S2-04C-06 in this record.
+
+Required follow-up:
+Perform a line-by-line proof audit of Section 5.1 and then add a separate correction/clarification record if the stronger theorem is verified. Preserve the original file and history.
+
+============================================================
+10. DECISION STATUS
+============================================================
+
+OBJECT ADMISSIBILITY PREDICATE:
+NOT FULLY SPECIFIED.
+
+MORPHISM CLASS:
+NOT SELECTED.
+
+AMALGAM INPUT:
+PAIR VS SPAN NOT RESOLVED.
+
+CARRIER CONVENTION:
+ABSTRACT VS FIXED U0 NOT RESOLVED.
+
+AMALGAM CLOSURE:
+NOT ESTABLISHED PROJECT-WIDE.
+
+INDEXING CATEGORY J:
+NOT SPECIFIED.
+
+FUNCTOR D:
+NOT SPECIFIED.
+
+PROJECT-LEVEL COLIMIT:
+NOT ESTABLISHED.
+
+S2-04C-06 STRONG NONEXISTENCE CLAIM:
+REQUIRES INTERNAL CONSISTENCY / PROOF AUDIT DUE TO CONFLICTING LIMITATION STATEMENT.
+
+This sheet is a controlled comparison and decision framework. It is not a request to select a category by convenience and is not itself a project-level definition.
+
+============================================================
+11. NEXT REQUIRED ACTION
+============================================================
+
+S2-04C-10 — LINE-BY-LINE AUDIT OF THE E_F NO-PUSHOUT ARGUMENT IN S2-04C-06.
+
+The audit must:
+1. Reconstruct the exact object family F and relation.
+2. Verify N and N' are admissible.
+3. Verify every map g1,g2,g1',g2' is an injective apartness embedding.
+4. Verify both cocones commute on C0.
+5. Assume an arbitrary pushout P with arbitrary cocone maps j1,j2.
+6. Split into the exhaustive cases j1(a)=j2(b) and j1(a)!=j2(b).
+7. Derive the contradiction in each case.
+8. State the exact scope of the result.
+9. Resolve the contradictory limitation sentence through a new additive record only if the proof passes.
+
+Do not alter the source category or project architecture during this proof audit.
+
+============================================================
+12. ARCHITECTURAL CONTROL
+============================================================
+
+Frozen Core: UNCHANGED.
+Volume II: UNCHANGED.
+Volume III: UNCHANGED.
+Volume V: UNCHANGED.
+CE-V-07: RESERVED.
+Stage 2: NOT OFFICIALLY OPENED.
+CAPD: NO STATUS CHANGE.
+RL REGISTRATION: NOT CLAIMED.
+CANONICAL ACCEPTANCE: NOT CLAIMED.
+
+END OF S2-04C-09
