@@ -1,5 +1,5 @@
 CORRECTED COMPANION COPY — IA-03
-CORRECTION SCOPE: PRESENTATION / TRACEABILITY ONLY; NO CHANGE TO THE MATHEMATICAL RESULTS.
+CORRECTION SCOPE: FORMAL TYPING, PROOF EXPOSITION, STATUS PRECISION, AND TRACEABILITY; THE DECLARED MATHEMATICAL RESULTS ARE RETAINED.
 ORIGINAL AUDIT RECORD: PRESERVED IMMUTABLY IN ITS ORIGINAL PATH.
 THIS COPY DOES NOT CLAIM A NEW INDEPENDENT AUDIT OR PROOF-ASSISTANT VERIFICATION.
 
@@ -13,7 +13,7 @@ SUBJECT: ZERO-KERNEL, EQUIVALENCE CLASSES, QUOTIENT METRIC AND IMAGE ISOMETRY
 DATE: 2026-11-12
 
 STATUS: MATHEMATICAL AUDIT CLOSED FOR THE DECLARED CONSTRUCTION
-MATHEMATICAL RESULTS: PROVED
+FORMAL MATHEMATICAL STATUS: PROVED WITHIN THE DECLARED FRAMEWORK
 EXTERNAL INDEPENDENT MATHEMATICIAN CERTIFICATION: NOT CLAIMED
 PROOF-ASSISTANT / CAPD VERIFICATION: NOT PERFORMED
 FROZEN CORE: UNCHANGED
@@ -263,8 +263,6 @@ F(y)=F(y').
 Using F(x)=F(x') and F(y)=F(y'), we obtain the explicit chain:
 
 D(x',y')=delta(F(x'),F(y'))=delta(F(x),F(y))=D(x,y).
-
-Thus the value assigned by d_bar is independent of the representatives chosen.
 
 Thus the value assigned by d_bar is independent of the representatives chosen.
 
@@ -578,7 +576,7 @@ FINAL MATHEMATICAL AUDIT RESULT:
 
 IA-03: MATHEMATICAL AUDIT CLOSED.
 DECLARED RESULTS: PROVED.
-CONDITIONAL STATUS: The quotient-metric theorem follows unconditionally from the explicitly stated IA-02 premises (total feature maps and the classical set-theoretic framework). This does not constitute external certification, proof-assistant verification, or computational validation.
+SCOPE OF PROOF: The quotient-metric theorem is proved for every nonempty set X, every index set I (including I=∅), and every declared family of total feature maps f_i, within the stated classical set-theoretic framework. The result is unconditional relative to these premises; it does not establish that the model premises are physically complete or canonically selected. This does not constitute external certification, proof-assistant verification, or computational validation.
 EXTERNAL CERTIFICATION: NOT CLAIMED.
 
 ==================================================
