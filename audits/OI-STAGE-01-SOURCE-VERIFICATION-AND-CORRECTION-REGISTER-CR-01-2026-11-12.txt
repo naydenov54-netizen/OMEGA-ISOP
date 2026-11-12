@@ -2,7 +2,7 @@ OMEGA-ISOP — STAGE 1 — DIFFERENCE
 SOURCE VERIFICATION AND CORRECTION REGISTER
 REGISTER ID: CR-01
 DATE: 2026-11-12
-STATUS: SOURCE SNAPSHOT VERIFIED; CORRECTION COMPANION FILES COMMITTED; READ-BACK VERIFIED
+STATUS: SOURCE SNAPSHOT VERIFIED; SHA-256 COMPLETED (4/4) IN SIV-01; CORRECTION COMPANION FILES COMMITTED; READ-BACK VERIFIED
 BRANCH: stage1-corrections-2026-11-12
 BASE BRANCH: main
 BASE COMMIT / MAIN HEAD: cddfa4ea8eeabfcfb5f319071d938d4983a8a7a8
@@ -34,7 +34,7 @@ Snapshot commit: cddfa4ea8eeabfcfb5f319071d938d4983a8a7a8
 
 IA-03's cited blob SHA values for A and B match the values returned by GitHub. No mismatch was found.
 
-SHA-256: NOT RECORDED. The available repository interface returned Git blob SHA values; a separately validated SHA-256 computation over byte-exact downloads was not completed in this operation. Do not treat Git blob SHA as SHA-256.
+SHA-256: COMPLETED (4/4) in the separate SIV-01 record. The SHA-256 digests are raw-file digests and are distinct from Git blob SHA identifiers. SIV-01 records byte-exact hashing and matching Git blob checks for all four original source files. External Library / Drive / device copies remain unverified.
 
 The fetched text is the UTF-8 content returned by GitHub. This verifies repository content and blob identifiers, but does not independently verify any prior WebFetch conversion output byte-for-byte.
 
@@ -96,7 +96,7 @@ No proof-assistant or CAPD verification was performed.
 
 SOURCE SNAPSHOT: VERIFIED AGAINST GITHUB MAIN HEAD cddfa4ea8eeabfcfb5f319071d938d4983a8a7a8.
 GIT BLOB SHA: VERIFIED FOR ALL FOUR FETCHED FILES.
-SHA-256: NOT COMPLETED.
+SHA-256: COMPLETED (4/4); verified and recorded in SIV-01.
 FORMALIZATION AND DOCUMENTATION CORRECTIONS: COMMITTED IN COMPANION COPIES; READ-BACK VERIFIED.
 CORE MATHEMATICAL CONSTRUCTION: PRESERVED; FORMAL DEFINITIONS AND SCOPE BOUNDARIES CLARIFIED.
 
@@ -104,6 +104,14 @@ CORRECTIVE WRITE LOG:
 - Candidate v0.3 revision-note correction: commit 076cd28f63e8a850492ce4167b6eb3c977449e6f; resulting blob SHA c3c0b1ae4b6836b9b91a0127f4af6afbb334598f.
 - IA-03 duplicate removal and proof-status clarification: commit 644d41f3df9a8c18e533a7be049175fa8adbb319; resulting blob SHA bca50df92bc177457b92b0fceacb3f7fcd216a4f.
 - CR-01 correction-classification update: commit bf90c45647176a14fcc6e1caa1021173068f4d15; resulting blob SHA 06d06c3c79b722f769a5a57dc9e638b547720c76. This entry identifies the immediately preceding CR-01 revision; the current register revision is identified by its own commit/read-back record.
+SIV-01 RECORD:
+audits/OI-STAGE-01-SHA256-BYTE-INTEGRITY-VERIFICATION-2026-11-12.txt
+SIV-01 Git blob SHA: 2846c70c9b17d623bda00c358ff8928a18af6451
+SIV-01 status: SHA-256 COMPLETED (4/4); external-copy byte comparison NOT PERFORMED.
+
+BRANCH SYNCHRONIZATION:
+The correction branch was synchronized with main without rewriting either history. Main snapshot d047570b3aa3527a092adf09d94e5c0264c8e032 was merged with correction-branch snapshot d7e05db4db036bfb2b27e47dd752b0b66a893549 by merge commit 9253fd3022ec7e0c382b5155cd0f20ab744daeff. The two main-only historical records were retained in the merged tree.
+
 FINAL STAGE 1 ACCEPTANCE: NOT GRANTED.
 
 END OF CR-01
