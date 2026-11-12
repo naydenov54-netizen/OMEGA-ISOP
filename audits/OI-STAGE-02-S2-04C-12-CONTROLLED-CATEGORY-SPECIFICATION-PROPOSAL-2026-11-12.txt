@@ -1,0 +1,375 @@
+OMEGA-ISOP
+STAGE 2 PREPARATORY MATHEMATICAL AUDIT
+S2-04C-12 — CONTROLLED CATEGORY SPECIFICATION PROPOSAL
+DATE: 2026-11-12
+STATUS: EXPLICIT CANDIDATE FORMALIZATION / NOT ADOPTED AS PROJECT ARCHITECTURE
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+
+============================================================
+0. PURPOSE AND CONTROL
+============================================================
+
+This document proposes one complete, mathematically testable categorical realization for the conditional construction R := colim(D_CC).
+
+The proposal is deliberately separated from source facts. It is not an amendment to the Frozen Core, does not claim that the proposed category is already the intended C_METACORE, and is not an authorization to adopt the proposal.
+
+The candidate is selected for a first controlled test because the source represents configurations as subsets of a fixed U0 with inherited structure, and the inclusion-only union construction has a direct universal-property proof.
+
+ARCHITECTURAL CONTROLS:
+- Frozen Core: UNCHANGED.
+- Volume II: UNCHANGED.
+- Volume III: UNCHANGED.
+- Volume V: UNCHANGED.
+- CE-V-07: RESERVED.
+- Stage 2: NOT OFFICIALLY OPENED.
+- CAPD records: UNCHANGED.
+- Canonical acceptance: NOT CLAIMED.
+- No conditional result is promoted to certified.
+
+LABELS USED:
+SOURCE FACT = explicitly present in an inspected project source.
+NEW DEFINITION = a precise choice introduced by this proposal.
+ADDITIONAL HYPOTHESIS = a condition that must be assumed or independently verified.
+DERIVED RESULT = follows mathematically from the declared definitions and assumptions.
+
+============================================================
+1. SOURCE FACTS AND UNRESOLVED SOURCE ITEMS
+============================================================
+
+1.1 SOURCE FACTS
+
+The inspected Volume II source represents a configuration as:
+C = (S_C,#_C)
+where:
+S_C subseteq U0
+and #_C is the restriction of the selected ambient apartness relation to S_C.
+
+Volume II defines a candidate embedding f:C1 -> C2 as injective and preserving and reflecting apartness:
+x #1 y iff f(x) #2 f(y).
+
+Volume II describes C_METACORE as a category of admissible configurations whose morphisms preserve selected structural properties.
+
+Volume II gives:
+CC(C1,C2)=1 iff an admissible amalgamation exists.
+
+Volume III requires an indexing category J, a functor D:J -> C_METACORE, specified objects and morphisms, compatibility conditions, and a universal property. D_CC alone is not a complete categorical construction.
+
+1.2 UNRESOLVED SOURCE ITEMS
+
+The inspected sources do not fully specify:
+- the complete admissibility predicate Adm(C);
+- whether every candidate embedding is a C_METACORE morphism;
+- whether morphisms are restricted to literal inclusions;
+- whether CC is pair-based or span-based;
+- whether amalgam carriers must remain inside U0;
+- a concrete J and D;
+- a candidate cocone and universal property.
+
+The proposal below makes explicit choices for a test formalization. These choices must not be backdated or attributed to the original source.
+
+============================================================
+2. CANDIDATE OBJECT CLASS
+============================================================
+
+NEW DEFINITION 2.1 — FIXED AMBIENT STRUCTURE
+
+Fix an ambient set U0 equipped with a selected apartness relation #.
+
+For every subset S subseteq U0, define the induced configuration:
+C_S := (S,#|_(S x S)).
+
+NEW DEFINITION 2.2 — MINIMAL TEST ADMISSIBILITY
+
+For this candidate category only, define:
+Adm_min(S) iff
+(i) S subseteq U0;
+(ii) |S| >= 2;
+(iii) there exist x,y in S such that x # y.
+
+Let:
+F_min := {S subseteq U0 : Adm_min(S)}.
+
+The candidate objects are exactly:
+Ob(P_min) := {C_S : S in F_min}.
+
+IMPORTANT SCOPE:
+The predicate Adm_min is a deliberately minimal test predicate based on the source's nontriviality conditions. It is not asserted to be the complete project admissibility predicate for every realization. Any additional realization-specific constraints would require a separately stated predicate Adm_real(C).
+
+CATEGORY-CLOSURE CHECK:
+This object class is closed under unions of nonempty families of its members. If S is in F_min and S subseteq T subseteq U0, then T is in F_min because the same two distinct apart elements witnessing nontriviality in S remain in T. In particular, if S,T are objects, S union T is an object.
+
+DERIVED RESULT 2.3:
+For any two objects C_S,C_T, C_(S union T) is an object of P_min.
+
+============================================================
+3. CANDIDATE MORPHISM CLASS
+============================================================
+
+NEW DEFINITION 3.1 — INCLUSION-ONLY MORPHISMS
+
+For objects C_S,C_T, define:
+Hom_Pmin(C_S,C_T) =
+{ i_(S,T) : S subseteq T },
+
+where i_(S,T):S -> T is the literal inclusion map.
+
+There are no other morphisms.
+
+This is a deliberately restricted morphism class. It is not the class of all injective apartness embeddings.
+
+CATEGORY-LAW VERIFICATION
+
+Identity:
+For every object C_S, the literal inclusion i_(S,S) is the identity.
+
+Composition:
+If S subseteq T and T subseteq V, then S subseteq V and:
+i_(T,V) o i_(S,T) = i_(S,V).
+
+Associativity:
+Associativity follows from associativity of function composition.
+
+Identity laws:
+Composition with i_(S,S) or i_(T,T) leaves the relevant inclusion unchanged.
+
+Therefore P_min is a well-defined category.
+
+STRUCTURAL PRESERVATION:
+Every inclusion between induced configurations preserves and reflects the restricted ambient apartness relation. For x,y in S:
+x #_S y iff x #_T y,
+because both are restrictions of the same ambient relation #.
+
+LIMITATION:
+A non-identity relabeling or an arbitrary local embedding that is not the literal inclusion is not a morphism in P_min, even if it preserves and reflects apartness.
+
+============================================================
+4. CANDIDATE AMALGAMATION SEMANTICS
+============================================================
+
+NEW DEFINITION 4.1 — SPAN-BASED CC
+
+The input to CC is a specified span in P_min:
+C_S0 --i0,1--> C_S1
+C_S0 --i0,2--> C_S2.
+
+The span conditions are:
+S0 subseteq S1;
+S0 subseteq S2;
+S0,S1,S2 belong to F_min.
+
+An amalgam is an object C_M in P_min and morphisms:
+j1:C_S1 -> C_M;
+j2:C_S2 -> C_M;
+such that:
+j1 o i0,1 = j2 o i0,2.
+
+Define:
+CC_span(C_S0; C_S1,C_S2)=1
+iff such an amalgam exists in P_min;
+otherwise it is 0.
+
+This definition is span-dependent. It is not interchangeable with a pair-based common-embeddability predicate.
+
+NEW DEFINITION 4.2 — FIXED-CARRIER CONVENTION
+
+Every amalgam carrier M must be a subset of the same fixed U0. Abstract carriers outside U0 are not objects of P_min.
+
+This is a substantive restriction introduced by the proposal.
+
+============================================================
+5. CONCRETE INDEXING CATEGORY AND DIAGRAM
+============================================================
+
+NEW DEFINITION 5.1 — SPAN INDEX CATEGORY J_span
+
+Let J_span have three objects:
+j0, j1, j2.
+
+Its non-identity arrows are:
+a:j0 -> j1;
+b:j0 -> j2.
+
+There are no other non-identity arrows.
+
+This is the free category generated by the displayed span.
+
+NEW DEFINITION 5.2 — DIAGRAM FUNCTOR
+
+For a specified inclusion span in P_min, define:
+D:J_span -> P_min
+
+on objects by:
+D(j0)=C_S0;
+D(j1)=C_S1;
+D(j2)=C_S2;
+
+and on generating arrows by:
+D(a)=i0,1;
+D(b)=i0,2.
+
+The identity arrows are mapped to the corresponding identity morphisms.
+
+Because J_span has no additional non-identity composites, this assignment defines a functor.
+
+============================================================
+6. CANDIDATE COLIMIT
+============================================================
+
+NEW DEFINITION 6.1 — UNION OBJECT
+
+Set:
+R_S := S1 union S2.
+
+Since S1 and S2 are objects of P_min, each contains an apartness witness. Therefore their union also contains an apartness witness and has at least two elements. Also R_S subseteq U0.
+
+Hence:
+R := C_(S1 union S2)
+is an object of P_min.
+
+Define the cocone maps:
+k1:C_S1 -> R;
+k2:C_S2 -> R
+as literal inclusions.
+
+They satisfy:
+k1 o i0,1 = k2 o i0,2,
+because both composites are the literal inclusion of S0 into S1 union S2.
+
+THEOREM 6.2 — PUSHOUT IN P_min
+
+The cocone:
+C_S1 --k1--> C_(S1 union S2) <--k2-- C_S2
+is a pushout of the specified span in P_min.
+
+PROOF
+
+Let C_T be any object of P_min and suppose:
+u1:C_S1 -> C_T;
+u2:C_S2 -> C_T
+are morphisms forming a cocone, so:
+u1 o i0,1 = u2 o i0,2.
+
+By the definition of P_min morphisms, u1 and u2 are literal inclusions. Thus:
+S1 subseteq T;
+S2 subseteq T.
+
+Consequently:
+S1 union S2 subseteq T.
+
+Therefore there exists a literal inclusion:
+h:C_(S1 union S2) -> C_T.
+
+By construction:
+h o k1 = u1;
+h o k2 = u2.
+
+For uniqueness, any morphism from C_(S1 union S2) to C_T must be the literal inclusion. Hence h is unique.
+
+Thus the cocone satisfies the pushout universal property in P_min. QED.
+
+DERIVED RESULT 6.3
+
+For every span of inclusion morphisms in P_min, the pushout exists and is represented by the union of the two upper-object carriers.
+
+Therefore:
+CC_span(C_S0;C_S1,C_S2)=1
+for every valid span in P_min.
+
+This conclusion is a theorem of the candidate category P_min, not yet a theorem about the source-level C_METACORE.
+
+============================================================
+7. COMPARISON WITH THE ALL-EMBEDDINGS CATEGORY
+============================================================
+
+The inclusion-only result must not be transferred to a category whose morphisms are all injective apartness embeddings.
+
+The existing finite audit S2-04C-10 proves that a specified span has no pushout in its explicitly defined fixed-carrier all-embeddings test category E_F.
+
+Thus:
+- P_min has the union pushout for every valid inclusion span.
+- The tested E_F span has no pushout in E_F.
+
+There is no contradiction. The morphism classes differ, so the cocones quantified over by the universal property differ.
+
+The result in E_F does not refute Theorem 6.2, and Theorem 6.2 does not refute the E_F obstruction.
+
+Neither test category is thereby identified with the intended C_METACORE.
+
+============================================================
+8. ASSUMPTIONS, RISKS, AND OPEN DEPENDENCIES
+============================================================
+
+ADDITIONAL HYPOTHESIS / ARCHITECTURAL CHOICE A:
+The project is willing to use a fixed ambient carrier U0 for all objects and amalgams.
+
+ADDITIONAL HYPOTHESIS / ARCHITECTURAL CHOICE B:
+The project is willing to restrict categorical morphisms to literal inclusions.
+
+ADDITIONAL HYPOTHESIS / ARCHITECTURAL CHOICE C:
+The minimal nontriviality test is sufficient for the candidate test category. It is not claimed to capture every realization-specific admissibility condition.
+
+ADDITIONAL DEFINITION D:
+CC is span-based and takes a specified span as input.
+
+RISKS:
+1. Inclusion-only morphisms exclude isomorphic copies and relabeled embeddings that may be mathematically relevant to the intended theory.
+2. The union construction is tied to a fixed U0 and cannot directly produce an abstract carrier outside U0.
+3. Additional admissibility constraints may not be preserved by unions. If so, the closure proof in Section 2 and pushout theorem in Section 6 need a new proof under the stronger predicate.
+4. If C_METACORE is intended to contain all apartness embeddings, P_min is too restrictive to serve as its definition.
+5. The source-level notation CC(C1,C2) does not itself carry the span data used by CC_span. A project amendment or explicit convention would be required to make this input type canonical.
+6. A pushout for each binary span does not by itself prove the existence of every colimit needed for an arbitrary diagram D:J -> C_METACORE.
+
+OPEN:
+Whether the project should adopt P_min, use a different morphism class, or retain a more general categorical architecture remains a project decision.
+
+============================================================
+9. CONTROLLED DECISION
+============================================================
+
+PROPOSAL RESULT:
+A complete candidate category P_min and a span diagram J_span have been specified.
+
+MATHEMATICAL RESULT:
+The union is proved to be the pushout of every valid span in P_min.
+
+SOURCE STATUS:
+The source does not establish that P_min is the intended C_METACORE.
+
+ADOPTION STATUS:
+NOT ADOPTED.
+No project architecture decision is made by this audit record.
+
+REQUIRED REVIEW BEFORE ADOPTION:
+- Confirm whether literal inclusions are intended as the complete morphism class.
+- Confirm whether fixed U0 is required for amalgams.
+- Confirm whether Adm_min is sufficient or must be strengthened.
+- Confirm whether CC should be span-based.
+- Confirm whether the proposed binary pushout construction addresses the actual diagram D_CC.
+
+============================================================
+10. PRESERVATION AND STATUS
+============================================================
+
+Frozen Core: UNCHANGED.
+Volume II: UNCHANGED.
+Volume III: UNCHANGED.
+Volume V: UNCHANGED.
+CE-V-07: RESERVED.
+Stage 2: NOT OFFICIALLY OPENED.
+CAPD: UNCHANGED.
+Canonical acceptance: NOT CLAIMED.
+
+P_min:
+EXPLICIT CANDIDATE TEST CATEGORY.
+
+UNION PUSHOUT:
+PROVED WITHIN P_min.
+
+IDENTIFICATION P_min = C_METACORE:
+NOT ESTABLISHED.
+
+PROJECT-LEVEL R = colim(D_CC):
+NOT ESTABLISHED.
+
+END OF DOCUMENT
