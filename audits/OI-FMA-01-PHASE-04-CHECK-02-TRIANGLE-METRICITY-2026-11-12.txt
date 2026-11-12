@@ -1,0 +1,226 @@
+OMEGA-ISOP
+OI-FMA-01 — PHASE 4 / CHECK 02
+TRIANGLE INEQUALITY AND METRICITY CRITERION
+
+DATE: 2026-11-12
+STATUS: MATHEMATICAL RE-EXAMINATION — PASS FOR DECLARED SCOPE
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+TARGET BRANCH: oi-fma-01-audit-2026-11-12
+
+1. PURPOSE AND SCOPE
+
+This record documents the mathematical re-examination of the signature-based Difference construction.
+
+It verifies:
+(A) the triangle inequality for D;
+(B) the pseudometric axioms;
+(C) the criterion that D is a metric on X if and only if F is injective;
+(D) compatibility with the empty-index case I = emptyset.
+
+This is a scoped mathematical audit record. It is not an external certification, proof-assistant certificate, CAPD/interval validation, or claim of universality. The construction is not identified here with every possible interpretation of Primitive Difference (PD) in the Frozen Core.
+
+2. FORMAL SETUP
+
+Assume:
+- X is a nonempty set;
+- I is an index set;
+- for every i in I, V_i is a set;
+- for every i in I, f_i : X -> V_i is a total function.
+
+Define:
+F : X -> product_{i in I} V_i
+by F(x) = (f_i(x))_{i in I}.
+
+Define D : X x X -> {0,1} by:
+D(x,y) = 1 iff F(x) != F(y);
+D(x,y) = 0 iff F(x) = F(y).
+
+By extensionality of the Cartesian product:
+F(x) = F(y) iff for all i in I, f_i(x) = f_i(y).
+
+Equivalently:
+D(x,y) = 1 iff there exists i in I such that f_i(x) != f_i(y).
+
+3. TRIANGLE INEQUALITY
+
+Claim:
+For all x,y,z in X,
+D(x,y) <= D(x,z) + D(z,y).
+
+Proof by cases.
+
+Case 1: D(x,y) = 0.
+
+Then F(x) = F(y). For every z:
+F(x) = F(z) iff F(y) = F(z).
+
+Therefore D(x,z) = D(y,z). By symmetry, D(y,z) = D(z,y). Hence:
+D(x,y) = 0 <= D(x,z) + D(z,y).
+
+In fact, the stronger identity holds:
+D(x,y) = 0 implies D(x,z) = D(y,z) for every z in X.
+
+Case 2: D(x,y) = 1.
+
+Suppose, for contradiction, that D(x,z) + D(z,y) = 0.
+Since both terms belong to {0,1}, this implies:
+D(x,z) = 0 and D(z,y) = 0.
+
+Thus:
+F(x) = F(z) and F(z) = F(y),
+so F(x) = F(y), contradicting D(x,y) = 1.
+
+Therefore:
+D(x,z) + D(z,y) >= 1 = D(x,y).
+
+Both cases establish the triangle inequality.
+
+4. PSEUDOMETRIC AXIOMS
+
+Nonnegativity:
+D(x,y) belongs to {0,1}, hence D(x,y) >= 0.
+
+Symmetry:
+F(x) != F(y) iff F(y) != F(x), hence D(x,y) = D(y,x).
+
+Zero diagonal:
+F(x) = F(x), hence D(x,x) = 0.
+
+Triangle inequality:
+Established in Section 3.
+
+Conclusion:
+D is a pseudometric on X.
+
+5. METRICITY CRITERION
+
+Claim:
+D is a metric on X if and only if F is injective.
+
+Forward direction:
+Assume D is a metric. Its separation axiom gives:
+D(x,y) = 0 implies x = y.
+
+By definition of D:
+F(x) = F(y) iff D(x,y) = 0.
+
+Therefore F(x) = F(y) implies x = y, so F is injective.
+
+Reverse direction:
+Assume F is injective.
+If D(x,y) = 0, then F(x) = F(y).
+Injectivity gives x = y.
+Thus the separation axiom holds. All other metric axioms were established in Section 4.
+
+Therefore:
+D is a metric on X iff F is injective.
+
+6. EMPTY-INDEX CASE
+
+Under the standard convention:
+product_{i in emptyset} V_i = {emptyset},
+the singleton set containing the empty function.
+
+There is exactly one function F : X -> {emptyset}; it is constant.
+Consequently D(x,y) = 0 for all x,y in X.
+
+The triangle inequality reduces to:
+0 <= 0 + 0.
+
+F is injective exactly when X has at most one element. Since X is assumed nonempty:
+F is injective iff |X| = 1.
+
+Therefore, in the empty-index case:
+D is a metric iff |X| = 1;
+if |X| > 1, D is a pseudometric but not a metric.
+
+No assumption I != emptyset is needed for the triangle inequality or for the general metricity criterion.
+
+7. HIDDEN ASSUMPTIONS AND LIMITATIONS
+
+- Each f_i must be total on X so that F(x) is defined.
+- Each V_i and the corresponding codomain of f_i must be specified.
+- The Cartesian product is used with its standard empty-product convention.
+- Equality in the product is extensional, coordinate by coordinate.
+- The proof uses ordinary classical set-based mathematics and standard equality reasoning.
+- The result is about this explicitly defined signature-based D. It does not establish that every intended notion of Difference in OMEGA-ISOP must have this representation.
+- No identification with Primitive Difference (PD) is asserted.
+
+8. FACTS
+
+F1. D takes values only in {0,1}.
+F2. D(x,y)=0 iff F(x)=F(y).
+F3. D is symmetric.
+F4. D has zero diagonal.
+F5. D satisfies the triangle inequality.
+F6. D is a pseudometric on X.
+F7. D is a metric exactly when F is injective.
+F8. These conclusions also hold when I is empty.
+
+9. FORMAL RESULTS
+
+FR-01 — Triangle inequality: PROVED.
+FR-02 — Pseudometric axioms: PROVED.
+FR-03 — Metric iff F injective: PROVED.
+FR-04 — Empty-index compatibility: PROVED.
+FR-05 — No requirement I != emptyset: PROVED.
+
+10. AUDIT FINDINGS
+
+FINDING 01: No mathematical error was identified in the triangle-inequality proof for the declared construction.
+
+FINDING 02: The metricity criterion is proved in both directions.
+
+FINDING 03: The empty-index case is consistent with the general result.
+
+FINDING 04: The assumption I != emptyset is unnecessary.
+
+FINDING 05: The result is limited to the declared signature-based construction.
+
+11. STATUS AND CERTIFICATION BOUNDARIES
+
+PHASE 4 / CHECK 02:
+PASS FOR DECLARED MATHEMATICAL SCOPE.
+
+This is a mathematical review record from the working session. It is not:
+- independent external mathematical certification;
+- a machine-checked proof;
+- CAPD or interval validation;
+- proof of universality of OMEGA-ISOP;
+- proof that the Frozen Core uniquely requires this formalization.
+
+12. REPOSITORY AND ARCHITECTURAL GUARDS
+
+This record is added as a separate audit artifact only.
+
+Frozen Core: PRESERVED.
+Volume II: PRESERVED.
+Volume V: PRESERVED.
+CE-V-07: RESERVED.
+Universality: NOT ESTABLISHED.
+Stage 1 Final Acceptance: NOT GRANTED.
+Stage 2: CLOSED / NOT OPENED.
+Global OMEGA-ISOP Certification: NOT GRANTED.
+
+PR #65: OPEN / DRAFT / NOT MERGED (unchanged by this record).
+PR #66: OPEN / DRAFT / NOT MERGED at the pre-write snapshot; this file is committed to its existing audit branch and does not merge the PR.
+
+No existing file is intentionally modified or deleted.
+No protected architecture document is modified.
+No PR is merged, approved, or closed by this operation.
+
+13. CONTINUATION CHECKPOINT
+
+Completed:
+- PHASE 4 / CHECK 01 — signature-based Difference and empty-index case: PASS FOR DECLARED SCOPE.
+- PHASE 4 / CHECK 02 — triangle inequality and metricity criterion: PASS FOR DECLARED SCOPE.
+
+Next logical check:
+PHASE 4 / CHECK 03 — quotient construction and factorization:
+- relation x ~_D y iff D(x,y)=0;
+- quotient Q = X/~_D;
+- well-definedness of d_bar([x],[y]) = D(x,y);
+- factorization F = iota composed with Phi composed with q;
+- bijectivity of Phi.
+
+No claim of overall certification follows from completion of these scoped checks.
