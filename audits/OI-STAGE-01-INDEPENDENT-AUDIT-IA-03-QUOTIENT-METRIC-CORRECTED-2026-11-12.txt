@@ -204,6 +204,9 @@ X/~_D = {[x]_D : x in X}.
 
 This is the quotient set of X under the equivalence relation ~_D.
 
+SET-EXISTENCE IN ZF
+The collection X/~_D is a set by Replacement, as the image of the set X under the function x↦[x]_D. No choice of one representative from each class is required, and no Axiom of Choice is used.
+
 Define the canonical projection:
 
 q : X -> X/~_D
