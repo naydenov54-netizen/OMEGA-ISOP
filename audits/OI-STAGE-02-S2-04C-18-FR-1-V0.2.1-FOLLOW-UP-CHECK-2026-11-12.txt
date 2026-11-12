@@ -1,0 +1,58 @@
+OMEGA-ISOP
+FR-1 v0.2.1 — FOLLOW-UP MATHEMATICAL CHECK
+DATE: 2026-11-12
+STATUS: CONDITIONAL PROOF-STRUCTURE PASS; FULL CONSTRUCTION VERIFICATION OPEN
+SCOPE: S2-04C-18 / FR-1 ONLY
+
+1. MATERIAL EXAMINED
+The complete FR-1 CORRECTION NOTE v0.2.1 was supplied directly by the project owner in the conversation on 2026-11-12.
+The existing GitHub audit record was independently fetched from:
+audits/OI-STAGE-02-S2-04C-18-FR-1-CORRECTION-NOTE-v0.2.1-INDEPENDENT-MANUAL-AUDIT-2026-11-12.txt
+Fetched blob SHA: c71fbe7978552ff3c46af18ca41887df690b772a
+The supplied correction note itself was not found as a separate source file in the inspected main-branch tree. No source-file byte identity or source commit provenance is claimed.
+
+2. MATHEMATICAL CHECK OF THE CORRECTION
+The replacement of “injections” by “canonical coproduct morphisms” for i:B -> P and j:C -> P is correct and necessary for precision.
+The proof as stated does not use injectivity of i or j. It uses:
+(a) preservation of apartness by i and j;
+(b) cotransitivity A3 in P;
+(c) existence of the relevant universal morphisms u2:P -> W2 and u1:P -> W1;
+(d) preservation of apartness by u1 and u2;
+(e) the specified cocone equations;
+(f) absence of x # z in W2 and absence of z # y in W1.
+
+3. PROOF-SKELETON CHECK
+From x # y in B and apartness preservation by i, infer i(x) # i(y) in P.
+By A3 in P, infer i(x) # j(z) OR j(z) # i(y).
+In the first branch, u2 maps the alleged apartness to x # z in W2, contradicting its stipulated absence.
+In the second branch, u1 maps the alleged apartness to z # y in W1, contradicting its stipulated absence.
+Thus the assumed coproduct P cannot exist, provided all premises above hold in the same category and the stated cocone maps are valid morphisms.
+
+4. IMPORTANT LIMITATION / AUDIT QUALIFICATION
+The v0.2.1 correction note supplied in this turn does not reproduce the full definitions and element/relation tables for W1 and W2, the complete A1-A3 formulations, or the exact definitions of categories (i)-(iii) and their morphisms.
+Therefore this follow-up can verify the logical proof pattern conditionally, but cannot independently reconstruct and check every premise from the correction note alone.
+In particular, the claims that W1 and W2 are objects satisfying A1-A3, that the specified cocone maps are morphisms in each of cases (i)-(iii), and that the two cross-relations are absent must be checked against the full underlying FR-1 construction.
+The previous audit record's statement that W1 and W2 satisfy A1-A3 is not newly re-derived from the text supplied in this turn.
+
+5. FINDING
+TERMINOLOGY CORRECTION: ACCEPTED.
+INJECTIVITY-NOT-REQUIRED ARGUMENT: LOGICALLY SOUND, CONDITIONAL ON THE LISTED PREMISES.
+FR-1 FULL CONSTRUCTION: NOT RE-CERTIFIED BY THIS FOLLOW-UP.
+No new defect is identified in the corrected proof skeleton.
+No claim is made that the underlying counterexample structures have been independently reconstructed from complete definitions.
+
+6. SCOPE AND ARCHITECTURAL STATUS
+FR-1 only.
+FR-2 through FR-7: NOT REVIEWED.
+D1-D8: UNRESOLVED.
+CATEGORY ADOPTION: NONE.
+STAGE 2: NOT OFFICIALLY OPENED.
+FROZEN CORE: UNCHANGED.
+VOLUME II: UNCHANGED.
+VOLUME III: UNCHANGED.
+VOLUME V: UNCHANGED.
+CE-V-07: RESERVED.
+CAPD / PROOF ASSISTANT: NOT PERFORMED.
+UNIVERSAL OR PROJECT-LEVEL COLIMIT THEOREM: NOT ESTABLISHED.
+
+END OF FOLLOW-UP CHECK
