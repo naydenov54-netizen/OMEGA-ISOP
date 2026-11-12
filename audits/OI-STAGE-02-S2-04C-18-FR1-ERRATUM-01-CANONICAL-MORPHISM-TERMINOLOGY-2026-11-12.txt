@@ -1,0 +1,93 @@
+OMEGA-ISOP
+S2-04C-18
+SUPPLEMENTAL ERRATUM — FR-1 CANONICAL MORPHISM TERMINOLOGY
+DATE: 2026-11-12
+TASK ID: S2-04C-18-FR1-ERRATUM-01
+STATUS: TERMINOLOGICAL CORRECTION; PROOF CONCLUSION UNCHANGED
+SCOPE: USER-SUPPLIED S2-04C-18 CORRECTION NOTE v0.2, SECTION B, FR-1
+
+1. SOURCE AND TRACEABILITY
+
+The complete text of S2-04C-18 CORRECTION NOTE v0.2 was supplied by the project owner in the conversation on 2026-11-12.
+This erratum records a correction to that supplied text.
+The v0.2 source document was not independently located as a separate file in the inspected GitHub paths. No source-file byte identity or source commit provenance is claimed.
+
+Related existing record:
+audits/OI-STAGE-02-S2-04C-18-FR-1-V0.2.1-FOLLOW-UP-CHECK-2026-11-12.txt
+That earlier follow-up concerns FR-1 v0.2.1 and is not overwritten or silently reinterpreted by this erratum.
+
+2. REQUIRED TEXTUAL REPLACEMENT
+
+In Section B, FR-1, under “Доказателство”, replace:
+
+„Нека P е копроизведение с инжекции i:B→P, j:C→P.“
+
+with:
+
+„Нека P е копроизведение с канонични морфизми i:B→P и j:C→P.“
+
+Add immediately after that sentence:
+
+„Каноничните морфизми i и j не се приемат за инективни в класове (i) и (ii). В клас (iii) те са инективни по дефиницията на класа морфизми. Доказателството по-долу използва само запазването на # от i, j, u1 и u2, а не инективността на i или j.“
+
+3. MATHEMATICAL REASON
+
+The three morphism classes have different requirements:
+
+(i) all functions preserving #;
+(ii) strong functions, preserving and reflecting #;
+(iii) injective functions preserving #.
+
+Thus injectivity is not part of the morphism definition in classes (i) and (ii). A coproduct's canonical morphisms must be described as canonical morphisms unless injectivity has separately been proved.
+
+In class (iii), canonical coproduct morphisms, if the coproduct exists, are morphisms of that category and hence injective. This does not justify using “injections” as a uniform description across (i), (ii), and (iii).
+
+4. EFFECT ON THE FR-1 PROOF
+
+The proof requires:
+
+(a) x#y in B;
+(b) i preserves #, hence i(x)#i(y) in P;
+(c) A3 in P, yielding i(x)#j(z) OR j(z)#i(y);
+(d) the universal property supplies u2:P→W2 in the first branch and u1:P→W1 in the second branch;
+(e) u1 and u2 preserve #;
+(f) the specified missing cross-relations in W1 and W2.
+
+No step requires i or j to be injective.
+
+Therefore the correction changes the terminology and removes an unjustified uniform injectivity claim. It does not change the proof's logical conclusion, provided the stated premises and cocone morphisms hold in each category considered.
+
+5. DISTINCTION THAT MUST BE PRESERVED
+
+The maps B→Wk and C→Wk used to exhibit cocones are inclusion maps. Under the stated constructions they are injective, strong, and #-preserving.
+
+These inclusion maps are not the same maps as the hypothetical canonical coproduct morphisms i:B→P and j:C→P.
+
+Do not transfer the injectivity property of the inclusion maps to i and j.
+
+6. CLASSIFICATION
+
+FR-1 TERMINOLOGY: CORRECTED.
+PROOF STRUCTURE: UNCHANGED.
+MATHEMATICAL CONCLUSION: UNCHANGED, CONDITIONAL ON THE STATED PREMISES.
+CLASSES (i) AND (ii): NO INJECTIVITY ASSUMED FOR i OR j.
+CLASS (iii): INJECTIVITY FOLLOWS FROM MEMBERSHIP IN THE MORPHISM CLASS.
+FULL FR-1 CONSTRUCTION: NOT INDEPENDENTLY CERTIFIED BY THIS ERRATUM.
+
+7. PROJECT STATUS
+
+D1-D8: UNRESOLVED.
+CATEGORY ADOPTION: NONE.
+STAGE 2: NOT OPENED.
+FROZEN CORE: UNCHANGED.
+VOLUME II: UNCHANGED.
+VOLUME III: UNCHANGED.
+VOLUME V: UNCHANGED.
+CE-V-07: RESERVED.
+CAPD: NOT PERFORMED.
+PROOF ASSISTANT: NOT PERFORMED.
+OWNER APPROVAL: NOT GIVEN.
+
+This erratum is a local correction to the supplied v0.2 text. It is not an authorization to advance the architecture and is not a project-level mathematical certification.
+
+END OF ERRATUM
