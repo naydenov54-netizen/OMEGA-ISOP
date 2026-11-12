@@ -1,0 +1,494 @@
+OMEGA-ISOP
+STAGE 2 PREPARATORY MATHEMATICAL AUDIT
+S2-04C-15 — EMBEDDING-CLASS CLOSURE AND ADMISSIBILITY INVARIANCE AUDIT
+DATE: 2026-11-12
+STATUS: CONDITIONAL FORMAL RESULT ESTABLISHED / PROJECT OBJECT ADMISSIBILITY AND EXACT HOM-CLASS UNRESOLVED
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+
+============================================================
+0. PURPOSE AND CONTROL
+============================================================
+
+This audit continues S2-04C-14. It determines which closure properties follow from the source-defined local apartness-embedding condition, which minimal nontriviality conditions are invariant under such embeddings, and which stronger admissibility claims remain unsupported.
+
+This is an additive mathematical audit record. It does not adopt a project category, amend the Frozen Core, rewrite Volume II or Volume III, or establish the project-level colimit R.
+
+ARCHITECTURAL CONTROLS:
+- Frozen Core: UNCHANGED.
+- Volume II: UNCHANGED.
+- Volume III: UNCHANGED.
+- Volume V: UNCHANGED.
+- M3.2: UNCHANGED.
+- CE-V-07: RESERVED.
+- Stage 2: NOT OFFICIALLY OPENED.
+- CAPD: UNCHANGED.
+- Canonical acceptance: NOT CLAIMED.
+- No conditional result is promoted to certified.
+
+============================================================
+1. SOURCES AND SCOPE
+============================================================
+
+AUTHORITATIVE PROJECT SOURCES INSPECTED:
+
+A. &OMEGA-ISOP VOLUME II.txt
+Version: v1.3-MF-AUDIT-RESTORED-FINAL
+Relevant sections:
+- III.4 — Local Configurations.
+- III.5 — Configuration Embeddings.
+- IV.1-IV.3 — Compatibility and Relational Specification.
+
+B. &OMEGA-ISOP VOLUME III.txt
+Version: v1.1-VAL-RESTORED
+Relevant sections:
+- 5 — Finite Carrier with Apartness.
+- 6 — Configuration Nontriviality.
+- 7 — Compatibility.
+- 8 — Relational Specification as a Colimit.
+- 9 — Categorical Completeness of D_CC.
+
+C. &OMEGA-ISOP-RELATIONAL-THEORY.txt
+Complete recovered Frozen Core Library file.
+Finding relevant here: the Frozen Core states the conditional relational architecture but does not supply a complete C_METACORE object class, morphism class, indexing category J, or functor D:J -> C_METACORE.
+
+D. GitHub audit records:
+- S2-04C-06 — Fixed-Carrier Category / Morphism-Class Comparison.
+- S2-04C-12 — Controlled Category Specification Proposal.
+- S2-04C-13 — Category Choice Consequence Audit.
+- S2-04C-14 — Semantic Morphism Requirement Extraction.
+
+The GitHub audit records are research artifacts. They do not replace or silently amend the authoritative theory sources.
+
+SCOPE LIMIT:
+This audit tests consequences of the stated local embedding formula. It does not inspect every historical source version and does not claim that no unrecovered or uninspected document could contain additional admissibility rules.
+
+============================================================
+2. SOURCE DEFINITIONS
+============================================================
+
+2.1 LOCAL CONFIGURATIONS
+
+Volume II represents a local configuration as:
+
+C = (S_C,#_C)
+
+where:
+
+S_C subseteq U0
+
+and:
+
+#_C = # restricted to S_C x S_C.
+
+The exact admissibility conditions are stated to be realization-dependent.
+
+2.2 SOURCE-DEFINED EMBEDDING CONDITION
+
+For configurations:
+
+C1 = (S1,#1)
+C2 = (S2,#2)
+
+an embedding f:C1 -> C2 is injective and preserves and reflects apartness:
+
+for all x,y in S1:
+
+x #1 y iff f(x) #2 f(y).
+
+The biconditional is essential. Preservation alone is insufficient.
+
+2.3 MINIMAL NONTRIVIALITY
+
+Volume II states the cardinality condition:
+
+|S_C| >= 2.
+
+Volume III, Section 6, specifies a nontriviality test that also requires an actual apartness witness:
+
+there exist x,y in S_C such that x #_C y.
+
+These conditions are treated here as the stated minimal nontriviality test. They are not promoted to a complete universal admissibility predicate for every realization.
+
+============================================================
+3. FORMAL RESULT A — IDENTITY AND COMPOSITION
+============================================================
+
+Let C1=(S1,#1), C2=(S2,#2), and C3=(S3,#3) be configurations.
+
+Let:
+
+f:C1 -> C2
+g:C2 -> C3
+
+be source-defined apartness embeddings.
+
+By definition:
+
+(1) f is injective.
+(2) g is injective.
+(3) For all x,y in S1:
+    x #1 y iff f(x) #2 f(y).
+(4) For all u,v in S2:
+    u #2 v iff g(u) #3 g(v).
+
+3.1 INJECTIVITY OF THE COMPOSITE
+
+Suppose:
+
+(g o f)(x) = (g o f)(y).
+
+Then:
+
+g(f(x)) = g(f(y)).
+
+Since g is injective:
+
+f(x) = f(y).
+
+Since f is injective:
+
+x = y.
+
+Therefore g o f is injective.
+
+3.2 PRESERVATION AND REFLECTION OF APARTNESS
+
+For all x,y in S1:
+
+x #1 y
+iff f(x) #2 f(y)
+iff g(f(x)) #3 g(f(y)).
+
+Therefore:
+
+x #1 y iff (g o f)(x) #3 (g o f)(y).
+
+Thus g o f preserves and reflects apartness.
+
+3.3 IDENTITY
+
+For every configuration C=(S,#), the identity map:
+
+id_S:S -> S
+
+is injective and satisfies:
+
+x # y iff id_S(x) # id_S(y).
+
+Therefore id_C is a source-defined embedding.
+
+3.4 CONCLUSION
+
+The class of all injective maps preserving and reflecting the selected apartness relation is closed under identities and composition.
+
+Function composition is associative. Consequently, if a fixed class O of admissible configurations is specified as the objects, and the morphisms are defined to be all such embeddings between objects of O, those objects and morphisms form a category.
+
+FORMAL RESULT A:
+IDENTITIES: CLOSED.
+COMPOSITION: CLOSED.
+ASSOCIATIVITY: INHERITED FROM FUNCTION COMPOSITION.
+CATEGORY AXIOMS FOR THE ALL-APARTNESS-EMBEDDINGS CLASS: SATISFIED ON ANY FIXED OBJECT CLASS O.
+
+IMPORTANT LIMIT:
+This result proves category closure after the object class has been specified. It does not identify the correct project object class O, nor prove that every source-defined embedding is intended to be a C_METACORE morphism.
+
+============================================================
+4. FORMAL RESULT B — INVARIANCE OF MINIMAL NONTRIVIALITY
+============================================================
+
+Let C=(S,#) satisfy:
+
+|S| >= 2
+
+and:
+
+there exist x,y in S such that x # y.
+
+Let:
+
+f:C -> D=(T,#_D)
+
+be a source-defined apartness embedding.
+
+4.1 CARDINALITY
+
+Since f is injective and S contains at least two distinct elements, f(S) contains at least two distinct elements.
+
+Therefore:
+
+|f(S)| >= 2.
+
+This conclusion applies to finite and infinite S; injectivity preserves the cardinality of the image.
+
+4.2 APARTNESS WITNESS
+
+Choose x,y in S with x # y.
+
+By preservation of apartness:
+
+f(x) #_D f(y).
+
+Since f is injective and x != y:
+
+f(x) != f(y).
+
+Thus the image f(S), equipped with the induced relation from D, contains an apartness witness.
+
+4.3 REFLECTION
+
+The biconditional also prevents a false apartness distinction from being introduced or removed between points in the image:
+
+x # y iff f(x) #_D f(y).
+
+Therefore the induced relational pattern on f(S) is isomorphic to the source configuration.
+
+FORMAL RESULT B:
+THE MINIMAL NONTRIVIALITY TEST
+(|S| >= 2 AND EXISTS x,y IN S WITH x # y)
+IS PRESERVED BY EVERY SOURCE-DEFINED APARTNESS EMBEDDING.
+
+SCOPE:
+This proves invariance of the stated minimal nontriviality test. It does not prove invariance of every possible realization-dependent admissibility condition.
+
+============================================================
+5. ADMISSIBILITY INVARIANCE — EXACT BOUNDARY
+============================================================
+
+5.1 WHAT FOLLOWS
+
+The following properties follow from the source embedding definition:
+
+- Injectivity preserves the number of distinct elements in the image.
+- Preservation carries an existing apartness witness into the image.
+- Reflection ensures that the apartness pattern on the image agrees with the source pattern.
+- The source configuration and its image are isomorphic as structures whose only selected relation is apartness.
+
+5.2 WHAT DOES NOT FOLLOW
+
+The source does not provide a complete predicate:
+
+Adm(C)
+
+for all admissible configurations.
+
+It expressly leaves exact admissibility realization-dependent.
+
+Therefore the following implications are not established:
+
+Adm(C) AND f is an apartness embedding
+DOES NOT, FROM THE AVAILABLE SOURCE TEXT ALONE, PROVE
+Adm(f(C)).
+
+Likewise, the available source text does not prove that every additional realization-specific property is preserved by every apartness embedding.
+
+5.3 WHY THIS GAP IS MATHEMATICALLY REAL
+
+An admissibility rule may depend on structure not encoded by apartness alone, for example:
+- distinguished elements or constants;
+- additional relations or operations;
+- ambient-carrier restrictions;
+- boundary or realization data;
+- external compatibility conditions.
+
+An apartness embedding need not preserve such data unless that data is included in the structure and the morphism definition explicitly preserves it.
+
+This is an explanatory list of possible additional structures, not a claim that the project sources currently impose any one of them.
+
+5.4 IMAGE CLOSURE VERSUS CATEGORY CLOSURE
+
+These are different claims.
+
+CATEGORY CLOSURE:
+If O is already a specified class of objects and all apartness embeddings between objects of O are taken as morphisms, identities and composition are closed by Formal Result A.
+
+IMAGE / SUBOBJECT ADMISSIBILITY:
+The stronger claim that the image f(S) is itself an admissible object, or that every induced subconfiguration of an admissible object is admissible, requires an additional closure or invariance condition on Adm.
+
+The first claim does not imply the second.
+
+5.5 UNION CLOSURE
+
+The minimal test predicate in S2-04C-12 is preserved under nonempty unions of its objects because any one member contributes at least two elements and an apartness witness that remain in the union.
+
+That argument does not extend automatically to an unspecified stronger predicate Adm_real(C).
+
+For a stronger admissibility predicate, union closure must be proved from its exact definition. It cannot be inferred from the minimal nontriviality test.
+
+AUDIT FINDING:
+The source embedding formula is sufficient for identity/composition closure and for preservation of minimal nontriviality. It is insufficient, without further hypotheses, to establish invariance of the complete realization-dependent admissibility predicate.
+
+============================================================
+6. RESTRICTED MORPHISM CLASSES — PREDICATE CLOSURE
+============================================================
+
+Suppose a proposed restricted morphism class is defined by:
+
+Hom_P(C,D) =
+{ f:C -> D : f is an apartness embedding AND P(f) }.
+
+For this to define a category on the chosen objects, at minimum:
+
+P1. Identity condition:
+For every object C, P(id_C) must hold.
+
+P2. Composition condition:
+For all composable f:C -> D and g:D -> E,
+P(f) AND P(g) must imply P(g o f).
+
+P3. Typed hom condition:
+P(f) must be a well-defined predicate for maps between the declared objects.
+
+The apartness-embedding part is already closed under identities and composition by Formal Result A.
+
+The additional predicate P is not source-specified. Its identity and composition closure cannot be verified until P is explicitly defined.
+
+A restriction based on global automorphism extension, named-carrier preservation, distinguished constants, or other additional structure would require its own exact definition and closure proof.
+
+No such restriction is adopted by this audit.
+
+FORMAL REQUIREMENT:
+A proposed M3-style restricted subclass must state P(f) explicitly and prove P1-P3. The phrase "preserves selected structural properties" is not by itself an executable hom-set definition.
+
+============================================================
+7. FIXED AMBIENT CARRIER — LOCAL MAPS AND GLOBAL EXTENSIONS
+============================================================
+
+The source represents configurations as subsets of U0.
+
+A local embedding:
+
+f:S -> T
+
+between two such configurations is a map between the local carriers.
+
+The definition does not require f to extend to a global automorphism:
+
+g:(U0,#) -> (U0,#).
+
+These are different mathematical properties.
+
+A local apartness embedding may be valid as a map between the selected configurations even when no ambient automorphism extension has been established.
+
+Conversely, the absence of a source-level extension requirement does not prove that a project-specific realization could never impose one.
+
+RESULT:
+Global automorphism extension is not needed for Formal Result A.
+Global automorphism extension remains an additional, source-unestablished restriction for C_METACORE.
+
+============================================================
+8. CONSOLIDATED FACTS / FORMAL RESULTS / OPEN ITEMS
+============================================================
+
+FACTS:
+F1. Volume II defines local configurations as induced subconfigurations over U0.
+F2. Volume II defines an embedding as injective and preserving and reflecting apartness.
+F3. Volume II says exact admissibility conditions are realization-dependent.
+F4. Volume II describes C_METACORE morphisms as preserving selected structural properties but does not enumerate the complete selection.
+F5. Volume III supplies a minimal nontriviality test with both a cardinality condition and an apartness witness.
+F6. The Frozen Core does not provide a complete C_METACORE specification.
+
+FORMAL RESULTS:
+R1. Apartness embeddings contain identity maps.
+R2. Apartness embeddings are closed under composition.
+R3. The all-apartness-embeddings class forms a category on any fixed, already specified object class.
+R4. The minimal nontriviality test is invariant under apartness embeddings.
+R5. A restricted subclass defined by P is categorical only after identity and composition closure of P are verified.
+
+AUDIT FINDINGS:
+A1. The exact project object predicate Adm(C) remains unspecified.
+A2. Invariance of the complete realization-dependent admissibility predicate is not established.
+A3. Closure under unions for stronger admissibility predicates is not established.
+A4. The exact additional selected structures, if any, remain unspecified.
+A5. The exact C_METACORE hom-class remains unresolved.
+A6. No global automorphism extension requirement is established by the inspected sources.
+
+NOT ESTABLISHED:
+N1. Hom_CMETACORE equals all local apartness embeddings.
+N2. Every admissible configuration has only admissible induced subconfigurations.
+N3. The full realization-dependent admissibility class is invariant under all apartness embeddings.
+N4. The full realization-dependent admissibility class is closed under unions.
+N5. A particular restricted predicate P is closed under identities and composition.
+N6. The project-level compatibility diagram D_CC is fully specified.
+N7. The project-level colimit R exists.
+
+============================================================
+9. DECISION
+============================================================
+
+S2-04C-15:
+IDENTITY CLOSURE OF APARTNESS EMBEDDINGS: PROVED.
+COMPOSITION CLOSURE OF APARTNESS EMBEDDINGS: PROVED.
+CATEGORY AXIOMS ON A FIXED OBJECT CLASS: PROVED.
+MINIMAL NONTRIVIALITY INVARIANCE: PROVED.
+FULL ADM(C) INVARIANCE: NOT ESTABLISHED.
+STRONGER UNION CLOSURE: NOT ESTABLISHED.
+RESTRICTED PREDICATE CLOSURE: NOT TESTABLE UNTIL P IS SPECIFIED.
+GLOBAL AUTOMORPHISM EXTENSION: NOT SOURCE-REQUIRED.
+EXACT C_METACORE HOM-CLASS: UNRESOLVED.
+PROJECT-LEVEL R = colim(D_CC): NOT ESTABLISHED.
+
+CLASSIFICATION:
+This is a completed conditional formal audit result plus an unresolved source-specification finding.
+It is not a refutation of the Frozen Core.
+It is not a project category adoption.
+It is not a project-level colimit theorem.
+
+============================================================
+10. NEXT REQUIRED ACTION
+============================================================
+
+S2-04C-16 — MINIMUM PROJECT SPECIFICATION DECISION MATRIX.
+
+Prepare a compact decision matrix that separates the minimum independent choices still required to define C_METACORE and D_CC:
+
+1. Object admissibility:
+   State the exact predicate Adm(C), including whether it is only minimal nontriviality or includes realization-specific data.
+
+2. Morphism class:
+   Choose an explicitly defined class of apartness embeddings or a restricted subclass with a stated predicate P(f).
+
+3. Additional structure:
+   List every selected relation, operation, constant, or ambient datum that morphisms must preserve or reflect.
+
+4. Carrier convention:
+   State whether objects and amalgams must be induced subconfigurations of the same U0 or whether abstract carriers are allowed.
+
+5. Compatibility input:
+   State whether CC is pair-based or takes a specified span as input.
+
+6. Amalgam admissibility:
+   State the exact predicate that a candidate amalgam must satisfy.
+
+7. Diagram:
+   Specify J and D:J -> C_METACORE, including objects, arrows, identities, and composition.
+
+8. Colimit:
+   Identify the proposed cocone and prove the universal property in the selected category.
+
+The matrix must distinguish:
+- source-established facts;
+- mathematically coherent candidate definitions;
+- project-level choices requiring explicit approval;
+- results that follow only after those choices.
+
+Do not select a category solely because it makes a desired colimit exist.
+Do not alter the Frozen Core or theory volumes through this decision matrix.
+Do not claim Stage 2 is officially opened.
+
+============================================================
+11. ARCHITECTURAL PRESERVATION
+============================================================
+
+Frozen Core: UNCHANGED.
+Volume II: UNCHANGED.
+Volume III: UNCHANGED.
+Volume V: UNCHANGED.
+M3.2: UNCHANGED.
+CE-V-07: RESERVED.
+Stage 2: NOT OFFICIALLY OPENED.
+CAPD: UNCHANGED.
+RL REGISTRATION: NOT CLAIMED.
+CANONICAL ACCEPTANCE: NOT CLAIMED.
+
+END OF S2-04C-15
