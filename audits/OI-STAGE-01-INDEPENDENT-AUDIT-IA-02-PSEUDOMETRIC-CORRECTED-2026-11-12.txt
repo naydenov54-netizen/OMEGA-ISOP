@@ -1,0 +1,239 @@
+CORRECTED COMPANION COPY — IA-02
+CORRECTION SCOPE: PRESENTATION / TRACEABILITY ONLY; NO CHANGE TO THE MATHEMATICAL RESULTS.
+ORIGINAL AUDIT RECORD: PRESERVED IMMUTABLY IN ITS ORIGINAL PATH.
+THIS COPY DOES NOT CLAIM A NEW INDEPENDENT AUDIT OR PROOF-ASSISTANT VERIFICATION.
+
+OMEGA-ISOP
+SIX-STAGE FOUNDATIONAL DEVELOPMENT PROGRAM
+
+INDEPENDENT MATHEMATICAL AUDIT
+STAGE 1 — DIFFERENCE
+AUDIT ID: IA-02
+SUBJECT: PSEUDOMETRIC PROPERTIES OF D
+DATE: 2026-11-11
+
+STATUS: MATHEMATICALLY VERIFIED IN CLASSICAL SET THEORY
+FROZEN CORE: UNCHANGED
+STAGE 2: NOT OPENED
+
+==================================================
+1. SCOPE AND DEFINITION
+==================================================
+
+Let X be a set, I a set of indices, and V_i a set for each i in I.
+For each i in I, let f_i : X -> V_i be a total function.
+
+Let:
+
+F : X -> product_{i in I} V_i
+F(x) = (f_i(x))_{i in I}
+
+Define:
+
+D : X x X -> {0,1}
+
+D(x,y)=1 iff F(x) != F(y).
+D(x,y)=0 iff F(x) = F(y).
+
+We verify whether D is a pseudometric on X.
+
+==================================================
+2. PSEUDOMETRIC AXIOMS
+==================================================
+
+A function d:X x X -> [0,infinity) is a pseudometric if, for all x,y,z in X:
+
+(PM1) d(x,y) >= 0
+(PM2) d(x,y) = d(y,x)
+(PM3) d(x,x) = 0
+(PM4) d(x,z) <= d(x,y) + d(y,z)
+
+Unlike a metric, a pseudometric does not require d(x,y)=0 to imply x=y.
+
+Since D takes values in {0,1}, it is naturally regarded as a function into [0,infinity).
+
+==================================================
+3. VERIFICATION
+==================================================
+
+PM1 — NON-NEGATIVITY
+
+D(x,y) is either 0 or 1. Therefore D(x,y)>=0.
+
+Result: PROVED.
+
+PM2 — SYMMETRY
+
+Equality is symmetric, and therefore inequality is symmetric:
+
+F(x)!=F(y) iff F(y)!=F(x).
+
+Thus D(x,y)=D(y,x).
+
+Result: PROVED.
+
+PM3 — ZERO ON THE DIAGONAL
+
+For every x, F(x)=F(x). Hence D(x,x)=0.
+
+Result: PROVED.
+
+PM4 — TRIANGLE INEQUALITY
+
+We must prove:
+
+D(x,z) <= D(x,y)+D(y,z).
+
+If D(x,z)=0, the inequality follows from non-negativity of the right-hand side.
+
+Suppose D(x,z)=1. Then F(x)!=F(z).
+
+Assume for contradiction that both D(x,y)=0 and D(y,z)=0. By definition:
+
+F(x)=F(y)
+and
+F(y)=F(z).
+
+By transitivity of equality, F(x)=F(z), contradicting F(x)!=F(z).
+
+Therefore at least one of D(x,y), D(y,z) equals 1. Since both are in {0,1}:
+
+D(x,y)+D(y,z)>=1=D(x,z).
+
+Thus the triangle inequality holds.
+
+Result: PROVED in classical logic.
+
+==================================================
+4. STRUCTURAL INTERPRETATION
+==================================================
+
+Let Y=product_{i in I}V_i and define the discrete metric:
+
+delta(a,b)=0 if a=b;
+delta(a,b)=1 if a!=b.
+
+Then:
+
+D(x,y)=delta(F(x),F(y)).
+
+Therefore D is the pullback of the discrete metric on Y along F.
+
+DEGENERATE INDEX-SET CASE
+If I=∅, then Y=∏_{i∈I}V_i is the singleton {∅}. The signature map F is constant, and D≡0 on X×X. For nonempty X, the quotient by the zero relation has exactly one element. This case is included in the theorem and does not require a separate assumption I≠∅.
+
+The discrete metric delta is a metric on Y.
+The pullback D is a pseudometric on X in general.
+
+This interpretation explains the triangle inequality directly.
+
+==================================================
+5. METRIC CRITERION
+==================================================
+
+D is a metric exactly when:
+
+D(x,y)=0 => x=y.
+
+By definition:
+
+D(x,y)=0 iff F(x)=F(y).
+
+Therefore:
+
+D is a metric on X iff F is injective.
+
+Proof:
+
+If F is injective and D(x,y)=0, then F(x)=F(y), so x=y.
+
+Conversely, if D is a metric and F(x)=F(y), then D(x,y)=0, so x=y. Hence F is injective.
+
+Result: PROVED.
+
+==================================================
+6. COUNTEREXAMPLE TO SEPARATION
+==================================================
+
+Let:
+
+X={a,b,c}
+I={1}
+V_1={0,1}
+
+Define:
+
+f_1(a)=0
+f_1(b)=1
+f_1(c)=0
+
+Then:
+
+D(a,b)=1
+D(b,c)=1
+D(a,c)=0
+
+Since a!=c but D(a,c)=0, D is not a metric in this example.
+
+The triangle inequality remains valid:
+
+D(a,c)<=D(a,b)+D(b,c)
+0<=1+1.
+
+This confirms that failure of injectivity does not violate pseudometricity.
+
+==================================================
+7. AUDIT FINDINGS
+==================================================
+
+FACTS:
+
+- D takes only the values 0 and 1.
+- D is non-negative.
+- D is symmetric.
+- D vanishes on the diagonal.
+- D satisfies the triangle inequality.
+- D is the pullback of the discrete metric along F.
+- D is a metric iff F is injective.
+
+FORMAL RESULTS:
+
+IA-02-PM1: PROVED.
+IA-02-PM2: PROVED.
+IA-02-PM3: PROVED.
+IA-02-PM4: PROVED.
+IA-02-METRIC-CRITERION: PROVED.
+
+SCOPE LIMITATIONS:
+
+1. The verification is stated in the classical mathematical framework.
+2. A general constructive version is not established here.
+3. Pseudometricity alone does not establish physical interpretation or ontology.
+4. Pseudometricity does not establish a unique feature family.
+5. Injectivity of F is not implied without an additional condition.
+
+==================================================
+8. PROJECT BOUNDARIES
+==================================================
+
+This result applies only to the declared Stage 1 candidate formalization.
+
+It does not establish:
+- a canonical feature family;
+- physical observability or ontology;
+- causation, dynamics, persistence, or organization;
+- equivalence between D and primitive Difference PD or apartness realization #;
+- a universal theorem beyond the stated construction.
+
+No external independent mathematician certification or proof-assistant verification is claimed.
+
+FROZEN CORE: UNCHANGED
+VOLUME II: UNCHANGED
+VOLUME V: UNCHANGED
+CE-V-07: RESERVED
+STAGE 2: NOT OPENED
+
+NEXT CONTROLLED AUDIT:
+IA-03 — ZERO-KERNEL AND EQUIVALENCE RELATION.
+
+END OF IA-02
