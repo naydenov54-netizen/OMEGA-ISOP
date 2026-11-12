@@ -1,0 +1,253 @@
+OMEGA-ISOP SIX-STAGE FOUNDATIONAL DEVELOPMENT PROGRAM
+AUDIT RECORD: S2-04C-06
+TITLE: COMPARISON WITH A NON-INCLUSION MORPHISM CLASS
+DATE: 2026-11-12
+STATUS: FINITE PUSHOUT VERIFIED IN THE ISOMORPHISM GROUPoid TEST CATEGORY
+SCOPE: CATEGORY-DEPENDENT FINITE COMPARISON ONLY
+
+0. GOVERNING CHECKPOINT AND ARCHITECTURAL STATUS
+
+This record follows S2-04C-05. Its purpose is to compare the finite inclusion-category construction with a separately specified non-inclusion morphism class.
+
+The selected test category is C_U0-ISO, whose morphisms are isomorphisms of induced configurations. This is not asserted to be the intended project-level category C_METACORE.
+
+Architectural controls:
+- Frozen Core: UNCHANGED.
+- Volumes II, III, and V: UNCHANGED.
+- Volume V remains the active research architecture only.
+- CE-V-07: RESERVED.
+- Stage 2: NOT OFFICIALLY OPENED.
+- CAPD: NO STATUS CHANGE.
+- No RL registration.
+- No CE-V promotion.
+- No universal amalgamation or colimit theorem.
+- No certification upgrade.
+- No project-level morphism class selected.
+
+1. FINITE UNDERLYING STRUCTURE
+
+Let
+
+U0 = {a,b,c,d,e,f}.
+
+Define an equivalence relation ~ with classes:
+
+A = {a,c,e}
+B = {b,d,f}.
+
+Define apartness by
+
+x # y  iff  not(x ~ y).
+
+Thus # is symmetric and irreflexive. Every pair with one element from A and one from B is apart.
+
+Each configuration carries the induced restriction of #.
+
+2. TEST CATEGORY C_U0-ISO
+
+Objects:
+C(S) = (S, # restricted to S x S),
+
+where S subseteq U0, |S| >= 2, and there exist x,y in S with x # y.
+
+Morphisms:
+A morphism phi:C(S)->C(T) is a bijection phi:S->T satisfying, for every x,y in S,
+
+x # y  iff  phi(x) # phi(y).
+
+Thus morphisms are isomorphisms of the induced apartness structures. They are not required to be literal inclusions and may map elements to different elements of U0.
+
+Identities are identity bijections.
+Composition is ordinary composition of bijections.
+The composite of two isomorphisms again preserves and reflects apartness.
+Every morphism has an inverse that also preserves and reflects apartness.
+
+Therefore C_U0-ISO is a finite groupoid: U0 has finitely many subsets, and each hom-set consists of finitely many bijections.
+
+3. FINITE INDEXING CATEGORY J
+
+Use the span-shaped category J with objects:
+
+Ob(J) = {0,1,2}
+
+and non-identity arrows:
+
+alpha: 0 -> 1
+beta: 0 -> 2.
+
+Together with identity arrows, this is a finite category.
+
+4. CONFIGURATIONS AND NON-INCLUSION MORPHISMS
+
+Define:
+
+C0 = C({a,b})
+C1 = C({c,d})
+C2 = C({e,f}).
+
+All three are admissible because each contains one element of A and one element of B, hence an apartness witness.
+
+Define:
+
+f1:C0->C1 by
+f1(a)=c
+f1(b)=d.
+
+Define:
+
+f2:C0->C2 by
+f2(a)=e
+f2(b)=f.
+
+Both maps are bijections and preserve and reflect apartness:
+a # b and c # d and e # f.
+The reverse ordered pairs are also apart; each element is not apart from itself.
+
+Thus f1 and f2 are isomorphisms in C_U0-ISO.
+
+Define D:J->C_U0-ISO by:
+
+D(0)=C0
+D(1)=C1
+D(2)=C2
+D(alpha)=f1
+D(beta)=f2.
+
+Identity arrows are sent to identity morphisms. This is a functor.
+
+5. CANDIDATE PUSHOUT
+
+Take the candidate colimit object:
+
+M = C1.
+
+Define cocone maps:
+
+j1:C1->M as id_C1.
+
+Define j2:C2->M by:
+
+j2(c? no; domain is C2)
+j2(e)=c
+j2(f)=d.
+
+Equivalently:
+
+j2 = f1 o inverse(f2).
+
+This is a bijection preserving and reflecting apartness, hence an isomorphism in C_U0-ISO.
+
+Cocone compatibility:
+
+j1 o f1 = f1.
+
+j2 o f2
+= (f1 o inverse(f2)) o f2
+= f1.
+
+Therefore:
+
+j1 o D(alpha) = j2 o D(beta).
+
+So (M,j1,j2) is a cocone over D.
+
+6. DIRECT VERIFICATION OF THE UNIVERSAL PROPERTY
+
+Let T be any object of C_U0-ISO and suppose a cocone from D to T is given by:
+
+u1:C1->T
+u2:C2->T
+
+with
+
+u1 o f1 = u2 o f2.
+
+Since j1=id_C1, define:
+
+u = u1:M->T.
+
+Then:
+
+u o j1 = u1 o id_C1 = u1.
+
+For the second leg:
+
+u o j2
+= u1 o f1 o inverse(f2)
+= u2 o f2 o inverse(f2)
+= u2.
+
+Thus u factors the given cocone.
+
+Uniqueness:
+If v:M->T also satisfies v o j1=u1, then because j1=id_C1,
+
+v = v o id_C1 = u1 = u.
+
+Therefore the factorization is unique.
+
+Hence (M,j1,j2) is a colimit cocone, and therefore a pushout of the span C1 <- C0 -> C2 in C_U0-ISO.
+
+7. COMPARISON WITH S2-04C-05
+
+S2-04C-05 used C_U0-INC, where morphisms were literal inclusions. For its span, the colimit was the union configuration on four elements.
+
+S2-04C-06 uses C_U0-ISO, where morphisms are isomorphisms. For the present span, the pushout is C1 itself, a two-element configuration, and the second leg is an isomorphism C2->C1.
+
+The two constructions have different colimit objects and different cocone maps because the categories and their morphisms differ.
+
+This comparison establishes a precise methodological point:
+
+A colimit is defined relative to a category, including its chosen objects and morphisms. One cannot infer a project-level colimit merely from the underlying configurations or from a colimit computed in a different category.
+
+8. WHAT HAS BEEN PROVED
+
+Within the declared finite model:
+- C_U0-ISO is a finite groupoid.
+- f1 and f2 are explicitly defined non-inclusion isomorphisms.
+- D:J->C_U0-ISO is an explicit finite diagram.
+- A cocone with vertex C1 is defined.
+- Its compatibility condition is verified.
+- The universal property is directly verified.
+- The pushout/colimit exists in C_U0-ISO for this particular span.
+
+9. LIMITATIONS AND NON-IMPLICATIONS
+
+This result does NOT establish:
+- that C_U0-ISO is the intended project-level category C_METACORE;
+- that isomorphisms are the intended OMEGA-ISOP morphisms;
+- that arbitrary embeddings or arbitrary compatibility diagrams have pushouts;
+- that every D_CC has a colimit;
+- that the project relation R is universally constructible as a colimit;
+- that the inclusion-category colimit from S2-04C-05 transfers to this category;
+- that this finite groupoid model resolves the project-level morphism-class HOLD;
+- any universal theorem, physical interpretation, ontological conclusion, or CAPD result.
+
+The positive result is limited to this particular span in this particular groupoid.
+
+10. AUDIT FINDING
+
+The S2-04C-05 and S2-04C-06 examples demonstrate that colimit outcomes depend on the selected category:
+- inclusion morphisms produce a union-type colimit in the selected inclusion category;
+- isomorphism morphisms produce a transport-type pushout in the selected groupoid.
+
+Therefore the project-level morphism class must be specified before a project-level colimit claim can be evaluated.
+
+11. STATUS
+
+S2-04C-06:
+FINITE NON-INCLUSION MORPHISM TEST CONSTRUCTED.
+PUSHOUT UNIVERSAL PROPERTY: VERIFIED IN C_U0-ISO.
+CATEGORY-DEPENDENCE OF THE COLIMIT: DEMONSTRATED BY COMPARISON WITH S2-04C-05.
+PROJECT-LEVEL C_METACORE IDENTIFICATION: HOLD.
+GENERAL D_CC COMPLETENESS: OPEN.
+UNIVERSAL AMALGAMATION: NOT ESTABLISHED.
+STAGE 2: NOT OFFICIALLY OPENED.
+
+12. NEXT LOGICAL AUDIT QUESTION
+
+The next useful test is not to declare either C_U0-INC or C_U0-ISO correct by preference. It is to return to the source definitions and determine which morphism requirements are actually imposed by the OMEGA-ISOP source architecture.
+
+Until that source-level specification is explicit, the project-level morphism class remains unresolved.
+
+END OF S2-04C-06 RECORD
