@@ -4,12 +4,12 @@ CORRECTION REGISTER / PERMANENT DISCOVERY INDEX
 
 REGISTER ID: CR-01
 DATE: 2026-11-12
-STATUS: DISCOVERY INDEX RECORDED IN MAIN
+STATUS: DISCOVERY INDEX PRESERVED IN MAIN; FOLLOW-UP CORRECTIONS RECORDED ON PR #65 BRANCH
 PURPOSE: Provide a stable entry point to corrected companion documents currently held on the dedicated correction branch.
 MATHEMATICAL ACCEPTANCE: NOT GRANTED BY THIS REGISTER
 PR #65: OPEN / DRAFT
 CORRECTION BRANCH: stage1-corrections-2026-11-12
-CORRECTION BRANCH HEAD: f287044bb94662a557afa1df9ca248cb65f46654
+CORRECTION BRANCH HEAD BEFORE THIS REGISTER UPDATE: faac7dbf68454d11c3cfec87d686b177a6931f7f
 
 IMPORTANT VERSION CONTROL RULES
 
@@ -29,7 +29,7 @@ audits/OI-STAGE-01-INDEPENDENT-AUDIT-IA-02-PSEUDOMETRIC-CORRECTED-2026-11-12.txt
 Branch:
 stage1-corrections-2026-11-12
 Git blob SHA:
-321cf09c540cc5afd6c528b351b3d6cdaad6dace
+a796f58bb9e8bb875f9498903003e1d7768ae89a
 Direct URL:
 https://github.com/naydenov54-netizen/OMEGA-ISOP/blob/stage1-corrections-2026-11-12/audits/OI-STAGE-01-INDEPENDENT-AUDIT-IA-02-PSEUDOMETRIC-CORRECTED-2026-11-12.txt
 
@@ -39,7 +39,7 @@ audits/OI-STAGE-01-AUDIT-TASK-03-CORRECTED-2026-11-12.txt
 Branch:
 stage1-corrections-2026-11-12
 Git blob SHA:
-d9d9204b241e91ef1add2a8310ae9ef2372fc9e7
+11fbd7a00a79fcaa8d10c76b34f8a527be667ca1
 Direct URL:
 https://github.com/naydenov54-netizen/OMEGA-ISOP/blob/stage1-corrections-2026-11-12/audits/OI-STAGE-01-AUDIT-TASK-03-CORRECTED-2026-11-12.txt
 
@@ -49,7 +49,7 @@ audits/OI-STAGE-01-INDEPENDENT-AUDIT-IA-03-QUOTIENT-METRIC-CORRECTED-2026-11-12.
 Branch:
 stage1-corrections-2026-11-12
 Git blob SHA:
-6002511084df0ad9103ef236bf4c50d19c28750f
+bca50df92bc177457b92b0fceacb3f7fcd216a4f
 Direct URL:
 https://github.com/naydenov54-netizen/OMEGA-ISOP/blob/stage1-corrections-2026-11-12/audits/OI-STAGE-01-INDEPENDENT-AUDIT-IA-03-QUOTIENT-METRIC-CORRECTED-2026-11-12.txt
 
@@ -60,8 +60,12 @@ https://github.com/naydenov54-netizen/OMEGA-ISOP/pull/65
 Base branch: main
 Head branch: stage1-corrections-2026-11-12
 Base snapshot: cddfa4ea8eeabfcfb5f319071d938d4983a8a7a8
-Head snapshot: f287044bb94662a557afa1df9ca248cb65f46654
+Head snapshot before this register update: faac7dbf68454d11c3cfec87d686b177a6931f7f
+Main snapshot synchronized: d047570b3aa3527a092adf09d94e5c0264c8e032
+Synchronization merge commit: 9253fd3022ec7e0c382b5155cd0f20ab744daeff
 State at register creation: OPEN / DRAFT
+Current SHA-256 status: COMPLETED (4/4), recorded in SIV-01.
+SIV-01 Git blob SHA: 2846c70c9b17d623bda00c358ff8928a18af6451
 
 AUDIT CONTROL
 
