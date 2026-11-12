@@ -1,0 +1,408 @@
+OMEGA-ISOP
+STAGE 2 PREPARATORY MATHEMATICAL AUDIT
+S2-04C-10 — LINE-BY-LINE PROOF AUDIT OF THE E_F NO-PUSHOUT ARGUMENT
+DATE: 2026-11-12
+STATUS: STRONG FINITE NONEXISTENCE RESULT VERIFIED / PRIOR SUMMARY INCONSISTENCY IDENTIFIED
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+
+============================================================
+0. PURPOSE AND SCOPE
+============================================================
+
+This record independently audits Section 5.1 of:
+audits/OI-STAGE-02-S2-04C-06-FIXED-CARRIER-MORPHISM-CLASS-COMPARISON-2026-11-11.txt
+
+The purpose is to determine whether the two-case argument proves nonexistence of every pushout for the specified span in the explicitly defined finite category E_F, rather than merely showing that the particular candidate M is not a pushout.
+
+This is a finite category-level result only. It does not identify E_F with C_METACORE and does not establish project-level failure of R=colim(D_CC).
+
+ARCHITECTURAL CONTROLS:
+- Frozen Core: UNCHANGED.
+- Volume II: UNCHANGED.
+- Volume III: UNCHANGED.
+- Volume V: UNCHANGED.
+- CE-V-07: RESERVED.
+- Stage 2: NOT OFFICIALLY OPENED.
+- No project-level theorem is asserted.
+- No canonical status is changed.
+
+============================================================
+1. RECONSTRUCTION OF THE FINITE TEST CATEGORY
+============================================================
+
+Ambient carrier:
+U0={o1,o2,a,b,p,q,r,s}.
+
+Equivalence classes:
+K={o1,a,b,p,r,s}
+L={o2,q}.
+
+Define:
+x ~ y iff x and y belong to the same one of K,L.
+Define apartness:
+x # y iff not(x ~ y).
+
+Define F as the family of all subsets S subseteq U0 such that:
+(i) |S| >= 2;
+(ii) there exist x,y in S with x # y.
+
+For S in F, C_S is the induced structure on S.
+
+The category E_F is defined by:
+- Objects: all C_S for S in F.
+- Morphisms: all injective maps f:S -> T such that:
+  x #_S y iff f(x) #_T f(y).
+
+Equivalent formulation:
+x ~_S y iff f(x) ~_T f(y).
+
+This is a category:
+- identities are injective and preserve/reflect the relation;
+- composites of injective relation embeddings are injective and preserve/reflect the relation;
+- associativity and identity laws follow from function composition.
+
+============================================================
+2. THE SPAN
+============================================================
+
+C0 has carrier:
+S0={o1,o2}.
+
+C1 has carrier:
+S1={o1,o2,a}.
+
+C2 has carrier:
+S2={o1,o2,b}.
+
+The span maps f1:C0 -> C1 and f2:C0 -> C2 are literal inclusions.
+
+All three objects belong to F:
+- each has at least two elements;
+- each contains an element of K and an element of L;
+- therefore each has an apartness witness.
+
+The maps f1,f2 are injective and preserve/reflect the induced relation. They are valid E_F morphisms.
+
+============================================================
+3. HYPOTHETICAL PUSHOUT
+============================================================
+
+Assume for contradiction that a pushout P exists in E_F, with morphisms:
+j1:C1 -> P
+j2:C2 -> P
+
+satisfying the span commutativity equation:
+j1 o f1 = j2 o f2.
+
+Since j1,j2 are morphisms in E_F, both are injective and preserve/reflect equivalence/apartness.
+
+The elements j1(a) and j2(b) are elements of the carrier of P. Equality of two elements is exhaustive, so exactly one of the following cases holds:
+
+CASE I:
+j1(a)=j2(b).
+
+CASE II:
+j1(a) != j2(b).
+
+The proof must defeat the universal property in each case by constructing a valid cocone in E_F which cannot factor through P.
+
+============================================================
+4. CASE I — IDENTIFIED IMAGES
+============================================================
+
+Assume:
+j1(a)=j2(b).
+
+Define N' with carrier:
+S_N'={p,q,r,s}.
+
+Its induced equivalence classes are:
+{p,r,s}, {q}.
+
+N' belongs to F:
+- |S_N'|=4;
+- p # q, since p and q lie in different ambient equivalence classes.
+
+Define:
+g1':C1 -> N'
+g1'(o1)=p
+g1'(o2)=q
+g1'(a)=r.
+
+Define:
+g2':C2 -> N'
+g2'(o1)=p
+g2'(o2)=q
+g2'(b)=s.
+
+4.1 Injectivity
+
+The images of each map are three distinct elements:
+- g1' image is {p,q,r};
+- g2' image is {p,q,s}.
+
+Thus both maps are injective.
+
+4.2 Preservation and reflection
+
+In C1, the equivalence classes are:
+{o1,a}, {o2}.
+
+In N', the images under g1' have classes:
+{p,r}, {q}.
+
+Therefore for every pair x,y in C1:
+x ~1 y iff g1'(x) ~N' g1'(y).
+Equivalently:
+x #1 y iff g1'(x) #N' g1'(y).
+
+Thus g1' is an E_F morphism.
+
+In C2, the equivalence classes are:
+{o1,b}, {o2}.
+
+In N', the images under g2' have classes:
+{p,s}, {q}.
+
+Therefore:
+x ~2 y iff g2'(x) ~N' g2'(y),
+and equivalently apartness is preserved and reflected.
+
+Thus g2' is an E_F morphism.
+
+4.3 Agreement on the base
+
+Both composites send:
+o1 -> p
+o2 -> q.
+
+Therefore:
+g1' o f1 = g2' o f2.
+
+So (g1',g2') is a valid cocone over the original span.
+
+4.4 Failure of factorization
+
+If P were a pushout, there would be a morphism h':P -> N' such that:
+h' o j1 = g1'
+h' o j2 = g2'.
+
+Using the assumed equality j1(a)=j2(b), these equations imply:
+r
+= g1'(a)
+= h'(j1(a))
+= h'(j2(b))
+= g2'(b)
+= s.
+
+But r and s are distinct elements of N'.
+
+Contradiction.
+
+Therefore no factorization exists in Case I.
+
+============================================================
+5. CASE II — DISTINCT IMAGES
+============================================================
+
+Assume:
+j1(a) != j2(b).
+
+Define N with carrier:
+S_N={p,q,r}.
+
+Its induced equivalence classes are:
+{p,r}, {q}.
+
+N belongs to F:
+- |S_N|=3;
+- p # q.
+
+Define:
+g1:C1 -> N
+g1(o1)=p
+g1(o2)=q
+g1(a)=r.
+
+Define:
+g2:C2 -> N
+g2(o1)=p
+g2(o2)=q
+g2(b)=r.
+
+5.1 Injectivity
+
+Each map has three distinct images {p,q,r}. Both are injective.
+
+5.2 Preservation and reflection
+
+For g1:
+- the source class {o1,a} maps to {p,r};
+- the source singleton class {o2} maps to {q}.
+
+These are exactly the equivalence classes induced on the image. Thus g1 preserves and reflects equivalence, and therefore apartness.
+
+For g2:
+- the source class {o1,b} maps to {p,r};
+- the source singleton class {o2} maps to {q}.
+
+Thus g2 also preserves and reflects equivalence and apartness.
+
+Both are valid E_F morphisms.
+
+5.3 Agreement on the base
+
+Both maps send:
+o1 -> p
+o2 -> q.
+
+Therefore:
+g1 o f1 = g2 o f2.
+
+So (g1,g2) is a valid cocone over the original span.
+
+5.4 Failure of factorization
+
+If P were a pushout, there would be a morphism h:P -> N satisfying:
+h o j1 = g1
+h o j2 = g2.
+
+These equations force:
+h(j1(a))=r
+and
+h(j2(b))=r.
+
+But in Case II:
+j1(a) != j2(b).
+
+Thus h maps two distinct elements to the same element r. Therefore h is not injective.
+
+Every morphism in E_F must be injective. Hence h is not a morphism in E_F.
+
+Contradiction.
+
+Therefore no factorization exists in Case II.
+
+============================================================
+6. CONCLUSION OF THE TWO-CASE PROOF
+============================================================
+
+The two cases:
+j1(a)=j2(b)
+and
+j1(a)!=j2(b)
+are exhaustive.
+
+In each case, a valid cocone in E_F has been constructed for which the assumed pushout cocone admits no factorization morphism.
+
+Therefore the assumed pushout P cannot exist.
+
+FORMAL RESULT:
+
+The specified span:
+C1 <- C0 -> C2
+
+has NO PUSHOUT in the explicitly defined finite fixed-carrier category E_F.
+
+This is stronger than the statement that the particular union candidate M is not a pushout.
+
+The proof uses:
+- the exact finite ambient carrier U0;
+- the exact equivalence/apartness relation;
+- the exact object family F;
+- the exact all-injective-apartness-embeddings morphism class;
+- the exact span specified above.
+
+No step requires a category larger than E_F. The targets N and N' are objects of F and all four maps are E_F morphisms.
+
+============================================================
+7. CORRECTION OF THE INTERNAL INCONSISTENCY IN S2-04C-06
+============================================================
+
+The original S2-04C-06 Section 5.1 contains the two-case proof of nonexistence of any pushout.
+
+However, its Section 7 LIMITATIONS states:
+"The result does not prove that no pushout exists for the span in E_F; it proves only that this candidate M is not that pushout."
+
+That limitation sentence is incorrect relative to the proof actually supplied in Section 5.1.
+
+Corrected interpretation:
+
+The two-case proof in Section 5.1 establishes that no pushout exists for the specified span in the specified finite category E_F.
+
+The result remains limited to that finite test category and does not identify E_F with C_METACORE.
+
+This record corrects the mathematical interpretation for subsequent audit work. It does not rewrite, delete, or overwrite the original S2-04C-06 file. The original record and its history remain preserved.
+
+============================================================
+8. FACTS / FORMAL RESULTS / LIMITATIONS
+============================================================
+
+FACTS:
+- U0 has two equivalence classes K and L as defined above.
+- F contains exactly the declared subsets with at least two elements and an apartness witness.
+- C0,C1,C2,N,N' all belong to F.
+- The span maps and all four counter-cocone maps are valid E_F morphisms.
+
+FORMAL RESULTS:
+- E_F satisfies the category axioms.
+- The candidate M is an amalgam for the span.
+- M is not a pushout.
+- More strongly, no pushout exists for this span in E_F.
+
+LIMITATIONS:
+- This is one finite fixed-carrier test category.
+- It does not prove that every category of embeddings lacks pushouts.
+- It does not prove that C_METACORE is E_F.
+- It does not prove project-level nonexistence of R=colim(D_CC).
+- It does not settle the intended project object-admissibility predicate or morphism class.
+- It does not modify or refute the Frozen Core.
+
+============================================================
+9. STATUS
+============================================================
+
+S2-04C-10:
+FINITE E_F OBJECT FAMILY: RECONSTRUCTED.
+N AND N' ADMISSIBILITY: VERIFIED.
+g1,g2,g1',g2' EMBEDDINGS: VERIFIED.
+BASE COMMUTATIVITY: VERIFIED.
+CASE SPLIT: EXHAUSTIVE.
+CASE I FACTORIZATION: IMPOSSIBLE.
+CASE II FACTORIZATION: IMPOSSIBLE.
+NO-PUSHOUT RESULT IN E_F: VERIFIED.
+S2-04C-06 SUMMARY INCONSISTENCY: IDENTIFIED AND CORRECTED BY ADDITIVE RECORD.
+C_METACORE IDENTIFICATION: HOLD.
+PROJECT-LEVEL COLIMIT: NOT ESTABLISHED.
+
+============================================================
+10. NEXT VALID ACTION
+============================================================
+
+The finite category comparison is now internally consistent:
+
+- P_F: the specified union candidate is a pushout under the stated object-closure condition.
+- E_F: the specified span has no pushout in the finite test category.
+
+The next project-level task is NOT to select whichever category yields the desired result.
+
+The next task is to locate or formally authorize the exact C_METACORE object and morphism specification. Only after that can the finite results be used as relevant conditional evidence for the project category.
+
+Any project-level definition must be separately approved and versioned.
+
+============================================================
+11. ARCHITECTURAL CONTROL
+============================================================
+
+Frozen Core: UNCHANGED.
+Volume II: UNCHANGED.
+Volume III: UNCHANGED.
+Volume V: UNCHANGED.
+CE-V-07: RESERVED.
+Stage 2: NOT OFFICIALLY OPENED.
+CAPD: NO STATUS CHANGE.
+RL REGISTRATION: NOT CLAIMED.
+CANONICAL ACCEPTANCE: NOT CLAIMED.
+
+END OF S2-04C-10
