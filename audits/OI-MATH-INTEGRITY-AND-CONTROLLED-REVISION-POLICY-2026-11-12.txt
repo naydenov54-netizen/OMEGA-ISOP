@@ -1,0 +1,129 @@
+OMEGA-ISOP — MATHEMATICAL INTEGRITY AND CONTROLLED REVISION POLICY
+DOCUMENT ID: OI-MATH-INTEGRITY-POLICY-2026-11-12
+DATE: 2026-11-12
+VERSION: 1.0
+STATUS: USER-AUTHORIZED WORKING POLICY / CONTINUITY RECORD
+SCOPE: ALL MATHEMATICAL, FORMAL, COMPUTATIONAL, AND ARCHITECTURAL AUDITS OF OMEGA-ISOP
+
+1. GOVERNING PRINCIPLE
+
+Mathematical correctness takes precedence over prior expectations, preferences, investment, or attachment to an existing formulation.
+
+OMEGA-ISOP is not to be protected from mathematical criticism. It is to be tested by mathematics. If a rigorous result contradicts a claim, definition, derivation, or assumption in OMEGA-ISOP, the project record must identify and address the discrepancy. The proof or counterexample must not be altered merely to preserve the existing theory.
+
+2. AUTHORIZATION TO CORRECT
+
+The user explicitly authorizes making changes to OMEGA-ISOP when mathematical investigation establishes that a change is necessary.
+
+This authorization means:
+- No definition, assumption, theorem, construction, or architectural element is exempt from mathematical examination.
+- A demonstrated defect may require correction, restriction, reformulation, replacement, or withdrawal of the affected claim.
+- A correction must be proportional to the demonstrated defect. Do not change unrelated material.
+- The existence of a proposed correction does not itself authorize silently rewriting protected or canonical records. Apply the documented change-control process and preserve traceability.
+
+3. REQUIRED DIAGNOSTIC PROCEDURE
+
+Before recommending or implementing a substantive mathematical or architectural change:
+(a) State the exact claim or construction under examination.
+(b) Classify the issue: definition, assumption, inference, proof, computation, interpretation, or scope.
+(c) Identify the precise mathematical failure or missing condition.
+(d) Seek a counterexample where appropriate.
+(e) Check whether the result can be repaired by adding explicit hypotheses or narrowing its scope.
+(f) Distinguish a genuine contradiction from an under-specified or unverified claim.
+(g) Map the consequences for dependent definitions, propositions, proofs, computational tests, and project volumes.
+(h) Propose the narrowest mathematically justified correction.
+(i) Record the old statement, proposed new statement, rationale, dependencies, and verification evidence.
+(j) Read back the saved record and verify its integrity.
+
+4. EVIDENCE AND STATUS DISCIPLINE
+
+Keep the following categories separate:
+FACTS
+HYPOTHESES
+FORMAL RESULTS
+AUDIT FINDINGS
+COMPUTATIONAL RESULTS
+INTERPRETATIONS
+STATUS
+
+Do not conflate:
+- Numerical approximation with interval validation or analytical proof.
+- Simulation with proof.
+- A result in one example or category with a universal theorem.
+- Conditional validity with unconditional validity.
+- A candidate construction with an established project-level construction.
+- Definition with derivation.
+- Representation with mechanism.
+- Relation with causation.
+- Organization with causation.
+- Persistence with robustness.
+- Persistence with invariance.
+- Invariance with ontology.
+- Observerhood with consciousness.
+- Adaptive response with intention or free will.
+- Admissibility with realization.
+- Possibility with necessity.
+
+A result may be marked certified only after the required independent verification has actually been completed and documented. Do not upgrade status by implication, wording, or repository activity.
+
+5. ARCHITECTURAL CHANGE CONTROL
+
+The user's authorization to correct the theory does not mean that protected architecture may be changed silently.
+
+Current controls remain in force unless a specific, evidence-based change is formally approved and recorded:
+FROZEN CORE: UNCHANGED.
+VOLUME V: ACTIVE RESEARCH ARCHITECTURE.
+CE-V-07: RESERVED.
+UNIVERSALITY: NOT ESTABLISHED.
+STAGE 2: NOT OFFICIALLY OPENED.
+CAPD STATUS: NO CHANGE.
+
+If a mathematical defect is found in the Frozen Core:
+- Record the defect and its proof or counterexample.
+- Identify all affected claims and dependencies.
+- Do not conceal the finding to preserve the Frozen Core.
+- Do not silently modify the Frozen Core.
+- Prepare a controlled amendment proposal with explicit before/after text and impact analysis.
+- Preserve the prior version and its provenance.
+- Change the protected architecture only through an explicit, traceable approval and versioning procedure.
+
+Until such a change is approved and recorded, the existing architectural status remains unchanged; the defect, if established, must still be reported plainly.
+
+6. PROJECT-SPECIFIC CAUTIONS
+
+A candidate distinction function D is not automatically Primitive Difference (PD) and is not automatically the Frozen Core relation R.
+A category-relative amalgamation or colimit result does not establish the project-level C_METACORE construction.
+A finite illustrative example does not establish a general theorem.
+A GitHub commit, Library upload, or read-back check verifies record handling only; it does not certify mathematical truth.
+Library and GitHub copies may share a common origin and therefore must not be treated as independent mathematical verification merely because they are stored separately.
+
+7. CONTINUITY IN A NEW CHAT
+
+When this record is supplied in a new chat:
+- Treat it as a governing working policy for the mathematical audit.
+- Continue from the latest verified OMEGA-ISOP checkpoint and repository records.
+- Do not restart completed work or ask the user to repeat already available context.
+- Inspect relevant source records before making claims about their contents.
+- Preserve all current architectural controls unless a documented mathematical finding and approved change process alter them.
+- State clearly what was verified, what remains conditional, what is unresolved, and what was not checked.
+
+8. OPERATING COMMITMENT
+
+The objective is not to prove OMEGA-ISOP correct at any cost.
+
+The objective is to determine:
+- which claims are mathematically established;
+- which claims hold only under stated conditions;
+- which claims remain unproved or under-specified;
+- which claims require reformulation;
+- and which claims must be withdrawn if they cannot be sustained.
+
+Mathematical evidence has priority over theoretical preference. The project must be allowed to change when the evidence requires it. Accuracy, scope control, and traceability govern every such change.
+
+9. CURRENT RESEARCH CONTINUATION POINT
+
+Latest completed Stage 2 audit record: S2-04C-07 — SOURCE-ALIGNED MORPHISM SPECIFICATION AUDIT (2026-11-12).
+Recorded result: source passages define configuration embeddings as injective maps preserving and reflecting apartness, but the inspected passages do not fully specify whether C_METACORE morphisms are exactly all such embeddings, a restricted subclass, literal inclusions, or maps subject to global automorphism extension. The project-level morphism class and complete D_CC specification remain unresolved.
+Next indicated audit action: inspect remaining authoritative source records for explicit morphism-class, admissible-amalgam, and carrier rules. If no such rule is found, preserve the unresolved specification requirement; do not infer a category.
+
+END OF POLICY RECORD
