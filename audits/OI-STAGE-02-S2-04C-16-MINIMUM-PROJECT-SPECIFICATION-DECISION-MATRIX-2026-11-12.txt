@@ -1,0 +1,372 @@
+OMEGA-ISOP
+STAGE 2 PREPARATORY MATHEMATICAL AUDIT
+S2-04C-16 — MINIMUM PROJECT SPECIFICATION DECISION MATRIX
+DATE: 2026-11-12
+STATUS: SPECIFICATION MATRIX COMPLETED / ALL PROJECT-LEVEL CHOICES UNRESOLVED / NO CATEGORY ADOPTED
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+
+============================================================
+0. PURPOSE AND CONTROL
+============================================================
+
+This record consolidates the minimum independent decisions required before C_METACORE and D_CC can be treated as fully specified categorical data.
+
+It separates:
+(A) facts supported by the inspected source records;
+(B) mathematically coherent candidate definitions;
+(C) project-level choices requiring explicit approval;
+(D) consequences that follow only after those choices and their hypotheses are fixed.
+
+This is a decision matrix, not a decision on behalf of the project. It does not amend the Frozen Core, Volume II, Volume III, Volume V, M3.2, or any canonical definition.
+
+ARCHITECTURAL CONTROLS:
+- Frozen Core: UNCHANGED.
+- Volume II: UNCHANGED.
+- Volume III: UNCHANGED.
+- Volume V: UNCHANGED.
+- M3.2: UNCHANGED.
+- CE-V-07: RESERVED.
+- Stage 2: NOT OFFICIALLY OPENED.
+- CAPD: UNCHANGED; no universal theorem claim.
+- Canonical acceptance: NOT CLAIMED.
+- RL registration: NOT CLAIMED.
+- No conditional result is promoted to certified.
+
+============================================================
+1. SOURCE BASELINE AND TRACEABILITY
+============================================================
+
+INSPECTED SOURCE / AUDIT RECORDS:
+
+S1. Volume III, v1.1-VAL-RESTORED, repository source file:
+docs/source-materials/OMEGA-ISOP-VOLUME-III-v1.1-VAL-RESTORED.txt
+Relevant Sections 5-9:
+- finite carrier with apartness;
+- configuration nontriviality;
+- compatibility;
+- relational specification as a conditional colimit;
+- categorical completeness requirements for D_CC.
+
+S2. Volume II, v1.3-MF-AUDIT-RESTORED-FINAL:
+The prior source-alignment audits identify Sections III.4, III.5, IV.1-IV.3 as the relevant passages. The original protected Library source was not directly fetched from this repository path in this checkpoint; its contents are relied upon only to the extent recorded and quoted in the source-alignment audit records. This limitation is retained explicitly.
+
+S3. S2-04C-08 — admissible amalgam source audit.
+S4. S2-04C-09 — category specification decision sheet.
+S5. S2-04C-12 — controlled category specification proposal.
+S6. S2-04C-13 — category choice consequence audit.
+S7. S2-04C-14 — semantic morphism requirement extraction.
+S8. S2-04C-15 — embedding-class closure and admissibility invariance audit.
+
+SOURCE-ESTABLISHED BASELINE, AS RECORDED IN THE INSPECTED SOURCE AUDITS:
+
+F1. A local configuration is represented as C=(S_C,#_C), with S_C subseteq U0 and #_C the restriction of the selected ambient apartness relation.
+F2. The stated local embedding template is an injective map f:S1 -> S2 satisfying, for all x,y in S1:
+    x #1 y iff f(x) #2 f(y).
+F3. The embedding is described as structural correspondence within the chosen realization, not ontological identity.
+F4. The category-level language refers to morphisms preserving selected structural properties, but the complete list of selected properties and the exact hom-sets are not specified.
+F5. Exact object admissibility is realization-dependent in the inspected Volume II source.
+F6. Volume III's minimal nontriviality test includes |S_C| >= 2 and an actual apartness witness:
+    exists x,y in S_C such that x #_C y.
+    This is not established as the complete universal Adm(C) predicate.
+F7. The source compatibility notation is binary:
+    CC(C1,C2)=1 iff an admissible amalgamation exists.
+    The inspected source does not settle whether the intended categorical input is a pair or a specified span.
+F8. Volume III requires an indexing category J, a functor D:J -> C_METACORE, relevant objects and arrows, compatibility conditions, and a universal property. A Boolean CC predicate alone does not supply these data.
+F9. The project-level colimit R := colim(D_CC) is conditional on the required categorical data and existence proof.
+
+============================================================
+2. MINIMUM DECISION MATRIX
+============================================================
+
+DECISION 1 — OBJECT ADMISSIBILITY
+
+SOURCE-ESTABLISHED:
+- Configurations have the stated induced-apartness representation.
+- A minimal nontriviality test is stated.
+- Exact admissibility remains realization-dependent.
+
+COHERENT CANDIDATE DEFINITIONS:
+A1. Adm_min(C): the stated cardinality and apartness-witness conditions only.
+A2. Adm_real(C): Adm_min(C) together with explicitly enumerated realization-dependent constraints.
+A3. A separately defined admissibility predicate not reducible to A1 or A2, provided every condition is stated.
+
+PROJECT CHOICE REQUIRING APPROVAL:
+Specify one exact predicate Adm(C), including the domain of quantification and every additional condition. State whether the nontriviality test is necessary, sufficient, or only a test condition.
+
+CONDITIONAL CONSEQUENCES:
+- Any category object class is undefined until Adm(C) is fixed.
+- Closure under a proposed morphism or amalgam construction must be proved for this exact Adm.
+- S2-04C-15 proves invariance of the minimal nontriviality test under apartness embeddings, not invariance of arbitrary Adm_real.
+
+DECISION 2 — MORPHISM CLASS
+
+SOURCE-ESTABLISHED:
+- The local apartness-embedding template is injective and preserves and reflects apartness.
+- The source does not establish that every such embedding exhausts Hom_C_METACORE.
+- Literal inclusion-only morphisms and global-automorphism restrictions are not source-established requirements.
+
+COHERENT CANDIDATES:
+M1. All local apartness embeddings between declared objects.
+M2. Literal inclusions only.
+M3. A restricted subclass:
+    Hom_P(C,D)={f in Emb_#(C,D): P(f)}
+    for an explicitly defined predicate P.
+M4. Restrictions of global automorphisms of the selected ambient structure.
+
+PROJECT CHOICE REQUIRING APPROVAL:
+Define Hom_C_METACORE(C,D) exactly. If M3 is selected, state P(f) as a typed, testable predicate.
+
+CONDITIONAL CONSEQUENCES:
+- S2-04C-15 proves identity and composition closure for all apartness embeddings, once an object class is fixed.
+- For M3, prove P(id_C) for every object and prove P(f) and P(g) imply P(g o f) for every composable pair.
+- For M2 and M4, category laws must be checked against the exact carrier and ambient conventions.
+- Colimit conclusions from one candidate hom-class cannot be transferred to another.
+
+DECISION 3 — ADDITIONAL STRUCTURE
+
+SOURCE-ESTABLISHED:
+- Apartness is explicitly selected in the embedding formula.
+- The category-level phrase "selected structural properties" is broader, but the complete selection is not enumerated in the inspected passages.
+
+COHERENT CANDIDATE DEFINITIONS:
+For each additional symbol Q in the structure signature, specify its type and whether morphisms must:
+(a) preserve Q;
+(b) reflect Q;
+(c) preserve and reflect Q;
+(d) preserve Q only under stated conditions; or
+(e) leave Q outside the categorical structure.
+
+PROJECT CHOICE REQUIRING APPROVAL:
+Publish the complete categorical signature, including any additional relations, operations, constants, distinguished subsets, boundary data, or ambient data. Do not add any item merely because it simplifies a proof.
+
+CONDITIONAL CONSEQUENCES:
+- The hom-set must contain only maps satisfying every selected preservation/reflection clause.
+- Identity and composition closure must be rechecked for the full signature.
+- Apartness-only invariance does not establish invariance of predicates depending on omitted structure.
+
+DECISION 4 — CARRIER CONVENTION
+
+SOURCE-ESTABLISHED:
+- Local configurations are represented as subsets of a selected U0 with induced structure.
+- A local embedding is a map between local carriers and need not be literal inclusion.
+- The inspected source does not establish that every amalgam carrier must be a subset of the same U0.
+
+COHERENT CANDIDATES:
+K1. Fixed-carrier: every object and amalgam is an induced subconfiguration of the same U0.
+K2. Abstract-carrier: amalgams may use newly constructed carriers.
+K3. Realization-mediated: abstract objects are allowed only when an explicit realization/embedding condition into an ambient structure is met.
+
+PROJECT CHOICE REQUIRING APPROVAL:
+State which carriers are allowed for objects and amalgams, and whether the same convention applies to all stages of D_CC.
+
+CONDITIONAL CONSEQUENCES:
+- An abstract pushout does not automatically yield a subset of U0.
+- A fixed-carrier construction requires a separate realization/closure proof.
+- Fixed-carrier representation does not by itself force morphisms to be inclusions.
+
+DECISION 5 — COMPATIBILITY INPUT
+
+SOURCE-ESTABLISHED:
+- The inspected source uses the binary notation CC(C1,C2).
+- The source records an admissible-amalgamation existence condition but does not fully specify a common base or span maps.
+
+COHERENT CANDIDATES:
+CC_pair(C1,C2): there exists an admissible common target M with morphisms C1 -> M and C2 -> M. This is a joint-embedding/common-target condition.
+CC_span(C0;C1,C2;f1,f2): for a specified span C0 --f1--> C1 and C0 --f2--> C2, there exists an admissible M and maps j1,j2 such that j1 o f1 = j2 o f2.
+
+PROJECT CHOICE REQUIRING APPROVAL:
+Choose pair-based or span-based input. If pair-based, specify how its witnesses generate the diagram. If span-based, make C0,f1,f2 part of the input or define an unambiguous construction of them.
+
+CONDITIONAL CONSEQUENCES:
+- Pair-based common embeddability does not, by itself, identify an overlap or impose an agreement equation on a common base.
+- Span-based amalgamation carries an explicit agreement equation.
+- The two predicates are not interchangeable without an additional theorem relating their inputs and witnesses.
+
+DECISION 6 — AMALGAM ADMISSIBILITY
+
+SOURCE-ESTABLISHED:
+- The source requires an admissible amalgamation.
+- The complete predicate for admissibility of the amalgam is not supplied in the inspected passages.
+
+COHERENT CANDIDATE DEFINITION:
+For a specified pair or span, an amalgam consists of:
+(i) an object M satisfying the exact Adm(M);
+(ii) morphisms j1:C1 -> M and j2:C2 -> M;
+(iii) in the span case, j1 o f1 = j2 o f2;
+(iv) compliance with the selected carrier convention and all selected structure.
+
+PROJECT CHOICE REQUIRING APPROVAL:
+Specify the exact target admissibility predicate and whether the amalgam maps must be embeddings, monomorphisms, or another precisely defined morphism class. Do not use these terms interchangeably without proof in the selected category.
+
+CONDITIONAL CONSEQUENCES:
+- A common target is not automatically an admissible amalgam.
+- An admissible amalgam is not automatically a pushout.
+- A union or quotient construction requires proof that its result satisfies Adm and that its structure/maps meet the chosen morphism definition.
+
+DECISION 7 — INDEXING CATEGORY AND DIAGRAM
+
+SOURCE-ESTABLISHED:
+- A diagram must be a functor D:J -> C_METACORE.
+- J and D must specify objects, arrows, identities, composition, and compatible object/arrow assignments.
+
+COHERENT CANDIDATE:
+For a single span, J_span may be the free category on objects j0,j1,j2 and generating arrows a:j0 -> j1 and b:j0 -> j2, with only identity arrows and those generators. D must map this data to the chosen span and preserve identities and composition.
+
+PROJECT CHOICE REQUIRING APPROVAL:
+Specify the actual J and D_CC required by the project. State whether D_CC is a single span, a family of spans, a compatibility-generated category, or another diagram. Define how compatibility witnesses and their maps become arrows.
+
+CONDITIONAL CONSEQUENCES:
+- The single-span J_span is only a candidate test diagram.
+- A binary compatibility predicate does not define a general indexing category.
+- Functoriality requires D(id_j)=id_D(j) and D(beta o alpha)=D(beta) o D(alpha).
+
+DECISION 8 — COLIMIT AND UNIVERSAL PROPERTY
+
+SOURCE-ESTABLISHED:
+- R := colim(D_CC) is conditional on existence.
+- The source requires the relevant universal property.
+- A common amalgam or a binary pushout example is not automatically the required project-level colimit.
+
+COHERENT CANDIDATE DEFINITION:
+Specify a cocone eta_j:D(j) -> R satisfying:
+eta_k o D(alpha)=eta_j
+for every arrow alpha:j -> k in J.
+
+Then prove:
+For every object X in C_METACORE and every compatible cocone gamma_j:D(j) -> X, there exists exactly one morphism u:R -> X such that:
+u o eta_j = gamma_j
+for every j in J.
+
+PROJECT CHOICE REQUIRING APPROVAL:
+Identify the intended diagram and candidate cocone, then prove the universal property in the exact selected category, quantifying over all objects and compatible cocones of that category.
+
+CONDITIONAL CONSEQUENCES:
+- The universal property depends on the exact hom-sets.
+- A result in P_min, E_F, C_EQ-EMB, or C_U0-AUT is scoped to that test category.
+- A category must not be selected solely because it makes the desired colimit exist.
+
+============================================================
+3. DEPENDENCY ORDER
+============================================================
+
+The minimum logical dependency order is:
+
+D1. Fix the object representation and exact Adm(C).
+D2. Fix the complete categorical signature and exact morphism predicate.
+D3. Prove category laws and admissibility compatibility for the chosen morphisms.
+D4. Fix carrier convention.
+D5. Fix pair-based or span-based compatibility input.
+D6. Define exact amalgam admissibility and prove the candidate construction lands in the object class.
+D7. Define J and D and prove that D is a functor.
+D8. Specify the cocone and prove the colimit universal property.
+
+Some choices may be developed iteratively, but no later theorem can be treated as project-level while its required earlier data remain unspecified.
+
+============================================================
+4. CROSS-CHECK OF EXISTING CANDIDATES
+============================================================
+
+P_min (S2-04C-12):
+- Explicit test category with minimal nontriviality objects and literal inclusions.
+- Union pushout proved for every valid inclusion span in that category.
+- Not established as C_METACORE.
+- Depends on fixed U0, inclusion-only morphisms, minimal admissibility, and span-based CC.
+
+E_F / all-apartness-embeddings tests:
+- Use a broader local embedding hom-class.
+- The finite no-pushout result is scoped to its explicitly defined finite test category and specified span.
+- It does not establish failure of all abstract-carrier pushouts or failure of project-level R.
+
+M3 restricted class:
+- Remains unavailable as a theorem until P(f) is explicit and identity/composition closure are proved.
+
+M4 automorphism restrictions:
+- Global extension is not a source-established requirement.
+- Any such restriction is an additional choice and requires its own exact definition and category checks.
+
+No candidate is adopted by this matrix.
+
+============================================================
+5. CLASSIFIED FINDINGS
+============================================================
+
+FACTS:
+- The inspected source-alignment records support an induced-apartness representation over U0 and a local apartness-embedding template.
+- Exact Adm(C), the exhaustive C_METACORE hom-class, compatibility input semantics, amalgam admissibility, J, D, and the project colimit universal property remain incompletely specified.
+- Volume III explicitly makes the colimit construction conditional.
+
+HYPOTHESES / CANDIDATE DEFINITIONS:
+- Adm_min, Adm_real, M1-M4, K1-K3, pair-based CC, span-based CC, and J_span are candidate formalizations only.
+- Their mathematical coherence within a declared test category does not make them source-established project definitions.
+
+FORMAL RESULTS:
+- S2-04C-15 proves identity and composition closure for all local apartness embeddings.
+- S2-04C-15 proves invariance of the stated minimal nontriviality test under those embeddings.
+- S2-04C-12 proves a union pushout theorem within P_min under its declared definitions.
+- The finite E_F obstruction is limited to its declared test category and specified span.
+
+COMPUTATIONAL RESULTS:
+- None are introduced or relied upon in this specification matrix.
+
+AUDIT FINDINGS:
+- The remaining gaps are independent specification decisions, not one missing technical lemma.
+- The morphism class materially changes the universal-property quantifiers.
+- Object admissibility and carrier convention affect whether candidate amalgams are objects.
+- Pair-based compatibility and span-based amalgamation encode different input data.
+- The Boolean CC predicate alone is insufficient to define D_CC as a functor.
+- No project-level colimit theorem follows until the exact category, diagram, and universal property are fixed.
+
+INTERPRETATIONS:
+- P_min is a useful controlled test model, not a default project answer.
+- M1 is closest to the explicit local embedding template, but its exhaustive identification with Hom_C_METACORE is not established.
+- M3 may capture additional selected structure, but remains mathematically incomplete until P is stated.
+- M4 adds an ambient extension restriction not established by the inspected source.
+
+STATUS:
+C_METACORE OBJECT CLASS: UNRESOLVED.
+C_METACORE MORPHISM CLASS: UNRESOLVED.
+ADDITIONAL SELECTED STRUCTURE: UNRESOLVED.
+CARRIER CONVENTION FOR AMALGAMS: UNRESOLVED.
+CC INPUT SEMANTICS: UNRESOLVED.
+AMALGAM ADMISSIBILITY: UNRESOLVED.
+INDEXING CATEGORY J: UNRESOLVED.
+FUNCTOR D_CC: UNRESOLVED.
+PROJECT-LEVEL R = colim(D_CC): NOT ESTABLISHED.
+CATEGORY ADOPTION: NONE.
+STAGE 2 OFFICIAL OPENING: NOT CLAIMED.
+
+============================================================
+6. NEXT REQUIRED STEP
+============================================================
+
+S2-04C-17 — SOURCE-TO-SPECIFICATION GAP CLOSURE PLAN.
+
+For each of the eight decisions above:
+1. identify the exact authoritative source passage, if one exists;
+2. distinguish source silence from genuine ambiguity;
+3. identify the smallest question that requires project-owner approval;
+4. state the proof obligation created by each candidate answer;
+5. specify what evidence would close the item without modifying protected theory text.
+
+Do not infer approval from a mathematically convenient candidate.
+Do not choose a category to force existence of a colimit.
+Do not amend Frozen Core, Volume II, Volume III, Volume V, or M3.2.
+Do not claim Stage 2 is officially opened.
+
+============================================================
+7. ARCHITECTURAL PRESERVATION
+============================================================
+
+Frozen Core: UNCHANGED.
+Volume II: UNCHANGED.
+Volume III: UNCHANGED.
+Volume V: UNCHANGED.
+M3.2: UNCHANGED.
+CE-V-07: RESERVED.
+Stage 2: NOT OFFICIALLY OPENED.
+CAPD: UNCHANGED.
+RL REGISTRATION: NOT CLAIMED.
+CANONICAL ACCEPTANCE: NOT CLAIMED.
+
+END OF S2-04C-16
