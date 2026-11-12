@@ -1,0 +1,358 @@
+OMEGA-ISOP
+FULL MATHEMATICAL AND REPOSITORY AUDIT
+AUDIT ID: OI-FMA-01
+DATE: 2026-11-12
+DOCUMENT TYPE: AUDIT INITIATION AND EXECUTION PROTOCOL
+STATUS: INITIATED — NO AUDIT COMPLETION CLAIMED
+MODE: READ-ONLY VERIFICATION
+
+==================================================
+0. PURPOSE AND STATUS BOUNDARY
+==================================================
+
+This document formally initiates a full mathematical and repository audit of the
+OMEGA-ISOP materials relevant to the current Stage 1 — Difference work and its
+documentary traceability.
+
+This is an audit protocol and initiation record. It is NOT an audit result,
+mathematical certificate, external certification, or declaration that the
+repository is fully verified.
+
+The audit must distinguish:
+- mathematical validity;
+- repository and version integrity;
+- architectural integrity;
+- documentary traceability;
+- independent computational or external verification.
+
+A PASS in one category must not be treated as a PASS in another.
+
+==================================================
+I. AUDIT SCOPE
+==================================================
+
+A. REPOSITORY INTEGRITY
+
+1. Record the exact commit SHA of the main branch at audit snapshot time.
+2. Record the exact commit SHA of every relevant audit/correction branch.
+3. Record the exact base and head commit SHAs of PR #65.
+4. Verify the PR state, draft status, merge status, and changed-file count.
+5. Enumerate all files changed by PR #65.
+6. Inspect the complete diff between the recorded base and head commits.
+7. Fetch and inspect the complete contents of every changed file.
+8. Verify Git blob SHAs for the inspected files.
+9. Where required, independently calculate SHA-256 over the raw file bytes.
+10. Reconcile historical and current hashes without overwriting historical records.
+11. Identify unexpected changes, omissions, path changes, and unexplained version
+    differences.
+
+Git blob SHA and raw-file SHA-256 are different identifiers and must not be
+substituted for one another.
+
+B. ARCHITECTURAL INTEGRITY
+
+Verify that the audit/correction work does not silently alter protected
+architectural layers or statuses:
+
+1. Frozen Core — must remain unchanged.
+2. Volume V — remains ACTIVE RESEARCH ARCHITECTURE.
+3. CE-V-07 — remains RESERVED.
+4. Stage 1 — conditional acceptance applies only to the declared candidate
+   formalization; Stage 1 Final Acceptance is NOT GRANTED.
+5. Stage 2 — remains CLOSED / NOT OPENED.
+6. CAPD results — must not be presented as a universal theorem.
+7. No conditionally validated result may be upgraded to certified without
+   independent verification.
+
+Any comparison of protected files must identify the exact paths, refs, and
+content versions compared. A statement that a layer is unchanged requires
+evidence from the comparison, not merely a declaration in a report.
+
+C. MATHEMATICAL VERIFICATION
+
+Re-examine the declared Stage 1 construction and its supporting results:
+
+1. Signature construction:
+   sigma : X -> product_{i in I} Y_i
+   sigma(x) = (f_i(x))_{i in I}
+
+2. Difference construction:
+   D(x,y) = 1 iff there exists i in I such that f_i(x) != f_i(y)
+   D(x,y) = 0 iff for every i in I, f_i(x) = f_i(y)
+
+3. Verify the {0,1}-valued pseudometric properties, including:
+   - non-negativity;
+   - symmetry;
+   - identity on the diagonal;
+   - triangle inequality;
+   - separation condition and its relation to injectivity of sigma;
+   - the empty-index-set case.
+
+4. Verify the equivalence relation:
+   x ~ y iff D(x,y)=0 iff sigma(x)=sigma(y).
+
+5. Verify the quotient construction:
+   Q = X / ~
+   q : X -> Q
+   q(x) = [x]
+
+6. Verify the induced map on the quotient and its well-definedness,
+   injectivity, and factorization properties.
+
+7. Verify the quotient metric and its precise identification as the discrete
+   metric on equivalence classes.
+
+8. Verify the quotient-image bijection/isometry and the correctly typed
+   factorization through the image.
+
+9. Re-examine the quotient projection coequalizer result in Set, keeping its
+   categorical scope explicit.
+
+10. Re-examine UC-01 and its exact conclusion: uniqueness of the image
+    bijection under equality of the induced difference relations.
+
+11. Identify which results are proved only relative to the declared
+    definitions and assumptions.
+
+12. Keep UC-02 — UNIVERSALITY ACROSS ADMISSIBLE REPRESENTATION CLASSES —
+    NOT PROVED until the admissible class, equivalence criterion, morphisms,
+    and required universal property have been formally defined and proved.
+
+No result may be promoted from a statement about a chosen representation or
+quotient to physical, ontological, or OMEGA-ISOP-wide universality without a
+separate argument.
+
+D. DOCUMENTARY TRACEABILITY
+
+Reconcile the mathematical and documentary records, including where relevant:
+
+- Candidate source versions;
+- Audit Tasks 01–04;
+- IA-02;
+- IA-03;
+- CR-01;
+- CR-01-CV-01;
+- SIV-01;
+- Consolidated Closure Audit;
+- PR #65;
+- mathematical results established in the conversation but not yet committed
+  to the repository.
+
+For every item, record:
+- exact repository path;
+- branch/ref;
+- commit SHA where available;
+- Git blob SHA;
+- raw-file SHA-256 only when actually computed;
+- whether the content was fully inspected;
+- whether it is original, reconstructed, corrected, or newly developed;
+- its evidential status.
+
+Conversation-only proofs must be labelled CHAT_ONLY_PROVED until their exact
+proof text is preserved in a repository artifact and reviewed there. Recording
+a proof does not itself constitute independent verification.
+
+E. INDEPENDENT VALIDATION
+
+Report separately whether any of the following has actually been performed:
+
+- independent review by an external mathematician;
+- proof-assistant formalization and checking;
+- CAPD computation;
+- interval validation;
+- computational reproducibility checks;
+- byte-level comparison against external Library, Drive, or device copies.
+
+If not performed, record NOT PERFORMED. Do not imply that repository review,
+manual reasoning, numerical computation, or documentation is a substitute.
+
+==================================================
+II. REQUIRED EVIDENCE AND STATUS VOCABULARY
+==================================================
+
+Use the following controlled statuses:
+
+PROVED
+A mathematical proof has been supplied and checked within its explicitly
+stated assumptions and definitions.
+
+INDEPENDENTLY_VERIFIED
+The result has been checked by an independent verifier under a recorded
+procedure. Identify the verifier and procedure.
+
+REPOSITORY_VERIFIED
+The specified repository artifact, ref, and content have been fetched and
+checked. This status does not imply mathematical truth.
+
+RECORDED_UNVERIFIED
+The claim or result is recorded, but the required verification has not been
+completed.
+
+CHAT_ONLY_PROVED
+A proof has been established in the conversation but is not yet preserved as
+a reviewed repository artifact.
+
+PARTIALLY_VERIFIED
+Only a clearly specified subset of the claim or evidence has been checked.
+
+FAILED
+A contradiction, defect, or failed verification has been established. State
+the evidence.
+
+NOT_PERFORMED
+The required procedure has not been run.
+
+NOT_ESTABLISHED
+The available definitions or evidence do not establish the claim.
+
+Do not use VERIFIED without specifying what was verified and by which method.
+
+==================================================
+III. AUDIT EXECUTION PHASES
+==================================================
+
+PHASE 1 — REPOSITORY SNAPSHOT
+
+- Freeze the audit snapshot by recording exact refs and commit SHAs.
+- Record PR #65 metadata and its exact base/head.
+- Enumerate all changed paths.
+- Preserve the snapshot information in the audit evidence.
+
+PHASE 2 — COMPLETE PR #65 REVIEW
+
+- Inspect every changed file.
+- Inspect the complete diff.
+- Reconcile the changed-file list with the PR metadata.
+- Check for unexplained or out-of-scope modifications.
+- Verify relevant blob identifiers and required byte-level digests.
+
+PHASE 3 — ARCHITECTURAL INTEGRITY REVIEW
+
+- Compare the protected architectural files against the appropriate baseline.
+- Verify the status boundaries listed in Section I.B.
+- Record exact evidence for every unchanged/changed conclusion.
+
+PHASE 4 — MATHEMATICAL RE-EXAMINATION
+
+- Reconstruct the proof dependencies.
+- Check each definition, lemma, proposition, and proof step.
+- Check edge cases and hidden assumptions.
+- Separate formal results from interpretations and conjectures.
+- Record counterexamples or unresolved proof obligations.
+
+PHASE 5 — DOCUMENTARY RECONCILIATION
+
+- Reconcile source versions, audit records, correction registers, and hashes.
+- Preserve historical records.
+- Identify any result that exists only in the conversation.
+- Check that claims in summary documents do not exceed their evidence.
+
+PHASE 6 — FINAL AUDIT REPORT
+
+Issue a final report containing:
+- verified facts;
+- proved mathematical results;
+- repository findings;
+- architectural findings;
+- documentary findings;
+- failures and discrepancies;
+- unresolved proof obligations;
+- procedures not performed;
+- limitations;
+- final status for each audit phase.
+
+The final report must not declare completion while any in-scope item remains
+unclassified. Unperformed external or computational validation must remain
+explicitly visible.
+
+==================================================
+IV. AUDIT SAFEGUARDS
+==================================================
+
+1. This audit is READ-ONLY unless a separate change request is explicitly
+   authorized.
+2. Do not edit, delete, merge, approve, or publish unrelated files as part of
+   this audit.
+3. Do not merge PR #65 as a consequence of initiating this audit.
+4. Do not change the Frozen Core or Volume V.
+5. Do not change the reserved status of CE-V-07.
+6. Do not open Stage 2.
+7. Do not claim external mathematical certification.
+8. Do not conflate numerical approximation with analytical proof or interval
+   validation.
+9. Do not conflate simulation with proof.
+10. Do not conflate representation uniqueness with physical canonicality.
+11. Do not infer causation, ontology, consciousness, intention, or physical
+    realization from the mathematical quotient construction.
+
+Mandatory distinctions remain in force:
+
+Representation != Mechanism
+Relation != Causation
+Organization != Causation
+Persistence != Robustness
+Persistence != Invariance
+Invariance != Ontology
+Observerhood != Consciousness
+Adaptive response != Intention / Free Will
+Admissibility != Realization
+Possibility != Necessity
+Definition != Derivation
+Simulation != Proof
+Numerical Result != Analytical Theorem
+PD != D
+D != #
+Stage 1 candidate D != Frozen Core relation R
+
+==================================================
+V. BASELINE CONTEXT AT INITIATION
+==================================================
+
+The following repository context was available at initiation and must be
+reconfirmed against the audit snapshot before being treated as current:
+
+- Repository: naydenov54-netizen/OMEGA-ISOP
+- Existing correction PR: #65
+- PR #65 title: Stage 1 Difference: source traceability and formalization
+  corrections
+- PR #65 was reported OPEN / DRAFT / NOT MERGED.
+- PR #65 changed-file count was reported as 8.
+- The PR description states that no Stage 1 Final Acceptance or Stage 2 opening
+  is granted.
+- The PR description states that Frozen Core, Volume II, and Volume V remain
+  unchanged and CE-V-07 remains RESERVED.
+- Those architectural statements are declarations in the PR description and
+  must be independently checked against repository contents during this audit.
+
+The audit protocol is intentionally separate from PR #65 because PR #65 is a
+Stage 1 correction/traceability change set. OI-FMA-01 is a distinct audit
+workstream and must not be silently mixed into that correction set.
+
+==================================================
+VI. INITIAL STATUS
+==================================================
+
+OI-FMA-01: INITIATED
+Audit protocol recorded: PENDING REPOSITORY COMMIT
+Repository snapshot: NOT PERFORMED
+Complete PR #65 review: NOT PERFORMED
+Architectural integrity review: NOT PERFORMED
+Mathematical re-examination: NOT PERFORMED
+Documentary reconciliation: NOT PERFORMED
+Independent external validation: NOT PERFORMED
+Proof-assistant verification: NOT PERFORMED
+CAPD / interval validation: NOT PERFORMED
+
+No full-audit completion claim is made by this document.
+
+==================================================
+VII. NEXT REQUIRED ACTION
+==================================================
+
+Begin PHASE 1 by recording the exact main, audit-branch, and PR #65 base/head
+commit SHAs, then preserve the repository snapshot in a separate audit
+evidence record.
+
+Only after PHASE 1 is complete may PHASE 2 be treated as formally underway.
+
+END OF AUDIT INITIATION RECORD
