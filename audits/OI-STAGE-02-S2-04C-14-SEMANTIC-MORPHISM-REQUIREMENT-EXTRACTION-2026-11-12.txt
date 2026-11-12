@@ -1,0 +1,444 @@
+OMEGA-ISOP
+STAGE 2 PREPARATORY MATHEMATICAL AUDIT
+S2-04C-14 — SEMANTIC MORPHISM REQUIREMENT EXTRACTION
+DATE: 2026-11-12
+STATUS: SOURCE-ALIGNED SEMANTIC FINDING / EXACT C_METACORE HOM-CLASS UNRESOLVED
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+
+============================================================
+0. PURPOSE AND CONTROL
+============================================================
+
+This record extracts the morphism requirements that can actually be supported by the inspected authoritative project sources. It evaluates the semantic fit of M1-M4 without selecting or adopting a project category.
+
+This is an additive audit record. It does not amend the Frozen Core, Volume II, Volume III, Volume V, M3.2, or any canonical project definition.
+
+ARCHITECTURAL CONTROLS:
+- Frozen Core: UNCHANGED.
+- Volume II: UNCHANGED.
+- Volume III: UNCHANGED.
+- Volume V: UNCHANGED.
+- CE-V-07: RESERVED.
+- Stage 2: NOT OFFICIALLY OPENED.
+- CAPD: UNCHANGED.
+- Canonical acceptance: NOT CLAIMED.
+- No conditional result is promoted to certified.
+
+============================================================
+1. AUTHORITATIVE SOURCES INSPECTED
+============================================================
+
+SOURCE A:
+Library file: &OMEGA-ISOP VOLUME II.txt
+Version: v1.3-MF-AUDIT-RESTORED-FINAL
+Status stated in source: FINAL CORE-ALIGNED FORMAL RECORD
+Architectural status stated in source: FROZEN CORE COMPONENT
+
+Inspected sections:
+III.1 — Primitive Difference
+III.2 — Apartness Structure
+III.3 — Indistinguishability
+III.4 — Local Configurations
+III.5 — Configuration Embeddings
+IV.1 — Compatibility
+IV.2 — Compatibility Diagram
+IV.3 — Existence Boundary
+
+SOURCE B:
+Library file: &OMEGA-ISOP VOLUME III.txt
+Version: v1.1-VAL-RESTORED
+Status stated in source: VALIDATION FRAMEWORK COMPLETE
+Framework status: CONDITIONAL_STRUCTURAL_FRAMEWORK
+
+Inspected sections:
+5 — Finite Carrier with Apartness
+6 — Configuration Nontriviality
+7 — Compatibility
+8 — Relational Specification as a Colimit
+9 — Categorical Completeness of D_CC
+
+SOURCE C:
+Library file: OMEGA-ISOP-M3.2-CONSOLIDATED-OPERATIONAL-RULES-2026-11-09-v0.8.2-R1.txt
+Inspected sections:
+12.11 — Mathematical Integrity and Controlled Revision
+12.12 — Mathematical Audit Continuity
+
+Relevant operational controls:
+- mathematical correctness takes precedence over prior expectations;
+- exact claims, assumptions, failures, counterexamples, and scope must be distinguished;
+- a category-relative amalgamation or colimit result does not establish project-level C_METACORE;
+- relevant authoritative source records must be inspected;
+- no category is to be inferred where the source leaves it unresolved.
+
+SOURCE D:
+GitHub audit records:
+S2-04C-07 — Morphism Source Audit
+S2-04C-09 — Category Specification Decision Sheet
+S2-04C-10 — E_F No-Pushout Proof Audit
+S2-04C-11 — Project-Level C_METACORE Specification Source Trace
+S2-04C-12 — Controlled Category Specification Proposal
+S2-04C-13 — Category Choice Consequence Audit
+
+The S2-04C records are research/audit artifacts, not replacements for the authoritative source definitions.
+
+============================================================
+2. SOURCE FACTS — WHAT A MORPHISM MUST PRESERVE
+============================================================
+
+2.1 OBJECT REPRESENTATION
+
+Volume II, III.4, defines a local configuration as:
+
+C = (S_C,#_C)
+
+where:
+
+S_C subseteq U0
+
+and:
+
+#_C = # restricted to S_C x S_C.
+
+The exact admissibility conditions are expressly described as realization-dependent.
+
+Volume III, Section 6, gives a nontriviality test requiring:
+
+|S_C| >= 2
+
+and an actual apartness witness:
+
+there exist x,y in S_C such that x # y.
+
+This is a nontriviality test. It is not, by itself, a complete universal admissibility predicate for C_METACORE.
+
+2.2 CATEGORY-LEVEL PRESERVATION REQUIREMENT
+
+Volume II, III.4, states that C_METACORE may represent admissible configurations as objects and that its morphisms preserve the selected structural properties.
+
+This establishes a preservation requirement but does not enumerate every selected property or define the complete hom-sets.
+
+2.3 EMBEDDING-LEVEL REQUIREMENT
+
+Volume II, III.5, explicitly defines an embedding:
+
+f:C1 -> C2
+
+as injective and preserving and reflecting the selected apartness structure:
+
+x #1 y iff f(x) #2 f(y).
+
+The biconditional is essential. Preservation alone is insufficient.
+
+The source further states that an embedding represents:
+
+"structural correspondence within the chosen mathematical realization, not ontological identity."
+
+This sentence is a direct semantic constraint on interpretation of embeddings.
+
+2.4 EXACT CONSEQUENCE
+
+The source supports the following minimum embedding conditions:
+
+E1. f is a function from S1 to S2.
+E2. f is injective.
+E3. f preserves apartness.
+E4. f reflects apartness.
+E5. The map is interpreted within the selected mathematical realization.
+E6. The map expresses structural correspondence, not ontological identity.
+
+The source does NOT state that f must be the literal inclusion map.
+
+The source does NOT state that f must be the restriction of a global automorphism of (U0,#).
+
+The source does NOT state that every such embedding is necessarily a morphism of C_METACORE.
+
+The source does NOT provide a complete list of any additional selected structural properties.
+
+============================================================
+3. SEMANTIC FINDING — CARRIER IDENTITY
+============================================================
+
+There are two distinct levels that must not be conflated.
+
+LEVEL A — OBJECT REPRESENTATION
+
+Each local configuration is represented by an actual subset S_C of a selected ambient carrier U0, with the relation induced by restriction.
+
+Thus the source uses a fixed ambient representation for the configurations under discussion.
+
+LEVEL B — MORPHISM SEMANTICS
+
+An embedding is an injective map f:S1 -> S2 satisfying preservation and reflection of apartness.
+
+Such a map need not be literal inclusion. It can map an element x of S1 to a different element f(x) of S2, provided the selected structural relation is preserved and reflected.
+
+The explicit source statement that embedding means structural correspondence rather than ontological identity rules out interpreting every embedding as an assertion that source and image elements are literally the same entity.
+
+However, this does not prove that carrier labels are always semantically irrelevant, nor does it prove that every relabeling is permitted. Those stronger conclusions are not stated in the source.
+
+SOURCE-ALIGNED FINDING:
+The fixed U0 is part of the local-configuration representation. Literal identity of carrier elements is not imposed as the general meaning of an embedding.
+
+UNRESOLVED:
+Whether the intended project category additionally distinguishes named ambient elements, imposes realization-specific restrictions, or permits only selected embeddings.
+
+============================================================
+4. SEMANTIC FINDING — GLOBAL AUTOMORPHISM EXTENSION
+============================================================
+
+The inspected Volume II and Volume III passages define local configurations and local embeddings.
+
+They do not require an embedding:
+
+f:C1 -> C2
+
+to extend to a global automorphism:
+
+g:(U0,#) -> (U0,#).
+
+No global extension theorem or extension axiom is supplied in the inspected passages.
+
+Therefore global automorphism extension is not a source-established morphism requirement.
+
+This is not a proof that global extension is forbidden. It is an absence-of-source-requirement finding.
+
+Any M4 formulation would introduce an additional restriction unless another authoritative source explicitly establishes it.
+
+============================================================
+5. SEMANTIC FINDING — ADDITIONAL STRUCTURE
+============================================================
+
+The category-level phrase in Volume II, III.4, is broader than the specific apartness-embedding formula in III.5:
+
+"morphisms preserve the selected structural properties."
+
+The embedding formula specifies preservation and reflection of the selected apartness structure.
+
+If a realization includes additional structure beyond apartness, the project must identify which of those structures are selected for morphism preservation.
+
+A morphism definition that preserves apartness but fails to preserve another required selected structure would be inadequate.
+
+Conversely, no additional structure may be silently imposed merely because it is mathematically convenient.
+
+REQUIRED FUTURE SPECIFICATION:
+For each additional structure Q, state whether a morphism must:
+- preserve Q;
+- reflect Q;
+- preserve and reflect Q;
+- preserve Q only under stated conditions;
+- or leave Q outside the categorical structure.
+
+No complete list of such Q is established by the inspected passages.
+
+============================================================
+6. COMPATIBILITY AND AMALGAMATION SEMANTICS
+============================================================
+
+Volume II, IV.1, defines:
+
+CC(C1,C2)=1
+
+iff an admissible amalgamation of C1 and C2 exists.
+
+The source calls this a binary minimal representation and says it is not necessarily the unique possible representation.
+
+The source does not specify in IV.1:
+- a common base object C0;
+- span maps f1:C0 -> C1 and f2:C0 -> C2;
+- whether the two configurations overlap as literal subsets;
+- whether amalgamation is pair-based or span-based;
+- the carrier convention for the amalgam;
+- the exact admissibility predicate for the amalgam.
+
+Volume II, IV.2-IV.3, and Volume III, Sections 8-9, make the colimit conditional on a valid compatibility diagram, a categorical structure, a specified indexing category and functor, and the required universal property.
+
+Therefore:
+The source's binary CC predicate does not by itself determine the exact categorical amalgamation semantics.
+
+The span-based construction in S2-04C-12 is a precise candidate definition, not a source fact.
+
+============================================================
+7. COMPARATIVE ASSESSMENT OF M1-M4
+============================================================
+
+M1 — ALL LOCAL APARTNESS EMBEDDINGS
+
+Source fit:
+This option directly matches the explicit embedding definition in Volume II, III.5.
+
+What is supported:
+The local embedding template is injective and preserves and reflects apartness.
+
+What is not established:
+That every such embedding is necessarily a morphism of C_METACORE, with no additional restrictions.
+
+Assessment:
+M1 is the closest direct match to the explicit embedding definition, but the exhaustive identification Hom_CMETACORE = all local apartness embeddings is not proved by the source.
+
+M2 — LITERAL INCLUSIONS ONLY
+
+Source fit:
+Volume II represents configurations as subsets of U0, but its embedding definition is a general injective map and does not restrict embeddings to literal inclusions.
+
+What is supported:
+Literal inclusions between induced configurations can be embeddings when the relevant domains are nested.
+
+What is not established:
+That all C_METACORE morphisms must be literal inclusions, or that non-inclusion embeddings are excluded.
+
+Assessment:
+M2 is a mathematically coherent restricted test category, but it is not the morphism semantics stated by the embedding definition. It would require an explicit project-level restriction.
+
+M3 — EXPLICIT RESTRICTED SUBCLASS
+
+Source fit:
+The phrase "selected structural properties" leaves room for a restricted morphism class.
+
+What is supported:
+The project category may require preservation of selected properties.
+
+What is not established:
+An exact predicate P(f), its closure under identities and composition, or its relation to the embedding definition.
+
+Assessment:
+M3 is semantically possible and may be necessary if additional realization-specific structure constrains embeddings. It remains undefined until the selected properties and predicate are stated explicitly.
+
+M4 — RESTRICTIONS OF GLOBAL AUTOMORPHISMS
+
+Source fit:
+No global extension requirement is found in the inspected passages.
+
+What is supported:
+The source fixes an ambient realization (U0,#).
+
+What is not established:
+That every local morphism must extend to an automorphism of the ambient structure.
+
+Assessment:
+M4 adds a restriction not established by the inspected source. It must not be adopted without an explicit source or approved definition.
+
+============================================================
+8. SYNTHESIS — WHAT CAN AND CANNOT BE CONCLUDED
+============================================================
+
+SOURCE FACTS:
+F1. Configurations are represented as induced subconfigurations of a selected ambient carrier U0.
+F2. Exact object admissibility is realization-dependent.
+F3. C_METACORE morphisms preserve selected structural properties.
+F4. A configuration embedding is injective and preserves and reflects the selected apartness structure.
+F5. An embedding expresses structural correspondence within a realization, not ontological identity.
+F6. CC is defined as a binary admissible-amalgamation existence predicate.
+F7. R = colim(D_CC) is conditional on a valid diagram, categorical structure, and colimit existence.
+F8. Volume III requires an explicit J, functor D, objects, morphisms, compatibility conditions, and universal property.
+
+FORMAL CONSEQUENCES:
+C1. Literal inclusion is not imposed by the general embedding definition.
+C2. A global automorphism extension requirement is not imposed by the inspected sources.
+C3. Preservation and reflection of apartness are necessary for a map called an embedding under Volume II, III.5.
+C4. Additional selected structures, if any, require explicit preservation rules.
+C5. The exact C_METACORE hom-class cannot be reconstructed uniquely from the inspected source statements.
+
+NOT ESTABLISHED:
+N1. Hom_CMETACORE equals all local apartness embeddings.
+N2. Hom_CMETACORE consists only of literal inclusions.
+N3. Every morphism extends to a global ambient automorphism.
+N4. Carrier labels are universally irrelevant.
+N5. The exact admissibility predicate is union-closed.
+N6. The source-level CC predicate is span-based.
+N7. A project-level colimit R exists.
+
+============================================================
+9. PROVISIONAL SEMANTIC RANKING — NOT AN ADOPTION
+============================================================
+
+Based strictly on the inspected source semantics:
+
+FIRST: M1 as the base embedding template.
+Reason: It directly matches the explicit injective, preserving-and-reflecting embedding definition.
+
+SECOND: M3 as a possible refinement of M1.
+Reason: It can encode additional selected structural properties, but only after those properties and the predicate P are specified.
+
+THIRD: M2 as a restricted special case.
+Reason: Inclusions are compatible with the embedding definition in nested cases, but the source does not restrict all morphisms to inclusions.
+
+FOURTH: M4 as an additional restriction.
+Reason: No global automorphism extension requirement is established in the inspected sources.
+
+IMPORTANT:
+This is a ranking of source-semantic fit, not a formal project decision.
+M1 is not yet proven to be the complete C_METACORE morphism class.
+M3 is not yet operationally defined.
+No option is adopted.
+
+============================================================
+10. REQUIRED NEXT MATHEMATICAL ACTION
+============================================================
+
+S2-04C-15 — EMBEDDING-CLASS CLOSURE AND ADMISSIBILITY INVARIANCE AUDIT.
+
+The next audit must test the exact conditions needed to turn the source embedding template into a category on the realization-dependent admissible objects.
+
+Required questions:
+
+1. Does the composition of two source-defined embeddings remain an embedding?
+2. Which object admissibility conditions are invariant under such embeddings?
+3. If admissibility depends on ambient U0 or realization-specific data, is it preserved by arbitrary local embeddings?
+4. What is the minimal additional predicate P(f), if any, needed to ensure morphisms preserve all selected structure?
+5. Can the exact predicate be stated without making it circular or merely defining morphisms as "whatever preserves the selected structure"?
+6. Does the selected class contain identities and remain closed under composition?
+7. Which closure facts are proved, and which require new hypotheses?
+
+Do not assume that the answer to item 1 settles items 2-7.
+
+The category must not be adopted until the object class and hom-class are both well-defined and the closure conditions are verified.
+
+============================================================
+11. WHAT WAS NOT CHECKED
+============================================================
+
+This audit did not:
+- inspect every historical version of Volume II or Volume III;
+- establish that no other project document contains a more specific morphism rule;
+- prove an extension theorem for local embeddings;
+- prove the union closure of the full realization-dependent admissibility class;
+- define the project-level CC span semantics;
+- construct the project-level indexing category J or functor D;
+- establish the project-level colimit R.
+
+The findings are limited to the authoritative Library versions and sections explicitly listed in Section 1, together with the cited audit records.
+
+============================================================
+12. ARCHITECTURAL PRESERVATION
+============================================================
+
+Frozen Core: UNCHANGED.
+Volume II: UNCHANGED.
+Volume III: UNCHANGED.
+Volume V: UNCHANGED.
+M3.2: UNCHANGED.
+CE-V-07: RESERVED.
+Stage 2: NOT OFFICIALLY OPENED.
+CAPD: UNCHANGED.
+Canonical acceptance: NOT CLAIMED.
+
+M1:
+SOURCE-ALIGNED EMBEDDING TEMPLATE; EXHAUSTIVE C_METACORE HOM-CLASS NOT ESTABLISHED.
+
+M2:
+RESTRICTED TEST CATEGORY; NOT SOURCE-ESTABLISHED AS THE PROJECT CATEGORY.
+
+M3:
+PREDICATE NOT YET SPECIFIED.
+
+M4:
+GLOBAL EXTENSION REQUIREMENT NOT SOURCE-ESTABLISHED.
+
+C_METACORE:
+EXACT MORPHISM CLASS UNRESOLVED.
+
+PROJECT-LEVEL R = colim(D_CC):
+NOT ESTABLISHED.
+
+END OF DOCUMENT
