@@ -1,0 +1,295 @@
+OMEGA-ISOP
+STAGE 2 PREPARATORY MATHEMATICAL AUDIT
+S2-04C-08 — ADMISSIBLE AMALGAM AND SOURCE-ALIGNED CATEGORY AUDIT
+DATE: 2026-11-12
+STATUS: SOURCE CROSS-CHECK COMPLETED / PROJECT-LEVEL SPECIFICATION HOLD
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+
+============================================================
+0. PURPOSE AND CONTROL
+============================================================
+
+This record continues S2-04C-07. It checks the remaining source-level requirements concerning the meaning of admissible amalgamation, fixed versus abstract carriers, and the relationship between the compatibility predicate CC and a categorical diagram.
+
+This is an additive audit record. It does not amend a theory volume, choose the intended C_METACORE category, open Stage 2 officially, or claim a project-level colimit.
+
+ARCHITECTURAL CONTROLS:
+- Frozen Core: UNCHANGED.
+- Volume II: UNCHANGED.
+- Volume III: UNCHANGED.
+- Volume V: UNCHANGED.
+- CE-V-07: RESERVED.
+- Stage 2: NOT OFFICIALLY OPENED.
+- Canonical acceptance: NOT CLAIMED.
+- No project-level amalgamation or colimit theorem is claimed.
+
+============================================================
+1. SOURCES INSPECTED
+============================================================
+
+A. Library source:
+&OMEGA-ISOP VOLUME II.txt
+Version: v1.3-MF-AUDIT-RESTORED-FINAL
+Relevant sections: III.4, III.5, IV.1-IV.3.
+Library ref used in this audit: turn12file0.
+
+B. Library source:
+&OMEGA-ISOP VOLUME III.txt
+Version: v1.1-VAL-RESTORED
+Relevant sections: 5-9, especially 6-9.
+Library ref used in this audit: turn15file0.
+
+C. GitHub source copy:
+docs/source-materials/OMEGA-ISOP-VOLUME-III-v1.1-VAL-RESTORED.txt
+Blob SHA: 7a5628142f4c92dbf4e50f0b08f6f75289a440f8.
+The file itself labels its text a readability-normalized reconstruction and does not claim byte-for-byte identity with the original pasted text. It is therefore used as a traceable source copy, not as evidence of byte identity.
+
+D. Existing GitHub audit records fetched from main:
+- audits/OI-STAGE-02-S2-04C-CHECKPOINT-2026-11-11.txt
+  Blob SHA: b6bc06fec5382e1aa4f846f02e2c8c3407753a27.
+- audits/OI-STAGE-02-S2-04C-03-CHECKPOINT-2026-11-11.txt
+  Blob SHA: e6093f7ce849aa1307f4d1bae733bf29a36f0055.
+- audits/OI-STAGE-02-S2-04C-04-CHECKPOINT-2026-11-11.txt
+  Blob SHA: 83fa3ef8a810d72ac7b6b9568f6e3ab1b9735aac.
+- audits/OI-STAGE-02-S2-04C-05-CONCRETE-DIAGRAM-VALIDATION-2026-11-11.txt
+  Blob SHA: 64da111e6f8f999c5164cff2344589b3370fda33.
+- audits/OI-STAGE-02-S2-04C-06-FIXED-CARRIER-MORPHISM-CLASS-COMPARISON-2026-11-11.txt
+  Blob SHA: c3313afe0122523233298752a1b3b5a6c73a852c.
+- audits/OI-STAGE-02-S2-04C-07-MORPHISM-SOURCE-AUDIT-2026-11-12.txt
+  Blob SHA: c29bbdfbd33e4e8f1ca502d8abd94c25dd743f87.
+- audits/OI-STAGE-02-NONTRIVIAL-BASE-NO-PUSHOUT-2026-10-28.txt
+  Blob SHA: 46198a81691f3224029a2bd08713c2457bc30c12.
+- theory/OI-STAGE-02-UNION-COLIMIT-MODEL-2026-10-28.txt
+  The corresponding Library source was read in full as turn13file0.
+
+The Volume II Library source was inspected in full. An attempted GitHub path for a Volume II source copy was not found; no claim is made that a Volume II GitHub source file was inspected in this step.
+
+============================================================
+2. SOURCE FACTS
+============================================================
+
+2.1 Objects and embeddings
+
+Volume II, Section III.4, represents a local configuration as:
+C = (S_C,#_C)
+where:
+S_C subset U0
+and:
+#_C = # restricted to S_C x S_C.
+
+It states |S_C| >= 2 for a minimal nontrivial configuration and says exact admissibility conditions remain realization-dependent.
+
+Volume II, Section III.5, defines an embedding f:C1 -> C2 as injective and preserving and reflecting apartness:
+x #1 y iff f(x) #2 f(y).
+
+Volume II describes C_METACORE as a category of admissible configurations whose morphisms preserve selected structural properties. It does not fully specify the selected property set or state that every embedding is necessarily a C_METACORE morphism.
+
+Volume III, Section 6, gives a nontriviality test requiring both:
+|S_C| >= 2
+and
+there exist x,y in S_C such that x #_C y.
+
+This is a stated nontriviality test. It must not be silently generalized into the complete admissibility predicate for every realization.
+
+2.2 Compatibility and amalgamation
+
+Volume II, Section IV.1, states:
+CC(C1,C2)=1 iff an admissible amalgamation of C1 and C2 exists;
+otherwise CC(C1,C2)=0.
+
+The source does not, in that definition, specify:
+- a shared base object C0;
+- the two span morphisms f1:C0 -> C1 and f2:C0 -> C2;
+- whether the amalgam is required to be over a designated common subconfiguration;
+- whether embeddings into the amalgam must be injective maps in C_METACORE;
+- whether the amalgam carrier may be abstract or must be a subset of the same U0;
+- the complete admissibility predicate for the amalgam object.
+
+The standard categorical amalgamation property is a property of spans. For a specified span
+C0 --f1--> C1
+C0 --f2--> C2,
+an amalgam consists of an admissible object M and morphisms
+j1:C1 -> M
+j2:C2 -> M
+such that:
+j1 o f1 = j2 o f2.
+
+If CC(C1,C2) is intended to quantify over a particular common base, that base and its maps must be part of the input or be canonically determined by an explicit rule. If it instead means that C1 and C2 merely admit embeddings into some common object, that is a different, weaker joint-embedding-type condition. The source text inspected does not settle this distinction.
+
+2.3 Categorical completeness
+
+Volume II, Sections IV.2-IV.3, makes R := colim(D_CC) conditional on a valid compatibility diagram, the relevant categorical structure, and existence of the colimit or an equivalent constraint-preserving construction.
+
+Volume III, Sections 8-9, explicitly says D_CC alone is not a complete categorical construction. It requires:
+- an indexing category J;
+- a functor D:J -> C_METACORE;
+- relevant objects and morphisms;
+- compatibility conditions;
+- the required universal property.
+
+Therefore a Boolean value CC(C1,C2) is not, by itself, a categorical diagram or a colimit specification.
+
+============================================================
+3. RECONCILIATION OF EXISTING CATEGORY TESTS
+============================================================
+
+The existing records define distinct test categories. Their results must remain scoped to those definitions.
+
+A. Abstract category C_EQ-EMB
+
+Objects: sets equipped with an equivalence relation.
+Morphisms: injective functions preserving and reflecting equivalence.
+
+The S2-04C-04 record proves the amalgamation property for spans in this abstract category by constructing a pushout carrier in Set and equipping it with the equivalence closure of the images of the source relations.
+
+This does not prove that the constructed object is a subset of a previously fixed U0. It also does not prove that the same object is a pushout in the category whose morphisms are restricted to embeddings.
+
+B. Fixed-carrier inclusion-only category P_F
+
+Objects: selected admissible induced subconfigurations C_S of one fixed (U0,#).
+Morphisms: literal inclusions only, S subseteq T.
+
+The union-colimit model proves:
+If the diagram is a functor into P_F and the union of its carriers is an admissible object, then the union is its colimit in P_F.
+
+This is a valid conditional theorem in P_F. The source explicitly does not identify P_F as the intended C_METACORE.
+
+C. Fixed-carrier all-embeddings category E_F / C_U0-EMB
+
+Objects: the declared admissible induced subconfigurations of one fixed carrier.
+Morphisms: all injective maps preserving and reflecting the selected apartness/equivalence relation.
+
+S2-04C-06 gives an explicit finite realization in which:
+- the inclusion-only category has the union candidate as a pushout;
+- the all-embeddings category has the same candidate as an amalgam but not a pushout;
+- the stronger two-case argument establishes that no pushout exists for that particular span in that particular finite E_F test category.
+
+This is a scoped finite result. It does not identify E_F with C_METACORE and does not establish that project-level R fails to exist.
+
+D. Fixed-carrier automorphism-restriction category C_U0-AUT
+
+The earlier S2-04C-03 / S2-04C-04 records consider morphisms obtained by restricting global automorphisms of the ambient structure. The stated amalgamation construction uses M=U0 and depends on U0 itself being an admissible object. This category is another distinct test option, not a source-established choice for C_METACORE.
+
+============================================================
+4. MATHEMATICAL FINDINGS
+============================================================
+
+FINDING 1 — MORPHISM CLASS IS MATHEMATICALLY MATERIAL
+
+The finite comparison in S2-04C-06 demonstrates that changing only the morphism class can change pushout existence/status while retaining the same finite carrier, ambient relation, admissible test-object family, and span.
+
+Therefore the unresolved morphism choice is not merely terminological.
+
+FINDING 2 — ABSTRACT AND FIXED-CARRIER AMALGAMS ARE DISTINCT
+
+An abstract pushout carrier constructed from a disjoint union modulo identifications is not automatically a subset of U0. Fixed-carrier realizability requires a separate construction or a proof that an appropriate induced subconfiguration of U0 exists.
+
+FINDING 3 — WEAK AMALGAMATION DOES NOT IMPLY PUSHOUT
+
+The finite records exhibit a common amalgam while the pushout universal property fails in the all-embeddings test category. The universal property quantifies over every compatible cocone in the chosen category. A single valid counter-cocone whose forced factorization is not a morphism defeats the proposed pushout.
+
+FINDING 4 — CC IS UNDER-SPECIFIED AS AN INPUT TO D_CC
+
+The binary predicate CC(C1,C2) records an existence assertion. It does not provide the witness amalgam, the embeddings, the common base/span where one is intended, the morphism class, or the arrows and composition laws of J.
+
+A construction of D_CC therefore needs more data than the Boolean compatibility predicate alone.
+
+FINDING 5 — OBJECT ADMISSIBILITY AND CLOSURE ARE ALSO OPEN
+
+Even after choosing a morphism class, one must specify which configurations are objects and prove that proposed amalgam or union objects remain admissible. The cardinality test |S_C| >= 2 does not alone guarantee an apartness witness. Volume III's witness condition is a nontriviality test, while Volume II leaves exact admissibility realization-dependent.
+
+============================================================
+5. FACTS / FORMAL RESULTS / CONDITIONAL RESULTS / AUDIT FINDINGS
+============================================================
+
+FACTS:
+- Volume II defines configurations over U0 and an embedding condition preserving and reflecting apartness.
+- Volume II leaves exact admissibility realization-dependent.
+- Volume III requires a fully specified J, D, objects, morphisms, compatibility conditions, and universal property.
+- The inspected sources do not provide a complete span-level definition of admissible amalgamation for CC(C1,C2).
+
+FORMAL RESULTS IN DECLARED TEST CATEGORIES:
+- Abstract amalgamation is proved in C_EQ-EMB for the stated equivalence-relation category.
+- Union is a colimit in P_F under the stated functoriality and union-admissibility assumptions.
+- In the explicit finite E_F test category of S2-04C-06, the specified span has no pushout.
+
+CONDITIONAL RESULTS:
+- C_U0-INC has union amalgams when the union is an admissible object.
+- C_U0-AUT has the stated U0 amalgam construction when U0 itself is an admissible object.
+- None of these conditional constructions is transferable to C_METACORE without identifying the project object and morphism classes and checking the required hypotheses.
+
+AUDIT FINDINGS:
+- Exact C_METACORE morphisms remain unresolved.
+- The meaning of the common base / overlap in CC(C1,C2) remains unresolved.
+- The admissibility predicate for an amalgam remains unresolved.
+- Abstract versus fixed-carrier amalgamation remains unresolved at project level.
+- The indexing category J and functor D:J -> C_METACORE remain unspecified.
+- Project-level existence of R := colim(D_CC) is not established.
+
+============================================================
+6. DECISION
+============================================================
+
+S2-04C-08:
+SOURCE CROSS-CHECK: COMPLETED FOR THE SOURCES LISTED ABOVE.
+MORPHISM CLASS: UNRESOLVED.
+SPAN / COMMON-BASE CONVENTION FOR CC: UNRESOLVED.
+AMALGAM OBJECT ADMISSIBILITY: UNRESOLVED.
+ABSTRACT VS FIXED-CARRIER PROJECT CONVENTION: UNRESOLVED.
+D_CC INDEXING CATEGORY AND FUNCTOR: NOT SPECIFIED.
+PROJECT-LEVEL COLIMIT: NOT ESTABLISHED.
+
+No mathematical defect in the Frozen Core is established by this audit. The result is an under-specification finding and a set of required formal inputs, not a refutation of the project construction.
+
+No category is selected merely because it yields a convenient positive or negative theorem.
+
+============================================================
+7. NEXT REQUIRED ACTION
+============================================================
+
+Next audit action: prepare a source-grounded specification decision sheet, without applying it to the protected theory.
+
+It must present the minimum choices that an explicit project-level definition must settle:
+
+1. Object class:
+   exact admissibility predicate for C=(S_C,#_C).
+
+2. Morphisms:
+   all injective apartness embeddings, a restricted subclass, literal inclusions, automorphism restrictions, or another explicitly defined class.
+
+3. Amalgamation input:
+   pair of objects only, or a specified span C0 -> C1 and C0 -> C2; if a base is implicit, define the rule that selects it.
+
+4. Amalgam:
+   admissible M plus specified maps j1,j2 satisfying the commutative-span equation.
+
+5. Carrier convention:
+   abstract extension allowed, or M must be realized as a subconfiguration of the same U0.
+
+6. Closure:
+   conditions ensuring the proposed M is an admissible object.
+
+7. Diagram:
+   define J and D:J -> C_METACORE, including identities and composition.
+
+8. Colimit:
+   state the candidate cocone and verify the universal property against every compatible cocone in the selected category.
+
+Any new project-level definition must be separately approved and versioned. Until then, the audit remains conditional and no C_METACORE theorem is asserted.
+
+============================================================
+8. ARCHITECTURAL CONTROL
+============================================================
+
+Frozen Core: UNCHANGED.
+Volume II: UNCHANGED.
+Volume III: UNCHANGED.
+Volume V: UNCHANGED.
+CE-V-07: RESERVED.
+Stage 2: NOT OFFICIALLY OPENED.
+CAPD: NO STATUS CHANGE.
+RL REGISTRATION: NOT CLAIMED.
+CANONICAL ACCEPTANCE: NOT CLAIMED.
+
+END OF S2-04C-08
