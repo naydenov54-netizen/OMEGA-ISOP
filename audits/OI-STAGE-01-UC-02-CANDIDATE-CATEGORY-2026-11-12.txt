@@ -1,0 +1,289 @@
+OMEGA-ISOP
+STAGE 1 — DIFFERENCE
+UC-02 PREPARATORY NOTE
+CANDIDATE CATEGORY OF SIGNATURE REPRESENTATIONS
+RECORD ID: UC-02-CAT-01
+DATE: 2026-11-12
+BRANCH: stage1-additional-results-2026-11-12
+STATUS: CANDIDATE CATEGORY FORMALIZED; PROJECT-ADMISSIBILITY NOT ESTABLISHED
+PURPOSE: FIX OBJECTS, MORPHISMS, COMPOSITION, AND THE DIRECTION OF FACTORIZATION BEFORE ANY UNIVERSALITY CLAIM
+FROZEN CORE: UNCHANGED
+VOLUME V: UNCHANGED
+CE-V-07: RESERVED
+STAGE 2: NOT OPENED
+UNIVERSAL OMEGA-ISOP THEOREM: NOT ESTABLISHED
+
+================================================================
+0. PRECISE SCOPE
+================================================================
+
+This note constructs one mathematically coherent category of signature representations over a fixed nonempty carrier X.
+
+It is a candidate formal framework for examining UC-02. It is NOT a claim that this is the uniquely intended or project-approved class of admissible OMEGA-ISOP representations.
+
+No universal property is asserted for OMEGA-ISOP as a whole.
+
+================================================================
+1. OBJECTS
+================================================================
+
+Fix a nonempty set X.
+
+A candidate object S consists of:
+- an index set I_S;
+- a family of sets (V_i) indexed by i in I_S;
+- total feature maps f_i : X -> V_i.
+
+Its signature map is:
+F_S : X -> product_{i in I_S} V_i
+F_S(x) = (f_i(x))_{i in I_S}.
+
+Let:
+A_S = F_S(X)
+
+be the image of the signature map, and let:
+F_S^im : X -> A_S
+
+be the same map with its codomain restricted to its image.
+
+By construction, F_S^im is surjective.
+
+The object may equivalently be represented by the surjective map F_S^im together with its provenance as a signature representation. The category below acts on the image-corestricted maps.
+
+================================================================
+2. MORPHISMS
+================================================================
+
+For two objects S and T, a morphism:
+h : S -> T
+
+is a function:
+h : A_S -> A_T
+
+such that:
+h o F_S^im = F_T^im.
+
+In element form:
+h(F_S(x)) = F_T(x)
+for every x in X.
+
+The direction is important: a morphism may collapse distinctions made by S when passing to T. It cannot assign different target values to two points that S already identifies.
+
+================================================================
+3. EXISTENCE AND UNIQUENESS CRITERION
+================================================================
+
+Define:
+ker_eq(F_S) = {(x,y) in X x X : F_S(x)=F_S(y)}.
+
+THEOREM UC-02-CAT-1
+
+A morphism h:S->T exists if and only if:
+ker_eq(F_S) is a subset of ker_eq(F_T).
+
+PROOF — NECESSITY
+
+Suppose h exists and F_S(x)=F_S(y).
+
+Then:
+F_T(x)=h(F_S(x))
+      =h(F_S(y))
+      =F_T(y).
+
+Thus:
+ker_eq(F_S) subset ker_eq(F_T).
+
+PROOF — SUFFICIENCY
+
+Assume:
+ker_eq(F_S) subset ker_eq(F_T).
+
+Define:
+h(F_S(x))=F_T(x).
+
+If F_S(x)=F_S(y), the assumed kernel inclusion gives F_T(x)=F_T(y). Hence h is well-defined on A_S.
+
+For every x:
+h(F_S(x))=F_T(x),
+so h is a morphism.
+
+PROOF — UNIQUENESS
+
+Since F_S^im is surjective onto A_S, every a in A_S equals F_S(x) for some x. Any morphism must therefore satisfy:
+h(a)=F_T(x).
+
+Thus no two distinct morphisms S->T can exist.
+
+CONCLUSION
+
+There is at most one morphism between any ordered pair of objects.
+
+The category is thin.
+
+================================================================
+4. IDENTITIES AND COMPOSITION
+================================================================
+
+IDENTITY
+
+For each object S, the identity function:
+id_A_S : A_S -> A_S
+
+satisfies:
+id_A_S o F_S^im = F_S^im.
+
+Thus every object has an identity morphism.
+
+COMPOSITION
+
+Suppose:
+h:S->T,
+k:T->U.
+
+Then:
+h o F_S^im = F_T^im
+and
+k o F_T^im = F_U^im.
+
+Therefore:
+(k o h) o F_S^im
+= k o (h o F_S^im)
+= k o F_T^im
+= F_U^im.
+
+Hence k o h is a morphism S->U.
+
+Associativity follows from associativity of function composition. Identity laws follow from the identity laws for functions.
+
+CONCLUSION
+
+The specified objects, morphisms, identities, and composition form a category, denoted C_X^sig.
+
+================================================================
+5. ISOMORPHISMS
+================================================================
+
+THEOREM UC-02-CAT-2
+
+Two objects S and T are isomorphic in C_X^sig if and only if:
+ker_eq(F_S)=ker_eq(F_T).
+
+PROOF
+
+If S and T are isomorphic, there are morphisms h:S->T and k:T->S. The existence criterion gives both kernel inclusions, hence equality.
+
+Conversely, if the kernels are equal, the existence criterion gives unique morphisms in both directions. Their composites are endomorphisms of the respective objects. Since the category is thin and each object has its identity, each composite equals the identity. Thus the morphisms are inverse isomorphisms.
+
+This recovers the unique image bijection and isometry result AR-01-B when the images are equipped with their restricted discrete metrics.
+
+================================================================
+6. ORDER INTERPRETATION
+================================================================
+
+A morphism S->T exists exactly when:
+ker_eq(F_S) subset ker_eq(F_T).
+
+Thus S distinguishes at least as many pairs as T.
+
+Equivalently, the equivalence classes of S refine those of T.
+
+The arrow direction therefore runs from a finer distinction structure toward a coarser one.
+
+This direction must be stated explicitly before using initial, terminal, finer, coarser, or universal terminology.
+
+================================================================
+7. BOUNDARY TEST: INITIAL AND TERMINAL OBJECTS IN THIS BROAD CATEGORY
+================================================================
+
+Because the candidate class currently contains all total signature families over X, it contains the following two boundary objects.
+
+7.1 DISCRETE / MAXIMALLY DISTINGUISHING OBJECT
+
+Take one feature with value set X and feature map:
+f(x)=x.
+
+Its signature map is the identity on X, and its equality-kernel is the diagonal:
+Delta_X={(x,x):x in X}.
+
+For every object T:
+Delta_X subset ker_eq(F_T).
+
+Therefore there is a unique morphism from this discrete object to T.
+
+It is an initial object in this broadly defined category.
+
+7.2 INDISCRETE / CONSTANT OBJECT
+
+Take one feature with singleton value set {∗} and the constant map:
+c(x)=∗.
+
+Its equality-kernel is:
+X x X.
+
+For every object S:
+ker_eq(F_S) subset X x X.
+
+Therefore there is a unique morphism from S to this constant object.
+
+It is a terminal object in this broadly defined category.
+
+7.3 INTERPRETATION WARNING
+
+These initial and terminal objects follow from the deliberately broad choice to admit every total signature representation, including the identity signature and the constant signature.
+
+They are mathematically valid categorical boundary objects. They do not establish that either is physically admissible, empirically meaningful, canonically selected, or intended by OMEGA-ISOP.
+
+If the project intends a restricted class of admissible representations, that class must be independently specified. The initial and terminal conclusions must then be re-tested and may fail.
+
+================================================================
+8. WHAT HAS AND HAS NOT BEEN ESTABLISHED
+================================================================
+
+ESTABLISHED IN THIS CANDIDATE FRAMEWORK:
+- A category C_X^sig can be defined for all total signature representations over fixed nonempty X.
+- Morphisms are uniquely determined when they exist.
+- A morphism S->T exists exactly when ker_eq(F_S) is a subset of ker_eq(F_T).
+- Isomorphism is equivalent to equality of the induced equality-kernel relations.
+- The category has a discrete initial object and a constant terminal object under the broad object class specified here.
+
+NOT ESTABLISHED:
+- That C_X^sig is the intended admissible representation category of OMEGA-ISOP.
+- That the project imposes no restrictions on feature families.
+- That the identity signature or constant signature is physically or scientifically admissible.
+- That any categorical universal object is a universal OMEGA-ISOP structure.
+- That D is PD or the Frozen Core relation R.
+- Any causal, dynamical, persistence, physical, ontological, or universal theorem.
+
+================================================================
+9. NEXT FORMAL DECISION
+================================================================
+
+Before any project-level universality theorem is attempted, the admissible object class must be specified by project-grounded criteria.
+
+Required decisions:
+1. Is X fixed across all candidate representations?
+2. Which feature sets and total maps are admissible?
+3. Are constant or injective signatures admissible?
+4. Are morphisms all commuting functions on signature images, or only a restricted class?
+5. Is equivalence equality of induced D, equality of kernels, or a stronger criterion?
+6. Which universal property is sought, and in which category?
+
+Until these are answered, UC-02 remains:
+CATEGORY FORMALIZATION: CANDIDATE MODEL AVAILABLE.
+PROJECT ADMISSIBILITY: NOT ESTABLISHED.
+OMEGA-ISOP UNIVERSALITY: NOT ESTABLISHED.
+
+================================================================
+10. ARCHITECTURAL STATUS
+================================================================
+
+FROZEN CORE: UNCHANGED.
+VOLUME V: UNCHANGED.
+CE-V-07: RESERVED.
+STAGE 1 FINAL ACCEPTANCE: NOT GRANTED.
+STAGE 2: NOT OPENED.
+UNIVERSALITY: NOT ESTABLISHED.
+EXTERNAL CERTIFICATION: NOT CLAIMED.
+PROOF-ASSISTANT / CAPD VERIFICATION: NOT PERFORMED.
+
+END OF UC-02-CAT-01
