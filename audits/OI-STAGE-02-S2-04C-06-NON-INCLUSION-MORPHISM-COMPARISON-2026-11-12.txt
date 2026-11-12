@@ -127,7 +127,6 @@ j1:C1->M as id_C1.
 
 Define j2:C2->M by:
 
-j2(c? no; domain is C2)
 j2(e)=c
 j2(f)=d.
 
