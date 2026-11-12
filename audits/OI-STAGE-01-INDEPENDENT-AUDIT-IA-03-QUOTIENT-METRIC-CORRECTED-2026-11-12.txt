@@ -1,0 +1,618 @@
+CORRECTED COMPANION COPY — IA-03
+CORRECTION SCOPE: PRESENTATION / TRACEABILITY ONLY; NO CHANGE TO THE MATHEMATICAL RESULTS.
+ORIGINAL AUDIT RECORD: PRESERVED IMMUTABLY IN ITS ORIGINAL PATH.
+THIS COPY DOES NOT CLAIM A NEW INDEPENDENT AUDIT OR PROOF-ASSISTANT VERIFICATION.
+
+OMEGA-ISOP
+SIX-STAGE FOUNDATIONAL DEVELOPMENT PROGRAM
+
+INDEPENDENT MATHEMATICAL AUDIT
+STAGE 1 — DIFFERENCE
+AUDIT ID: IA-03
+SUBJECT: ZERO-KERNEL, EQUIVALENCE CLASSES, QUOTIENT METRIC AND IMAGE ISOMETRY
+DATE: 2026-11-12
+
+STATUS: MATHEMATICAL AUDIT CLOSED FOR THE DECLARED CONSTRUCTION
+MATHEMATICAL RESULTS: PROVED
+EXTERNAL INDEPENDENT MATHEMATICIAN CERTIFICATION: NOT CLAIMED
+PROOF-ASSISTANT / CAPD VERIFICATION: NOT PERFORMED
+FROZEN CORE: UNCHANGED
+STAGE 2: NOT OPENED
+
+==================================================
+1. SCOPE AND TRACEABLE PREMISES
+==================================================
+
+This audit verifies the quotient construction induced by the Stage 1 signature-based difference predicate.
+
+The controlling prior result is:
+
+IA-02
+Path:
+audits/OI-STAGE-01-INDEPENDENT-AUDIT-IA-02-PSEUDOMETRIC-2026-11-11.txt
+
+IA-02 defines a set X, an index set I, feature-value sets V_i, and total maps f_i:X -> V_i. It defines the signature map:
+
+F : X -> product_{i in I} V_i
+F(x) = (f_i(x))_{i in I}
+
+and the predicate:
+
+D : X x X -> {0,1}
+
+D(x,y)=1 iff F(x) != F(y).
+D(x,y)=0 iff F(x) = F(y).
+
+Equivalently, if delta denotes the discrete metric on the signature codomain:
+
+delta(a,b)=0 iff a=b,
+delta(a,b)=1 iff a!=b,
+
+then:
+
+D(x,y)=delta(F(x),F(y)).
+
+IA-02 proves that D is a pseudometric on X. IA-03 uses this exact definition and does not add a new assumption about F.
+
+The Stage 1 candidate source specifies X as nonempty. This condition is retained. No change to the source domain is proposed.
+
+The arguments below use classical set theory and classical logic, consistently with IA-02.
+
+DEGENERATE INDEX-SET CASE
+If I=∅, the indexed product is a singleton, F is constant, and D≡0. Since the candidate source retains X≠∅, the quotient X/~_D then consists of one class. All quotient constructions below remain valid.
+
+==================================================
+2. ZERO-KERNEL AND INDUCED RELATION
+==================================================
+
+Define a binary relation ~_D on X by:
+
+x ~_D y iff D(x,y)=0.
+
+By the definition of D:
+
+x ~_D y iff F(x)=F(y).
+
+The term "zero-kernel" in this audit means the equality relation induced by the zero values of D:
+
+Z_D = {(x,y) in X x X : D(x,y)=0}.
+
+It is not asserted to be a linear or algebraic kernel.
+
+IA-03-ER1 — REFLEXIVITY
+
+For every x in X:
+
+F(x)=F(x).
+
+Therefore D(x,x)=0, and hence x ~_D x.
+
+STATUS: PROVED.
+
+IA-03-ER2 — SYMMETRY
+
+For all x,y in X, suppose x ~_D y.
+
+Then F(x)=F(y). By symmetry of equality, F(y)=F(x). Therefore y ~_D x.
+
+STATUS: PROVED.
+
+IA-03-ER3 — TRANSITIVITY
+
+For all x,y,z in X, suppose x ~_D y and y ~_D z.
+
+Then:
+
+F(x)=F(y)
+F(y)=F(z).
+
+By transitivity of equality:
+
+F(x)=F(z).
+
+Therefore x ~_D z.
+
+STATUS: PROVED.
+
+CONCLUSION
+
+The relation ~_D is an equivalence relation on X.
+
+==================================================
+3. EQUIVALENCE CLASSES
+==================================================
+
+For each x in X define:
+
+[x]_D = {y in X : y ~_D x}.
+
+Equivalently:
+
+[x]_D = {y in X : F(y)=F(x)}.
+
+IA-03-EC1 — NON-EMPTY CLASS
+
+For every x in X:
+
+F(x)=F(x).
+
+Thus x ~_D x, so x belongs to [x]_D.
+
+Therefore:
+
+x in [x]_D.
+
+In particular, every equivalence class is non-empty.
+
+STATUS: PROVED.
+
+IA-03-EC2 — CLASS IDENTITY
+
+For all x,y in X:
+
+[x]_D = [y]_D iff x ~_D y.
+
+Forward direction:
+
+Suppose [x]_D=[y]_D. Since x belongs to [x]_D, it follows that x belongs to [y]_D. Hence x ~_D y.
+
+Reverse direction:
+
+Suppose x ~_D y. Let z belong to [x]_D. Then z ~_D x. By symmetry and transitivity, z ~_D y. Thus z belongs to [y]_D.
+
+The reverse inclusion follows by the same argument with x and y interchanged.
+
+Therefore [x]_D=[y]_D.
+
+STATUS: PROVED.
+
+IA-03-EC3 — DISJOINTNESS OR EQUALITY
+
+For all x,y in X:
+
+[x]_D = [y]_D
+or
+[x]_D intersect [y]_D = empty set.
+
+Proof:
+
+Suppose the intersection is non-empty and choose z in it.
+
+Then z ~_D x and z ~_D y.
+
+By symmetry and transitivity, x ~_D y.
+
+By IA-03-EC2:
+
+[x]_D=[y]_D.
+
+Therefore two equivalence classes are either identical or disjoint.
+
+STATUS: PROVED.
+
+CONCLUSION
+
+The equivalence classes form a partition of X.
+
+==================================================
+4. QUOTIENT SET
+==================================================
+
+Define:
+
+X/~_D = {[x]_D : x in X}.
+
+This is the quotient set of X under the equivalence relation ~_D.
+
+Define the canonical projection:
+
+q : X -> X/~_D
+
+q(x)=[x]_D.
+
+IA-03-Q1 — SURJECTIVITY OF THE CANONICAL PROJECTION
+
+Let C be any element of X/~_D.
+
+By the definition of the quotient set, there exists x in X such that C=[x]_D.
+
+Thus C=q(x).
+
+Every element of the quotient has a preimage under q.
+
+Therefore q is surjective.
+
+STATUS: PROVED.
+
+==================================================
+5. INDUCED METRIC: DEFINITION
+==================================================
+
+Define:
+
+d_bar : (X/~_D) x (X/~_D) -> [0,infinity)
+
+by:
+
+d_bar([x]_D,[y]_D)=D(x,y).
+
+The critical requirement is independence from the choice of representatives.
+
+==================================================
+6. WELL-DEFINEDNESS
+==================================================
+
+Suppose:
+
+[x]_D=[x']_D
+[y]_D=[y']_D.
+
+By IA-03-EC2:
+
+x ~_D x'
+y ~_D y'.
+
+By the definition of ~_D:
+
+F(x)=F(x')
+F(y)=F(y').
+
+Using F(x)=F(x') and F(y)=F(y'), we obtain the explicit chain:
+
+D(x',y')=delta(F(x'),F(y'))=delta(F(x),F(y))=D(x,y).
+
+Thus the value assigned by d_bar is independent of the representatives chosen.
+
+Thus the value assigned by d_bar is independent of the representatives chosen.
+
+Therefore d_bar is well-defined.
+
+STATUS: PROVED.
+
+==================================================
+7. QUOTIENT METRIC
+==================================================
+
+THEOREM IA-03-QUOTIENT-METRIC
+
+The function:
+
+d_bar([x]_D,[y]_D)=D(x,y)
+
+is a metric on X/~_D.
+
+PROOF
+
+1. NON-NEGATIVITY
+
+Since D takes values in {0,1}:
+
+d_bar([x]_D,[y]_D)>=0.
+
+2. SYMMETRY
+
+By symmetry of D:
+
+d_bar([x]_D,[y]_D)
+=
+d_bar([y]_D,[x]_D).
+
+3. ZERO ON THE DIAGONAL
+
+For every x in X:
+
+d_bar([x]_D,[x]_D)=D(x,x)=0.
+
+4. TRIANGLE INEQUALITY
+
+For x,y,z in X, IA-02 establishes:
+
+D(x,z)<=D(x,y)+D(y,z).
+
+Therefore:
+
+d_bar([x]_D,[z]_D)
+<=
+d_bar([x]_D,[y]_D)+d_bar([y]_D,[z]_D).
+
+5. SEPARATION
+
+Suppose:
+
+d_bar([x]_D,[y]_D)=0.
+
+Then:
+
+D(x,y)=0.
+
+By definition:
+
+x ~_D y.
+
+By IA-03-EC2:
+
+[x]_D=[y]_D.
+
+Thus zero distance implies equality of quotient elements.
+
+All metric axioms hold.
+
+RESULT: PROVED.
+
+==================================================
+8. STRONGER CHARACTERIZATION OF THE QUOTIENT METRIC
+==================================================
+
+The quotient metric has the following exact form:
+
+d_bar(A,B)=0 iff A=B,
+d_bar(A,B)=1 iff A!=B,
+
+for all A,B in X/~_D.
+
+Proof:
+
+Write A=[x]_D and B=[y]_D.
+
+By definition:
+
+d_bar(A,B)=D(x,y).
+
+By IA-03-EC2:
+
+D(x,y)=0 iff [x]_D=[y]_D.
+
+Since D takes only the values 0 and 1, the complementary case gives:
+
+D(x,y)=1 iff [x]_D != [y]_D.
+
+Therefore d_bar is precisely the discrete metric on the quotient set.
+
+This also independently confirms the separation property.
+
+STATUS: PROVED.
+
+==================================================
+9. CANONICAL IMAGE BIJECTION
+==================================================
+
+Define:
+
+Phi : X/~_D -> F(X)
+
+by:
+
+Phi([x]_D)=F(x).
+
+WELL-DEFINEDNESS
+
+Suppose [x]_D=[y]_D.
+
+By IA-03-EC2:
+
+x ~_D y.
+
+Hence:
+
+F(x)=F(y).
+
+Therefore Phi assigns the same value regardless of the representative.
+
+INJECTIVITY
+
+Suppose:
+
+Phi([x]_D)=Phi([y]_D).
+
+Then:
+
+F(x)=F(y).
+
+Thus:
+
+x ~_D y.
+
+By IA-03-EC2:
+
+[x]_D=[y]_D.
+
+Therefore Phi is injective.
+
+SURJECTIVITY
+
+Let u be any element of F(X).
+
+By the definition of image, there exists x in X such that:
+
+u=F(x).
+
+Then:
+
+u=Phi([x]_D).
+
+Therefore Phi is surjective onto F(X).
+
+CONCLUSION
+
+Phi is a bijection:
+
+X/~_D <-> F(X).
+
+STATUS: PROVED.
+
+==================================================
+10. IMAGE ISOMETRY
+==================================================
+
+Equip F(X) with the restriction of the discrete metric delta:
+
+delta(u,v)=0 iff u=v,
+delta(u,v)=1 iff u!=v.
+
+For all x,y in X:
+
+d_bar([x]_D,[y]_D)
+=
+D(x,y)
+=
+delta(F(x),F(y)).
+
+By the definition of Phi:
+
+d_bar([x]_D,[y]_D)
+=
+delta(Phi([x]_D),Phi([y]_D)).
+
+Thus Phi preserves distances.
+
+Since Phi is bijective and distance-preserving, it is an isometry.
+
+Therefore:
+
+(X/~_D,d_bar) is isometric to (F(X),delta).
+
+STATUS: PROVED.
+
+==================================================
+11. STRUCTURAL RESULT
+==================================================
+
+The construction gives the canonical factorization:
+
+X --q--> X/~_D --Phi--> F(X).
+
+It satisfies:
+
+Let ι:F(X)↪∏_{i∈I}V_i be the canonical inclusion. With F:X→∏_{i∈I}V_i as originally typed, the correctly typed factorization is:
+
+F = ι ∘ Phi ∘ q.
+
+If F is instead corestricted to its image, write F_im:X→F(X); then:
+
+F_im = Phi ∘ q.
+
+Here:
+
+q is surjective;
+Phi is injective and surjective onto F(X);
+Phi is an isometry for the specified metrics.
+
+The quotient identifies exactly those elements of X that have the same signature.
+
+The quotient metric is the discrete metric on equivalence classes.
+
+The quotient construction therefore removes precisely the distinctions that D does not register.
+
+No additional separation or injectivity assumption on F is needed to obtain a metric on the quotient.
+
+STATUS: PROVED.
+
+==================================================
+12. LIMITATIONS AND NON-IMPLICATIONS
+==================================================
+
+IA-03 DOES NOT PROVE:
+
+1. That F is injective on X.
+2. That D is a metric on X.
+3. That distinct elements of X are physically distinguishable.
+4. That equivalence classes represent physical objects.
+5. That mathematical equivalence implies causal identity.
+6. That mathematical equivalence implies ontological identity.
+7. That the quotient is the uniquely correct physical state space.
+8. That the construction is universal for all possible realizations.
+9. That the selected feature family is complete relative to any physical target.
+
+The following distinction is mandatory:
+
+D(x,y)=0 means only that the selected signature F does not distinguish x and y.
+
+It does not establish that x and y are identical in every possible mathematical, empirical, or physical structure.
+
+The quotient is canonical relative to the specified D and F, not an independent ontological assertion.
+
+==================================================
+13. AUDIT REGISTER AND FINAL FINDINGS
+==================================================
+
+IA-03-ER1: REFLEXIVITY — PROVED.
+IA-03-ER2: SYMMETRY — PROVED.
+IA-03-ER3: TRANSITIVITY — PROVED.
+
+IA-03-EC1: CLASS NON-EMPTY — PROVED.
+IA-03-EC2: EQUIVALENCE CLASS IDENTITY — PROVED.
+IA-03-EC3: DISJOINTNESS OR EQUALITY — PROVED.
+
+IA-03-Q1: CANONICAL PROJECTION SURJECTIVITY — PROVED.
+
+IA-03-WD1: QUOTIENT METRIC WELL-DEFINEDNESS — PROVED.
+IA-03-QUOTIENT-METRIC: METRIC ON QUOTIENT — PROVED.
+IA-03-DISCRETE-QUOTIENT: QUOTIENT METRIC IS DISCRETE — PROVED.
+
+IA-03-BIJECTION: QUOTIENT-IMAGE BIJECTION — PROVED.
+IA-03-IMAGE-ISOMETRY: QUOTIENT ISOMETRIC TO F(X) — PROVED.
+IA-03-FACTORIZATION: CANONICAL FACTORIZATION OF F — PROVED.
+
+AUDIT FINDINGS:
+
+FACTS:
+- The definition of D is traceable to IA-02.
+- D is the pullback of the discrete metric along F.
+- The zero relation of D is equality of signatures.
+- The quotient metric is well-defined and separates quotient classes.
+- The induced quotient is isometric to F(X).
+
+FORMAL RESULTS:
+All claims listed in the IA-03 audit register are proved within the declared framework.
+
+UNRESOLVED / OUT OF SCOPE:
+- External independent mathematician certification.
+- Proof-assistant or CAPD verification.
+- Physical or ontological interpretation.
+- Universality beyond the declared construction.
+
+FINAL MATHEMATICAL AUDIT RESULT:
+
+IA-03: MATHEMATICAL AUDIT CLOSED.
+DECLARED RESULTS: PROVED.
+CONDITIONAL STATUS: The quotient-metric theorem follows unconditionally from the explicitly stated IA-02 premises (total feature maps and the classical set-theoretic framework). This does not constitute external certification, proof-assistant verification, or computational validation.
+EXTERNAL CERTIFICATION: NOT CLAIMED.
+
+==================================================
+14. ARCHITECTURAL STATUS AND TRACEABILITY
+==================================================
+
+Frozen Core: UNCHANGED.
+Stage 1: ACTIVE.
+Stage 2: NOT OPENED.
+Volume II: UNCHANGED.
+Volume V: UNCHANGED.
+CE-V-07: RESERVED.
+
+IA-02: EXISTING GITHUB AUDIT RECORD CONTENT AND BLOB SHA VERIFIED AT THE SOURCE SNAPSHOT IDENTIFIED IN CORRECTION REGISTER CR-01. This is repository traceability, not external mathematical certification.
+IA-03: MATHEMATICAL AUDIT COMPLETED.
+IA-03: GITHUB RECORDING — THIS DOCUMENT.
+
+SOURCE TRACEABILITY:
+
+IA-02 path:
+audits/OI-STAGE-01-INDEPENDENT-AUDIT-IA-02-PSEUDOMETRIC-2026-11-11.txt
+
+IA-02 blob SHA:
+11b7b3dc99f23d8af83d21f0175f550a1d2ad881
+
+Stage 1 candidate path:
+theory/OI-STAGE-01-DIFFERENCE-2026-10-28.txt
+
+Stage 1 candidate version:
+0.2
+
+Stage 1 candidate blob SHA:
+6c39e0a09af91bf2cf2c38dbd4b8b713c02b8952
+
+No source file was modified by this audit.
+No Frozen Core amendment is made.
+No Stage 2 opening is authorized.
+No universal theorem is claimed.
+
+END OF IA-03
