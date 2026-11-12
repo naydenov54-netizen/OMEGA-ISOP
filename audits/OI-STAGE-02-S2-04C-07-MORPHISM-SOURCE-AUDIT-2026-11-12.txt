@@ -1,0 +1,130 @@
+OMEGA-ISOP
+STAGE 2 PREPARATORY MATHEMATICAL AUDIT
+MORPHISM SOURCE-ALIGNMENT RECORD
+DOCUMENT_ID: OI-STAGE-02-S2-04C-07-MORPHISM-SOURCE-AUDIT-2026-11-12
+DATE: 2026-11-12
+STATUS: SOURCE-ALIGNED FINDING / MORPHISM CLASS UNRESOLVED
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+
+============================================================
+0. PURPOSE AND CONTROL STATUS
+============================================================
+
+This record places the current morphism audit finding in GitHub so it is not retained only in chat.
+
+This is a research/audit record. It does not define or approve a new canonical morphism class.
+
+ARCHITECTURAL CONTROLS:
+- Frozen Core: UNCHANGED.
+- Volume II: UNCHANGED.
+- Volume III: UNCHANGED.
+- Volume V: UNCHANGED.
+- CE-V-07: RESERVED.
+- Stage 2: NOT OFFICIALLY OPENED.
+- Canonical acceptance: NOT CLAIMED.
+- No project-level colimit or universal amalgamation theorem is claimed.
+
+============================================================
+1. GITHUB SOURCE RECORD INSPECTED
+============================================================
+
+Existing checkpoint:
+audits/OI-STAGE-02-S2-04C-CHECKPOINT-2026-11-11.txt
+
+The checkpoint records the candidate embedding condition:
+
+For configurations C1=(S1,#1) and C2=(S2,#2), a map
+f:C1 -> C2 is an embedding when:
+
+(i) f is injective; and
+(ii) for all x,y in S1:
+     x #1 y iff f(x) #2 f(y).
+
+The checkpoint also records that identity maps and compositions satisfy these conditions, subject to a specified admissible object class closed under the morphisms.
+
+The same checkpoint distinguishes:
+- abstract-carrier amalgamation in C_EQ-EMB;
+- fixed-carrier configurations S subset U0;
+- literal inclusion-only categories;
+- the unresolved project-level category C_METACORE.
+
+The existence of this definition in the checkpoint does not, by itself, settle whether it is the authoritative and exhaustive morphism class of C_METACORE.
+
+============================================================
+2. SOURCE-ALIGNED FINDING
+============================================================
+
+The inspected Volume II / Volume III source material supports the following points:
+
+A. Configurations are represented over a chosen carrier U0 with the relevant relation restricted to the configuration domain.
+
+B. Configuration embeddings are described by injective maps preserving and reflecting the apartness relation.
+
+C. Volume III, Section 9, explicitly states that D_CC is not a complete categorical construction until an indexing category J, a functor D:J -> C_METACORE, objects, morphisms, compatibility conditions, and a universal property are specified.
+
+D. The inspected material does NOT yet establish which of the following is the exact morphism class of C_METACORE:
+
+1. All injective embeddings preserving and reflecting apartness.
+2. A restricted subclass of those embeddings, determined by additional admissibility conditions.
+3. Literal inclusions only.
+4. Embeddings required to extend globally to automorphisms of the ambient carrier.
+5. Another explicitly defined class.
+
+No option is selected in this record. Selection requires an explicit authoritative source statement or a separately approved formal definition.
+
+============================================================
+3. MATHEMATICAL CONSEQUENCE
+============================================================
+
+The abstract category C_EQ-EMB and the fixed-carrier category over U0 must not be conflated.
+
+An abstract amalgam carrier constructed as a pushout of sets need not be a subset of the fixed carrier U0.
+
+Likewise, a union-colimit theorem in an inclusion-only poset category P_F does not establish a colimit in C_METACORE unless the intended objects, morphisms, diagram, admissibility conditions, and universal property are shown to coincide with those of P_F.
+
+Therefore:
+
+- The embedding condition is available as a candidate morphism definition.
+- The exact C_METACORE morphism class remains unresolved.
+- Project-level admissible amalgamation remains unresolved under the authoritative category.
+- Project-level existence of R = colim(D_CC) remains unresolved.
+
+============================================================
+4. REQUIRED NEXT SOURCE CHECK
+============================================================
+
+Continue the source audit by searching the remaining authoritative project records for explicit statements governing:
+
+(a) the exact morphism class;
+(b) whether morphisms are arbitrary embeddings or only inclusions;
+(c) whether embeddings must preserve and reflect all relevant structure or only apartness;
+(d) whether global extension to an ambient automorphism is required;
+(e) fixed-carrier versus abstract-carrier realization;
+(f) admissibility and closure conditions for amalgams;
+(g) whether the diagram maps form a functor.
+
+For each found statement, record:
+- exact source file and section;
+- exact definition or a short faithful transcription;
+- whether it is normative, illustrative, or merely a candidate;
+- compatibility or conflict with the candidate embedding definition;
+- mathematical consequences.
+
+If no authoritative statement is found, retain the unresolved status. Do not infer a category from examples or from a convenient proof.
+
+============================================================
+5. STATUS
+============================================================
+
+S2-04C-07: SOURCE-ALIGNED MORPHISM SPECIFICATION AUDIT
+RESULT: PARTIAL SOURCE ALIGNMENT
+MORPHISM CLASS: UNRESOLVED
+C_METACORE CATEGORY: NOT FULLY SPECIFIED
+ADMISSIBLE AMALGAM CLASS: NOT FULLY SPECIFIED
+D_CC FUNCTOR: NOT FULLY SPECIFIED
+PROJECT-LEVEL COLIMIT: NOT ESTABLISHED
+
+This record does not open Stage 2 officially and does not change the Frozen Core or any protected volume.
+
+END OF RECORD
