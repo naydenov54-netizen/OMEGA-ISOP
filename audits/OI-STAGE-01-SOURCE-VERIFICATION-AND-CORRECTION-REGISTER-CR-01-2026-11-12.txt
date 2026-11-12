@@ -1,5 +1,5 @@
 OMEGA-ISOP — STAGE 1 — DIFFERENCE
-SOURCE VERIFICATION AND PRESENTATION CORRECTION REGISTER
+SOURCE VERIFICATION AND CORRECTION REGISTER
 REGISTER ID: CR-01
 DATE: 2026-11-12
 STATUS: SOURCE SNAPSHOT VERIFIED; CORRECTION COMPANION FILES PREPARED
@@ -38,7 +38,7 @@ SHA-256: NOT RECORDED. The available repository interface returned Git blob SHA 
 
 The fetched text is the UTF-8 content returned by GitHub. This verifies repository content and blob identifiers, but does not independently verify any prior WebFetch conversion output byte-for-byte.
 
-2. PRESENTATION CORRECTIONS
+2. FORMALIZATION, TYPING, AND SCOPE CORRECTIONS
 
 F-01 — COORDINATE / SIGNATURE EQUIVALENCE
 Added an explicit lemma:
@@ -69,7 +69,7 @@ OBS-1 — LOGICAL FRAMEWORK
 The candidate source now explicitly declares classical logic and ZF without the Axiom of Choice. The cotransitivity proof is not claimed constructively.
 
 OBS-2 — IA-03 STATUS WORDING
-Replaced the ambiguous status sentence with a statement scoped to the declared IA-02 premises, explicitly excluding external certification, proof-assistant verification, and computational validation.
+Replaced the ambiguous status sentence with a precise statement of the theorem's scope: proved for the declared nonempty-X, total-feature-map, classical set-theoretic construction, including I=∅. The wording explicitly excludes external certification, proof-assistant verification, computational validation, and claims of physical completeness or canonical model selection.
 
 OBS-3 — WELL-DEFINEDNESS
 Expanded the representative-independence proof with the equality chain:
@@ -97,8 +97,8 @@ No proof-assistant or CAPD verification was performed.
 SOURCE SNAPSHOT: VERIFIED AGAINST GITHUB MAIN HEAD cddfa4ea8eeabfcfb5f319071d938d4983a8a7a8.
 GIT BLOB SHA: VERIFIED FOR ALL FOUR FETCHED FILES.
 SHA-256: NOT COMPLETED.
-PRESENTATION CORRECTIONS: PREPARED AS COMPANION COPIES.
-MATHEMATICAL RESULTS: UNCHANGED.
+FORMALIZATION AND DOCUMENTATION CORRECTIONS: PREPARED AS COMPANION COPIES.
+CORE MATHEMATICAL CONSTRUCTION: PRESERVED; FORMAL DEFINITIONS AND SCOPE BOUNDARIES CLARIFIED.
 FINAL STAGE 1 ACCEPTANCE: NOT GRANTED.
 
 END OF CR-01
