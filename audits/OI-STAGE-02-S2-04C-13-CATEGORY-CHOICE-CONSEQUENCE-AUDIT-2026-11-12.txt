@@ -1,0 +1,388 @@
+OMEGA-ISOP
+STAGE 2 PREPARATORY MATHEMATICAL AUDIT
+S2-04C-13 — CATEGORY CHOICE CONSEQUENCE AUDIT
+DATE: 2026-11-12
+STATUS: COMPARATIVE MATHEMATICAL FINDING / NO PROJECT CATEGORY ADOPTED
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+
+============================================================
+0. PURPOSE AND CONTROL
+============================================================
+
+This record evaluates the mathematical and representational consequences of the candidate category P_min specified in S2-04C-12, compared with the broader all-local-embeddings category E_F and the remaining candidate morphism options.
+
+The purpose is not to select a category merely because one candidate makes a desired colimit easy to prove. The purpose is to identify what each morphism class represents, what it excludes, and which conclusions are valid in that category.
+
+This is an additive audit record. It does not amend S2-04C-12, the Frozen Core, or any theory volume.
+
+ARCHITECTURAL CONTROLS:
+- Frozen Core: UNCHANGED.
+- Volume II: UNCHANGED.
+- Volume III: UNCHANGED.
+- Volume V: UNCHANGED.
+- CE-V-07: RESERVED.
+- Stage 2: NOT OFFICIALLY OPENED.
+- CAPD: UNCHANGED.
+- Canonical acceptance: NOT CLAIMED.
+- No conditional result is promoted to certified.
+
+============================================================
+1. DEFINITIONS HELD FIXED FOR THIS COMPARISON
+============================================================
+
+1.1 COMMON OBJECT CLASS
+
+For the direct comparison of P_min and E_F, hold fixed the same finite-carrier object family:
+
+U0 = {o1,o2,a,b,p,q,r,s}.
+
+Ambient equivalence classes:
+K = {o1,a,b,p,r,s};
+L = {o2,q}.
+
+Ambient apartness:
+x # y iff x and y lie in different equivalence classes.
+
+F = {S subseteq U0 : |S| >= 2 and there exist x,y in S with x # y}.
+
+For S in F:
+C_S = (S,# restricted to S x S).
+
+This common object class is important. The comparison below isolates the effect of changing the morphism class rather than changing both objects and morphisms simultaneously.
+
+1.2 CATEGORY P_min
+
+Objects: all C_S with S in F.
+Morphisms: literal inclusions i_(S,T):S -> T, and no other maps.
+
+1.3 CATEGORY E_F
+
+Objects: the same C_S with S in F.
+Morphisms: all injective maps f:S -> T that preserve and reflect apartness:
+x #_S y iff f(x) #_T f(y).
+
+Thus P_min and E_F have the same objects but different morphisms.
+
+1.4 RELATION BETWEEN THE CATEGORIES
+
+P_min is a wide subcategory of E_F:
+- it has every object of E_F;
+- every P_min morphism is an E_F morphism;
+- it generally has fewer morphisms.
+
+The inclusion functor I:P_min -> E_F is identity on objects and faithful, but is not full whenever a non-inclusion apartness embedding exists.
+
+This comparison does not identify either category with the project-level C_METACORE.
+
+============================================================
+2. CONSEQUENCE A — WHAT P_min REPRESENTS
+============================================================
+
+P_min represents configurations as actual subsets of one fixed ambient carrier, with structural maps restricted to literal containment.
+
+Its morphisms express:
+"this configuration is contained in that configuration as the same subset elements."
+
+They do not express:
+"this configuration has a structure-preserving copy inside that configuration."
+
+Therefore P_min is appropriate only if the intended categorical semantics are genuinely inclusion-based.
+
+P_min is not a harmless notational simplification of E_F. It changes the admissible maps and hence changes the universal properties.
+
+2.1 INFORMATION RETAINED
+
+P_min retains:
+- the identity of ambient elements;
+- the actual subset relation;
+- the induced ambient apartness relation;
+- containment-based extension;
+- union as a canonical least upper object for pairs of objects.
+
+2.2 INFORMATION EXCLUDED
+
+P_min excludes:
+- relabelings of a configuration;
+- embeddings whose image is a proper subset but whose map is not the literal identity-on-elements inclusion;
+- alternative copies of the same relational pattern;
+- maps that express structural correspondence without literal containment;
+- automorphism-induced maps unless they happen to be literal inclusions as functions.
+
+The excluded maps may be mathematically relevant if OMEGA-ISOP treats configurations as structural patterns independently of the names or identities of their carrier elements.
+
+============================================================
+3. CONSEQUENCE B — THE PUSHOUT DIFFERENCE IS REAL
+============================================================
+
+S2-04C-12 proves that every valid inclusion span in P_min has a pushout given by the union of the two upper-object carriers.
+
+S2-04C-10 proves that the specified span in E_F has no pushout.
+
+The same finite object family and the same underlying inclusion span can therefore have:
+- a pushout in P_min;
+- no pushout in E_F.
+
+This is not a contradiction. The pushout universal property quantifies over all target objects and all compatible cocones in the chosen category. E_F has additional morphisms, so it has additional cocones that a proposed pushout must handle.
+
+For the S2-04C-10 span:
+S0 = {o1,o2};
+S1 = {o1,o2,a};
+S2 = {o1,o2,b}.
+
+In P_min, the union:
+S1 union S2 = {o1,o2,a,b}
+is the pushout object.
+
+In E_F, the two-case counter-cocone argument rules out every candidate pushout object for this same span.
+
+DERIVED CONSEQUENCE:
+The existence of the union pushout is not invariant under enlargement of the morphism class, even when the object class and underlying span are held fixed.
+
+Therefore a proof of colimits in an inclusion-only category cannot be transferred to an all-embeddings category without a new universal-property proof.
+
+============================================================
+4. CONSEQUENCE C — THE PRICE OF RESTRICTING MORPHISMS
+============================================================
+
+Restricting morphisms can make colimits exist because it reduces the class of cocones against which the universal property must be tested.
+
+That is mathematically legitimate. It is not, by itself, evidence that the restricted category captures the intended theory.
+
+The relevant question is not:
+"Which category makes the desired theorem true?"
+
+The relevant questions are:
+1. Which maps correspond to the actual structural transformations allowed by OMEGA-ISOP?
+2. Which distinctions between configurations are intended to be preserved?
+3. Are carrier labels ontologically meaningful, or are they representational choices?
+4. Does the theory identify configurations under structural isomorphism?
+5. Does the proposed category preserve the intended meaning of CC and D_CC?
+
+If carrier labels are merely representational, literal inclusion may be too narrow.
+If carrier identity is part of the model's physical or formal content, inclusion may be appropriate.
+The inspected sources do not settle this interpretive choice.
+
+RISK:
+Selecting P_min solely because it supplies a union pushout would risk proving a theorem about a convenient subcategory rather than the category intended by the theory.
+
+============================================================
+5. CONSEQUENCE D — EVALUATION OF THE FOUR MORPHISM OPTIONS
+============================================================
+
+M1 — ALL LOCAL APARTNESS EMBEDDINGS
+
+Definition:
+All injective f satisfying preservation and reflection of apartness.
+
+Strength:
+Captures arbitrary structural copies and relabelings that preserve the selected relation.
+
+Cost:
+Fixed-carrier amalgamation can fail, as demonstrated by the E_F counterexample.
+
+Open issue:
+If apartness is not the only relevant structure, preserving and reflecting apartness alone may be insufficient.
+
+Assessment:
+Semantically broad relative to the selected relation, but it requires explicit object admissibility and a separate amalgamation/colimit analysis. It cannot be rejected merely because one finite span lacks a pushout; nor can its universal colimit properties be presumed.
+
+M2 — LITERAL INCLUSIONS ONLY
+
+Definition:
+Only actual subset inclusions are morphisms.
+
+Strength:
+Simple, unambiguous, closed under composition, and compatible with union pushouts under the stated union-closure condition.
+
+Cost:
+Excludes structural copies and relabelings. Makes carrier identity part of the categorical semantics.
+
+Assessment:
+Mathematically coherent as P_min. Its suitability for C_METACORE is a substantive modeling decision, not a theorem.
+
+M3 — EXPLICIT RESTRICTED SUBCLASS
+
+Definition:
+A selected subclass of local apartness embeddings defined by a predicate P(f).
+
+Necessary category conditions:
+- P(id_C) holds for every object C;
+- if P(f) and P(g), then P(g o f);
+- the selected maps have the required source and target objects;
+- identity and composition are inherited from function composition.
+
+Additional requirements:
+- P must be stated in terms of the actual OMEGA-ISOP structure;
+- admissibility must be stable under the selected maps;
+- the intended amalgam construction must be closed under the selected object class;
+- the universal property must be proved using exactly these morphisms.
+
+Assessment:
+Potentially the best route if the theory needs some structural embeddings but not all embeddings. However, no exact predicate P is currently source-established. An abstract requirement that P be composition-closed is a category-design constraint, not a complete operational definition.
+
+M4 — RESTRICTIONS OF GLOBAL AUTOMORPHISMS
+
+Definition:
+Maps are restrictions of automorphisms of the fixed ambient structure, with image contained in the target carrier.
+
+Strength:
+Preserves ambient symmetries and avoids treating every local embedding as globally realizable.
+
+Cost:
+Can exclude local embeddings that do not extend to ambient automorphisms. The category and composition conditions must be defined carefully, including the domain and image conditions for each restriction.
+
+Assessment:
+Appropriate only if global ambient symmetry is part of the intended semantics. The inspected sources do not impose this requirement.
+
+============================================================
+6. CATEGORY-LAW AND REPRESENTATIONAL CHECKS
+============================================================
+
+6.1 M1
+
+The all-embedding maps are closed under identities and composition, provided the object class is fixed and the maps are between its objects. This is a valid category under that condition.
+
+6.2 M2
+
+Literal inclusions form a valid category. S2-04C-12 supplies the detailed proof and the union-pushout theorem for the declared minimal object class.
+
+6.3 M3
+
+A restricted class is a category only if its defining predicate is closed under identities and composition. A list of desired map properties that is not composition-closed does not define a category.
+
+6.4 M4
+
+For ambient automorphisms g and h, restrictions compose as expected only when the relevant intermediate image lies in the domain on which the second restriction is defined. A precise hom-set definition must ensure this condition. One safe formulation is to define each morphism as a map f:S -> T for which there exists an ambient automorphism g with g(S) subseteq T, and then verify closure under composition using the composite ambient automorphism. This gives a category of the resulting functions, even if different automorphisms induce the same restricted function.
+
+No category option is selected by this section.
+
+============================================================
+7. CONSEQUENCE E — WHAT A COLIMIT RESULT WOULD ACTUALLY MEAN
+============================================================
+
+If P_min is adopted, the union pushout theorem establishes a colimit for each specified span of literal inclusions in P_min.
+
+It does not establish:
+- a pushout in E_F;
+- a pushout in an arbitrary restricted embedding category;
+- a colimit in C_METACORE;
+- a colimit for every possible diagram J;
+- the existence of the project-level R = colim(D_CC);
+- realization of an abstract categorical colimit inside U0;
+- any universal physical or ontological theorem.
+
+If M1 is adopted, the E_F counterexample establishes that the specified span has no pushout in that particular finite fixed-carrier all-embeddings category. It does not establish that every span fails, or that all abstract-carrier pushouts fail.
+
+If M3 or M4 is adopted, the relevant colimit question remains open until the exact morphism class and object admissibility are fixed and the universal property is proved.
+
+============================================================
+8. DECISION CRITERIA — NO CATEGORY SELECTED
+============================================================
+
+A project-level category choice must be justified against all of the following criteria:
+
+C1. REPRESENTATIONAL ADEQUACY
+Does the morphism class represent the transformations the theory actually intends to allow?
+
+C2. STRUCTURAL PRESERVATION
+Does each morphism preserve and reflect every structure that is required, not merely apartness if additional structure is relevant?
+
+C3. OBJECT ADMISSIBILITY
+Is Adm(C) complete, explicit, and invariant under the selected morphisms?
+
+C4. AMALGAM REALIZABILITY
+Does the proposed amalgam belong to the object class and obey the carrier convention?
+
+C5. DIAGRAM FIDELITY
+Does the selected category support the actual indexing category J and functor D intended by D_CC?
+
+C6. UNIVERSAL PROPERTY
+Does the claimed colimit satisfy the universal property against every compatible cocone in the selected category?
+
+C7. SOURCE TRACEABILITY
+Is the choice explicitly supported by an authoritative source, or clearly marked as a new approved definition?
+
+A category must not be selected on C6 alone. A category that makes a theorem easy but fails C1 or C2 may be mathematically coherent yet inappropriate for the project.
+
+============================================================
+9. AUDIT FINDINGS
+============================================================
+
+FACTS WITHIN THE DECLARED TEST MODELS:
+- P_min and E_F have the same finite object family in this comparison.
+- P_min is a wide, faithful, generally non-full subcategory of E_F.
+- The specified span has a union pushout in P_min.
+- The same specified span has no pushout in E_F, as proved in S2-04C-10.
+
+FORMAL RESULTS:
+- The union-pushout theorem is valid within P_min under its declared object and morphism definitions.
+- The no-pushout theorem is valid for the specified span in E_F under its declared finite object family and all-embedding morphisms.
+- These results are compatible because the categories have different hom-sets and therefore different universal-property quantifiers.
+
+AUDIT FINDINGS:
+- The morphism class materially changes the colimit result.
+- P_min's success does not establish that it represents the intended C_METACORE.
+- M1's obstruction does not establish that a broader abstract-carrier category lacks pushouts.
+- M3 remains underdefined until an operational predicate P is supplied.
+- M4 requires an explicit extension-to-automorphism convention and category-law verification.
+- The project-level category choice remains unresolved.
+
+HYPOTHESES NOT ESTABLISHED:
+- That carrier labels are semantically meaningful.
+- That configurations should be identified up to structural embedding or isomorphism.
+- That every local embedding should be allowed.
+- That every relevant local embedding must extend to a global automorphism.
+- That the intended admissibility predicate is union-closed.
+
+============================================================
+10. CONTROLLED CONCLUSION
+============================================================
+
+The mathematical choice is not simply between a category with pushouts and a category without them.
+
+It is a choice between different meanings of morphism:
+- literal containment;
+- arbitrary local structural embedding;
+- a specified restricted class of embeddings;
+- ambient-symmetry-induced embedding.
+
+Each choice changes the cocones quantified over by the universal property and can change whether a pushout exists.
+
+P_min is a valid candidate test category with a proved union-pushout theorem.
+E_F is a valid candidate test category in which the audited finite span has no pushout.
+Neither result selects the intended project category.
+
+DECISION:
+NO CATEGORY ADOPTED.
+
+NEXT REQUIRED STEP:
+S2-04C-14 — SEMANTIC MORPHISM REQUIREMENT EXTRACTION.
+Extract, from authoritative OMEGA-ISOP definitions and operational rules, what a morphism is required to preserve, what transformations are permitted, and whether carrier identity is semantically significant. Only after that extraction should M1-M4 be ranked for project suitability.
+
+============================================================
+11. ARCHITECTURAL PRESERVATION
+============================================================
+
+Frozen Core: UNCHANGED.
+Volume II: UNCHANGED.
+Volume III: UNCHANGED.
+Volume V: UNCHANGED.
+CE-V-07: RESERVED.
+Stage 2: NOT OFFICIALLY OPENED.
+CAPD: UNCHANGED.
+Canonical acceptance: NOT CLAIMED.
+
+P_min:
+CANDIDATE TEST CATEGORY ONLY.
+
+E_F:
+FINITE ALL-EMBEDDINGS TEST CATEGORY ONLY.
+
+C_METACORE:
+PROJECT-LEVEL MORPHISM CLASS UNRESOLVED.
+
+PROJECT-LEVEL R = colim(D_CC):
+NOT ESTABLISHED.
+
+END OF DOCUMENT
