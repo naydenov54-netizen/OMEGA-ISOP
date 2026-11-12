@@ -1,0 +1,250 @@
+OMEGA-ISOP
+INDEPENDENT MATHEMATICAL AUDIT RECORD
+S2-04C-18 — FR-1 CORRECTION NOTE v0.2.1
+DATE: 2026-11-12
+STATUS: PROVISIONALLY ACCEPTED / MANUAL MATHEMATICAL AUDIT CLOSED FOR FR-1 ONLY
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+TARGET BRANCH: main
+
+============================================================
+0. PURPOSE AND SCOPE
+============================================================
+
+This record documents the independent manual review of the user's
+S2-04C-18 FR-1 CORRECTION NOTE v0.2.1.
+
+The review is limited to FR-1 and to the correction introduced in
+v0.2.1. It does not reproduce or replace the complete correction note
+v0.2, and it does not certify FR-2 through FR-7.
+
+The purpose is to record:
+- the mathematical claim reviewed;
+- the correction assessed;
+- the proof structure checked;
+- the exact scope of the conclusion;
+- unresolved project and verification limitations.
+
+This is a manual mathematical audit record. It is not a machine-checked
+proof, CAPD validation, proof-assistant result, or independent external
+certification.
+
+============================================================
+1. REVIEWED MATERIAL AND PROVENANCE
+============================================================
+
+REVIEWED ITEM:
+OMEGA-ISOP — FR-1 CORRECTION NOTE v0.2.1
+Date supplied in the conversation: 2026-11-12.
+
+REVIEW BASIS:
+The v0.2.1 text and the preceding v0.2 correction context supplied by
+the project owner were reviewed in the conversation.
+
+PROVENANCE LIMIT:
+This record does not assert that the submitted source file was fetched
+from GitHub, that its bytes were compared against a repository object,
+or that a source commit SHA was independently verified before this
+audit. The repository commit created for this record is not the source
+commit of the reviewed correction note.
+
+============================================================
+2. CORRECTION VERIFIED
+============================================================
+
+The v0.2.1 correction replaces the inaccurate description of the
+coproduct structure maps i and j as "injections" with the more precise
+term "canonical coproduct morphisms".
+
+It explicitly distinguishes:
+- the canonical maps i:B -> P and j:C -> P;
+- the separate cocone maps from B and C into W1 or W2.
+
+In the categories considered in FR-1 cases (i) and (ii), i and j are
+not assumed to be injective as functions. In case (iii), injectivity
+follows from the definition of that category.
+
+The contradiction argument requires preservation of apartness by the
+relevant morphisms. It does not require injectivity of i or j.
+
+AUDIT FINDING:
+The terminology and scope correction is mathematically appropriate.
+It removes the implication that injectivity is available in cases
+where it has not been established.
+
+============================================================
+3. FR-1 PROOF CHECK
+============================================================
+
+The proof structure reviewed is as follows.
+
+Assume that P is a coproduct of B and C, with canonical coproduct
+morphisms:
+
+i:B -> P
+j:C -> P
+
+The selected apartness relation in B is preserved by i. Hence, for the
+apart elements x,y in B used in the counterexample:
+
+i(x) # i(y)
+
+Axiom A3 in P then gives the relevant disjunction:
+
+i(x) # j(z) OR j(z) # i(y)
+
+The two cases are tested against the specified cocones.
+
+CASE 1:
+If i(x) # j(z), use the universal morphism from P to W2. Since the
+cocone maps from B and C into W2 preserve the specified relations,
+the resulting images would require the relation x # z in W2. That
+relation is absent by construction. This is a contradiction.
+
+CASE 2:
+If j(z) # i(y), use the universal morphism from P to W1. Preservation
+would require z # y in W1. That relation is absent by construction.
+This is a contradiction.
+
+Thus neither disjunct can hold, contradicting A3 in P. Under the
+stated assumptions and in the stated category scope, the proposed
+coproduct cannot exist.
+
+The W1 and W2 relations described in the reviewed construction
+satisfy A1-A3. W2 is obtained from W1 by swapping x and y, as stated
+in the reviewed argument.
+
+AUDIT FINDING:
+No substantive mathematical defect was found in the FR-1 proof
+structure after the v0.2.1 terminology correction.
+
+============================================================
+4. CATEGORY SCOPE
+============================================================
+
+The reviewed argument applies to the explicitly stated cases:
+
+(i) all apartness-preserving maps;
+(ii) strong maps, as defined in the correction note;
+(iii) injective apartness-preserving maps.
+
+The contradiction uses preservation of apartness. It does not rely on
+injectivity of the canonical coproduct morphisms.
+
+This review does not automatically extend the result to any other
+morphism class, including classes with additional structure or
+different preservation/reflection requirements.
+
+AUDIT FINDING:
+The scope limitation is necessary and is retained. No broader
+categorical generalization is approved by this record.
+
+============================================================
+5. FACTS, FORMAL RESULTS, AND LIMITATIONS
+============================================================
+
+FACTS:
+- The v0.2.1 terminology correction distinguishes canonical
+  coproduct morphisms from injective maps.
+- The proof's contradiction uses apartness preservation, not
+  injectivity of i or j.
+- The two universal morphisms are used in the respective cocone
+  cases, with the missing relations in W2 and W1 producing the
+  contradictions.
+
+FORMAL RESULT:
+Within the exact assumptions, definitions, counterexample structures,
+and category cases stated in FR-1, the coproduct non-existence
+argument is mathematically coherent after the v0.2.1 correction.
+
+AUDIT FINDING:
+FR-1 is provisionally accepted at the level of manual mathematical
+audit. The FR-1 review may be closed at that level, subject to the
+scope and verification limitations in this record.
+
+LIMITATIONS:
+- No proof assistant was used.
+- No CAPD or interval computation was performed.
+- No independent external mathematical certification was obtained.
+- No byte-level source identity or source commit provenance is claimed.
+- This record does not re-audit FR-2, FR-3, FR-4, FR-5, FR-6, FR-6b,
+  or FR-7.
+- This record does not resolve the eight owner decisions D1-D8.
+- This record does not establish a project-level colimit theorem.
+
+============================================================
+6. STATUS AND ARCHITECTURAL CONTROLS
+============================================================
+
+FR-1 v0.2.1:
+PROVISIONALLY ACCEPTED.
+
+FR-1 manual mathematical audit:
+CLOSED, WITHIN THE SCOPE SPECIFIED ABOVE.
+
+FR-2 THROUGH FR-7:
+No new review performed by this record. Their previously recorded
+v0.2 scope and status remain unchanged.
+
+S2-04C-18:
+The correction note v0.2 and FR-1 correction note v0.2.1 are
+provisionally acceptable within their respective reviewed scopes.
+This record does not certify the complete S2-04C-18 package.
+
+D1-D8:
+UNRESOLVED.
+
+CATEGORY ADOPTION:
+NONE.
+
+STAGE 2:
+NOT OFFICIALLY OPENED.
+
+FROZEN CORE:
+UNCHANGED.
+
+VOLUME II:
+UNCHANGED.
+
+VOLUME III:
+UNCHANGED.
+
+VOLUME V:
+UNCHANGED.
+
+M3.2:
+UNCHANGED.
+
+CE-V-07:
+RESERVED.
+
+CAPD:
+NO UNIVERSAL THEOREM CLAIM. NO CAPD VALIDATION PERFORMED.
+
+CANONICAL ACCEPTANCE:
+NOT CLAIMED.
+
+RL REGISTRATION:
+NOT CLAIMED.
+
+============================================================
+7. CONCLUSION
+============================================================
+
+The v0.2.1 correction resolves the remaining terminology precision
+issue identified in the manual review of FR-1. The corrected proof
+uses only the morphism property it actually needs: preservation of
+apartness.
+
+FR-1 is therefore PROVISIONALLY ACCEPTED and its manual mathematical
+audit is CLOSED within the stated scope.
+
+This conclusion must not be read as:
+- certification of the full S2-04C-18 document;
+- certification of FR-2 through FR-7;
+- machine verification or CAPD validation;
+- adoption of a category;
+- resolution of D1-D8;
+- official opening of Stage 2;
+- amendment of any protected OMEGA-ISOP component.
+
+END OF AUDIT RECORD
