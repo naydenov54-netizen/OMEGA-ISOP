@@ -1,0 +1,72 @@
+OMEGA-ISOP
+STAGE 1 — DIFFERENCE
+CORRECTION REGISTER / PERMANENT DISCOVERY INDEX
+
+REGISTER ID: CR-01
+DATE: 2026-11-12
+STATUS: DISCOVERY INDEX RECORDED IN MAIN
+PURPOSE: Provide a stable entry point to corrected companion documents currently held on the dedicated correction branch.
+MATHEMATICAL ACCEPTANCE: NOT GRANTED BY THIS REGISTER
+PR #65: OPEN / DRAFT
+CORRECTION BRANCH: stage1-corrections-2026-11-12
+CORRECTION BRANCH HEAD: f287044bb94662a557afa1df9ca248cb65f46654
+
+IMPORTANT VERSION CONTROL RULES
+
+1. Original audit documents remain preserved at their original paths.
+2. The documents listed below are corrected companion copies, not replacements silently substituted for the originals.
+3. The corrections are currently on the dedicated branch and are proposed through PR #65.
+4. This register makes the corrected copies discoverable from main. It does not merge the branch, approve the PR, or promote the corrections to accepted baseline documents.
+5. The SHA values below are Git blob object IDs, NOT SHA-256 file digests.
+6. No claim of external independent mathematician certification, proof-assistant verification, CAPD validation, or computational reproducibility is made by this register.
+7. Frozen Core, Volume II, and Volume V remain unchanged. CE-V-07 remains RESERVED. Stage 2 remains CLOSED / NOT OPENED.
+
+CORRECTED COMPANION DOCUMENTS
+
+A. IA-02 — PSEUDOMETRIC
+Path:
+audits/OI-STAGE-01-INDEPENDENT-AUDIT-IA-02-PSEUDOMETRIC-CORRECTED-2026-11-12.txt
+Branch:
+stage1-corrections-2026-11-12
+Git blob SHA:
+321cf09c540cc5afd6c528b351b3d6cdaad6dace
+Direct URL:
+https://github.com/naydenov54-netizen/OMEGA-ISOP/blob/stage1-corrections-2026-11-12/audits/OI-STAGE-01-INDEPENDENT-AUDIT-IA-02-PSEUDOMETRIC-CORRECTED-2026-11-12.txt
+
+B. AUDIT TASK 03 — STRUCTURAL CONSISTENCY AND REPRESENTATION INDEPENDENCE
+Path:
+audits/OI-STAGE-01-AUDIT-TASK-03-CORRECTED-2026-11-12.txt
+Branch:
+stage1-corrections-2026-11-12
+Git blob SHA:
+d9d9204b241e91ef1add2a8310ae9ef2372fc9e7
+Direct URL:
+https://github.com/naydenov54-netizen/OMEGA-ISOP/blob/stage1-corrections-2026-11-12/audits/OI-STAGE-01-AUDIT-TASK-03-CORRECTED-2026-11-12.txt
+
+C. IA-03 — QUOTIENT METRIC
+Path:
+audits/OI-STAGE-01-INDEPENDENT-AUDIT-IA-03-QUOTIENT-METRIC-CORRECTED-2026-11-12.txt
+Branch:
+stage1-corrections-2026-11-12
+Git blob SHA:
+6002511084df0ad9103ef236bf4c50d19c28750f
+Direct URL:
+https://github.com/naydenov54-netizen/OMEGA-ISOP/blob/stage1-corrections-2026-11-12/audits/OI-STAGE-01-INDEPENDENT-AUDIT-IA-03-QUOTIENT-METRIC-CORRECTED-2026-11-12.txt
+
+PULL REQUEST RECORD
+
+PR #65:
+https://github.com/naydenov54-netizen/OMEGA-ISOP/pull/65
+Base branch: main
+Head branch: stage1-corrections-2026-11-12
+Base snapshot: cddfa4ea8eeabfcfb5f319071d938d4983a8a7a8
+Head snapshot: f287044bb94662a557afa1df9ca248cb65f46654
+State at register creation: OPEN / DRAFT
+
+AUDIT CONTROL
+
+This register is an index and traceability record only.
+It does not alter mathematical content, source assumptions, audit findings, project architecture, or acceptance status.
+Any later promotion of corrected companions into the accepted baseline requires an explicit review and controlled change decision.
+
+END OF REGISTER
