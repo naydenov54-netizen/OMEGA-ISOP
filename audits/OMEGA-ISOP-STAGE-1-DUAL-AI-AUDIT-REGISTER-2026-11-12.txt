@@ -1,0 +1,206 @@
+OMEGA-ISOP
+STAGE 1 — DIFFERENCE
+DUAL-AI AUDIT REGISTER AND ACCESS PROVENANCE
+DATE: 2026-11-12
+REGISTER ID: DAI-01
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+
+==================================================
+0. PURPOSE AND RECORD STATUS
+==================================================
+
+This record registers the two AI audit tracks discussed on 2026-11-12:
+(1) ChatGPT access attempt and subsequent GitHub-connector verification/review.
+(2) Claude repeated independent audit IA-02 / IA-03 (v2).
+
+This is an audit-provenance and status register. It is NOT a replacement for IA-02, IA-03, the source theory file, or either AI's full report. It does not modify mathematical definitions, proofs, the Frozen Core, Volume V, CE-V-07, or CAPD.
+
+The initial access-failure report and Claude's full v2 report were supplied in the conversation. Their full original report files have not been committed by this register. This record summarizes their reported results and identifies the evidence that was independently retrievable.
+
+==================================================
+1. AI TRACK A — CHATGPT
+==================================================
+
+A1. INITIAL ACCESS ATTEMPT
+
+Reported status:
+ACCESS NOT ESTABLISHED
+AUDIT HALTED
+
+The initial ChatGPT session reported three failed access routes:
+- GitHub repository page;
+- GitHub API;
+- raw GitHub README.
+
+It reported that branch main, the repository tree, and source files had not been inspected, and that mathematical auditing had not started.
+
+Classification:
+SESSION-SPECIFIC ACCESS FAILURE.
+
+This finding describes that particular ChatGPT session and its available access path. It is NOT evidence that the repository is private, unavailable to all ChatGPT sessions, or inaccessible to ChatGPT as a product.
+
+A2. SUBSEQUENT CHATGPT GITHUB-CONNECTOR RETRIEVAL
+
+In a later session, the GitHub connector successfully fetched the following four UTF-8 source files from branch main:
+
+A. theory/OI-STAGE-01-DIFFERENCE-2026-10-28.txt
+Git blob SHA:
+6c39e0a09af91bf2cf2c38dbd4b8b713c02b8952
+
+B. audits/OI-STAGE-01-INDEPENDENT-AUDIT-IA-02-PSEUDOMETRIC-2026-11-11.txt
+Git blob SHA:
+11b7b3dc99f23d8af83d21f0175f550a1d2ad881
+
+C. audits/OI-STAGE-01-AUDIT-TASK-03-2026-11-11.txt
+Git blob SHA:
+a980514343dabfb14d8b96fa1473128bc75c3b2c
+
+D. audits/OI-STAGE-01-INDEPENDENT-AUDIT-IA-03-QUOTIENT-METRIC-2026-11-12.txt
+Git blob SHA:
+d382b93d8f8b597d310a38f42ead63583142a0e8
+
+All four files were retrieved in full by the connector in that later session. The first two blob SHA values match the values Claude quoted in its v2 report. The latter two blob SHA values were also obtained independently during the ChatGPT retrieval.
+
+A3. CHATGPT MATHEMATICAL REVIEW
+
+The subsequent ChatGPT review examined the declared signature-based difference construction and the reported IA-02 / IA-03 findings.
+
+Review conclusions:
+- The core construction based on pulling back the discrete metric along the signature map is mathematically coherent in the declared scope.
+- The pseudometric conclusion follows from the pullback construction.
+- D is a metric exactly when the signature map is injective.
+- The quotient by the zero-distance equivalence relation is naturally isometric to the signature image, with codomain/corestriction details made explicit.
+- Claude findings F-01 through F-04 identify genuine formalization or exposition improvements.
+- The claim that finite choice is needed for the triangle inequality is unnecessary; the triangle inequality follows directly for each fixed triple, without a choice principle.
+
+Limitations:
+- This was a scoped review of the four retrieved files and the supplied Claude report, not a full-repository audit.
+- No proof assistant or machine-checked formal proof was executed.
+- No independent external mathematician certification is claimed.
+- This register does not claim that every Stage 1 source, correction record, or historical artifact has been inspected.
+
+ChatGPT review status:
+SCOPED REVIEW COMPLETED — CONDITIONS REMAIN OPEN.
+
+==================================================
+2. AI TRACK B — CLAUDE
+==================================================
+
+Report identifier as supplied:
+OMEGA-ISOP — STAGE 1 — DIFFERENCE
+INDEPENDENT AUDIT IA-02 / IA-03
+REPEATED (v2)
+DATE: 2026-11-12
+
+Claude's report states that it read four files through raw.githubusercontent.com and performed a manual mathematical review.
+
+Claude's reported verdict:
+PASS WITH CONDITIONS.
+
+Reported scope:
+- Stage 1 source definition;
+- IA-02 pseudometric construction;
+- Task 03 signature/equivalence properties;
+- IA-03 quotient metric and image isometry.
+
+Reported findings:
+- No CRITICAL or MAJOR findings.
+- Four MINOR findings: F-01, F-02, F-03, F-04.
+- Additional observations OBS-1 through OBS-6.
+- Required follow-up includes clarification of classical logic, codomain consistency, the relation definition, the empty-index/constant-signature case, status wording, and source/commit traceability.
+
+Claude's stated limitations:
+- No commit SHA established in its session.
+- No byte-faithful verification of the fetched text.
+- No Git blob SHA or SHA-256 computation performed by Claude.
+- No proof assistant or formal machine verification.
+- No institutional or external mathematician certification.
+
+The two blob SHA values quoted by Claude for source A and IA-02 were independently matched by the later ChatGPT GitHub-connector retrieval. This supports the identification of those two repository blobs, but does not prove that Claude's WebFetch text was byte-identical to the Git blobs.
+
+Claude report status:
+PASS WITH CONDITIONS — NOT FINAL STAGE 1 ACCEPTANCE.
+
+==================================================
+3. REPOSITORY SNAPSHOT AND TRACEABILITY
+==================================================
+
+Immediately before creation of this register, the GitHub API reported:
+
+Branch: main
+HEAD commit:
+da34c3afc6340e8145bf8d60561ea3ee501c0e4d
+
+This is the pre-registration HEAD snapshot. The commit created by adding this register is a subsequent commit and must be used as the updated HEAD after this file is committed.
+
+The four Git blob SHA values in Section 1 are repository object identifiers for the exact files fetched from main. Git blob SHA values are not SHA-256 file digests and are not commit identifiers.
+
+==================================================
+4. CONSOLIDATED STATUS
+==================================================
+
+CHATGPT INITIAL SESSION ACCESS:
+ACCESS NOT ESTABLISHED / AUDIT HALTED.
+
+CHATGPT LATER GITHUB CONNECTOR:
+4 OF 4 DECLARED FILES FETCHED.
+
+CHATGPT SCOPED MATHEMATICAL REVIEW:
+COMPLETED WITH CONDITIONS.
+
+CLAUDE IA-02 / IA-03 v2:
+PASS WITH CONDITIONS, AS REPORTED BY CLAUDE.
+
+SOURCE TRACEABILITY:
+PARTIALLY VERIFIED.
+
+FULL REPOSITORY AUDIT:
+NOT CLAIMED.
+
+BYTE-IDENTITY OF CLAUDE FETCHED TEXT:
+NOT VERIFIED.
+
+PROOF-ASSISTANT / MACHINE FORMAL VERIFICATION:
+NOT PERFORMED.
+
+EXTERNAL MATHEMATICIAN CERTIFICATION:
+NOT CLAIMED.
+
+STAGE 1 FINAL ACCEPTANCE:
+NOT GRANTED BY THIS REGISTER.
+
+STAGE 2:
+NOT OPENED.
+
+GLOBAL CERTIFICATION:
+NOT GRANTED.
+
+CAPD CERTIFICATION:
+SEPARATE TRACK; NOT EVALUATED OR CLOSED BY THIS REGISTER.
+
+==================================================
+5. REQUIRED FOLLOW-UP
+==================================================
+
+1. Preserve both original AI reports as separate evidence records when their full texts are archived.
+2. Obtain and record the exact commit SHA associated with each future audit snapshot.
+3. Ask Claude to address F-01 through F-04 and the applicable observations in a revised, traceable report.
+4. Correct the unnecessary finite-choice statement concerning the triangle inequality.
+5. Ensure that all maps, codomains, corestrictions, and factorization statements are type-consistent.
+6. Re-fetch the relevant source files at a fixed commit before declaring the audit reproducible.
+7. Keep the Stage 1 final acceptance decision separate from the AI audit verdicts.
+
+==================================================
+6. ARCHITECTURAL SAFEGUARDS
+==================================================
+
+Frozen Core: UNCHANGED.
+Volume V: UNCHANGED.
+CE-V-07: RESERVED.
+CAPD: NOT MODIFIED; separate certification track remains open.
+Stage 2: NOT OPENED.
+
+No AI audit result in this register may silently modify the Frozen Core or be promoted to universal theorem, global certification, or final Stage 1 acceptance.
+
+END OF REGISTER
