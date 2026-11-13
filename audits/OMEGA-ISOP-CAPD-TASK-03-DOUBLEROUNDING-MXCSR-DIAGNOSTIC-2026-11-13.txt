@@ -1,0 +1,393 @@
+OMEGA-ISOP — CAPD TASK 03
+DOUBLEROUNDING / MXCSR DIAGNOSTIC
+DATE: 2026-11-13
+TRACK: MATHEMATICAL CERTIFICATION TRACK
+RECORD TYPE: CONTROLLED DIRECT-COMPILE RUNTIME DIAGNOSTIC
+STATUS: RUNTIME OBSERVATIONS RECORDED; ROOT CAUSE OPEN
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+
+1. PURPOSE AND SCOPE
+
+Record the Colab runtime output for a focused diagnostic of CAPD
+DoubleRounding.cpp under two direct compilation configurations:
+-O0 and -O2.
+
+The experiment captures:
+- MXCSR before and after each CAPD rounding function;
+- MXCSR RC bits 13–14;
+- x87 Control Word before and after the measured calls;
+- DoubleRounding::test() return value;
+- DoubleRounding::isWorking() return value and final machine state;
+- compiler output and runtime exit codes;
+- source commit and source-file SHA-256 before and after execution.
+
+This is a focused direct-compile diagnostic. It is NOT the full CAPD CMake
+build, is NOT a reproduction of the MULTIPRECISION=ON notebook recipe, and
+does NOT certify general directed-rounding correctness.
+
+2. SOURCE AND ENVIRONMENT IDENTITY
+
+CAPD repository directory in Colab:
+/content/OMEGA_ISOP_RT03/CAPD
+
+CAPD source commit:
+693998cd6d73a0c4e1b141bfb79fcad1c40c3cbe
+
+Source file:
+capdAlg/src/capd/rounding/DoubleRounding.cpp
+
+Source SHA-256 before execution:
+05a8637843a04442dc7f838196b4c6579729e0ca513ec56e4dfa78e97e7a9876
+
+Source SHA-256 after execution:
+05a8637843a04442dc7f838196b4c6579729e0ca513ec56e4dfa78e97e7a9876
+
+Platform:
+x86_64
+
+Compiler:
+g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+
+Include directories:
+- /content/OMEGA_ISOP_RT03/CAPD/capdAlg/include
+- /content/OMEGA_ISOP_RT03/CAPD/capdAux/include
+
+Required header verified:
+capdAux/include/capd/settings/archSetting.h
+
+Git working tree after execution:
+CLEAN
+
+3. COMPILATION CONFIGURATIONS
+
+Both builds compiled the same CAPD source file and the same external
+diagnostic harness with the same compiler and flags except for the
+optimization level.
+
+Common flags:
+-std=c++11
+-Wall
+-Wextra
+-fno-fast-math
+
+O0 command:
+g++ -std=c++11 -O0 -Wall -Wextra -fno-fast-math
+-I /content/OMEGA_ISOP_RT03/CAPD/capdAlg/include
+-I /content/OMEGA_ISOP_RT03/CAPD/capdAux/include
+/content/OMEGA_ISOP_RT03/CAPD/capdAlg/src/capd/rounding/DoubleRounding.cpp
+/content/OMEGA_ISOP_RT03/TASK03_DIAGNOSTIC/mxcsr_diagnostic.cpp
+-o /content/OMEGA_ISOP_RT03/TASK03_DIAGNOSTIC/mxcsr_O0
+
+O2 command:
+g++ -std=c++11 -O2 -Wall -Wextra -fno-fast-math
+-I /content/OMEGA_ISOP_RT03/CAPD/capdAlg/include
+-I /content/OMEGA_ISOP_RT03/CAPD/capdAux/include
+/content/OMEGA_ISOP_RT03/CAPD/capdAlg/src/capd/rounding/DoubleRounding.cpp
+/content/OMEGA_ISOP_RT03/TASK03_DIAGNOSTIC/mxcsr_diagnostic.cpp
+-o /content/OMEGA_ISOP_RT03/TASK03_DIAGNOSTIC/mxcsr_O2
+
+No -frounding-math flag was used in these direct diagnostic builds.
+-fno-fast-math was used. The two commands differ by -O0 versus -O2.
+
+Both compilations returned exit code 0 with empty compiler stdout/stderr.
+Both runtime executions returned exit code 0.
+
+4. OBSERVED ROUNDING FUNCTION RESULTS
+
+The initial MXCSR before each individual rounding function was:
+0x00001F80 (DEC 8064), RC=0.
+
+The observed results were identical under O0 and O2:
+
+Function          MXCSR after       Decimal   RC
+ROUND_NEAREST     0x00001FBF        8127      0
+ROUND_DOWN        0x00003FBF        16319     1
+ROUND_UP          0x00005FBF        24511     2
+ROUND_CUT          0x00007FBF        32703     3
+
+DoubleRounding::test() returned enum values:
+ROUND_NEAREST = 0
+ROUND_DOWN    = 1
+ROUND_UP      = 2
+ROUND_CUT      = 3
+
+For all these observations, x87 Control Word remained 0x037F.
+
+The full MXCSR values, not only RC bits, are retained above and in the raw
+output below. In these values, MXCSR status bits 0–5 are set and the
+exception-mask bits 7–12 are set. This observation does not establish that
+six floating-point exceptions were newly raised by arithmetic; the CAPD
+rounding functions write the observed MXCSR state. The status flags and
+exception masks must be interpreted separately.
+
+5. isWorking() RESULTS
+
+O0:
+- MXCSR before: 0x00001F80 (DEC 8064), RC=0
+- x87 CW before: 0x037F
+- isWorking() result: TRUE (1)
+- MXCSR after: 0x00001FBF (DEC 8127), RC=0
+- x87 CW after: 0x037F
+- runtime exit code: 0
+
+O2:
+- MXCSR before: 0x00001F80 (DEC 8064), RC=0
+- x87 CW before: 0x037F
+- isWorking() result: FALSE (0)
+- MXCSR after: 0x00003FBF (DEC 16319), RC=1
+- x87 CW after: 0x037F
+- runtime exit code: 0
+
+Observed difference:
+isWorking(O0) = 1
+isWorking(O2) = 0
+
+Final state difference:
+Final MXCSR(O0) = 0x00001FBF, RC=0
+Final MXCSR(O2) = 0x00003FBF, RC=1
+
+This is an optimization-level-dependent result for the two recorded direct
+builds. The O2 false return is accompanied by a final MXCSR RC value of 1
+(ROUND_DOWN) in this harness. This does not, by itself, establish why the
+function returned false or whether the state-restoration behavior violates
+the intended API contract.
+
+6. FACTS / AUDIT FINDINGS / HYPOTHESES / OPEN QUESTIONS
+
+FACTS OBSERVED IN THIS EXECUTION:
+- The requested CAPD source commit was checked and matched.
+- The source file existed and its SHA-256 matched before and after execution.
+- Both required include directories and archSetting.h were present.
+- Both direct builds compiled successfully.
+- Both runtime processes exited with code 0.
+- The four rounding functions produced the recorded MXCSR values and
+  DoubleRounding::test() enum values under both optimization levels.
+- x87 Control Word was observed as 0x037F at every reported measurement.
+- isWorking() returned 1 under O0 and 0 under O2.
+- The final MXCSR after isWorking() differed between O0 and O2 as recorded.
+
+AUDIT FINDINGS:
+- The observed isWorking() result is not invariant across these two
+  direct-compile configurations.
+- The O2 false result is accompanied by final RC=1 in the diagnostic harness.
+- The four individual rounding-function observations do not explain the
+  isWorking() discrepancy.
+- The observed x87 Control Word did not change in the measured snapshots.
+
+HYPOTHESES NOT ESTABLISHED:
+- GCC optimization or compiler visibility of inline-assembly floating-point
+  environment changes may be relevant.
+- The self-test implementation may be affected by optimization or by the
+  validity of its floating-point test expressions.
+- An execution path may leave MXCSR in a non-nearest mode.
+- Harness effects or other code-generation details may contribute.
+
+OPEN QUESTIONS:
+- Which exact condition or instruction causes isWorking() to return false
+  in the O2 direct build?
+- Does generated assembly show compiler transformations that invalidate
+  the intended rounding-mode test?
+- Does the function's state restoration match its documented API contract?
+- How does this direct diagnostic compare with the separately recorded
+  CMake-built MULTIPRECISION=OFF O2 invocation using -frounding-math?
+- What changes, if any, occur under the documented MULTIPRECISION=ON setup?
+
+7. LIMITATIONS AND NON-CLAIMS
+
+This experiment does NOT establish:
+- a general CAPD defect;
+- a GCC defect;
+- incorrect directed-rounding arithmetic for all operations;
+- the root cause of the O2 false result;
+- full CAPD build reproducibility;
+- equivalence to the full CMake build;
+- equivalence to MULTIPRECISION=ON;
+- correctness across all compilers, architectures, inputs, or environments;
+- a universal mathematical theorem;
+- certification of TASK 03 or OMEGA-ISOP.
+
+The comparison is controlled only within the stated direct-compile harness:
+same source file, compiler, platform, include paths, harness, and common
+flags, with -O0 versus -O2 as the explicit command-line difference.
+It must not be conflated with the earlier CMake build matrix or with
+historical notebook results from a different build configuration.
+
+The current harness samples x87 CW and MXCSR around the public calls. It
+does not isolate every internal branch or capture every internal machine
+instruction. It therefore cannot localize the root cause.
+
+8. ARCHITECTURAL GUARDS
+
+Frozen Core: UNCHANGED / PRESERVED.
+Volume V: UNCHANGED / ACTIVE RESEARCH ARCHITECTURE.
+CE-V-07: RESERVED.
+Universality: NOT ESTABLISHED.
+TASK 03: IN PROGRESS.
+Root cause: OPEN.
+Certification: NOT GRANTED.
+
+No CAPD source file was modified.
+No CAPD commit was changed.
+No CAPD source commit was created.
+This audit record is a separate documentation commit only.
+
+9. RAW COLAB OUTPUT
+
+========================================================================
+OMEGA-ISOP — CAPD TASK 03
+STAGE 2 — CONTROLLED RUNTIME DIAGNOSTIC
+========================================================================
+
+[1] ENVIRONMENT
+PLATFORM: x86_64
+COMMIT: 693998cd6d73a0c4e1b141bfb79fcad1c40c3cbe
+SOURCE SHA256: 05a8637843a04442dc7f838196b4c6579729e0ca513ec56e4dfa78e97e7a9876
+INCLUDE PATHS: VERIFIED
+
+[2] HARNESS CREATED
+/content/OMEGA_ISOP_RT03/TASK03_DIAGNOSTIC/mxcsr_diagnostic.cpp
+
+COMPILER:
+g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+
+========================================================================
+BUILD: O0
+========================================================================
+
+COMPILATION COMMAND:
+g++ -std=c++11 -O0 -Wall -Wextra -fno-fast-math -I /content/OMEGA_ISOP_RT03/CAPD/capdAlg/include -I /content/OMEGA_ISOP_RT03/CAPD/capdAux/include /content/OMEGA_ISOP_RT03/CAPD/capdAlg/src/capd/rounding/DoubleRounding.cpp /content/OMEGA_ISOP_RT03/TASK03_DIAGNOSTIC/mxcsr_diagnostic.cpp -o /content/OMEGA_ISOP_RT03/TASK03_DIAGNOSTIC/mxcsr_O0
+
+COMPILER STDOUT:
+
+
+COMPILER STDERR:
+
+COMPILER RETURN CODE: 0
+
+BUILD RESULT: SUCCESS
+
+RUNTIME EXECUTION:
+=== CAPD MXCSR DIAGNOSTIC ===
+ARCHITECTURE: AMD64
+
+[1] INDIVIDUAL ROUNDING FUNCTIONS
+
+FUNCTION: ROUND_NEAREST
+BEFORE MXCSR=0x00001f80 DEC=8064 RC=0 X87_CW=0x037f
+AFTER_ROUND MXCSR=0x00001fbf DEC=8127 RC=0 X87_CW=0x037f
+TEST_MODE_ENUM=0
+AFTER_TEST MXCSR=0x00001fbf DEC=8127 RC=0 X87_CW=0x037f
+
+FUNCTION: ROUND_DOWN
+BEFORE MXCSR=0x00001f80 DEC=8064 RC=0 X87_CW=0x037f
+AFTER_ROUND MXCSR=0x00003fbf DEC=16319 RC=1 X87_CW=0x037f
+TEST_MODE_ENUM=1
+AFTER_TEST MXCSR=0x00003fbf DEC=16319 RC=1 X87_CW=0x037f
+
+FUNCTION: ROUND_UP
+BEFORE MXCSR=0x00001f80 DEC=8064 RC=0 X87_CW=0x037f
+AFTER_ROUND MXCSR=0x00005fbf DEC=24511 RC=2 X87_CW=0x037f
+TEST_MODE_ENUM=2
+AFTER_TEST MXCSR=0x00005fbf DEC=24511 RC=2 X87_CW=0x037f
+
+FUNCTION: ROUND_CUT
+BEFORE MXCSR=0x00001f80 DEC=8064 RC=0 X87_CW=0x037f
+AFTER_ROUND MXCSR=0x00007fbf DEC=32703 RC=3 X87_CW=0x037f
+TEST_MODE_ENUM=3
+AFTER_TEST MXCSR=0x00007fbf DEC=32703 RC=3 X87_CW=0x037f
+
+[2] DOUBLE ROUNDING ISWORKING
+ISWORKING_BEFORE MXCSR=0x00001f80 DEC=8064 RC=0 X87_CW=0x037f
+ISWORKING_AFTER MXCSR=0x00001fbf DEC=8127 RC=0 X87_CW=0x037f
+ISWORKING_RESULT=1
+ISWORKING_FINAL_RC=0
+
+=== DIAGNOSTIC COMPLETE ===
+
+RUNTIME RETURN CODE: 0
+
+========================================================================
+BUILD: O2
+========================================================================
+
+COMPILATION COMMAND:
+g++ -std=c++11 -O2 -Wall -Wextra -fno-fast-math -I /content/OMEGA_ISOP_RT03/CAPD/capdAlg/include -I /content/OMEGA_ISOP_RT03/CAPD/capdAux/include /content/OMEGA_ISOP_RT03/CAPD/capdAlg/src/capd/rounding/DoubleRounding.cpp /content/OMEGA_ISOP_RT03/TASK03_DIAGNOSTIC/mxcsr_diagnostic.cpp -o /content/OMEGA_ISOP_RT03/TASK03_DIAGNOSTIC/mxcsr_O2
+
+COMPILER STDOUT:
+
+
+COMPILER STDERR:
+
+COMPILER RETURN CODE: 0
+
+BUILD RESULT: SUCCESS
+
+RUNTIME EXECUTION:
+=== CAPD MXCSR DIAGNOSTIC ===
+ARCHITECTURE: AMD64
+
+[1] INDIVIDUAL ROUNDING FUNCTIONS
+
+FUNCTION: ROUND_NEAREST
+BEFORE MXCSR=0x00001f80 DEC=8064 RC=0 X87_CW=0x037f
+AFTER_ROUND MXCSR=0x00001fbf DEC=8127 RC=0 X87_CW=0x037f
+TEST_MODE_ENUM=0
+AFTER_TEST MXCSR=0x00001fbf DEC=8127 RC=0 X87_CW=0x037f
+
+FUNCTION: ROUND_DOWN
+BEFORE MXCSR=0x00001f80 DEC=8064 RC=0 X87_CW=0x037f
+AFTER_ROUND MXCSR=0x00003fbf DEC=16319 RC=1 X87_CW=0x037f
+TEST_MODE_ENUM=1
+AFTER_TEST MXCSR=0x00003fbf DEC=16319 RC=1 X87_CW=0x037f
+
+FUNCTION: ROUND_UP
+BEFORE MXCSR=0x00001f80 DEC=8064 RC=0 X87_CW=0x037f
+AFTER_ROUND MXCSR=0x00005fbf DEC=24511 RC=2 X87_CW=0x037f
+TEST_MODE_ENUM=2
+AFTER_TEST MXCSR=0x00005fbf DEC=32703 RC=3 X87_CW=0x037f
+
+FUNCTION: ROUND_CUT
+BEFORE MXCSR=0x00001f80 DEC=8064 RC=0 X87_CW=0x037f
+AFTER_ROUND MXCSR=0x00007fbf DEC=32703 RC=3 X87_CW=0x037f
+TEST_MODE_ENUM=3
+AFTER_TEST MXCSR=0x00007fbf DEC=32703 RC=3 X87_CW=0x037f
+
+[2] DOUBLE ROUNDING ISWORKING
+ISWORKING_BEFORE MXCSR=0x00001f80 DEC=8064 RC=0 X87_CW=0x037f
+ISWORKING_AFTER MXCSR=0x00003fbf DEC=16319 RC=1 X87_CW=0x037f
+ISWORKING_RESULT=0
+ISWORKING_FINAL_RC=1
+
+=== DIAGNOSTIC COMPLETE ===
+
+RUNTIME RETURN CODE: 0
+
+========================================================================
+SOURCE INTEGRITY CHECK
+========================================================================
+FINAL COMMIT: 693998cd6d73a0c4e1b141bfb79fcad1c40c3cbe
+FINAL SOURCE SHA256: 05a8637843a04442dc7f838196b4c6579729e0ca513ec56e4dfa78e97e7a9876
+GIT STATUS:
+CLEAN
+
+BUILD/RUNTIME SUMMARY:
+O0 = RUNTIME_COMPLETED
+O2 = RUNTIME_COMPLETED
+
+COMMIT UNCHANGED: True
+SOURCE HASH UNCHANGED: True
+
+NO GITHUB COMMIT CREATED
+CAPD SOURCE NOT MODIFIED
+========================================================================
+TASK 03 — STAGE 2 FINISHED
+========================================================================
+
+10. RECORDING STATUS
+
+This document records the supplied raw Colab output and its scoped audit
+interpretation. The repository documentation commit does not modify CAPD
+source or its pinned commit.
+
+END OF RECORD
