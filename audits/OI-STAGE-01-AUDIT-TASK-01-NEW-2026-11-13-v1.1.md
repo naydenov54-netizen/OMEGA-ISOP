@@ -705,15 +705,39 @@ most general unaxiomatized relation representation within the
 specified class of classical, bivalent, two-place claims. No global
 minimality or uniqueness theorem is asserted.
 
+SUPPLEMENTARY MODEL REGISTER (M-A–M-E):
+
+M-A — A6 is not implied by A1∧A2.
+X={a,b,c}; R={(a,b),(b,a)}. A1 and A2 hold. For x=a, y=b,
+z=c, neither R(a,c) nor R(c,b) holds, so A6 fails.
+
+M-B — A3 does not imply A1.
+X={a}; R={(a,a)}. A3 holds vacuously because there are no unequal
+pairs, while A1 fails.
+
+M-C — A3 is not implied by A1∧A2∧A6.
+X={a,b}; R=∅. A1 and A2 hold, and A6 holds vacuously, but A3 fails
+because a≠b and R(a,b) is false.
+
+M-D — A4 implies A2.
+Under A4, R(x,y) iff x≠y. Since inequality is symmetric,
+R(x,y) implies R(y,x). This is a derivation, not a countermodel.
+
+M-E — A4∧A5 is impossible when |X|≥2.
+For distinct a,b, A4 gives R(a,b) and R(b,a); A5 then gives R(a,a),
+contradicting A4. This is an impossibility proof, not a countermodel.
+
 RC-6 — Independence examples and logic: ADDRESSED WITH SCOPE.
 The logical framework for this document is fixed as classical
 first-order logic with equality and standard ZF set-theoretic
-semantics; no axiom of choice is used. CM-06 and CM-07 illustrate
-the two directions relevant to A6 versus A1. CM-08 and CM-09
-illustrate that A7 is not forced by A1, A2, A5, A6 and that A7
-does not force A1. These are scoped independence examples, not a
-claim that every possible independence relation required by AC-05
-and AC-06 has been exhaustively completed.
+semantics; no axiom of choice is used. CM-06/M-A and CM-07 show the
+two directions for A6 versus A1. CM-08 and CM-09 show that A7 is not
+forced by A1, A2, A5, A6 and that A7 does not force A1. M-B and M-C
+supply the additional A3 countermodels identified in the external
+audit. M-D and M-E record the corresponding A4 implications and
+compatibility restriction. These are scoped independence examples,
+not a claim that every possible independence relation required by
+AC-05 and AC-06 has been exhaustively completed.
 
 RC-7 — Source identity: VERIFIED FOR THE FETCHED SOURCE.
 The original version 1.0 was fetched from the repository path below.
