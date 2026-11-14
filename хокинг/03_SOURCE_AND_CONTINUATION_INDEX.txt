@@ -70,13 +70,25 @@ Verified outputs:
 - 17/17 committed test checks passed;
 - independent read-back rebuild passed against the exact GitHub source blobs.
 
-NEXT WORKING POINT:
-PHASE III-B.4.5.3 — METRIC JET INVARIANTS AND VALIDATION.
+COMPLETED WORKING POINT:
+PHASE III-B.4.5.3 — INITIAL METRICJET VALIDATION LAYER.
 
-The next phase must test the required algebraic symmetries and derivative
-consistency. Do not start by hardcoding analytical target values into the
-reconstruction engine. CAPD remains out of scope until its exact version
-and API are independently verified.
+L1 storage symmetry checks are implemented. L2 comparison against a
+separately supplied derivative reference is implemented. The L2 positive
+fixture currently tests comparator plumbing only; physical derivative
+consistency remains NOT ESTABLISHED. L3 tensor identities are not yet
+implemented. See 07_METRICJET_INVARIANTS_AND_VALIDATION.txt and
+logs/metric_jet_validation_build.log.
+
+NEXT WORKING POINT:
+PHASE III-B.4.5.4 — INDEPENDENT METRIC DERIVATIVE ORACLE / METRICPROVIDER.
+
+Construct an independently derived analytic reference for g, dg and ddg
+from the locked metric definition. Test all 64 first-derivative and 256
+second-derivative entries against the MetricJet without feeding analytical
+Einstein target values into the reconstruction engine. Keep numerical
+finite differences as diagnostics only. CAPD remains out of scope until
+its exact version and API are independently verified.
 
 ==================================================
 5. STATUS LOCKS
