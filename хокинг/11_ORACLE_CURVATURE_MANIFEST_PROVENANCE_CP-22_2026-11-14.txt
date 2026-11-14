@@ -1,0 +1,189 @@
+OMEGA-ISOP — ORACLE / CURVATURE PIPELINE AUDIT
+CP-22 — MANIFEST PROVENANCE AND INVENTORY SELECTION AUDIT
+DATE: 2026-11-14
+STATUS: ACCUMULATING AUDIT CHECKPOINT
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+INVENTORY COMMIT: 15cc95ded8b87d86cd3c7a878ff45213211f8a73
+TARGET AUDIT COMMIT: e36a8e673dff3eabba5c24c648c7e14e6e38bfc7
+AUDIT BRANCH: audit/oracle-curvature-cp20-2026-11-14
+PREVIOUS CHECKPOINT: CP-21
+SCOPE: INVENTORY COMMIT PROVENANCE / FILE COUNTS / CANDIDATE SELECTION / ARCHIVE LOCATION
+
+1. PURPOSE
+Resolve the difference between the inventory manifest commit and the fixed target audit commit, establish the meaning supported by evidence for files_found=162 and downloaded_files=11, and inspect the repository's recorded archive location.
+
+2. ARCHIVE LOCATION REFERENCE
+At the exact target audit commit e36a8e673dff3eabba5c24c648c7e14e6e38bfc7, file:
+хокинг/ORACLE_AUDIT_ARCHIVE_LOCATION.txt
+was fetched and read.
+
+It states:
+- Original archive filename: OMEGA_ISOP_ORACLE_AUDIT.zip
+- Library path: /OMEGA_ISOP_ORACLE_AUDIT.zip
+- Archive is stored in ChatGPT Library.
+- The GitHub location record does not claim that the ZIP or extracted contents were copied into this GitHub directory.
+- The record is a location reference only and is not mathematical certification or independent ORACLE validation.
+- It instructs not to rerun Google Colab merely to retrieve/extract the archive.
+
+Finding: the GitHub file is a location pointer, not an archive mirror. This is consistent with the observed absence of the ZIP itself from the repository tree.
+
+3. MANIFEST CONTENT
+The archive's SOURCE_INVENTORY_REPORT.json reports:
+project: OMEGA-ISOP
+audit: ORACLE INDEPENDENCE AUDIT
+timestamp_utc: 2026-11-14T19:07:06.016123+00:00
+commit: 15cc95ded8b87d86cd3c7a878ff45213211f8a73
+commit_verified: true
+files_found: 162
+candidate_files: 11
+downloaded_files: 11
+source_findings: []
+limitations:
+- Source inventory is not proof of oracle independence.
+- Generator execution has not been performed.
+- Mathematical provenance requires manual review.
+- No CAPD certification is established.
+
+The manifest includes full paths, SHA-256 values, byte sizes, and Colab-local paths for the 11 downloaded files. It does not include:
+- the complete list of all 162 discovered files;
+- the complete list of all candidate files before download;
+- candidate-selection rules or matching expressions;
+- an inventory script/notebook cell identifier or script hash;
+- a definition of the exact verification performed by commit_verified.
+
+4. INVENTORY COMMIT VERIFICATION
+GitHub commit 15cc95ded8b87d86cd3c7a878ff45213211f8a73 was fetched directly.
+
+Commit metadata:
+- Author/committer timestamp: 2026-11-14T18:18:47Z
+- Commit message: Correct MetricProvider preliminary harness count
+- Tree SHA: c2319845b5af876a2f6b6f823bfcd268484778f3
+
+The manifest timestamp is 2026-11-14T19:07:06.016123Z, approximately 48 minutes and 19 seconds after that commit timestamp.
+
+The commit exists and its recursive tree was retrievable with truncated=false.
+This establishes that the commit identifier is a valid retrievable GitHub commit. It does NOT establish, without the inventory generator or its logs, what additional test or semantic check the manifest's boolean commit_verified represents.
+
+5. FILE COUNT RECONCILIATION
+Recursive tree at inventory commit 15cc95ded8b87d86cd3c7a878ff45213211f8a73:
+- Total tree entries: 178
+- Blob/file entries: 162
+- Tree/directory entries: 16
+- truncated: false
+
+Manifest field:
+files_found = 162
+
+Result: exact numerical match between files_found and the number of Git blob/file entries in the recursive tree at the manifest's own commit.
+
+This strongly supports the interpretation that files_found counts repository files at commit 15cc95..., rather than 162 ORACLE-specific candidates.
+
+Recursive tree at target audit commit e36a8e673dff3eabba5c24c648c7e14e6e38bfc7:
+- Total tree entries: 179
+- Blob/file entries: 163
+- Tree/directory entries: 16
+- truncated: false
+
+GitHub compare 15cc95... to e36a8...:
+- Status: ahead
+- Target is 2 commits ahead of inventory commit.
+- Files changed across the comparison: 2
+  1. хокинг/04_CHECKPOINT_LOG.txt — modified, 89 additions, 0 deletions
+  2. хокинг/ORACLE_AUDIT_ARCHIVE_LOCATION.txt — added, 19 additions, 0 deletions
+
+The target tree therefore has one additional file entry compared with the inventory tree, and one modified existing file. The two commits are not identical snapshots, but the difference is confined to those two paths in the GitHub comparison result.
+
+6. CANDIDATE SELECTION RECONCILIATION
+Manifest fields:
+candidate_files = 11
+downloaded_files = 11
+
+The downloaded_files array contains exactly 11 records. All 11 were reconciled in CP-21 byte-for-byte against the target commit e36a8....
+
+The exact file count and manifest's array length establish:
+- 11 candidate files were reported.
+- 11 downloaded file records were included.
+- No candidate-to-download shortfall is visible in the manifest.
+
+However, the manifest does not disclose the selection algorithm or the full candidate list separately. It is therefore not possible to independently reconstruct why those 11 files were selected from the 162 repository files, or to prove that no relevant candidate was omitted.
+
+The fact that all 11 selected files match the target commit does not validate candidate selection completeness.
+
+7. SOURCE / GENERATOR TRACEABILITY
+The ZIP contains one inventory JSON and 11 selected files. It does not contain a source inventory generator script or a full 162-file inventory listing.
+The GitHub target tree's seven source/notebook-extension files were already enumerated in CP-21. No dedicated inventory generator was identified in that source-file set.
+No generator execution log was supplied in the archive.
+The manifest itself explicitly says generator execution has not been performed.
+
+Therefore:
+- Inventory output exists.
+- Its selected-file hashes and sizes are internally checkable.
+- Its commit exists and its timestamp precedes inventory generation.
+- The generator's implementation and selection rules remain unverified.
+- The meaning of commit_verified beyond commit retrievability remains unverified.
+
+8. AUDIT FINDINGS
+AF-CP22-01 — ARCHIVE LOCATION POINTER: PASS
+GitHub location file correctly identifies the Library archive and explicitly disclaims being a GitHub mirror.
+
+AF-CP22-02 — INVENTORY COMMIT EXISTENCE: PASS
+Commit 15cc95... exists and is retrievable.
+
+AF-CP22-03 — INVENTORY COMMIT / TIMESTAMP ORDER: PASS
+Commit timestamp 18:18:47Z precedes manifest timestamp 19:07:06Z.
+
+AF-CP22-04 — files_found COUNT INTERPRETATION: STRONGLY SUPPORTED
+162 exactly equals the blob count in the recursive tree at commit 15cc95... (truncated=false). This supports interpreting files_found as the total repository file count at that commit.
+
+AF-CP22-05 — TARGET COMMIT DELTA: PASS
+The target commit is two commits ahead; GitHub compare reports exactly two changed paths. Target tree contains 163 blobs versus 162 at inventory commit.
+
+AF-CP22-06 — CANDIDATE/DOWNLOAD COUNT: PASS WITH SCOPE LIMIT
+11 candidate files and 11 downloaded records. All 11 selected files match the target commit byte-for-byte, as established in CP-21.
+
+AF-CP22-07 — CANDIDATE SELECTION RULES: OPEN
+The manifest does not record the candidate-selection logic or complete candidate list.
+
+AF-CP22-08 — GENERATOR PROVENANCE: OPEN
+No generator source, source hash, or execution log was found in the archive. The manifest itself says generator execution has not been performed.
+
+AF-CP22-09 — commit_verified SEMANTICS: OPEN
+Commit existence is verified. The exact semantics of the boolean field are not documented, so no stronger interpretation is assigned.
+
+9. CONSOLIDATED STATUS
+Archive location pointer: PASS
+Inventory commit exists: PASS
+Inventory timestamp follows commit timestamp: PASS
+files_found=162 matches inventory-commit blob count: PASS
+Target commit delta: PASS
+Candidate count equals downloaded record count: PASS
+11-file archive-to-target byte identity: PASS (CP-21)
+Candidate selection completeness: NOT ESTABLISHED
+Generator implementation provenance: NOT ESTABLISHED
+Meaning of commit_verified beyond commit existence: NOT ESTABLISHED
+ORACLE mathematical independence: NOT ESTABLISHED
+Curvature engines: NOT IDENTIFIED
+CAPD certification: NOT ESTABLISHED
+
+10. NEXT ACTIONS
+1. Recover the original inventory-generation code/cell or execution transcript, if it exists in the user's retained Colab notebook or other already available archive.
+2. If no generator artifact is available, retain candidate selection as an unresolved provenance limitation. Do not reconstruct or invent its selection rules.
+3. If the complete 162-path inventory is later recovered, compare it with the exact 15cc95... tree and identify which 11 paths were selected and why.
+4. Do not rerun Colab solely to retrieve the ZIP; the Library archive is already available.
+5. Do not create engines before source provenance and actual implementation status are resolved.
+
+11. ARCHITECTURAL SAFEGUARDS
+Frozen Core: PRESERVED.
+Volume V: ACTIVE RESEARCH ARCHITECTURE.
+CE-V-07: RESERVED.
+Universality: NOT ESTABLISHED.
+CAPD certification: NOT ESTABLISHED.
+Mathematical certification: NOT ESTABLISHED.
+
+No source code was modified.
+No archive was deleted, overwritten, or moved.
+No merge into main was performed.
+No scientific result was promoted.
+This is an accumulating audit checkpoint, not a final scientific COMMIT.
+
+END CP-22
