@@ -28,6 +28,8 @@ CMakeLists.txt
   Минимална CMake конфигурация.
 logs/build_test.log
   Пълен реален configure/build/CTest/direct-test log.
+logs/readback_rebuild.log
+  Независима повторна компилация и изпълнение на точните изтеглени от GitHub изходни файлове.
 
 КООРДИНАТИ И СТРУКТУРИ
 N=4; X=(T,x,theta,phi); 0=T, 1=x, 2=theta, 3=phi.

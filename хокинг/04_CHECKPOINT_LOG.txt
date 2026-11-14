@@ -111,11 +111,6 @@ build log. The pending repository tree is additive except for the intended
 README and checkpoint-log updates. No existing archive or source evidence
 is removed. CAPD and all curvature engines remain unimplemented.
 
-CP-11 — COMMIT AND READ-BACK
-Commit SHA: TO BE FILLED AFTER GITHUB COMMIT CREATION.
-Commit URL: TO BE FILLED AFTER GITHUB COMMIT CREATION.
-Read-back verification: TO BE FILLED AFTER FETCHING THE COMMITTED FILES.
-
 END OF PHASE III-B.4.5.2 CHECKPOINT UPDATE
 
 
@@ -141,3 +136,26 @@ Read-back verifies repository persistence and content retrieval, not mathematica
 CP-13 — FINAL CHECKPOINT UPDATE
 The implementation commit and read-back evidence are recorded above.
 This follow-up checkpoint-only commit preserves the implementation commit as an immutable provenance point.
+
+
+CP-14 — INDEPENDENT READ-BACK REBUILD
+Date/time: 2026-11-14, 17:56 UTC
+The exact CMakeLists.txt, tensor_storage.hpp and test_tensor_storage.cpp
+contents were fetched from GitHub main at commit
+ d59ff537aa377d1bf97e7ef0b94071a7e104c814.
+Their locally calculated Git blob SHA values matched the GitHub blob SHA
+values byte-for-byte:
+- CMakeLists.txt: f0b15105f980ef57ee84b0a6fe3bc7b7465f9b8f
+- include/omega/tensor_storage.hpp: 039c0544fe1b47234221547326e130850b90e56c
+- tests/test_tensor_storage.cpp: b1e3de1f95f790601e62b57828169beb5da58f08
+Independent clean configure/build/CTest/direct execution succeeded with:
+- g++ 14.2.0
+- CMake 3.31.6
+- C++17
+- CTest: 1/1 passed
+- Direct test: 17/17 checks passed; failures=0
+Full independent log: logs/readback_rebuild.log.
+This independently verifies that the exact committed source files build and
+pass the recorded tests in the available environment. It does not establish
+CAPD compatibility, interval validation, or mathematical certification.
+

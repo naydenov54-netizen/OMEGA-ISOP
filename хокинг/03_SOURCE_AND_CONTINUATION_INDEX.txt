@@ -60,16 +60,23 @@ No existing project file is overwritten or deleted by this addition.
 ==================================================
 
 PHASE III-B.4.5.2 — GENERIC C++ TENSOR STORAGE
+STATUS: COMPLETED — DIAGNOSTIC BUILD AND STORAGE TESTS PASSED.
 
-Required next outputs:
-- concrete fixed-size C++ tensor storage types;
-- backend-independent interface;
-- static index ordering;
-- minimal compileable diagnostic implementation;
-- unit tests for indexing and storage;
-- no CAPD API claims until version-specific verification.
+Verified outputs:
+- fixed-size backend-independent C++17 tensor storage;
+- coordinate and index mapping;
+- MetricJet g/dg/ddg storage;
+- bounds-checked access;
+- 17/17 committed test checks passed;
+- independent read-back rebuild passed against the exact GitHub source blobs.
 
-Do not start by hardcoding the analytical target values into the reconstruction engine.
+NEXT WORKING POINT:
+PHASE III-B.4.5.3 — METRIC JET INVARIANTS AND VALIDATION.
+
+The next phase must test the required algebraic symmetries and derivative
+consistency. Do not start by hardcoding analytical target values into the
+reconstruction engine. CAPD remains out of scope until its exact version
+and API are independently verified.
 
 ==================================================
 5. STATUS LOCKS
