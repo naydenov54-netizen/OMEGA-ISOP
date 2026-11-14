@@ -1,0 +1,278 @@
+OMEGA-ISOP
+PHASE III-B.4.5.5-A
+CP-21 — EXACT READ-BACK BUILD AND TEST EXECUTION
+DATE: 2026-11-14
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+TESTED SOURCE COMMIT: 46c56cab99d9d5dec17eadceca306a71b0dac8a5
+TESTED SOURCE TREE: e49db05757a4767a84c804559bbe787d955df615
+PREDECESSOR DESIGN CHECKPOINT: CP-20
+
+STATUS: BUILD AND THREE REGISTERED TEST TARGETS PASSED
+SCOPE: EXACT-SNAPSHOT DIAGNOSTIC BUILD / TEST BASELINE ONLY
+
+================================================================
+1. PURPOSE
+================================================================
+
+Execute a clean read-back build and run all three CMake test targets
+registered in the exact source snapshot identified above, before any
+curvature-engine implementation begins.
+
+This checkpoint records the execution output supplied from Google Colab.
+It does not claim mathematical proof, independent ORACLE validation,
+interval arithmetic, CAPD certification, or completion of the curvature
+reconstruction pipeline.
+
+================================================================
+2. SOURCE IDENTITY
+================================================================
+
+Repository:
+https://github.com/naydenov54-netizen/OMEGA-ISOP
+
+Expected commit:
+46c56cab99d9d5dec17eadceca306a71b0dac8a5
+
+Actual commit:
+46c56cab99d9d5dec17eadceca306a71b0dac8a5
+
+Expected Git tree:
+e49db05757a4767a84c804559bbe787d955df615
+
+Actual Git tree:
+e49db05757a4767a84c804559bbe787d955df615
+
+Commit identity: PASS.
+Tree identity: PASS.
+
+The source revision used for the execution is exactly the CP-20 base
+snapshot. No source files were modified by this checkpoint.
+
+================================================================
+3. EXECUTION ENVIRONMENT
+================================================================
+
+Environment reported by Colab:
+
+Compiler:
+g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+
+CMake:
+3.31.10
+
+Build configuration:
+Release
+
+Working directory:
+ /content/OMEGA-ISOP-CP21-BASELINE
+
+Audit output directory:
+ /content/OMEGA-ISOP-CP21-BASELINE/audit-output
+
+The submitted environment report does not include the complete CMake
+configure output, full compile command lines, or a complete CMakeCache
+capture. Exact compiler flags are therefore NOT RECORDED in this
+checkpoint.
+
+================================================================
+4. SOURCE SHA-256 MANIFEST REPORTED BY COLAB
+================================================================
+
+хокинг/CMakeLists.txt
+7ac88f7291018156f9736219fcae8cca1547a7613ddb87a1107e8148ef6d78d9
+
+хокинг/include/omega/metric_jet_validation.hpp
+6e816c5acbdcb36bfbc420e29d30370bf9fffe061fb1e5ada7cae1dca5c0ec6a
+
+хокинг/include/omega/metric_provider.hpp
+60d1ff7f80f37f66ca77706b8b2cebf7a36683c5a2ebfd229cc550e391011e53
+
+хокинг/include/omega/tensor_storage.hpp
+f172f7d3b393ba5701b0a00faa015e615a4199634dd39bb8eb19181af8052a81
+
+хокинг/tests/test_metric_jet_validation.cpp
+d7ff2f651e88ae13a05f4b3d6ccb2908194906ec3b15d0dfc82bb9d2a6a664ed
+
+хокинг/tests/test_metric_provider.cpp
+9d816c02f2aa7fab62dcda9cc5b782692e27017b1884cef338ca962c982fce7e
+
+хокинг/tests/test_tensor_storage.cpp
+4d1e8ae9dde904234e999ddaf6a3c0320548b70f25fce28687a01e9c4cd6cb62
+
+These are SHA-256 values reported by the execution environment.
+They are not Git blob identifiers. A separate byte-for-byte comparison
+against an independently fetched source manifest was not performed in
+this checkpoint.
+
+================================================================
+5. CONFIGURE AND BUILD
+================================================================
+
+CMake configure:
+exit code 0 — PASS.
+
+CMake build:
+exit code 0 — PASS.
+
+The submitted build log reports all three targets as built:
+
+[33%] Built target test_tensor_storage
+[66%] Built target test_metric_jet_validation
+[100%] Built target test_metric_provider
+
+The supplied Colab cell invoked the build command twice. The second
+invocation overwrote the build log and its exit code was recorded as 0.
+The final successful build status is therefore based on the recorded
+second invocation. The first invocation's separate raw log and exit
+code were not preserved by that cell.
+
+The displayed second build output confirms that all three targets were
+available and up to date in the build directory. The configure and
+build exit codes are both 0.
+
+================================================================
+6. CTEST RESULTS
+================================================================
+
+CTest output:
+
+Internal ctest changing into directory:
+ /content/OMEGA-ISOP-CP21-BASELINE/build
+
+Test project:
+ /content/OMEGA-ISOP-CP21-BASELINE/build
+
+1/3 tensor_storage_tests ............. Passed
+2/3 metric_jet_validation_tests ...... Passed
+3/3 metric_provider_tests ............ Passed
+
+100% tests passed, 0 tests failed.
+
+CTest exit code: 0.
+
+Direct executable results:
+
+test_tensor_storage:
+exit code 0 — PASS
+
+test_metric_jet_validation:
+exit code 0 — PASS
+
+test_metric_provider:
+exit code 0 — PASS
+
+All three registered test executables returned exit code 0.
+
+================================================================
+7. WORKING TREE STATUS
+================================================================
+
+Before build:
+?? audit-output/
+
+After build:
+?? audit-output/
+?? build/
+
+These are generated, untracked local directories. Their presence does
+not indicate a source-tree modification or a failed test.
+
+No generated build directory or audit-output directory is committed
+as part of this checkpoint.
+
+================================================================
+8. EVIDENCE LOCATION AND LIMITATIONS
+================================================================
+
+The execution report identifies the local Colab evidence directory:
+
+/content/OMEGA-ISOP-CP21-BASELINE/audit-output
+
+The user supplied the environment report, final status, CTest output,
+build output, and clone/checkout messages in the conversation.
+
+The raw configure.log, complete first-build log, complete CTest log
+file, direct executable logs, and individual exit-code files were not
+uploaded as repository artifacts with this checkpoint. Their existence
+inside the Colab working directory is reported by the execution
+procedure, but their complete contents have not been independently
+read back here.
+
+The SHA-256 values were reported, but no independent local recomputation
+or comparison against a second source retrieval was performed in this
+checkpoint.
+
+Accordingly:
+- exact commit and tree identity: VERIFIED from submitted output;
+- configure/build/CTest exit status: VERIFIED from submitted output;
+- all three direct executable exit statuses: VERIFIED from submitted output;
+- complete compiler flags: NOT RECORDED;
+- raw log archival in GitHub: NOT PERFORMED;
+- independent SHA-256 cross-check: NOT PERFORMED.
+
+================================================================
+9. AUDIT CONCLUSION
+================================================================
+
+The exact CP-20 source snapshot was checked out in Colab.
+The commit and recursive tree identifiers match the expected values.
+CMake configuration succeeded.
+The three registered targets built successfully.
+CTest passed 3/3.
+All three test executables returned exit code 0.
+
+This closes the CP-20 baseline build gate.
+
+The result establishes a reproducible execution report for the three
+currently registered diagnostic targets in the reported environment.
+It does not establish that the underlying mathematical formulas are
+correct, that the test references are independently derived, or that
+the curvature reconstruction pipeline exists.
+
+================================================================
+10. NEXT STEP
+================================================================
+
+Proceed to CP-22: preserve a standalone symbolic ORACLE source and its
+provenance, then perform an independent mathematical review of its
+derivation and convention.
+
+The ORACLE must:
+- derive from the locked metric independently;
+- not import or call MetricProvider;
+- not reuse reconstruction-engine intermediates;
+- preserve exact symbolic input, tool/version information and output;
+- remain test-only;
+- not feed expected Ricci or Einstein tensors into production code.
+
+Do not begin curvature-engine implementation until the ORACLE artifact
+and its independence boundary have been reviewed.
+
+================================================================
+11. FINAL STATUS
+================================================================
+
+CP-21: EXECUTION PASS.
+
+Exact source commit: VERIFIED.
+Exact source tree: VERIFIED.
+CMake configure: PASS.
+Build: PASS.
+CTest: 3/3 PASS.
+Direct test executables: 3/3 PASS.
+
+Curvature engine: NOT IMPLEMENTED.
+Independent executable symbolic ORACLE: NOT YET PRESERVED.
+Interval arithmetic: NOT ESTABLISHED.
+CAPD: NOT EXECUTED.
+CAPD certification: NOT CLAIMED.
+Mathematical certification: NOT CLAIMED.
+
+Frozen Core: PRESERVED / UNCHANGED.
+Volume V: ACTIVE RESEARCH ARCHITECTURE / UNCHANGED.
+CE-V-07: RESERVED.
+Universality: NOT ESTABLISHED.
+Stage 2: NOT OPENED.
+
+END OF CP-21
