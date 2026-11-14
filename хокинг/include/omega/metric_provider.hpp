@@ -32,6 +32,12 @@ public:
         const double Rm2 = p.Rm * p.Rm;
         const double c2 = p.c * p.c;
 
+        if (!std::isfinite(Rm2) || !std::isfinite(c2) ||
+            !std::isfinite(sin2) || Rm2 <= 0.0 || c2 <= 0.0 || sin2 <= 0.0) {
+            throw std::overflow_error(
+                "MetricProvider: scale square is non-finite or underflowed to zero");
+        }
+
         const double D = x2 - 2.0 * p.q * p.x + p.q;
         const double B = D / x2;
         const double B_x = 2.0 * p.q * (p.x - 1.0) / x3;
