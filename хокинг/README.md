@@ -28,6 +28,7 @@ III-B.4.5.3 — METRICJET INVARIANTS AND VALIDATION
 07_METRICJET_INVARIANTS_AND_VALIDATION.txt
 include/omega/metric_jet_validation.hpp
 tests/test_metric_jet_validation.cpp
+logs/metric_jet_validation_build.log
 CMakeLists.txt registers both storage and validation test executables.
 
 КООРДИНАТИ И СТРУКТУРИ
