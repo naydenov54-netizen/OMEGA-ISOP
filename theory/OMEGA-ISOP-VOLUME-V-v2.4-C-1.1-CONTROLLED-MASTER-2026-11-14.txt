@@ -1,0 +1,1421 @@
+OMEGA-ISOP
+VOLUME V v2.4-C-1.1
+CONTROLLED CONSOLIDATED RESEARCH AND CERTIFICATION-TRACK MASTER
+BASE MASTER DATE: 2026-11-09
+INTEGRATION DATE: 2026-11-14
+REVISION DATE: 2026-11-14
+
+DOCUMENT ID:
+OMEGA-ISOP-VOLUME-V-v2.4-C-1.1-CONSOLIDATED-CERTIFICATION-TRACK-2026-11-14
+
+BASE MASTER:
+v2.4 dated 2026-11-09
+
+CURRENT CONTROLLED MASTER:
+v2.4-C-1.1 dated 2026-11-14
+
+DOCUMENT STATUS:
+ACTIVE RESEARCH ARCHITECTURE
+CONTROLLED CONSOLIDATED MASTER
+VALID UNTIL INDEPENDENT MATHEMATICAL CERTIFICATION OR A FORMALLY APPROVED SUPERSEDING REVISION
+NOT A CERTIFICATION CLAIM
+
+DOCUMENT ROLE:
+SINGLE OPERATIVE VOLUME V WORKING MASTER FOR THE MATHEMATICAL CERTIFICATION TRACK.
+This is a controlled documentary integration of the 2026-11-09 v2.4 base master with the additive Appendix C record dated 2026-11-14. It does not claim mathematical certification.
+
+SOURCE COMPOSITION:
+1. v2.2 CONTROLLED RESEARCH-STATUS RECONCILIATION: operative research-status body and preserved Appendix A.
+2. v2.1-CAPD-RESEARCH-INSERT-R1: retained verbatim inside Appendix A of the v2.2 source body.
+3. v2.3 TEMPORARY MATHEMATICAL AND MACHINE AUDIT STATUS: its unique audit-status insert is retained in Appendix B below. Its repeated v2.1 and XXV source material is not duplicated because it is already preserved in Appendix A.
+4. Appendix C — COMPLETED WORK PRODUCTS AND SCOPE-LIMITED RESULTS REGISTER: integrated as an additive controlled research record dated 2026-11-14. It does not promote any result or alter the operative certification status.
+
+DOCUMENT AUTHORITY AND PRECEDENCE:
+1. The OMEGA-ISOP Frozen Core remains authoritative and unchanged. Nothing in this Volume modifies it.
+2. The original v2.4 dated 2026-11-09 is the historical base master. The current controlling consolidated Volume V working master is v2.4-C-1.1 dated 2026-11-14 and remains the active reference until independent mathematical certification or a formally approved superseding revision.
+3. Sections XXVI-XXXII in the v2.2-derived body govern the consolidated research-status reconciliation, including RL-021, RL-021.1, RL-027, TEST-I, CE-V integration gates, and the open research register.
+4. Appendix B is the detailed mathematical and machine-audit supplement derived from the unique v2.3 insert. For CAPD-specific audit detail, Appendix B supplements the broader status in the v2.2-derived body. Where evidence classifications differ, the narrower and more conservative classification governs; no status is upgraded by this consolidation.
+5. Appendix A is the preserved predecessor source and remains historical evidence. Earlier status statements inside it do not override the current consolidated status.
+6. Appendix C is an additive, scope-limited register integrated on 2026-11-14. It records completed work products and bounded findings without replacing the operative status in Sections XXVI-XXXII or upgrading any evidence classification. Where Appendix C and the operative body appear to differ, the narrower and more conservative status governs.
+7. The CE-V Retained Extensions Status Archive remains authoritative for CE-V numbering and already validated entries. CE-V-07 remains RESERVED.
+8. This document does not replace the primary RL source records, CAPD source code, notebooks, raw outputs, build metadata, or other technical evidence archives.
+
+ARCHITECTURAL LOCKS:
+FROZEN CORE: PRESERVED / UNCHANGED.
+VOLUME V: ACTIVE RESEARCH ARCHITECTURE.
+CE-V-07: RESERVED / NOT ASSIGNED / NOT PROMOTED.
+UNIVERSALITY: NOT ESTABLISHED.
+GR-TRANSFER-06C: MATHEMATICAL CERTIFICATION OPEN / INCONCLUSIVE.
+GLOBAL OMEGA-ISOP CERTIFICATION: NOT GRANTED.
+
+INTEGRATION RULES:
+- No source document is deleted or overwritten by this consolidation.
+- No historical result, failed test, limitation, or open obligation is removed.
+- No mathematical claim is strengthened by editorial integration.
+- No numerical approximation is relabeled as interval proof.
+- No recorded computation is relabeled as independent reproduction.
+- No tool-level validation is relabeled as target-construction certification.
+- No CE-V promotion, CE-V renumbering, or Frozen Core modification is authorized.
+- The internal section identifiers XXVI-XXXI in Appendix B are source-local identifiers from v2.3 and do not replace or collide with the operative Sections XXVI-XXXII in the main body.
+
+VERSION CONTROL:
+BASE MASTER: v2.4 dated 2026-11-09.
+PREVIOUS CONTROLLED INTEGRATION: v2.4-C-1.0 dated 2026-11-14.
+CURRENT CONTROLLED MASTER: v2.4-C-1.1 dated 2026-11-14.
+CHANGE TYPE: DOCUMENTARY CONTROL CORRECTION ONLY.
+Changes in C-1.1: the source-composition list now explicitly identifies Appendix C; the authority statement identifies the current controlling revision; and the end marker for the v2.4 base body is clarified to show that Appendix C follows as an additive record. No scientific content, result status, assumption, or validation classification is promoted by this correction.
+The original v2.4 base file and the prior v2.4-C-1.0 integration are retained separately. Neither is overwritten by this revision.
+This v2.4-C-1.1 integration is not a new mathematical result and does not itself close any certification obligation.
+
+================================================================
+BEGIN CONSOLIDATED VOLUME V BODY
+SOURCE BASE: v2.2 CONTROLLED RESEARCH-STATUS RECONCILIATION
+PRESERVATION: SOURCE BODY RETAINED; ORIGINAL APPENDIX A INCLUDED
+================================================================
+
+PURPOSE OF THIS REVISION
+
+This revision updates Volume V to reflect the research and audit position reached by 2026-11-09.
+
+It does not rewrite the Frozen Core, does not silently modify existing CE-V claims, and does not convert conditional or domain-bounded results into universal theorems.
+
+The predecessor's substantive Sections I-XXV are preserved verbatim in APPENDIX A to retain their original claims, notation, assumptions, and historical evidence. The new operative status and research records are stated in Sections XXVI-XXXII below.
+
+Where an earlier section records a status at an earlier date, the present reconciliation governs the CURRENT STATUS only. It does not erase historical outputs, failed tests, earlier assumptions, or the source record from which a result originated.
+
+DOCUMENT AUTHORITY AND LIMITS
+
+1. Volume V is the active research and validation-extension layer of OMEGA-ISOP.
+2. The Frozen Core remains authoritative and unchanged.
+3. The CE-V Retained Extensions Status Archive remains the authority for the already validated CE-V entries and their numbering.
+4. M3.2 governs operational workflow and status handling. It is not a substitute for mathematical source records.
+5. The CAPD Mathematical Certification Results Archive remains the technical audit record for CAPD tests, source evidence, outputs, and limitations.
+6. RL records retain their own source definitions, derivations, assumptions, and validation boundaries. Their appearance in this Volume does not itself constitute CE-V promotion.
+7. A status in this Volume must not exceed the strongest evidence actually available in the linked source record.
+
+EVIDENCE CLASSIFICATION
+
+FACT:
+A statement directly supported by an identified source, derivation, or inspected implementation.
+
+FORMAL RESULT:
+A mathematically established result within its stated assumptions and domain.
+
+CONDITIONAL RESULT:
+A result established only under explicitly stated constructional, analytical, computational, or environmental conditions.
+
+RECORDED COMPUTATIONAL RESULT:
+An output preserved from a recorded execution. It is not automatically an independent reproduction or analytical proof.
+
+NUMERICAL CROSS-CHECK:
+A comparison against a numerical reference or approximation. It is not an interval proof.
+
+AUDIT FINDING:
+A conclusion about evidence, source code, arithmetic, provenance, or an unresolved proof obligation.
+
+HYPOTHESIS / RESEARCH TARGET:
+A proposition or construction not yet established as a formal result.
+
+OPEN:
+The required proof, source, or validation has not been completed.
+
+BLOCKED:
+The required evidence or dependency is unavailable or cannot currently be verified.
+
+NOT ESTABLISHED:
+The available evidence does not support the claim. This is not necessarily a proof that the claim is false.
+
+MANDATORY SEMANTIC SEPARATIONS
+
+The existing Volume V separations remain in force, including:
+
+Representation != Mechanism
+Relation != Causation
+Organization != Causation
+Persistence != Robustness
+Persistence != Invariance
+Invariance != Ontology
+Observerhood != Consciousness
+Adaptive response != Intention / Free Will
+Admissibility != Realization
+Possibility != Necessity
+Definition != Derivation
+Simulation != Proof
+Numerical Result != Analytical Theorem
+Recorded Output != Independent Reproduction
+Tool Validation != Target-Construction Certification
+Domain-Bounded Identifiability != Universal Identifiability
+Marginal Data != Joint Incidence Data
+
+No result may be promoted by changing its wording alone.
+
+XXVI. CURRENT RESEARCH STATUS RECONCILIATION
+AS OF 2026-11-09
+
+XXVI.1 ARCHITECTURAL STATUS
+
+VOLUME V:
+ACTIVE RESEARCH ARCHITECTURE.
+
+FROZEN CORE:
+UNCHANGED.
+
+CE-V-01 THROUGH CE-V-06.1:
+RETAINED UNDER THE EXISTING CE-V ARCHIVE AND ITS VALIDATION BOUNDARIES.
+
+CE-V-07:
+RESERVED.
+
+AUTOMATIC CE-V PROMOTION:
+PROHIBITED.
+
+UNIVERSAL OMEGA NECESSITY:
+NOT DERIVED.
+
+GENERAL DYNAMIC SELECTION PRINCIPLE:
+OPEN.
+
+GENERAL EXISTENCE THEOREM FOR R:
+OPEN.
+
+GENERAL PERSISTENCE EXISTENCE THEOREM:
+OPEN.
+
+FUNCTIONAL CLOSURE:
+OPEN.
+
+RIGOROUS GENERAL ORGANIZATIONAL METRIC:
+OPEN.
+
+GENERAL CAUSAL BRIDGE:
+OPEN.
+
+UNIQUE STRUCTURAL CLASSIFICATION:
+OPEN.
+
+GENERAL ROBUSTNESS THEOREM:
+OPEN.
+
+XXVI.2 RESEARCH RECORDS THAT HAVE ADVANCED
+
+The active research position now includes results that were not fully reflected in the v2.1-R1 status snapshot:
+
+A. RL-021:
+CLOSED / ESTABLISHED within its stated question and assumptions.
+
+B. RL-021.1:
+ESTABLISHED WITH EXPLICIT BOUNDARY CONDITIONS.
+The general characterization remains partially open.
+
+C. RL-027:
+CORE DOMAIN-BOUNDED IDENTIFIABILITY RESULTS INDEPENDENTLY VERIFIED.
+OVERALL RESEARCH ITEM: UNDER AUDIT.
+TEST-I DRAFT-0.2: AUDITED WORKING DRAFT; NOT FROZEN.
+General framework, minimality, stability, computability, and external dependencies remain open.
+
+D. CAPD:
+PARTIAL AUDIT PASS.
+CERTIFICATION OPEN.
+The evidence is heterogeneous and must remain separated by test and claim.
+
+These records are not assigned new CE-V numbers by this revision.
+
+SOURCE-VERIFICATION LIMITATION FOR RL RECORDS:
+The latest RL-021 / RL-021.1 / RL-027 conclusions were carried forward from the latest recorded audit conclusions available in the project context. The primary RL source files and their complete derivations were not surfaced in the Library retrieval used for this revision. Accordingly, this Volume records the current result classifications and narrow conclusions, but does not claim a fresh source-by-source re-audit of those RL files. Before canonical freezing, compare every definition, assumption, proof, and counterexample against the authoritative RL source files and record their identifiers and hashes.
+
+XXVII. RL-021 AND RL-021.1
+BOUNDARY NON-IDENTIFIABILITY AND JOINT INCIDENCE
+
+XXVII.1 RL-021 — INTERNAL RELATION AND EXTERNAL DEPENDENCE
+
+CURRENT STATUS:
+CLOSED / ESTABLISHED.
+
+ESTABLISHED CLAIM:
+The internal relation, by itself, does not identify the dependence B -> X.
+
+The result is a negative identifiability conclusion within the formal setting of RL-021. It must not be generalized beyond the stated variables, admissible structures, and assumptions of that record.
+
+INTERPRETATION:
+An internal relational description does not automatically determine an external dependence relation. The missing dependence cannot be inferred merely by treating internal relational information as if it encoded the external mapping.
+
+NON-IMPLICATIONS:
+- No universal impossibility theorem is asserted for every relational formalism.
+- No causal conclusion follows solely from the non-identifiability result.
+- No modification of the Frozen Core follows.
+- No CE-V promotion is made.
+
+XXVII.2 RL-021.1 — JOINT BOUNDARY INCIDENCE
+
+CURRENT STATUS:
+ESTABLISHED WITH EXPLICIT BOUNDARY CONDITIONS.
+
+CORE RESULT:
+For |X| >= 2, marginal boundary degrees do not, by themselves, identify the joint boundary incidence Q_B.
+
+The joint-incidence identification result requires the relevant joint information. In the current record, the data objects J_B / T_B / K_B are identified as sufficient for the stated reconstruction task, subject to the exact definitions and conditions in RL-021.1.
+
+SINGLE-ELEMENT CASE:
+For |X| = 1, G_forward and G_backward are identifiable under the stated boundary conditions.
+
+OPEN PART:
+The general characterization of H remains OPEN.
+
+REFUTED NECESSITY CLAIM:
+The necessity of C_forward is refuted in the stated construction. This refutation is local to the formal claim and assumptions examined in RL-021.1; it must not be extended to unrelated formulations.
+
+BOUNDARY CONDITIONS:
+The established status is conditional on the explicit boundary assumptions in the RL-021.1 source record. The result must not be rewritten as an unconditional statement.
+
+REQUIRED TRACEABILITY:
+The final Volume V source package must retain:
+- the exact definitions of Q_B, J_B, T_B, K_B, G_forward, G_backward, H, and C_forward;
+- the admissible domain and cardinality conditions;
+- the proof or counterexample supporting each identifiability conclusion;
+- the precise boundary assumptions;
+- the status of the still-open general H characterization.
+
+INTEGRATION DECISION:
+RL-021 and RL-021.1 are recorded here as advanced research results with explicit scope. They are NOT promoted to CE-V entries by this revision. The exact primary RL derivations must be source-checked before this version is treated as canonically frozen.
+
+XXVII.3 STRUCTURAL CONSEQUENCE
+
+The current results establish a useful distinction between:
+1. information about marginal boundary degrees;
+2. information about joint boundary incidence;
+3. internal relational information;
+4. external dependence information.
+
+These information classes must not be conflated.
+
+In particular:
+
+Marginal boundary information != joint boundary incidence.
+Internal relation != identified external dependence.
+Identifiability under |X| = 1 != identifiability for |X| >= 2.
+
+No ontological or causal interpretation is added by these formal identifiability results.
+
+XXVIII. RL-027
+DOMAIN-BOUNDED PURITY IDENTIFIABILITY
+
+XXVIII.1 CURRENT STATUS
+
+CORE RESULTS:
+INDEPENDENTLY VERIFIED WITHIN THE STATED DOMAINS.
+
+OVERALL RL-027:
+UNDER AUDIT.
+
+TEST-I DRAFT-0.2:
+AUDITED WORKING DRAFT; NOT FROZEN.
+
+XXVIII.2 VERIFIED DOMAIN-BOUNDED RESULTS
+
+PURE GLOBAL DOMAIN:
+Purity is identifiable from rho_B on the pure-global-state domain under the stated assumptions of RL-027.
+
+FULL MIXED GLOBAL DOMAIN:
+Purity is not identifiable from rho_B on the full mixed-global-state domain when d_A >= 2, under the stated construction.
+
+FIXED MARGINAL:
+For fixed rho_B, the allowed value of Q_A in the examined construction can range over:
+
+Q_A in [1/d_A, 1].
+
+This interval is a domain-specific result. It must not be represented as a universal bound outside the assumptions and definitions of RL-027.
+
+XXVIII.3 OPEN AUDIT ITEMS
+
+The following are NOT CLOSED by the verified core results:
+
+- completion and freezing of the general TEST-I framework;
+- proof of minimality;
+- stability analysis;
+- computability analysis;
+- complete treatment of external dependencies;
+- generalization beyond the stated dimensions and state domains;
+- any proposed interpretation extending beyond mathematical identifiability.
+
+The phrase "purity is identifiable" must always state the domain:
+PURE GLOBAL DOMAIN, not the unrestricted mixed domain.
+
+The phrase "purity is not identifiable" must state the examined mixed-domain conditions, including d_A >= 2.
+
+XXVIII.4 INTEGRATION DECISION
+
+RL-027 is included as an active research-status record only.
+
+It is NOT assigned a CE-V number.
+It is NOT a universal theorem.
+It does NOT modify the Frozen Core.
+The audited core propositions may be cited only with their stated domain and assumptions.
+The broader TEST-I framework remains under audit and is not frozen. The primary RL-027 source derivations and exact definitions must be cross-checked before canonical freezing of this Volume.
+
+XXIX. CAPD MATHEMATICAL CERTIFICATION RECONCILIATION
+AS OF 2026-11-09
+
+XXIX.1 GLOBAL CAPD STATUS
+
+CAPD TOOL VALIDATION:
+PARTIAL POSITIVE EVIDENCE.
+
+GR-TRANSFER-06C MATHEMATICAL CERTIFICATION:
+OPEN / INCONCLUSIVE.
+
+INDEPENDENT FULL SOURCE / BUILD / RUN REPRODUCTION:
+NOT ESTABLISHED.
+
+AUTOMATED END-TO-END REPRODUCTION OF THE FULL TRANSFER CONSTRUCTION AND ERROR BUDGET:
+NOT ESTABLISHED.
+
+ROOT EXISTENCE / UNIQUENESS:
+NOT PROVED BY THE CURRENT CAPD EVIDENCE REGISTER.
+
+KRAWCZYK CERTIFICATION:
+NOT AUTHORIZED / NOT PERFORMED BY THE CURRENT EVIDENCE RECORDS.
+
+UNIVERSAL CAPD CORRECTNESS:
+NOT ESTABLISHED.
+
+XXIX.2 TOOL-LEVEL POSITIVE RESULTS
+
+A. CAPD 6.0.0 ODE SMOKE TEST
+
+STATUS:
+PASS FOR THE STATED MINIMAL TEST AND CONFIGURATION.
+
+TEST:
+y'(t) = y(t), y(0) = 1, t in [0,1].
+
+The recorded environment compiled and executed the interval ODE test and returned a final-state interval and trajectory enclosure.
+
+LIMITATIONS:
+- A programmatic machine-checked inclusion assertion for e was not implemented in the recorded test.
+- The test does not validate the GR-TRANSFER-06C bump profiles.
+- It does not validate the target transfer matrices, the 6x6 Jacobian, Krawczyk inclusion, root existence, root uniqueness, or profile distinction.
+- MPFR-specific integration was not tested.
+
+INTERPRETATION:
+This is evidence that the stated CAPD 6.0.0 environment can build and run the stated smoke test. It is not certification of the target construction.
+
+B. TEST 13A-R3
+
+STATUS:
+PASS FOR THE SPECIFIC INTERVAL MULTIPLICATION ONLY.
+
+INPUTS:
+A = [1, 1 + 2^-52]
+B = [1, 1 + 2^-52]
+
+CLAIM:
+The recorded CAPD DoubleInterval multiplication output encloses the exact mathematical product interval for these operands.
+
+LIMITATION:
+The programmatic reference comparison uses long double, which may not preserve the 2^-104 term when added to 1. The boolean comparison is therefore not by itself a strict proof. The narrow conclusion relies on the separate exact algebraic comparison recorded in the source.
+
+NON-IMPLICATIONS:
+This does not certify all interval operations, transcendental functions, directed rounding generally, TEST 13A as a whole, Krawczyk certification, root existence or uniqueness, or GR-TRANSFER-06C.
+
+C. TEST 13A OVERALL
+
+STATUS:
+OPEN / INCONCLUSIVE.
+
+XXIX.3 SINGLE-BUMP TRANSFER CONSTRUCTION
+
+The construction remains restricted to the stated single-bump profile, parameters, q = +/-1, k = 1, and integration interval [0,3] in the predecessor record.
+
+The following distinctions are mandatory:
+
+ANALYTICAL IDENTITIES:
+The trace-zero system gives the exact Liouville determinant invariant det(M(t)) = 1 for the exact fundamental matrix initialized with determinant 1.
+
+RATIONAL POST-PROCESSING:
+The arithmetic checks and transfer-matrix composition checks recorded in the audit passed for the supplied rational inputs and reported interval inputs.
+
+RECORDED CAPD OUTPUTS:
+The stored Wronskian and matrix intervals are historical notebook outputs.
+
+PROVENANCE LIMITATION:
+The notebook does not establish an unbroken provenance link showing that the raw matrix outputs were generated by the later source/build invocation whose saved output records only compile and runtime exit codes.
+
+NUMERICAL CROSS-CHECK:
+The DOP853 comparison is a consistency check only. It is not a proof of interval inclusion.
+
+LOCAL VALIDATED-STEP MECHANISM:
+The concrete solver implementation, StepControl behavior, encloseC0Map implementation, Taylor remainder enclosure, and all local dependency handling require further inspection.
+
+CURRENT CLASSIFICATION:
+PARTIAL AUDIT PASS — CERTIFICATION OPEN.
+
+XXIX.4 BOUNDARY MAJORANT AND ONE-STEP TESTS
+
+BOUNDARY MAJORANT:
+CONDITIONALLY VALIDATED for the stated construction and assumptions.
+
+ORIGINAL INTERVAL INCLUSION TEST:
+The preliminary comparison using the wider exp(U*h) interval failed the specified subset criterion. The failure must remain in the audit history.
+
+CORRECTED ONE-STEP COMPARISON:
+The later comparison based on the explicit inequality exp(z) <= 1 + 2*z for 0 <= z <= 1/2 passed the stated comparison for the specific scalar differential inclusion and recorded CAPD configuration.
+
+CELL 46:
+MATHEMATICALLY JUSTIFIED / CONDITIONAL PASS for the specific scalar problem, subject to the validated U bound, CAPD interval semantics, and reproducibility conditions.
+
+LIMIT:
+This does not certify the full boundary construction, the full bump profile, or the complete transfer matrix.
+
+XXIX.5 OTHER FLOATING-POINT AND SOURCE AUDITS
+
+CAPD SOURCE DISCOVERY:
+BLOCKED for the identified missing source paths in the recorded notebook.
+
+TASK 01E.1 SOURCE DISCOVERY:
+BLOCKED / NOT VERIFIED where the required C++ source was not found.
+
+BOUNDARY-WIDTH TEST:
+SOURCE INSPECTED; EXECUTION NOT ESTABLISHED.
+
+DOUBLE-ROUNDING TEST:
+SOURCE GENERATED / INSPECTED; EXECUTION NOT ESTABLISHED.
+
+C4 FLOATING-POINT AUDIT:
+SOURCE INSPECTED; arithmetic assertions and execution evidence are insufficient for certification.
+
+COMPILER FLAGS:
+Not fully verified for all relevant executions. The absence of recorded -frounding-math or -fno-fast-math flags in a source record must not be replaced by an assumption that they were or were not used.
+
+FLOATING-POINT ENVIRONMENT:
+Control-register inspection is not equivalent to full arithmetic-rounding certification.
+
+XXIX.6 CAPD STATUS TABLE
+
+CAPD 6.0.0 ODE SMOKE:
+PASS — stated smoke test only.
+
+TEST 13A-R3:
+PASS — stated interval multiplication only.
+
+TEST 13A OVERALL:
+OPEN / INCONCLUSIVE.
+
+SINGLE-BUMP TRANSFER:
+PARTIAL AUDIT PASS — CERTIFICATION OPEN.
+
+BOUNDARY MAJORANT:
+CONDITIONALLY VALIDATED.
+
+PRELIMINARY EXP(UH) SUBSET TEST:
+FAILED — RETAINED HISTORICAL RESULT.
+
+CORRECTED ONE-STEP SCALAR TEST:
+CONDITIONAL PASS — NARROW SCOPE.
+
+TASK 01E.1 LOCAL STATE ENCLOSURE:
+OPEN.
+
+TASK 01E.1 SOURCE/BUILD/OUTPUT PROVENANCE:
+OPEN.
+
+TASK 01E.2 RATIONAL POST-PROCESSING:
+ARITHMETIC PASS — CONDITIONAL ON INPUT ENCLOSURES.
+
+CAPD SOURCE TRACEABILITY:
+INCOMPLETE / PARTLY BLOCKED.
+
+FLOATING-POINT VERIFICATION:
+INCOMPLETE.
+
+INDEPENDENT FULL REPRODUCTION:
+NOT ESTABLISHED.
+
+GR-TRANSFER-06C CERTIFICATION:
+OPEN / INCONCLUSIVE.
+
+XXX. CE-V ARCHITECTURE AND INTEGRATION GATES
+
+XXX.1 RETAINED NUMBERING
+
+The existing CE-V numbering remains unchanged:
+
+CE-V-01:
+Latent Organizational Potential.
+
+CE-V-02:
+Organizational Degeneracy and Structural Necessity.
+
+CE-V-03:
+Organizational Transition Geometry.
+
+CE-V-004:
+Dynamic State Sufficiency and Closure.
+
+CE-V-05:
+Reachability Equivalence of Organizational Classes.
+
+CE-V-06:
+Global Realization Filtering of Local Organizational Realizations.
+
+CE-V-06.1:
+Directional and Temporal Boundaries, as a subordinate submodule of CE-V-06.
+
+CE-V-07:
+RESERVED.
+
+RL-022 and RL-023 remain archived / superseded by CE-V-06.1 as recorded in the retained CE-V archive.
+
+XXX.2 NO AUTOMATIC PROMOTION
+
+The following do not by themselves authorize CE-V promotion:
+
+- an RL item being marked CLOSED;
+- an independently verified domain-bounded theorem;
+- a successful CAPD smoke test;
+- a specific interval arithmetic PASS;
+- a conditional boundary estimate;
+- a numerical cross-check;
+- a source-level audit finding.
+
+Any future CE-V proposal requires:
+1. a defined claim;
+2. explicit assumptions and domain;
+3. formal derivation;
+4. validation boundary;
+5. source traceability;
+6. compatibility review against the Frozen Core;
+7. a separate explicit integration decision.
+
+XXX.3 CURRENT INTEGRATION DECISIONS
+
+RL-021:
+Recorded as CLOSED / ESTABLISHED research result. No CE-V promotion.
+
+RL-021.1:
+Recorded as ESTABLISHED WITH EXPLICIT BOUNDARY CONDITIONS. No CE-V promotion.
+
+RL-027:
+Recorded as UNDER AUDIT, with specified core results verified within stated domains. No CE-V promotion.
+
+CAPD:
+Recorded as a technical validation track. No CE-V promotion.
+
+XXXI. OPEN VALIDATION AND RESEARCH REGISTER
+
+A. RL-021.1
+- Preserve exact source definitions.
+- Preserve the boundary assumptions.
+- Complete the general H characterization.
+- Keep the refutation of C_forward necessity tied to its exact construction.
+
+B. RL-027
+- Complete TEST-I DRAFT-0.2 audit.
+- Resolve general framework questions.
+- Resolve minimality.
+- Resolve stability.
+- Resolve computability.
+- Resolve external dependencies.
+- Decide separately whether a frozen TEST-I version is justified.
+
+C. CAPD
+- Recover missing source files.
+- Identify exact CAPD commit and build.
+- Identify compiler version and complete flags.
+- Verify interval types and rounding configuration.
+- Inspect BasicOdeSolver, StepControl, encloseC0Map, and Taylor remainder propagation.
+- Establish source-to-binary-to-output provenance.
+- Re-run target tests from a clean identified environment.
+- Export raw interval endpoints in machine-readable form.
+- Automate rational post-processing from those raw outputs.
+- Recompute the full error budget, including all boundary contributions and matrix entries.
+- Preserve stdout, stderr, exit codes, hashes, and environment metadata.
+- Do not authorize Newton or Krawczyk steps through this Volume update.
+
+D. GENERAL OMEGA-ISOP PROGRAMS
+The open programs in Section XVIII of the predecessor remain open unless a separate source record establishes closure. No closure is inferred from the RL-021, RL-021.1, RL-027, or CAPD work summarized here.
+
+E. DOCUMENT / SOURCE TRACEABILITY
+- Establish a unified Source and Evidence Traceability Register linking each material claim to the exact source filename and version, source location, SHA-256 where actually computed, execution/build identifier where applicable, raw output filename and hash where available, evidence class, current status, and unresolved dependencies.
+- Do not invent missing identifiers, hashes, paths, or provenance links. Record unavailable fields explicitly as NOT RECORDED, NOT VERIFIED, or NOT AVAILABLE, as appropriate.
+- Keep this register OPEN until the links are populated and independently checked. Its creation does not itself validate any scientific claim.
+
+XXXII. FINAL STATUS OF VOLUME V v2.2
+
+VOLUME V:
+ACTIVE RESEARCH ARCHITECTURE.
+
+VERSION:
+v2.2 CONTROLLED RESEARCH-STATUS RECONCILIATION.
+
+SOURCE VERIFICATION:
+CAPD and Volume V source files were directly retrieved for this revision. RL-021 / RL-021.1 / RL-027 statuses were carried forward from the latest recorded audit conclusions; primary RL source files were not directly re-read in this revision. Canonical freezing remains pending that source-level cross-check.
+
+FROZEN CORE:
+PRESERVED / UNCHANGED.
+
+CE-V NUMBERING:
+PRESERVED.
+
+CE-V-07:
+RESERVED.
+
+RL-021:
+CLOSED / ESTABLISHED WITHIN ITS STATED SCOPE.
+
+RL-021.1:
+ESTABLISHED WITH EXPLICIT BOUNDARY CONDITIONS; GENERAL H CHARACTERIZATION OPEN.
+
+RL-027:
+CORE DOMAIN-BOUNDED RESULTS VERIFIED; OVERALL ITEM UNDER AUDIT.
+
+TEST-I DRAFT-0.2:
+AUDITED WORKING DRAFT; NOT FROZEN.
+
+CAPD:
+PARTIAL AUDIT PASS; CERTIFICATION OPEN.
+
+GR-TRANSFER-06C:
+OPEN / INCONCLUSIVE.
+
+UNIVERSALITY:
+NOT ESTABLISHED.
+
+AUTOMATIC CE-V PROMOTION:
+PROHIBITED.
+
+CORE MODIFICATION THROUGH RL / CE-V / CAPD:
+PROHIBITED.
+
+FINAL ARCHITECTURAL PRINCIPLE
+
+Volume V records advanced research, conditional constructions, formal results within explicit domains, validation evidence, and unresolved proof obligations.
+
+It must show the actual state of the work without overstating it.
+
+A closed RL result is not automatically a CE-V extension.
+A domain-bounded theorem is not a universal theorem.
+A successful tool test is not target-construction certification.
+A recorded interval output is not independent reproduction.
+A numerical cross-check is not analytical proof.
+An open dependency is not evidence of invalidity, but it blocks any claim that requires that dependency.
+
+The Frozen Core remains unchanged.
+
+END OF VOLUME V v2.2 CONTROLLED RESEARCH-STATUS RECONCILIATION
+
+================================================================
+APPENDIX A
+PRESERVED PREDECESSOR SOURCE
+VOLUME 5 v2.1-CAPD-RESEARCH-INSERT-R1
+SOURCE SNAPSHOT: 2026-11-05
+PRESERVATION MODE: VERBATIM
+================================================================
+
+The following predecessor source is retained in full for historical traceability. Its earlier status statements remain historical statements as of their source date. Where those status statements conflict with the current reconciliation in Sections XXVI-XXXII, the current reconciliation governs the present status only. No historical output or failed test is deleted.
+
+🔐❄OMEGA-ISOP VOLUME V v2.1-CAPD-RESEARCH-INSERT-R1
+ACTIVE RESEARCH ARCHITECTURESTATUS: ACTIVE RESEARCH LAYERROLE: ADVANCED STRUCTURAL RESEARCH / CE-V INTEGRATIONFROZEN CORE: PRESERVEDCE-V: INTEGRATED UNDER EXPLICIT CONDITIONSUNIVERSALITY: NOT ESTABLISHEDVERSION: v2.1-CAPD-RESEARCH-INSERT-R1
+REVISION NOTE: FORMATTING/NOTATION REPAIR ONLY; NO SCIENTIFIC STATUS PROMOTION
+SOURCE: VOLUME 5 v2,1.txt (Library snapshot, 2026-11-05)PREDECESSOR: v2.0-INTEGRATED-R1 (Library source, 2026-10-26)CHANGE TYPE: ADDITIVE RESEARCH-RECORD INSERT; FINAL STATUS RENUMBEREDCHANGE DATE: 2026-11-04CE-V-07: RESERVED; NO CE-V PROMOTION CLAIMEDI. ARCHITECTURAL POSITIONVolume V is the active research layer of OMEGA-ISOP.It extends the Frozen Core through:- validated conditional constructions,- realization analysis,- operational criteria,- persistence analysis,- reachability,- reduced-state sufficiency,- global realization filtering,- advanced structural research.No Volume V result may silently modify the Frozen Core.II. CORE SEPARATIONSThe following distinctions remain mandatory:Representation ≠ MechanismRelation ≠ CausationOrganization ≠ CausationPersistence ≠ RobustnessPersistence ≠ InvarianceInvariance ≠ OntologyObserverhood ≠ ConsciousnessAdaptive response ≠ Intention / Free WillAdmissibility ≠ RealizationPossibility ≠ NecessityDefinition ≠ DerivationSimulation ≠ ProofNumerical Result ≠ Analytical TheoremIII. CANONICAL NOTATIONN1. Realization MapThe realization map is exclusively:Φ : Real(R) → MΦ is not itself the admissible-dynamics operator.N2. Admissible DynamicsFor a fixed Φ:A(R;Φ) ⊆ Evol(X)and, when Φ is fixed,A(R) := A(R;Φ).The incorrect identificationΦ(R) = A(R)is deleted.Likewise,A(Φ(R))is not used.N3. Stochastic StructureLet Σ_X be a sigma algebra on X.The Markov kernel isκ : X × Σ_X → [0,1].The deterministic case is represented by the Dirac kernel:κ_T(x,E) = 1_E(T(x)).N4. Observable SpaceLet Y be a normed space.The response map isResp_M : L_op → Y.The scalar special case isY = R.N5. Operational DistanceDefineD_L(M1,M2) = sup_{a∈L_op} ||Resp_M1(a)-Resp_M2(a)||_Y.ThusD_L(M1,M2) ∈ [0,∞].When Y is normed and L_op is nonempty, D_L is an extended pseudometric.Finiteness requires bounded response differences.N6. Reduction MapA reduction is represented byξ : X → Z.The induced reduction equivalence isX_a ≈_ξ X_b iff ξ(X_a) = ξ(X_b).This notation is distinct from invariant measures and avoids symbol collision.IV. CE-V-01LATENT ORGANIZATIONAL POTENTIALLet O_target ∈ Org.Define accessibility relative to the relational and dynamical structure:Acc(O_target | R,A(R)).The framework distinguishes:Acc(O_target | R,A(R))from:actual transition to O_targetand from:realized organization.Therefore:accessibility ≠ realization.A reachable organizational state is not automatically realized.V. CE-V-02ORGANIZATIONAL DEGENERACY AND STRUCTURAL NECESSITYStructural necessity and degeneracy are criterion-relative.A structure may be necessary relative to:- a specified task,- a specified representation,- a specified operational criterion,- a specified equivalence relation.No universal structural necessity theorem follows from a single model.VI. CE-V-03ORGANIZATIONAL TRANSITION GEOMETRYDefine the transition structure:L_T = (Org,T_rel,Acc,d,Stability,Barrier).Here:Org = organizational state space,T_rel = transition relation,Acc = accessibility,d = distance-like relation,Stability = specified stability criterion,Barrier = transition barrier.Unless independently established:d is not assumed to be a metric.Likewise:Barrier ≠ logical impossibility.The transition geometry is therefore conditional on the selected definitions.No universal evolution law is established.VII. CE-V-004DYNAMIC STATE SUFFICIENCYLet ξ : X → Z.Define:X_a ≈_ξ X_b iff ξ(X_a)=ξ(X_b).A deterministic reduced representation is sufficient for closure only when equivalent reduced states remain equivalent under the dynamics.For dynamics F:ξ(X_a)=ξ(X_b)must imply the required equivalence of:ξ(F(X_a))andξ(F(X_b)).Therefore reduced-state sufficiency is a closure condition.Non-Markovian behavior of a reduced representation does not by itself establish fundamental memory in the underlying system.CE-V-004 is therefore a gate for reduced-representation validity.TRACE:CE-V-004 → RL-007.VIII. CE-V-05REACHABILITY EQUIVALENCEDefine:Reach(R,A(R))(O)as the set of organizational states reachable from O under the specified relational and dynamical conditions.Define:O_i ≈_reach O_j iff Reach(R,A(R))(O_i) = Reach(R,A(R))(O_j).When Reach is well-defined, equality of reachable sets is an equivalence relation because equality is:- reflexive,- symmetric,- transitive.Therefore:≈_reach is an equivalence relation under the stated definition.TRACE:RL-005.IX. CE-V-06GLOBAL REALIZATION FILTERINGLet the global context be:S_global = (M,Γ,Θ).For local domain D_i ⊂ M,define admissible local relational structures by:R_i ∈ Restrict(R_global,D_i) ∩ Compatible(Θ,D_i).The resulting pathway is:R_i → A_i → realization → persistence → operational identity → organization.The framework explicitly distinguishes:global constraint ≠ global realizationandglobal realization ≠ unique selection.A globally permitted structure is not thereby guaranteed to occur.X. OPERATIONAL IDENTITY AND ORGANIZATIONOperational identity remains relative to the selected operational language.The relevant objects include:- operational probes,- response maps,- tolerance,- persistence,- relevant closure,- task criteria.Organization remains a candidate operational construct.XI. ORGANIZATIONAL FUNCTIONALThe current research target is:Ω(org | Rel,A_D) = F(C,P,D,S,Fc).Where:C = constraints,P = persistence,D = dynamics,S = structural relations,Fc = functional closure.This expression remains:RESEARCH TARGETand is not established as:- universal metric,- universal law,- unique organizational measure,- completed theorem.XII. CE-V INTEGRATION RULECE-V integration does not rewrite the Frozen Core.A CE-V result is retained only with:- its assumptions,- its domain,- its operational definitions,- its derivation,- its validation boundary,- its traceability.No automatic promotion occurs.XIII. Δ19SYMBOL NORMALIZATIONThe organizational state space is denoted:Orginstead of Ω when Ω would otherwise collide with the organizational functional.Transition structure is:L_T.The global context is:(M,Γ,Θ)instead of the earlier(M,G,T)notation.This removes symbol collisions between:- global context,- dynamics,- transition relations,- organizational functional.XIV. Δ20INTEGRATION-MAP CORRECTIONPart I–VII labels appearing in earlier integration maps do not necessarily correspond to the actual sections received from the source material.The original recovered content remains authoritative.Where section mapping was inferred, it is treated as an integration-map annotation rather than as reconstructed source text.No missing section is created from the map alone.XV. Δ21COPY-ARTIFACT CLEANUPKnown copy artifacts in the recovered Volume IV material are removed where the intended mathematical content is unambiguous.No substantive theoretical claim is introduced by this cleanup.XVI. Δ22REACHABILITY EQUIVALENCE PROOFFor:O_i ≈_reach O_jdefined by:Reach(O_i)=Reach(O_j),equivalence follows directly from equality of sets:Reach(O_i)=Reach(O_i): reflexivity;Reach(O_i)=Reach(O_j) ⇒ Reach(O_j)=Reach(O_i): symmetry;Reach(O_i)=Reach(O_j) and Reach(O_j)=Reach(O_k) ⇒ Reach(O_i)=Reach(O_k): transitivity.Therefore the reachability relation is an equivalence relation whenever Reach is well-defined.XVII. Δ23OPERATIONAL TERMINOLOGYThe earlier expression“operational equivalence relation”is replaced by:“operational tolerance relation”when the relation depends on a nonzero tolerance ε.This prevents conflation between:- exact identity/equivalence,- operational indistinguishability under tolerance.XVIII. ACTIVE OPEN FORMALIZATION PROGRAMSThe following remain open:- Dynamic Selection Principle.- General existence theorem for R.- General persistence existence theorem.- Functional Closure.- Rigorous Ω metric.- Autonomous persistence.- Causal bridge.- Unique structural classification.- General robustness theorem.These are research programs, not completed results.XIX. NEGATIVE BOUNDARIESThe framework does not establish:R → unique dynamics.Accessibility → realization.Persistence → organization.Complexity → organization.Organization → causation.Observerhood → consciousness.Adaptive response → intention.Global constraint → global realization.Global realization → unique selection.Reduced-state non-Markovianity → fundamental memory.Reachability equivalence → ontological identity.XX. DEPENDENCY ARCHITECTUREThe active dependency chain remains:Primitive Difference→ Formal Carrier→ Apartness→ Configurations→ Compatibility→ Relational Specification R→ Admissible Dynamics A(R;Φ)→ Realized Dynamics→ Persistence→ Operational Response→ Operational Identity→ Operational Organization.The chain is conditional and does not imply that every layer is universally necessary in every formalism.XXI. VALIDATION BOUNDARYA CE-V result is valid only within its stated construction.Therefore:CE-V result ≠ universal theoremunless universality is independently established.The archive records validated conditional constructions, not universal truths by default.XXII. CAPD INTERVAL VALIDATION RECORDSINGLE-BUMP TRANSFER CONSTRUCTIONCONDITIONAL RESEARCH INSERT — NOT A CE-V NUMBER22.1 ARCHITECTURAL POSITIONThis section records the CAPD-based interval work associated with the single-bump transfer construction. It is an active research and validation record within Volume V. It is NOT an approved CE-V-07 extension and does not consume or reassign the reserved CE-V-07 identifier.The record does not modify the Frozen Core, the retained CE-V numbering, or the dependency architecture of OMEGA-ISOP.Evidence status must remain separated:- analytical identities and inequalities: conditional on the stated definitions and derivations;- CAPD interval outputs: computational interval results recorded in the source notebook;- rational post-processing and error-budget assembly: manually transferred/assembled and requiring automated reproducibility;- independent rerun: NOT PERFORMED in this integration step.22.2 DYNAMICAL SYSTEM AND DOMAIN
+The tested system is:
+x' = v
+v' = q*k*phi_2(t)*x
+q ∈ {-1,+1}
+k = 1
+
+The single-bump profile is:phi_2(t) = exp(-1/(1-((t-mu)/w)^2))for |(t-mu)/w| < 1, and phi_2(t) = 0 outside the support.Parameters:mu = 27/28w = 13/20L = 22/70R = 113/70eta = 1/100alpha = 227/700beta = 977/700CORE_LENGTH = 32/25 = 1.28The reported construction is restricted to this profile, these parameters, q = ±1, k = 1, and the integration interval [0,3]. It does not establish a result for a multi-bump profile, a different parameter set, or a general class of potentials.22.3 TRANSFER-MATRIX DECOMPOSITIONFor free propagation over an interval of length s:F(s) = [[1,s],[0,1]]The full transfer matrix is decomposed as:M_full = F(beta) * M_core * F(alpha)where M_core is the interval-enclosed transfer matrix over the central region. The multiplication order is part of the construction and must be preserved in any reproduction.22.4 ANALYTICAL INVARIANTFor the first-order system matrix A_q(t),trace(A_q(t)) = 0.Consequently, Liouville's formula gives:det(M(t)) = 1for the exact fundamental matrix initialized with determinant 1. This is an analytical invariant of the stated linear system. It does not, by itself, certify the numerical enclosure or the correctness of a particular CAPD implementation.22.5 REPORTED BOUNDARY AND CENTRAL ESTIMATESThe reported boundary estimate uses:r_max = 129/4225
+1/r_max = 4225/129
+
+and the rational exponential estimate:exp(-4225/129) < 1/S48(4225/129) < 6e-15where S48 denotes the stated finite Taylor sum used in the rational post-processing. The inequality and the exact definition of S48 must be retained with the source derivation when this record is independently reproduced.The central-region estimate is reported as:||A_q(t)||_inf <= 1
+||M_core||_inf <= exp(1.28) < 4The reported free-propagation bounds are:1 + beta < 2.4
+1 + alpha < 1.33
+1 + eta < 1.01
+
+Reported error-budget values:DELTA = 6.2e-17BOUNDARY_ERROR = 1.59906432e-15PRINT_PAD = 2e-15PRINT_ERROR = 2.5536e-14BOUNDARY_ERROR + PRINT_ERROR = 2.713506432e-14TOTAL_ERROR = 3e-14These values are retained as the reported post-processing budget. They are not represented here as independently recomputed or machine-checked. A complete source-level audit must verify the derivation of r_max, the two boundary contributions, all propagation factors, the application of PRINT_PAD to every matrix entry, and the final aggregation rule.22.6 CAPD COMPUTATIONAL EVIDENCEThe CAPD interval calculations and their outputs are recorded in the source notebook for the single-bump construction. The associated TASK 01E.1 Wronskian interval outputs are:q = +1: [0.99999999999989109, 1.0000000000001101]q = -1: [0.99999999999995492, 1.0000000000000455]Both intervals contain 1, consistently with the analytical determinant invariant. This consistency check is evidence for the recorded computations; it is not a substitute for independent reproduction of the complete source and execution chain.The TASK 01E.2 full-transfer enclosure is recorded for q = ±1, with determinant intervals containing 1. Exact matrix-entry endpoints are intentionally not duplicated in this section because they must be copied from, and checked against, the authoritative raw notebook output rather than reconstructed from summaries.22.7 VALIDATION BOUNDARY AND LIMITATIONSThe current evidence supports only a conditional, construction-specific interval computation. The following have NOT been established by this Volume V insertion:- independent rerun of the complete CAPD computation;- independent verification of the exact CAPD source/build and execution environment for this result;- automated transfer of raw CAPD interval endpoints into the rational post-processing;- automated reproduction of the complete error budget from machine-readable outputs;- generalization to multiple bumps or other profiles;- a universal transfer theorem;- a physical interpretation or physical necessity claim;- any modification or extension of the Frozen Core.The CAPD outputs were recorded in the notebook and the rational post-processing was manually transferred/assembled. The present integration does not claim that these steps have since been independently rerun.22.8 RESULT CLASSIFICATIONRESEARCH STATUS: CONDITIONALLY VALIDATED MATHEMATICAL CONSTRUCTION, WITH REPRODUCIBILITY TASKS OPEN.SCOPE: single bump phi_2; mu = 27/28; w = 13/20; q = ±1; k = 1; interval [0,3]; stated CAPD computation and rational post-processing.CAPD INTERVAL OUTPUTS: RECORDED; NOT INDEPENDENTLY RERUN HERE.RATIONAL ERROR BUDGET: REPORTED; FULL AUTOMATED REPRODUCTION OPEN.INDEPENDENT SOURCE/BUILD AUDIT: OPEN.MULTI-BUMP GENERALIZATION: NOT ESTABLISHED.CE-V PROMOTION: NOT APPROVED.CE-V-07: REMAINS RESERVED.FROZEN CORE IMPACT: NONE.22.9 TRACEABILITY AND NEXT VALIDATION ACTIONSThe record is linked to the CAPD single-bump transfer notebook and its TASK 01E.1 / TASK 01E.2 outputs. The raw notebook, exact matrix interval endpoints, source code, compiler flags, CAPD version/build metadata, and post-processing script remain the authoritative reproduction materials.The next validation actions are:1. Independently rerun the complete CAPD source from a clean, identified environment.2. Verify the exact interval types, rounding configuration, compiler flags, CAPD version/build, and execution commands.3. Export raw interval endpoints in a machine-readable format.4. Automate the rational post-processing directly from those exported endpoints.5. Recompute the boundary and print-error budget from source data, including both boundary contributions and all matrix entries.6. Preserve source, outputs, environment metadata, and a reproducible execution record.7. Only after those checks, consider a separate CE-V integration proposal, with independent validation, explicit integration decision, traceability, and Frozen Core compatibility review. Until then, CE-V-07 remains reserved.XXIII. CAPD O0 BOUNDARY VALIDATIONONE-STEP DIFFERENTIAL INCLUSIONCONDITIONAL RESEARCH RECORD — NOT A CE-V NUMBER23.1 RECORD ID AND ARCHITECTURAL POSITIONRECORD ID: CAPD-BOUNDARY-O0-001This section records a limited CAPD interval test of the O0 boundary estimate through a one-step differential inclusion. It is an additive research record within Volume V.This record does not modify the Frozen Core, does not alter the retained CE-V numbering, and does not consume or reassign CE-V-07.CE-V-07: RESERVED.FROZEN CORE: PRESERVED.UNIVERSALITY: NOT ESTABLISHED.23.2 RATIONAL BOUNDARY PARAMETERS
+eta = 1/100
+w = 13/20
+rho = eta/w = 1/65
+r_max = 2*rho - rho^2 = 129/4225
+1/r_max = 4225/129
+
+The rational boundary estimate retained for this construction is:U_bound = 5.999034110341679520555339511061090232783E-15U_bound < 6E-15The combined integral contribution over the two boundary strips is reported as:I_boundary < 1.199806822068335904111067902212218046557E-16I_boundary < 1.2E-16This estimate concerns only the boundary layers of phi_2. It is not an estimate for the complete eight-bump profile and must not be interpreted as one.23.3 CAPD ENCLOSURE USED IN THE O0 TESTThe CAPD interval enclosure used for the coefficient bound is:U = [5.9705461785525639471E-15, 5.9705461785527019977E-15]The tested differential inclusion is:
+x' ∈ [0,U]*x
+x(0) = 1
+h = 0.01The nominal field is:f(x) = 0The interval perturbation is:g(x) = e*x
+e ∈ [0,U]The corresponding one-step enclosure is intended to contain all solutions of this stated differential inclusion over the step h, subject to the implemented CAPD interval semantics and configuration.23.4 ANALYTICAL ONE-STEP BOUNDFor 0 <= z <= 1/2, the inequality used is:exp(z) <= 1 + 2zWith the upper coefficient enclosure U and step h:2Uh = 1.1941092357105406066E-16The representable successor of 1.0 is:nextafter(1.0,2.0) = 1.000000000000000222The expected comparison interval is:EXPECTED = [1, 1.000000000000000222]This is a narrow one-step comparison bound. It is not a statement about the complete transfer construction or the full phi_2 profile.23.5 CAPD IMPLEMENTATION AND RESULTThe recorded CAPD implementation uses:CWDiffInclSolverorder = 10IMaxNormInclRect2SetThe recorded test uses the CAPD differential-inclusion solver and the interval coefficient enclosure stated above.CAPD RESULT:{[0.99999999999999988898, 1.000000000000000222]}EXPECTED_SUBSET_RESULT = TRUEBUILD EXIT CODE = 0RUNTIME EXIT CODE = 0The reported CAPD result is contained in the expected comparison interval. This is a limited computational interval result for the stated one-step test only.23.6 PRELIMINARY ASSERTION THAT DID NOT PASSAn earlier preliminary comparison used an enclosure based on exp(Uh). That interval exponential enclosure produced the wider upper endpoint:1.0000000000000015543The corresponding inclusion assertion was false and the preliminary runtime exited with code 4.This failed preliminary assertion is retained as part of the test history. The failure is attributed to the width of the interval exponential enclosure for the very small argument, not to a demonstrated failure of the CAPD solver.The preliminary failed assertion must not be silently removed or represented as a successful test. It is distinct from the later comparison using the explicit inequality exp(z) <= 1 + 2*z on the stated domain.23.7 RESULT CLASSIFICATION AND LIMITATIONSRESEARCH STATUS: CONDITIONALLY VALIDATED — LIMITED CAPD TEST.SCOPE: one-step differential inclusion x' ∈ [0,U]*x, x(0)=1, h=0.01, with the stated interval coefficient enclosure and CAPD configuration.CAPD ENCLOSURE: RECORDED.BUILD: EXIT CODE 0.RUNTIME: EXIT CODE 0.EXPECTED SUBSET ASSERTION: TRUE.INDEPENDENT REPRODUCTION: NOT ESTABLISHED BY THIS RECORD.This test does NOT establish:- the complete phi_2 profile;- the full eight-bump profile;- the complete boundary-plus-central transfer construction;- the functions a(u) or b(u) over their full required domains;- the full transfer matrix or GR-TRANSFER-06C;- root existence or uniqueness;- a universal theorem;- physical necessity;- any modification of the Frozen Core;- promotion or reassignment of CE-V-07.A limited CAPD test is not a universal theorem. A numerical or computational enclosure is not, by itself, an independently certified analytical result.23.8 TRACEABILITY AND REPRODUCIBILITY REQUIREMENTSThe following materials must be preserved and linked to this record for a reproducible audit:1. Exact source code used for the O0 test.2. Wrapper or build script used to compile and execute the source.3. Standard output and standard error.4. CAPD version and build identity.5. Compiler identity and complete compiler flags.6. Interval types, rounding configuration, and solver configuration.7. Exact execution commands and exit codes.8. Commit identifier and source-file SHA256 values.9. Machine-readable raw interval endpoints.The recorded test configuration includes the stated CAPD solver components and order. The build and runtime exit codes are recorded as zero. These facts do not replace preservation of the source, wrapper, outputs, configuration, commit, and hashes, nor do they establish independent reproduction.No Newton correction or Krawczyk operation is authorized by this record.23.9 STATUS CONTROLThe only status claimed for this record is:CONDITIONALLY VALIDATED — LIMITED CAPD TEST.No claim of full mathematical certification, independent verification, universal validity, CE-V promotion, or Frozen Core modification is made.XXIV. FINAL STATUSVOLUME V: ACTIVE RESEARCH ARCHITECTURECE-V INTEGRATION: ACTIVE / CONDITIONALFROZEN CORE: PRESERVEDSYMBOL NORMALIZATION: INTEGRATEDΔ19: INTEGRATEDΔ20: INTEGRATEDΔ21: INTEGRATEDΔ22: INTEGRATEDΔ23: INTEGRATEDUNIVERSAL OMEGA NECESSITY: NOT DERIVEDUNIQUE DYNAMIC SELECTION: OPENGENERAL ORGANIZATIONAL METRIC: OPENGENERAL CAUSAL BRIDGE: OPENGENERAL PERSISTENCE THEOREM: OPENAUTOMATIC CE-V PROMOTION: PROHIBITEDCORE MODIFICATION THROUGH RL/CE-V: PROHIBITEDFINAL ARCHITECTURAL PRINCIPLEVolume V is an active research and validation-extension layer. Its results remain conditional on their explicit constructions, assumptions and validation boundaries and do not silently modify the Frozen Core.NORMALIZATION NOTEFormatting has been normalized for readability from the user-provided source. The operational-distance definition is written with an explicit equals sign, and the reachability equivalence definition is written with explicit equality of reachable sets, consistent with the accompanying explanations. No new substantive theoretical claim is intended by these notation normalizations.
+
+==============================================================================
+OMEGA-ISOP VOLUME V v2.1 — CAPD MATHEMATICAL CERTIFICATION AUDIT ADDENDUM
+DATE: 2026-11-05
+DOCUMENT TYPE: ADDITIVE AUDIT RECORD
+TARGET: OMEGA-ISOP_VOLUME_V_v2.1-CAPD-RESEARCH-INSERT.txt
+PREDECESSOR: Volume V v2.1-CAPD-RESEARCH-INSERT (Library snapshot dated 2026-11-04)
+CHANGE TYPE: ADDITIVE; NO EXISTING SECTION REWRITTEN
+SCOPE: GR-TRANSFER-06C / CAPD / TASK 01E.1 AND TASK 01E.2
+STATUS: PARTIAL AUDIT PASS; MATHEMATICAL CERTIFICATION OPEN
+
+ARCHITECTURAL CONTROL
+• Frozen Core: PRESERVED; NO CHANGE.
+• Volume V: ACTIVE RESEARCH ARCHITECTURE.
+• CE-V-07: RESERVED; NOT CONSUMED OR REASSIGNED.
+• CE-V PROMOTION: NONE CLAIMED.
+• UNIVERSALITY: NOT ESTABLISHED.
+• GR-TRANSFER-06C: NOT CERTIFIED.
+• This addendum records audit findings only. It does not convert conditional or computational evidence into a universal theorem.
+
+XXV. CAPD TASK 01E — MATHEMATICAL CERTIFICATION AUDIT (2026-11-05)
+
+25.1 PURPOSE AND EVIDENCE CLASSIFICATION
+This section records a source-level and arithmetic audit of the existing TASK 01E.1 / TASK 01E.2 notebook material and the CAPD 6.0.0 source paths inspected for interval-time handling.
+The work performed here was inspection and mathematical post-processing verification. No fresh CAPD execution was performed in this audit session. Historical notebook outputs remain historical outputs and are not represented as newly reproduced results.
+
+Evidence classes used below:
+A. SOURCE-LEVEL FACT: directly supported by the inspected CAPD 6.0.0 source implementation.
+B. ARITHMETIC CHECK: exact rational or interval post-processing checked independently from the notebook's reported inputs.
+C. RECORDED COMPUTATIONAL OUTPUT: output stored in the notebook; not freshly rerun here.
+D. OPEN VALIDATION ITEM: implementation or execution property not yet established by the available inspection.
+
+25.2 TASK 01E.1 — INTERVAL-TIME SEMANTICS
+SOURCE-LEVEL FACTS:
+1. CAPD TimeRange stores the ScalarType current-time value directly. For interval ScalarType, the interval is retained; the setter does not replace it with its midpoint.
+2. C0Set inherits the TimeRange time storage.
+3. C0DoubletonSet::move() passes getCurrentTime() into dynsys.encloseC0Map(...).
+4. After the move, the current time is updated using the previous current time plus dynsys.getStep().
+5. The inspected TimeMap / StepControl path computes the remaining time as an interval difference and preserves a non-degenerate desired maximum step; the inspected StepControl comment explicitly warns not to replace such a maximum step by its left endpoint.
+6. The project source call set.setCurrentTime(t0) therefore sets the interval-valued initial time before the first move; it does not itself force a midpoint time.
+
+RECORDED TIME OUTPUT CHECK:
+• Exact alpha = 227/700 = 0.324285714285714285...
+• Recorded initial time interval: [0.32428571428571423, 0.32428571428571434].
+• The recorded initial interval contains alpha.
+• Target final time interval: [1.6042857142857141, 1.6042857142857145].
+• Recorded actual final time interval: [1.6042857142857072, 1.6042857142857214].
+• The recorded actual final-time interval contains the target final-time interval.
+
+NARROW CONCLUSION:
+CAPD interval-time storage, propagation to encloseC0Map(), and interval-time update are confirmed at source level for the inspected code path. The recorded initial/final time intervals cover the stated exact/target time intervals.
+
+LIMITATION:
+These findings do not by themselves prove that the propagated state enclosure contains every exact solution over the intended interval. That requires validation of the concrete solver's local Taylor expansion, remainder enclosure, step selection, and the encloseC0Map implementation for this nonautonomous field.
+
+25.3 TASK 01E.2 — EXACT RATIONAL POST-PROCESSING
+The following rational values were checked:
+• alpha = 227/700.
+• beta = 977/700.
+• 1 + alpha = 927/700 = 1.324285714285714... < 1.33.
+• 1 + beta = 1677/700 = 2.395714285714285... < 2.40.
+• L = 22/70; R = 113/70; eta = 1/100.
+• CORE_LENGTH = R - L - 2*eta = 32/25 = 1.28.
+
+Boundary estimate recorded in the notebook:
+• w = 13/20.
+• rho = eta/w = 1/65.
+• r_max = 2*rho - rho^2 = 129/4225.
+• 1/r_max = 4225/129.
+• exp(-4225/129) is bounded using the reciprocal of the positive rational Taylor partial sum S48(4225/129).
+• The notebook's rational assertion establishes 1/S48(4225/129) < 6e-15.
+• U_BOUND = 6e-15.
+• exp(0.01) < 1.02 is used as a rational upper bound.
+• DELTA = 62e-18.
+
+Recorded propagation and error-budget checks:
+• exp(32/25) < 4.
+• 1 + beta < 2.40.
+• 1 + alpha < 1.33.
+• BOUNDARY_ERROR_BOUND = 1.59906432e-15.
+• PRINT_ERROR_BOUND = 2.5536e-14.
+• TOTAL assembled error = 2.713506432e-14.
+• The selected enclosing radius is 3e-14.
+
+ARITHMETIC STATUS:
+The rational post-processing and stated inequalities pass for the supplied rational inputs. The earlier 1.32 bound for 1+alpha is invalid and is superseded by 1.33. The bound 1+beta < 2.40 is valid. This arithmetic check is conditional on the correctness and provenance of the CAPD interval inputs and on the stated analytical estimates.
+
+25.4 TRANSFER-MATRIX COMPOSITION CHECK
+The full transfer matrix is composed as:
+M_full = F(beta) * M_core * F(alpha)
+F(s) = [[1,s],[0,1]]
+
+The corresponding component identities are:
+m11_full = m11_core + beta*m21_core
+m21_full = m21_core
+m22_full = m22_core + alpha*m21_core
+m12_full = m12_core + alpha*m11_core + beta*m22_full
+
+Exact rational interval post-processing using these identities reproduces the displayed TASK 01E.2 full-interval matrix enclosures to the reported digits for q = +1 and q = -1. The core matrix and full [0,3] matrix are not identical; the difference is the expected free-propagation composition on the two sides.
+
+RECORDED FULL-INTERVAL DETERMINANT ENCLOSURES:
+q = +1: [0.99999999999958622, 1.000000000000415]
+q = -1: [0.99999999999980715, 1.0000000000001932]
+Both contain 1, consistent with the analytical Liouville invariant for the exact trace-zero system. Containment of 1 is a consistency check, not proof that every matrix entry enclosure is correct.
+
+25.5 TASK 01E.1 RECORDED CAPD OUTPUTS AND PROVENANCE LIMITATION
+The notebook contains recorded q = +1 and q = -1 interval outputs for the central integration and Wronskian checks. The recorded Wronskian intervals contain 1:
+q = +1: [0.99999999999989109, 1.0000000000001101]
+q = -1: [0.99999999999995492, 1.0000000000000455]
+
+The notebook's later cell contains the C++ source and compile/run invocation. However, the later cell's saved output records compile and runtime exit codes but does not capture the matrix stdout. Its timestamp is later than the cell containing the raw matrix outputs. Therefore the existing notebook evidence does not yet establish an unbroken provenance link proving that the raw matrix outputs were produced by that exact later source/build invocation.
+
+A separate recorded q = +1 single-vector run agrees with the first-column values of the earlier q = +1 output. This is a useful consistency check but does not test q = -1 or the second initial basis vector. A separate 256-step CAPD single-vector run encloses the stated DOP853 reference values; that comparison is a cross-check only, not an independent proof.
+
+25.6 SOURCE INSPECTION STILL REQUIRED FOR FULL VALIDATION
+The following implementation-level points remain OPEN and must be inspected before claiming a validated state enclosure:
+1. The concrete BasicOdeSolver / IOdeSolver implementation used by the recorded executable.
+2. The concrete StepControl implementation and exact final-step selection logic.
+3. The implementation of encloseC0Map() for the selected set and nonautonomous vector field.
+4. The Taylor model / local truncation remainder enclosure and all interval dependency handling used at each step.
+5. The precise type and semantics of dynsys.getStep() in the executed solver path.
+6. The relationship between the interval time-step enclosure and the state enclosure returned for the final interval.
+7. Exact source-to-binary provenance, compiler flags, CAPD build identity, and captured stdout/stderr for the run that generated each reported matrix output.
+
+Header declarations or high-level API comments alone are insufficient to close these items. No claim is made here that the complete local validated-step mechanism has already been audited.
+
+25.7 OVERALL AUDIT STATUS
+TASK 01E.1 TEMPORAL SEMANTICS: SOURCE-LEVEL CONFIRMED, WITH LOCAL STATE-ENCLOSURE VALIDATION OPEN.
+TASK 01E.1 RECORDED MATRIX OUTPUTS: HISTORICAL NOTEBOOK OUTPUT; SOURCE/BUILD PROVENANCE LINK OPEN.
+TASK 01E.2 RATIONAL POST-PROCESSING: ARITHMETIC PASS, CONDITIONAL ON INPUT ENCLOSURES.
+TRANSFER-MATRIX COMPOSITION: RATIONAL POST-PROCESSING CHECK PASSED.
+CAPD LOCAL TAYLOR / REMAINDER VALIDATION: OPEN.
+INDEPENDENT CAPD RERUN: NOT PERFORMED.
+COMPLETE GR-TRANSFER-06C EXISTENCE / UNIQUENESS: NOT ESTABLISHED.
+UNIVERSAL TRANSFER THEOREM: NOT ESTABLISHED.
+
+FINAL CLASSIFICATION:
+PARTIAL AUDIT PASS — CERTIFICATION OPEN.
+
+25.8 NEXT TECHNICAL ACTION
+Continue the CAPD 6.0.0 source audit at the concrete implementation level: BasicOdeSolver, StepControl, IOdeSolver/encloseC0Map, and Taylor remainder propagation. Close each item only with implementation evidence. Then establish source/build/output provenance and, where feasible, perform a clean independent rerun. Do not promote the current result before those steps.
+
+25.9 ARCHITECTURAL SAFEGUARDS
+• Frozen Core remains unchanged.
+• Volume V remains the active research and validation layer.
+• CE-V-07 remains RESERVED.
+• The single-bump result remains construction-specific and conditional.
+• Numerical Result ≠ Analytical Theorem.
+• Simulation ≠ Proof.
+• A recorded interval output ≠ independently reproduced certification.
+• No existence, uniqueness, universality, physical necessity, or causal claim is added by this audit.
+
+END OF ADDENDUM
+
+================================================================
+APPENDIX B
+PRESERVED v2.3 MATHEMATICAL AND MACHINE AUDIT-STATUS INSERT
+SOURCE DATE: 2026-11-09
+SOURCE VERSION: v2.3-TEMPORARY-AUDIT-STATUS
+PRESERVATION MODE: VERBATIM UNIQUE INSERT
+SCOPE: SOURCE TEXT FROM THE v2.3 AUDIT-STATUS TITLE THROUGH ITS END MARKER
+NOTE: The v2.3 file's repeated v2.1 predecessor and XXV CAPD addendum are already retained in Appendix A. They are intentionally not duplicated here. The original source-local section labels XXVI-XXXI below are retained verbatim and are subordinate to this Appendix B namespace.
+================================================================
+
+OMEGA-ISOP VOLUME V — TEMPORARY MATHEMATICAL AND MACHINE AUDIT STATUS
+VERSION: v2.3-TEMPORARY-AUDIT-STATUS
+DATE: 2026-11-09
+DOCUMENT ROLE: TEMPORARY AUDIT / VALIDATION / CERTIFICATION STATUS INSERT
+SCOPE: OMEGA-ISOP MATHEMATICAL AUDIT, COMPUTATIONAL AUDIT, CAPD INTERVAL VALIDATION, REPRODUCIBILITY AND CERTIFICATION READINESS
+PREDECESSOR: VOLUME V v2.1-CAPD-RESEARCH-INSERT-R1
+CHANGE TYPE: CONTROLLED AUDIT-STATUS UPDATE ONLY
+
+GOVERNANCE NOTICE
+This revision records only the current mathematical and machine-audit state of OMEGA-ISOP while validation and certification remain in progress. It is temporary and does not constitute final certification, a new theoretical result, or an expansion of the research architecture.
+
+No unrelated independent research line is imported, summarized, renumbered, or integrated by this update. Such records remain in their own archives and retain their own statuses.
+
+FROZEN CORE: PRESERVED / UNCHANGED.
+EXISTING CE-V ARCHITECTURE: UNCHANGED.
+CE-V-07: RESERVED.
+UNIVERSALITY: NOT ESTABLISHED.
+GLOBAL OMEGA-ISOP CERTIFICATION: NOT GRANTED.
+
+The predecessor Volume V content above this notice remains preserved as the existing research architecture and historical record. The following sections add a temporary audit-status layer only. They do not silently rewrite the predecessor's mathematical content.
+
+================================================================
+XXVI. PURPOSE, SCOPE AND EVIDENCE GOVERNANCE
+
+XXVI.1 PURPOSE
+The purpose of this temporary update is to maintain an accurate, traceable record of the work performed toward mathematical validation and machine-assisted certification of OMEGA-ISOP.
+
+It records:
+- mathematical derivations and proof obligations actually examined;
+- source-code and implementation inspections;
+- compilation and execution evidence;
+- interval-arithmetic and CAPD validation results;
+- arithmetic post-processing checks;
+- provenance and reproducibility gaps;
+- the remaining conditions for independent certification.
+
+XXVI.2 EXPLICIT EXCLUSIONS
+This update does not incorporate unrelated research records or independent RL work. It does not create, modify, or promote CE-V entries. It does not modify the Frozen Core, original coefficients, canonical definitions, or the underlying mathematical construction.
+
+XXVI.3 EVIDENCE CLASSES
+FACT: directly supported by an inspected source, exact derivation, recorded output, or identified artifact.
+
+ANALYTICAL RESULT: established by a mathematical derivation under explicitly stated assumptions.
+
+SOURCE-LEVEL FINDING: supported by inspection of the identified implementation path; not equivalent to execution.
+
+RECORDED COMPUTATIONAL RESULT: output preserved in a notebook or log; not automatically a fresh reproduction.
+
+INTERVAL RESULT: an enclosure produced by interval computation; its validity depends on the implementation, rounding semantics, inputs, and execution provenance.
+
+NUMERICAL CROSS-CHECK: agreement with a numerical reference; not an interval proof or analytical theorem.
+
+CONDITIONAL RESULT: valid only when its listed assumptions and upstream enclosures are established.
+
+OPEN / NOT ESTABLISHED: evidence is insufficient to close the stated proof or audit obligation.
+
+XXVI.4 STATUS DISCIPLINE
+The following are separate and must not be collapsed into one PASS:
+- source inspection;
+- successful compilation;
+- successful execution;
+- correct interval enclosure;
+- analytical justification;
+- source-to-binary provenance;
+- independent reproduction;
+- target-construction certification.
+
+A PASS must always identify its exact test, inputs, configuration, and scope. Missing evidence is marked NOT ESTABLISHED or NOT RECORDED, never inferred.
+
+================================================================
+XXVII. MATHEMATICAL AUDIT STATUS
+
+XXVII.1 SCOPE OF MATHEMATICAL REVIEW
+The mathematical review concerns the specific OMEGA-ISOP constructions and proof obligations associated with the active certification track, including the single-bump transfer construction and its boundary estimates. It does not establish a universal theorem about all admissible systems or all CAPD computations.
+
+XXVII.2 ANALYTICAL IDENTITIES
+For the exact trace-zero matrix differential system in the audited construction, the Liouville identity gives:
+
+det(M(t)) = 1
+
+for the exact fundamental matrix initialized with determinant 1.
+
+CLASSIFICATION: ANALYTICAL IDENTITY, conditional on the stated system and exact fundamental-matrix assumptions.
+LIMIT: This identity does not certify that a particular numerical interval matrix encloses the exact fundamental matrix.
+
+XXVII.3 RATIONAL POST-PROCESSING
+The recorded rational arithmetic checks include the stated parameter identities, boundary estimates, error-budget assembly, and transfer-matrix composition identities. The checked post-processing is consistent with the supplied rational inputs and reported interval inputs.
+
+CLASSIFICATION: ARITHMETIC PASS FOR THE CHECKED EXPRESSIONS.
+CONDITION: This does not independently validate the upstream CAPD interval inputs, local solver enclosures, or their provenance.
+XXVII.4 BOUNDARY MAJORANT
+The boundary majorant is conditionally validated for the stated construction and assumptions. The rational upper-bound work and the corrected one-step scalar comparison support the narrow conclusion recorded in the audit archive.
+
+The corrected comparison uses the stated inequality:
+
+exp(z) <= 1 + 2*z, for 0 <= z <= 1/2.
+
+CLASSIFICATION: CONDITIONAL PASS FOR THE SPECIFIC SCALAR COMPARISON.
+CONDITIONS: The bound on U, the CAPD interval semantics, the input enclosures, and reproducibility must be established for the target execution.
+
+XXVII.5 FAILED PRELIMINARY CRITERION
+The preliminary interval-inclusion comparison using the wider exp(U*h) interval failed the specified subset criterion. This failure remains part of the audit history and is not erased by the later corrected comparison. The two tests use different comparison criteria and must not be conflated.
+
+XXVII.6 MATHEMATICAL OBLIGATIONS STILL OPEN
+- Complete validation of the local Taylor expansion and remainder enclosure.
+- Complete proof that the implemented stepwise enclosure contains the exact state over the required interval.
+- Full validation of the nonautonomous vector-field handling in the actual solver path.
+- Complete verification of all boundary contributions and the assembled error budget from validated inputs.
+- Independent verification of the complete target-specific mathematical argument.
+- Any existence or uniqueness claim requiring a separate theorem or validated inclusion argument.
+
+ROOT EXISTENCE: NOT PROVED BY THE CURRENT EVIDENCE REGISTER.
+ROOT UNIQUENESS: NOT PROVED BY THE CURRENT EVIDENCE REGISTER.
+UNIVERSAL TRANSFER THEOREM: NOT ESTABLISHED.
+
+================================================================
+XXVIII. COMPUTATIONAL AND MACHINE AUDIT STATUS
+
+XXVIII.1 CAPD 6.0.0 ODE SMOKE TEST
+TEST: y'(t) = y(t), y(0) = 1, t in [0,1].
+
+RECORDED RESULT: PASS for the stated minimal test and recorded configuration. The environment compiled and executed the interval ODE test and returned a final-state interval and trajectory enclosure.
+
+LIMITATIONS:
+- A programmatic machine-checked inclusion assertion for e was not implemented in the recorded test.
+- The test does not validate the target bump profiles, transfer matrices, 6x6 Jacobian, Krawczyk inclusion, root existence, root uniqueness, or distinction between the target profiles.
+- MPFR-specific integration was not tested.
+
+INTERPRETATION: This is evidence of a working CAPD candidate for the stated smoke test only. It is not validation of the target construction.
+
+XXVIII.2 TEST 13A-R3
+INPUTS:
+A = [1, 1 + 2^-52]
+B = [1, 1 + 2^-52]
+
+RECORDED RESULT: PASS for the specific CAPD DoubleInterval multiplication and the stated operands. The narrow conclusion is supported by a separate exact algebraic comparison in the source record.
+
+LIMITATION: The programmatic reference comparison uses long double, which may not preserve the 2^-104 term when added to 1. The boolean comparison alone is not a strict proof.
+
+NON-IMPLICATION: This does not validate all CAPD interval operations, transcendental functions, directed rounding generally, the complete test suite, Krawczyk certification, or the target construction.
+
+XXVIII.3 TEST 13A OVERALL
+STATUS: OPEN / INCONCLUSIVE.
+The narrow result for TEST 13A-R3 does not close the complete TEST 13A audit.
+
+XXVIII.4 TASK 01E.1 SOURCE-LEVEL TIME SEMANTICS
+The inspected CAPD source path supports the following narrow findings:
+- TimeRange stores the ScalarType current-time value directly; for interval ScalarType the interval is retained rather than replaced by its midpoint.
+- C0Set inherits the TimeRange time storage.
+- C0DoubletonSet::move() passes getCurrentTime() into dynsys.encloseC0Map(...).
+- The current time is updated using the previous current time plus dynsys.getStep().
+- The inspected TimeMap / StepControl path computes the remaining time as an interval difference and preserves a non-degenerate desired maximum step.
+
+CLASSIFICATION: SOURCE-LEVEL CONFIRMED FOR THE INSPECTED CODE PATH.
+LIMIT: This does not establish that the returned state enclosure contains every exact solution for the target nonautonomous field. The concrete solver, local Taylor model, remainder enclosure, and step-selection path remain to be validated.
+
+XXVIII.5 RECORDED TASK 01E.1 OUTPUTS AND PROVENANCE
+The notebook contains recorded q = +1 and q = -1 matrix outputs and Wronskian intervals containing 1. The later cell contains C++ source and a compile/run invocation, but its saved output records compile and runtime exit codes without capturing the matrix stdout. Its timestamp is later than the cell containing the raw matrix outputs.
+
+Therefore, the notebook does not establish an unbroken provenance link proving that the recorded raw matrix outputs were produced by that exact later source/build invocation.
+
+A separate q = +1 single-vector run agrees with the first-column values of the earlier q = +1 output. A separate 256-step CAPD run encloses stated DOP853 reference values. These are consistency checks only; they do not establish full reproduction or interval proof for the target construction.
+
+XXVIII.6 SOURCE DISCOVERY AND EXECUTION STATUS
+CAPD SOURCE DISCOVERY: BLOCKED FOR IDENTIFIED MISSING SOURCE PATHS.
+TASK 01E.1 C++ SOURCE: NOT FOUND IN THE RECORDED SOURCE-DISCOVERY ATTEMPT.
+BOUNDARY-WIDTH TEST: SOURCE INSPECTED; EXECUTION NOT ESTABLISHED.
+DOUBLE-ROUNDING TEST: SOURCE GENERATED / INSPECTED; EXECUTION NOT ESTABLISHED.
+C4 FLOATING-POINT AUDIT: SOURCE INSPECTED; arithmetic assertions and execution evidence insufficient for certification.
+
+XXVIII.7 COMPILER AND FLOATING-POINT ENVIRONMENT
+Compiler version and complete compiler flags are not fully verified for all relevant executions. The record does not justify assuming that specific flags were either present or absent.
+
+Control-register inspection alone is not equivalent to full certification of arithmetic rounding behavior. The exact floating-point environment, directed-rounding behavior, compiler transformations, and reproducibility of the build remain open where not supported by direct evidence.
+
+XXVIII.8 MACHINE AUDIT CONCLUSION
+The available evidence establishes several narrow source-level and test-specific findings. It does not establish a complete source-to-binary-to-output evidence chain or an independent end-to-end reproduction of the target construction.
+
+================================================================
+XXIX. CAPD INTERVAL VALIDATION REGISTER
+
+XXIX.1 CONSOLIDATED TEST STATUS
+CAPD 6.0.0 ODE SMOKE TEST: PASS — STATED SMOKE TEST ONLY.
+TEST 13A-R3: PASS — SPECIFIC INTERVAL MULTIPLICATION ONLY.
+TEST 13A OVERALL: OPEN / INCONCLUSIVE.
+SINGLE-BUMP TRANSFER CONSTRUCTION: PARTIAL AUDIT PASS — CERTIFICATION OPEN.
+BOUNDARY MAJORANT: CONDITIONALLY VALIDATED.
+PRELIMINARY EXP(U*H) SUBSET TEST: FAILED — HISTORICAL RESULT RETAINED.
+CORRECTED ONE-STEP SCALAR TEST: CONDITIONAL PASS — NARROW SCOPE.
+TASK 01E.1 LOCAL STATE ENCLOSURE: OPEN.
+TASK 01E.1 SOURCE / BUILD / OUTPUT PROVENANCE: OPEN.
+TASK 01E.2 RATIONAL POST-PROCESSING: ARITHMETIC PASS — CONDITIONAL ON INPUT ENCLOSURES.
+CAPD SOURCE TRACEABILITY: INCOMPLETE / PARTLY BLOCKED.
+FLOATING-POINT VERIFICATION: INCOMPLETE.
+INDEPENDENT FULL REPRODUCTION: NOT ESTABLISHED.
+GR-TRANSFER-06C CERTIFICATION: OPEN / INCONCLUSIVE.
+
+XXIX.2 REQUIRED VALIDATION CHAIN
+The target certification evidence must be traceable through the following chain:
+
+SOURCE FILES
+  -> SOURCE HASHES
+  -> CAPD VERSION / COMMIT
+  -> COMPILER VERSION / COMPLETE FLAGS
+  -> BUILD COMMAND AND ENVIRONMENT
+  -> BINARY HASH
+  -> EXECUTION INPUTS
+  -> RAW STDOUT / STDERR / EXIT CODES
+  -> RAW INTERVAL ENDPOINTS
+  -> INDEPENDENT ARITHMETIC CHECKS
+  -> ANALYTICAL PROOF OBLIGATIONS
+  -> INDEPENDENT REPRODUCTION
+  -> TARGET-SPECIFIC CERTIFICATION DECISION
+
+Every edge requires evidence. A missing edge is marked NOT ESTABLISHED.
+
+XXIX.3 REQUIRED IMPLEMENTATION INSPECTIONS
+- Concrete BasicOdeSolver / IOdeSolver implementation used by the target executable.
+- Concrete StepControl implementation and final-step selection logic.
+- encloseC0Map() implementation for the selected set and nonautonomous vector field.
+- Taylor model and local truncation remainder enclosure.
+- Interval dependency handling at every validated step.
+- Exact type and semantics of dynsys.getStep() in the executed path.
+- Relationship between interval time-step enclosure and returned state enclosure.
+- Source-to-binary-to-output provenance, compiler flags, CAPD build identity, and captured output.
+
+XXIX.4 CERTIFICATION LIMITS
+The current records do not authorize Newton correction or Krawczyk certification. Krawczyk inclusion has not been performed or established by the cited evidence. No root existence or uniqueness conclusion may be inferred.
+
+================================================================
+XXX. TEMPORARY OPEN-OBLIGATION REGISTER
+
+A. MATHEMATICAL
+- Complete the local validated-step and Taylor-remainder argument.
+- Verify all boundary and propagation estimates from certified input enclosures.
+- Recheck the complete error budget, including all boundary contributions and matrix entries.
+- Complete independent verification of the target-specific proof obligations.
+
+B. SOURCE / BUILD / MACHINE
+- Recover and identify all missing source files and build wrappers.
+- Record exact CAPD commit/version and build configuration.
+- Record compiler version and complete flags.
+- Verify interval types and rounding configuration.
+- Establish source-to-binary-to-output provenance.
+- Preserve source hashes, binary hashes, raw outputs, exit codes, and environment metadata.
+
+C. REPRODUCIBILITY
+- Rebuild from a clean, identified environment.
+- Rerun the target tests independently.
+- Export raw interval endpoints in machine-readable form.
+- Recompute post-processing and the complete error budget from raw outputs.
+- Keep numerical reference comparisons separate from interval validation.
+
+D. CERTIFICATION GATE
+Certification may be considered only after the target-specific mathematical obligations, interval semantics, machine implementation, provenance, and independent reproduction have been established. A tool smoke test or isolated arithmetic PASS cannot substitute for this gate.
+
+================================================================
+XXXI. FINAL TEMPORARY STATUS — 2026-11-09
+
+DOCUMENT STATUS:
+v2.3 TEMPORARY AUDIT-STATUS UPDATE.
+
+PURPOSE:
+To record the current mathematical and machine-audit state while OMEGA-ISOP validation and certification remain in progress.
+
+MATHEMATICAL AUDIT:
+PARTIAL; SPECIFIC IDENTITIES AND ARITHMETIC CHECKS ESTABLISHED WITH THEIR STATED CONDITIONS.
+
+MACHINE / SOURCE AUDIT:
+PARTIAL; SOME SOURCE-LEVEL FINDINGS AND TEST-SPECIFIC EXECUTION RESULTS RECORDED.
+
+CAPD TOOL VALIDATION:
+PARTIAL POSITIVE EVIDENCE.
+
+INTERVAL VALIDATION OF TARGET CONSTRUCTION:
+INCOMPLETE.
+
+GR-TRANSFER-06C MATHEMATICAL CERTIFICATION:
+OPEN / INCONCLUSIVE.
+
+INDEPENDENT FULL SOURCE / BUILD / RUN REPRODUCTION:
+NOT ESTABLISHED.
+
+ROOT EXISTENCE / UNIQUENESS:
+NOT PROVED BY THE CURRENT EVIDENCE REGISTER.
+
+KRAWCZYK CERTIFICATION:
+NOT AUTHORIZED / NOT PERFORMED.
+
+GLOBAL OMEGA-ISOP CERTIFICATION:
+NOT GRANTED.
+
+UNIVERSALITY:
+NOT ESTABLISHED.
+
+FROZEN CORE:
+PRESERVED / UNCHANGED.
+
+EXISTING CE-V ARCHITECTURE:
+UNCHANGED.
+
+CE-V-07:
+RESERVED.
+
+OTHER INDEPENDENT RESEARCH ARCHIVES:
+OUTSIDE THE SCOPE OF THIS UPDATE; NOT MODIFIED.
+
+CANONICAL STATUS:
+THIS IS A TEMPORARY AUDIT-STATUS RECORD, NOT A FINAL CERTIFICATION OR A CLAIM OF COMPLETED VALIDATION.
+
+FINAL CONTROL PRINCIPLE
+
+A recorded computation is not independent reproduction.
+A numerical cross-check is not interval proof.
+An interval output is not automatically a validated enclosure.
+A source-level finding is not proof of runtime behavior.
+A tool smoke test is not target-construction certification.
+A conditional mathematical result is not a universal theorem.
+A partial audit pass is not global certification.
+
+The purpose of this Volume V update is to preserve the actual state of the OMEGA-ISOP mathematical and machine audit without overstating what has been established.
+
+END OF VOLUME V v2.3 TEMPORARY AUDIT-STATUS UPDATE
+
+================================================================
+END OF v2.4 BASE BODY, INCLUDING APPENDICES A AND B. APPENDIX C FOLLOWS AS AN ADDITIVE CONTROLLED RECORD.
+================================================================
+
+================================================================
+APPENDIX C
+COMPLETED WORK PRODUCTS AND SCOPE-LIMITED RESULTS REGISTER
+REVISION: C-1.0
+INTEGRATION DATE: 2026-11-14
+DOCUMENT ROLE: ADDITIVE CONTROLLED RESEARCH RECORD
+STATUS: SCOPE-LIMITED; NOT A CERTIFICATION CLAIM
+================================================================
+
+C.1 PURPOSE, AUTHORITY, AND EVIDENCE RULE
+
+This Appendix records work products and narrowly bounded results available for the 2026-11-14 integration. It is additive. It does not rewrite Sections XXVI-XXXII, Appendix A, or Appendix B, and it does not replace primary technical sources.
+
+The classifications below distinguish analytical identities, exact algebraic checks, conditional arithmetic, recorded computational outputs, source-inspection findings, and open proof obligations. A result is not promoted merely because it is listed here.
+
+Where a statement depends on supplied interval inputs or historical notebook output, that dependency remains explicit. No statement in this Appendix establishes independent end-to-end reproduction of the target CAPD construction.
+
+C.2 ANALYTICAL LIOUVILLE INVARIANT
+
+For the stated exact first-order linear system
+
+x'(t) = A(t) x(t),
+
+with trace(A(t)) = 0 on the interval under consideration, Liouville's formula gives
+
+det(M(t)) = det(M(t0)) * exp(integral(t0,t) trace(A(s)) ds).
+
+Consequently, if the fundamental matrix is initialized with det(M(t0)) = 1, then
+
+det(M(t)) = 1.
+
+ASSUMPTION / DOMAIN REQUIREMENT:
+For the stated single-bump system, the coefficient matrix A_q(t) is continuous on the finite integration interval because phi_2(t) is continuous under the stated piecewise definition. Continuity is sufficient for existence and uniqueness of the fundamental matrix and for application of Liouville's formula on that interval. More generally, local integrability of the matrix entries is a standard sufficient condition for the corresponding absolutely continuous fundamental matrix and Liouville identity. The primary analytical source remains authoritative for the exact system definition and domain.
+
+CLASSIFICATION:
+ANALYTICAL IDENTITY, CONDITIONAL ON THE STATED LINEAR-SYSTEM AND EXISTENCE ASSUMPTIONS.
+
+LIMIT:
+This identity concerns the exact fundamental matrix. It does not certify a particular interval enclosure, CAPD implementation, local solver step, or source-to-output provenance chain.
+
+C.3 TRANSFER-MATRIX COMPOSITION
+
+The free-propagation matrix is
+
+F(s) = [[1,s],[0,1]].
+
+For
+
+M_core = [[a,b],[c,d]],
+
+the construction uses the ordered composition
+
+M_full = F(beta) * M_core * F(alpha).
+
+The resulting entries are
+
+m11_full = a + beta*c
+m21_full = c
+m22_full = d + alpha*c
+m12_full = b + alpha*a + beta*(d + alpha*c).
+
+The multiplication order is part of the construction and must be preserved. These expressions are an algebraic composition identity; they do not by themselves validate the interval enclosure of M_core or the complete target construction.
+
+CLASSIFICATION:
+EXACT ALGEBRAIC IDENTITY.
+
+C.4 RECORDED CAPD TOOL-LEVEL AND TEST-SPECIFIC RESULTS
+
+The following statuses are carried forward without extension of scope:
+
+1. CAPD 6.0.0 ODE SMOKE TEST:
+PASS for the stated minimal smoke test y' = y, y(0) = 1, over [0,1]. This is a tool-level smoke test only. It is not validation of the GR-TRANSFER-06C target construction.
+
+2. TEST 13A-R3:
+PASS for the specific recorded interval multiplication test only. It does not certify all interval arithmetic operations, directed rounding generally, or TEST 13A as a whole.
+
+3. TEST 13A OVERALL:
+OPEN / INCONCLUSIVE.
+
+4. PRELIMINARY EXP(U*H) SUBSET TEST:
+FAILED. The failed preliminary assertion remains part of the test history and must not be removed or rewritten as a pass.
+
+5. CORRECTED ONE-STEP SCALAR COMPARISON:
+CONDITIONAL PASS for the stated narrow one-step comparison using exp(z) <= 1 + 2*z on the explicitly stated domain 0 <= z <= 1/2. This does not establish the complete transfer construction or the target-specific local validated-step argument.
+
+6. RATIONAL POST-PROCESSING:
+ARITHMETIC CHECK PASSED CONDITIONAL ON THE SUPPLIED INTERVAL INPUTS AND THE STATED ANALYTICAL ESTIMATES. It does not independently validate the origin or correctness of those input enclosures.
+
+C.5 RATIONAL BOUNDARY ESTIMATE AND S48 TRACEABILITY
+
+The recorded parameter relations include
+
+alpha = 227/700
+beta = 977/700
+CORE_LENGTH = 32/25
+rho = eta/w = 1/65
+r_max = 2*rho - rho^2 = 129/4225
+1/r_max = 4225/129.
+
+The recorded exponential estimate is expressed using a positive rational Taylor partial sum S48:
+
+exp(-4225/129) < 1/S48(4225/129) < 6e-15.
+
+The exact definition of S48, the indexing convention for its terms, and the derivation of the inequality must remain traceable to the primary source that defines and proves the estimate. This Appendix does not claim a fresh independent proof of that Taylor bound. Until the exact source definition and derivation are linked and checked, the S48 statement is classified as a recorded rational post-processing assertion, conditional on its source derivation.
+
+C.6 SOURCE-LEVEL INSPECTION BOUNDARIES
+
+The available audit record reports source-level inspection of the following CAPD time-handling paths: TimeRange, C0Set, C0DoubletonSet::move(), TimeMap, and the inspected StepControl path. The narrow finding is that interval-valued time is retained and passed through the inspected path rather than being replaced automatically by its midpoint.
+
+This finding is limited to the inspected source paths. It does not establish that the returned state enclosure contains every exact solution of the target nonautonomous field.
+
+The following remain open dependencies for target-construction certification, unless separately established by a source-linked audit record:
+- the concrete BasicOdeSolver / IOdeSolver execution path;
+- the concrete StepControl path used by the target executable, including final-step selection;
+- encloseC0Map() for the selected set and nonautonomous field;
+- the local Taylor model and remainder enclosure;
+- interval dependency handling across the validated steps;
+- the exact type and semantics of dynsys.getStep() in the executed path;
+- the relationship between the interval time-step enclosure and the returned state enclosure;
+- source-to-binary-to-output provenance for the target run.
+
+CLASSIFICATION:
+SOURCE-LEVEL FINDING FOR THE INSPECTED PATHS; TARGET STATE-ENCLOSURE VALIDATION OPEN.
+
+C.7 CURRENT CAPD CERTIFICATION BOUNDARY
+
+CAPD STATUS:
+PARTIAL AUDIT PASS; CERTIFICATION OPEN.
+
+INDEPENDENT FULL SOURCE / BUILD / RUN REPRODUCTION:
+NOT ESTABLISHED.
+
+LOCAL STATE ENCLOSURE FOR THE TARGET CONSTRUCTION:
+OPEN.
+
+ROOT EXISTENCE / UNIQUENESS:
+NOT PROVED BY THE CURRENT EVIDENCE REGISTER.
+
+KRAWCZYK CERTIFICATION:
+NOT PERFORMED; NOT AUTHORIZED BY THE CURRENT RECORD.
+
+GR-TRANSFER-06C MATHEMATICAL CERTIFICATION:
+OPEN / INCONCLUSIVE.
+
+GLOBAL OMEGA-ISOP CERTIFICATION:
+NOT GRANTED.
+
+UNIVERSALITY:
+NOT ESTABLISHED.
+
+No tool smoke test, isolated interval arithmetic pass, algebraic identity, rational post-processing check, or source-level observation may be substituted for target-specific mathematical validation and independent reproduction.
+
+C.8 DOCUMENT AND EVIDENCE TRACEABILITY REQUIREMENT
+
+A unified Source and Evidence Traceability Register remains an OPEN administrative requirement. For each material claim, it should record, where applicable:
+- claim identifier and exact claim wording;
+- source filename, version, and exact source location;
+- SHA-256 of the exact source bytes, only where actually computed;
+- repository commit or CAPD source identity, where established;
+- compiler identity, complete flags, build command, and environment identifier, where established;
+- binary filename and hash, where available;
+- execution input identifiers and raw stdout / stderr / exit codes;
+- raw interval-output filename and hash, where available;
+- evidence class and current status;
+- unresolved dependencies and the person/process responsible for the next verification step.
+
+Missing values must be marked NOT RECORDED, NOT VERIFIED, or NOT AVAILABLE, as appropriate. No hash, build identifier, source path, or provenance link is to be inferred or fabricated. The register is not considered complete merely because its schema is defined.
+
+C.9 APPENDIX C FINAL CLASSIFICATION
+
+Appendix C is an additive record of completed work products and scope-limited results. It does not constitute independent mathematical certification, target-construction certification, a universal theorem, a CE-V integration decision, or a modification of the Frozen Core.
+
+FROZEN CORE: PRESERVED / UNCHANGED.
+VOLUME V: ACTIVE RESEARCH ARCHITECTURE.
+CE-V-07: RESERVED.
+CAPD: PARTIAL AUDIT PASS; CERTIFICATION OPEN.
+GR-TRANSFER-06C: OPEN / INCONCLUSIVE.
+UNIVERSALITY: NOT ESTABLISHED.
+GLOBAL OMEGA-ISOP CERTIFICATION: NOT GRANTED.
+
+END OF APPENDIX C
+================================================================
+END OF CONTROLLED VOLUME V v2.4-C-1.1 INTEGRATION
+================================================================
