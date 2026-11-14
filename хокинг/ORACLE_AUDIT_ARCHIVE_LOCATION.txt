@@ -1,0 +1,19 @@
+OMEGA-ISOP — ORACLE AUDIT ARCHIVE LOCATION
+Date: 2026-11-14
+Status: LOCATION RECORDED
+
+The original archive is stored in ChatGPT Library.
+
+Exact filename:
+OMEGA_ISOP_ORACLE_AUDIT.zip
+
+Library path:
+/OMEGA_ISOP_ORACLE_AUDIT.zip
+
+The archive was uploaded to the Library and its ZIP integrity check completed successfully (no corrupted entries reported).
+
+Operational note:
+Do not rerun Google Colab code merely to retrieve or extract this archive. The Library copy is the available source archive. Extract it only when an actual GitHub mirror or file-level inspection is required.
+
+Scope clarification:
+This entry records the archive's location in ChatGPT Library. It does NOT claim that the ZIP archive or its extracted contents have been copied into this GitHub directory, and it does NOT constitute mathematical certification or independent oracle validation.
