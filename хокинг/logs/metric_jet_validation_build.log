@@ -1,0 +1,40 @@
+OMEGA-ISOP
+PHASE III-B.4.5.3 — METRICJET VALIDATION BUILD LOG
+
+DATE: 2026-11-14
+ENVIRONMENT:
+- GNU C++ compiler 14.2.0
+- C++17
+- CMake target: test_metric_jet_validation
+- Strict compiler warnings enabled by project CMake configuration:
+  -Wall -Wextra -Wpedantic -Wconversion -Wsign-conversion -Werror
+
+COMMANDS:
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build --target test_metric_jet_validation --parallel 2
+./build/test_metric_jet_validation
+
+RESULT:
+- Configure: SUCCESS
+- Validation target compile/link: SUCCESS
+- Validation executable: 15/15 checks passed
+- Failures: 0
+
+TEST SCOPE:
+- Four independent L1 symmetry checks.
+- Expected comparison counts: 6, 24, 96, 96.
+- Detection of injected violations in g, dg, and both ddg symmetry classes.
+- L2 comparison of all 64 dg entries and all 256 ddg entries.
+- Detection of injected dg and ddg reference mismatches.
+
+LIMITATION:
+This log records the validation target only. The original storage test
+target was not rebuilt in this validation-target run. The L2 positive
+fixture copies the test jet's derivatives into the reference to test the
+comparison path; it is not an independent derivative derivation and does
+not prove that dg or ddg are actual derivatives of g.
+
+No physical MetricProvider, curvature engine, CAPD backend, interval
+validation, or mathematical certification is claimed.
+
+END OF LOG
