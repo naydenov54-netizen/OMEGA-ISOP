@@ -1,12 +1,13 @@
 OMEGA-ISOP — HAWKING WORKSPACE
 ПАПКА: хокинг
 ДАТА НА СЪЗДАВАНЕ: 2026-11-14
-РАБОТЕН ЕТАП: PHASE III-B.4.5.2 — GENERIC C++ TENSOR STORAGE
+РАБОТЕН ЕТАП: PHASE III-B.4.5.3 — METRICJET INVARIANTS AND VALIDATION
 
 ПРЕДНАЗНАЧЕНИЕ
 Работен пакет за математическата сертификация и независимата
-изчислителна реконструкция на OMEGA-ISOP. Текущият изпълним компонент
-е ограничен до backend-independent fixed-size tensor storage.
+изчислителна реконструкция на OMEGA-ISOP. Работата се разделя на
+отделни слоеве: tensor storage, MetricJet validation, Tensor Core,
+диагностичен backend и бъдещ CAPD interval backend.
 
 АРХИВ И ДОГОВОРИ
 00_ARCHIVE_2026-11-14.txt
@@ -15,21 +16,19 @@ OMEGA-ISOP — HAWKING WORKSPACE
 03_SOURCE_AND_CONTINUATION_INDEX.txt
 04_CHECKPOINT_LOG.txt
 
-III-B.4.5.2 — РЕАЛИЗАЦИЯ
+III-B.4.5.2 — GENERIC C++ TENSOR STORAGE
 05_GENERIC_CPP_TENSOR_STORAGE_SPEC_AND_IMPLEMENTATION.txt
-  Описание на типовете, индексацията, ограниченията и статуса.
 06_TENSOR_STORAGE_TEST_REPORT.txt
-  Обобщен build/test отчет и граници на доказателствата.
 include/omega/tensor_storage.hpp
-  C++17 backend-independent fixed-size storage templates.
 tests/test_tensor_storage.cpp
-  Самостоятелни тестове за индексация и съхранение.
-CMakeLists.txt
-  Минимална CMake конфигурация.
 logs/build_test.log
-  Пълен реален configure/build/CTest/direct-test log.
 logs/readback_rebuild.log
-  Независима повторна компилация и изпълнение на точните изтеглени от GitHub изходни файлове.
+
+III-B.4.5.3 — METRICJET INVARIANTS AND VALIDATION
+07_METRICJET_INVARIANTS_AND_VALIDATION.txt
+include/omega/metric_jet_validation.hpp
+tests/test_metric_jet_validation.cpp
+CMakeLists.txt registers both storage and validation test executables.
 
 КООРДИНАТИ И СТРУКТУРИ
 N=4; X=(T,x,theta,phi); 0=T, 1=x, 2=theta, 3=phi.
@@ -45,10 +44,15 @@ Mathematical certification: NOT ESTABLISHED.
 Energy normalization C*r0^2: PENDING.
 
 ВАЖНО
-C++/double е диагностичен backend. Текущата реализация е само
-tensor storage, не Tensor Core. Не са имплементирани кривинни тензори,
-CAPD, interval arithmetic или сертификати. Аналитичният Einstein еталон
-не е вход към storage или реконструкционен engine.
+C++/double е диагностичен backend. III-B.4.5.2 реализира само
+tensor storage. III-B.4.5.3 добавя L1 алгебрична симетрия и L2
+сравнение с независимо подаден derivative reference. L2 сравнението
+не доказва правилността на самия reference. Физическата производна
+консистентност все още изисква независим аналитичен/символен/AD oracle.
+L3 тензорните тъждества не са имплементирани. CAPD и интервална
+сертификация не са имплементирани.
 
-Следваща стъпка: III-B.4.5.3 — независим Tensor Core, започвайки от
-общи операции и валидирани тестове, без да се прескача договорът.
+Следваща стъпка: завършване на независимия derivative oracle за
+MetricProvider, след което отделна реализация на математическите
+тензорни тъждества. Външен одит се планира след завършване на
+проверим пакет, не върху отделни фрагменти.
