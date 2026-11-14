@@ -603,3 +603,64 @@ Next action:
 3. Independently review the ORACLE before implementing the engine.
 
 END OF CP-20
+
+
+CP-21 — EXACT READ-BACK BUILD AND TEST EXECUTION
+Date: 2026-11-14
+Tested source commit:
+46c56cab99d9d5dec17eadceca306a71b0dac8a5
+Tested source tree:
+e49db05757a4767a84c804559bbe787d955df615
+Execution environment: Google Colab; g++ 13.3.0; CMake 3.31.10;
+Release configuration.
+
+The exact expected commit and tree identifiers matched the checked-out
+revision.
+
+Results:
+- CMake configure: exit 0.
+- CMake build: exit 0.
+- CTest: 3/3 passed, 0 failed.
+- test_tensor_storage: direct exit 0.
+- test_metric_jet_validation: direct exit 0.
+- test_metric_provider: direct exit 0.
+
+All three currently registered CMake test targets passed.
+
+The user-supplied execution report includes SHA-256 values for:
+CMakeLists.txt, all three implementation headers, and all three test
+sources. These values are preserved in:
+хокинг/10_CP21_EXACT_READBACK_BUILD_TEST_REPORT.txt
+
+Evidence limitations:
+- The submitted environment output does not include complete compiler
+  flags or the full CMakeCache.
+- The Colab cell invoked the build command twice; the second build log
+  and exit code were preserved. The first invocation's separate raw log
+  and exit code were not preserved by that cell.
+- The raw logs remain reported in the Colab audit-output directory;
+  they were not committed individually to GitHub in CP-21.
+- The reported SHA-256 manifest was not independently cross-checked
+  against a second source retrieval in this checkpoint.
+
+The generated build/ and audit-output/ directories are local untracked
+artifacts and are not part of the source commit.
+
+Conclusion:
+CP-21 closes the baseline build gate for the exact CP-20 source snapshot.
+This is a machine build/test result only. It does not establish formula
+correctness, independent ORACLE provenance, curvature reconstruction,
+interval validation, CAPD certification, or mathematical certification.
+
+Next step:
+CP-22 — preserve and independently review the standalone symbolic
+ORACLE and its provenance before curvature-engine implementation.
+
+Frozen Core: PRESERVED / UNCHANGED.
+Volume V: ACTIVE RESEARCH ARCHITECTURE / UNCHANGED.
+CE-V-07: RESERVED.
+Universality: NOT ESTABLISHED.
+CAPD certification: NOT CLAIMED.
+Mathematical certification: NOT CLAIMED.
+
+END OF CP-21
