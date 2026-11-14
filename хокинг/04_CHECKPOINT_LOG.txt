@@ -235,3 +235,59 @@ CP-16 supersedes the 13/13 and CTest wording in CP-15. No earlier source,
 archive, or evidence file is deleted.
 
 END OF CP-16
+
+
+CP-17 — PHASE III-B.4.5.4 ANALYTIC METRIC PROVIDER
+Date: 2026-11-14
+Scope: analytic double-precision construction of the locked metric jet.
+
+Added:
+- include/omega/metric_provider.hpp
+- tests/test_metric_provider.cpp
+- 08_METRIC_PROVIDER_ANALYTIC_REFERENCE.txt
+
+Updated:
+- CMakeLists.txt: registered test_metric_provider and its CTest entry.
+- README.md: recorded provider scope and limitations.
+- 03_SOURCE_AND_CONTINUATION_INDEX.txt: recorded completed source implementation and next verification gate.
+
+Commits:
+- MetricProvider header: a232060fd4e56a1a41ac22695c59fef9deb3661a
+- Provider tests: 17aa96ee1aacf485a8ef1f471a8f7690304cae24
+- CMake registration: a610bebfac79f0e5a5c1b81c91140644d3658d9d
+- Analytic reference note: 9f0be5d3a29e21e8fd80947125686a3e4a044036
+- README update: 2f9ade34ba64775c95a30af884d46218aad7fc28
+- Continuation index update: 1d8c191be38371bbed2bb2571011f0c4f4756a51
+
+Analytic derivative formulas implemented:
+B_x = 2*q*(x-1)/x^3
+B_xx = -4*q/x^3 + 6*q/x^4
+The nonzero dg and ddg entries are recorded in
+08_METRIC_PROVIDER_ANALYTIC_REFERENCE.txt. All unspecified entries are
+initialized to zero. Existing tensor storage types and coordinate order
+are reused without architectural changes.
+
+Preliminary local isolated diagnostic:
+- GNU C++ 14.2.0
+- C++17
+- strict warnings: -Wall -Wextra -Wpedantic -Wconversion -Wsign-conversion -Werror
+- provider logic and corresponding isolated 10-check harness compiled.
+- 10/10 checks passed; failures=0.
+
+Evidence limitation:
+This preliminary harness is not a clean build of the exact full committed
+GitHub read-back tree. It is not recorded as a committed-source build log.
+The exact read-back build, full CTest run, and byte-for-byte source
+verification remain pending. No CAPD, interval validation, or
+mathematical certification is claimed.
+
+STATUS:
+MetricProvider source: IMPLEMENTED.
+Provider tests: ADDED.
+Preliminary isolated harness: PASS 10/10.
+Exact committed-source build: NOT YET VERIFIED.
+Full project CTest: NOT YET VERIFIED.
+Independent mathematical audit: PENDING.
+CAPD / interval certification: NOT ESTABLISHED.
+
+END OF CP-17
