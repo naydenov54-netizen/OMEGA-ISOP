@@ -87,6 +87,15 @@ double expected_ddg(const omega_isop::MetricProviderParameters& p,
     return 0.0;
 }
 
+bool throws_overflow(const omega_isop::MetricProviderParameters& p) {
+    try {
+        (void)omega_isop::MetricProvider::evaluate(p);
+    } catch (const std::overflow_error&) {
+        return true;
+    }
+    return false;
+}
+
 bool throws_domain(const omega_isop::MetricProviderParameters& p) {
     try {
         (void)omega_isop::MetricProvider::evaluate(p);
@@ -173,6 +182,12 @@ int main() {
           "theta coordinate pole is rejected");
     check(throws_domain(MetricProviderParameters{0.4, 0.0, 3.0, 2.0, 0.7}),
           "non-positive Rm is rejected");
+    check(throws_overflow(MetricProviderParameters{0.4, 1.0e-300, 3.0, 2.0, 0.7}),
+          "underflowed Rm square is rejected");
+    check(throws_overflow(MetricProviderParameters{0.4, 2.0, 1.0e-300, 2.0, 0.7}),
+          "underflowed c square is rejected");
+    check(throws_overflow(MetricProviderParameters{0.4, 2.0, 3.0, 2.0, 1.0e-300}),
+          "underflowed sin(theta) square is rejected");
 
     std::cout << "SUMMARY: " << (tests - failures) << "/" << tests
               << " checks passed; failures=" << failures << '\n';
