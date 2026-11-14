@@ -291,3 +291,92 @@ Independent mathematical audit: PENDING.
 CAPD / interval certification: NOT ESTABLISHED.
 
 END OF CP-17
+
+
+
+CP-18 — ORACLE INDEPENDENCE TEST: PIPELINE-LEVEL AUDIT CHECKPOINT
+Date/time: 2026-11-14, 19:53 UTC
+Base revision inspected: 15cc95ded8b87d86cd3c7a878ff45213211f8a73
+Working branch receiving this checkpoint: main
+
+Purpose:
+Record the current audit findings as an accumulating checkpoint, not as a
+completed scientific result or a certification claim.
+
+Scope actually inspected:
+- 02_FULL_PIPELINE_CONTRACT_DATA_MODEL.txt
+- 04_CHECKPOINT_LOG.txt
+- CMakeLists.txt
+- tensor_storage.hpp
+- metric_jet_validation.hpp
+- metric_provider.hpp
+- the previously inspected MetricProvider and MetricJet validation tests
+- the corresponding implementation and test-status descriptions.
+
+Findings:
+1. The documented dependency graph is:
+   MetricProvider -> MetricJet -> InverseMetricEngine ->
+   MetricDifferentiator -> ChristoffelEngine -> RiemannEngine ->
+   RicciEngine -> RicciScalarEngine -> EinsteinEngine ->
+   IndexTransformer -> ValidationEngine -> AuditReport.
+   This is an architectural contract, not evidence that every engine exists.
+
+2. The inspected CMake configuration registers test targets for:
+   tensor storage, MetricJet validation, and MetricProvider.
+   No curvature-engine test target was present in the inspected CMake file.
+
+3. The inspected implementation scope establishes:
+   - generic tensor storage;
+   - algebraic MetricJet validation and reference comparison;
+   - analytic double-precision MetricProvider.
+   It does not establish a completed curvature reconstruction pipeline.
+
+4. MetricJet L2 positive reference fixtures copied from the tested jet are
+   comparator-plumbing tests, not independent derivative derivations.
+
+5. MetricProvider test-side reference formulas require independent
+   mathematical provenance review. Similarity/separation of source routines
+   alone does not establish independent derivation.
+
+6. The contract states that analytical Einstein values from III-B.3 must not
+   be inputs to the reconstruction engine and may be used only by an
+   independent test harness. This rule is documented, but executable
+   enforcement cannot be verified before the reconstruction engines exist.
+
+7. A previous conversational claim of 320/320 symbolic comparisons has no
+   reproducible code/input/log artifact identified in the inspected evidence.
+   It remains PREVIOUSLY REPORTED; REPRODUCIBILITY NOT VERIFIED.
+
+Evidence limitations:
+- This was not a complete recursive repository-tree audit.
+- The conclusion is limited to the exact files listed above.
+- No claim is made that no other engine or oracle files exist anywhere in
+  the repository.
+- No full build of the exact complete repository tree was performed here.
+- No CAPD or interval certification was performed.
+- No SHA-256 byte-for-byte comparison between the ZIP inventory and all
+  GitHub read-back files was performed in this checkpoint.
+
+Checkpoint status:
+[PASS] The architectural contract and current implemented layers were read.
+[PASS] The inspected CMake file identifies the current registered test targets.
+[OPEN] Full repository tree inventory and source search for all curvature engines.
+[NOT ESTABLISHED] End-to-end pipeline independence.
+[NOT VERIFIED] Independent provenance of test-side analytic references.
+[NOT VERIFIED] Reproducibility of the reported 320/320 symbolic comparison.
+[NOT CLAIMED] CAPD certification or mathematical certification.
+
+Next concrete step:
+Complete a recursive tree inventory at the current main commit, locate and
+inspect every candidate engine/oracle source and test, then decide whether
+the pipeline is absent, partial, or present but unregistered. Do not implement
+or modify engine code until this inventory and source audit are complete.
+
+Architecture safeguards remain unchanged:
+Frozen Core PRESERVED.
+Volume V ACTIVE RESEARCH ARCHITECTURE.
+CE-V-07 RESERVED.
+Universality NOT ESTABLISHED.
+CAPD CERTIFICATION NOT CLAIMED.
+
+END OF CP-18
