@@ -1,0 +1,214 @@
+OMEGA-ISOP — ORACLE / CURVATURE PIPELINE AUDIT
+CP-21 — ARCHIVE-TO-COMMIT BYTE-LEVEL RECONCILIATION
+DATE: 2026-11-14
+STATUS: ACCUMULATING AUDIT CHECKPOINT
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+TARGET COMMIT: e36a8e673dff3eabba5c24c648c7e14e6e38bfc7
+AUDIT BRANCH: audit/oracle-curvature-cp20-2026-11-14
+BASE CHECKPOINT: CP-20
+SCOPE: ZIP ARCHIVE / GIT BLOB IDENTITY / SOURCE-TREE COMPLETENESS
+
+1. PURPOSE
+Determine whether the 11 selected files inside OMEGA_ISOP_ORACLE_AUDIT.zip are byte-identical to their corresponding paths in the fixed target commit e36a8e673dff3eabba5c24c648c7e14e6e38bfc7. Also inspect the complete returned repository tree for additional ORACLE / curvature implementation source candidates outside the original 11-file archive selection.
+
+2. ARCHIVE IDENTITY AND INTEGRITY
+Library archive selected: OMEGA_ISOP_ORACLE_AUDIT.zip
+A duplicate Library copy OMEGA_ISOP_ORACLE_AUDIT(1).zip was previously found.
+Both archive copies have identical SHA-256:
+7ddd84f366e61996ee836ecf87fe9692dffbb65f6ac5ae0170e4fda50c1b9b19
+Archive size: 26260 bytes.
+ZIP integrity test: PASS.
+Archive contains 12 entries: one inventory JSON and 11 selected files.
+Internal inventory manifest commit: 15cc95ded8b87d86cd3c7a878ff45213211f8a73.
+Target audit commit: e36a8e673dff3eabba5c24c648c7e14e6e38bfc7.
+These commit identifiers differ. The mismatch is a provenance discrepancy in the manifest metadata; it does not, by itself, establish that the selected file bytes differ from the target commit.
+
+3. BYTE-LEVEL RECONCILIATION METHOD
+For each archived file, the raw bytes were read from the ZIP. The Git object identifier was independently computed using the canonical Git blob preimage:
+"blob " + decimal_byte_length + NUL + raw_file_bytes
+The resulting SHA-1 was compared with the blob SHA returned by GitHub for the exact corresponding path at the fixed target commit.
+This compares content bytes, not filenames, timestamps, file sizes alone, or commit labels.
+All 11 Git blob identifiers matched exactly.
+
+4. FILE-BY-FILE RESULTS
+Status for every row: BYTE-IDENTICAL.
+
+A01
+Archive path: audits/OI-STAGE-01-INDEPENDENT-AUDIT-IA-03-QUOTIENT-METRIC-2026-11-12.txt
+Target path: audits/OI-STAGE-01-INDEPENDENT-AUDIT-IA-03-QUOTIENT-METRIC-2026-11-12.txt
+Bytes: 12205
+Archive manifest SHA-256: 3b11d2fdfbe9f2ad420a700af29d011210cfee61a2dc6a5d1bae25989c28fd5c
+Git blob SHA-1: d382b93d8f8b597d310a38f42ead63583142a0e8
+Result: IDENTICAL
+
+A02
+Archive path: audits/OI-STAGE-02-S2-04C-05-CONCRETE-DIAGRAM-VALIDATION-2026-11-11.txt
+Target path: audits/OI-STAGE-02-S2-04C-05-CONCRETE-DIAGRAM-VALIDATION-2026-11-11.txt
+Bytes: 8841
+Archive manifest SHA-256: b0dfe23c07091a642873f7ea9af64b25846608b768fa29bff8548822741fc6a2
+Git blob SHA-1: 64da111e6f8f999c5164cff2344589b3370fda33
+Result: IDENTICAL
+
+A03
+Archive path: audits/OI-STAGE-01-INDEPENDENT-AUDIT-IA-02-PSEUDOMETRIC-2026-11-11.txt
+Target path: audits/OI-STAGE-01-INDEPENDENT-AUDIT-IA-02-PSEUDOMETRIC-2026-11-11.txt
+Bytes: 5144
+Archive manifest SHA-256: a2425d9e506e9dfe3a9c91ede63aad8082654f0177fb074b2c6fd06782566b22
+Git blob SHA-1: 11b7b3dc99f23d8af83d21f0175f550a1d2ad881
+Result: IDENTICAL
+
+A04
+Archive path: хокинг/01_METRIC_JET_INTERFACE_SPECIFICATION.txt
+Target path: хокинг/01_METRIC_JET_INTERFACE_SPECIFICATION.txt
+Bytes: 7411
+Archive manifest SHA-256: 8b45c116ad599a20d4678d52511371e5bc1cbdadd07f2f5a6a6c1f16e4363619
+Git blob SHA-1: 32b700688e135a356111eaee4ff53bf73d121fbe
+Result: IDENTICAL
+
+A05
+Archive path: хокинг/08_METRIC_PROVIDER_ANALYTIC_REFERENCE.txt
+Target path: хокинг/08_METRIC_PROVIDER_ANALYTIC_REFERENCE.txt
+Bytes: 3954
+Archive manifest SHA-256: 135f3cb74b01a3f094fbc4b2533e6d74364dfce6de2730b53575953906897613
+Git blob SHA-1: 167e3c071d6065135354b2ba8758029f19c24f07
+Result: IDENTICAL
+
+A06
+Archive path: хокинг/07_METRICJET_INVARIANTS_AND_VALIDATION.txt
+Target path: хокинг/07_METRICJET_INVARIANTS_AND_VALIDATION.txt
+Bytes: 4672
+Archive manifest SHA-256: 2fc9b8dd608614776201a8cf93135f9e756863469a40e2a66ad0390acc47f4d8
+Git blob SHA-1: 87fe9fc4817a5ea18fe624a96aced184f25c4965
+Result: IDENTICAL
+
+A07
+Archive path: хокинг/tests/test_metric_provider.cpp
+Target path: хокинг/tests/test_metric_provider.cpp
+Bytes: 7721
+Archive manifest SHA-256: 9d816c02f2aa7fab62dcda9cc5b782692e27017b1884cef338ca962c982fce7e
+Git blob SHA-1: a6ceffe6628eeb3e036d0bfb0fed09071f5d2196
+Result: IDENTICAL
+
+A08
+Archive path: хокинг/tests/test_metric_jet_validation.cpp
+Target path: хокинг/tests/test_metric_jet_validation.cpp
+Bytes: 3793
+Archive manifest SHA-256: d7ff2f651e88ae13a05f4b3d6ccb2908194906ec3b15d0dfc82bb9d2a6a664ed
+Git blob SHA-1: 1c6ce329860f363812e2f6197e64728784add7b7
+Result: IDENTICAL
+
+A09
+Archive path: хокинг/logs/metric_jet_validation_build.log
+Target path: хокинг/logs/metric_jet_validation_build.log
+Bytes: 1380
+Archive manifest SHA-256: d3843dff68c82e3467f4c49c43017360ab1aa9e9989c0c73c8cd8d1d8b255e17
+Git blob SHA-1: 7d0341ca0df730577387aefacc855cc2aaf67a51
+Result: IDENTICAL
+
+A10
+Archive path: хокинг/include/omega/metric_jet_validation.hpp
+Target path: хокинг/include/omega/metric_jet_validation.hpp
+Bytes: 5653
+Archive manifest SHA-256: 6e816c5acbdcb36bfbc420e29d30370bf9fffe061fb1e5ada7cae1dca5c0ec6a
+Git blob SHA-1: ba8a56d21620ccd2d30b621c771b76278eef88c7
+Result: IDENTICAL
+
+A11
+Archive path: хокинг/include/omega/metric_provider.hpp
+Target path: хокинг/include/omega/metric_provider.hpp
+Bytes: 5527
+Archive manifest SHA-256: 60d1ff7f80f37f66ca77706b8b2cebf7a36683c5a2ebfd229cc550e391011e53
+Git blob SHA-1: 4e7514ebfc0ebfab4a05989b540ad3966d1c63d6
+Result: IDENTICAL
+
+TOTAL: 11/11 BYTE-IDENTICAL.
+No archived selected file was found to be missing, altered, or different at the target commit.
+
+5. SOURCE-TREE COMPLETENESS CHECK
+GitHub recursive tree queried at exact commit e36a8e673dff3eabba5c24c648c7e14e6e38bfc7.
+GitHub response: truncated=false.
+Total tree entries: 179.
+Files with source/notebook extensions (.cpp, .cc, .cxx, .hpp, .h, .py, .ipynb, .cu, .c): 7:
+- source-notebooks/Untitled44.ipynb
+- хокинг/include/omega/metric_jet_validation.hpp
+- хокинг/include/omega/metric_provider.hpp
+- хокинг/include/omega/tensor_storage.hpp
+- хокинг/tests/test_metric_jet_validation.cpp
+- хокинг/tests/test_metric_provider.cpp
+- хокинг/tests/test_tensor_storage.cpp
+
+The six C++ source/header/test files were fetched from the exact target commit and scanned for the terms:
+oracle, christoffel, riemann, ricci, einstein, curvature.
+No occurrences were found in these six files.
+The same keyword scan was applied to хокинг/CMakeLists.txt: no occurrences.
+The notebook source-notebooks/Untitled44.ipynb was inspected in the preceding audit phase: 28 cells and zero hits for the same keyword family.
+
+The recursive tree path scan returned one keyword-named path:
+хокинг/ORACLE_AUDIT_ARCHIVE_LOCATION.txt
+This is a location/reference text file, not an executable ORACLE implementation.
+No additional code-bearing source file with an ORACLE / Christoffel / Riemann / Ricci / Einstein / curvature name was identified in the complete returned tree.
+
+BOUNDARY: this is a repository-tree and source-extension audit at one fixed commit. It does not exclude code stored outside this repository, in untracked local workspaces, external archives, or in non-source document formats. It does not prove that no implementation exists anywhere.
+
+6. AUDIT FINDINGS
+AF-CP21-01 — ARCHIVE BYTE IDENTITY: PASS
+All 11 archived selected files are byte-identical to the corresponding paths at the fixed target commit.
+
+AF-CP21-02 — ARCHIVE MANIFEST PROVENANCE: OPEN / QUALIFIED
+The ZIP manifest records commit 15cc95ded8b87d86cd3c7a878ff45213211f8a73 rather than target commit e36a8e673dff3eabba5c24c648c7e14e6e38bfc7. However, the 11 selected files independently reconcile byte-for-byte to the target commit. The commit metadata discrepancy remains a provenance/documentation issue, not a content mismatch for these 11 files.
+
+AF-CP21-03 — ARCHIVE SELECTION COMPLETENESS: NOT ESTABLISHED
+The ZIP contains 11 selected files, while its manifest reports 162 files found. The 11-file archive is not a complete mirror of the repository inventory.
+
+AF-CP21-04 — ADDITIONAL ORACLE/CURVATURE IMPLEMENTATION IN TARGET TREE: NOT IDENTIFIED
+The complete non-truncated tree and all seven code/notebook-extension files were inspected as described above. No standalone ORACLE or curvature-engine implementation source was identified.
+
+AF-CP21-05 — EXTERNAL OR UNTRACKED IMPLEMENTATION: NOT DETERMINED
+This audit cannot establish absence outside the exact GitHub tree.
+
+7. CONSOLIDATED STATUS
+Archive integrity: PASS
+Duplicate ZIP identity: PASS
+Archive manifest internal file hashes: PASS (11/11, established in CP-20)
+Archive-to-target-commit byte reconciliation: PASS (11/11)
+Manifest commit provenance: OPEN / QUALIFIED
+Repository recursive tree completeness: PASS (truncated=false)
+Additional ORACLE/curvature source in inspected tree: NOT IDENTIFIED
+ORACLE mathematical independence: NOT ESTABLISHED
+Christoffel engine: NOT IDENTIFIED
+Riemann engine: NOT IDENTIFIED
+Ricci engine: NOT IDENTIFIED
+Einstein engine: NOT IDENTIFIED
+CAPD certification: NOT ESTABLISHED
+
+8. FACTS / NON-CLAIMS
+FACT: 11 archived files match the target commit byte-for-byte.
+FACT: the inventory manifest's commit identifier differs from the target commit.
+FACT: the recursive tree response is complete according to GitHub's truncated flag.
+FACT: only seven files in the tree have the inspected source/notebook extensions.
+NON-CLAIM: this does not prove universal absence of an ORACLE implementation.
+NON-CLAIM: byte identity does not prove mathematical correctness, independent derivation, or test execution.
+NON-CLAIM: this checkpoint does not certify CAPD or any curvature theorem.
+
+9. NEXT ACTIONS
+1. Resolve the manifest commit discrepancy by inspecting the source inventory generation procedure and the meaning of its commit_verified field.
+2. Determine why the manifest reports 162 files found while the ZIP packages only 11 selected files; recover the selection rules and any omitted candidate list if available.
+3. Inspect the referenced archive location and any external source bundle only if its concrete location and bytes are available.
+4. Continue mathematical independence review only after a real ORACLE implementation and its execution path are identified.
+5. Do not create replacement engines before the source inventory and provenance questions are resolved.
+
+10. ARCHITECTURAL SAFEGUARDS
+Frozen Core: PRESERVED.
+Volume V: ACTIVE RESEARCH ARCHITECTURE.
+CE-V-07: RESERVED.
+Universality: NOT ESTABLISHED.
+CAPD certification: NOT ESTABLISHED.
+Mathematical certification: NOT ESTABLISHED.
+
+No source code was modified.
+No archive was deleted, overwritten, or moved.
+No merge into main was performed.
+No scientific result was promoted.
+This is an accumulating audit checkpoint, not a final scientific COMMIT.
+
+END CP-21
