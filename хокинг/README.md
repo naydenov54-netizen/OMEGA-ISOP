@@ -69,3 +69,9 @@ GitHub read-back build на целия проект още не е извърш�
 на provider reference с независимия MetricJet кандидат и отделна
 реализация на математическите тензорни тъждества. Външен одит се планира след завършване на
 проверим пакет, не върху отделни фрагменти.
+
+
+III-B.4.5.5-A — CURVATURE ENGINE / INDEPENDENT ORACLE DESIGN
+09_CURVATURE_ENGINE_ORACLE_BOUNDARY_CP20.txt
+Status: DESIGN CHECKPOINT ONLY. No curvature engine implementation,
+new C++ test execution, CAPD validation or certification is claimed.
