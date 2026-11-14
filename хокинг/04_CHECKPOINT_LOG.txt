@@ -380,3 +380,177 @@ Universality NOT ESTABLISHED.
 CAPD CERTIFICATION NOT CLAIMED.
 
 END OF CP-18
+
+
+
+CP-19 — RECURSIVE REPOSITORY INVENTORY AND ORACLE / CURVATURE SOURCE AUDIT
+Date/time: 2026-11-14, 19:55 UTC
+Repository: naydenov54-netizen/OMEGA-ISOP
+Branch: main
+Exact inspected commit: e36a8e673dff3eabba5c24c648c7e14e6e38bfc7
+Recursive Git tree SHA: e36a8e673dff3eabba5c24c648c7e14e6e38bfc7
+GitHub tree response: truncated=false
+
+PURPOSE
+Complete the recursive repository inventory and inspect candidate source,
+test, notebook, build, contract and analytic-reference files before deciding
+whether the documented curvature pipeline and independent ORACLE exist.
+This is an accumulating audit checkpoint, not a scientific result,
+implementation completion, or certification claim.
+
+1. RECURSIVE INVENTORY
+GitHub recursive tree response at the exact commit reported:
+- 179 total tree entries;
+- 163 blob/file entries;
+- 16 directory entries;
+- truncated=false.
+The repository contains seven files with recognized source/notebook
+extensions:
+- source-notebooks/Untitled44.ipynb
+- хокинг/include/omega/metric_jet_validation.hpp
+- хокинг/include/omega/metric_provider.hpp
+- хокинг/include/omega/tensor_storage.hpp
+- хокинг/tests/test_metric_jet_validation.cpp
+- хокинг/tests/test_metric_provider.cpp
+- хокинг/tests/test_tensor_storage.cpp
+
+All 21 files under хокинг/ were enumerated from the recursive tree.
+The relevant source, test, CMake, log, contract, provider-reference,
+archive-location and continuation-index files were fetched from the
+exact inspected commit. GitHub tree response was complete according to
+its truncated=false field.
+
+2. IMPLEMENTED SOURCE FOUND
+The inspected C++ implementation consists of:
+- generic fixed-size tensor storage and MetricJet data structures;
+- MetricJet L1 algebraic symmetry validation;
+- MetricJet L2 comparison against a caller-supplied derivative reference;
+- analytic double-precision MetricProvider constructing g, dg and ddg
+  for the locked diagonal metric.
+
+No source implementation was found in the exact recursive tree for:
+InverseMetricEngine, MetricDifferentiator, ChristoffelEngine,
+RiemannEngine, RicciEngine, RicciScalarEngine, EinsteinEngine,
+IndexTransformer, or a complete AuditReport engine.
+
+The names occur in architectural documents and archived design material.
+Their occurrence in a contract or architecture list is not implementation
+evidence. The source-level conclusion is limited to this exact repository
+snapshot and the complete recursive tree returned by GitHub.
+
+3. ORACLE / ANALYTIC REFERENCE FINDINGS
+- tests/test_metric_provider.cpp contains separate expected_g,
+  expected_dg and expected_ddg functions.
+- These functions compare the provider's metric and derivative entries
+  against separately coded component formulas.
+- Separate functions and source locations do not prove independent
+  mathematical derivation or provenance. Both provider and test reference
+  remain subject to independent derivation review.
+- The provider test does not reconstruct Christoffel, Riemann, Ricci,
+  Ricci scalar or Einstein tensors.
+- The archived analytical Ricci/Einstein values are present in
+  хокинг/00_ARCHIVE_2026-11-14.txt and the full pipeline contract.
+  They are documented targets, not evidence of an executable independent
+  Einstein reconstruction engine.
+- The contract explicitly says analytical Einstein values from III-B.3
+  must not be inputs to the reconstruction engine and may be used only
+  by an independent test harness. Since the reconstruction engines were
+  not found in this tree, executable enforcement of that rule is
+  NOT VERIFIED.
+- source-notebooks/Untitled44.ipynb contains 28 cells, 27 code cells.
+  Its inspected code concerns Julia/TaylorModels, interval ODE and CAPD
+  boundary/package diagnostics. No curvature-engine or Einstein-oracle
+  implementation was found in its code-cell source.
+- No reproducible 320/320 symbolic Einstein comparison code/input/log
+  was identified in this inventory. The earlier claim remains
+  PREVIOUSLY REPORTED; REPRODUCIBILITY NOT VERIFIED.
+
+4. BUILD AND TEST REGISTRATION
+The exact inspected хокинг/CMakeLists.txt registers three executable
+test targets and CTest entries:
+- test_tensor_storage / tensor_storage_tests;
+- test_metric_jet_validation / metric_jet_validation_tests;
+- test_metric_provider / metric_provider_tests.
+
+The CMake file contains no curvature-engine test target.
+
+Available committed logs:
+- logs/build_test.log: tensor storage target; 17/17 checks passed.
+- logs/metric_jet_validation_build.log: MetricJet validation target;
+  15/15 checks passed.
+- logs/readback_rebuild.log: records an earlier read-back source revision
+  d59ff537aa377d1bf97e7ef0b94071a7e104c814 and only the tensor storage
+  target/test. It is not evidence of a complete build of the exact
+  inspected commit e36a8e673dff3eabba5c24c648c7e14e6e38bfc7.
+- No committed execution log for test_metric_provider was found.
+
+The MetricProvider test source contains 13 check calls covering metric
+components, first and second derivative components, symmetries,
+structural zero directions, domain rejection and floating-point
+underflow guards. Source inspection alone does not establish that this
+test executable was built or run from the exact inspected commit.
+
+Therefore a clean build and execution of all three registered test
+targets against the exact current source tree remain NOT VERIFIED.
+
+5. SEARCH / EVIDENCE LIMITATIONS
+The recursive Git tree at the exact commit is the primary inventory
+evidence. GitHub code-search results returned links to a different
+revision (25c69d1bce9637ea2ebce775f480b4a3120e1aa3); those search results
+were not treated as proof about the exact inspected commit.
+No claim is made that textual search alone proves nonexistence.
+The complete tree lists seven recognized source/notebook files, and all
+candidate source/test files listed above were inspected. No full build,
+runtime execution, CAPD validation, interval certification or
+mathematical certification was performed in this checkpoint.
+
+6. AUDIT CONCLUSION
+The repository snapshot contains a partial diagnostic foundation:
+tensor storage, MetricJet validation and an analytic double-precision
+MetricProvider.
+The documented end-to-end curvature reconstruction pipeline is not
+implemented in the inspected source tree.
+An independent executable Einstein ORACLE was not found.
+The separate MetricProvider expected-value routines do not establish
+independent derivation provenance.
+The current evidence is insufficient to claim end-to-end pipeline
+independence, reproducible Einstein reconstruction, CAPD certification,
+or mathematical certification.
+
+7. STATUS
+[PASS] Recursive Git tree inventory completed at the exact commit;
+       GitHub reports truncated=false.
+[PASS] All seven recognized source/notebook files enumerated.
+[PASS] Candidate C++ source, tests, CMake, logs, contract and reference
+       documents inspected from the exact commit.
+[PASS] Three registered CMake test targets identified.
+[NOT FOUND IN TREE] Separate implementations of the listed curvature
+       engines and a complete AuditReport engine.
+[NOT ESTABLISHED] Independent ORACLE provenance.
+[NOT VERIFIED] Execution of test_metric_provider from the exact commit.
+[NOT VERIFIED] Full three-target clean build/CTest on the exact commit.
+[NOT VERIFIED] Executable enforcement that analytical Einstein values
+       are excluded from reconstruction-engine inputs.
+[NOT VERIFIED] Reproducibility of the previously reported 320/320
+       symbolic comparisons.
+[NOT CLAIMED] CAPD certification or mathematical certification.
+
+8. NEXT CONCRETE STEP
+Do not implement or modify curvature-engine code yet.
+First define the missing independent reconstruction boundary and its
+test inputs, then design the minimal engine implementation and an
+independent reference path with explicit provenance separation.
+Before any implementation, preserve the current source snapshot and
+specify tests that prevent analytical Einstein target values from
+entering the reconstruction path. A later build checkpoint must include
+a clean build and execution log for all registered targets.
+
+ARCHITECTURE SAFEGUARDS
+Frozen Core: PRESERVED / UNCHANGED.
+Volume V: ACTIVE RESEARCH ARCHITECTURE.
+CE-V-07: RESERVED.
+Universality: NOT ESTABLISHED.
+CAPD certification: NOT ESTABLISHED.
+Mathematical certification: NOT ESTABLISHED.
+
+END OF CP-19
