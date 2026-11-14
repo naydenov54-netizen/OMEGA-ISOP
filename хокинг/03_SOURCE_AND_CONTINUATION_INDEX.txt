@@ -89,7 +89,7 @@ using the existing MetricJet storage types and fixed coordinate order.
 Tests cover all 16 metric, 64 first-derivative and 256 second-derivative
 entries, derivative symmetries, structural zero directions and domain
 rejections. See 08_METRIC_PROVIDER_ANALYTIC_REFERENCE.txt.
-A preliminary isolated local harness passed 10/10 checks. Exact GitHub
+A preliminary isolated local harness passed 13/13 checks, including floating-point underflow guards. Exact GitHub
 read-back build of the committed full project remains pending; do not
 promote this to a verified committed build or mathematical certification.
 
