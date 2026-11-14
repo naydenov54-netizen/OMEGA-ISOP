@@ -107,7 +107,7 @@ The new test executable checks:
 - all 64 dg and 256 ddg reference comparisons;
 - detection of first- and second-derivative reference mismatches.
 
-Expected new validation checks: 13.
+Expected new validation checks: 15.
 A passing run is diagnostic evidence for the implementation of these
 comparisons only.
 
