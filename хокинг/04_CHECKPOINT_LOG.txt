@@ -159,3 +159,52 @@ This independently verifies that the exact committed source files build and
 pass the recorded tests in the available environment. It does not establish
 CAPD compatibility, interval validation, or mathematical certification.
 
+
+
+CP-15 — PHASE III-B.4.5.3 INITIAL IMPLEMENTATION
+Date/time: 2026-11-14.
+Scope:
+- L1 algebraic MetricJet storage symmetry checks;
+- L2 comparison against a separately supplied derivative reference;
+- no L3 tensor identities;
+- no physical MetricProvider derivative proof;
+- no CAPD or interval arithmetic.
+
+Added:
+- include/omega/metric_jet_validation.hpp
+- tests/test_metric_jet_validation.cpp
+- 07_METRICJET_INVARIANTS_AND_VALIDATION.txt
+
+Updated:
+- CMakeLists.txt registers the new validation executable and CTest.
+- README.md records the new phase and its limitations.
+
+L1 checks four independent conditions:
+- g metric-index symmetry: 6 comparisons;
+- dg metric-index symmetry: 24 comparisons;
+- ddg derivative-index symmetry: 96 comparisons;
+- ddg metric-index symmetry: 96 comparisons.
+Total: 222 comparisons.
+
+L2 compares all 64 dg entries and all 256 ddg entries with a supplied
+derivative reference. This validates agreement with the reference only.
+It does not certify the reference's derivation. A reference copied from
+the tested MetricJet is only a comparator plumbing test.
+
+Local diagnostic build used GNU C++ 14.2.0 / C++17 with strict warnings.
+The new validation test executable passed 13/13 checks.
+The local CTest run passed 2/2 targets; the storage target in this
+isolated local harness was a minimal interface smoke test, not a rerun
+of the original 17-check storage executable. The committed original
+storage source and its earlier 17/17 evidence remain unchanged.
+Exact committed-source read-back and a full repository rebuild are
+still required before treating this phase as independently reproduced.
+
+STATUS:
+L1 VALIDATION IMPLEMENTED.
+L2 REFERENCE-COMPARISON MECHANISM IMPLEMENTED.
+PHYSICAL DERIVATIVE CONSISTENCY: NOT ESTABLISHED.
+L3 TENSOR IDENTITIES: NOT IMPLEMENTED.
+CAPD / INTERVAL CERTIFICATION: NOT ESTABLISHED.
+
+END OF CP-15
