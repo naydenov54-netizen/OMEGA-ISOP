@@ -208,3 +208,30 @@ L3 TENSOR IDENTITIES: NOT IMPLEMENTED.
 CAPD / INTERVAL CERTIFICATION: NOT ESTABLISHED.
 
 END OF CP-15
+
+
+CP-16 — VALIDATION TEST COUNT AND BUILD EVIDENCE CORRECTION
+Date/time: 2026-11-14.
+Correction to CP-15:
+- The committed test source contains 15 checks, not 13.
+- The authoritative result for the validation executable is 15/15 passed.
+- The validation target was configured, compiled and linked successfully
+  with GNU C++ 14.2.0, C++17 and the configured strict warning flags.
+- The executable was run directly and reported 15/15, failures=0.
+- This run built the validation target only. It did not rebuild or rerun
+  the original 17-check tensor storage executable.
+- The earlier CP-15 statement about a 2/2 CTest run is not evidence for
+  the committed storage test and must not be used as such.
+
+Evidence file:
+logs/metric_jet_validation_build.log
+
+The test fixture's positive L2 reference is copied from the MetricJet under
+test to verify the comparison mechanism. It is deliberately not claimed as
+an independent mathematical derivative derivation. The injected mismatch
+cases verify failure detection only.
+
+CP-16 supersedes the 13/13 and CTest wording in CP-15. No earlier source,
+archive, or evidence file is deleted.
+
+END OF CP-16
