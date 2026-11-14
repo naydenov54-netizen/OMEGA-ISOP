@@ -554,3 +554,52 @@ CAPD certification: NOT ESTABLISHED.
 Mathematical certification: NOT ESTABLISHED.
 
 END OF CP-19
+
+
+CP-20 — CURVATURE RECONSTRUCTION / INDEPENDENT ORACLE BOUNDARY
+Date/time: 2026-11-14.
+Design checkpoint: хокинг/09_CURVATURE_ENGINE_ORACLE_BOUNDARY_CP20.txt
+
+Completed in this session:
+- Defined the input/output boundary for the diagnostic curvature engine.
+- Specified a test-only symbolic ORACLE that is isolated from production code.
+- Recorded the locked Riemann convention and Ricci contraction.
+- Derived the diagonal Ricci reference directly from the locked metric:
+  R_TT = c^2*q*D/(Rm^2*x^6)
+  R_xx = -q/(x^2*D)
+  R_thetatheta = q/x^2
+  R_phiphi = q*sin(theta)^2/x^2
+  R = 0
+  G_mu_nu = R_mu_nu.
+- Added an exact rational diagnostic fixture:
+  q=2/5, Rm=2, c=3, x=2, theta=pi/3;
+  R_TT=63/1600, R_xx=-1/28,
+  R_thetatheta=1/10, R_phiphi=3/40.
+- Specified CURV-01 through CURV-12 before implementation.
+- Preserved the rule that analytical Ricci/Einstein target values are
+  test-only references and are never reconstruction-engine inputs.
+
+Provenance correction:
+The CP-19 "Recursive Git tree SHA" field repeated its commit SHA.
+The actual tree SHA for CP-19's inspected commit
+e36a8e673dff3eabba5c24c648c7e14e6e38bfc7 is
+a546072d402e12292ca7b3ab614bbe17fdd796f2.
+The current main commit 46c56cab99d9d5dec17eadceca306a71b0dac8a5
+has tree SHA e49db05757a4767a84c804559bbe787d955df615.
+The historical CP-19 text is not rewritten.
+
+Status:
+DESIGN CHECKPOINT ONLY.
+No curvature code implemented.
+No new C++ test executed.
+No full clean build of the current three registered targets claimed.
+No CAPD execution or certification.
+No mathematical certification.
+
+Next action:
+1. Clean read-back build and run all three existing CMake targets from
+   the exact current main commit.
+2. Preserve the standalone symbolic ORACLE source and provenance.
+3. Independently review the ORACLE before implementing the engine.
+
+END OF CP-20
