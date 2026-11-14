@@ -1,0 +1,70 @@
+OMEGA-ISOP CP-22
+CORRECTED ARTIFACT HASH VERIFICATION
+Date/time of supplied result: 2026-11-14T22:15:41Z
+Repository recording date: 2026-11-14
+
+PURPOSE
+Record the corrected CP-22 verification result supplied by the user.
+This checkpoint records the reported execution and hash results; it does
+not claim that the underlying three files have been independently fetched
+from GitHub or independently re-hashed in this recording operation.
+
+CORRECTION
+The previous verification failure was attributed to incorrect relative
+paths in the manifest. The manifest paths were corrected. The three
+artifacts themselves were reported as unchanged and not corrupted.
+
+SHA-256 RESULTS REPORTED
+
+1. standalone_symbolic_oracle.py
+   SHA256:
+   75ad607c451bb8cd0e7bf2bba5fb65c3dfa09d190967def280ab69985c5c2eba
+   Result: OK
+
+2. audit-output/oracle_output.txt
+   SHA256:
+   fe2af35bb8c25aca9647037524b8c92a98620af2298b1ddd7d0158b123344b07
+   Result: OK
+
+3. audit-output/oracle_provenance.txt
+   SHA256:
+   833d60d3efbd1afd4f0f42d3975f23b76a8f7cb17958909fd13f34b2c1be44cd
+   Result: OK
+
+REPORTED TECHNICAL STATUS
+SYMBOLIC EXECUTION: PASS
+SYMBOLIC COMPARISON: PASS
+EXACT FIXTURE: PASS
+ARTIFACT HASH VERIFICATION: PASS
+
+INTERPRETATION AND LIMITATIONS
+The reported SHA-256 matches support byte-integrity agreement between
+the checked artifacts and the corrected manifest entries in the
+environment where the check was run.
+
+This record does not independently establish:
+- correctness or completeness of the symbolic oracle;
+- independent mathematical derivation of its expected values;
+- absence of shared assumptions between oracle and fixture;
+- curvature-engine reconstruction;
+- CAPD execution or interval validation;
+- mathematical certification or universality.
+
+The result is therefore a successful corrected technical verification,
+not a completed independent mathematical audit.
+
+NEXT GATE
+CP-23 — INDEPENDENT ORACLE AUDIT.
+Review the oracle implementation, fixture construction, mathematical
+derivation, provenance chain and independence boundary before using
+the oracle as evidence for curvature-engine implementation.
+
+ARCHITECTURE SAFEGUARDS
+Frozen Core: PRESERVED / UNCHANGED.
+Volume V: ACTIVE RESEARCH ARCHITECTURE / UNCHANGED.
+CE-V-07: RESERVED.
+Universality: NOT ESTABLISHED.
+CAPD certification: NOT ESTABLISHED.
+Mathematical certification: NOT ESTABLISHED.
+
+END OF CP-22
