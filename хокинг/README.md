@@ -75,3 +75,25 @@ III-B.4.5.5-A — CURVATURE ENGINE / INDEPENDENT ORACLE DESIGN
 09_CURVATURE_ENGINE_ORACLE_BOUNDARY_CP20.txt
 Status: DESIGN CHECKPOINT ONLY. No curvature engine implementation,
 new C++ test execution, CAPD validation or certification is claimed.
+
+
+III-B.4.5.5-A — CP-21 EXACT READ-BACK BUILD / TEST BASELINE
+10_CP21_EXACT_READBACK_BUILD_TEST_REPORT.txt
+Status: EXECUTION PASS for the exact CP-20 base commit.
+Commit: 46c56cab99d9d5dec17eadceca306a71b0dac8a5
+Tree: e49db05757a4767a84c804559bbe787d955df615
+Environment: g++ 13.3.0; CMake 3.31.10; Release.
+CMake configure/build: exit 0.
+CTest: 3/3 passed.
+Direct executables: tensor_storage, metric_jet_validation,
+metric_provider all returned exit 0.
+
+Limitations: full compiler flags and raw logs are not included in the
+committed report; the Colab build cell ran the build command twice and
+preserved the second invocation's log/exit code. The submitted
+SHA-256 manifest was not independently cross-checked. This is a
+diagnostic build/test baseline, not mathematical or CAPD certification.
+
+Next: CP-22 standalone symbolic ORACLE preservation and independent
+derivation/provenance review. Curvature engine implementation remains
+blocked until that review is complete.
