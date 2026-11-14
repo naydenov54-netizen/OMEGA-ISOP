@@ -1,0 +1,136 @@
+OMEGA-ISOP
+PHASE III-B.4.5.4
+ANALYTIC METRIC PROVIDER — IMPLEMENTATION NOTE
+
+DATE: 2026-11-14
+STATUS: SOURCE IMPLEMENTED; BUILD AND EXECUTION NOT YET INDEPENDENTLY VERIFIED
+SCOPE: DOUBLE-PRECISION ANALYTIC METRIC JET FOR THE LOCKED DIAGONAL METRIC
+
+1. AUTHORITATIVE INPUT
+
+The implementation follows the locked metric and domain in:
+- 02_FULL_PIPELINE_CONTRACT_DATA_MODEL.txt
+- 00_ARCHIVE_2026-11-14.txt
+- 01_METRIC_JET_INTERFACE_SPECIFICATION.txt
+
+Coordinates:
+X = (T, x, theta, phi)
+Indices: 0=T, 1=x, 2=theta, 3=phi.
+
+Metric:
+g_00 = -B*c^2
+g_11 = Rm^2/B
+g_22 = Rm^2*x^2
+g_33 = Rm^2*x^2*sin(theta)^2
+
+D(x) = x^2 - 2*q*x + q
+B(x) = D(x)/x^2
+
+Domain:
+q in [0.1, 0.9]
+x >= 1
+Rm > 0
+c > 0
+theta in (0, pi)
+
+2. ANALYTIC DIFFERENTIATION
+
+B_x = 2*q*(x-1)/x^3
+B_xx = -4*q/x^3 + 6*q/x^4
+
+Nonzero first derivatives:
+
+dg(1,0,0) = -c^2*B_x
+dg(1,1,1) = -Rm^2*B_x/B^2
+dg(1,2,2) = 2*Rm^2*x
+dg(1,3,3) = 2*Rm^2*x*sin(theta)^2
+dg(2,3,3) = 2*Rm^2*x^2*sin(theta)*cos(theta)
+
+Nonzero second derivatives:
+
+ddg(1,1,0,0) = -c^2*B_xx
+
+ddg(1,1,1,1) =
+Rm^2*(2*B_x^2/B^3 - B_xx/B^2)
+
+ddg(1,1,2,2) = 2*Rm^2
+ddg(1,1,3,3) = 2*Rm^2*sin(theta)^2
+
+ddg(2,2,3,3) =
+2*Rm^2*x^2*(cos(theta)^2 - sin(theta)^2)
+
+ddg(1,2,3,3) = ddg(2,1,3,3) =
+4*Rm^2*x*sin(theta)*cos(theta)
+
+All other first- and second-derivative entries are zero for this metric.
+
+3. IMPLEMENTED FILES
+
+Added:
+- include/omega/metric_provider.hpp
+- tests/test_metric_provider.cpp
+
+Updated:
+- CMakeLists.txt
+
+API:
+MetricProviderParameters:
+q, Rm, c, x, theta
+
+MetricProvider::evaluate(parameters) returns DiagnosticMetricJet.
+
+The provider uses the existing MetricJet, Matrix4, Tensor3_4 and Tensor4_4
+types. Tensor storage and coordinate order are unchanged.
+
+4. VALIDATION DESIGN
+
+The new test source checks:
+- all 16 metric entries against component formulas;
+- all 64 first-derivative entries against analytic formulas;
+- all 256 second-derivative entries against analytic formulas;
+- second-derivative index symmetries;
+- vanishing T and phi derivative directions;
+- q endpoint and x=1 domain acceptance;
+- rejection of invalid q, x, theta and Rm inputs.
+
+The test comparator uses:
+abs(a-b) <= 1e-12 + 1e-11*max(abs(a),abs(b)).
+
+These tests are designed to check the provider implementation. The expected
+values are coded in a separate test-side reference routine, but both source
+and tests remain subject to independent mathematical review.
+
+5. LIMITATIONS AND EVIDENCE CLASS
+
+This implementation is a standard C++ double-precision analytic provider.
+It is not an interval implementation and does not provide outward rounding.
+
+A successful test run would establish consistency of this implementation
+with the encoded analytic component formulas over the tested inputs. It
+would not by itself establish:
+- a global proof over the unbounded domain x >= 1;
+- CAPD or interval certification;
+- correctness of downstream curvature or Einstein reconstruction;
+- independent certification of the analytical derivation;
+- universality of OMEGA-ISOP.
+
+No build or execution result is claimed in this note. The source must be
+compiled and executed from an exact GitHub read-back before the test status
+can be promoted.
+
+6. ARCHITECTURAL STATUS
+
+Frozen Core: PRESERVED / UNCHANGED.
+Volume V: ACTIVE RESEARCH ARCHITECTURE.
+CE-V-07: RESERVED.
+Universality: NOT ESTABLISHED.
+CAPD certification: NOT ESTABLISHED.
+Mathematical certification: NOT ESTABLISHED.
+
+PHASE III-B.4.5.4:
+SOURCE IMPLEMENTED.
+BUILD: NOT YET VERIFIED.
+EXECUTION: NOT YET VERIFIED.
+INDEPENDENT MATHEMATICAL AUDIT: PENDING.
+
+END OF IMPLEMENTATION NOTE
