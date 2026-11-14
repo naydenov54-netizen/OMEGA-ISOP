@@ -97,3 +97,27 @@ diagnostic build/test baseline, not mathematical or CAPD certification.
 Next: CP-22 standalone symbolic ORACLE preservation and independent
 derivation/provenance review. Curvature engine implementation remains
 blocked until that review is complete.
+
+
+III-B.4.5.5-B — CP-22 CORRECTED SYMBOLIC ORACLE ARTIFACT VERIFICATION
+11_CP22_CORRECTED_ARTIFACT_HASH_VERIFICATION.txt
+
+Reported status:
+SYMBOLIC EXECUTION: PASS
+SYMBOLIC COMPARISON: PASS
+EXACT FIXTURE: PASS
+ARTIFACT HASH VERIFICATION: PASS
+
+The manifest relative paths were corrected. Three SHA-256 values and
+their reported OK results are recorded in the CP-22 report and checkpoint
+log. These are user-supplied execution results; the underlying three
+artifacts were not independently re-hashed during the GitHub recording
+operation.
+
+Independent ORACLE logic/derivation audit: PENDING.
+CAPD / interval certification: NOT ESTABLISHED.
+Mathematical certification: NOT ESTABLISHED.
+
+Next: CP-23 — independent oracle audit before curvature-engine
+implementation. Frozen Core, Volume V and CE-V-07 constraints remain
+unchanged.
