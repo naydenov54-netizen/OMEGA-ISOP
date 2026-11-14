@@ -1,0 +1,57 @@
+OMEGA-ISOP
+PHASE III-B.4.5.2 — TEST AND BUILD REPORT
+
+DATE: 2026-11-14
+STATUS: BUILD SUCCESS / TEST SUCCESS
+
+ENVIRONMENT
+- Compiler: g++ (Debian 14.2.0-19) 14.2.0
+- CMake: 3.31.6
+- Language standard: C++17
+- Build type: Release
+- Warning flags: -Wall -Wextra -Wpedantic -Wconversion -Wsign-conversion -Werror
+
+COMMANDS EXECUTED
+1. cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+2. cmake --build build --parallel 2
+3. ctest --test-dir build --output-on-failure
+4. ./build/test_tensor_storage
+
+RESULTS
+- CMake configure: SUCCESS
+- Compilation/link: SUCCESS
+- CTest: 1/1 test passed
+- Direct executable: 17/17 checks passed; failures=0
+
+CHECKS
+1. N equals 4.
+2. T maps to index 0.
+3. x maps to index 1.
+4. theta maps to index 2.
+5. phi maps to index 3.
+6. Matrix4 round-trip over all 16 ordered entries.
+7. Matrix4 semantic/numeric index agreement.
+8. Tensor3_4 round-trip over all 64 ordered entries.
+9. Tensor3_4 semantic/numeric index agreement.
+10. Tensor4_4 round-trip over all 256 ordered entries.
+11. Tensor4_4 semantic/numeric index agreement.
+12. MetricJet g access.
+13. MetricJet dg access.
+14. MetricJet ddg access.
+15. long double scalar-generic storage instantiation.
+16. Out-of-range index throws std::out_of_range.
+17. MetricJet copy semantics preserve independent storage.
+
+EVIDENCE
+Complete raw command output, including compiler identification, configure,
+build, CTest and direct executable output, is in logs/build_test.log.
+
+LIMITATIONS
+- These tests certify only storage layout/access behavior for this build.
+- They do not test metric derivative consistency, inverse metric identities,
+  Christoffel, Riemann, Ricci, Einstein, or any III-B.3 analytical value.
+- No CAPD headers, libraries, API, interval scalar, or outward-rounding
+  behavior were used.
+- No CAPD or mathematical certification is claimed.
+
+END OF REPORT

@@ -1,0 +1,47 @@
+=== ENVIRONMENT ===
+UTC 2026-11-14 17:49:27
+g++ (Debian 14.2.0-19) 14.2.0
+cmake version 3.31.6
+=== CONFIGURE ===
+-- The CXX compiler identification is GNU 14.2.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done (0.4s)
+-- Generating done (0.0s)
+-- Build files have been written to: /tmp/omega_isop_tensor_storage/build
+=== BUILD ===
+[ 50%] Building CXX object CMakeFiles/test_tensor_storage.dir/tests/test_tensor_storage.cpp.o
+[100%] Linking CXX executable test_tensor_storage
+[100%] Built target test_tensor_storage
+=== TEST ===
+Internal ctest changing into directory: /tmp/omega_isop_tensor_storage/build
+Test project /tmp/omega_isop_tensor_storage/build
+    Start 1: tensor_storage_tests
+1/1 Test #1: tensor_storage_tests .............   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test Time (real) =   0.01 sec
+=== DIRECT TEST OUTPUT ===
+OMEGA-ISOP PHASE III-B.4.5.2 — Tensor Storage Tests
+PASS: N equals 4
+PASS: coordinate T maps to index 0
+PASS: coordinate x maps to index 1
+PASS: coordinate theta maps to index 2
+PASS: coordinate phi maps to index 3
+PASS: Matrix4 stores and retrieves all 16 ordered entries
+PASS: semantic Matrix4 access matches numeric indices
+PASS: Tensor3_4 stores and retrieves all 64 [a][mu][nu] entries
+PASS: semantic Tensor3_4 access preserves index order
+PASS: Tensor4_4 stores and retrieves all 256 [a][b][mu][nu] entries
+PASS: semantic Tensor4_4 access preserves index order
+PASS: MetricJet exposes g[mu][nu]
+PASS: MetricJet exposes dg[a][mu][nu]
+PASS: MetricJet exposes ddg[a][b][mu][nu]
+PASS: MetricJet is scalar-generic and has no double-only storage dependency
+PASS: Matrix4 rejects out-of-range indices with std::out_of_range
+PASS: MetricJet copy owns independent fixed-size storage
+SUMMARY: 17/17 checks passed; failures=0

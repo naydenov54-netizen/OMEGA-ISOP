@@ -73,3 +73,47 @@ CHECKPOINT CLEANUP POLICY
 The committed checkpoint log is retained as provenance. Temporary working checkpoints are not retained as separate repository files. No project source, historical archive, or evidence file is deleted.
 
 END OF CHECKPOINT LOG
+
+
+CP-08 — PHASE III-B.4.5.2 IMPLEMENTATION
+Date/time: 2026-11-14, 17:49 UTC
+Scope: GENERIC C++ TENSOR STORAGE only.
+Implemented:
+- include/omega/tensor_storage.hpp
+- tests/test_tensor_storage.cpp
+- CMakeLists.txt
+- README.md
+- 05_GENERIC_CPP_TENSOR_STORAGE_SPEC_AND_IMPLEMENTATION.txt
+- 06_TENSOR_STORAGE_TEST_REPORT.txt
+- logs/build_test.log
+Types: Vector4<Scalar>, Matrix4<Scalar>, Tensor3_4<Scalar>,
+Tensor4_4<Scalar>, MetricJet<Scalar>.
+Index order: (T,x,theta,phi), 0,1,2,3; N=4.
+Storage shapes: g[4][4], dg[4][4][4], ddg[4][4][4][4].
+No CAPD dependency. No curvature engine. No analytical Einstein target input.
+
+CP-09 — REAL BUILD AND EXECUTION
+Environment:
+- g++ (Debian 14.2.0-19) 14.2.0
+- CMake 3.31.6
+- C++17
+Configure: SUCCESS.
+Compile/link: SUCCESS.
+CTest: 1/1 passed.
+Direct test executable: 17/17 checks passed; failures=0.
+Complete output retained at logs/build_test.log.
+This is a diagnostic storage test only; it is not mathematical or interval certification.
+
+CP-10 — PRE-COMMIT REVIEW
+Reviewed the implementation scope, fixed coordinate/index order, tensor
+storage shapes, scalar genericity, bounds behavior, test coverage, and
+build log. The pending repository tree is additive except for the intended
+README and checkpoint-log updates. No existing archive or source evidence
+is removed. CAPD and all curvature engines remain unimplemented.
+
+CP-11 — COMMIT AND READ-BACK
+Commit SHA: TO BE FILLED AFTER GITHUB COMMIT CREATION.
+Commit URL: TO BE FILLED AFTER GITHUB COMMIT CREATION.
+Read-back verification: TO BE FILLED AFTER FETCHING THE COMMITTED FILES.
+
+END OF PHASE III-B.4.5.2 CHECKPOINT UPDATE

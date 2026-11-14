@@ -1,0 +1,140 @@
+OMEGA-ISOP
+PHASE III-B.4.5.2
+GENERIC C++ TENSOR STORAGE
+
+DATE: 2026-11-14
+STATUS: IMPLEMENTED; DIAGNOSTIC BUILD AND STORAGE TESTS PASSED
+BACKEND: STANDARD C++17 / double (diagnostic); scalar-generic templates
+
+1. SCOPE AND NON-GOALS
+
+This phase implements fixed-size storage and index access only.
+It does not implement metric differentiation, matrix inversion, Christoffel
+symbols, Riemann, Ricci, scalar curvature, Einstein tensors, CAPD adapters,
+interval arithmetic, or certification.
+
+No analytical Einstein reference values are included in the storage header
+or storage tests. The III-B.3 analytical reference remains reserved for a
+future independent validation harness.
+
+2. FIXED COORDINATE AND INDEX CONTRACT
+
+N = 4
+Coordinate order: (T, x, theta, phi)
+0 = T
+1 = x
+2 = theta
+3 = phi
+
+The C++ enum class Coordinate encodes exactly these values. The helper
+index(Coordinate) converts a semantic coordinate to its numeric index.
+
+3. TYPES AND STORAGE SHAPES
+
+Vector4<Scalar> = std::array<Scalar, 4>
+Matrix4<Scalar> = Scalar[4][4]
+Tensor3_4<Scalar> = Scalar[4][4][4]
+Tensor4_4<Scalar> = Scalar[4][4][4][4]
+
+MetricJet<Scalar> contains:
+  g   : Matrix4<Scalar>
+  dg  : Tensor3_4<Scalar>
+  ddg : Tensor4_4<Scalar>
+
+Semantic meanings:
+  g(mu,nu) = g_mu_nu
+  dg(a,mu,nu) = partial_a(g_mu_nu)
+  ddg(a,b,mu,nu) = partial_a(partial_b(g_mu_nu))
+
+Logical element counts:
+  g   = 16
+  dg  = 64
+  ddg = 256
+  total MetricJet scalar slots = 336
+
+All storage is fixed-size std::array-based storage. No dynamic allocation
+is required for the tensor payload. Value initialization sets entries to
+the Scalar default value.
+
+4. INDEX ACCESS AND SAFETY
+
+Numeric access is provided through operator():
+  matrix(mu,nu)
+  tensor3(a,mu,nu)
+  tensor4(a,b,mu,nu)
+
+Semantic overloads accept Coordinate values in the same position order.
+Every access uses std::array::at, so an index outside [0,3] throws
+std::out_of_range instead of silently accessing invalid memory.
+
+Storage order is fixed and identical across the types:
+  Matrix4:   [mu][nu]
+  Tensor3:   [a][mu][nu]
+  Tensor4:   [a][b][mu][nu]
+
+No implicit index permutation, tensor symmetry compression, or packed
+storage is used. All 16/64/256 ordered slots exist independently.
+
+5. BACKEND INDEPENDENCE
+
+The storage templates are parameterized by Scalar and do not include CAPD
+headers or depend on a particular numeric backend. The concrete
+DiagnosticScalar alias is double for this first diagnostic build.
+A long double instantiation is compile-tested.
+
+Template genericity is a storage-level property only. It does not prove
+that an interval scalar can be substituted safely: interval arithmetic,
+outward rounding, division semantics, expression dependencies, and
+CAPD API compatibility remain separate work.
+
+6. TEST COVERAGE
+
+The standalone test executable checks:
+- N=4 and all four coordinate-to-index mappings;
+- full write/read round-trip of all 16 Matrix4 entries;
+- full write/read round-trip of all 64 Tensor3_4 entries;
+- full write/read round-trip of all 256 Tensor4_4 entries;
+- semantic Coordinate overloads against numeric indexing;
+- MetricJet g, dg, ddg access paths;
+- generic scalar instantiation with long double;
+- out-of-range rejection;
+- independent value-copy semantics.
+
+The executable reports 17/17 checks passed. The complete configure,
+build, CTest, and direct test output is retained in logs/build_test.log.
+
+7. MATHEMATICAL CONVENTIONS PRESERVED, NOT YET EXECUTED
+
+Coordinates remain X^mu = (T,x,theta,phi), N=4.
+The Riemann convention remains locked as:
+
+R^rho_sigma_mu_nu =
+  partial_mu(Gamma^rho_nu_sigma)
+  - partial_nu(Gamma^rho_mu_sigma)
+  + Gamma^rho_mu_lambda*Gamma^lambda_nu_sigma
+  - Gamma^rho_nu_lambda*Gamma^lambda_mu_sigma
+
+Ricci contraction remains:
+  R_sigma_nu = SUM_rho R^rho_sigma_rho_nu
+
+These curvature formulas are recorded as preserved contracts only. This
+phase does not implement or test them.
+
+Corrected analytical reference remains:
+  R_TT = c^2*q*D/(Rm^2*x^6)
+
+Normalization remains:
+  C*r0^2 = c^4*q*Rm^2/(8*pi*G_N)
+  STATUS: PENDING
+
+8. ARCHITECTURAL STATUS LOCK
+
+Frozen Core: PRESERVED / UNCHANGED
+Volume V: ACTIVE RESEARCH ARCHITECTURE
+CE-V-07: RESERVED
+Universality: NOT ESTABLISHED
+CAPD certification: NOT ESTABLISHED
+Mathematical certification: NOT ESTABLISHED
+Energy normalization: PENDING
+
+END OF PHASE III-B.4.5.2 IMPLEMENTATION NOTE
