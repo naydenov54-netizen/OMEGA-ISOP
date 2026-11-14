@@ -1,0 +1,142 @@
+OMEGA-ISOP
+PHASE III-B.4.5.3
+METRICJET INVARIANTS AND VALIDATION
+
+DATE: 2026-11-14
+STATUS: IMPLEMENTED; DIAGNOSTIC TESTS PASSED
+SCOPE: L1 STORAGE SYMMETRY AND L2 INDEPENDENT DERIVATIVE-REFERENCE COMPARISON
+
+1. PURPOSE AND STRICT BOUNDARIES
+
+This phase adds validation functions for the MetricJet data structure.
+It does not modify the frozen architecture, tensor storage layout,
+coordinate order, curvature convention, or analytical reference.
+
+The validation levels are distinct:
+
+L1 — algebraic symmetry of the stored arrays.
+L2 — agreement of dg and ddg with a separately supplied derivative reference.
+L3 — mathematical tensor identities; NOT IMPLEMENTED IN THIS PHASE.
+
+Passing L1 does not imply passing L2 or L3.
+Passing L2 means agreement with the supplied reference only. It does not
+prove that the reference itself was derived correctly.
+No finite-difference comparison is classified as an exact derivative proof.
+
+2. L1 — STORAGE SYMMETRY
+
+The implementation checks four independent conditions:
+
+L1-G-SYMMETRY:
+g(mu,nu) = g(nu,mu)
+Number of independent comparisons: 6.
+
+L1-DG-METRIC-SYMMETRY:
+dg(a,mu,nu) = dg(a,nu,mu)
+Number of independent comparisons: 24.
+
+L1-DDG-DERIVATIVE-SYMMETRY:
+ddg(a,b,mu,nu) = ddg(b,a,mu,nu)
+Number of comparisons: 96.
+
+L1-DDG-METRIC-SYMMETRY:
+ddg(a,b,mu,nu) = ddg(a,b,nu,mu)
+Number of comparisons: 96.
+
+Total L1 comparisons: 222.
+
+The scalar equality policy is supplied by the caller. For a diagnostic
+double backend it may be a documented tolerance comparator. For an exact
+scalar it may be exact equality. The comparator policy is part of the
+validation record and must not be silently selected.
+
+3. L2 — DERIVATIVE REFERENCE CONSISTENCY
+
+MetricDerivativeReference contains independently supplied arrays:
+reference.dg and reference.ddg.
+
+The validator compares:
+64 first-derivative entries:
+jet.dg(a,mu,nu) against reference.dg(a,mu,nu).
+
+256 second-derivative entries:
+jet.ddg(a,b,mu,nu) against reference.ddg(a,b,mu,nu).
+
+Total L2 comparisons: 320.
+
+The reference must be constructed independently of the MetricJet under
+test. Reusing or copying the tested dg/ddg arrays into the reference is
+only a plumbing test; it is not evidence that the arrays are derivatives
+of g.
+
+The current unit tests intentionally include a copied reference to test
+the comparison mechanism and injected discrepancies to test failure
+detection. They do NOT constitute a physical-metric derivative proof.
+
+A later MetricProvider test must use an independent analytic derivative
+implementation, symbolic derivation, or verified automatic differentiation
+path. Finite differences may be retained as a diagnostic cross-check only,
+with truncation and floating-point error explicitly accounted for.
+
+4. REPORT SEMANTICS
+
+Each check has:
+- stable check ID;
+- PASS, FAIL, or NOT_EVALUATED status;
+- number of comparisons;
+- short mathematical condition.
+
+The report helpers distinguish:
+has_failures()
+complete()
+all_passed()
+
+A report is not globally PASS if any included check is NOT_EVALUATED.
+The current functions emit PASS/FAIL for checks they actually execute.
+L3 is not silently marked PASS and is outside these functions.
+
+5. TEST COVERAGE
+
+The new test executable checks:
+- four separate L1 conditions and expected comparison counts;
+- detection of broken g symmetry;
+- detection of broken dg metric-index symmetry;
+- detection of broken ddg derivative-order symmetry;
+- detection of broken ddg metric-index symmetry;
+- L2 agreement with a supplied reference;
+- all 64 dg and 256 ddg reference comparisons;
+- detection of first- and second-derivative reference mismatches.
+
+Expected new validation checks: 13.
+A passing run is diagnostic evidence for the implementation of these
+comparisons only.
+
+6. NON-GOALS
+
+This phase does not implement:
+- a MetricProvider for the physical OMEGA-ISOP metric;
+- analytic differentiation of B(x), D(x), or sin(theta)^2;
+- finite-difference derivative estimation;
+- inverse metric or inverse-metric derivatives;
+- Christoffel, Riemann, Ricci, scalar curvature, or Einstein engines;
+- algebraic or differential Bianchi identities;
+- CAPD or interval arithmetic;
+- mathematical or interval certification.
+
+7. ARCHITECTURAL STATUS
+
+Frozen Core: PRESERVED / UNCHANGED.
+Volume V: ACTIVE RESEARCH ARCHITECTURE.
+CE-V-07: RESERVED.
+Universality: NOT ESTABLISHED.
+CAPD certification: NOT ESTABLISHED.
+Mathematical certification: NOT ESTABLISHED.
+
+PHASE III-B.4.5.3 STATUS:
+L1 VALIDATION IMPLEMENTED.
+L2 REFERENCE-COMPARISON MECHANISM IMPLEMENTED.
+INDEPENDENT PHYSICAL DERIVATIVE PROOF: NOT ESTABLISHED.
+L3 TENSOR IDENTITIES: NOT IMPLEMENTED.
+CAPD: NOT IMPLEMENTED.
+
+END OF PHASE III-B.4.5.3 IMPLEMENTATION NOTE
