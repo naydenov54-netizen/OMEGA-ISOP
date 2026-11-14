@@ -1,0 +1,535 @@
+OMEGA-ISOP
+PHASE III-B.4.5.5-A
+CURVATURE RECONSTRUCTION / INDEPENDENT ORACLE BOUNDARY
+CHECKPOINT CP-20 — DESIGN-ONLY MATHEMATICAL AND SOFTWARE CONTRACT
+
+DATE: 2026-11-14
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+BASE SOURCE SNAPSHOT: 46c56cab99d9d5dec17eadceca306a71b0dac8a5
+BASE TREE SHA: e49db05757a4767a84c804559bbe787d955df615
+PREDECESSOR AUDIT: CP-19
+STATUS: DESIGN CHECKPOINT / NO ENGINE IMPLEMENTATION / NO CERTIFICATION
+
+================================================================
+0. PURPOSE AND SCOPE
+================================================================
+
+This checkpoint closes the design question raised by CP-19:
+define the boundary between the reconstruction engine and the independent
+analytical ORACLE, and specify the minimum mathematical tests before any
+curvature-engine implementation begins.
+
+This is a design and derivation record only.
+No curvature engine is implemented by this checkpoint.
+No new C++ test is claimed as executed.
+No CAPD or interval computation is performed.
+No certification status is promoted.
+
+The work remains inside PHASE III-B.4.5.
+It does not open Stage 2 and does not alter the Frozen Core or Volume V.
+
+================================================================
+1. SOURCE SNAPSHOT AND CP-19 METADATA CORRECTION
+================================================================
+
+The current main head inspected for this checkpoint is:
+
+Commit:
+46c56cab99d9d5dec17eadceca306a71b0dac8a5
+
+Its actual Git tree SHA, read from the GitHub commit object, is:
+
+e49db05757a4767a84c804559bbe787d955df615
+
+CP-19 inspected the predecessor commit:
+
+e36a8e673dff3eabba5c24c648c7e14e6e38bfc7
+
+The actual tree SHA of that predecessor commit is:
+
+a546072d402e12292ca7b3ab614bbe17fdd796f2
+
+CORRECTION:
+The CP-19 checkpoint log repeated the commit SHA in the field
+"Recursive Git tree SHA". The correct tree SHA is the value above.
+This is a provenance-metadata correction only. It does not change the
+CP-19 source inventory, findings, or conclusions. The historical CP-19
+record is retained; this correction is appended rather than silently
+rewriting its text.
+
+Current relevant source blob identifiers:
+
+хокинг/CMakeLists.txt
+9d126cb8e2f504f14226fd41a727be88f4893872
+
+хокинг/include/omega/tensor_storage.hpp
+039c0544fe1b47234221547326e130850b90e56c
+
+хокинг/include/omega/metric_jet_validation.hpp
+ba8a56d21620ccd2d30b621c771b76278eef88c7
+
+хокинг/include/omega/metric_provider.hpp
+4e7514ebfc0ebfab4a05989b540ad3966d1c63d6
+
+хокинг/tests/test_metric_provider.cpp
+a6ceffe6628eeb3e036d0bfb0fed09071f5d2196
+
+These are Git blob identifiers, not SHA-256 checksums.
+
+================================================================
+2. CURRENT IMPLEMENTATION BOUNDARY
+================================================================
+
+The exact current source tree contains:
+
+A. Generic fixed-size tensor storage:
+- Vector4
+- Matrix4
+- Tensor3_4
+- Tensor4_4
+- MetricJet
+
+B. MetricJet validation:
+- L1 algebraic storage-symmetry checks.
+- L2 comparison against a caller-supplied derivative reference.
+- L2 agreement does not prove the independent derivation of that reference.
+
+C. Analytic double-precision MetricProvider:
+- constructs g, dg and ddg for the locked diagonal metric;
+- checks declared input domain and finite output;
+- is a diagnostic double-precision provider, not an interval provider.
+
+D. Registered CMake tests:
+- test_tensor_storage
+- test_metric_jet_validation
+- test_metric_provider
+
+CP-19 found no implementation in the inspected complete recursive tree for:
+InverseMetricEngine, MetricDifferentiator, ChristoffelEngine,
+RiemannEngine, RicciEngine, RicciScalarEngine, EinsteinEngine,
+IndexTransformer, or a complete AuditReport engine.
+
+The exact current source tree therefore remains a partial diagnostic
+foundation. The next work is a minimal diagnostic reconstruction engine,
+not a claim that the full pipeline already exists.
+
+BASELINE BUILD GATE:
+Before adding curvature code, perform a clean build and execute all three
+currently registered test targets from the exact committed main snapshot.
+Capture compiler version, CMake version, complete flags, configure/build
+output, CTest output, direct test output, exit codes, and source revision.
+CP-19 did not establish this full three-target build for its exact snapshot.
+
+================================================================
+3. LOCKED MATHEMATICAL INPUT
+================================================================
+
+Coordinates:
+X = (T, x, theta, phi)
+
+Index mapping:
+0 = T
+1 = x
+2 = theta
+3 = phi
+
+Metric:
+
+g_mu_nu = diag(
+  -B*c^2,
+  Rm^2/B,
+  Rm^2*x^2,
+  Rm^2*x^2*sin(theta)^2
+)
+
+D(x) = x^2 - 2*q*x + q
+B(x) = D(x)/x^2
+
+Domain:
+q in [0.1, 0.9]
+x >= 1
+Rm > 0
+c > 0
+theta in (0, pi)
+
+The metric is independent of T and phi.
+The coordinate poles theta=0 and theta=pi are excluded from this chart;
+they must not be described as physical curvature singularities.
+
+The fixed Riemann convention is the one in
+02_FULL_PIPELINE_CONTRACT_DATA_MODEL.txt:
+
+R^rho_sigma_mu_nu =
+partial_mu(Gamma^rho_nu_sigma)
+- partial_nu(Gamma^rho_mu_sigma)
++ Gamma^rho_mu_lambda*Gamma^lambda_nu_sigma
+- Gamma^rho_nu_lambda*Gamma^lambda_mu_sigma
+
+Ricci contraction:
+
+R_sigma_nu = SUM_rho R^rho_sigma_rho_nu
+
+No implementation may change this sign convention or index order.
+
+================================================================
+4. RECONSTRUCTION ENGINE CONTRACT
+================================================================
+
+The engine input is a MetricJet containing only:
+
+g[mu][nu]
+dg[a][mu][nu]
+ddg[a][b][mu][nu]
+
+The engine must not receive:
+- the archived analytical Ricci tensor;
+- the archived analytical Einstein tensor;
+- expected component values;
+- a precomputed curvature tensor from the ORACLE.
+
+The engine must reconstruct the output from the MetricJet.
+
+Minimum module sequence:
+
+1. InverseMetricEngine
+   Input: g.
+   Output: inverse metric g^mu_nu.
+   Required check:
+   SUM_sigma g^mu_sigma * g_sigma_nu = delta^mu_nu.
+
+2. ChristoffelEngine
+   Formula:
+   Gamma^rho_mu_nu =
+   (1/2) SUM_lambda g^rho_lambda *
+   (dg[mu][lambda][nu] + dg[nu][lambda][mu]
+    - dg[lambda][mu][nu]).
+
+3. Derivative-of-Christoffel stage
+   Uses the inverse-metric derivative identity:
+   partial_k(g^rho_lambda) =
+   -SUM_(a,b) g^rho_a * dg[k][a][b] * g^b_lambda.
+
+   It also uses ddg to calculate partial_k(Gamma^rho_mu_nu).
+   The implementation must document the index mapping explicitly.
+
+4. RiemannEngine
+   Uses the fixed convention in Section 3.
+
+5. RicciEngine
+   R_sigma_nu = SUM_rho R^rho_sigma_rho_nu.
+
+6. RicciScalarEngine
+   R = SUM_(mu,nu) g^mu_nu * R_mu_nu.
+
+7. EinsteinEngine
+   G_mu_nu = R_mu_nu - (1/2)*g_mu_nu*R.
+
+8. ValidationEngine
+   Runs algebraic and geometry-specific checks without modifying the
+   reconstructed tensors.
+
+Implementation may initially use the existing double backend only.
+The API must keep the mathematical tensor contract independent of the
+scalar backend so a future interval backend can be added without silently
+changing index semantics.
+
+================================================================
+5. INDEPENDENT ORACLE BOUNDARY
+================================================================
+
+The ORACLE is a test-only reference path.
+
+It must be isolated from the reconstruction engine at both source and
+dependency level.
+
+Required separation:
+
+PRODUCTION / RECONSTRUCTION PATH:
+MetricProvider -> MetricJet -> ReconstructionEngine -> computed tensors
+
+TEST-ONLY REFERENCE PATH:
+Locked metric written independently in a symbolic reference source
+-> independent symbolic differentiation
+-> independent Christoffel / Riemann / Ricci contraction
+-> exact simplified reference expressions
+-> test harness comparison
+
+Rules:
+
+1. The engine library must not include or link the ORACLE.
+2. The engine API must not accept expected Ricci or Einstein values.
+3. The ORACLE must not import, call, parse, or reuse MetricProvider code.
+4. The ORACLE must not reuse the C++ engine's intermediate tensors.
+5. The analytical III-B.3 target values may be used only by the
+   test harness after reconstruction has completed.
+6. The ORACLE source, symbolic tool version, exact input expressions,
+   generated output and hashes must be preserved separately.
+7. Separate source files alone do not prove independent derivation.
+   The derivation path and its provenance must be inspectable.
+
+Preferred first ORACLE:
+A standalone symbolic derivation from the metric itself, using exact
+rational parameters where possible and symbolic x, q, Rm, c, theta.
+It must compute derivatives and contractions independently of the
+C++ implementation.
+
+A second independent check may use hand-derived component expressions.
+Agreement between two implementations is useful evidence, but it is not
+automatically a formal proof of the entire unbounded domain.
+
+================================================================
+6. SYMBOLIC REFERENCE RESULT RECOVERED IN THIS CHECKPOINT
+================================================================
+
+A fresh symbolic calculation was performed directly from the locked
+diagonal metric, using the fixed Riemann convention and Ricci contraction.
+
+The resulting Ricci tensor is diagonal:
+
+R_TT = c^2*q*D/(Rm^2*x^6)
+
+R_xx = -q/(x^2*D)
+
+R_thetatheta = q/x^2
+
+R_phiphi = q*sin(theta)^2/x^2
+
+All off-diagonal Ricci components are zero.
+
+The Ricci scalar simplifies exactly to:
+
+R = 0
+
+Therefore, for this metric and convention:
+
+G_mu_nu = R_mu_nu
+
+In particular, the corrected target component is:
+
+R_TT = c^2*q*D/(Rm^2*x^6)
+
+This agrees with the corrected reference already preserved in the
+project archive and full-pipeline contract.
+
+CLASSIFICATION:
+SYMBOLIC REFERENCE CANDIDATE / INDEPENDENT DERIVATION ARTIFACT NOT YET
+COMMITTED OR REVIEWED.
+
+This calculation is not yet an executable repository ORACLE, not a
+formal proof artifact, and not a CAPD result. The standalone symbolic
+script and exact environment must be preserved before this reference
+can be promoted beyond a session-level derivation.
+
+================================================================
+7. MINIMUM EXACT TEST FIXTURE
+================================================================
+
+Use the following diagnostic point:
+
+q = 2/5
+Rm = 2
+c = 3
+x = 2
+theta = pi/3
+
+Then:
+
+D = 14/5
+B = 7/10
+
+Exact expected Ricci components:
+
+R_TT = 63/1600
+R_xx = -1/28
+R_thetatheta = 1/10
+R_phiphi = 3/40
+
+All off-diagonal Ricci components = 0.
+
+Ricci scalar:
+R = 0
+
+Einstein tensor:
+G_mu_nu = R_mu_nu
+
+The fixture is a diagnostic point inside the declared parameter domain.
+It does not establish a global result for every q, x, Rm, c, theta.
+
+The numerical C++ test must compare with scale-aware tolerances and
+must print every failed component with its indices, expected value,
+computed value, absolute error and relative error.
+
+================================================================
+8. REQUIRED TEST REGISTER BEFORE ENGINE IMPLEMENTATION
+================================================================
+
+CURV-01 — Inverse identity
+SUM_sigma g^mu_sigma*g_sigma_nu = delta^mu_nu.
+
+CURV-02 — Christoffel lower-index symmetry
+Gamma^rho_mu_nu = Gamma^rho_nu_mu.
+
+CURV-03 — Riemann last-index antisymmetry
+R^rho_sigma_mu_nu = -R^rho_sigma_nu_mu.
+
+CURV-04 — First algebraic Bianchi identity
+R^rho_sigma_mu_nu
++ R^rho_mu_nu_sigma
++ R^rho_nu_sigma_mu = 0
+under the fixed convention.
+
+CURV-05 — Ricci contraction consistency
+Recompute Ricci directly from the stored Riemann tensor and compare
+every component.
+
+CURV-06 — Ricci symmetry
+R_mu_nu = R_nu_mu.
+
+CURV-07 — Ricci scalar
+R = g^mu_nu * R_mu_nu = 0 for the locked metric.
+
+CURV-08 — Einstein construction
+G_mu_nu = R_mu_nu - (1/2)*g_mu_nu*R.
+
+CURV-09 — Einstein trace
+In four dimensions:
+g^mu_nu * G_mu_nu = -R.
+
+CURV-10 — Spherical symmetry
+G_phiphi = sin(theta)^2 * G_thetatheta
+for the diagonal locked metric.
+
+CURV-11 — Independent symbolic ORACLE
+Compare all Ricci and Einstein components against the separately
+derived exact symbolic reference.
+
+CURV-12 — Domain and failure behavior
+Reject invalid metric inputs and report singular/non-finite inversion
+or invalid numerical states without returning a false PASS.
+
+The algebraic Bianchi identity and differential Bianchi identity are
+different tests. CURV-04 is only the algebraic identity. The differential
+identity requires covariant derivatives and is not included in this
+minimum engine stage.
+
+================================================================
+9. KNOWN RISKS / FAILURE MODES
+================================================================
+
+A. Shared-formula risk:
+If the provider, engine and test oracle copy the same component formulas,
+agreement may be circular.
+
+B. Convention risk:
+A sign or index-order mismatch can produce plausible but incorrect
+curvature components. The fixed convention must be tested explicitly.
+
+C. Floating-point risk:
+The double backend is diagnostic. It does not provide outward rounding,
+validated enclosures or global error bounds.
+
+D. Domain risk:
+A finite set of test points does not certify the unbounded domain x>=1.
+
+E. Coordinate risk:
+The spherical coordinate poles are chart singularities. They must not
+be interpreted as physical curvature singularities.
+
+F. Reference-provenance risk:
+An archived analytical target is not an independent ORACLE merely
+because it is stored in a separate file.
+
+G. Build-evidence risk:
+The current provider test source exists, but CP-19 did not establish
+a clean full build of all three registered tests at its exact snapshot.
+
+H. Normalization risk:
+C*r0^2 remains PENDING until the original definitions of C and r0
+are recovered and checked. This engine design does not close it.
+
+================================================================
+10. NEXT EXECUTION ORDER
+================================================================
+
+STEP 1:
+Clean read-back build and execution of the three existing CMake targets
+from the exact current main commit 46c56cab99d9d5dec17eadceca306a71b0dac8a5.
+Preserve complete logs and source hashes.
+
+STEP 2:
+Create and preserve the standalone symbolic ORACLE source and its exact
+environment/version record. Verify its output against the component
+expressions in Section 6.
+
+STEP 3:
+Independent mathematical review of the ORACLE derivation and fixed
+Riemann convention.
+
+STEP 4:
+Only after Steps 1-3, implement the diagnostic double-precision
+InverseMetric / Christoffel / Riemann / Ricci / Einstein stages.
+
+STEP 5:
+Add CURV-01 through CURV-12 tests. Build and execute from exact GitHub
+read-back source. Preserve raw output and hashes.
+
+STEP 6:
+Perform a separate code review focused on index ordering, sign
+convention, derivative indexing, and oracle isolation.
+
+STEP 7:
+Only after the diagnostic path is stable, investigate the exact CAPD
+version/API and plan a separate interval backend. Do not reuse double
+PASS labels as interval evidence.
+
+No implementation, CAPD run, or certification is claimed by CP-20.
+
+================================================================
+11. FINAL CHECKPOINT STATUS
+================================================================
+
+CP-20:
+DESIGN CHECKPOINT COMPLETED IN THIS SESSION.
+
+RECURSIVE SOURCE INVENTORY:
+CP-19 FINDINGS RETAINED.
+
+CP-19 TREE-SHA METADATA:
+CORRECTED BY ADDITIVE NOTE IN THIS CHECKPOINT.
+
+CURVATURE ENGINE:
+NOT IMPLEMENTED.
+
+INDEPENDENT SYMBOLIC ORACLE:
+SESSION-LEVEL SYMBOLIC DERIVATION OBTAINED;
+REPOSITORY SCRIPT AND PROVENANCE NOT YET PRESERVED.
+
+EXISTING THREE-TARGET CLEAN BUILD:
+NOT VERIFIED AT THE EXACT CURRENT MAIN SNAPSHOT.
+
+CAPD / INTERVAL BACKEND:
+NOT IMPLEMENTED.
+
+CAPD CERTIFICATION:
+NOT CLAIMED.
+
+MATHEMATICAL CERTIFICATION:
+NOT CLAIMED.
+
+FROZEN CORE:
+PRESERVED / UNCHANGED.
+
+VOLUME V:
+ACTIVE RESEARCH ARCHITECTURE / UNCHANGED.
+
+CE-V-07:
+RESERVED.
+
+UNIVERSALITY:
+NOT ESTABLISHED.
+
+STAGE 2:
+NOT OPENED.
+
+END OF CP-20
