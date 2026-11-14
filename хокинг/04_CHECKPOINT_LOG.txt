@@ -117,3 +117,27 @@ Commit URL: TO BE FILLED AFTER GITHUB COMMIT CREATION.
 Read-back verification: TO BE FILLED AFTER FETCHING THE COMMITTED FILES.
 
 END OF PHASE III-B.4.5.2 CHECKPOINT UPDATE
+
+
+CP-11 — IMPLEMENTATION COMMIT CREATED
+Commit SHA: 5ab877206885ed0c0590e7087fd4eb438eb6c8bf
+Commit URL: https://github.com/naydenov54-netizen/OMEGA-ISOP/commit/5ab877206885ed0c0590e7087fd4eb438eb6c8bf
+The main branch ref update returned success using expected-head protection.
+
+CP-12 — COMMITTED READ-BACK VERIFICATION
+The implementation commit was fetched by its exact SHA.
+Recursive tree read-back confirmed all 12 files under хокинг/:
+- the original six archive/specification/checkpoint files;
+- 05_GENERIC_CPP_TENSOR_STORAGE_SPEC_AND_IMPLEMENTATION.txt;
+- 06_TENSOR_STORAGE_TEST_REPORT.txt;
+- CMakeLists.txt;
+- include/omega/tensor_storage.hpp;
+- tests/test_tensor_storage.cpp;
+- logs/build_test.log.
+README, implementation header, test source, test report, build log and checkpoint log were fetched from the committed revision.
+No original archive or historical source file was deleted.
+Read-back verifies repository persistence and content retrieval, not mathematical correctness beyond the separately recorded storage tests.
+
+CP-13 — FINAL CHECKPOINT UPDATE
+The implementation commit and read-back evidence are recorded above.
+This follow-up checkpoint-only commit preserves the implementation commit as an immutable provenance point.
