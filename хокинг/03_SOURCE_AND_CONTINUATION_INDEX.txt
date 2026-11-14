@@ -80,15 +80,28 @@ consistency remains NOT ESTABLISHED. L3 tensor identities are not yet
 implemented. See 07_METRICJET_INVARIANTS_AND_VALIDATION.txt and
 logs/metric_jet_validation_build.log.
 
-NEXT WORKING POINT:
-PHASE III-B.4.5.4 — INDEPENDENT METRIC DERIVATIVE ORACLE / METRICPROVIDER.
+COMPLETED WORKING POINT (SOURCE IMPLEMENTED):
+PHASE III-B.4.5.4 — ANALYTIC METRIC PROVIDER.
 
-Construct an independently derived analytic reference for g, dg and ddg
-from the locked metric definition. Test all 64 first-derivative and 256
-second-derivative entries against the MetricJet without feeding analytical
-Einstein target values into the reconstruction engine. Keep numerical
-finite differences as diagnostics only. CAPD remains out of scope until
-its exact version and API are independently verified.
+Added include/omega/metric_provider.hpp and tests/test_metric_provider.cpp.
+The provider constructs g, dg and ddg analytically from the locked metric,
+using the existing MetricJet storage types and fixed coordinate order.
+Tests cover all 16 metric, 64 first-derivative and 256 second-derivative
+entries, derivative symmetries, structural zero directions and domain
+rejections. See 08_METRIC_PROVIDER_ANALYTIC_REFERENCE.txt.
+A preliminary isolated local harness passed 10/10 checks. Exact GitHub
+read-back build of the committed full project remains pending; do not
+promote this to a verified committed build or mathematical certification.
+
+NEXT WORKING POINT:
+PHASE III-B.4.5.4-A — EXACT READ-BACK BUILD AND PROVIDER/REFERENCE INTEGRATION.
+
+Fetch the exact committed files, perform a clean C++17 build with strict
+warnings, run all registered tests, and retain the actual logs. Then wire
+the provider output into the L2 reference path for comparison against an
+independently constructed MetricJet candidate. Keep finite differences as
+diagnostics only. CAPD remains out of scope until its exact version and
+API are independently verified.
 
 ==================================================
 5. STATUS LOCKS
