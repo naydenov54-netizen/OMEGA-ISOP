@@ -96,6 +96,9 @@ The new test source checks:
 The test comparator uses:
 abs(a-b) <= 1e-12 + 1e-11*max(abs(a),abs(b)).
 
+The provider rejects non-finite parameters/results and floating-point scale
+squares that overflow or underflow to zero (Rm^2, c^2, sin(theta)^2).
+
 These tests are designed to check the provider implementation. The expected
 values are coded in a separate test-side reference routine, but both source
 and tests remain subject to independent mathematical review.
@@ -114,9 +117,11 @@ would not by itself establish:
 - independent certification of the analytical derivation;
 - universality of OMEGA-ISOP.
 
-No build or execution result is claimed in this note. The source must be
-compiled and executed from an exact GitHub read-back before the test status
-can be promoted.
+A preliminary isolated local C++17 harness for the provider logic and
+corresponding 13-check test set compiled with GNU C++ 14.2.0 and strict
+warnings; 13/13 checks passed. This is not a clean build of the exact full
+committed GitHub read-back tree. The exact committed-source build and full
+CTest run remain required before the test status can be promoted.
 
 6. ARCHITECTURAL STATUS
 
@@ -129,8 +134,9 @@ Mathematical certification: NOT ESTABLISHED.
 
 PHASE III-B.4.5.4:
 SOURCE IMPLEMENTED.
-BUILD: NOT YET VERIFIED.
-EXECUTION: NOT YET VERIFIED.
+PRELIMINARY ISOLATED HARNESS: PASS 13/13.
+EXACT COMMITTED-SOURCE BUILD: NOT YET VERIFIED.
+FULL PROJECT CTEST: NOT YET VERIFIED.
 INDEPENDENT MATHEMATICAL AUDIT: PENDING.
 
 END OF IMPLEMENTATION NOTE
