@@ -1,0 +1,86 @@
+OMEGA-ISOP
+SOURCE AND CONTINUATION INDEX — HAWKING WORKSPACE
+
+DATE: 2026-11-14
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+BASE COMMIT BEFORE THIS ADDITION:
+cf5eb3eaa4ba4663ec0943fef8229eb1e1bc78e7
+
+==================================================
+1. LOCAL WORKSPACE SOURCES
+==================================================
+
+00_ARCHIVE_2026-11-14.txt
+Source: ChatGPT Library item OMEGA-ISOP_ARCHIVE_2026-11-14.txt, read in full for this package.
+The archive preserves the technical state at the start of the 2026-11-14 session. It is a structured technical archive, not a verbatim transcript of every conversation.
+
+01_METRIC_JET_INTERFACE_SPECIFICATION.txt
+Source: formal interface specification authored in the current conversation after the archive handoff. Status remains FORMAL DESIGN — NOT IMPLEMENTED.
+
+02_FULL_PIPELINE_CONTRACT_DATA_MODEL.txt
+Source: contract/data-model specification supplied and confirmed in the current conversation. Status remains ARCHITECTURAL CONTRACT — DESIGN BASELINE.
+
+==================================================
+2. AUTHORITATIVE PROJECT REFERENCES
+==================================================
+
+GitHub repository:
+https://github.com/naydenov54-netizen/OMEGA-ISOP
+
+Active branch:
+main
+
+Current Volume V controlled master recorded in the project Library:
+OMEGA-ISOP-VOLUME-V-v2.4-C-1.1-CONTROLLED-MASTER-2026-11-14.txt
+
+Volume V remains the Active Research Architecture. Its source document is not duplicated or modified by this workspace package.
+
+Operational rules reference:
+OMEGA-ISOP-M3.2-v0.8.2-R1-CAPD-INTEGRATED-2026-11-09.txt
+
+The operational rules govern workflow and status handling; they are not a substitute for primary mathematical source records.
+
+The Frozen Core remains authoritative and unchanged. CE-V numbering remains governed by the CE-V Retained Extensions Status Archive. CE-V-07 remains RESERVED.
+
+==================================================
+3. SOURCE LIMITATIONS
+==================================================
+
+This folder does not claim that every historical Google Drive / Colab artifact has been transferred to GitHub.
+
+The full source report OMEGA_FORENSIC_AUDIT_PARTS.txt and the original Untitled47 notebook artifacts have separate provenance and must not be reconstructed from snippets or silently replaced.
+
+The archive in this folder is a continuation package for PHASE III-B.4.5, not a complete duplicate of the entire OMEGA-ISOP repository or Library.
+
+No existing project file is overwritten or deleted by this addition.
+
+==================================================
+4. NEXT WORKING POINT
+==================================================
+
+PHASE III-B.4.5.2 — GENERIC C++ TENSOR STORAGE
+
+Required next outputs:
+- concrete fixed-size C++ tensor storage types;
+- backend-independent interface;
+- static index ordering;
+- minimal compileable diagnostic implementation;
+- unit tests for indexing and storage;
+- no CAPD API claims until version-specific verification.
+
+Do not start by hardcoding the analytical target values into the reconstruction engine.
+
+==================================================
+5. STATUS LOCKS
+==================================================
+
+Frozen Core: PRESERVED.
+Volume V: ACTIVE RESEARCH ARCHITECTURE.
+CE-V-07: RESERVED.
+Universality: NOT ESTABLISHED.
+Energy normalization C*r0^2: PENDING.
+CAPD certification: NOT ESTABLISHED.
+Mathematical certification: NOT ESTABLISHED.
+
+END OF SOURCE AND CONTINUATION INDEX

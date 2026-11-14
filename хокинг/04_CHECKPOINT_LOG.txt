@@ -1,0 +1,60 @@
+OMEGA-ISOP
+HAWKING WORKSPACE — CHECKPOINT LOG
+
+DATE: 2026-11-14
+STATUS: COMMIT PREPARATION AND PROVENANCE RECORD
+
+CP-00 — REPOSITORY IDENTIFIED
+Repository: naydenov54-netizen/OMEGA-ISOP
+Branch: main
+Default branch confirmed: main
+Existing head before this operation:
+cf5eb3eaa4ba4663ec0943fef8229eb1e1bc78e7
+Existing root tree:
+9b476df649f7a40abd607fd3f9292f57fde266db
+Folder хокинг did not exist in the inspected tree.
+
+CP-01 — ARCHIVE SOURCE READ
+Source file:
+OMEGA-ISOP_ARCHIVE_2026-11-14.txt
+Source surface: ChatGPT Library
+The complete parsed text was read (777 lines; no continuation marker remained).
+No SHA-256 claim is made for the extracted text in this operation.
+The original Library source was not modified or deleted.
+
+CP-02 — CURRENT CONVERSATION MATERIAL CAPTURED
+Added:
+- III-B.4.5.1 Metric Jet Interface Specification.
+- III-B.4.5 Full Pipeline Contract / Data Model.
+- Source and Continuation Index.
+These documents retain their design/specification status and do not claim implementation.
+
+CP-03 — CONTENT SAFEGUARDS
+The package preserves:
+- Frozen Core unchanged;
+- Volume V as Active Research Architecture;
+- CE-V-07 reserved;
+- universality not established;
+- corrected R_TT including c^2;
+- C*r0^2 normalization pending;
+- no claim of CAPD compilation, execution, interval certificate, or mathematical certification.
+
+CP-04 — FILE AND TREE PREPARATION
+The folder is added as a new root-level directory named exactly:
+хокинг
+
+Only new files are added under this folder.
+No existing repository file is overwritten or deleted.
+
+CP-05 — COMMIT
+Commit SHA: TO BE FILLED AFTER GITHUB CREATION.
+Commit URL: TO BE FILLED AFTER GITHUB CREATION.
+Branch update: TO BE FILLED AFTER SUCCESSFUL REF UPDATE.
+
+CP-06 — READ-BACK VERIFICATION
+To be completed after commit creation by fetching the new commit and verifying the folder entries and document contents.
+
+CHECKPOINT CLEANUP POLICY
+These checkpoints are retained as an audit trail in the committed folder. Temporary tool/workspace checkpoints are not part of the repository. No source or historical evidence is deleted after commit.
+
+END OF CHECKPOINT LOG

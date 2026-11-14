@@ -1,0 +1,237 @@
+OMEGA-ISOP
+PHASE III-B.4.5.1
+METRIC JET INTERFACE SPECIFICATION
+
+ДАТА: 14.11.2026
+СТАТУС: FORMAL DESIGN — NOT IMPLEMENTED
+
+==================================================
+1. ЦЕЛ И ОБХВАТ
+==================================================
+
+Дефинира се backend-independent интерфейс за метричния тензор и неговите производни до втори ред.
+
+Интерфейсът трябва да поддържа независима реконструкция на:
+- Christoffel symbols;
+- Riemann tensor;
+- Ricci tensor;
+- Ricci scalar;
+- Einstein tensor;
+- последваща интеграция на CAPD interval backend.
+
+Аналитичният еталон от III-B.3 не е вход към реконструкционния engine. Той се използва само в независимия test harness и audit.
+
+==================================================
+2. КООРДИНАТИ И ИНДЕКСАЦИЯ
+==================================================
+
+N = 4
+
+X = (T, x, theta, phi)
+
+0 = T
+1 = x
+2 = theta
+3 = phi
+
+Всички компоненти и модули използват тази подредба.
+
+==================================================
+3. METRIC JET DATA
+==================================================
+
+g[mu][nu] =
+g_mu_nu
+
+dg[a][mu][nu] =
+partial_a(g_mu_nu)
+
+ddg[a][b][mu][nu] =
+partial_a(partial_b(g_mu_nu))
+
+Размерности на пълните масиви:
+g: 4*4 = 16
+dg: 4*4*4 = 64
+ddg: 4*4*4*4 = 256
+
+Симетрии за C2 метрика:
+
+g[mu][nu] = g[nu][mu]
+
+dg[a][mu][nu] = dg[a][nu][mu]
+
+ddg[a][b][mu][nu] = ddg[b][a][mu][nu]
+
+ddg[a][b][mu][nu] = ddg[a][b][nu][mu]
+
+Тези алгебрични симетрии са необходими проверки, но не доказват сами по себе си, че подадените масиви са производни на една и съща метрика. MetricProvider трябва да осигури и тестове за съгласуваност на производните.
+
+==================================================
+4. INVERSE METRIC
+==================================================
+
+Задължително условие:
+
+SUM_sigma g_inverse[mu][sigma]*g[sigma][nu] = delta[mu][nu]
+
+Първа производна:
+
+partial_a(g^ij) =
+-g^ip*(partial_a(g_pq))*g^qj
+
+Втора производна:
+
+partial_a(partial_b(g^ij)) =
+
+g^ip*(partial_a(g_pq))*g^qr*(partial_b(g_rs))*g^sj
+
++
+
+g^ip*(partial_b(g_pq))*g^qr*(partial_a(g_rs))*g^sj
+
+-
+
+g^ip*(partial_a(partial_b(g_pq)))*g^qj
+
+Формулата се получава чрез двукратно диференциране на g^ip*g_pj = delta^i_j.
+
+Избор на inverse algorithm трябва да бъде документиран:
+A. General 4x4 matrix inversion;
+B. specialized diagonal inversion for the present metric.
+
+Специализираното диагонално обръщане не трябва да се описва като обща независима реконструкция на обратната метрика.
+
+За interval backend се изисква отделна проверена процедура за nonsingularity и валидност на деленията.
+
+==================================================
+5. CHRISTOFFEL ENGINE CONTRACT
+==================================================
+
+Вход:
+g_inverse
+dg
+
+Изход:
+Gamma[rho][mu][nu]
+
+Формула:
+
+Gamma^rho_mu_nu =
+(1/2)*SUM_sigma g^rho_sigma*
+(
+  partial_mu(g_sigma_nu)
+  + partial_nu(g_sigma_mu)
+  - partial_sigma(g_mu_nu)
+)
+
+Проверка:
+
+Gamma^rho_mu_nu = Gamma^rho_nu_mu
+
+==================================================
+6. CHRISTOFFEL DERIVATIVE CONTRACT
+==================================================
+
+Вход:
+g_inverse
+dg
+ddg
+first derivatives of g_inverse
+
+Изход:
+dGamma[alpha][rho][mu][nu]
+
+Формула:
+
+partial_alpha(Gamma^rho_mu_nu) =
+
+(1/2)*SUM_sigma
+[
+  partial_alpha(g^rho_sigma)*
+  (
+    partial_mu(g_sigma_nu)
+    + partial_nu(g_sigma_mu)
+    - partial_sigma(g_mu_nu)
+  )
+
+  +
+
+  g^rho_sigma*
+  (
+    partial_alpha(partial_mu(g_sigma_nu))
+    + partial_alpha(partial_nu(g_sigma_mu))
+    - partial_alpha(partial_sigma(g_mu_nu))
+  )
+]
+
+Втората група използва ddg. Първата група използва производната на обратната метрика.
+
+==================================================
+7. CURVATURE CONVENTION LOCK
+==================================================
+
+Фиксирана конвенция:
+
+R^rho_sigma_mu_nu =
+partial_mu(Gamma^rho_nu_sigma)
+- partial_nu(Gamma^rho_mu_sigma)
++ Gamma^rho_mu_lambda*Gamma^lambda_nu_sigma
+- Gamma^rho_nu_lambda*Gamma^lambda_mu_sigma
+
+Ricci:
+
+R_sigma_nu = SUM_rho R^rho_sigma_rho_nu
+
+Тази конвенция и индексов ред са фиксирани за всички модули. Промяна е допустима само чрез изрично архитектурно решение и пълна повторна проверка.
+
+==================================================
+8. BACKEND CONTRACT
+==================================================
+
+Backend A:
+STANDARD C++ / double
+Статус: DIAGNOSTIC BACKEND
+Предназначение: архитектурна, алгоритмична и числена диагностика.
+Не е интервална сертификация.
+
+Backend B:
+CAPD interval scalar
+Статус: PLANNED
+Предназначение: интервална валидация след потвърждение на конкретната CAPD версия и API.
+
+Забрани:
+- скрито преобразуване от interval scalar към double в сертификационния път;
+- загуба на outward-rounding гаранции;
+- непроверен CAPD API да се представя като изпълним;
+- numerical diagnostic да се представя като interval validation.
+
+==================================================
+9. AUDIT CONDITIONS
+==================================================
+
+A01: N = 4 и фиксирана координатна подредба.
+A02: симетрия на g.
+A03: симетрия на dg по метричните индекси.
+A04: симетрия на ddg по производните и метричните индекси.
+A05: съгласуваност на dg с g и ddg с dg.
+A06: допустимост на координатния домейн.
+A07: inverse identity.
+A08: валидност на scalar backend и липса на невалидни стойности.
+A09: коректна обработка на сингулярности и деления.
+A10: проследимост на входните данни и backend версията.
+
+Нарушение на задължителен инвариант генерира AUDIT FAILURE.
+
+==================================================
+10. СТАТУС
+==================================================
+
+Metric Jet interface: FORMALLY SPECIFIED.
+Mathematical consistency: PARTIALLY SPECIFIED.
+C++ implementation: NOT IMPLEMENTED.
+Compilation: NOT PERFORMED.
+Execution: NOT PERFORMED.
+CAPD integration: NOT PERFORMED.
+Interval certification: NOT ESTABLISHED.
+
+КРАЙ НА III-B.4.5.1

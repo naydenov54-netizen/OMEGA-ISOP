@@ -1,0 +1,289 @@
+OMEGA-ISOP
+PHASE III-B.4.5
+FULL PIPELINE CONTRACT / DATA MODEL
+
+ДАТА: 14.11.2026
+СТАТУС: ARCHITECTURAL CONTRACT — DESIGN BASELINE
+
+==================================================
+1. ARCHITECTURAL STATE
+==================================================
+
+Frozen Core: PRESERVED / UNCHANGED
+Volume V: ACTIVE RESEARCH ARCHITECTURE
+CE-V-07: RESERVED
+Universality: NOT ESTABLISHED
+CAPD certification: NOT ESTABLISHED
+Mathematical certification: NOT ESTABLISHED
+
+Mandatory corrected analytical reference:
+
+R_TT = c^2*q*D/(Rm^2*x^6)
+
+Energy normalization:
+
+C*r0^2 = c^4*q*Rm^2/(8*pi*G_N)
+
+Status of normalization: PENDING pending recovery of the original definitions of C and r0.
+
+==================================================
+2. A. COORDINATE CONTRACT
+==================================================
+
+N = 4
+
+X = (T, x, theta, phi)
+
+Index mapping:
+0 = T
+1 = x
+2 = theta
+3 = phi
+
+Metric:
+
+g_mu_nu = diag(
+  -B*c^2,
+  Rm^2/B,
+  Rm^2*x^2,
+  Rm^2*x^2*sin(theta)^2
+)
+
+The metric is independent of T and phi. Derivatives with respect to T and phi are zero. Derivatives with respect to x and theta must be evaluated correctly, including derivatives of sin(theta)^2.
+
+==================================================
+3. B. INDEX CONTRACT
+==================================================
+
+All tensor indices range over 0,1,2,3.
+
+Array index order is fixed and identical across modules.
+
+Riemann convention:
+
+R^rho_sigma_mu_nu =
+partial_mu(Gamma^rho_nu_sigma)
+- partial_nu(Gamma^rho_mu_sigma)
++ Gamma^rho_mu_lambda*Gamma^lambda_nu_sigma
+- Gamma^rho_nu_lambda*Gamma^lambda_mu_sigma
+
+Ricci contraction:
+
+R_sigma_nu = SUM_rho R^rho_sigma_rho_nu
+
+No module may silently change the sign convention or index order.
+
+==================================================
+4. C. TENSOR STORAGE CONTRACT
+==================================================
+
+Backend-independent logical structures:
+
+Scalar
+Vector4
+Matrix4
+Tensor3_4
+Tensor4_4
+
+MetricJet:
+- metric[4][4]
+- first_derivatives[4][4][4]
+- second_derivatives[4][4][4][4]
+
+InverseMetricData:
+- inverse_metric[4][4]
+- first_derivatives[4][4][4]
+- second_derivatives[4][4][4][4]
+
+Tensor storage order must be documented once and reused everywhere. No module-specific permutation is permitted without an explicit conversion function.
+
+==================================================
+5. D. METRIC JET CONTRACT
+==================================================
+
+g[mu][nu] = g_mu_nu
+dg[a][mu][nu] = partial_a(g_mu_nu)
+ddg[a][b][mu][nu] = partial_a(partial_b(g_mu_nu))
+
+Required symmetries:
+
+g[mu][nu] = g[nu][mu]
+
+dg[a][mu][nu] = dg[a][nu][mu]
+
+ddg[a][b][mu][nu] = ddg[b][a][mu][nu]
+
+ddg[a][b][mu][nu] = ddg[a][b][nu][mu]
+
+MetricProvider must verify derivative consistency, not merely array symmetry.
+
+==================================================
+6. E. INVERSE METRIC CONTRACT
+==================================================
+
+Required identity:
+
+SUM_sigma g^mu_sigma*g_sigma_nu = delta^mu_nu
+
+First inverse derivative:
+
+partial_a(g^ij) = -g^ip*(partial_a g_pq)*g^qj
+
+Two implementation modes are permitted:
+A. General 4x4 inversion for the diagnostic backend.
+B. Specialized diagonal inversion for the present diagonal metric.
+
+The selected mode must be recorded. An analytically supplied inverse must not be described as independently reconstructed.
+
+The interval implementation requires a validated nonsingularity procedure and safe interval division.
+
+==================================================
+7. F. DIFFERENTIATION CONTRACT
+==================================================
+
+The first executable implementation receives a complete metric jet through second order.
+
+The derivative provider must establish:
+- exact coordinate ordering;
+- first derivatives of every metric component;
+- second derivatives required for dGamma;
+- zero derivatives for T and phi only where independence is structurally established;
+- correct theta derivatives of sin(theta)^2;
+- consistency between g, dg and ddg.
+
+Automatic differentiation over intervals does not automatically imply a target certificate. Its API, semantics, rounding guarantees, dependency effects and domain handling must be verified.
+
+==================================================
+8. G. ENGINE DEPENDENCY GRAPH
+==================================================
+
+MetricProvider
+  -> MetricJet
+  -> InverseMetricEngine
+  -> MetricDifferentiator
+  -> ChristoffelEngine
+  -> RiemannEngine
+  -> RicciEngine
+  -> RicciScalarEngine
+  -> EinsteinEngine
+  -> IndexTransformer
+  -> ValidationEngine
+  -> AuditReport
+
+The analytical Einstein values from III-B.3 are not inputs to the reconstruction engine. They are used only by the independent test harness.
+
+==================================================
+9. H. BACKEND SEPARATION
+==================================================
+
+STANDARD C++ / double:
+DIAGNOSTIC BACKEND.
+
+CAPD / interval arithmetic:
+PLANNED BACKEND; implementation only after exact version and API verification.
+
+Both backends must implement the same mathematical contract. Their statuses must remain separate.
+
+==================================================
+10. INITIAL INTEGRATION TESTS
+==================================================
+
+T01: Metric symmetry.
+T02: Inverse metric identity.
+T03: Christoffel lower-index symmetry.
+T04: Riemann antisymmetry in the last two indices.
+T05: First algebraic Bianchi identity.
+T06: Ricci contraction consistency.
+T07: Ricci scalar reconstruction.
+T08: Einstein tensor symmetry.
+T09: Einstein trace identity.
+T10: Spherical symmetry.
+T11: Comparison with the independent III-B.3 analytical reference.
+T12: Dimensional consistency.
+
+Every test record must contain:
+- unique identifier;
+- mathematical condition;
+- input parameters and domain;
+- verification method;
+- actual result;
+- execution/build log where applicable;
+- evidence class;
+- status.
+
+The algebraic Bianchi identity and differential Bianchi identity are separate tests. The latter requires covariant derivatives.
+
+==================================================
+11. DOMAIN AND INTERVAL LIMITATIONS
+==================================================
+
+Parameter domain:
+q in [0.1,0.9]
+x >= 1
+Rm > 0
+c > 0
+theta in (0,pi) for the standard spherical coordinate chart.
+
+D(x) = x^2 - 2*q*x + q
+B(x) = D(x)/x^2
+
+D(x) = (x-1)^2 + (1-q)*(2*x-1) > 0
+in the stated q,x domain; hence B(x)>0.
+
+The coordinate poles theta=0 and theta=pi must not be mistaken for physical singularities.
+
+A finite interval box does not certify the entire unbounded domain x>=1. A global claim requires compact-domain coverage plus asymptotic analysis, or another proved global method.
+
+Interval overlap:
+
+I_computed intersect I_target != empty
+
+means compatibility/overlap only. It does not prove equality.
+
+The condition 0 belongs to I(expression) does not prove an exact identity when dependency or interval width is uncontrolled.
+
+==================================================
+12. REQUIRED IMPLEMENTATION ORDER
+==================================================
+
+1. Finalize contract and data model.
+2. Implement backend-independent tensor storage.
+3. Implement independent tensor core.
+4. Implement MetricProvider and derivative consistency tests.
+5. Build a standard C++ diagnostic backend.
+6. Compile and execute with captured logs.
+7. Verify exact CAPD version and API.
+8. Implement CAPD adapter and interval validation.
+9. Run independent test harness and domain subdivision.
+10. Produce a traceable audit report.
+
+==================================================
+13. CERTIFICATION GATE
+==================================================
+
+Do not claim CAPD certification until all applicable items exist:
+- completed independent Tensor Core;
+- executable C++ project;
+- successful build log;
+- execution log;
+- independent tests;
+- exact CAPD version/API identification;
+- validated interval implementation;
+- outward rounding and domain handling evidence;
+- dependency-aware interval strategy;
+- independent reproducibility and mathematical review.
+
+==================================================
+14. CURRENT STATUS
+==================================================
+
+Contract / Data Model: IN PROGRESS.
+Tensor Core: NOT IMPLEMENTED.
+Diagnostic Backend: NOT IMPLEMENTED.
+CAPD Adapter: NOT IMPLEMENTED.
+Integration Tests: NOT IMPLEMENTED.
+Compilation: NOT PERFORMED.
+Execution: NOT PERFORMED.
+Certification: NOT ESTABLISHED.
+
+КРАЙ НА ДОКУМЕНТА
