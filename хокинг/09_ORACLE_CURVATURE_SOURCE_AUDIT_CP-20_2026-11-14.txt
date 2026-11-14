@@ -1,0 +1,188 @@
+OMEGA-ISOP
+ORACLE / CURVATURE PIPELINE SOURCE AUDIT
+
+CHECKPOINT: CP-20
+DATE: 2026-11-14
+STATUS: ACCUMULATING AUDIT EVIDENCE
+BASE COMMIT: e36a8e673dff3eabba5c24c648c7e14e6e38bfc7
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+
+SCOPE
+- Exact-commit recursive source inventory
+- ChatGPT Library ORACLE ZIP discovery and integrity
+- Archive provenance reconciliation
+- ORACLE implementation presence
+- Curvature-engine implementation presence
+- Build/test evidence boundaries
+
+1. EXACT GITHUB TREE
+
+GitHub API recursive tree was fetched for the exact base commit.
+Reported tree SHA: e36a8e673dff3eabba5c24c648c7e14e6e38bfc7
+truncated: false
+Total entries: 179
+
+The tree contains 7 files with source/notebook extensions:
+- source-notebooks/Untitled44.ipynb
+- хокинг/include/omega/metric_jet_validation.hpp
+- хокинг/include/omega/metric_provider.hpp
+- хокинг/include/omega/tensor_storage.hpp
+- хокинг/tests/test_metric_jet_validation.cpp
+- хокинг/tests/test_metric_provider.cpp
+- хокинг/tests/test_tensor_storage.cpp
+
+Untitled44.ipynb contains 28 cells. A scan of cell source text for ORACLE, Christoffel, Riemann, Ricci, curvature, Einstein, and metric returned no matches.
+
+No standalone ORACLE executable/source implementation was identified in this exact-commit source inventory.
+No ChristoffelEngine, RiemannEngine, RicciEngine, RicciScalarEngine, or EinsteinEngine source file was identified in this exact-commit inventory.
+
+This is a bounded finding about the complete returned tree and its source-extension files, not a claim about files outside this repository or external archives.
+
+2. LIBRARY ARCHIVE DISCOVERY
+
+Two Library entries were found:
+- /OMEGA_ISOP_ORACLE_AUDIT.zip
+- /OMEGA_ISOP_ORACLE_AUDIT(1).zip
+
+Both have size 26260 bytes.
+Both materialized successfully.
+Both have identical SHA-256:
+
+7ddd84f366e61996ee836ecf87fe9692dffbb65f6ac5ae0170e4fda50c1b9b19
+
+ZIP integrity test: PASS.
+Archive entries: 12 (one inventory JSON plus 11 selected files).
+
+The internal inventory manifest was checked against every archived file:
+11/11 SHA-256 values and byte sizes match.
+Manifest verification: PASS.
+
+3. ARCHIVE PROVENANCE MISMATCH
+
+SOURCE_INVENTORY_REPORT.json records:
+commit = 15cc95ded8b87d86cd3c7a878ff45213211f8a73
+commit_verified = true
+files_found = 162
+candidate_files = 11
+downloaded_files = 11
+source_findings = []
+
+The archive inventory commit is NOT the pinned audit commit:
+e36a8e673dff3eabba5c24c648c7e14e6e38bfc7
+
+Therefore the archive's internal inventory does not establish file identity or provenance relative to the pinned commit.
+This does not prove the files differ; direct file-level comparison is still required.
+The ZIP contains 11 selected files, not all 162 files reported as found.
+
+4. ARCHIVE CONTENT
+
+The 11 selected files comprise:
+- Three historical audit documents
+- Metric Jet interface specification
+- MetricJet validation specification
+- MetricProvider analytic reference
+- metric_jet_validation.hpp
+- metric_provider.hpp
+- test_metric_jet_validation.cpp
+- test_metric_provider.cpp
+- metric_jet_validation_build.log
+
+No standalone ORACLE engine implementation is present among these 11 archived files.
+No curvature-engine implementation is present among these 11 archived files.
+
+5. EXACT-COMMIT BUILD CONFIGURATION
+
+хокинг/CMakeLists.txt registers exactly three test targets:
+- tensor_storage_tests
+- metric_jet_validation_tests
+- metric_provider_tests
+
+The committed logs establish:
+A. build_test.log:
+- GNU C++ 14.2.0
+- CMake 3.31.6
+- tensor_storage target built
+- CTest: 1/1 passed
+- direct tensor storage checks: 17/17 passed
+
+B. metric_jet_validation_build.log:
+- GNU C++ 14.2.0
+- C++17
+- metric_jet_validation target compile/link reported successful
+- executable checks: 15/15 passed
+- L2 positive fixture copies the test jet derivatives into the reference
+- log explicitly says this is not an independent derivative derivation
+
+C. No committed execution/build log for test_metric_provider was identified in the inspected logs.
+The presence of its CMake target and test source does not prove it was built or run.
+
+6. AUDIT FINDINGS
+
+AF-CP20-01:
+The Library ZIP is internally intact and both copies are byte-identical.
+
+AF-CP20-02:
+The ZIP inventory is pinned to commit 15cc95d..., not the audit base e36a8e....
+
+AF-CP20-03:
+The ZIP contains 11 selected files, despite reporting 162 files found.
+
+AF-CP20-04:
+No standalone ORACLE implementation was identified in the exact-commit source files or in the 11-file ZIP.
+
+AF-CP20-05:
+No curvature reconstruction engines were identified in the exact-commit source files or in the 11-file ZIP.
+
+AF-CP20-06:
+The committed CMake configuration registers MetricProvider tests, but the inspected committed logs do not provide a corresponding execution record for that target.
+
+AF-CP20-07:
+The MetricJet L2 positive fixture is a comparison-path test, not an independent derivative reference.
+
+7. EVIDENCE CLASSIFICATION
+
+FACT:
+- Exact GitHub recursive tree response: truncated=false, 179 entries.
+- Seven source/notebook-extension files identified in that tree.
+- Two Library ZIP copies have identical SHA-256.
+- ZIP test passes.
+- All 11 manifest entries match their recorded SHA-256 and sizes.
+- Archive inventory records commit 15cc95d...
+- Exact audit base is e36a8e...
+- Three CMake test targets are registered.
+- The two inspected logs report 17/17 storage checks and 15/15 MetricJet validation checks.
+
+NOT ESTABLISHED:
+- ORACLE independence.
+- Existence of a standalone ORACLE executable implementation in the inspected evidence.
+- Existence of a curvature reconstruction pipeline in the inspected evidence.
+- Execution of test_metric_provider at the pinned commit.
+- Byte identity of the archived files with files at the pinned commit.
+- Mathematical certification.
+- CAPD interval certification.
+
+8. OPEN ACTIONS
+
+1. Compare each archived candidate file byte-for-byte with the same path at the pinned commit.
+2. Recover or identify the remaining source files among the 162 inventory results, if they are relevant.
+3. Inspect all candidate ORACLE-related source and test files, including external/archived locations.
+4. Establish actual dependency and execution graphs.
+5. Determine whether engines are absent, partial, or stored outside the inspected source tree.
+6. Rebuild and run all three registered targets in a controlled environment.
+7. Preserve raw logs, toolchain versions, commands, exit codes, and hashes.
+
+9. ARCHITECTURAL SAFEGUARDS
+
+Frozen Core: PRESERVED.
+Volume V: ACTIVE RESEARCH ARCHITECTURE.
+CE-V-07: RESERVED.
+Universality: NOT ESTABLISHED.
+CAPD certification: NOT ESTABLISHED.
+Mathematical certification: NOT ESTABLISHED.
+
+No source code was modified.
+No scientific result was promoted.
+No temporary archive was deleted.
+No final COMMIT claim is made.
+
+END CP-20
