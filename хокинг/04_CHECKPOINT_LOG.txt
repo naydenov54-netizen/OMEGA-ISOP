@@ -664,3 +664,52 @@ CAPD certification: NOT CLAIMED.
 Mathematical certification: NOT CLAIMED.
 
 END OF CP-21
+
+
+
+CP-22 — CORRECTED ARTIFACT HASH VERIFICATION
+Date/time of supplied result: 2026-11-14T22:15:41Z
+Evidence report: хокинг/11_CP22_CORRECTED_ARTIFACT_HASH_VERIFICATION.txt
+
+The user supplied the corrected verification result after fixing the
+relative paths in the manifest. All three reported SHA-256 checks passed:
+
+- standalone_symbolic_oracle.py:
+  75ad607c451bb8cd0e7bf2bba5fb65c3dfa09d190967def280ab69985c5c2eba
+- audit-output/oracle_output.txt:
+  fe2af35bb8c25aca9647037524b8c92a98620af2298b1ddd7d0158b123344b07
+- audit-output/oracle_provenance.txt:
+  833d60d3efbd1afd4f0f42d3975f23b76a8f7cb17958909fd13f34b2c1be44cd
+
+Reported results:
+SYMBOLIC EXECUTION: PASS
+SYMBOLIC COMPARISON: PASS
+EXACT FIXTURE: PASS
+ARTIFACT HASH VERIFICATION: PASS
+
+The prior failure was attributed to incorrect relative paths in the
+manifest. No artifact corruption was reported.
+
+Evidence qualification:
+These are user-supplied execution results recorded here. During this
+GitHub recording operation, the three underlying artifact files were
+not independently fetched and re-hashed. The checkpoint therefore records
+the reported verification, not a new independent reproduction.
+
+CP-22 status:
+CORRECTED TECHNICAL VERIFICATION: PASS (reported).
+INDEPENDENT ORACLE AUDIT: PENDING.
+CAPD / INTERVAL CERTIFICATION: NOT ESTABLISHED.
+MATHEMATICAL CERTIFICATION: NOT ESTABLISHED.
+
+Next gate: CP-23 — independent review of oracle logic, exact fixture,
+mathematical derivation, provenance and independence boundary.
+
+Frozen Core: PRESERVED / UNCHANGED.
+Volume V: ACTIVE RESEARCH ARCHITECTURE / UNCHANGED.
+CE-V-07: RESERVED.
+Universality: NOT ESTABLISHED.
+CAPD certification: NOT CLAIMED.
+Mathematical certification: NOT CLAIMED.
+
+END OF CP-22
