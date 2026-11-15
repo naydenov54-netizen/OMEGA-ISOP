@@ -232,26 +232,3 @@ Numerical or informal checking is not represented as a formal proof.
 No universal theorem or universal stopping rule is claimed.
 
 END OF F1-F7 INTERNAL VERIFICATION LOG
-============================================================
-
-No closure or pass status is assigned to F3-F7 in this initial log. Each finding must be checked separately and recorded only after its mathematical conditions and limitations have been examined.
-
-============================================================
-CURRENT AUDIT SUMMARY
-============================================================
-
-F1: CONDITIONAL PASS / NOT CLOSED
-F2: CONDITIONAL PASS / NOT CLOSED
-F3: PENDING
-F4: PENDING
-F5: PENDING
-F6: PENDING
-F7: PENDING
-
-OVERALL:
-PARTIAL INTERNAL VERIFICATION ONLY.
-NO FINDING IS MARKED CLOSED.
-NO INDEPENDENT CERTIFICATION IS CLAIMED.
-NO CANONICAL STATUS CHANGE IS MADE.
-
-END OF INITIAL LOG
