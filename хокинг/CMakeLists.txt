@@ -15,8 +15,11 @@ target_link_libraries(test_metric_jet_validation PRIVATE omega_isop_tensor_stora
 add_executable(test_metric_provider tests/test_metric_provider.cpp)
 target_link_libraries(test_metric_provider PRIVATE omega_isop_tensor_storage)
 
+add_executable(test_curvature_engine tests/test_curvature_engine.cpp)
+target_link_libraries(test_curvature_engine PRIVATE omega_isop_tensor_storage)
+
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
-    foreach(target test_tensor_storage test_metric_jet_validation test_metric_provider)
+    foreach(target test_tensor_storage test_metric_jet_validation test_metric_provider test_curvature_engine)
         target_compile_options(${target} PRIVATE
             -Wall -Wextra -Wpedantic -Wconversion -Wsign-conversion -Werror)
     endforeach()
@@ -26,3 +29,4 @@ enable_testing()
 add_test(NAME tensor_storage_tests COMMAND test_tensor_storage)
 add_test(NAME metric_jet_validation_tests COMMAND test_metric_jet_validation)
 add_test(NAME metric_provider_tests COMMAND test_metric_provider)
+add_test(NAME curvature_engine_tests COMMAND test_curvature_engine)
