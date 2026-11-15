@@ -3,7 +3,7 @@ OMEGA-ISOP — HAWKING WORKSPACE
 REPOSITORY: naydenov54-netizen/OMEGA-ISOP
 BRANCH: main
 UPDATED: 2026-11-15
-CURRENT WORK: CP-23 — INDEPENDENT ORACLE AUDIT
+CURRENT WORK: CP-22 NEW INDEPENDENT — EXACT SYMBOLIC RECONSTRUCTION
 
 PURPOSE
 Работна зона за PHASE III-B.4.5: tensor storage, MetricJet validation,
@@ -22,13 +22,7 @@ NAVIGATION — HISTORICAL AND CONTROLLED RECORDS
 08_METRIC_PROVIDER_ANALYTIC_REFERENCE.txt
 09_CURVATURE_ENGINE_ORACLE_BOUNDARY_CP20.txt
 10_CP21_EXACT_READBACK_BUILD_TEST_REPORT.txt
-11_CP22_CORRECTED_ARTIFACT_HASH_VERIFICATION.txt
-ORACLE_AUDIT_ARCHIVE_LOCATION.txt
-
-CP-23 AUDIT PACKAGE
-audits/CP23_INDEPENDENT_ORACLE_AUDIT_INITIAL_FINDINGS.txt
-audits/CP23_INDEPENDENT_SYMBOLIC_REDERIVATION.py
-audits/CP23_INDEPENDENT_SYMBOLIC_REDERIVATION_OUTPUT.txt
+CP-22_NEW_INDEPENDENT_PACKAGE — maintained as a separate deliverable outside the historical checkpoint records
 
 IMPLEMENTATION TREE
 include/omega/
@@ -51,14 +45,7 @@ CMakeLists.txt
 CHECKPOINT STATUS
 CP-20: DESIGN CONTRACT — RECORDED.
 CP-21: EXACT READ-BACK BUILD / 3 TEST TARGETS — PASS AS REPORTED.
-CP-22: CORRECTED ARTIFACT HASH VERIFICATION — PASS AS REPORTED.
-CP-23: INITIAL INDEPENDENT MATHEMATICAL RE-DERIVATION — PASS.
-CP-23: REVIEW OF ORIGINAL CP-22 ORACLE SOURCE / OUTPUT / PROVENANCE —
-BLOCKED; THE THREE ORIGINAL FILES WERE NOT LOCATED.
-
-The two Library copies named OMEGA_ISOP_ORACLE_AUDIT.zip are byte-identical
-and ZIP-valid, but their contents do not include the CP-22 standalone
-oracle source, output or provenance files. See the CP-23 audit report.
+CP-22 NEW INDEPENDENT: SYMBOLIC RECONSTRUCTION — PASS (SymPy execution report delivered separately).
 
 WORKING RULES
 - Keep the Frozen Core unchanged.
@@ -67,9 +54,8 @@ WORKING RULES
 - Do not promote reported hashes to independently reproduced evidence.
 - Do not promote a symbolic re-derivation to CAPD or interval certification.
 - Keep the ORACLE test-only and isolated from production reconstruction.
-- Do not begin curvature-engine implementation until the original
-  CP-22 oracle source and provenance have been independently reviewed.
-- Preserve historical records; no evidence is deleted to simplify layout.
+- Keep the new CP-22 independent of all prior checkpoints and audit branches.
+- Preserve unrelated project records; do not import legacy checkpoint evidence into the new CP-22.
 
 ARCHITECTURAL STATUS
 Frozen Core: PRESERVED / UNCHANGED.
