@@ -234,20 +234,9 @@ the curvature reconstruction pipeline exists.
 10. NEXT STEP
 ================================================================
 
-Proceed to CP-22: preserve a standalone symbolic ORACLE source and its
-provenance, then perform an independent mathematical review of its
-derivation and convention.
-
-The ORACLE must:
-- derive from the locked metric independently;
-- not import or call MetricProvider;
-- not reuse reconstruction-engine intermediates;
-- preserve exact symbolic input, tool/version information and output;
-- remain test-only;
-- not feed expected Ricci or Einstein tensors into production code.
-
-Do not begin curvature-engine implementation until the ORACLE artifact
-and its independence boundary have been reviewed.
+This CP-21 report records only the completed baseline build and test
+execution. It does not define a successor checkpoint or establish any
+relationship to the newly created independent CP-22.
 
 ================================================================
 11. FINAL STATUS
@@ -263,7 +252,7 @@ CTest: 3/3 PASS.
 Direct test executables: 3/3 PASS.
 
 Curvature engine: NOT IMPLEMENTED.
-Independent executable symbolic ORACLE: NOT YET PRESERVED.
+Independent executable symbolic ORACLE: NOT PART OF THIS CP-21 REPORT.
 Interval arithmetic: NOT ESTABLISHED.
 CAPD: NOT EXECUTED.
 CAPD certification: NOT CLAIMED.
