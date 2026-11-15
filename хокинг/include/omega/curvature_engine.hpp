@@ -23,28 +23,36 @@ struct CurvatureResult {
 
 inline Matrix4<double> invert_metric(const Matrix4<double>& metric) {
     std::array<std::array<double, 2 * kDimension>, kDimension> a{};
-    double scale = 0.0;
+    std::array<double, kDimension> row_scale{};
     for (std::size_t i = 0; i < kDimension; ++i) {
         for (std::size_t j = 0; j < kDimension; ++j) {
             const double value = metric(i, j);
             if (!std::isfinite(value))
                 throw std::invalid_argument("CurvatureEngine: non-finite metric");
             a[i][j] = value;
-            scale = std::max(scale, std::abs(value));
+            row_scale[i] = std::max(row_scale[i], std::abs(value));
         }
         a[i][kDimension + i] = 1.0;
+        if (row_scale[i] == 0.0)
+            throw std::domain_error("CurvatureEngine: singular zero row");
     }
-    if (scale == 0.0)
-        throw std::domain_error("CurvatureEngine: singular zero metric");
 
     for (std::size_t col = 0; col < kDimension; ++col) {
         std::size_t pivot = col;
-        for (std::size_t row = col + 1; row < kDimension; ++row)
-            if (std::abs(a[row][col]) > std::abs(a[pivot][col])) pivot = row;
-        if (std::abs(a[pivot][col]) <=
-            64.0 * std::numeric_limits<double>::epsilon() * scale)
+        double best_scaled_pivot = std::abs(a[pivot][col]) / row_scale[pivot];
+        for (std::size_t row = col + 1; row < kDimension; ++row) {
+            const double candidate = std::abs(a[row][col]) / row_scale[row];
+            if (candidate > best_scaled_pivot) {
+                pivot = row;
+                best_scaled_pivot = candidate;
+            }
+        }
+        if (best_scaled_pivot <= 64.0 * std::numeric_limits<double>::epsilon())
             throw std::domain_error("CurvatureEngine: metric is singular or ill-conditioned");
-        if (pivot != col) std::swap(a[pivot], a[col]);
+        if (pivot != col) {
+            std::swap(a[pivot], a[col]);
+            std::swap(row_scale[pivot], row_scale[col]);
+        }
 
         const double divisor = a[col][col];
         for (std::size_t j = 0; j < 2 * kDimension; ++j)
