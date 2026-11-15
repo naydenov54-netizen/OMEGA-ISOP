@@ -357,3 +357,26 @@ Frozen Core: UNCHANGED.
 Volume V: ACTIVE RESEARCH ARCHITECTURE.
 CE-V-07: RESERVED.
 Universality: NOT ESTABLISHED.
+
+
+---
+
+## ADDENDUM — CP22-12 SOURCE SEARCH / CP22-13 IMPLEMENTATION GATE
+DATE: 2026-11-15
+CHECKPOINT: хокинг/checkpoints/CP22-12_SOURCE_SEARCH_AND_CP22-13_IMPLEMENTATION_GATE_2026-11-15.md
+
+CP22-12 remains BLOCKED / PENDING. A direct GitHub repository search for separate primary definitions of C and r0 did not locate them. The primary archive section 2.9 explicitly requires those definitions and separately warns against assuming independence from q and Rm. The product identity and dimensional requirement do not close the primary normalization.
+
+CP22-13 is IN PROGRESS, NOT PASS. The repository contains a C++17 tensor-storage subsystem with a recorded 17/17 storage test result. That subsystem does not implement metric derivatives, inverse metric, Christoffel, Riemann, Ricci, scalar curvature or Einstein tensor. The full pipeline contract continues to mark Tensor Core and MetricProvider as NOT IMPLEMENTED. Storage tests must not be promoted to curvature-engine validation.
+
+Next action: implement and test the independent C++ curvature engine against the existing metric-jet contract. The analytical III-B.3 values remain test-harness targets only, never engine inputs.
+
+Status lock:
+- CP22-12: BLOCKED / PENDING.
+- CP22-13: IN PROGRESS; storage prerequisite only.
+- CP22-14 through CP22-22: NOT RUN / BLOCKED BY DEPENDENCIES.
+- CAPD certification: NOT ESTABLISHED.
+- Mathematical certification: NOT ESTABLISHED.
+- Frozen Core: UNCHANGED.
+- Volume V: ACTIVE RESEARCH ARCHITECTURE.
+- CE-V-07: RESERVED.
