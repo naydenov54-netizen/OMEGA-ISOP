@@ -1,0 +1,44 @@
+OMEGA-ISOP CP-22 — SYMBOLIC RECONSTRUCTION EXECUTION LOG
+DATE: 2026-11-15
+SOURCE: хокинг/00_ARCHIVE_2026-11-14.txt, III-B.3
+EXECUTION: python CP22_INDEPENDENT_SYMBOLIC_RECONSTRUCTION.py
+PYTHON: 3.13.5
+SYMPY: 1.14.0
+EXIT CODE: 0
+SCRIPT SHA-256: bba543df4146773a22ab61eb61e61c8df2503984b18c15e7e99d386bd4aa5168
+
+--- STDOUT ---
+OMEGA-ISOP CP-22 INDEPENDENT SYMBOLIC RECONSTRUCTION
+SOURCE: хокинг/00_ARCHIVE_2026-11-14.txt, III-B.3 only
+SymPy: 1.14.0
+Metric inverse identity: PASS (16 component equations)
+Christoffel nonzero ordered components: 13
+Christoffel independent under lower-index symmetry: 9 (exact 9-component archive match PASS)
+Riemann nonzero ordered components: 24
+Riemann last-index antisymmetry: 256 / 256 PASS
+Algebraic Bianchi identity: 256 / 256 PASS
+Ricci tensor: exact component identity PASS
+Ricci scalar: 0
+Einstein tensor and mixed components: exact identity PASS
+Differential Bianchi identity: 1024 / 1024 PASS
+Dimensional audit: PASS
+  [g_TT]=L^2/T^2; [g_xx]=[g_theta_theta]=[g_phi_phi]=L^2
+  [R]=[G^mu_nu]=L^-2; [R_TT]=T^-2; spatial Ricci covariant components dimensionless
+  [rho]=[p_r]=[p_t]=M/(L*T^2)
+  [c^4/(G_N*Rm^2)]=M/(L*T^2)
+  [C*r0^2] required by rho formula = M*L^3/T^2
+Exact fixture: [63/1600, -1/28, 1/10, 3/40]
+ENERGY NORMALIZATION C*r0^2: NOT CLOSED; primary definitions absent
+RESULT: PASS FOR CP22-03 THROUGH CP22-11 SYMBOLIC/DIMENSIONAL SCOPE
+--- END STDOUT ---
+
+STDERR NOTE:
+The Python host emitted a spreadsheet-runtime warmup traceback before/after
+the process. The script itself returned exit code 0; the traceback is from
+the host startup hook, not from the CP-22 script. No assertion failed.
+
+SCOPE:
+Exact symbolic reconstruction, inverse identity, Christoffel component
+match, Riemann antisymmetry, algebraic Bianchi, Ricci contraction,
+Ricci scalar, Einstein tensor, differential Bianchi, and dimensional
+consistency. No C++ or CAPD execution is represented by this log.
