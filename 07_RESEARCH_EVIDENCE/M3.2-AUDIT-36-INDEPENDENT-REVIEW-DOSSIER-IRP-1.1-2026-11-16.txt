@@ -1,0 +1,214 @@
+OMEGA-ISOP — COMPLETE INDEPENDENT REVIEW DOSSIER
+IRP-1.1 — M3.2 AUDIT #36
+CLAUDE — INDEPENDENT MATHEMATICAL REVIEW
+DOSSIER CONTROL COPY / REVIEW MANDATE
+
+DATE: 2026-11-16
+TARGET: PROPOSED REVISION v3.3
+SOURCE DOCUMENT DATE: 2026-10-29
+STATUS: INDEPENDENT REVIEW REQUESTED
+CANONICAL ACCEPTANCE: NOT GRANTED
+CLOSURE: PENDING
+FROZEN CORE: UNCHANGED
+
+1. PURPOSE AND REVIEWER ROLE
+
+The reviewer (Claude) is assigned to conduct an independent mathematical review of OMEGA-ISOP / M3.2 AUDIT #36, proposed revision v3.3. The task is to verify mathematical correctness, not to endorse the project. The reviewer must inspect the complete v3.3 source and correction package, reconstruct arguments independently, and must not rely on ChatGPT's prior conclusions or treat internal verification logs as proof. A prior review of v3.2 is not approval of v3.3.
+
+2. REQUIRED TWO-PHASE INDEPENDENCE
+
+PHASE A — BLIND REVIEW
+Before reading the internal F1–F7 verification log:
+- Read the complete v3.3 source document and exact correction package.
+- Reconstruct every mathematical argument and verify every proposition and assumption.
+- Recalculate all numerical examples.
+- Search for counterexamples and inspect stopping, robust and minimax constructions.
+- Record and preserve preliminary findings, including unresolved objections.
+
+PHASE B — COMPARATIVE REVIEW
+Only after Phase A:
+- Read the fixed-commit F1–F7 internal verification log.
+- Compare independent findings with internal conclusions.
+- Identify disagreements, omitted assumptions and additional problems.
+- Explain mathematically how each disagreement should be resolved.
+- Preserve the original blind-review findings; do not overwrite them.
+
+3. FIXED GITHUB SOURCE LOCATIONS
+
+Repository:
+https://github.com/naydenov54-netizen/OMEGA-ISOP
+
+Branch:
+main
+
+Fixed audit commit:
+https://github.com/naydenov54-netizen/OMEGA-ISOP/commit/f36c966617b19ad1381d22beba0970899ebe1443
+
+F1–F7 internal verification log:
+https://github.com/naydenov54-netizen/OMEGA-ISOP/blob/f36c966617b19ad1381d22beba0970899ebe1443/07_RESEARCH_EVIDENCE/M3.2-AUDIT-36-F1-F7-VERIFICATION-LOG-2026-11-15.txt
+
+The log is evidence of internal work only. It is not independent certification. Use the fixed commit for comparative review; do not silently substitute a moving main-branch version.
+
+4. LIBRARY SOURCE FILES
+
+The following source files are the Library source set. Read and compare them directly. The complete v3.3 document and correction package are separate artifacts; the Samsung Notes copy is supplementary provenance and must not replace the complete document.
+
+FILE A — Complete proposed revision v3.3:
+OMEGA_ISOP_M32_AUDIT_36_PROPOSED_REVISIONS_A36R01-A36R07_v3.3_FULL_2026-11-15.txt
+Library file ID: file_36b4f5d20865a73b72fbcb2aa190a15f
+Size: 46,332 bytes; 479 lines.
+Role: complete proposed revision v3.3.
+
+FILE B — Exact text patch:
+OMEGA_ISOP_M32_AUDIT_36_EXACT_TEXT_PATCH_A36R01-A36R07_v3.3_2026-11-15.txt
+Library file ID: file_8f7e4b9c2a1d6e5f3b0c9a7d4e2f1b6c
+Size: 13,269 bytes.
+SHA256 supplied for the source copy: b34ff0e72dcd326d8d5aeb414e6aa16f0a947b280b8bc19be56e003d815768ff
+Role: exact replacement and addition blocks for v3.3.
+
+FILE C — Samsung Notes original:
+OMEGA_ISOP_M32_AUDIT_36_SamsungNotes_original.txt
+Library file ID: file_9a7c3e1f5b2d8a6c4e0f9b7d3c1a5e8f
+Size: 12,686 bytes.
+SHA256 supplied for the source copy: 426acc5beac283a4feb1b6c105398caa6740bf917bf584786998087beff63091
+Role: original Samsung Notes copy of correction material; supplementary consistency/provenance check only.
+
+Source-integrity tasks:
+- Confirm that FILE A is the complete v3.3 source and FILE B contains the stated exact patch blocks.
+- Compare FILE B with FILE C and report all differences; do not assume byte identity.
+- Confirm hashes from actual bytes if tools permit. If not, explicitly mark hash verification as not performed.
+- Report missing, truncated, inconsistent or ambiguous source material.
+- Do not modify any source file.
+
+5. SCOPE OF THE v3.3 MATHEMATICAL REVIEW
+
+The document concerns decision-relevant observational equivalence and stopping rules under a declared experimental design. It gives conditional results only. It does not establish a physical observation model, complete hypothesis class, justified prior, complete loss function, validated experiment-cost model, empirical result, unique optimal experiment or universally valid stopping rule for OMEGA-ISOP.
+
+Review the complete source, including:
+- measurable hypothesis/state and observation spaces; Markov kernels; priors; protocols and complete observable histories;
+- single-experiment, declared-experiment-set and protocol-level observational equivalence;
+- conditional-kernel sufficiency, reachable histories, almost-sure equality, adaptivity and internal randomization;
+- decision-relevant loss equivalence and prior-mass redistribution;
+- posterior odds and likelihood-ratio claims;
+- EVSI definitions, nonnegativity proof, posterior existence, disintegration, measurability, integrability and selection assumptions;
+- finite budgets, termination, stopping/continuation classes, empty classes, infima, attainment, mixtures and root versus sequential optimality;
+- one-step versus multi-step value, complementary experiments and XOR example;
+- binary-digit non-attainment example;
+- static robust/minimax criteria, randomized policies, non-rectangular uncertainty, conditional versus ex-ante values and robust stop/continue mixtures.
+
+6. F1–F7 REQUIRED VERIFICATION
+
+F1 — OBSERVATIONAL EQUIVALENCE
+Verify:
+h ~_e h' iff P_h^e = P_h'^e;
+h ~_E h' iff P_h^e = P_h'^e for every e in E;
+h ~_Π h' iff Law_h^π = Law_h'^π for every π in Π.
+Check equivalence-relation properties, implications, repeated Bernoulli counterexample, marginal versus joint laws, and scope of declared experiment/protocol classes.
+
+F2 — ADAPTIVE PROTOCOLS
+Verify conditional-kernel construction, induction over finite histories, almost-sure equality, reachable-history conditions, protocol-dependent experiment selection, measurability, independent internal randomization, infinite-horizon construction (including Ionescu–Tulcea conditions), necessity versus sufficiency, and counterexamples when assumptions are removed.
+
+F3 — POSTERIOR ODDS
+Verify equal full-history laws, common dominating measure, Radon–Nikodym derivatives, likelihood ratio equal to one almost surely, posterior odds equal to prior odds, positive prior-mass conditions, and undefined likelihoods/zero-probability events.
+
+F4 — PRIOR-MASS REDISTRIBUTION
+Verify Proposition 1 and the identity:
+-t L(a,h) + t L(a,h') = 0 when h ~_L h'.
+Check expected action loss, action ranking and pre-data Bayes risk. Verify Proposition 1b and whether protocol equivalence, common policy feasibility, equal expected costs, loss assumptions and measurable policy representation are sufficient. Do not call sufficient assumptions necessary.
+
+F5 — EVSI COUNTEREXAMPLE
+Recalculate H={h1,h2,h3}, A={a1,a2}, losses L(a1)=(0,0,1), L(a2)=(1,1,0), and observation probabilities P_h1(d=1)=1, P_h2(d=1)=0, P_h3(d=1)=0.
+For μ_A=(1/2,0,1/2), verify R=1/2, R_e=0, EVSI=1/2.
+For μ_B=(0,1/2,1/2), verify R=1/2, R_e=1/2, EVSI=0.
+Determine whether this proves that loss equivalence alone does not imply EVSI invariance.
+
+F6 — EVSI NONNEGATIVITY
+Verify EVSI(e)=R(μ)-R_e(μ)≥0 and assumptions A1–A6. Examine posterior existence, regular conditional distributions, disintegration, measurable posterior risk, pointwise infimum, measurable ε-optimal rules, integrability, extended-real values, infinite expected loss, and state-based versus observation-dependent loss.
+
+F7 — MEASURABILITY AND OPTIMIZATION
+Check standard Borel assumptions, regular conditional probabilities, measurable posterior-risk functions and infima, infimum versus minimum, attainment, measurable selection, ε-optimal rules, and equality between pointwise and policy-based formulations. Do not assume a measurable optimizer exists without proof.
+
+7. A36R-01 THROUGH A36R-07 CORRECTION AUDIT
+
+For every correction identify the original issue, inspect the proposed text, determine whether it is mathematically sufficient, identify residual weaknesses, give a counterexample if insufficient, and recommend exact replacement wording where needed.
+
+A36R-01: operational infimum and tie-breaking rule in §6.3.
+A36R-02: sufficient versus necessary conditions for invariance, including Result B.
+A36R-03: non-attainment example and precise stopping-time policy class.
+A36R-04: randomized minimax lower bound.
+A36R-05: concrete stop/continue mixture example.
+A36R-06: A3/A4 measurability clarifications.
+A36R-07: randomization conventions, positive-probability history condition, editorial precision and Result D.
+
+8. ADDITIONAL STOPPING-RULE AUDIT
+
+Examine §§6.1–6.9. Check D_stop and D_cont, empty classes, infimum convention, finite termination and positive lower cost bounds, root versus sequential optimality, attainment/non-attainment, mixtures, one-step versus multi-step EVSI, complementary experiments, and sunk/remaining cost accounting.
+
+Recalculate the XOR example. Reconstruct the binary-digit example and verify:
+J(N)=1/3+E[g(N)];
+g(n)=2^(-n)-4^(-n)/3.
+Show g(n)>0 for every finite n≥0 and V_n→1/3 without attainment. Confirm the declared policy class and all assumptions needed for the conclusion.
+
+9. ADDITIONAL ROBUST/MINIMAX AUDIT
+
+Examine §6.10. Check Γ, minimax versus Γ-minimax, minimax loss versus minimax regret, supremum of combined loss and cost, pure versus randomized policies, non-rectangular uncertainty, conditional versus ex-ante values, randomized lower bound, robust stop/continue mixtures, and dynamic-programming/Bellman conditions.
+
+Verify the concrete mixture example independently. Do not transfer expected-loss conclusions to robust optimization without a separate argument. Distinguish conditions needed to define a static robust objective from conditions needed for a dynamically consistent recursion.
+
+10. REQUIRED DELIVERABLES FROM THE REVIEWER
+
+DELIVERABLE 1 — INDEPENDENT MATHEMATICAL REVIEW
+Title: OMEGA-ISOP M3.2 AUDIT #36 INDEPENDENT MATHEMATICAL REVIEW v3.3.
+Include executive summary, source-integrity assessment, F1–F7 findings, A36R-01…A36R-07 findings, stopping-rule assessment, robust/minimax assessment, counterexamples, unresolved issues, comparison with internal verification, and final verdict.
+
+DELIVERABLE 2 — OBJECTION REGISTER
+For each issue record:
+ID | SOURCE | SECTION | MATHEMATICAL CLAIM | PROBLEM | COUNTEREXAMPLE | SEVERITY | REQUIRED CORRECTION | RESOLUTION STATUS.
+Do not erase resolved objections; preserve their history.
+
+DELIVERABLE 3 — REPRODUCIBLE MATHEMATICS
+Give complete reasoning for important results, numerical calculations, assumptions for each theorem, and external mathematical results with applicability conditions.
+
+DELIVERABLE 4 — CORRECTION SPECIFICATION
+For each required correction provide CURRENT TEXT, PROPOSED TEXT, MATHEMATICAL REASON, AFFECTED SECTION and EFFECT ON SCOPE. Do not edit the original document.
+
+DELIVERABLE 5 — FINAL VERDICT
+Choose exactly one:
+INDEPENDENT PASS
+INDEPENDENT CONDITIONAL PASS
+INDEPENDENT REVIEW WITH OPEN MAJOR ISSUES
+INDEPENDENT FAIL
+INCOMPLETE — SOURCE MATERIALS INSUFFICIENT
+
+A positive verdict must not conceal unresolved major issues. Explain the basis for the verdict.
+
+11. GOVERNANCE — FROZEN FOR THIS REVIEW
+
+FROZEN CORE: UNCHANGED.
+VOLUME V: ACTIVE RESEARCH ARCHITECTURE.
+CE-V-07: RESERVED.
+CE-V PROMOTION: NOT AUTHORIZED.
+RL REGISTRATION: NOT AUTHORIZED.
+CANONICAL ACCEPTANCE: NOT GRANTED.
+CLOSURE RECORD: PENDING.
+
+No review finding may silently modify the Frozen Core. No conditional result may be promoted to a universal theorem. No numerical verification may be presented as an analytical proof. No internal repetition of a previous review may be described as independent certification.
+
+12. FINAL INSTRUCTION TO CLAUDE
+
+Prioritize mathematical accuracy. Do not protect the theory or aim for a positive verdict. Demonstrate valid propositions; state extra assumptions where needed; identify missing proof steps; provide counterexamples; report inconsistencies and source discrepancies. Do not modify original source files. Do not claim a correction has been applied unless it is present in the actual source. Make the report reproducible by a mathematician who did not participate in the review.
+
+13. IMPORTANT IDENTIFIER DISTINCTION
+
+F1–F7 are the internal verification workstream identifiers. A36R-01…A36R-07 are the seven proposed correction groups in v3.3. They are different identifier systems and must not be conflated. The independent reviewer must audit both separately and cross-reference them explicitly.
+
+14. REVIEW STATUS CONTROL
+
+This file records the independent-review mandate and source map only. It is not the independent review report and contains no independent mathematical verdict. Until Claude supplies the required reports and the findings are assessed:
+INDEPENDENT REVIEW: REQUESTED / NOT COMPLETED
+INDEPENDENT CERTIFICATION: NOT GRANTED
+CANONICAL ACCEPTANCE: NOT GRANTED
+CLOSURE RECORD: PENDING
+FROZEN CORE: UNCHANGED
+
+END OF IRP-1.1 DOSSIER CONTROL COPY
