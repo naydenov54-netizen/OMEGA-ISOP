@@ -104,6 +104,24 @@ int main() {
     check(bianchi_ok && bianchi_count==256,
           "algebraic first Bianchi identity, 256/256 combinations");
 
+    // Physical c and geometric Rm can differ by many orders of magnitude.
+    // Scaled pivoting must not mistake this dimensional scale separation
+    // for a singular metric.
+    const MetricProviderParameters physical_scale{0.4, 1.0, 299792458.0, 2.0, 0.7};
+    const auto physical_jet = MetricProvider::evaluate(physical_scale);
+    const auto physical_result = reconstruct_curvature(physical_jet);
+    bool physical_inverse_ok = true;
+    for (std::size_t i=0; i<4; ++i)
+        for (std::size_t j=0; j<4; ++j) {
+            double value = 0.0;
+            for (std::size_t k=0; k<4; ++k)
+                value += physical_jet.g(i,k)*physical_result.inverse_metric(k,j);
+            physical_inverse_ok = close(value, i==j ? 1.0 : 0.0)
+                                  && physical_inverse_ok;
+        }
+    check(physical_inverse_ok,
+          "scaled pivoting handles physical c/Rm magnitude separation");
+
     std::cout << "SUMMARY: " << (tests-failures) << "/" << tests
               << " checks passed; failures=" << failures << '\n';
     return failures==0?0:1;
