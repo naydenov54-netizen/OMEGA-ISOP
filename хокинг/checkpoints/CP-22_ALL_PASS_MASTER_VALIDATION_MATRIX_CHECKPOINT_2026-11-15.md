@@ -411,3 +411,20 @@ Updated statuses:
 - Frozen Core: UNCHANGED.
 - Volume V: ACTIVE RESEARCH ARCHITECTURE.
 - CE-V-07: RESERVED.
+
+
+---
+
+## ADDENDUM — CP22-13 SCALED-PIVOTING REGRESSION / 10-OF-10
+DATE: 2026-11-15
+DETAIL: хокинг/checkpoints/CP22-13_CURVATURE_ENGINE_IMPLEMENTATION_2026-11-15.md
+LOG: хокинг/logs/CP22-13_CURVATURE_ENGINE_PRELIMINARY_LOCAL_BUILD_2026-11-15.txt
+
+The curvature engine inverse solver was changed to scaled partial pivoting after identifying that a global absolute pivot threshold is unsuitable for metric matrices whose components carry different physical scales. A regression case with c=299792458 and Rm=1 was added.
+
+The local reconstructed-copy C++17 build passed 10/10 checks under strict warning flags. The log preserves local-copy SHA-256 values and explicitly states that the build was not a byte-for-byte build of the exact GitHub read-back files.
+
+Therefore:
+- CP22-13 remains IN PROGRESS, not PASS.
+- Exact GitHub read-back build and complete CMake/CTest remain mandatory.
+- No CAPD or interval result is claimed.
