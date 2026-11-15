@@ -1,0 +1,62 @@
+OMEGA-ISOP — CP22-13 PRELIMINARY LOCAL DEVELOPMENT BUILD
+DATE: 2026-11-15
+STATUS: PASS 10/10 ON LOCAL RECONSTRUCTED COPY; EXACT GITHUB READ-BACK BUILD PENDING
+
+COMPILER:
+g++ (Debian 14.2.0-19) 14.2.0
+FLAGS:
+-std=c++17 -O2 -Wall -Wextra -Wpedantic -Wconversion -Wsign-conversion -Werror
+
+GITHUB SOURCE REFERENCES:
+include/omega/curvature_engine.hpp
+Git blob SHA: e3c1c0e37b5e391695d6a8e4c3e6a221ca430832
+
+tests/test_curvature_engine.cpp
+Git blob SHA: c1aeca276ae2efa5339aeed307faba2328242f1b
+
+include/omega/tensor_storage.hpp
+Git blob SHA: 039c0544fe1b47234221547326e130850b90e56c
+
+include/omega/metric_provider.hpp
+Git blob SHA: 4e7514ebfc0ebfab4a05989b540ad3966d1c63d6
+
+IMPORTANT EVIDENCE LIMIT:
+The local build used a locally reconstructed equivalent copy of the implementation sources. The local copies were not byte-for-byte readbacks of the GitHub files. The SHA-256 values below identify only those local reconstructed copies; they are not hashes of the GitHub files.
+
+LOCAL RECONSTRUCTED COPY SHA-256:
+curvature_engine.hpp:
+24d1558867fbca4394b648d6ea033e1076d6a68b1c3caa01d55e40f715bb4e95
+test_curvature_engine.cpp:
+a663f0f2b14fa28e9bb9e4db7b3a3790aa815b8411d49a5debfd27c992ccb15c
+tensor_storage.hpp:
+e29ee2f47f917c3480ada7fdd16c9802dc55719fe0a13370aafaa50bf899b584
+metric_provider.hpp:
+ac42b58dda64832e02397528aa23ecd7b11f634e9ec6adfd2955c8a02ea4beaf
+
+COMMAND:
+g++ -std=c++17 -O2 -Wall -Wextra -Wpedantic -Wconversion -Wsign-conversion -Werror -I include tests/test_curvature_engine.cpp -o test_curvature_engine
+./test_curvature_engine
+
+COMPILE EXIT CODE: 0
+RUNTIME EXIT CODE: 0
+
+OUTPUT:
+PASS: inverse metric identity
+PASS: Christoffel lower-index symmetry
+PASS: all Ricci components match III-B.3
+PASS: Ricci scalar zero
+PASS: Einstein covariant equals Ricci for R=0
+PASS: mixed Einstein components match III-B.3
+PASS: Riemann last-index antisymmetry
+PASS: Riemann has 24 nonzero ordered components at fixture
+PASS: algebraic first Bianchi identity 256/256
+PASS: scaled pivoting handles physical c/Rm magnitude separation
+SUMMARY: 10/10 checks passed; failures=0
+
+IMPLEMENTATION NOTE:
+The inverse-metric solver was changed to scaled partial pivoting. A global absolute pivot threshold would incorrectly treat legitimate metric components with very different physical magnitudes (for example c^2 and Rm^2) as singular. The regression fixture uses c=299792458 and Rm=1 and confirms the inverse identity.
+
+SCOPE:
+This is preliminary diagnostic evidence for the local reconstructed implementation. It does not close CP22-13 because the exact committed GitHub files have not yet been compiled byte-for-byte. It is not CAPD, interval validation, outward-rounding verification, global enclosure, or mathematical certification.
+
+END OF LOG
