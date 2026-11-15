@@ -105,3 +105,26 @@ CAPD certification: NOT ESTABLISHED.
 Mathematical certification: NOT ESTABLISHED.
 
 END — CP22-13 IMPLEMENTATION CHECKPOINT
+
+
+---
+
+## ADDENDUM — SCALED PIVOTING AND PRELIMINARY 10/10 RUN
+DATE: 2026-11-15
+
+The inverse-metric solver now uses scaled partial pivoting, rather than a single global absolute threshold. This avoids falsely classifying a nonsingular metric as singular solely because its components have very different physical magnitudes.
+
+Updated GitHub blobs:
+- curvature_engine.hpp: e3c1c0e37b5e391695d6a8e4c3e6a221ca430832
+- test_curvature_engine.cpp: c1aeca276ae2efa5339aeed307faba2328242f1b
+
+A regression test with c=299792458 and Rm=1 was added to exercise this scale separation.
+
+Preliminary local reconstructed-copy build:
+- strict C++17 compilation: exit 0;
+- runtime: exit 0;
+- 10/10 checks passed;
+- complete command/output and local-copy hashes recorded in:
+  хокинг/logs/CP22-13_CURVATURE_ENGINE_PRELIMINARY_LOCAL_BUILD_2026-11-15.txt
+
+The log explicitly identifies the local copies as reconstructed equivalents, not byte-for-byte GitHub readbacks. CP22-13 therefore remains IN PROGRESS until exact committed-source build and full CMake/CTest verification are completed.
