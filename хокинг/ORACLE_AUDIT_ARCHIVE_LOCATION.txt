@@ -1,19 +1,48 @@
-OMEGA-ISOP — ORACLE AUDIT ARCHIVE LOCATION
-Date: 2026-11-14
-Status: LOCATION RECORDED
+OMEGA-ISOP — ORACLE AUDIT ARCHIVE LOCATION AND CONTENT CHECK
+Updated: 2026-11-15
+Status: ZIP INTEGRITY PASS / CP-22 ORACLE ARTIFACTS NOT PRESENT
 
-The original archive is stored in ChatGPT Library.
+LIBRARY COPIES
+1. /OMEGA_ISOP_ORACLE_AUDIT.zip
+2. /OMEGA_ISOP_ORACLE_AUDIT(1).zip
 
-Exact filename:
-OMEGA_ISOP_ORACLE_AUDIT.zip
+Both files are 26,260 bytes and were materialized for direct comparison.
+They are byte-for-byte identical.
 
-Library path:
-/OMEGA_ISOP_ORACLE_AUDIT.zip
+SHA-256:
+7ddd84f366e61996ee836ecf87fe9692dffbb65f6ac5ae0170e4fda50c1b9b19
 
-The archive was uploaded to the Library and its ZIP integrity check completed successfully (no corrupted entries reported).
+ZIP integrity test:
+PASS — no corrupt entry.
 
-Operational note:
-Do not rerun Google Colab code merely to retrieve or extract this archive. The Library copy is the available source archive. Extract it only when an actual GitHub mirror or file-level inspection is required.
+CONTENT CHECK
+The archive contains SOURCE_INVENTORY_REPORT.json, three audit reports,
+and selected MetricJet / MetricProvider source, test and log files.
 
-Scope clarification:
-This entry records the archive's location in ChatGPT Library. It does NOT claim that the ZIP archive or its extracted contents have been copied into this GitHub directory, and it does NOT constitute mathematical certification or independent oracle validation.
+The inventory report states:
+- 162 files found;
+- 11 candidate files;
+- 11 files downloaded into the archive.
+
+The archive DOES NOT contain:
+- standalone_symbolic_oracle.py
+- audit-output/oracle_output.txt
+- audit-output/oracle_provenance.txt
+
+Therefore this ZIP is not the CP-22 standalone symbolic ORACLE package,
+despite its filename. The three CP-22 SHA-256 values remain reported
+values and cannot be independently recomputed without the original bytes.
+
+The two duplicate Library files were not deleted. The authorized cleanup
+scope was the GitHub хокинг workspace, not the persistent Library.
+
+REQUIRED RECOVERY
+Recover the three exact CP-22 files from the original execution environment.
+Do not reconstruct their contents from hashes, snippets or the CP-20
+analytical reference.
+
+Related record:
+хокинг/audits/CP23_INDEPENDENT_ORACLE_AUDIT_INITIAL_FINDINGS.txt
+
+This location/content record is not mathematical certification,
+CAPD certification or proof of ORACLE independence.
