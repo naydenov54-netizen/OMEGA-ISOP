@@ -1,0 +1,13 @@
+OMEGA-ISOP CP-23 INDEPENDENT SYMBOLIC RE-DERIVATION
+SymPy: 1.14.0
+Riemann convention: locked CP-20 convention
+Ricci diagonal:
+R_TT = c**2*q*(-2*q*x + q + x**2)/(Rm**2*x**6)
+R_xx = -q/(x**2*(-2*q*x + q + x**2))
+R_thetatheta = q/x**2
+R_phiphi = q*sin(theta)**2/x**2
+Off-diagonal Ricci components: all exactly zero
+Ricci scalar: 0
+Exact fixture: [63/1600, -1/28, 1/10, 3/40]
+Fixture Ricci scalar: 0
+RESULT: PASS
