@@ -308,3 +308,52 @@ C*r0^2 = c^4*q*Rm^2/(8*pi*G_N)
 **CHECKPOINT STATUS: SAVED AS A WORKING RECOVERY DOCUMENT.**  
 **CP-22 MATRIX STATUS: NOT EXECUTED / NOT CERTIFIED.**  
 **FROZEN CORE: UNCHANGED. VOLUME V: UNCHANGED. CE-V-07: RESERVED.**
+
+
+---
+
+## ADDENDUM — EXECUTED MATHEMATICAL CLOSURE UPDATE
+DATE: 2026-11-15
+EXECUTABLE: хокинг/audits/CP22_INDEPENDENT_SYMBOLIC_RECONSTRUCTION.py
+EXECUTION LOG: хокинг/audits/CP22_SYMBOLIC_EXECUTION_LOG_2026-11-15.txt
+DETAIL: хокинг/checkpoints/CP22-02_TO_CP22-12_MATHEMATICAL_CLOSURE_2026-11-15.md
+
+The new executable uses the primary archive's III-B.3 line element as its
+sole mathematical input. It does not import CP-23, legacy oracle code,
+MetricProvider, production C++, or precomputed curvature outputs.
+
+Updated statuses:
+- CP22-01: PASS (separate source-integrity evidence).
+- CP22-02: PASS for the new executable's dependency/provenance boundary.
+- CP22-03: PASS.
+- CP22-04: PASS.
+- CP22-05: PASS; 13 nonzero ordered Christoffel components and 9 independent
+  components, with exact match to the archived list.
+- CP22-06: PASS; 24 nonzero ordered Riemann components, last-index
+  antisymmetry 256/256 and algebraic Bianchi 256/256.
+- CP22-07: PASS; exact Ricci contraction.
+- CP22-08: PASS; Ricci scalar is identically zero.
+- CP22-09: PASS; exact Einstein tensor and mixed-component identities.
+- CP22-10: PASS; differential Bianchi 1024/1024, separately from the
+  algebraic Bianchi test.
+- CP22-11: PASS; dimensional audit for metric, curvature and energy density.
+- CP22-12: BLOCKED / PENDING; the archive does not contain the original
+  separate definitions and units of C and r0. The required product relation
+  is dimensionally consistent, but its primary normalization is unproven.
+- CP22-13 through CP22-16: NOT RUN; complete independent C++ curvature
+  engine, compilation, runtime and regression evidence remain outstanding.
+- CP22-17 through CP22-20: NOT RUN; CAPD integration, interval validation,
+  directed rounding and independent reproducibility remain outstanding.
+- CP22-21: BLOCKED; independent external audit report not available.
+- CP22-22: BLOCKED; ALL-PASS criteria are not satisfied.
+
+The symbolic result is exact for the stated metric, convention and domain.
+It is not a C++ execution, CAPD result, interval certificate, global interval
+certificate, or universal theorem.
+
+CP-22 ALL-PASS: NOT ACHIEVED.
+CAPD CERTIFICATION: NOT ESTABLISHED.
+Frozen Core: UNCHANGED.
+Volume V: ACTIVE RESEARCH ARCHITECTURE.
+CE-V-07: RESERVED.
+Universality: NOT ESTABLISHED.
