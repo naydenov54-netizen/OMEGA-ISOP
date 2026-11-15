@@ -330,3 +330,14 @@ RESERVED.
 - Possibility ≠ Necessity.
 
 **Край на одитния запис.**
+
+
+## 8. Evidence register addendum — 2026-11-15
+
+A companion evidence register has been committed at:
+
+`хокинг/logs/CP22-13_AUDIT_EVIDENCE_REGISTER_2026-11-15.md`
+
+It records the reported test matrix, source blob identities, the abbreviated log-hash information, and the provenance limitation for the named raw attachment.
+
+**Important:** the original `OMEGA_CP22-13_AUDIT_EVIDENCE.txt` was named in the auditor's report but its actual bytes were not available when this repository update was made. The register is not a substitute for that file and does not claim that raw logs or fixture source have been archived. The reported full SHA-256 is recorded there as an unverified supplied value. Commit the actual attachment only after receiving its bytes and independently checking its complete digest.
