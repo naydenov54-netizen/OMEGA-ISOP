@@ -380,3 +380,34 @@ Status lock:
 - Frozen Core: UNCHANGED.
 - Volume V: ACTIVE RESEARCH ARCHITECTURE.
 - CE-V-07: RESERVED.
+
+
+---
+
+## ADDENDUM — CP22-13 CURVATURE ENGINE SOURCE IMPLEMENTED
+DATE: 2026-11-15
+DETAIL CHECKPOINT: хокинг/checkpoints/CP22-13_CURVATURE_ENGINE_IMPLEMENTATION_2026-11-15.md
+
+Repository readback established that MetricProvider and MetricJet validation sources already existed; the general full-pipeline status text was stale relative to those later source files. The curvature reconstruction engine itself was not present in the inspected implementation tree.
+
+New source added:
+- include/omega/curvature_engine.hpp
+  Blob SHA: 4c7044ed609717531f6ada4497178bfe67d447aa
+- tests/test_curvature_engine.cpp
+  Blob SHA: aac7bd402bb320d81a667e0874510cd1e0fdf363
+- CMakeLists.txt updated to register the new test target
+  Blob SHA: 6e75bf936d6ad9f3815a1b2b641c4e9a1b186cb6
+
+A preliminary local C++17 diagnostic build of matching implementation logic passed compilation and 9/9 tests. It was not a byte-for-byte build of the exact GitHub read-back files. Exact committed-source CMake/CTest verification remains pending; therefore CP22-13 remains IN PROGRESS, not PASS.
+
+The new engine reconstructs inverse metric, Christoffel, Riemann, Ricci, Ricci scalar and Einstein tensors from MetricJet input. Analytical III-B.3 targets are used only in the separate test harness.
+
+Updated statuses:
+- CP22-12: BLOCKED / PENDING.
+- CP22-13: IN PROGRESS; source added, exact committed build pending.
+- CP22-14 through CP22-22: NOT RUN / BLOCKED BY DEPENDENCIES.
+- CAPD certification: NOT ESTABLISHED.
+- Mathematical certification: NOT ESTABLISHED.
+- Frozen Core: UNCHANGED.
+- Volume V: ACTIVE RESEARCH ARCHITECTURE.
+- CE-V-07: RESERVED.
