@@ -81,7 +81,157 @@ Reason not closed:
 The verification is conditional on the formal model assumptions and is not an independent external review or canonical acceptance.
 
 ============================================================
-F3-F7 — PENDING
+============================================================
+F3 — POSTERIOR ODDS UNDER OBSERVATIONAL EQUIVALENCE
+STATUS: CONDITIONAL PASS
+CLOSURE: NOT CLOSED
+============================================================
+
+Finding:
+The claim is valid under the stated protocol-equivalence and posterior regularity assumptions. If h ~_Pi h', the complete observable-history laws are equal for each admissible protocol. Every measurable test based on that history and the same h-independent randomization therefore has the same distribution under h and h'.
+
+Likelihood-ratio qualification:
+In a dominated formulation with a common dominating measure lambda, equality of the two history laws implies equality of their Radon-Nikodym densities lambda-almost everywhere. The likelihood ratio is therefore 1 where the ratio is defined on the common support. It must not be asserted where the denominator vanishes or where the required domination/densities do not exist.
+
+Posterior-odds qualification:
+For two hypotheses with positive prior masses, and on histories where the posterior odds are defined, the posterior odds equal the prior odds almost surely under the relevant prior-predictive law. Zero prior mass makes the corresponding odds undefined. Point-hypothesis odds must not be transferred without qualification to continuous priors, where individual points may have zero mass.
+
+Finding:
+The v3.3 wording includes the necessary domination and definedness caveat. Equality of measures is the fundamental result; density and likelihood-ratio language is a conditional representation of it.
+
+Reason not closed:
+Internal verification only. No independent review or canonical acceptance of v3.3.
+
+============================================================
+F4 — PRIOR-MASS REDISTRIBUTION UNDER LOSS EQUIVALENCE
+STATUS: CONDITIONAL PASS
+CLOSURE: NOT CLOSED
+============================================================
+
+Finding:
+Proposition 1 is correct in its declared discrete setting. If h ~_L h', moving prior mass t from h to h' leaves the expected loss of every fixed action unchanged because the change is
+-t L(a,h) + t L(a,h') = 0.
+
+Consequently, the pre-data ranking of actions and the pre-data Bayes risk R(mu) are unchanged, provided the expectations are well-defined and finite and the action set and loss function remain fixed.
+
+Scope limitation:
+This result does not establish invariance of posterior decisions, EVSI, or stopping values. The discrete mass-transfer proof cannot be silently generalized to arbitrary measurable/continuous state spaces where individual points may have zero mass.
+
+Related policy-value condition:
+Proposition 1b adds protocol equivalence, common policy feasibility, h-independent policy rules, equal expected remaining costs, state-based loss, and the same expected-objective convention. Under those conditions, each policy has equal expected objective under h and h', so the infimum over the same policy class is invariant under the stated discrete prior-mass transfer. The text correctly limits application to EVSI/R_e to cases where the measurable-policy and posterior-risk formulations are properly connected.
+
+Reason not closed:
+The result is conditional on all listed model and policy assumptions and has not received independent review as part of v3.3.
+
+============================================================
+F5 — LOSS EQUIVALENCE DOES NOT PRESERVE EVSI
+STATUS: PASS FOR THE STATED COUNTEREXAMPLE
+CLOSURE: NOT CLOSED
+============================================================
+
+Finding:
+The finite counterexample is arithmetically and logically correct.
+
+State space H={h1,h2,h3}; actions A={a1,a2}; losses:
+L(a1)=(0,0,1)
+L(a2)=(1,1,0)
+
+Thus h1 ~_L h2. The experiment has P_h1(d=1)=1 and P_h2(d=1)=P_h3(d=1)=0.
+
+For mu_A=(1/2,0,1/2):
+R=1/2, R_e=0, EVSI=1/2.
+
+For mu_B=(0,1/2,1/2):
+R=1/2, R_e=1/2, EVSI=0.
+
+The prior mass assigned to the loss-equivalence class {h1,h2} is the same in both cases, and pre-data risk is unchanged, while EVSI differs because h1 and h2 have different observation laws.
+
+Conclusion:
+The counterexample correctly blocks any inference from loss equivalence alone to EVSI invariance. It does not contradict Proposition 1b, whose additional observational and policy conditions are stronger.
+
+Reason not closed:
+Internal verification of the example only; no independent review or canonical acceptance.
+
+============================================================
+F6 — NONNEGATIVITY OF EVSI
+STATUS: CONDITIONAL PASS
+CLOSURE: NOT CLOSED
+============================================================
+
+Finding:
+The proof of R_e(mu) <= R(mu), hence EVSI(e) >= 0, is valid under assumptions A1-A6 and the stated measurable-rule/selection and finite/extended-real conventions.
+
+Core argument:
+For any fixed pre-experiment action a0, the posterior infimum is no greater than the posterior risk of a0 almost everywhere. Integrating and applying posterior disintegration gives
+R_e(mu) <= integral L(a0,h) mu(dh).
+Taking the infimum over a0 yields R_e(mu) <= R(mu).
+
+Required scope:
+- The same action set A remains available after observing the experiment.
+- Posterior risks and prior risks are measurable and well-defined.
+- The bounded-below/integrability and finiteness conditions prevent undefined differences.
+- The posterior-risk infimum is measurable for integration.
+- The measurable-policy interpretation requires the selection/epsilon-optimal-rule condition stated in A4, or another valid justification of the equality between the relevant formulations.
+
+Limitations:
+The result is not asserted for observation-dependent loss L(a,d,h), a reduced post-experiment action set, or undefined/infinite risks that make subtraction indeterminate. If R_e=-infinity is allowed under the stated extended-real convention, EVSI is defined as +infinity rather than as an undefined difference.
+
+Reason not closed:
+Conditional proof verification only; not an independent certification of v3.3.
+
+============================================================
+F7 — MEASURABILITY, POSTERIORS, INFIMA, AND SELECTION
+STATUS: CONDITIONAL PASS
+CLOSURE: NOT CLOSED
+============================================================
+
+Finding:
+The mathematical distinctions in v3.3 are appropriate:
+- Use inf rather than min unless attainment is established.
+- Define posterior distributions through regular conditional probabilities, with statements understood almost surely under the relevant predictive law.
+- Standard Borel assumptions are presented as a sufficient route to regular conditional posteriors, not as a necessary condition in every possible measurable-space formulation.
+- The pointwise posterior-risk infimum must be measurable for integration.
+- Equating the integral of pointwise posterior-risk infima with the infimum over measurable decision rules requires measurable selection, measurable epsilon-optimal rules, or another explicit justification.
+
+Verification:
+The A4 qualification correctly prevents an unjustified interchange between pointwise infima and optimization over measurable policies. A measurable epsilon-optimal rule for every epsilon>0 is an appropriate sufficient route under the stated objective. Null histories are handled almost surely rather than by demanding arbitrary pointwise posterior definitions there.
+
+Limitation:
+The result remains conditional on the measurable-space, posterior-existence, integrability, and selection assumptions. No universal existence of an optimal measurable selector is claimed.
+
+Reason not closed:
+Internal verification only; no independent review or canonical acceptance of v3.3.
+
+============================================================
+UPDATED AUDIT SUMMARY — 2026-11-15
+============================================================
+
+F1: CONDITIONAL PASS / NOT CLOSED
+F2: CONDITIONAL PASS / NOT CLOSED
+F3: CONDITIONAL PASS / NOT CLOSED
+F4: CONDITIONAL PASS / NOT CLOSED
+F5: PASS FOR THE STATED COUNTEREXAMPLE / NOT CLOSED
+F6: CONDITIONAL PASS / NOT CLOSED
+F7: CONDITIONAL PASS / NOT CLOSED
+
+OVERALL:
+F1-F7 have received an internal, assumption-conditional mathematical check against the proposed v3.3 text.
+No finding is marked CLOSED.
+No independent certification of v3.3 is claimed.
+No canonical status change is made.
+The independent review verdict on v3.2 is not treated as approval of v3.3.
+
+GOVERNANCE RECONFIRMATION:
+Frozen Core: unchanged.
+Volume V: Active Research Architecture.
+CE-V-07: RESERVED.
+CE-V promotion: none.
+RL registration: none performed or verified.
+Audit #36: remains a separate decision-theory audit.
+Numerical or informal checking is not represented as a formal proof.
+No universal theorem or universal stopping rule is claimed.
+
+END OF F1-F7 INTERNAL VERIFICATION LOG
 ============================================================
 
 No closure or pass status is assigned to F3-F7 in this initial log. Each finding must be checked separately and recorded only after its mathematical conditions and limitations have been examined.
