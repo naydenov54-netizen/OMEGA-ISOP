@@ -1,0 +1,107 @@
+OMEGA-ISOP
+M3.2 AUDIT #36
+F1-F7 VERIFICATION LOG
+
+DATE: 2026-11-15
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+PATH: 07_RESEARCH_EVIDENCE/M3.2-AUDIT-36-F1-F7-VERIFICATION-LOG-2026-11-15.txt
+
+STATUS:
+WORKING AUDIT LOG
+NOT CANONICAL
+NOT INDEPENDENTLY CERTIFIED
+NO FROZEN CORE CHANGE
+
+GOVERNANCE:
+- Frozen Core remains unchanged.
+- Volume V remains the Active Research Architecture.
+- CE-V-07 remains RESERVED.
+- Audit #36 remains a separate decision-theory audit.
+- No result is promoted to certified without independent verification.
+- Numerical or informal checking is not represented as a formal proof.
+- This log records verification status, not canonical acceptance.
+
+============================================================
+F1 — OBSERVATIONAL EQUIVALENCE
+STATUS: CONDITIONAL PASS
+CLOSURE: NOT CLOSED
+============================================================
+
+Finding:
+The distinction between single-experiment equivalence and protocol equivalence is necessary and correctly represented.
+
+Protocol equivalence:
+h ~_Pi h' iff Law_h^pi = Law_h'^pi for every admissible protocol pi in Pi.
+
+Single-experiment equivalence:
+h ~_e h' iff P_h^e = P_h'^e.
+
+Experiment-set equivalence:
+h ~_E h' iff P_h^e = P_h'^e for every e in E.
+
+If Pi contains all single non-adaptive runs of every e in E, then protocol equivalence implies experiment-set equivalence. The converse does not generally hold when adaptive or sequential protocols can reveal dependence structures not represented by one-step marginals.
+
+The counterexample based on equal Bernoulli(1/2) one-step marginals but different two-observation dependence structures is valid: a measurable statistic of the pair can distinguish the resulting history laws.
+
+Qualification:
+Equality of conditional kernels is required only almost surely under the relevant common history law. Equality on null or unreachable histories is not required. The equivalence relation is relative to the declared protocol class and is not a claim of metaphysical or universal equivalence.
+
+Notation cleanup:
+Use P_{h'}^e and Law_{h'}^pi consistently.
+
+Reason not closed:
+This is an internal targeted verification of proposal v3.3, not an independent external review or canonical acceptance.
+
+============================================================
+F2 — ADAPTIVE PROTOCOLS AND CONDITIONAL KERNELS
+STATUS: CONDITIONAL PASS
+CLOSURE: NOT CLOSED
+============================================================
+
+Finding:
+The adaptive-protocol treatment is mathematically coherent under the stated measurability and kernel assumptions.
+
+For a fixed finite-horizon protocol, equality of the initial history laws together with equality of the successive conditional kernels almost surely under the common history law yields equality of the full history laws by induction.
+
+Reachability is protocol-relative:
+- For one fixed protocol, kernel equality is needed on histories reachable under that protocol, up to null sets.
+- For equivalence across every protocol in Pi, the condition must cover the union of histories reachable under the admissible protocols.
+
+Null histories:
+Conditional kernels need not agree on histories having probability zero under the common history law. Claims of pointwise equality on every formally describable history would be too strong.
+
+Infinite horizon:
+An infinite trajectory law requires suitable measurable spaces and consistent stochastic kernels. The Ionescu-Tulcea theorem provides a standard construction under its assumptions; invoking the theorem does not remove the need to verify those assumptions.
+
+Protocol constraints:
+Experiment selection, stopping, and internal randomization must be measurable and must not depend on the hidden hypothesis except through observable history, as specified by the protocol model.
+
+Reason not closed:
+The verification is conditional on the formal model assumptions and is not an independent external review or canonical acceptance.
+
+============================================================
+F3-F7 — PENDING
+============================================================
+
+No closure or pass status is assigned to F3-F7 in this initial log. Each finding must be checked separately and recorded only after its mathematical conditions and limitations have been examined.
+
+============================================================
+CURRENT AUDIT SUMMARY
+============================================================
+
+F1: CONDITIONAL PASS / NOT CLOSED
+F2: CONDITIONAL PASS / NOT CLOSED
+F3: PENDING
+F4: PENDING
+F5: PENDING
+F6: PENDING
+F7: PENDING
+
+OVERALL:
+PARTIAL INTERNAL VERIFICATION ONLY.
+NO FINDING IS MARKED CLOSED.
+NO INDEPENDENT CERTIFICATION IS CLAIMED.
+NO CANONICAL STATUS CHANGE IS MADE.
+
+END OF INITIAL LOG
