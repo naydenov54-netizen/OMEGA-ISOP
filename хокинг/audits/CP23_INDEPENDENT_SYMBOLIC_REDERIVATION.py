@@ -2,8 +2,8 @@
 """Independent exact-symbolic Ricci reconstruction for OMEGA-ISOP CP-23.
 
 This script is a separate audit calculation. It does not import the
-production C++ MetricProvider, the reconstruction engine, or the CP-22
-standalone oracle. It constructs the metric from the locked line element,
+production C++ MetricProvider, the reconstruction engine, or any external
+symbolic oracle. It constructs the metric from the locked line element,
 computes the inverse, Christoffel symbols, Riemann tensor and Ricci
 contraction using the stated convention, then checks the exact fixture.
 """
