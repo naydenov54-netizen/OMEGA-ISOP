@@ -1,0 +1,85 @@
+OMEGA-ISOP — M3.2 AUDIT #36
+EVIDENCE HANDOFF / SEARCH CLOSURE
+DATE: 2026-11-16
+HANDOFF STATUS: SEARCH CLOSED; TARGET EVIDENCE NOT LOCATED IN SOURCES INSPECTED
+SCOPE: M3.2 AUDIT #36 chronology and post-audit evidence handling
+
+1. PURPOSE
+This handoff closes the current evidence-location/recovery pass and transfers any later technical examination of the target evidence file to the next audit cycle. It does not reopen, revise, or invalidate the original AUDIT #36.
+
+2. CHRONOLOGY CONTROL — BINDING
+- Original AUDIT #36 recorded time: 06:56, owner-reported.
+- Separate evidence file creation time: 09:10, owner-reported.
+- Reported difference: 2 hours 14 minutes.
+- The separate file is classified POST-AUDIT EVIDENCE.
+- Its absence from the original submission is not, by itself, an omission by the original reviewer.
+- Original AUDIT #36 remains PRESERVED / UNCHANGED.
+- The 06:56 and 09:10 timestamps and their timezone/native metadata have not been independently authenticated in this handoff.
+- The existing chronology addendum remains the governing chronology/control record:
+  OMEGA-ISOP-M32-AUDIT36-CHRONOLOGY-ADDENDUM-2026-11-16.txt
+  SHA-256 of the exact materialized addendum bytes previously recorded:
+  12a257468e5054fca5f82a826809f60b7fa6b5fb96705de532f91e405dcf16f8
+
+3. TARGET FILE AND SEARCH RESULT
+Target:
+OMEGA_M32_AUDIT36_REVIEW_EVIDENCE.txt
+
+Search/recovery actions already recorded:
+- Library targeted searches and relevant metadata/listing review.
+- GitHub main tree and selected branches/path history checked for the exact target name/path.
+- OMEGA_ISOP_DRIVE_RECOVERY.zip was materialized and inspected at archive-member level.
+- The target filename and relevant textual markers were not found in that archive.
+- The recovery archive manifest reports 157 files scanned, 151 matched candidates, and 0 archive files with matches; its copy manifest reports 151 copied files and no copy errors. These are claims recorded inside the archive and are not independent authentication of Google Drive provenance.
+- A distinct recovered notebook, Untitled47.ipynb, was identified. It is not the target evidence file and must not be substituted for it.
+- No conclusion is made that the target is deleted or absent from every possible storage location.
+
+Recovery archive details:
+- Name: OMEGA_ISOP_DRIVE_RECOVERY.zip
+- Size: 813,665 bytes
+- SHA-256: c4b4aed3606139fa707886cd214133e10673a96c237db2935ccf7c811c3db741
+- Internal report timestamp: 2026-11-14T20:42:53.324351+00:00
+- Target result: NOT LOCATED IN THIS ARCHIVE.
+
+Untitled47.ipynb:
+- Size: 22,391 bytes
+- SHA-256: f762f5b4b3657dca7f76da7cc45cd92b4e7ce1171c3f6327bcf6b4a9e3c87e9
+- Archive index reports original Drive path /content/drive/MyDrive/Colab Notebooks/Untitled47.ipynb and modified_utc 2026-11-03T11:32:41+00:00.
+- The archive copy-verification manifest reports matching source/recovered SHA-256 values. This supports byte identity as represented by that manifest, not independent authentication of original Drive metadata.
+- This notebook is a distinct artifact, not a substitute for the target evidence.
+
+4. GITHUB CHECKPOINT TRAIL
+The following additive checkpoints were read back and verified on main:
+- 5ff6612482328ab538e2076c4c783a7169ab8245 — chronology control checkpoint.
+- 1a3199803300fdb3a56171f6f81e7e4f15c3bf35 — supplementary evidence search update.
+- 047bb93996f71e1d0ed2256c4f81161d975f354d — Drive recovery archive review.
+- b50963a501edf14046df77af35278a3e219fc2c9 — recovery verification addendum.
+These repository commits preserve the search trail; they do not authenticate missing target bytes or establish mathematical certification.
+
+5. SEPARATE HOKING WORKSPACE REVIEW
+The GitHub directory is named `хокинг` (Cyrillic). It contains a separate CP-22 / CP-23 workstream. Its contents must not be conflated with the M3.2 AUDIT #36 target evidence.
+Relevant finding from the CP22-13 evidence register:
+- The audit report names an attachment OMEGA_CP22-13_AUDIT_EVIDENCE.txt and reports SHA-256 f90f6f5e22af9ef1037193b2c3617f8a53767a216411ae016fd6471e3ffb5df0.
+- The register explicitly states that the actual attachment bytes were not available for that GitHub write and that the reported digest was not independently recomputed.
+- CP22-13 remains CONDITIONAL PASS in the reported audit scope, not certified.
+This CP22-13 attachment is a separate evidence item and is not the M3.2 AUDIT #36 target file.
+
+6. HANDOFF DECISION
+Current search phase: CLOSED for the sources and archive specifically inspected.
+Target evidence technical verification: NOT PERFORMED because the target bytes have not been located in those inspected sources.
+Next-audit treatment: retain the target as POST-AUDIT EVIDENCE with verification PENDING. If the exact original bytes are later recovered, verify byte count, SHA-256, native metadata/provenance, associated script, execution environment, command, exit status, complete output, and any claimed hash matches. Record conclusions only in the next audit or a separate supplementary review.
+No new request is made to alter the original AUDIT #36.
+
+7. STATUS LOCK
+- Original AUDIT #36: PRESERVED / UNCHANGED.
+- Chronology issue: CLOSED.
+- Current target-file search: CLOSED for inspected sources; target NOT LOCATED there.
+- Technical verification of target bytes: PENDING NEXT AUDIT.
+- Original reviewer omission: NOT ESTABLISHED; absence of later-created evidence is not an omission.
+- Frozen Core: UNCHANGED.
+- Volume V: ACTIVE RESEARCH ARCHITECTURE.
+- CE-V-07: RESERVED.
+- Universality: NOT ESTABLISHED.
+- No conditional result promoted to certified.
+- No universal theorem or CAPD certification claimed.
+
+END OF HANDOFF.
