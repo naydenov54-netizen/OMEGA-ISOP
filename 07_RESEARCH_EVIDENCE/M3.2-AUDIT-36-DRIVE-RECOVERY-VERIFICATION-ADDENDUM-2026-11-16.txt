@@ -1,0 +1,25 @@
+OMEGA-ISOP — M3.2 AUDIT #36
+DRIVE RECOVERY ARCHIVE REVIEW — VERIFICATION ADDENDUM
+DATE: 2026-11-16
+RELATED CHECKPOINT:
+07_RESEARCH_EVIDENCE/M3.2-AUDIT-36-DRIVE-RECOVERY-ARCHIVE-REVIEW-2026-11-16.txt
+CHECKPOINT COMMIT: 047bb93996f71e1d0ed2256c4f81161d975f354d
+
+CORRECTION / COMPLETED CHECK
+The preceding checkpoint said the COPY_VERIFICATION manifest should be checked for the Untitled47 original/recovered hash pair. That check has now been completed.
+
+COPY_VERIFICATION.json entry:
+path: Colab Notebooks/Untitled47.ipynb
+original_sha256: f762f5b4b3657dca7f76da7cc45cd92b4be7ce1171c3f6327bcf6b4a9e3c87e9
+recovered_sha256: f762f5b4b3657dca7f76da7cc45cd92b4be7ce1171c3f6327bcf6b4a9e3c87e9
+identical: true
+
+The recovered Untitled47.ipynb bytes therefore match the original SHA-256 value recorded in the archive's own copy-verification manifest. This supports byte identity as asserted by that manifest, but the manifest itself is part of the recovery archive and is not an independently authenticated Google Drive audit log.
+
+No change to the main conclusion:
+- Untitled47.ipynb is not the target OMEGA_M32_AUDIT36_REVIEW_EVIDENCE.txt.
+- Target evidence remains NOT LOCATED IN THIS ARCHIVE.
+- Target provenance and owner-reported 09:10 creation timestamp remain UNVERIFIED.
+- No audit certification or mathematical status changes.
+
+END OF ADDENDUM
