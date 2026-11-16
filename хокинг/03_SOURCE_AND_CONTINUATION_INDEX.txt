@@ -197,3 +197,27 @@ retrieved or verified.
 Status: workbook intake recorded; mutation reconciliation OPEN.
 Frozen Core unchanged; Volume V Active Research Architecture; CE-V-07
 RESERVED; certification status unchanged.
+
+
+==================================================
+CP22-15 OMEGA-ISOP TEXT EXPORT PROTOCOL — 2026-11-16
+==================================================
+
+Authoritative checkpoint:
+хокинг/checkpoints/CP22-15_TEXT_EXPORT_PROTOCOL_2026-11-16.md
+
+Mandatory rules:
+- NO ZIP ARCHIVES.
+- One source file = one or more TXT parts.
+- Every part has a sequential number and identifies its original source.
+- Every source has a SHA-256 hash.
+- The manifest records every exported part.
+- Missing files are explicitly reported.
+- Original files are never modified.
+- Actual part count must match the manifest.
+- No audit result is accepted from an incomplete export.
+
+This protocol governs export and audit intake. It does not itself establish
+source completeness or mathematical/certification status.
+Frozen Core unchanged; Volume V Active Research Architecture;
+CE-V-07 RESERVED.
