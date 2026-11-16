@@ -1,0 +1,228 @@
+OMEGA-ISOP — M3.2 AUDIT #36
+INDEPENDENT MATHEMATICAL REVIEW v3.3
+CLAUDE REVIEW REPORT — ARCHIVAL COPY
+Date: 2026-11-16
+Status: INDEPENDENT REVIEW COMPLETED; CONDITIONAL PASS
+Source note: This file records the review text supplied by the project owner in ChatGPT on 2026-11-16. The separate evidence attachment OMEGA_M32_AUDIT36_REVIEW_EVIDENCE.txt was described by the reviewer but was not included in the supplied message as a retrievable file. No claim is made here that the evidence attachment has been archived or independently verified.
+
+======================================================================
+DELIVERABLE 1 — НЕЗАВИСИМО МАТЕМАТИЧЕСКО РЕВЮ
+======================================================================
+
+Рецензент: Claude. Дата: 2026-11-16. Оригиналните файлове не са променяни.
+
+Приложен файл: OMEGA_M32_AUDIT36_REVIEW_EVIDENCE.txt (запис на Фаза A, скрипт, изход, хешове).
+
+0. ПРОЦЕДУРА (доказателство за независимост)
+0.1 Фаза A: прочетох пълния v3.3 (Part III) и пачa (Part IV) от досието и пуснах точни проверки в Fractions (phaseA_checks.py). Лога от GitHub НЕ е четен.
+0.2 Записът на предварителните констатации PHASE_A_BLIND_FINDINGS.txt е хеширан ПРЕДИ достъпа до лога:
+    sha256 49eff255bd689d657fb46cc039345f04a5e3ff2a1c6a9132f9b6f75652662fa0, време 2026-11-15T23:43:28Z.
+0.3 Фаза B: след това извлякох лога от commit f36c966617b19ad1381d22beba0970899ebe1443 (git fetch + git show, не през уеб страница):
+    път 07_RESEARCH_EVIDENCE/M3.2-AUDIT-36-F1-F7-VERIFICATION-LOG-2026-11-15.txt, 234 реда, 12 736 байта, sha256 4decbee4a258cf86ca7a10c7f7f69f17444c82370fe9820394e5d48b79333f1a.
+    Commit: автор naydenov54-netizen, Sun Nov 15 21:44:54 2026 +0200, "Remove superseded pending section from M3.2 Audit #36 log".
+0.4 Предварителните констатации не са променяни след четене на лога (разногласията са в т.10).
+
+1. EXECUTIVE SUMMARY
+1.1 Не открих CRITICAL, HIGH или MAJOR математическа грешка в v3.3. Всички теореми, доказателства и числени примери, които можах да проверя, са верни при заявените допускания.
+1.2 Открих 9 малки (LOW) неточности в формулировките/зависимостите и 3 информационни бележки (т.2 и Deliverable 2).
+1.3 Открих един проблем с целостта на източниците (MEDIUM, процесен, не математически): блокът Part IV в досието е ~2.7 kB по-къс от заявения File B (13 269 байта), File C не е възпроизведен, SHA-256 на File B не може да се пресъздаде от досието.
+1.4 Вътрешният лог покрива само F1–F7; не покрива §6 (спиране, робастност) и A36R-01…07 (т.10).
+1.5 Вердикт: INDEPENDENT CONDITIONAL PASS (Deliverable 5).
+
+2. SOURCE INTEGRITY ASSESSMENT
+2.1 Досие: 67 422 байта, 579 реда. Part III = редове 62–317, Part IV = редове 320–373.
+2.2 Част III (File A, заявен 46 332 байта): моят блок е 45 944 (LF, без нов ред в края) до 46 201 байта (CRLF + краен нов ред). Разлика 131–388 байта: възможно обяснение — различно кодиране на редовете/заглавия. НЕ е потвърдено.
+2.3 Част IV (File B, заявен 13 269 байта, SHA256 b34ff0e7…): моят блок е 10 541–10 596 байта. Разлика ≈2 700 байта. Хешът не може да бъде пресъздаден. Възможно е File B да съдържа текст, който досието не възпроизвежда (напр. инструкции/заглавия). НЕ е потвърдено.
+2.4 File C (Samsung Notes) не е възпроизведен в досието; консистентността с него НЕ е проверена.
+2.5 Консистентност Part IV ↔ Part III: 39 проверени непразни реда от пачa (без инструкционните), всички присъстват дословно в Part III; единственият "липсващ" ред е заглавието "FINAL STATUS BLOCK OF THE PATCH" (метаданни). Старите формулировки ("One realization of the sequence is", "sufficient only if Π includes") липсват в Part III. Пачът е приложен в представения Part III (7 групи).
+2.5.1 Ограничение: не мога да потвърдя, че текстът на Part III е идентичен с File A (т.2.2).
+2.6 Структурна дреболия: два раздела са номерирани "1." (ред 70 "1. PURPOSE…" и ред 81 "1. FORMAL SETUP"). Препратките "Section 1" в (A3) сочат към FORMAL SETUP.
+
+3. F1–F7 (независими констатации; статус = резултат на моята проверка, не затваряне)
+F1 Наблюдателна еквивалентност — PASS при заявените класове.
+  ~e, ~E, ~Π са равенства на ядра/закони върху клас, т.е. рефлексивни, симетрични, транзитивни.
+  Импликации: ~Π ⇒ ~E, ако Π съдържа всички единични неадаптивни изпълнения на e∈E; ~E ⇒ ~e за e∈E; обратното на ~Π ⇒ ~E не важи (контрапример по-долу).
+  Контрапример (Bernoulli): под h d2=d1, под h' d1,d2 независими, маргиналите Bern(1/2) равни; T=1{d1=d2} има P=1 при h и P=1/2 при h'. Верен.
+  Бележка: контрапримерът изисква законът на повторното изпълнение да е отделен примитив; v3.3 §1 го осигурява чрез Law_h^π.
+F2 Адаптивни протоколи — PASS (условно по измеримост).
+  Индукция по дължина на историята: равни начални закони + равни следващи ядра почти сигурно под общия закон ⇒ равни закони на историята. Верно.
+  Необходимост (дискретен случай): P(нова стъпка | префикс) = отношение на съвместни вероятности; равни закони ⇒ равни условни ядра на префикси с положителна вероятност. Верно, затова твърдението в края на §2.4 е вярно.
+  Контрапример при махане на (c)/(d): две хипотези с равни ядра освен след d1=1 при избор на e_b; протокол, който не избира e_b там, дава равни закони; друг протокол дава различни.
+  Ionescu–Tulcea изисква само измерими ядра (без стандартна борелова структура); стандартна борелова структура е нужна за постериорни, не за конструкцията на траекторния закон. Формулировката на v3.3 е съвместима с това.
+F3 Постериорни шансове — PASS с дребна забележка (OR-10).
+  При Law_h=Law_h' всеки от двата закона доминира другия (ν=Law_h), така че LR=1 ν-п.с. на общия носител; за μ(h),μ(h')>0 постериорните шансове равнят приорните там, където постериорът е определен.
+F4 Преразпределение на приорна маса — PASS.
+  Prop 1: ΔE_μ[L(a,·)] = −tL(a,h)+tL(a,h') = 0. Подредба на действията и R(μ) непроменени (при крайни очаквания).
+  Prop 1b: за всяка политика δ равни закони на историята + равни загуби по състояние + равни очаквани разходи ⇒ J_h(δ)=J_{h'}(δ); теглото върху политиките е същото ⇒ инфимумът върху същия клас е същият. Верно, ако класът политики не зависи от приора (подразбира се от "same policy class").
+  Достатъчни, не необходими: контрапример за необходимост — |A|=1 (всички стойности инвариантни независимо от закони на наблюдение).
+F5 EVSI контрапример — PASS (точна аритметика).
+  μ_A=(1/2,0,1/2): R=1/2, R_e=0, EVSI=1/2. μ_B=(0,1/2,1/2): R=1/2, R_e=1/2, EVSI=0. L-профили на h1,h2 са равни: (0,1). μ_B е μ_A с преместена маса t=1/2 от h1 към h2. Контрапримерът коректно блокира извода "загубна еквивалентност ⇒ инвариантност на EVSI".
+F6 Неотрицателност на EVSI — PASS условно (A1–A6).
+  Доказателство: ∫ L(a0,h) μ(dh|d) dm_e(d) = ∫ L(a0,h) μ(dh) по дезинтегриране; изисква L(a0,·) интегрируема или ограничена отдолу (A2). Верно.
+  Забележки: OR-04, OR-06.
+F7 Измеримост и оптимизация — PASS условно.
+  (A3): H стандартно борелово е достатъчно за регулярно условно разпределение на H при дадено D (изискване върху D няма) — верно; v3.3 правилно казва, че стандартност на D_e е достатъчно удобство, не необходимост.
+  (A4): неизмеримостта на d ↦ inf_a е реален риск при неброимо A (OR-06).
+
+4. A36R-01…A36R-07 (оригиналните проблеми са изведени от Change note на v3.3; текстът на v3.2 не ми е предоставен — ограничение)
+A36R-01 Операционно правило за равенство на инфимуми (§6.3): RESOLVED. (a)(b)(c) са коректни. Проверено, че смес с тегло p∈(0,1) от две политики със стойности ≥V има стойност >V, ако и двете >V; следователно "neither attains ⇒ no global optimum" е вярно при условието за смеси от §6.2. Остатък: OR-09 (безкрайни стойности).
+A36R-02 Достатъчни срещу необходими условия (Result B): RESOLVED. Остатък: незадължителен контрапример за необходимост (|A|=1).
+A36R-03 Пример за неатейнмент (§6.8): RESOLVED. Остатък: OR-07 (условен закон при случайно N + граничната политика).
+A36R-04 Рандомизирана долна граница (§6.10): RESOLVED. Остатък: OR-08.
+A36R-05 Стоп/продължи смес: RESOLVED за заявените класове. Бележка: корен-рандомизацията индуцира рандомизирано терминално действие; строгото подобрение зависи от изключването на рандомизация вътре в класа — v3.3 го казва изрично.
+A36R-06 A3/A4: PARTIALLY RESOLVED. A3 е коректно. A4-допълнението е коректно, но §5.3/Result D остават несъгласувани с него (OR-04) и липсва съвместна измеримост (OR-06).
+A36R-07 Редакционни: RESOLVED. Остатъци: OR-02 (двойно "1."), OR-11 (Result D е тавтологично по дефиниция).
+
+5. ОЦЕНКА НА ПРАВИЛАТА ЗА СПИРАНЕ (§6.1–6.9)
+5.1 D_stop, D_cont: коректни. Празни класове: inf ∅ = +∞ — коректно.
+5.2 Смеси: при допускане, че всяка политика в Δ е в D_stop, D_cont или допустима смес, и целта е линейна, inf_Δ J = min(V_stop,V_continue) — верно (смес ≥ min).
+5.3 Крайно прекратяване (§6.2): "твърд бюджет + c(e)≥c_min>0 ⇒ N≤B/c_min" — вярно. Изречението за бюджет в очакване е прекалено широко (OR-03).
+5.4 XOR пример: R=1/2; R_e1=R_e2=1/2 (EVSI=0 на всеки); R_both=0 (EVSI=1/2). Нетна стойност на двустъпковия план 1/2−2c>0 ⇔ c<1/4 (проверено точно: c=1/4 → 0; c=6/25 → 1/50). Верно.
+5.5 Неатейнмент (§6.8): точна проверка за n<80: Σ_{k≤n}4^−k=(1−4^−n)/3; g(n)=2^−n−4^−n/3>0; V_n=1/3+g(n); g(n)−g(n+1)=2^−(n+1)(1−2^−(n+1))>0 ⇒ V_n строго намалява към 1/3. V_0..V_6: 1, 3/4, 9/16, 29/64, 101/256, 373/1024, 1429/4096. V_30−1/3 = 9.31e−10.
+    Начален риск: min_a E 4|a−θ| = 1 (медиана 1/2; E|θ−1/2|=1/4). Върху префикс дължина n: 2^−n (средата). Пример: N∼Geom(1/2) на {1,2,…} дава E g(N)=2/7, J=13/21≈0.619>1/3.
+    Проверката на J(N)>1/3 е вярна, ако за стопинг момент N условният закон на θ е равномерен върху дяда на първите N цифри (силно марковско свойство за i.i.d. цифри) — OR-07.
+5.6 Корен срещу последователна оптималност (§6.5): коректно разграничено.
+5.7 Едностъпков EVSI срещу многостъпков (§6.7): вярно. Неравенството V_continue ≤ inf_e[R_e+C(e)] изисква ε-оптималното правило от (A4) (OR-05).
+
+6. ОЦЕНКА НА РОБАСТНОТО/MINIMAX (§6.10)
+6.1 sup(загуба+цена) ≠ сума от sup: (1,0),(0,1) ⇒ 1 срещу 2. Верно.
+6.2 Чисти действия с L=(0,1),(1,0): чист worst-case 1; смес 50/50: 1/2. Верно (F е изпъкнала, не линейна, по смесите).
+6.3 Неректангулярен пример: детерминирани политики f: (0,0) и (1,1) дават 1/2/1/2; f=x и f=1−x дават 1; ex-ante minimax = 1/2. Условно след x: всяко детерминирано предположение има worst-case 1 → условна стойност 1. Верно.
+6.4 Рандомизирана долна граница: err(P1)=(q0+1−q1)/2, err(P2)=(1−q0+q1)/2, сума=1 ⇒ max≥1/2, равенство при q0=q1 (проверено на мрежа 21×21 с точни дроби). Верно.
+6.5 Стоп/продължи смес (Γ={δ_s1,δ_s2}): (0,1) и (1,0) имат worst 1; смес 50/50 → (1/2,1/2). Верно за класа без вътрешна рандомизация.
+
+7. КОНТРАПРИМЕРИ (изброени)
+7.1 Bernoulli (§2.3): валиден.
+7.2 §2.4 (отличаваща се продължаваща история): валиден при P(d1=1)>0.
+7.3 §3.2 EVSI: валиден.
+7.4 XOR (§6.7): валиден.
+7.5 Неатейнмент (§6.8): валиден за декларирания клас.
+7.6 Неректангулярен (§6.10): валиден за чисти детерминирани действия.
+7.7 Стоп/продължи смес (§6.10): валиден за декларирания клас.
+7.8 Мои контрапримери към формулировки: (i) §6.2: детерминирана цена 1, бюджет в очакване E[Σ цени]≤5 ⇒ E[N]≤5, N<∞ п.с. (изречението "does not by itself imply" е твърде широко); (ii) §6.8: политика "разкрий всички цифри" има цена Σ4^−k=1/3 и загуба 0, т.е. J=1/3 (изключена от изискването за крайно прекратяване).
+
+8. НЕРАЗРЕШЕНИ ВЪПРОСИ
+8.1 OR-01 (целост на източниците).
+8.2 Твърдението за "втори независим преглед на v3.2" (2026-10-29, пет малки и два редакционни проблема) е неверифицируемо за мен (v3.2 и прегледът не са предоставени).
+8.3 Управленските твърдения (Frozen Core непроменен, RL регистрация не е извършена) не са проверявани — извън обхвата.
+8.4 Всички разглеждани резултати са условни; не е правена машинна верификация на доказателствата. Външни теореми (Bertsekas–Shreve Prop. 7.47 и 7.50 — долно полуаналитична функция е универсално измерима; съществуват ε-оптимални универсално измерими селектори) цитирам по памет, номерата не са сверени.
+
+9. ЧИСЛЕНИ ПРОВЕРКИ — КАКВО Е И КАКВО НЕ Е
+9.1 Извършено: точна аритметика (Fractions) за F5, XOR, §6.8, §6.10; едно числено интегриране за min_a E 4|a−θ|=1.
+9.2 Числените проверки потвърждават примери; те не заместват доказателствата на твърденията (доказателствата са прочетени и проверени ръчно). Симулация не е представена като доказателство.
+
+10. СРАВНЕНИЕ С ВЪТРЕШНИЯ ЛОГ (Фаза B)
+10.1 Съгласие: F1–F7 са "CONDITIONAL PASS" (F5 "PASS FOR THE STATED COUNTEREXAMPLE") — съвпада със заключенията ми. Лого "NOT CLOSED" е коректно за вътрешна проверка; не го променям.
+10.2 Разногласия/пропуски:
+ D1 Обхват: логът не обхваща §6.1–6.10 и A36R-01…07. Тези части са независимо прегледани само от мен.
+ D2 Липса на възпроизводимост: логът не съдържа пресметнати стойности; не позволява повторение от трето лице.
+ D3 F6 повтаря несъгласуваността OR-04: "valid under A1–A6 and the stated measurable-rule/selection" (ред 162), докато A4-допълнението казва, че ε-оптималността не е нужна за R_e≤R. Решение: виж C-03.
+ D4 F3: логът казва, че v3.3 съдържа "необходимия caveat за доминиране" (ред 100). Моето заключение: при Law_h=Law_h' доминирането е автоматично; реалното ограничение е μ(h),μ(h')>0 и съществуване на постериор (OR-10). Не е грешка, а неточност; решение: C-09.
+ D5 F2: логът не коментира необходимост срещу достатъчност на ядрата, поискана в досието (F2). Моята проверка: достатъчно винаги; необходимо в дискретния случай (т.3 F2).
+ D6 Логът не споменава двойното "1." (OR-02) и двойния разделител на редове 83–84 в самия лог (редакционна дреболия).
+ D7 Нищо в лога не противоречи на заключенията ми по същество.
+
+======================================================================
+DELIVERABLE 2 — ОБЕКТЕН РЕГИСТЪР (възраженията не се изтриват)
+======================================================================
+
+Формат: ID | SOURCE | SECTION | MATHEMATICAL CLAIM | PROBLEM | COUNTEREXAMPLE | SEVERITY | REQUIRED CORRECTION | RESOLUTION STATUS
+Всички статуси са OPEN (корекциите са предложения; нищо не е приложено).
+
+OR-01 | Part IV vs заявен File B/C | Source integrity | "Exact text patch", File B 13 269 B, SHA b34ff0e7… | Блокът в досието е 10 541–10 596 B; хешът не се пресъздава; File C липсва | — | MEDIUM (процесен) | Предоставяне на оригиналите като байтове/хешове или изрично ограничаване на ревюто до репродуцирания текст | OPEN
+OR-02 | v3.3 | редове 70, 81 | Номерация на раздели | Два раздела "1." | — | LOW | C-01 | OPEN
+OR-03 | v3.3 | §6.2 | "Бюджет в очакване … не гарантира крайно прекратяване" | Вярно само без положителна долна граница на цените | Цена 1, очакван бюджет ≤5 ⇒ N<∞ п.с. | LOW | C-02 | OPEN
+OR-04 | v3.3 | §5.3, Result D, (A4) | Prop 3 "с измеримото правило/селекция" | A4-допълнението казва, че не е нужно за R_e≤R | — (несъгласуваност) | LOW | C-03 | OPEN
+OR-05 | v3.3 | §6.7 | V_continue ≤ inf_e[R_e(μ)+C(e)] | Изисква ε-оптимални измерими правила от (A4) | — | LOW | C-04 | OPEN
+OR-06 | v3.3 | (A2),(A4) | Измеримост на d↦inf_a ρ_d(a) и ε-оптимални правила | (A2) дава само измеримост по a; нужна е съвместна измеримост/полско A | — | LOW | C-05 | OPEN
+OR-07 | v3.3 | §6.8 | J(N)>1/3 за всяко допустимо N | Нужно е силно марковско свойство за случайно N; граничната политика има J=1/3 | Политика "всички цифри": цена 1/3, загуба 0 | LOW (+INFO) | C-06 | OPEN
+OR-08 | v3.3 | §6.10 | "съвпада с условната рандомизирана стойност" | Не е доказано на място | — | LOW | C-07 | OPEN
+OR-09 | v3.3 | §6.3–6.4 | Правила за равенство на инфимуми | Не са покрити +∞/−∞ | V_stop=V_continue=+∞ | LOW | C-08 | OPEN
+OR-10 | v3.3 | §4 (Prop 2) | Предупреждение за доминиране | При равни закони доминиране е автоматично | — | INFORMATIONAL | C-09 | OPEN
+OR-11 | v3.3 | Result D | "R_e=R ⇒ EVSI=0" | Тавтология по дефиниция | — | INFORMATIONAL | C-10 (по избор) | OPEN
+OR-12 | Досие | заглавни блокове | Прегледът на v3.2 от 2026-10-29; управленски твърдения | Не са проверими от наличните материали | — | INFORMATIONAL | Приложете v3.2 и прегледа, ако се иска проверка | OPEN
+OR-13 | Лог f36c966 | F1–F7 | Вътрешна проверка | Не обхваща §6 и A36R; няма пресметнати стойности; повтаря OR-04 | — | LOW (процесен) | Разшири лога или пусни приложения скрипт | OPEN
+
+ПРОВЕРЕНИ БЕЗ ВЪЗРАЖЕНИЕ (запис): Prop 1, Prop 1b, Prop 2, Prop 3 (при A1–A6), §2.3 контрапример, §2.4 индукция и необходимост (дискретно), §3.2 EVSI пример, XOR пример, §6.2 смеси и min-правило, §6.4 пълно покритие на случаите, §6.8 числа и граница, §6.10 първите три примера, рандомизирана долна граница, стоп/продължи смес.
+
+======================================================================
+DELIVERABLE 3 — ВЪЗПРОИЗВОДИМА МАТЕМАТИКА
+======================================================================
+
+Допускания: както в съответните раздели; "(A)" означава A1–A6 от §5.1.
+
+M1 Prop 1. E_μ'[L(a,H)] − E_μ[L(a,H)] = −tL(a,h)+tL(a,h') = 0, ако L(a,h)=L(a,h'). Следва: подредба и R(μ)=inf_a E_μ[L] са непроменени.
+M2 Prop 1b. J_x(δ)=∫L(a_δ(ω),x) Law_x^{π_δ}(dω)+E_x[cost]. h~Π h' (равни закони) + L(a,h)=L(a,h') ∀a + равни очаквани разходи ⇒ J_h(δ)=J_{h'}(δ). Приорът утежнява J_x(δ) линейно; преместване на маса не променя нито една J(δ) ⇒ нито инфимума.
+M3 §3.2. μ_A=(1/2,0,1/2): E L(a1)=1/2·0+1/2·1=1/2; E L(a2)=1/2·1+1/2·0=1/2 ⇒ R=1/2. d=1⇔h1: d=1 (P=1/2) → постериор h1, a1: 0; d=0 (P=1/2) → постериор h3, a2: 0 ⇒ R_e=0. μ_B=(0,1/2,1/2): E L(a1)=1/2, E L(a2)=1/2 ⇒ R=1/2; d=0 винаги ⇒ постериор=приор ⇒ R_e=1/2, EVSI=0.
+M4 Prop 3. ρ_d(a0)=∫L(a0,h)μ(dh|d). inf_a ρ_d(a) ≤ ρ_d(a0) за m-п.в. d. ∫ρ_d(a0)m(dd)=∫L(a0,h)μ(dh) (дезинтегриране; L(a0,·) квази-интегрируема по A2). Взимане на inf по a0 ⇒ R_e≤R.
+M5 XOR. Състояния x,y∈{0,1} равномерно, L(a,(x,y))=1{a≠x⊕y}. R=1/2. При е1 (разкрива x): x⊕y остава равномерно ⇒ R_e1=1/2 ⇒ EVSI=0; същото за е2. Заедно: R=0, EVSI=1/2. Нетно: 1/2−2c>0 ⇔ c<1/4. Едностъпкова нетна стойност −c<0.
+M6 §6.8. Σ_{k=1}^n 4^−k=(1−4^−n)/3. Върху префикс дължина n θ~U[интервал дължина 2^−n]; min_a E 4|a−θ|=4·2^−n/4=2^−n. J(N)=E[2^−N+(1−4^−N)/3]=1/3+E g(N), g(n)=2^−n−4^−n/3. g(n)>0 ∀n≥0, защото 2^−n>4^−n/3. g(n)−g(n+1)=2^−(n+1)−(4^−n−4^−(n+1))/3=2^−(n+1)−4^−n/4=2^−(n+1)(1−2^−(n+1))>0. Следователно V_n=1/3+g(n) е строго намаляваща към 1/3, inf=1/3, не се достига; V_stop=1.
+M7 Стоп/смес (линеен случай). Смес p·δ_s+(1−p)·δ_c: J=pJ(δ_s)+(1−p)J(δ_c) ≥ min(V_stop,V_continue); строго >V ако и двете >V (p∈(0,1)).
+M8 Неректангулярен пример. P1 (x,x), P2 (x,1−x). Детерминирани f: err1=P(f(x)≠x), err2=P(f(x)≠1−x). Константни f: 1/2,1/2. f=x: 0,1; f=1−x: 1,0 ⇒ ex-ante minimax 1/2. Условно: x=0: гадаене 0 → (0,1), гадаене 1 → (1,0): worst 1; същото за x=1.
+M9 Рандомизирана долна граница. Нека q_x=P(гадае 1|x). Под P1 (y=x): грешка при x=0 е q0, при x=1 е 1−q1 ⇒ err1=(q0+1−q1)/2. Под P2 (y=1−x): при x=0 е 1−q0, при x=1 е q1 ⇒ err2=(1−q0+q1)/2. err1+err2=1 ⇒ max≥1/2; равенство при q0=q1.
+M10 Смес стоп/продължи (робастно). L-вектори (0,1) и (1,0): worst 1 всеки; 50/50: (1/2,1/2), worst 1/2. F е sup на линейни функции на теглата p ⇒ изпъкнала.
+M11 Външни резултати и условия: (i) Дезинтегриране/регулярно условно разпределение — H стандартно борелово, условието върху D не е нужно (Kallenberg, "Foundations of Modern Probability", теорема за дезинтегриране); (ii) Ionescu–Tulcea — само измерими ядра; (iii) Bertsekas–Shreve Prop. 7.47/7.50 — A борелово подмножество на полско пространство, L съвместно борелова, ограничена отдолу (по памет, виж 8.4).
+
+======================================================================
+DELIVERABLE 4 — СПЕЦИФИКАЦИЯ НА КОРЕКЦИИТЕ
+======================================================================
+
+Оригиналът не е редактиран. Текстовете на документа са на английски; предложенията са на английски, за да се вмъкнат дословно.
+
+C-01 | РАЗДЕЛ: ред 70 | CURRENT: "1. PURPOSE, SCOPE, AND READING RULE" | PROPOSED: "0. PURPOSE, SCOPE, AND READING RULE" | ПРИЧИНА: втори раздел "1." нарушава номерацията; "0." запазва всички препратки (Section 1, 2.x, 6.x) | ЕФЕКТ: няма
+
+C-02 | §6.2 | CURRENT: "A budget constraint in expectation, or random costs without an almost-sure positive lower bound, does not by itself imply finite termination; state the termination condition explicitly in those cases." | PROPOSED: "A budget constraint in expectation together with an almost-sure lower bound c ≥ c_min > 0 on every selected cost implies E[N] ≤ B/c_min and hence N < ∞ almost surely, but gives no uniform bound on N. A budget in expectation without such a lower bound, or random costs without an almost-sure positive lower bound, does not by itself imply finite termination (for example, deterministic costs 4^(−k) as in 6.8); state the termination condition explicitly in those cases." | ПРИЧИНА: E[ΣN c_k] ≥ c_min E[N] | ЕФЕКТ: стеснява твърдението до вярното, не променя резултатите
+
+C-03 | §5.3 и Result D | CURRENT (§5.3): "Under (A1)–(A6), with the measurable-rule/selection condition in (A4) and the stated finite or extended-real convention in (A6), R_e(μ) ≤ R(μ), so EVSI(e)≥0." | PROPOSED: "Under (A1)–(A6), with R_e defined as the integral of the pointwise posterior-risk infimum (using the measurability part of (A4)) and the finite or extended-real convention in (A6), R_e(μ) ≤ R(μ), so EVSI(e) ≥ 0. The ε-optimal-rule part of (A4) is needed only to identify R_e with the infimum over measurable decision rules." | CURRENT (Result D): "…including the measurable-rule/selection and extended-real conventions…" | PROPOSED: "…including the measurability of the pointwise posterior-risk infimum and the extended-real convention…" | ПРИЧИНА: съгласуване със A4-допълнението | ЕФЕКТ: няма
+
+C-04 | §6.7 | CURRENT: "V_continue ≤ inf_{e feasible}[R_e(μ)+C(e)] when the notation and objective are aligned and R_e is the post-experiment terminal decision risk." | PROPOSED: append: "This inequality uses the ε-optimal-rule part of (A4) (for every ε>0 there is an admissible measurable rule with risk at most R_e+ε), or R_e is defined as the infimum over admissible measurable rules." | ПРИЧИНА: политиките са измерими правила | ЕФЕКТ: няма
+
+C-05 | (A2)/(A4) | CURRENT: "Sufficient conditions may include countable A with measurable risks, or appropriate measurable-selection/standard-Borel conditions." | PROPOSED: append: "A sufficient condition: A is a Borel subset of a Polish space and L is jointly Borel on A×H and bounded below. Then d ↦ inf_a ρ_d(a) is universally measurable and, for every ε>0, a universally measurable ε-optimal selector exists (Bertsekas–Shreve 1978, Props. 7.47 and 7.50, to be checked against the stated hypotheses); expectations are then taken under the completed predictive measure. In the example of 6.8 the explicit midpoint selector makes no external theorem necessary." | ПРИЧИНА: (A2) дава само измеримост по a | ЕФЕКТ: уточнява достатъчно условие, не променя резултати
+
+C-06 | §6.8 | CURRENT: "Conditional on any revealed prefix of length n, θ is uniform on an interval of length 2^(−n)." | PROPOSED: append: "Because the digits are i.i.d. fair bits and any auxiliary randomization is independent of θ, for every admissible stopping time N the conditional law of θ given the information at N is uniform on the dyadic interval fixed by the first N digits (strong Markov property of an i.i.d. sequence at a stopping time); hence E[L(A,θ) | F_N] ≥ 2^(−N) for every F_N-measurable action A. The policy that reveals all digits would have cost Σ 4^(−k) = 1/3 and zero terminal loss, i.e. value exactly 1/3; it is excluded by the finite-termination requirement of 6.2, and the non-attainment above is a consequence of that exclusion." | ПРИЧИНА: пълнота на доказателството; прозрачност | ЕФЕКТ: няма
+
+C-07 | §6.10 | CURRENT: "...matching the conditional randomized value." | PROPOSED: "...matching the conditional randomized value: conditional on x, the error is P(guess ≠ x) under P₁ and P(guess = x) under P₂, which again sum to 1, so the conditional randomized minimax value is also 1/2, attained at q_x = 1/2." | ПРИЧИНА: липсва едноредово обосноваване | ЕФЕКТ: няма
+
+C-08 | §6.3–6.4 | PROPOSED (добавка в началото на 6.3): "The rules of 6.3–6.4 assume that V_stop and V_continue are not both +∞ and that their common value, if equal, is finite. If both classes are empty or every policy has infinite value, no admissible policy has finite value; if the common value is −∞, attainment is not defined." | ПРИЧИНА: пълнота | ЕФЕКТ: няма
+
+C-09 | §4 (Prop 2) | CURRENT: "This likelihood-ratio statement should not be used where the required domination or likelihood ratio is undefined." | PROPOSED: "When Law_h^π = Law_{h'}^π, each law dominates the other (take ν = Law_h^π), so the likelihood ratio equals 1 ν-almost everywhere on the common support; the posterior-odds statement additionally requires μ(h)>0, μ(h')>0 and a posterior defined as in (A3)." | ПРИЧИНА: точност | ЕФЕКТ: няма
+
+C-10 (по избор) | Result D | PROPOSED: append: "If a prior-Bayes action a* attaining R(μ) exists, then EVSI(e)=0 if and only if a* is a posterior-Bayes action for m_e-almost every d." | ПРИЧИНА: R_e ≤ ∫ρ_d(a*)dm = R, а ∫[ρ_d(a*) − inf_a ρ_d] dm = 0 ⇔ интегрантът (≥0) е 0 п.с.; изисква ρ_d(a*) крайно п.с. | ЕФЕКТ: добавя съдържателна формулировка
+
+======================================================================
+DELIVERABLE 5 — ФИНАЛЕН ВЕРДИКТ
+======================================================================
+
+INDEPENDENT CONDITIONAL PASS
+
+Обосновка: (1) всички доказателства и числени примери, които проверих, са верни при заявените допускания; не открих критичен/голям проблем; (2) условията са: (a) OR-01 — целостта на File A/B/C не е потвърдена, ревюто важи за Part III/IV както са възпроизведени в досието; (b) OR-02…OR-09 са малки формулировъчни корекции, които трябва да се приложат или да се запишат като приети ограничения; (c) ревюто е на v3.3 при заявените допускания.
+Не се претендира: канонично приемане, сертификат, универсална теорема, машинно проверено доказателство. Числените проверки не са аналитично доказателство. Вътрешният лог не е третиран като независимо доказателство.
+Управление: Frozen Core — непроменен; Volume V — Active Research Architecture; CE-V-07 — RESERVED; CE-V промоция и RL регистрация — не са разрешени; CLOSURE RECORD — PENDING.
+
+======================================================================
+ARCHIVAL CONTROL / PROJECT STATUS
+======================================================================
+
+Repository: naydenov54-netizen/OMEGA-ISOP
+Branch: main
+Project area: 07_RESEARCH_EVIDENCE
+Review identifier: IRP-1.1 / M3.2 AUDIT #36
+Review date: 2026-11-16
+
+INDEPENDENT REVIEW: COMPLETED (as reported by reviewer)
+VERDICT: INDEPENDENT CONDITIONAL PASS
+SOURCE INTEGRITY: PARTIALLY VERIFIED
+OBJECTIONS OR-01…OR-13: OPEN
+CORRECTIONS C-01…C-10: PROPOSED, NOT APPLIED
+FROZEN CORE: UNCHANGED
+VOLUME V: ACTIVE RESEARCH ARCHITECTURE
+CE-V-07: RESERVED
+CE-V PROMOTION: NOT AUTHORIZED
+RL REGISTRATION: NOT AUTHORIZED
+CANONICAL ACCEPTANCE: NOT GRANTED
+MATHEMATICAL CERTIFICATION: NOT GRANTED
+CLOSURE: PENDING
+
+IMPORTANT:
+This archival record does not merge v3.3, apply any correction, modify the Frozen Core, or grant canonical acceptance or mathematical certification.
+The reviewer-described evidence attachment is not included in this archival copy unless separately uploaded and verified.
