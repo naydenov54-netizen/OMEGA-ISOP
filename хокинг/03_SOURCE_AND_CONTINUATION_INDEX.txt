@@ -117,3 +117,32 @@ Mathematical certification: NOT ESTABLISHED.
 
 END OF SOURCE AND CONTINUATION INDEX
 
+
+
+==================================================
+CP22-13 WORKFLOW STOP RULE — 2026-11-16
+==================================================
+
+The file OMEGA_CP22-13_AUDIT_EVIDENCE.txt was created AFTER the
+CP22-13 audit. Its post-audit creation is already established in the
+working record.
+
+DO NOT search for this file again as a routine continuation step.
+DO NOT repeat Library/GitHub searches for it.
+DO NOT treat its non-discovery in earlier searches as a new audit finding
+or as evidence against the CP22-13 audit.
+Revisit this item only if the user explicitly requests it or supplies a
+specific new location/source.
+
+Current work must proceed from the existing CP22-13 audit, implementation
+checkpoint, evidence register and the already identified findings.
+The active unresolved technical task is mutation-accounting reconciliation:
+keep repository-test detection separate from independent analytical-fixture
+detection; recover the complete mutation-ID mapping, denominator and raw
+results before assigning any corrected detection score.
+
+This workflow note does not change any technical finding or certification
+status. Frozen Core remains unchanged; Volume V remains Active Research
+Architecture; CE-V-07 remains RESERVED; CP22-13 remains CONDITIONAL PASS —
+NOT CERTIFIED; CAPD, interval certification, mathematical certification
+and universality remain NOT ESTABLISHED.
