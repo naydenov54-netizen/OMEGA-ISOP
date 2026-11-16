@@ -1,0 +1,355 @@
+OMEGA-ISOP
+CAPD MATHEMATICAL CERTIFICATION TRACK
+AUDIT RECORD: TASK 01E.3-D
+TITLE: INTERVAL AND ROUNDING EVIDENCE CONSOLIDATION
+DATE: 2026-11-16
+RECORD STATUS: CONDITIONAL VALIDATION
+EVIDENCE CLASS: HISTORICAL NOTEBOOK OUTPUTS TRANSCRIBED ON 2026-11-16
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+
+======================================================================
+0. PURPOSE AND GOVERNING CONSTRAINTS
+======================================================================
+
+This record consolidates the CAPD interval-arithmetic and floating-point
+rounding evidence supplied in the conversation on 2026-11-16, including
+the relevant extracts from Untitled114.ipynb and the preceding interval
+test cell.
+
+The record is an audit/evidence checkpoint. It does not modify CAPD,
+OMEGA-ISOP Frozen Core, or Volume V.
+
+Mandatory constraints:
+- Frozen Core remains unchanged.
+- Volume V remains ACTIVE RESEARCH ARCHITECTURE.
+- CE-V-07 remains RESERVED.
+- CAPD results must not be presented as a universal theorem.
+- A conditionally validated result must not be promoted to CERTIFIED
+  without independent verification.
+- FACTS, HYPOTHESES, FORMAL RESULTS, AUDIT FINDINGS, and STATUS remain
+  distinct.
+- Numerical approximation must not be conflated with interval or
+  analytical certification.
+- Representation is not mechanism; simulation is not proof; numerical
+  result is not analytical theorem.
+
+======================================================================
+1. FACTS: CAPD INTERVAL TEST
+======================================================================
+
+Recorded source:
+
+  DoubleInterval a(1.0);
+  DoubleInterval b(0x1p-53);
+  DoubleInterval c = a + b;
+
+Recorded output:
+
+  INTERVAL_RESULT=[1,1.0000000000000002]
+  EXPECTED_EXACT_VALUE=1.0000000000000001
+
+Mathematical reference:
+
+  1 + 2^(-53)
+  = 1.000000000000000111022302462515654...
+
+The exact value is the midpoint between the adjacent binary64 values:
+
+  1.0
+  1.0000000000000002
+
+The reported interval [1.0, 1.0000000000000002] contains the exact
+rational value 1 + 2^(-53).
+
+Finding:
+- PASS for this one recorded interval operation, conditional on the
+  reported output corresponding to the stated source and executable.
+- This is not a general proof of CAPD interval correctness.
+- The printed EXPECTED_EXACT_VALUE uses long double formatting. It is
+  a diagnostic display, not the independent exact reference itself.
+  The exact reference is the rational expression 1 + 2^(-53).
+
+Provenance limitation:
+- The source-writing cell and compile/run cell are recorded.
+- A subsequent cell attempted to execute the literal output text
+  "Writing /content/capd_interval_check.cpp" as Python and produced
+  NameError. This is a notebook cell-type / transcription error, not
+  evidence of a CAPD compilation failure.
+- The actual compile/run cell reported the interval output above.
+- The output alone does not preserve the executable hash, linked
+  library hashes, or complete build provenance.
+
+======================================================================
+2. FACTS: STANDALONE SSE2 / MXCSR TEST C4.1
+======================================================================
+
+Recorded environment:
+- Architecture: x86_64
+- CPU: Intel Xeon CPU @ 2.20 GHz
+- Compiler: GCC 13.3.0 (Ubuntu 13.3.0-6ubuntu2~24.04.1)
+- Compiler flags included -O0 or -O2, -frounding-math,
+  -fno-fast-math, and -msse2.
+- The test uses SSE2 scalar addition (ADDSD) and reads/writes MXCSR.
+
+Recorded O0 output:
+- NEAREST: expected positive and negative results observed.
+- DOWN: expected positive and negative results observed.
+- UP: expected positive and negative results observed.
+- TOWARD_ZERO: expected positive and negative results observed.
+- MXCSR restored to 0x1f80: PASS.
+
+Recorded O2 output:
+- Same four rounding modes produced the expected positive and negative
+  results.
+- MXCSR restored to 0x1f80: PASS.
+
+Recorded disassembly excerpts include:
+  stmxcsr
+  ldmxcsr
+  addsd
+
+Recorded SHA256 values:
+  c4_1.cpp:
+  a73a3dcaffbed32b7cc041a7c085d174a04c6a6a1b518bd7c5e2e2baafd00f83
+
+  c4_1_O0:
+  94086c5ced7d9c8309a6852869cd1279f2156ea188fc701418237df4a1b315ae
+
+  c4_1_O2:
+  fa1782c66c73e3a6549d24b2745f2d662a7c7ec5261324413ff0f1b4b8a730b9
+
+  c4_1_O2.asm:
+  31518408aa3d27c05b5990f7b464d6612bd1476fe860d1145abc7b5ce2a4faa5
+
+Finding:
+- PASS for the specific standalone SSE2/MXCSR test under the recorded
+  compiler, CPU, source, and flags.
+- This does not establish x87 behavior.
+- This does not establish that CAPD's own implementation configures
+  x87 and MXCSR consistently.
+- This does not establish correctness of all CAPD interval operations.
+- This is not a CAPD library certification.
+
+======================================================================
+3. FACTS: C4 SOURCE AND X87 EVIDENCE
+======================================================================
+
+A later C4 source file was recorded with:
+  SHA256:
+  d73cfbb9856093e3da5c6838df907d6e2d58a7af928e63917d593db0f105c150
+
+The recorded build used:
+  g++ -std=c++17 -O2 -Wall -Wextra -Wpedantic
+  -fno-fast-math -frounding-math -mfpmath=sse -msse2 -mno-avx
+  -mno-avx2
+
+The executable ran and printed:
+  OMEGA-ISOP C4 SOURCE V0.1
+  AMD64 / SSE2 / x87 floating-point audit
+  INITIAL_MXCSR=0x1f80
+  INITIAL_X87_CW=0x37f
+
+The visible output includes PASS results for initial SSE2/MXCSR
+checks, including rounding-control and precision-flag observations.
+However, the supplied output is truncated during the later checks.
+The complete PASS/FAIL matrix for all x87 rounding modes and precision
+settings is therefore not established by this record.
+
+A file named omega_c4_v02_original.cpp was reported as:
+  SIZE: 1 byte
+  SHA256:
+  36a9e7f1c95b82ffb99743e0c5c4ce95d83c9a430aac59f84ef3cbfab6145068
+
+It is not a usable preserved source artifact.
+
+Finding:
+- C4 provides partial machine-level evidence.
+- Do not treat different C4 revisions as one identical source artifact.
+- Do not claim full x87 validation from the truncated output.
+- Recover the exact full source and full output before making stronger
+  claims.
+
+======================================================================
+4. FACTS: CAPD REPOSITORY AND NOTEBOOK ENVIRONMENT
+======================================================================
+
+Untitled114.ipynb CELL 0 reported:
+  CAPD REPOSITORY: NOT FOUND
+  STOP: No clone, build or modification performed.
+
+Untitled112.ipynb CELL 0 reported:
+  CAPD source exists: False
+  O0 build exists: False
+
+These observations establish that the specified local paths were
+unavailable in those Colab runtime sessions. They do not establish
+that the GitHub or Google Drive copies were deleted.
+
+A historical CAPD build context recorded in earlier evidence was:
+- CAPD version: 6.0.0
+- CAPD commit:
+  693998cd6d73a0c4e1b141bfb79fcad1c40c3cbe
+- GCC 13.3.0
+- CMake 3.31.10
+- Ubuntu 24.04, x86_64
+
+That historical build context must not be silently attributed to the
+later notebook session where the repository was not mounted.
+
+Notebook execution errors:
+- Executing shell/CMake text in Python cells caused SyntaxError.
+- Executing literal notebook output text caused NameError.
+- Colab runtime resets removed temporary /content files and build
+  directories.
+These are notebook/runtime workflow issues unless a specific compiler
+or CAPD command itself reports a failure.
+
+======================================================================
+5. HYPOTHESES AND UNRESOLVED TECHNICAL QUESTIONS
+======================================================================
+
+The earlier discrepancy remains:
+
+- CAPD DoubleRounding::isWorking() returned 0 in the recorded
+  optimized build.
+- A manually sequenced rounding test returned the expected mode
+  values in the recorded context.
+- A build forced to actual O0 through a compiler wrapper returned
+  CAPD_IS_WORKING_O0=1.
+- The earlier O2 disassembly excerpt appeared unusually shortened,
+  but the exact linked-binary control flow and relocation targets
+  were not fully established.
+
+Possible factors requiring discrimination:
+- compiler transformations and floating-point environment assumptions;
+- inline assembly constraints and clobbers;
+- interaction between x87 control word and MXCSR;
+- exact instruction set used by DoubleRounding::test();
+- source/object/library mismatch or build provenance;
+- behavior of the diagnostic itself.
+
+None of these possible explanations is established as the cause.
+
+Important technical distinction:
+- ldmxcsr changes MXCSR, which governs SSE/AVX floating-point
+  rounding control.
+- fldcw changes the x87 control word.
+- Evidence for one control register is not evidence for the other.
+- -frounding-math must not be treated as a blanket proof that every
+  compiler transformation respects every runtime floating-point
+  environment change.
+
+======================================================================
+6. AUDIT FINDINGS
+======================================================================
+
+F1. Interval containment:
+PASS for the one reported operation 1 + 2^(-53), subject to source
+and executable provenance limitations.
+
+F2. Standalone SSE2/MXCSR:
+PASS for the recorded C4.1 O0 and O2 tests.
+
+F3. x87:
+INCOMPLETE. Full source and complete output are not preserved in the
+provided evidence.
+
+F4. CAPD build reproducibility:
+NOT REPRODUCED in the later notebook session because the repository
+and build directories were absent from that runtime.
+
+F5. DoubleRounding::isWorking() O0/O2 discrepancy:
+UNRESOLVED. No root cause is certified.
+
+F6. Evidence identity:
+INCOMPLETE. The complete source, executable, linked library hashes,
+and full logs are not available together for every reported run.
+
+F7. Universal interval-arithmetic correctness:
+NOT ESTABLISHED.
+
+======================================================================
+7. FORMAL RESULTS: SCOPE
+======================================================================
+
+No new universal theorem is established by this record.
+
+The only mathematical containment statement supported by the interval
+test is:
+
+  1 + 2^(-53) is an element of
+  [1, 1 + 2^(-52)].
+
+This is a direct exact-rational containment fact for the stated
+interval endpoints. It does not prove the general correctness of
+CAPD's interval implementation.
+
+The standalone SSE2/MXCSR observations are computational test
+results, not mathematical theorems about all CAPD operations.
+
+======================================================================
+8. REQUIRED NEXT ACTIONS: TASK 01E.3-D
+======================================================================
+
+A. Recover the exact CAPD source tree and verify:
+   - repository URL;
+   - exact commit;
+   - clean/dirty state;
+   - source file hashes.
+
+B. Recover and preserve the exact C4 source revision(s), explicitly
+   distinguishing C4.1, C4 V0.1, and any later version.
+
+C. Produce complete fresh O0 and O2 builds with captured compiler
+   commands and verified effective flags.
+
+D. Record x87 control word and MXCSR before and after every rounding
+   operation.
+
+E. Test x87 and SSE2 arithmetic independently, not merely by reading
+   control registers.
+
+F. Preserve complete source, executable, linked-library hashes,
+   complete stdout/stderr, and linked executable disassembly.
+
+G. Re-run the CAPD interval test and compare its endpoints against an
+   independent exact rational reference, not only a long double print.
+
+H. Re-run DoubleRounding::isWorking() in the same controlled build
+   matrix and inspect the linked executable's actual control flow.
+
+I. Keep historical outputs distinct from fresh independent runs.
+
+J. Do not upgrade the result to CERTIFIED until independent
+   reproduction and evidence traceability are complete.
+
+======================================================================
+9. STATUS AND ARCHITECTURAL CONTROL
+======================================================================
+
+STATUS:
+CONDITIONAL VALIDATION
+
+CERTIFICATION:
+NOT CERTIFIED
+
+UNIVERSALITY:
+NOT ESTABLISHED
+
+FROZEN CORE:
+PRESERVED; NO MODIFICATION AUTHORIZED OR PERFORMED
+
+VOLUME V:
+ACTIVE RESEARCH ARCHITECTURE; NO ARCHITECTURAL CHANGE
+
+CE-V-07:
+RESERVED
+
+CAPD ROOT CAUSE:
+UNRESOLVED
+
+NEXT TASK:
+01E.3-D - INTERVAL AND ROUNDING EVIDENCE CONSOLIDATION
+
+END OF RECORD
