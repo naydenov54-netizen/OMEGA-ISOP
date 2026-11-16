@@ -711,3 +711,34 @@ Status: OPEN — PRIMARY MUTATION MATRIX REQUIRED.
 No source implementation changed. No certification status promoted.
 Frozen Core unchanged; Volume V remains Active Research Architecture;
 CE-V-07 remains RESERVED.
+
+
+CP22-14 — CP22-13-MR-01 WORKBOOK INTAKE
+Date/time: 2026-11-16, 11:41:41 UTC
+
+Received and statically inspected:
+OMEGA_ISOP_CP22_13_M01_M13.xlsx
+Size: 22,951 bytes
+SHA-256: 91bbd7407dd964e2cfc5d49dec6f186f15d9ba78820ff427d5cb094f39614d97
+
+Four worksheets were inspected. M01_M13_INDEX contains IDs M01-M13,
+but all source references are blank and denominator membership,
+repository outcomes, independent-fixture outcomes and raw-result
+references remain NOT RECONCILED. EXTRACTED_TABLE_ROWS contains two
+records from the Volume V v2.1 CAPD insert, not a mutation-result table.
+MUTATION_CONTEXT is empty. SOURCE_INVENTORY lists eight source artifacts
+with sizes and SHA-256 values.
+
+Detailed intake and the eight-entry source inventory are preserved in:
+хокинг/checkpoints/CP22-13_MR-01_WORKBOOK_INTAKE_2026-11-16.md
+The Source and Continuation Index has been updated with the same intake
+and anti-duplication rule.
+
+No corrected mutation score assigned. Repository-suite detection remains
+separate from independent analytical-fixture detection. The primary
+row-level mutation matrix is still required. Mutation accounting remains
+OPEN. No source implementation changed and no certification status was
+promoted. Frozen Core unchanged; Volume V remains Active Research
+Architecture; CE-V-07 remains RESERVED.
+
+END OF CP22-14
