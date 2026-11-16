@@ -146,3 +146,18 @@ status. Frozen Core remains unchanged; Volume V remains Active Research
 Architecture; CE-V-07 remains RESERVED; CP22-13 remains CONDITIONAL PASS —
 NOT CERTIFIED; CAPD, interval certification, mathematical certification
 and universality remain NOT ESTABLISHED.
+
+
+==================================================
+CP22-13 MUTATION ACCOUNTING RECONCILIATION — 2026-11-16
+==================================================
+
+Checkpoint:
+checkpoints/CP22-13_MUTATION_ACCOUNTING_RECONCILIATION_2026-11-16.md
+
+Status: OPEN — PRIMARY MUTATION MATRIX REQUIRED.
+The checkpoint records the arithmetic ambiguity between the reported
+10/13 repository detection score and the separately reported repository
+misses M07, M08, M09 and M13. It assigns no corrected score. Repository
+suite outcomes and independent analytical fixture outcomes must remain
+separate. See the checkpoint for the required row-level reconciliation.
