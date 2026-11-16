@@ -742,3 +742,24 @@ promoted. Frozen Core unchanged; Volume V remains Active Research
 Architecture; CE-V-07 remains RESERVED.
 
 END OF CP22-14
+
+
+CP22-15 — OMEGA-ISOP TEXT EXPORT PROTOCOL
+Date: 2026-11-16
+Added:
+хокинг/checkpoints/CP22-15_TEXT_EXPORT_PROTOCOL_2026-11-16.md
+
+Mandatory protocol: no ZIP archives; one source file produces one or more
+sequentially numbered TXT parts; every part identifies its original source;
+every source has a SHA-256 hash; the manifest records all exported parts;
+missing files are explicitly reported; originals are never modified; actual
+part count must match the manifest; no audit result is accepted from an
+incomplete export.
+
+This is a workflow and evidence-intake requirement only. It does not
+establish source completeness or any mathematical/certification result.
+Frozen Core unchanged; Volume V remains Active Research Architecture;
+CE-V-07 remains RESERVED. CAPD, interval certification, mathematical
+certification and universality remain NOT ESTABLISHED.
+
+END OF CP22-15
