@@ -1,0 +1,56 @@
+OMEGA-ISOP — M3.2 AUDIT #36
+SUPPLEMENTARY DRIVE RECOVERY ARCHIVE REVIEW
+DATE: 2026-11-16
+STATUS: ADDITIVE FORENSIC CHECKPOINT
+SCOPE: Library archive OMEGA_ISOP_DRIVE_RECOVERY.zip
+
+1. SOURCE ARTIFACT
+Library name: OMEGA_ISOP_DRIVE_RECOVERY.zip
+Library file_id: file_0000000007888210a06c58d3411d6b3d
+Library path: /
+Size: 813665 bytes
+Archive SHA-256: c4b4aed3606139fa707886cd214133e10673a96c237db2935ccf7c811c3db741
+Archive internal report timestamp_utc: 2026-11-14T20:42:53.324351+00:00
+Internal report describes COLAB_GOOGLE_DRIVE_RECOVERY; total_files_scanned=157; matched_files=151; archive_files_with_matches=0.
+COPY_VERIFICATION.json reports copied_files=151 and copy_errors=[]; listed original/recovered SHA-256 pairs are marked identical. This is archive-internal provenance data, not independently authenticated Google Drive metadata.
+
+2. ARCHIVE INVENTORY REVIEW
+Archive contains 154 ZIP entries, including 151 recovered candidate files and recovery/index/report metadata.
+A full ZIP member-name inventory was inspected. No member filename matched OMEGA_M32_AUDIT36_REVIEW_EVIDENCE.txt or a clear AUDIT36 REVIEW EVIDENCE equivalent.
+A byte-level search across archive members for:
+- OMEGA_M32_AUDIT36_REVIEW_EVIDENCE
+- AUDIT36_REVIEW_EVIDENCE
+- REVIEW EVIDENCE
+- 09:10
+- 06:56
+- AUDIT #36
+- AUDIT36
+returned no matches.
+This is a bounded search over this archive only. It does not prove absence from all Google Drive content or other archives.
+
+3. IMPORTANT NEAR-MATCH: UNTITLED47
+Archive member: RECOVERED_CANDIDATES/Colab Notebooks/Untitled47.ipynb
+Size: 22391 bytes
+SHA-256: f762f5b4b3657dca7f76da7cc45cd92b4be7ce1171c3f6327bcf6b4a9e3c87e9
+Recovery index row reports original Drive path:
+ /content/drive/MyDrive/Colab Notebooks/Untitled47.ipynb
+Recorded modified_utc: 2026-11-03T11:32:41+00:00
+The notebook contains CAPD 6.0.0 source cells, an upload/hash inventory cell, and a CAPD integration plus non-validated DOP853 reference cell. It does NOT contain the target AUDIT36 review-evidence filename or the searched AUDIT36/09:10 markers.
+All four notebook cells have execution_count=null and no stored outputs. Therefore this notebook is source material only in this recovered copy; it does not establish a recorded execution result for the target audit evidence.
+The archive COPY_VERIFICATION manifest should be checked for the Untitled47 original/recovered hash pair before making any claim of byte identity with Drive. The recovery index records the above SHA-256.
+
+4. CLASSIFICATION
+Target file OMEGA_M32_AUDIT36_REVIEW_EVIDENCE.txt: NOT LOCATED IN THIS ARCHIVE.
+Target-file SHA-256, exact bytes, file size, native Drive creation timestamp, associated run logs and target execution provenance: UNVERIFIED.
+The archive's internal timestamp and the Untitled47 modified timestamp do not establish the owner's reported 09:10 creation time for the missing target file.
+The prior chronology remains: original audit at 06:56; owner-reported separate-file creation at 09:10; delta 2h14m; timezone/provenance still unverified.
+
+5. AUDIT CONSEQUENCES
+- Do not substitute Untitled47 or any other recovered notebook for the missing review-evidence file.
+- Do not infer deletion or global absence from this bounded archive search.
+- Keep the target evidence classified POST-AUDIT EVIDENCE, pending exact artifact recovery.
+- Preserve original AUDIT #36 unchanged.
+- No certification status changes. No mathematical claim is upgraded.
+- Next required step: inspect the archive's forensic report and recovery index for any alternate identifier/path references, then search other Drive exports/backups or obtain the exact target file from the owner. On recovery, preserve bytes first, compute SHA-256, and compare provenance.
+
+END OF CHECKPOINT
