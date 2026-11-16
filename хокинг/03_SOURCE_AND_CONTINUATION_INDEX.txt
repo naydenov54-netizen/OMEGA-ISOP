@@ -161,3 +161,39 @@ The checkpoint records the arithmetic ambiguity between the reported
 misses M07, M08, M09 and M13. It assigns no corrected score. Repository
 suite outcomes and independent analytical fixture outcomes must remain
 separate. See the checkpoint for the required row-level reconciliation.
+
+
+==================================================
+CP22-13-MR-01 WORKBOOK INTAKE — 2026-11-16
+==================================================
+
+Received artifact:
+OMEGA_ISOP_CP22_13_M01_M13.xlsx
+Size: 22951 bytes
+SHA-256: 91bbd7407dd964e2cfc5d49dec6f186f15d9ba78820ff427d5cb094f39614d97
+
+Static inspection recorded in:
+checkpoints/CP22-13_MR-01_WORKBOOK_INTAKE_2026-11-16.md
+
+Workbook sheets:
+- M01_M13_INDEX: 13 IDs; all source references blank and all outcomes,
+  denominator memberships and raw-result references NOT RECONCILED.
+- EXTRACTED_TABLE_ROWS: two extracted rows from the Volume V v2.1 CAPD
+  insert; not a mutation-result table.
+- MUTATION_CONTEXT: empty.
+- SOURCE_INVENTORY: eight source artifacts with sizes and SHA-256 values.
+
+The workbook is an index/source inventory, not the primary mutation matrix.
+It does not resolve any M01-M13 result or the 10/13 arithmetic ambiguity.
+No corrected score is assigned.
+
+Continuation rule: do not repeat broad searches for this workbook or its
+eight listed source filenames merely to rediscover the same inventory.
+Use the intake record as the source manifest; inspect a listed source only
+for a targeted unresolved mutation ID or raw-result reference. A listed
+path/hash is not proof that the source bytes have been independently
+retrieved or verified.
+
+Status: workbook intake recorded; mutation reconciliation OPEN.
+Frozen Core unchanged; Volume V Active Research Architecture; CE-V-07
+RESERVED; certification status unchanged.
