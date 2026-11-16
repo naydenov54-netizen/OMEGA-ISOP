@@ -1,0 +1,117 @@
+OMEGA-ISOP / M3.2
+AUDIT #36 — CHRONOLOGY CONTROL CHECKPOINT
+DATE: 2026-11-16
+DOCUMENT TYPE: ADDITIVE AUDIT-CONTINUITY RECORD
+STATUS: RECORDED; SUPPLEMENTARY EVIDENCE TECHNICAL REVIEW OPEN
+PREDECESSOR STATE: ORIGINAL AUDIT PRESERVED; CHRONOLOGY ADDENDUM IN LIBRARY
+FROZEN CORE: UNCHANGED
+VOLUME V: ACTIVE RESEARCH ARCHITECTURE
+CE-V-07: RESERVED
+UNIVERSALITY: NOT ESTABLISHED
+CANONICAL ACCEPTANCE: NOT CLAIMED
+
+1. PURPOSE
+Preserve the chronology rule and the verified repository state for continuation of AUDIT #36. This checkpoint does not rewrite the original audit, amend its mathematical conclusions, or certify the supplementary evidence.
+
+2. AUDIT CHRONOLOGY
+Original audit timestamp recorded in the audit: 06:56.
+Owner-reported time for creation of the separate evidence file: 09:10.
+Elapsed difference: 02:14.
+The times above are retained as reported. Their timezone and independent timestamp provenance have not been established by this checkpoint.
+
+File under review:
+OMEGA_M32_AUDIT36_REVIEW_EVIDENCE.txt
+
+Classification:
+POST-AUDIT EVIDENCE, based on the owner's chronology statement.
+Its absence from the original audit submission is not, by itself, an omission by the original reviewer.
+The original audit must not be described as having inspected, hashed, verified, or relied on this file unless independent records establish that fact.
+
+3. CHRONOLOGY ADDENDUM — LIBRARY RECORD
+Filename:
+OMEGA-ISOP-M32-AUDIT36-CHRONOLOGY-ADDENDUM-2026-11-16.txt
+Library file ID:
+file_000000006000820a862390d9b318ca53
+Library created_at:
+2026-11-16T07:20:26+00:00
+Library modified_at:
+2026-11-16T07:20:27.899282+00:00
+Size:
+3203 bytes
+SHA-256 of materialized exact file bytes:
+12a257468e5054fca5f82a826809f60b7fa6b5fb96705de532f91e405dcf16f8
+Verification scope:
+The SHA-256 and byte count above were computed from the exact Library file bytes materialized for this checkpoint. Library metadata timestamps are storage metadata; they do not independently prove the creation time of the separate POST-AUDIT EVIDENCE file.
+
+4. SUPPLEMENTARY EVIDENCE FILE — CURRENT VERIFICATION
+Exact filename searched:
+OMEGA_M32_AUDIT36_REVIEW_EVIDENCE.txt
+
+Current findings:
+- The exact evidence file was not returned by the targeted Library search performed for this checkpoint.
+- The exact evidence file is not present in the inspected GitHub main-branch tree at the checkpoint base commit.
+- No exact bytes of this evidence file were available for hashing in this checkpoint.
+- File size, SHA-256, native creation/modified metadata, repository path, branch, commit history, associated scripts, execution environment, exit status, and complete output remain UNVERIFIED.
+- Repository history was not exhaustively searched for alternate names or earlier/deleted paths.
+
+No PASS or verification status is assigned to the evidence file.
+
+5. GITHUB BASELINE — BEFORE THIS CHECKPOINT COMMIT
+Repository:
+naydenov54-netizen/OMEGA-ISOP
+Branch:
+main
+Branch HEAD before checkpoint:
+f4a43c6ad9e954b8647eb6bb25ee4f3fb7e1bf1c
+HEAD commit timestamp:
+2026-11-16T06:11:10Z
+HEAD commit message:
+Archive adversarial cross-review for M3.2 Audit #36
+Parent commit:
+9d00acc846471166ba549e8d41e04c04be689b51
+Base tree SHA:
+522ec2de7a4e792bc18cc1dbad814bcc74cf0673
+The inspected HEAD commit is unsigned (GitHub verification: false; reason: unsigned).
+
+Relevant file present at that HEAD:
+07_RESEARCH_EVIDENCE/M3.2-AUDIT-36-ADVERSARIAL-CROSS-REVIEW-CLAUDE-2026-11-16.txt
+Git blob SHA:
+01077d63be8728e7fd9db307df681d040eca8ea2
+Reported repository size:
+20842 bytes
+The report itself states that its review conclusions are conditional and that its listed objections remain open. Its presence in GitHub is an archive fact, not an independent re-execution of the review scripts or mathematical certification.
+
+6. M3.2 AUDIT STATUS CARRIED FORWARD
+The reviewed source document remains PROPOSED REVISION v3.3 — NOT CANONICAL.
+No v3.4 is created by this checkpoint.
+The adversarial cross-review reports CONDITIONAL PASS under stated assumptions, not certification.
+Open objections recorded in that review include OR-01, OR-02, OR-03 (editorial), OR-04, OR-05, OR-06, OR-07, OR-08, OR-09, OR-14, and OR-15.
+OR-07 has a reported conditional mathematical pass for the random-stopping-time argument, but the objection remains listed open pending controlled correction/integration and closure.
+OR-06 remains open concerning measurable action-space and selection conditions.
+OR-14 remains open concerning specification of a measurable action space.
+OR-15 remains open concerning inconsistent A/B/C filenames and source identity/provenance.
+The reviewer also identifies unresolved source identity, exact A/B/C byte comparisons, extended-real value cases, and independent reproduction limitations.
+
+7. REQUIRED NEXT WORK
+1. Obtain the exact bytes of OMEGA_M32_AUDIT36_REVIEW_EVIDENCE.txt and any associated script, output, and hash manifest.
+2. Compute SHA-256 and byte count from the exact bytes actually reviewed.
+3. Establish the provenance of the 06:56 and 09:10 timestamps, including timezone and the source of each timestamp.
+4. Inspect file metadata and search repository history, not merely the current tree, for the evidence file and alternate names.
+5. Verify repository, branch, commit SHA, path, and commit timestamp if the file is archived.
+6. Check script source, execution environment, command, exit status, complete output, and whether reported hashes match the exact artifacts.
+7. Map each verified evidence item to the specific AUDIT #36 claim or objection it supports, qualifies, or does not address.
+8. Incorporate the verified supplementary evidence into the next audit while preserving the distinction between original-audit material and post-audit material.
+
+8. GOVERNANCE
+Original AUDIT #36: UNCHANGED / PRESERVED.
+Chronology addendum: SEPARATE ADDITIVE RECORD.
+This checkpoint: SEPARATE ADDITIVE REPOSITORY RECORD.
+No original audit deletion or replacement is authorized.
+No Frozen Core change.
+Volume V remains Active Research Architecture.
+CE-V-07 remains RESERVED.
+No conditional result is promoted to certified.
+No universal theorem, RL registration, CE-V promotion, or canonical acceptance is claimed.
+A GitHub commit verifies repository record handling only; it does not establish mathematical truth or independent certification.
+
+END OF CHECKPOINT
