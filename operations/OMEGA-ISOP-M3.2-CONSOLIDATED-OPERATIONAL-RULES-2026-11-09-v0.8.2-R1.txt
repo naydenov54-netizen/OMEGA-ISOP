@@ -1,0 +1,205 @@
+OMEGA-ISOP-M3.2-CONSOLIDATED-OPERATIONAL-RULES-2026-11-09-v0.8.2-R1.txt
+M3.2-BOOT (CANONICAL STARTUP LAYER; MUST REMAIN IMMEDIATELY AFTER THE TITLE LINE)
+DOCUMENT ID: OMEGA-ISOP-M3.2-CONSOLIDATED-OPERATIONAL-RULES-2026-11-09-v0.8.2-R1
+DATE: 2026-11-09
+VERSION: v0.8.2-R1
+PREDECESSOR: OMEGA-ISOP-M3.2-CONSOLIDATED-OPERATIONAL-RULES-2026-11-04-v0.8.2.txt (v0.8.2; preserved unchanged)
+DOCUMENT TYPE: OPERATIONAL CONTROL DOCUMENT
+STATUS: WORKING CANDIDATE / NOT CANONICALLY ACCEPTED
+CHANGE TYPE: ANDROID COPY-PRESENTATION RULE CLARIFICATION ONLY
+PURPOSE: Keep the minimum effective rules needed to continue OMEGA-ISOP work, protect the Frozen Core and source records, and move valid research results toward RL registration without unnecessary universal gates.
+SOURCE BASIS: M3.2 v0.8.2. This revision clarifies the user-facing Android copy-block rules only. No scientific result, mathematical source, or research record is integrated into M3.2.
+MATHEMATICAL CONTENT: NOT REPRODUCED HERE. Consult the designated source records; this file governs work procedure only.
+FROZEN CORE: OMEGA-ISOP; PRESERVED; NO CHANGE AUTHORIZED OR CLAIMED.
+M3.2 v0.8.2: PRESERVED UNCHANGED AS THE IMMEDIATE PREDECESSOR. This v0.8.2-R1 file is a separate working revision; it does not overwrite or supersede the predecessor until explicitly accepted.
+RL REGISTRATION: NO NEW REGISTRY WRITE OR REGISTRATION CLAIM IS MADE BY THIS FILE.
+CANONICAL ACCEPTANCE: PENDING EXPLICIT USER DECISION NAMING THIS VERSION.
+1. STARTUP AND CONTINUITY
+1.1 Treat this file as the operational rule set, not as a replacement for OMEGA-ISOP, its mathematical foundations, validation records, research volumes, or CE-V archive.
+1.2 Continue from the latest verified project state. Do not restart, repeat completed work, or ask the user to repeat information already available in the current conversation or project files.
+1.3 Default action: CONTINUE WORK. Every work session should produce a concrete result or identify one specific next action and why it is needed.
+1.4 ANDROID COPY-BLOCK FORMAT (MANDATORY FOR ALL USER-FACING CHAT OUTPUT)
+1.4.1 Whenever the assistant provides a complete text artifact intended for the user's archive or direct copying, the entire artifact MUST be placed in one continuous, clean, Android-copyable block. This includes titles, headings, explanations that belong to the artifact, formulas, tables, status fields, warnings, and conclusions.
+1.4.2 The first line inside a complete artifact block MUST be its exact filename or document title. For M3.2, the M3.2-BOOT line MUST follow immediately on the next line. Do not insert an introductory sentence, badge, heading, or interface label inside the artifact block.
+1.4.3 Explanations about the artifact, delivery notes, review comments, and instructions to the user MUST remain outside the copyable block. Do not split one continuous artifact across multiple blocks or require the user to assemble fragments.
+1.4.4 A block intended for copying MUST contain only the material the user is expected to copy. It MUST NOT contain interface labels, UI-generated text, decorative wrappers, prompts, or assistant commentary.
+1.4.5 Do not use a WritingBlock or other presentation wrapper if it introduces a non-content label or prevents the complete artifact from being copied as one clean block.
+1.4.6 Before sending, inspect the rendered copy area for completeness, correct first line, preserved line breaks, and absence of interface artifacts. If the artifact is too large for one reliable block, state the limitation and divide it only with explicit, ordered part boundaries and no missing or duplicated content.
+1.5 CODE OUTPUT FORMAT (MANDATORY FOR ANDROID / COLAB / NOTEBOOK WORK)
+1.5.1 Whenever code is included, it MUST be placed in its own separate code block. Never combine source code with the surrounding explanatory text or with a prose artifact block.
+1.5.2 Use an ordinary Markdown fenced code block with NO language identifier after the opening fence. The first line inside the block MUST be actual source code or a valid command, not a label or explanation.
+1.5.3 Do NOT use WritingBlock for executable code. Do not label the code block as Python, Julia, Bash, shell, JSON, or any other language immediately before or inside the copyable code area.
+1.5.4 The code block MUST contain only the exact code or commands intended for direct copy/paste into the specified editor, terminal, or notebook cell. Explanations, execution instructions, expected output, warnings, and troubleshooting notes MUST remain outside the code block.
+1.5.5 For a one-cell instruction, provide one complete cell, not fragments that require the user to combine them. Ensure line breaks and indentation are valid for the target language. Never rely on the user to remove an added label or repair formatting before execution.
+1.5.6 If a response contains both a complete text artifact and code, provide the artifact in its own single copyable block and the code in a separate code block. Do not embed code in the artifact block unless the code itself is the content of that artifact and the user explicitly requests a single-file source artifact.
+1.5.7 Before sending code, check that the opening fence has no language tag, the first line inside the block is actual source code, and no non-code text has entered the block. This rule applies to Python, Julia, Bash, shell commands, JSON, configuration, and other copyable technical content.
+1.5.8 GLOBAL COPY-BLOCK CLEANLINESS (MANDATORY). In every copyable block, the interface label “Писане” MUST NOT appear as a heading, title, badge, wrapper label, prefix, suffix, or other UI artifact. The same prohibition applies to “Код”, language labels, and any other non-content interface text. Do not use a presentation component or wrapper that causes such text to appear as part of the copyable area. All explanations and execution instructions remain outside the block.
+1.6 Clearly separate work completed, work not performed, current status, and the next action. Never describe a manual checklist as an automated test.
+2. AUTHORITY AND SOURCE ROUTING
+2.1 Frozen Core identity: OMEGA-ISOP, represented in the Library by /OMEGA-ISOP/&OMEGA-ISOP-RELATIONAL-THEORY.txt. Treat it as protected. Do not edit it through ordinary M3.2 work.
+2.2 Use /OMEGA-ISOP/&OMEGA-ISOP VOLUME II.txt for mathematical foundations; Volume III for validation and constructibility boundaries; Volume IV for conditional extensions and open formalization programs; Volume V for active research architecture and CE-V integration; and /OMEGA-ISOP/&OMEGA-ISOP CE-V RETAINED EXTENSIONS STATUS ARCHIVE.txt for retained CE-V status and traceability.
+2.3 These source records remain separate. Do not copy their mathematical content into this operational file or treat this file as their replacement.
+2.4 Missing source passages remain missing. Do not reconstruct absent sections, historical rules, registry requirements, identifiers, or evidence from guesswork.
+2.5 If two sources conflict, identify the exact conflict and preserve both formulations until authoritative evidence or a documented decision resolves it. Do not silently select a preferred wording.
+2.6 Source/archive descriptions do not by themselves prove that an external registry is current or that an RL item is registered.
+3. CLAIM, EVIDENCE, AND STATUS CONTROL
+3.1 For each result, state the narrowest useful claim it actually establishes, including its definitions, assumptions, domain, and conditions.
+3.2 Classify evidence accurately: analytical proof; symbolic derivation/check; computational result; numerical result; simulation; empirical observation; conjecture; interpretation; or unresolved question.
+3.3 Keep content/evidence status separate from workflow/release status and registry status.
+3.4 Use a status supported by the actual work, for example: PROVED UNDER STATED ASSUMPTIONS; CONDITIONALLY DERIVED; COMPUTATIONALLY CHECKED; PASS WITH LIMITATIONS; REVISE; UNRESOLVED; FAILED; CONFLICT WITH FROZEN CORE; or NOT APPLICABLE WITH REASON.
+3.5 Simulation is not proof; a numerical result is not automatically an analytical theorem; saving or formatting a file is not scientific validation.
+3.6 State limitations and non-implications that materially bound the claim. Do not promote a conditional result to a universal law, theorem, causal claim, or ontological conclusion without the required independent bridge and evidence.
+4. PROPORTIONAL REVIEW; NO UNIVERSAL GATES
+4.1 Review only requirements relevant to the particular claim, evidence class, risk, and actual governing registry rules.
+4.2 Proof-assistant verification, independent review, SOCP, T1-T10, exhaustive testing, canonical acceptance, and CE-V promotion are NOT universal prerequisites for ordinary research progress or preparation of an RL candidate. Apply one only if the claim or an authoritative requirement actually needs it.
+4.3 Do not hold a result because an unrelated optional check was not run. Record the limitation and continue.
+4.4 Before repeating a check, inspect the latest verified result. Repeat only if an input or assumption changed, reproducibility is needed, a concrete doubt or boundary case exists, or a correction was made.
+4.5 A manual review is not independent review. Do not claim a check was performed unless it was.
+5. MINIMAL RL PATH: RESULT TO REGISTRATION
+Purpose: make a valid RL candidate registration-ready early, without waiting for unrelated audits or CE-V integration.
+STEP 1 - SELECT
+Select one specific result or tightly connected result set. Give it a working title and one-sentence claim. Do not wait for a full-project audit.
+STEP 2 - CLASSIFY
+Identify the evidence class and exact source/version. State whether the item is a theorem, conditional result, computational/numerical result, empirical result, conjecture, or other record type. Do not inflate its class.
+STEP 3 - CHECK THE CLAIM
+Check only what this claim needs: definitions and assumptions; domain/types; derivation or method; relevant counterexample/boundary conditions; provenance; Frozen Core compatibility; and reproducibility where applicable. Mark each item CHECKED, NOT CHECKED, NOT APPLICABLE, or UNRESOLVED. A missing optional check is not a blocker.
+STEP 4 - PREPARE THE RL RECORD
+Prepare the record immediately using the compact template in Section 6. Do not wait for optional review, universal T-tests, CE-V promotion, or canonical acceptance unless an authoritative rule for this item explicitly requires it.
+STEP 5 - DECIDE
+Choose SEND, REVISE, HOLD, or BLOCK for this specific item, with one concrete reason. SEND means ready for the next applicable submission step, not automatically registered. HOLD is permitted only for a named dependency that is genuinely necessary for that step. BLOCK requires a material defect in the stated claim or a mandatory requirement that is demonstrably unmet.
+STEP 6 - SUBMIT / REGISTER
+Identify the authoritative RL corpus, its actual entry schema, the authorized write interface, and any item-specific mandatory requirements from authoritative project/registry documentation. Submit through that interface when it is available and authorized. Never invent an RL-ID or registry requirement. If the registry assigns the ID, use the assigned ID; until then use RL-ID: PENDING REGISTRY ASSIGNMENT.
+STEP 7 - READ BACK
+After submission, retrieve the record from the authoritative registry. Verify the assigned identifier, title/claim, content, evidence class, source/traceability, and status against the submitted packet. Correct discrepancies and read back again.
+STEP 8 - SET STATUS
+Use RL_REGISTERED only after authoritative readback verifies both the registry identifier and the registered content. Before then use the precise applicable status, such as RL_PACKET_PREPARED, RL_SUBMISSION_PENDING, RL_REGISTRATION_REQUIRED, or RL_UNREGISTERED. RL_REGISTRATION_REQUIRED is not RL_REGISTERED.
+5.1 LOCAL BLOCKER RULE
+If the authoritative registry or write interface cannot be identified or accessed, block only the registry-write/readback step. Keep the prepared packet, complete any independent work, and report: (a) the exact blocked action; (b) the missing access, schema, instruction, or authorization; (c) why it is necessary; (d) what evidence was checked; and (e) the smallest action that would unblock registration. Do not turn this local dependency into a project-wide HOLD.
+5.2 REGISTRATION MUST NOT BE CONFUSED WITH
+- saving a file to ChatGPT Library;
+- preparing or reviewing an RL packet;
+- assigning a proposed identifier locally;
+- listing an RL source in a CE-V archive;
+- CE-V integration or canonical acceptance;
+- a claim that an external archive was updated without registry evidence.
+6. COMPACT RL RECORD TEMPLATE
+RL-ID: PENDING REGISTRY ASSIGNMENT
+TITLE:
+CLAIM:
+RECORD TYPE / EVIDENCE CLASS:
+SOURCE AND VERSION:
+DEFINITIONS / DOMAIN / ASSUMPTIONS:
+RESULT AND SUPPORTING DERIVATION OR METHOD:
+CHECKS PERFORMED:
+CHECKS NOT PERFORMED / NOT APPLICABLE:
+LIMITATIONS / COUNTEREXAMPLES / NON-IMPLICATIONS:
+FROZEN CORE COMPATIBILITY:
+RELATED RL / CE-V REFERENCES AND TRACEABILITY:
+PROVENANCE / REPRODUCIBILITY MATERIAL:
+PROPOSED STATUS:
+REGISTRY SUBMISSION STATUS:
+AUTHORITATIVE REGISTRY READBACK:
+VERIFIED REGISTRY ID:
+VERIFIED CONTENT MATCH: YES / NO / NOT YET CHECKED
+NEXT ACTION:
+Fill only fields relevant to the record; mark others NOT APPLICABLE with a reason. Do not fabricate missing information. Keep the packet concise enough to submit without rewriting it from scratch.
+7. CE-V AND ARCHIVE CONTROL
+7.1 RL recording and CE-V promotion are separate actions. An RL item does not automatically become a CE-V extension.
+7.2 CE-V promotion requires its own explicit documented integration decision and traceability. Preserve each extension's assumptions, domain, definitions, derivation, validation boundary, and source links.
+7.3 Preserve the current CE-V numbering and hierarchy recorded in the CE-V archive. CE-V-06.1 is a submodule of CE-V-06, not a separate main entry. CE-V-07 remains reserved. RL-022 and RL-023 remain archived/superseded sources under CE-V-06.1; do not reopen them as active independent branches without an explicit decision.
+7.4 Do not reconstruct RL-004 or other unavailable historical records. Do not claim external registration solely from the local CE-V archive.
+8. FILE AND VERSION CONTROL
+8.1 Preserve the Frozen Core, source records, Volume V, CE-V archive, unique audit/traceability records, and registration evidence. Never change or delete them during ordinary work without explicit authorization for that exact operation.
+8.2 Every new working version states its predecessor, date, change type, source limitations, and current Core/CE-V/RL/canonical status.
+8.3 Before overwrite, move, rename, or deletion, identify the exact file and verify that the operation is authorized. After the operation, check the resulting path and read back the content or metadata.
+8.4 A file write confirms only the file operation. It does not prove mathematical validity, RL registration, CE-V promotion, or canonical acceptance.
+8.5 Keep M3.2 v0.7 unchanged during the v0.8 build. Only after v0.8 is saved and readback-verified may the separately authorized removal of v0.7 be carried out. Verify the exact target before deletion; do not delete any other file by similarity or filename guess.
+9. FINAL DECISION AND HANDOFF
+For each deliverable, choose one:
+SEND - fit for its stated purpose with limitations stated.
+REVISE - a specific correctable defect is identified.
+HOLD - a named necessary external dependency or user decision is pending.
+BLOCK - a material defect makes the stated claim unsafe or invalid, or a mandatory requirement is demonstrably unmet.
+Do not use HOLD/BLOCK because unrelated checks are NOT RUN. End each work session with a concrete result or one specific next action. Report exactly what was saved, what was read back, what remains unverified, and the next registration action.
+10. SOURCE REVIEW AND CHANGE SUMMARY
+Files inspected for this operational revision:
+- M3.2 07.txt (v0.7), the predecessor and operating-rule source.
+- /OMEGA-ISOP/&OMEGA-ISOP-RELATIONAL-THEORY.txt, the protected OMEGA-ISOP / Frozen Core record.
+- /OMEGA-ISOP/&OMEGA-ISOP VOLUME II.txt, mathematical foundations.
+- /OMEGA-ISOP/&OMEGA-ISOP VOLUME III.txt, validation and constructibility boundaries.
+- /OMEGA-ISOP/&OMEGA-ISOP VOLUME IV.txt, conditional extensions and open formalization programs; only recovered sections are present.
+- /OMEGA-ISOP/&OMEGA-ISOP VOLUME V.txt, active research architecture and CE-V integration.
+- /OMEGA-ISOP/&OMEGA-ISOP CE-V RETAINED EXTENSIONS STATUS ARCHIVE.txt, CE-V status and traceability.
+Changes from v0.7:
+- Removed the copied mathematical/Core exposition from M3.2. Mathematical sources remain in their own records.
+- Retained and shortened the operational rules for continuity, source authority, status accuracy, proportional review, file protection, and release decisions.
+- Rebuilt the RL workflow as a direct result-to-packet-to-submission-to-readback sequence.
+- Explicitly made optional audits and CE-V promotion non-blocking unless a claim-specific or authoritative requirement says otherwise.
+- Added a compact, ready-to-fill RL record template and a local-blocker rule that isolates registry access from all other work.
+- Preserved the distinction between RL preparation, actual registry submission, verified registration, CE-V integration, and canonical acceptance.
+- No Frozen Core change, mathematical proof, RL registration, CE-V promotion, or canonical acceptance is claimed by this revision.
+11. GITHUB CONTINUITY REFERENCE
+PURPOSE: Preserve the project location and the minimum operational information needed to resume repository work in a later chat session.
+GITHUB ACCOUNT: naydenov54-netizen
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+REPOSITORY URL: https://github.com/naydenov54-netizen/OMEGA-ISOP
+DEFAULT BRANCH: main
+STARTUP PROCEDURE:
+11.1 At the start of a new session, use this reference to locate the repository, then read the current project status and the source records relevant to the active task.
+11.2 Verify the current branch state and commit SHA before making claims about the current repository contents. Reuse only file paths, commit identifiers, and source details that are confirmed by a current readback or an explicitly identified prior record.
+11.3 This reference records the repository location; it does not itself guarantee that the GitHub connector, authentication, or write permissions are available in every session. If access fails, report the actual limitation and do not pretend to have read or changed repository contents.
+11.4 Never claim that a file was fetched, changed, committed, pushed, or verified unless the corresponding operation succeeded and its result was checked.
+11.5 Preserve the Frozen Core and all source-record protections. Do not change canonical material without explicit authorization and documented change control.
+11.6 Keep scientific validity, local file status, GitHub commit status, external RL registration, and canonical acceptance as separate status dimensions. A repository commit is not proof of scientific validity or external RL registration.
+11.7 Do not store passwords, access tokens, recovery codes, or other credentials in M3.2.
+STATUS OF THIS REFERENCE: OPERATIONAL POINTER ONLY. It does not assert that an RL registry has been found, that any candidate has been submitted, or that any item is registered.
+CURRENT STATUS
+FROZEN CORE: PRESERVED; NO CHANGE CLAIMED.
+MATHEMATICAL SOURCES: RETAINED AS SEPARATE FILES.
+CE-V STATUS: NO CHANGE MADE BY THIS DOCUMENT.
+RL REGISTERED BY THIS DOCUMENT: NO.
+AUTHORITATIVE RL REGISTRY / WRITE INTERFACE: NOT IDENTIFIED IN THE CURRENTLY AVAILABLE PROJECT FILES OR TOOL INTERFACES.
+NEXT RL ACTION: USE THE COMPACT TEMPLATE FOR THE NEXT SPECIFIC CANDIDATE; identify the authoritative registry/interface from its actual documentation or user-provided access, then submit and read back. Do not wait for unrelated audits.
+M3.2 v0.7: PREDECESSOR; UNCHANGED THROUGH v0.8 VERIFICATION.
+CANONICAL ACCEPTANCE: PENDING EXPLICIT USER DECISION NAMING THIS VERSION.
+AMENDMENT RECORD v0.8.1 (2026-11-02)
+- Clarified the mandatory Android-copyable code presentation rule in Section 1.5.
+- Ordinary Markdown fenced code blocks are required, with no language identifier and no “Писане”/WritingBlock wrapper.
+- The code block contains source code only; explanations and execution instructions remain outside it.
+- This is an operational formatting correction only. No mathematical content, Frozen Core, project architecture, coefficients, or scientific status has changed.
+- Original v0.8 is retained unchanged as the predecessor for traceability.
+AMENDMENT RECORD v0.8.2 (2026-11-04)
+- Added a global mandatory rule for every user-facing copyable block, not only executable code.
+- The interface label “Писане” and any other non-content UI artifact are prohibited from appearing in or as part of a copyable block.
+- Copyable blocks must contain only the exact material intended for copying; explanations and instructions remain outside.
+- This is an operational presentation correction only. No mathematical content, Frozen Core, project architecture, original coefficients, or scientific status has changed.
+- v0.8.1 is retained unchanged as the immediate predecessor; v0.8 remains its earlier predecessor.
+12. GITHUB RESEARCH-VALUE WORKFLOW
+PURPOSE: Preserve the scientific value extracted from research sessions, not the conversations themselves, and ensure continuity across chat transitions.
+12.1 CANONICAL WORKING PRINCIPLE
+Use the GitHub repository naydenov54-netizen/OMEGA-ISOP as the durable project record for relevant, reviewed scientific results and their audit trail. Chat conversations are temporary workspaces and are not the target archive. Record only the useful result, its mathematical basis, assumptions, evidence class, limitations, provenance, status, and next action.
+12.2 EXTRACT VALUE, NOT CHAT HISTORY
+For each research thread, identify whether it produced a result with a checked derivation; a conditional result with explicit assumptions and scope; a meaningful negative result or counterexample; a correction to an earlier result; or a useful unresolved boundary that materially guides the next test. Do not archive routine dialogue, repeated explanations, abandoned arithmetic, or exploratory steps that add no durable value. Consolidate related tests when traceability is preserved.
+12.3 REVIEW BEFORE WRITING
+Before recording a result, inspect current repository records for duplicates, conflicts, prior corrections, and status constraints. Recheck the derivation or calculation proportionally to the claim, including definitions, assumptions, units/types, algebra, boundary conditions, and the logical link from premises to conclusion. Test material counterexamples and alternative interpretations where they could change the conclusion. Separate what was checked from what remains unchecked. Check Frozen Core compatibility and label external assumptions. Correct defects narrowly, state the reason, and preserve source/version traceability.
+12.4 WHAT QUALIFIES FOR THE DURABLE RECORD
+Prefer the smallest record that preserves the precise claim, evidence/status classification, definitions/domain/assumptions, derivation or reproducible method, checks performed and not performed, material limitations/counterexamples/non-implications, source/version traceability, and a specific next action if useful. Include negative findings when they genuinely narrow the theory, eliminate a route, expose underdetermination, or prevent an invalid inference. Do not promote every exploratory observation to a formal result.
+12.5 STATUS DISCIPLINE
+Use evidence-matched language such as PROVED UNDER STATED ASSUMPTIONS, CONDITIONALLY DERIVED, ALGEBRAICALLY CHECKED, COMPUTATIONALLY CHECKED, SUPPORTED WITH LIMITATIONS, UNRESOLVED, or NOT ESTABLISHED. A checked calculation is not automatically an independent proof; a conditional countermodel is not a universal theorem; literature novelty requires a separate adequate review. A GitHub commit does not upgrade scientific status.
+12.6 WRITE, READ BACK, VERIFY
+Confirm the exact target path and intended change. Write only the relevant result, audit, correction, or changelog update, never a chat transcript. Confirm write/commit success, then fetch or read back the saved file and verify its content. If readback fails or differs, report the failure and do not claim verification. Keep file-write success, commit success, readback verification, scientific status, RL registration, and canonical acceptance as separate status dimensions.
+12.7 CORRECTIONS AND CHANGE CONTROL
+Correct working summaries when review reveals a real mathematical or factual defect. Keep changes narrow and traceable. Do not alter Frozen Core, overwrite protected source records, or change canonical project rules without explicit authorization and documented change control. Inspect the current version before changing an existing record and verify after writing.
+12.8 RL AND CE-V BOUNDARY
+This workflow does not create RL records automatically. A GitHub audit or commit is not RL registration, does not assign an official RL-ID, and does not promote a result to CE-V. Consider RL preparation only after review and when warranted. RL_REGISTERED requires authoritative registry readback. Do not claim registration if the authoritative registry/interface remains unidentified or inaccessible.
+12.9 NEW-CHAT CONTINUITY
+At the beginning of a new chat, read this M3.2 file and inspect current GitHub state, relevant project-status documents, and the latest records for the active research thread. Resume from verified artifacts and commit history, not assumptions about remembered conversation details. If repository access is unavailable, state that limitation and do not pretend to have inspected or updated files.
+12.10 SESSION EXIT CHECK
+Before ending a substantial session, identify the durable result, checks actually performed, files written and read back, what remains conditional/unresolved/unverified, and the next concrete research action. Do not create a record merely to show activity. If no material result emerged, do not force a repository write.
+CHANGE SUMMARY FOR SECTION 12
+GitHub is established as a concise, verified scientific-value record rather than a conversation archive. This section adds review-before-write, proportional mathematical checking, correction/traceability rules, readback verification, and new-chat continuity. It does not alter Frozen Core, automatically register RL items, or change canonical acceptance status.
+AMENDMENT RECORD v0.8.2-R1 (2026-11-09)
+This revision clarifies the Android copy-presentation rules only. A complete text artifact is delivered in one continuous copyable block. Code, whenever present, is delivered in a separate code block containing only source code or commands. Explanations and execution instructions remain outside copyable blocks. Non-content interface labels, including “Писане”, are prohibited inside or as part of any copyable area.
+No mathematical results, scientific claims, or research records are integrated into M3.2 by this amendment. Such material remains in its designated technical, mathematical, or audit archives.
+M3.2 v0.8.2 remains preserved as the immediate predecessor. This v0.8.2-R1 revision remains a WORKING CANDIDATE and is NOT CANONICALLY ACCEPTED unless explicitly accepted by the user.
+END OF OMEGA-ISOP M3.2 CONSOLIDATED OPERATIONAL RULES v0.8.2-R1
