@@ -1,0 +1,493 @@
+OMEGA-ISOP CE-V RETAINED EXTENSIONS STATUS ARCHIVE
+DOCUMENT ID: OMEGA-ISOP-CE-V-RETAINED-EXTENSIONS-STATUS-ARCHIVE-2026-11-17
+DATE: 2026-11-17
+DOCUMENT TYPE: OFFICIAL VALIDATED EXTENSION ARCHIVE
+ARCHITECTURAL STATUS: SUBORDINATE TO FROZEN CORE
+CORE STATUS: INTACT
+NUMBERING STATUS: PRESERVED
+ARCHITECTURAL LAYER: ACTIVE EXTENSION ARCHIVE
+RELATION TO VOLUME V: VALIDATED EXTENSIONS RETAINED FROM ACTIVE RESEARCH
+FROZEN CORE MODIFICATION: NONE
+CLAIM CONTROL: ACTIVE
+SEMANTIC STATUS: PRESERVED
+TRACEABILITY: PRESERVED
+AUTOMATIC CE-V PROMOTION: PROHIBITED
+
+OFFICIAL VALIDATED EXTENSION ARCHIVE
+
+CE-V-01   : Latent Organizational Potential
+CE-V-02   : Organizational Degeneracy & Structural Necessity
+CE-V-03   : Organizational Transition Geometry
+CE-V-004  : Dynamic State Sufficiency & Closure (Official Numbering)
+CE-V-05   : Reachability Equivalence of Organizational Classes
+CE-V-06   : Global Realization Filtering of Local Realizations
+CE-V-06.1 : Directional and Temporal Boundaries (Submodule)
+RESERVED  : CE-V-07 (Unassigned)
+ARCHIVED  : RL-022, RL-023 (Superseded by CE-V-06.1)
+CORE      : Frozen Core INTACT
+VOLUME V  : UNCHANGED
+
+CE-V-01 LATENT ORGANIZATIONAL POTENTIAL
+SOURCE: RL-001
+STATUS: OFFICIAL VALIDATED INTEGRATED
+CLAIM_STATUS: VALIDATED CONDITIONAL CLAIM
+FORMAL_STATUS: FORMALLY DEFINED UNDER SPECIFIED RELATIONAL AND DYNAMICAL CONDITIONS
+VALIDATION_STATUS: VALIDATED
+INTEGRATION_STATUS: APPROVED
+CORE_STATUS: NO MODIFICATION
+SCOPE: CE-V-01 formalizes latent organizational potential as a classification of transition accessibility toward predefined organizational states under fixed relational constraints and admissible dynamics.
+CORE RESULT: For a relational structure R and admissible dynamics A(R), organizational states may possess different degrees or classes of accessible transition potential even when the target organizational state is not currently realized.
+VALIDATED DISTINCTION: latent accessibility != actual transition != realized organization
+BOUNDARY: Latent Organizational Potential does not establish that an accessible transition will occur. Accessibility requires an explicitly defined admissible transition structure.
+NON-IMPLICATIONS:
+Accessibility ⇏ actual transition
+Accessibility ⇏ realization
+Accessibility ⇏ organization
+Accessibility ⇏ necessity
+ARCHITECTURAL_ROLE: Provides a criterion-relative distinction between accessible organizational potential and realized organization.
+FROZEN_CORE_IMPACT: NONE
+TRACEABILITY: RL-001 -> FORMAL AUDIT -> VALIDATION -> CE-V-01
+FINAL_STATUS: OFFICIAL VALIDATED INTEGRATED
+
+CE-V-02 ORGANIZATIONAL DEGENERACY AND STRUCTURAL NECESSITY
+SOURCE: RL-002
+STATUS: OFFICIAL VALIDATED INTEGRATED
+CLAIM_STATUS: VALIDATED CONDITIONAL CLAIM
+FORMAL_STATUS: FORMALLY DEFINED RELATIVE TO SPECIFIED OPERATIONAL AND STRUCTURAL CRITERIA
+VALIDATION_STATUS: VALIDATED
+INTEGRATION_STATUS: APPROVED
+CORE_STATUS: NO MODIFICATION
+SCOPE: CE-V-02 formalizes organizational equivalence classes and structural necessity indicators within explicitly specified relational and dynamical conditions.
+CORE RESULT: Distinct realizations may belong to the same operational organizational equivalence class.
+The extension distinguishes:
+- equivalence
+- robustness
+- structural necessity
+These properties must not be conflated.
+STRUCTURAL_NECESSITY_STATUS: CONDITIONAL
+Structural necessity is relative to explicitly defined:
+- formal criteria
+- operational criteria
+- task conditions
+- realization conditions
+BOUNDARY: Structural necessity does not establish universal necessity independent of the specified realization and criteria.
+NON-IMPLICATIONS:
+Equivalence ⇏ identity
+Equivalence ⇏ robustness
+Robustness ⇏ necessity
+Criterion-relative necessity ⇏ universal necessity
+ARCHITECTURAL_ROLE: Provides a criterion-relative framework for distinguishing organizational degeneracy, equivalence and structural necessity.
+FROZEN_CORE_IMPACT: NONE
+TRACEABILITY: RL-002 -> FORMAL AUDIT -> VALIDATION -> CE-V-02
+FINAL_STATUS: OFFICIAL VALIDATED INTEGRATED
+
+CE-V-03 ORGANIZATIONAL TRANSITION GEOMETRY
+SOURCE: RL-003
+STATUS: OFFICIAL VALIDATED INTEGRATED
+CLAIM_STATUS: VALIDATED CONDITIONAL CLAIM
+FORMAL_STATUS: FORMALLY DEFINED TRANSITION LANDSCAPE
+VALIDATION_STATUS: VALIDATED
+INTEGRATION_STATUS: APPROVED
+CORE_STATUS: NO MODIFICATION
+SCOPE: CE-V-03 formalizes a transition landscape over an organizational state space.
+CANONICAL FORM:
+L_T = (Org, T_rel, Acc, d, Stability, Barrier)
+where:
+Org = organizational state space
+T_rel = relational transition structure
+Acc = accessibility
+d = distance-like relation
+Stability = specified stability criterion
+Barrier = transition barrier
+CORE RESULT: Organizational states can be analyzed geometrically through their relational accessibility and transition structure.
+DISTANCE_STATUS: d is distance-like unless the required metric properties are independently established.
+BARRIER_STATUS: Barrier is a transition-barrier construct.
+Barrier != logical impossibility
+REALIZATION_STATUS: Structural transition geometry does not determine which transition is physically realized.
+BOUNDARY: CE-V-03 does not provide a universal evolution law.
+Therefore:
+structural transition geometry != realized evolution
+NON-IMPLICATIONS:
+Transition geometry ⇏ realized transition
+Accessibility ⇏ selection
+Selection ⇏ unique selection
+Distance-like structure ⇏ metric
+Barrier ⇏ logical impossibility
+ARCHITECTURAL_ROLE: Provides a conditional framework for analyzing organizational transition landscapes.
+FROZEN_CORE_IMPACT: NONE
+TRACEABILITY: RL-003 -> FORMAL AUDIT -> VALIDATION -> CE-V-03
+FINAL_STATUS: OFFICIAL VALIDATED INTEGRATED
+
+CE-V-004 DYNAMIC STATE SUFFICIENCY AND CLOSURE
+SOURCE: RL-007
+STATUS: OFFICIAL VALIDATED INTEGRATED
+CLAIM_STATUS: VALIDATED FORMAL CRITERION
+FORMAL_STATUS: FORMALLY DEFINED
+VALIDATION_STATUS: PASS
+INTEGRATION_STATUS: APPROVED
+CORE_STATUS: NO MODIFICATION
+NUMBERING_STATUS: OFFICIAL CE-V-004
+SUPERSEDES: RL-007 / CE-V-03.1
+SCOPE: CE-V-004 formalizes a validation criterion for determining whether a chosen reduced state representation contains sufficient information for a specified dynamical analysis.
+The extension addresses:
+- state representation
+- state sufficiency
+- dynamic closure
+- historical dependence
+- Markovianity
+- non-Markovianity
+
+FORMAL SETTING:
+Underlying state: X_t ∈ X
+Admissible input: U_t ∈ U_adm
+Reduced representation: R_t = ρ(X_t)
+Induced equivalence: X_a ≈_R X_b iff ρ(X_a) = ρ(X_b)
+
+DYNAMIC CLOSURE:
+For deterministic dynamics:
+X_(t+1) = F(X_t, U_t)
+dynamic closure requires:
+X_a ≈_R X_b ⇒ F(X_a,U) ≈_R F(X_b,U)
+for every admissible U ∈ U_adm.
+
+FAILURE CRITERION:
+If there exist X_a, X_b, U such that:
+X_a ≈_R X_b
+but
+F(X_a,U) ≉_R F(X_b,U),
+then dynamic closure fails.
+Therefore:
+failure of dynamic closure ⇒ insufficiency of the chosen representation for the specified dynamical analysis.
+
+VALIDATION REALIZATION:
+X = {(0,0),(0,1),(1,0),(1,1)}
+with:
+T(s,z) = (s ⊕ z,z)
+
+FULL REPRESENTATION:
+R_full(s,z) = (s,z)
+RESULT: PASS
+
+REDUCED REPRESENTATION:
+R_red(s,z) = s
+The states (0,0) and (0,1) are equivalent under R_red.
+But:
+T(0,0) = (0,0)
+T(0,1) = (1,1)
+Therefore:
+R_red(T(0,0)) = 0
+R_red(T(0,1)) = 1
+RESULT: DYNAMIC INSUFFICIENCY DETECTED
+
+VALIDATED STATEMENT:
+A reduced representation is admissible for a specified dynamical analysis only if its equivalence relation is dynamically compatible with the admissible transition structure.
+If equivalent current states can produce distinguishable admissible futures under identical admissible inputs, the representation is dynamically insufficient.
+
+MARKOVIANITY_BOUNDARY:
+A reduced representation may exhibit non-Markovian behavior even when the underlying full-state description is Markovian.
+Therefore:
+Non-Markovianity ⇏ fundamental memory
+and:
+historical dependence ⇏ fundamental memory
+
+STATE_COMPLETION:
+A formally insufficient representation may be completed as:
+X_t = (R_t,Z_t)
+where Z_t represents information omitted by the reduced description.
+This does not establish:
+- a new physical entity
+- fundamental memory
+- ontological hidden structure
+- unique physical interpretation
+
+MINIMALITY_STATUS:
+A sufficient representation need not be unique.
+Minimality is relative to the specified dynamical distinguishability criterion.
+Fewer variables != automatically minimal.
+
+NEGATIVE_SAFEGUARDS:
+CE-V-004 does not establish:
+- Non-Markovianity ⇒ Memory
+- Memory ⇒ Persistence
+- Persistence ⇒ Organization
+- Historical dependence ⇒ Organization
+- State completion ⇒ Ontological hidden variable
+- State sufficiency ⇒ Organization
+- Dynamic closure ⇒ Unique state representation
+- Dynamic insufficiency ⇒ Fundamental physical memory
+
+ARCHITECTURAL_ROLE: CE-V-004 provides a dynamic state-sufficiency gate for reduced representations used in temporal or dynamical claims.
+It preserves:
+description change != physical system change
+physical system change != organization change
+history != historical dependence
+historical dependence != memory
+persistence != non-Markovianity
+FROZEN_CORE_IMPACT: NONE
+TRACEABILITY: RL-007 -> OCAM PASS -> INDEPENDENT FORMAL VALIDATION PASS -> INTEGRATION APPROVED -> CE-V-004
+FINAL_STATUS: OFFICIAL VALIDATED INTEGRATED
+
+CE-V-05 REACHABILITY EQUIVALENCE OF ORGANIZATIONAL CLASSES
+SOURCE: RL-005
+STATUS: OFFICIAL VALIDATED INTEGRATED
+CLAIM_STATUS: VALIDATED CONDITIONAL THEOREM
+FORMAL_STATUS: FORMALLY DEFINED
+VALIDATION_STATUS: VALIDATED
+INTEGRATION_STATUS: APPROVED
+CORE_STATUS: NO MODIFICATION
+SCOPE: For fixed relational structure R and admissible dynamics A(R), CE-V-05 defines reachability equivalence between organizational states.
+
+FORMAL RELATION:
+O_i ≈_reach O_j iff Reach(R,A(R))(O_i) = Reach(R,A(R))(O_j)
+
+CONDITIONAL RESULT:
+If Reach is well-defined as a set for every O ∈ Org, then:
+≈_reach is an equivalence relation.
+
+BASIS:
+Equality of reachable sets is:
+- reflexive
+- symmetric
+- transitive
+
+SCOPE_STATUS: CONDITIONAL ON:
+- fixed R
+- fixed A(R)
+- well-defined Reach
+- specified organizational state domain
+BOUNDARY: The equivalence is relative to R + A(R). It is not a universal equivalence relation independent of the realization.
+ONTOLOGICAL_STATUS: Reachability equivalence != ontological identity.
+NON-IMPLICATIONS:
+Reachability equivalence ⇏ ontological identity
+Reachability equivalence ⇏ physical identity
+Reachability equivalence ⇏ universal organizational equivalence
+ARCHITECTURAL_ROLE: Provides a mathematically explicit equivalence relation based on reachable organizational futures.
+FROZEN_CORE_IMPACT: NONE
+TRACEABILITY: RL-005 -> FORMAL AUDIT -> VALIDATION -> CE-V-05
+FINAL_STATUS: OFFICIAL VALIDATED INTEGRATED
+
+CE-V-06 GLOBAL REALIZATION FILTERING OF LOCAL ORGANIZATIONAL REALIZATIONS
+SOURCE: RL-006
+STATUS: OFFICIAL VALIDATED INTEGRATED
+CLAIM_STATUS: VALIDATED CONDITIONAL STRUCTURAL CLAIM
+FORMAL_STATUS: FORMALLY DEFINED
+VALIDATION_STATUS: VALIDATED UNDER SPECIFIED REALIZATION
+INTEGRATION_STATUS: APPROVED
+CORE_STATUS: NO MODIFICATIONS
+SCOPE: CE-V-06 formalizes how a selected global realization can constrain and filter locally admissible relational specifications and organizational regimes.
+
+CANONICAL GLOBAL CONTEXT:
+S_global = (M, Γ, Θ)
+where:
+M = global domain
+Γ = global relational / structural context
+Θ = global constraint / compatibility context
+
+LOCAL DOMAIN:
+D_i ⊂ M
+
+LOCAL RELATIONAL SPECIFICATION:
+R_i ∈ Restrict(R_global,D_i)
+and
+R_i ∈ Compatible(Θ,D_i)
+
+When represented as sets:
+R_i ∈ Restrict(R_global,D_i) ∩ Compatible(Θ,D_i)
+
+VALIDATED PATHWAY:
+S_global ↓ D_i ↓ R_i ↓ A_i(R_i) ↓ Persistence ↓ Operational Identity ↓ Operational Organization
+
+VALIDATED RESULT:
+A selected global realization can conditionally filter the class of locally admissible relational structures and thereby constrain downstream organizational possibilities.
+
+REALIZATION_STATUS: CONDITIONAL
+SELECTION_STATUS: EXTERNAL SELECTION MAY REMAIN REQUIRED
+GLOBAL_REALIZATION_STATUS: NOT DERIVED BY CE-V-06
+
+BOUNDARY: CE-V-06 does not derive:
+- the global realization itself
+- cosmological realization from the Frozen Core
+- a multiverse
+- universal cosmological necessity
+- automatic local organization
+
+A selected de Sitter-like realization, where used, remains externally selected unless independently derived.
+
+CRITICAL DISTINCTIONS:
+global constraint != global realization
+global realization != unique selection
+admissibility != realization
+realization != selection
+selection != unique selection
+
+ARCHITECTURAL_ROLE: Provides a conditional global-to-local realization filtering pathway.
+FROZEN_CORE_IMPACT: NONE
+TRACEABILITY: RL-006 -> FORMAL AUDIT -> VALIDATION -> CE-V-06
+FINAL_STATUS: OFFICIAL VALIDATED INTEGRATED
+
+INTEGRATED SUBMODULE: CE-V-06.1
+TITLE: GLOBAL-TO-LOCAL FILTERING: DIRECTIONAL AND TEMPORAL BOUNDARIES
+STATUS: OFFICIAL VALIDATED INTEGRATED SUBMODULE
+PARENT: CE-V-06
+SOURCE: RL-022 + RL-023
+
+SUBMODULE_SCOPE:
+CE-V-06.1 specifies two validated boundaries of the CE-V-06 global-to-local filtering pathway:
+- directional logical boundary
+- temporal/dynamic applicability boundary
+
+DIRECTIONAL BOUNDARY:
+CE-V-06 establishes:
+Global -> Local
+but does not entail:
+Local ↛ Global
+and does not entail:
+Local -> Global
+Therefore:
+global-to-local filtering does not by itself establish either the presence or absence of local-to-global feedback.
+
+TEMPORAL BOUNDARY:
+The CE-V-06 filtering relation may be conditionally formulated for a time-dependent global realization:
+S_global(t) = (M(t), Γ(t), Θ(t))
+with:
+R_i(t) ∈ Restrict(R_global(t),D_i) ∩ Compatible(Θ(t),D_i)
+and:
+A_i(t) = A_i(R_i(t); Φ(t))
+provided the relevant temporal structures, restriction operations, compatibility conditions, realization context and common temporal domain are well-defined.
+
+VALIDATED SUBMODULE RESULT:
+The global-to-local filtering relation:
+S_global → R_global → R_i → A_i
+does not logically determine a reverse coupling law.
+The same filtering relation can be conditionally formulated under a time-dependent global realization without deriving a universal law of global evolution.
+
+NON-IMPLICATIONS:
+Global -> Local ⇏ Local -> Global
+Global -> Local ⇏ Local ↛ Global
+Dynamic global realization ⇏ universal global dynamics
+Dynamic global realization ⇏ physical necessity
+Global-to-local filtering ⇏ unique local realization
+Admissibility ⇏ realization
+Realization ⇏ selection
+Selection ⇏ unique selection
+
+BOUNDARY: CE-V-06.1 does not establish:
+- local-to-global causation
+- absence of local-to-global feedback
+- universal bidirectional coupling
+- universal no-feedback principle
+- universal global evolution law
+- physical realization of the dynamic extension
+
+ARCHITECTURAL_ROLE: CE-V-06.1 defines the directional and temporal boundaries of the CE-V-06 filtering pathway without modifying the parent CE-V-06 claim.
+FROZEN_CORE_IMPACT: NONE
+VALIDATION_STATUS: VALIDATED SUBMODULE
+INTEGRATION_STATUS: APPROVED
+
+TRACEABILITY:
+RL-022 -> directional boundary derivation -> countermodel / failure test -> validation -> CE-V-06.1
+RL-023 -> temporal/dynamic extension -> failure boundary analysis -> validation -> CE-V-06.1
+RL-022_STATUS: ARCHIVED / SUPERSEDED BY CE-V-06.1
+RL-023_STATUS: ARCHIVED / SUPERSEDED BY CE-V-06.1
+TRACEABILITY_STATUS: PRESERVED
+PARENT_STATUS: CE-V-06 UNCHANGED
+FINAL_SUBMODULE_STATUS: OFFICIAL VALIDATED INTEGRATED SUBMODULE
+
+CE-V-06 FINAL INTEGRATED STATUS:
+CE-V-06 remains the parent validated extension.
+Its integrated structure is:
+CE-V-06
+└── CE-V-06.1
+    ├── Directional Boundary ← RL-022
+    └── Temporal Boundary ← RL-023
+
+RL-022 and RL-023 are retained as archived supporting research sources and are no longer active independent research branches.
+
+RETAINED CORPUS
+The currently integrated validated extension corpus is:
+CE-V-01 Latent Organizational Potential
+CE-V-02 Organizational Degeneracy and Structural Necessity
+CE-V-03 Organizational Transition Geometry
+CE-V-004 Dynamic State Sufficiency and Closure
+CE-V-05 Reachability Equivalence of Organizational Classes
+CE-V-06 Global Realization Filtering of Local Organizational Realizations
+
+with integrated submodule:
+CE-V-06.1 Global-to-Local Filtering: Directional and Temporal Boundaries
+
+RESERVED / FUTURE NUMBERING
+CE-V-07: RESERVED
+No extension shall be assigned CE-V-07 without:
+- independent validation
+- explicit integration decision
+- explicit traceability
+- Frozen Core compatibility audit
+
+CE-V-004 is official.
+CE-V-004 shall not be treated as CE-V-03.1.
+The previous RL-007 / CE-V-03.1 designation is superseded by CE-V-004.
+
+ARCHITECTURAL COMPATIBILITY
+The CE-V archive remains subordinate to the Frozen Core.
+The following remain unchanged:
+- Volume I
+- Volume II
+- Volume III
+- Volume IV
+- Frozen Core definitions
+- Frozen Core dependency structure
+- Foundational architectural boundaries
+
+Volume V remains the Active Research Architecture.
+RL records remain research-level sources.
+CE-V records contain only extensions that have passed the required validation and integration process.
+CE-V-06.1 is subordinate to CE-V-06 and does not constitute a new independent CE-V entry.
+
+COMMON METHODOLOGICAL INVARIANTS
+Across the retained CE-V corpus:
+Constraint != Realization
+Admissibility != Realization
+Realization != Selection
+Selection != Unique Selection
+Operational Identity != Ontological Identity
+Structural Order != Canonical Structural Order
+Description Change != Physical System Change
+Physical System Change != Organization Change
+History != Historical Dependence
+Historical Dependence != Memory
+Persistence != Non-Markovianity
+Global -> Local != Local -> Global
+
+A structural condition does not automatically imply a stronger property unless an independently justified bridge is established.
+
+GENERAL BRIDGE:
+C + B -> U
+cannot be replaced by:
+C -> U
+unless B is independently established.
+Therefore:
+C ⇏ U
+without the required bridge conditions.
+
+FINAL CE-V STATUS
+ARCHITECTURAL_STATUS: CONSISTENT WITH FROZEN CORE
+VALIDATED_EXTENSIONS: CE-V-01 CE-V-02 CE-V-03 CE-V-004 CE-V-05 CE-V-06
+INTEGRATED_SUBMODULE: CE-V-06.1
+RESERVED: CE-V-07
+CORE_MODIFICATION: NONE
+TRACEABILITY: PRESERVED
+SEMANTIC_STATUS: PRESERVED
+CLAIM_CONTROL: ACTIVE
+CE-V-004: OFFICIALLY INTEGRATED
+CE-V-06.1: OFFICIALLY INTEGRATED AS SUBMODULE OF CE-V-06
+RL-022: ARCHIVED / SUPERSEDED BY CE-V-06.1
+RL-023: ARCHIVED / SUPERSEDED BY CE-V-06.1
+ARCHIVE_STATUS: OFFICIAL VALIDATED EXTENSION ARCHIVE
+
+FINAL ARCHITECTURAL STATEMENT:
+The CE-V archive contains validated extensions whose claims remain bounded by their explicit formal definitions, validation conditions, realization domains and traceability.
+No retained CE-V construction modifies the Frozen Core.
+No retained CE-V construction establishes universal necessity, universal realization, universal causation, universal organization, or a universal theory.
+CE-V-004 is officially retained as the validated RL-007 extension under its corrected numbering and under the independently validated scope of dynamic state sufficiency and dynamic closure.
+CE-V-06 remains the validated parent extension for global realization filtering.
+CE-V-06.1 is officially integrated as a validated subordinate boundary submodule of CE-V-06, consolidating the directional result of RL-022 and the temporal/dynamic result of RL-023.
