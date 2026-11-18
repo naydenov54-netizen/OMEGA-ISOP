@@ -233,5 +233,24 @@ END.
 
 Следващ ход: не създавай нов checkpoint само заради съхранението. При изрично възлагане за проверка, направи отделен математически одит на доказателствата, recognition criterion и complexity claim, без да редактираш първичния R6 файл.
 
+## 11. Работен поток F — FINITE SPIN-BOSON / RL-017 / RL-017.1
+
+Каноничен intake артефакт:
+`research/RL-017/RL-017_REV-8_AND_RL-017.1_OPERATIONAL_NON-INJECTIVITY.txt`
+
+- Записът съхранява тематичната линия за краен spin-boson модел, локална динамика, информационна достъпност и operational non-injectivity.
+- RL-017 REV-8 и RL-017.1 са свързани, но логически различни модули; RL-017.1 е подмодул, а не заместител на RL-017.
+- RL-017 REV-8: FINAL / CLOSED / FROZEN според предоставения запис; coupling-dependent local dynamics и thresholded informational-accessibility pattern са заявени като подкрепени само в тествания finite model.
+- Relational dilution: CANDIDATE OPERATIONAL INTERPRETATION ONLY; не е установен универсален физичен процес или закон.
+- RL-017.1: MODEL-CONDITIONAL / NUMERICALLY CROSS-VALIDATED / ANALYTICALLY EXPLAINED според предоставения запис; non-injectivity се отнася до конкретната избрана operational projection и конкретната тествана конфигурация.
+- Числените стойности и статуси са съхранени като предоставени claims; самото GitHub съхранение не представлява повторно изпълнение, независимо числено възпроизвеждане или математически одит.
+- Primary numerical record, raw tables и source code не са приложени в този intake. Ако липсват в съответните първични източници, reproducibility gap остава; не реконструирай начални състояния, bath occupations или spectral normalization по догадка.
+- RL-017.1 не следва да се обобщава до универсална local-to-global non-identifiability theorem.
+- CE-V: NO PROMOTION. CE-V-07 остава RESERVED.
+- Frozen Core: INTACT / UNCHANGED.
+- Не отваряй отново RL-017 само за density scans, convergence, continuum, thermodynamic, Krylov или criticality work; такова разширение изисква нов RL и нови доказателства.
+
+Следващ ход: при изрично възлагане извърши отделен математически и числен одит на дефинициите, analytic explanation, reported numerical comparisons и reproducibility dependencies. Не редактирай първичния intake файл и не присъждай по-висок статус без нови проверими доказателства.
+
 
 END.
