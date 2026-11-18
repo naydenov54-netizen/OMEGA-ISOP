@@ -1,0 +1,244 @@
+OMEGA-ISOP
+STAGE 3 — GRT–01–J.3
+CONVERSE LYAPUNOV CONSTRUCTION AND THE GAP BETWEEN FIXED-MAP AND SWITCHED ATTRACTION
+DATE: 2026-11-18
+DOCUMENT ID: OI-STAGE-03-GRT-01-J3-CONVERSE-LYAPUNOV-CONSTRUCTION-2026-11-18
+PREDECESSOR: OI-STAGE-03-GRT-01-J2-COMMON-LYAPUNOV-UNIFORM-ATTRACTION-2026-11-18
+STATUS: CONDITIONAL CONVERSE CONSTRUCTION PROVED; GENERAL CONVERSE FROM CANDIDATE A2 NOT ESTABLISHED
+TYPE: ADDITIVE MATHEMATICAL RESEARCH CHECKPOINT
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+
+1. PURPOSE AND QUESTION
+
+Investigate the converse direction to GRT–01–J.2:
+Under what conditions can uniform attraction be used to construct a common Lyapunov function?
+
+The main result is a direct supremum construction from uniformly bounded accumulated cost along every admissible switching sequence. It yields a common Lyapunov function with a strict one-step decrease for every family member.
+
+A decisive limitation is also established: uniform attraction of each fixed map F_i, even uniformly over i, does not imply stability under arbitrary switching among the maps. Since a common one-step Lyapunov function decreases under every F_i, it would imply switched stability. Therefore the general converse from the candidate fixed-map A2 statement to a common one-step Lyapunov function is false without stronger assumptions.
+
+The original primary Stage 3 specification remains unrecovered. No inference from R-invariance alone is made.
+
+2. TWO DISTINCT DYNAMICAL PROPERTIES
+
+Let (Z,d) be a metric space, p∈Z, and {F_i:Z→Z} a family with F_i(p)=p.
+
+FIXED-MAP FAMILY ATTRACTION:
+For every bounded B⊆Z,
+
+sup { d(F_i^n(z),p) : i, z∈B } → 0.
+
+Here one index i is selected and the same map F_i is iterated n times.
+
+UNIFORMLY SWITCHED ATTRACTION:
+For every bounded B⊆Z,
+
+sup { d(x_n,p) : z∈B, (i_0,...,i_(n−1)) admissible } → 0,
+
+where x_0=z and x_(k+1)=F_(i_k)(x_k).
+
+The switched statement quantifies over all admissible index sequences. It is strictly stronger in general.
+
+3. THEOREM J.3-A — CONSTRUCTION FROM UNIFORMLY FINITE ACCUMULATED COST
+
+Let (Z,d) be a metric space, let p∈Z, and let {F_i:Z→Z} be a family satisfying F_i(p)=p for every i.
+
+Assume there exist functions a, Γ:[0,∞)→[0,∞), both of class K∞, such that for every x∈Z and every infinite index sequence σ=(i_0,i_1,...), the trajectory
+
+x_0=x
+x_(n+1)=F_(i_n)(x_n)
+
+satisfies the uniform accumulated-cost bound:
+
+Σ_(n=0)^∞ a(d(x_n,p)) ≤ Γ(d(x,p)).
+
+The same a and Γ must work for every initial state and every admissible switching sequence.
+
+Define:
+
+V(x) = sup_σ Σ_(n=0)^∞ a(d(x_n,p)),
+
+where the supremum is over all admissible infinite index sequences starting from x.
+
+Then V is finite and satisfies:
+
+a(d(x,p)) ≤ V(x) ≤ Γ(d(x,p)),
+
+and, for every i and x,
+
+V(F_i(x)) − V(x) ≤ −a(d(x,p)).
+
+Thus V is a common positive-definite Lyapunov function with class-K∞ comparison bounds and a common strict decrease. The one-step theorem J.2-A applies and gives uniform attraction on bounded initial sets. In fact, the conclusion holds for arbitrary switching sequences.
+
+PROOF
+
+For every switching sequence, the accumulated sum includes its initial term a(d(x,p)). Since a is nonnegative:
+
+V(x) ≥ a(d(x,p)).
+
+The assumed uniform accumulated-cost bound gives:
+
+V(x) ≤ Γ(d(x,p)).
+
+Thus V is finite and has the stated comparison bounds.
+
+Fix an index i. Any switching sequence starting from F_i(x) can be prefixed by the single index i to form an admissible switching sequence starting from x. The resulting accumulated cost from x equals:
+
+a(d(x,p)) + (the accumulated cost of the continuation starting at F_i(x)).
+
+Taking the supremum over all continuation sequences gives:
+
+V(x) ≥ a(d(x,p)) + V(F_i(x)).
+
+Therefore:
+
+V(F_i(x)) − V(x) ≤ −a(d(x,p)).
+
+Since a∈K∞, the decrease is positive whenever x≠p. This proves the claim. QED.
+
+4. WHAT THE CONSTRUCTION REALLY REQUIRES
+
+The essential assumption is not merely that every fixed-map orbit converges. It is a uniform bound on the total accumulated positive cost along every admissible switching sequence.
+
+This assumption supplies three properties at once:
+- finiteness of V;
+- a lower bound forcing V to detect nonzero distance from p;
+- a decrease estimate common to every map.
+
+The K∞ upper bound Γ also gives the required control of V on bounded metric sets. It is an explicit hypothesis, not a consequence silently inferred from pointwise convergence.
+
+The construction is a sufficient converse under a stronger stability-and-summability hypothesis. It is not a proof that every uniformly attractive family has such a V.
+
+5. COUNTEREXAMPLE — FIXED-MAP UNIFORM ATTRACTION DOES NOT IMPLY SWITCHED STABILITY
+
+Let Z=R² with the Euclidean metric and p=(0,0).
+
+Define two linear maps:
+
+A(x,y) = (2y, 0)
+B(x,y) = (0, 2x)
+
+For each map separately:
+
+A²(x,y)=(0,0)
+B²(x,y)=(0,0).
+
+Therefore, for every initial state z and every n≥2:
+
+A^n(z)=B^n(z)=p.
+
+The fixed-map family attraction is uniform over the two-element family, and it occurs in at most two iterations on every initial set, bounded or unbounded.
+
+Now switch maps alternately, starting at z_0=(1,0):
+
+z_1=B(z_0)=(0,2)
+z_2=A(z_1)=(4,0)
+z_3=B(z_2)=(0,8)
+z_4=A(z_3)=(16,0).
+
+The norm grows by a factor of 4 every two steps:
+
+||z_(2k)|| = 4^k.
+
+Hence arbitrary switching is unstable and does not converge to p.
+
+CONSEQUENCE:
+There cannot exist a common positive-definite function V and a positive-definite decrease function W such that:
+
+V(Ax)−V(x) ≤ −W(d(x,p))
+V(Bx)−V(x) ≤ −W(d(x,p))
+
+for all x, together with a proper lower comparison bound that forces bounded V-sublevel sets to have bounded distance from p.
+
+Indeed, such a V would strictly decrease along every alternating switched trajectory. Since V is nonnegative, it would force the sum of W(d(z_n,p)) to be finite and, with the usual positive-definite/proper comparison conditions, would prevent the displayed unbounded growth. More directly, a class-K∞ lower comparison and an upper comparison at the initial point would bound every switched state by the initial V value, contradicting ||z_(2k)||=4^k.
+
+Thus fixed-map A2 does not imply existence of a common one-step Lyapunov function for all family members.
+
+6. LOGICAL CONSEQUENCES FOR GRT–01–J.2
+
+The common Lyapunov hypotheses in J.2-A are sufficient for the candidate fixed-map A2 target.
+
+However, they are stronger than that target because they also control arbitrary switching among the family members.
+
+The counterexample in Section 5 shows that the stronger conclusion cannot be reversed from fixed-map family attraction alone.
+
+This does not invalidate J.2-A. It defines its exact scope:
+- valid sufficient condition for fixed-map uniform attraction;
+- stronger switched-stability consequence;
+- not a necessary characterization of fixed-map A2.
+
+The block-decrease theorem J.2-B likewise requires common estimates that control all intermediate states. It should not be treated as a necessary representation of fixed-map A2.
+
+7. STATUS OF THE CONVERSE PROBLEM
+
+PROVED:
+A common Lyapunov function can be constructed as a supremum of accumulated costs when a common K∞ stage cost has a uniform K∞ accumulated-cost bound over all admissible switching sequences.
+
+PROVED:
+Uniform convergence of every fixed map in a family, even in a uniform finite number of steps, does not imply stability under arbitrary switching.
+
+PROVED:
+A common one-step Lyapunov decrease valid for every family member is therefore stronger than fixed-map family attraction in general.
+
+NOT PROVED:
+That fixed-map A2 alone implies a common Lyapunov function.
+That every switched-uniformly attractive family admits a finite accumulated-cost bound of the exact K∞ form assumed in Theorem J.3-A.
+That the stated accumulated-cost hypothesis is necessary.
+That A2 follows from R-invariance alone.
+That the candidate A2 formulation is the original Stage 3 primary specification.
+
+8. NEXT MATHEMATICAL DIRECTIONS
+
+1. Investigate separate Lyapunov functions V_i for fixed-map attraction, and determine whether uniformity over i can be obtained from a uniform family of bounds without requiring one common decrease function.
+2. Investigate weaker common functions that decrease only after map-dependent or family-uniform blocks, while preserving the exact fixed-map quantifiers.
+3. Identify compactness, continuity, equicontinuity, or uniform stability assumptions under which a converse Lyapunov construction for fixed-map A2 may be possible.
+4. Determine whether the operational pseudometric quotient D_L supports the accumulated-cost construction, with its actual metric, domain, and invariance assumptions checked from the authoritative source.
+5. Keep fixed-map iteration, arbitrary switching, common fixed-point existence, and uniform attraction as separate logical properties.
+
+9. SOURCE BASIS AND TRACEABILITY
+
+Predecessor:
+audits/OI-STAGE-03-GRT-01-J2-COMMON-LYAPUNOV-UNIFORM-ATTRACTION-2026-11-18.txt
+Verified predecessor blob SHA:
+ec738853c08ade767d9035667c76ec42679a5bc5
+
+Earlier nonlinear comparison checkpoint:
+audits/OI-STAGE-03-GRT-01-J-UNIFORM-ATTRACTION-WEAKER-THAN-CONTRACTION-2026-11-18.txt
+Verified blob SHA:
+b24885db91cca0b0e74ffc003242f1881ccc86eb
+
+Candidate A2 sufficient-condition and countermodel audit:
+audits/OI-STAGE-03-A1-A4-SUFFICIENT-CONDITIONS-COUNTERMODELS-2026-11-18.txt
+Previously recorded blob SHA:
+be6d8a2a1ba760a714e5cb52b7ce578f17b8b828
+
+Stage 3 derivability boundary:
+audits/OI-STAGE-03-RELATIONAL-DERIVABILITY-CHECKPOINT-2026-11-18.txt
+Previously recorded blob SHA:
+4c510671a82fc2aed38c6673a63cb3447b0c5ea4
+
+Primary specification recovery boundary:
+audits/OI-STAGE-03-PRIMARY-SPECIFICATION-RECOVERY-SEARCH-2026-11-18.txt
+Previously recorded blob SHA:
+02824dd875a3f4db4d8cf069bc581bff2de329cc
+
+Operational procedure:
+operations/OMEGA-ISOP-M3.2-CONSOLIDATED-OPERATIONAL-RULES-2026-11-18-v0.8.2-R2.txt
+Readback blob SHA:
+11187ab27896fb343bd57b27eee481e10fa46256
+
+10. PROJECT STATUS AND PROTECTION
+
+FROZEN CORE: UNCHANGED.
+VOLUME II: UNCHANGED.
+VOLUME III: UNCHANGED.
+VOLUME IV: UNCHANGED.
+VOLUME V: UNCHANGED.
+CE/CE-V: NO PROMOTION.
+RL REGISTRATION: NOT PERFORMED.
+CANONICAL ACCEPTANCE: NOT CLAIMED.
+
+This is an additive mathematical research checkpoint. GitHub commit and readback verify repository storage and content identity only. They do not constitute independent mathematical review, physical confirmation, official RL registration, CE/CE-V acceptance, Volume V integration, or canonical acceptance.
+
+END OF CHECKPOINT
