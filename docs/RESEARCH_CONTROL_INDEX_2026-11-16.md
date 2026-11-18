@@ -252,5 +252,24 @@ END.
 
 Следващ ход: при изрично възлагане извърши отделен математически и числен одит на дефинициите, analytic explanation, reported numerical comparisons и reproducibility dependencies. Не редактирай първичния intake файл и не присъждай по-висок статус без нови проверими доказателства.
 
+## 12. Работен поток G — RL-009 / ОБРАТНА ВРЪЗКА / ПЕРСИСТЕНТНОСТ / ОПЕРАЦИОННА ЗАТВОРЕНОСТ
+
+Каноничен консолидиран запис:
+`research/RL-009/RL-009_CONSOLIDATED_RECORD.txt`
+
+- Документът е консолидиран активен RL-009 запис, който обединява F.2/F.3, Stage 1A audit, Stage 1B design correction, TEST A execution и mathematical verification, както и Active Response Criterion Recovery Audit.
+- F.2: feedback-dependent relational strengthening е отчетено в тестваната реализация; persistent active regime и organizational-class transition не са демонстрирани.
+- F.3: feedback-dependent relational reduction е отчетено в тестваната реализация; dynamic stabilization и persistent active regime не са демонстрирани.
+- Сравнението k = 0 срещу k = 0.2 е само двуточково и е ограничено до посочените начално състояние и параметри. Не извеждай непрекъснат закон, монотонност или универсална причинност.
+- При текущия Stage 1B Closure proxy: Closure(M) := Persistence(M,τ,ε) AND NOT Persistence(M^ablated,τ,ε). Следователно Closure = 1 имплицира Persistence = 1 по дефиниция; структурната независимост Closure/Persistence не е изпълнена под този proxy.
+- TEST A е записан като изпълнен конструктивен резултат: Persistence-without-Closure. Изводът Persistence → Closure е опроверган в рамките на тестваното model family, но не е установена пълна структурна независимост на двата предиката.
+- TEST A математическата проверка е записана като независимо извършена в предоставения артефакт; съхранението тук не представлява ново повторно решаване или независим одит от GitHub.
+- Active Response formal criterion: NOT LOCATED / NOT LOCKED. TEST B: NOT AUTHORIZED. Не реконструирай критерия от Agency, Observerhood, feedback или други сродни понятия.
+- Организационно state space O, membership criterion и Reach(O_i,O_j) не са независимо дефинирани; relational change не лицензира organizational-class transition.
+- RL-009 е външна RL работа. Frozen Core: INTACT; Volume V: UNCHANGED; CE-V: NOT EVALUATED / NO PROMOTION.
+- Всички числени резултати, изводи и статуси са съхранени като съдържание на предоставения консолидиран запис, а не като ново емпирично потвърждение или CE-V оценка.
+
+Следващ ход: не отваряй TEST B без независимо намерен или изрично формализиран и заключен Active Response operational criterion. Не променяй TEST A или заключения Stage 1B протокол със задна дата. Всяка съществена промяна изисква отделна версия и проследима промяна на протокола.
+
 
 END.
