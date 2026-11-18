@@ -1,0 +1,307 @@
+OMEGA-ISOP
+STAGE 3 — GRT–01–J.2
+COMMON LYAPUNOV CONDITIONS FOR UNIFORM ATTRACTION, INCLUDING TRANSIENT DISTANCE EXPANSION
+DATE: 2026-11-18
+DOCUMENT ID: OI-STAGE-03-GRT-01-J2-COMMON-LYAPUNOV-UNIFORM-ATTRACTION-2026-11-18
+PREDECESSOR: OI-STAGE-03-GRT-01-J-UNIFORM-ATTRACTION-WEAKER-THAN-CONTRACTION-2026-11-18
+STATUS: CONDITIONAL MATHEMATICAL THEOREMS PROVED UNDER STATED ASSUMPTIONS
+TYPE: ADDITIVE MATHEMATICAL RESEARCH CHECKPOINT
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+
+1. PURPOSE AND SCOPE
+
+Continue the candidate Stage 3 A2 investigation from GRT–01–J.2 asks whether uniform attraction to a common point can be obtained from a common Lyapunov function even when the metric distance to the target is not monotone at every step.
+
+The result is affirmative under explicit uniform hypotheses. A common positive-definite, proper Lyapunov function with a uniform strict decrease establishes uniform attraction on bounded initial sets. A block-decrease variant permits the Lyapunov function itself, and therefore the distance, to behave non-monotonically during the intermediate steps, provided those intermediate states are uniformly controlled by the Lyapunov value at the beginning of the block.
+
+This remains a conditional mathematical result under the candidate A2 formulation. The original primary Stage 3 specification and its exact quantifiers remain unrecovered. No inference from R-invariance alone is made.
+
+2. TARGET FORMULATION
+
+Let (Z,d) be a metric space, let {F_i : Z → Z} be a family of maps, and let p ∈ Z.
+
+The candidate uniform-attraction target on B ⊆ Z is:
+
+sup { d(F_i^n(z),p) : i, z ∈ B } → 0 as n → ∞.
+
+The supremum includes both the family index i and the initial state z. Every estimate used below is uniform in i.
+
+3. DEFINITIONS FOR THE LYAPUNOV RESULTS
+
+A function α : [0,∞) → [0,∞) is of class K∞ here if it is continuous, strictly increasing, α(0)=0, and α(r)→∞ as r→∞.
+
+A common Lyapunov function is one function V : Z → [0,∞) used for every map F_i. It is not a separate function V_i for each family member.
+
+The comparison bounds
+
+α1(d(x,p)) ≤ V(x) ≤ α2(d(x,p))
+
+make V positive definite and proper relative to p. They ensure that small V forces small metric distance and that bounded metric initial sets have uniformly bounded initial V.
+
+4. THEOREM J.2-A — ONE-STEP COMMON LYAPUNOV DECREASE
+
+Let (Z,d) be a metric space, {F_i : Z → Z} a family of maps, and p ∈ Z. Suppose there exist a common function V : Z → [0,∞) and functions α1, α2, α3 of class K∞ such that, for every x ∈ Z and every index i:
+
+(A) α1(d(x,p)) ≤ V(x) ≤ α2(d(x,p));
+
+(B) V(F_i(x)) − V(x) ≤ −α3(d(x,p)).
+
+Then:
+
+(i) p is a common fixed point: F_i(p)=p for every i;
+
+(ii) for every bounded B ⊆ Z, with R_B = sup{d(z,p): z∈B}<∞,
+
+sup { d(F_i^n(z),p) : i, z∈B } → 0 as n → ∞.
+
+Moreover, the proof gives a uniform finite-time estimate for entry into every prescribed ε-neighborhood.
+
+PROOF
+
+At x=p, condition (A) gives V(p)=0. Condition (B) gives V(F_i(p))≤0. Since V is nonnegative, V(F_i(p))=0. The lower comparison bound and α1(r)>0 for r>0 imply d(F_i(p),p)=0. Hence F_i(p)=p.
+
+Now fix ε>0. Since α1(ε)>0 and α2 is continuous at zero with α2(0)=0, choose δ>0 such that:
+
+α2(δ) < α1(ε).
+
+For any state x satisfying V(x)≥α1(ε), it is impossible that d(x,p)<δ. Otherwise:
+
+V(x) ≤ α2(d(x,p)) < α2(δ) < α1(ε),
+
+a contradiction. Therefore, whenever V(x)≥α1(ε), we have d(x,p)≥δ. Condition (B) then yields:
+
+V(F_i(x)) ≤ V(x) − α3(δ).
+
+For z∈B, condition (A) gives:
+
+V(z) ≤ α2(R_B).
+
+Define:
+
+Nε = floor(α2(R_B)/α3(δ)) + 1.
+
+If V(F_i^k(z)) remained at least α1(ε) for every k=0,...,Nε−1, each of those Nε steps would decrease V by at least α3(δ). This would force V(F_i^Nε(z))<0, contradicting V≥0. Thus, for every i and every z∈B, there is some k≤Nε for which:
+
+V(F_i^k(z)) < α1(ε).
+
+Condition (B) also makes V nonincreasing at every subsequent step. Hence, for all n≥Nε:
+
+V(F_i^n(z)) < α1(ε).
+
+Using the lower comparison bound:
+
+α1(d(F_i^n(z),p)) ≤ V(F_i^n(z)) < α1(ε).
+
+Strict monotonicity of α1 gives:
+
+d(F_i^n(z),p)<ε.
+
+The integer Nε is independent of i and z. Therefore the convergence is uniform over the entire family and the bounded initial set. QED.
+
+5. INTERPRETATION: DISTANCE NEED NOT DECREASE AT EACH STEP
+
+The theorem does not require:
+
+d(F_i(x),p) ≤ d(x,p).
+
+It requires decrease of V, where V may weight different directions or state components differently from the metric d. The comparison bounds ensure that V still controls the metric distance globally.
+
+Thus temporary metric expansion is allowed. What is prohibited is uncontrolled growth of the common Lyapunov quantity under the one-step theorem.
+
+6. EXPLICIT EXAMPLE WITH TRANSIENT EUCLIDEAN EXPANSION
+
+Let Z=R² with the Euclidean metric, p=(0,0), and define:
+
+F(x,y)=(-5y, 0.05x).
+
+Choose the common Lyapunov function:
+
+V(x,y)=x²+100y².
+
+Then:
+
+V(F(x,y))
+= 25y² + 100(0.0025x²)
+= 0.25x² + 25y²
+= 0.25V(x,y).
+
+Consequently:
+
+V(F(x,y))−V(x,y)=−0.75V(x,y).
+
+For the Euclidean distance r=sqrt(x²+y²), the comparison bounds are:
+
+r² ≤ V(x,y) ≤ 100r².
+
+The decrease condition holds with:
+
+α1(r)=r²
+α2(r)=100r²
+α3(r)=0.75r².
+
+All three functions are of class K∞. Theorem J.2-A therefore establishes uniform attraction to the origin on every bounded initial set.
+
+Yet the Euclidean distance can expand on the first step. For z=(0,1):
+
+F(0,1)=(-5,0),
+
+so the distance from the origin increases from 1 to 5. On the next step:
+
+F(-5,0)=(0,-0.25).
+
+In fact:
+
+F²(x,y)=(-0.25x,-0.25y).
+
+The orbit then contracts geometrically. This example demonstrates that a common Lyapunov decrease can certify attraction even when the metric distance initially expands.
+
+7. THEOREM J.2-B — BLOCK DECREASE WITH CONTROLLED INTERMEDIATE STEPS
+
+A stronger relaxation is possible. The common Lyapunov function need not decrease at every individual step.
+
+Assume the same metric space, family, and common point p. Let m≥1 be a fixed integer. Suppose:
+
+(A) p is a common fixed point: F_i(p)=p for every i;
+
+(B) there are a common V : Z→[0,∞) and class-K∞ functions α1, α2, α3 such that:
+
+α1(d(x,p)) ≤ V(x) ≤ α2(d(x,p));
+
+V(F_i^m(x)) ≤ V(x) − α3(d(x,p))
+
+for every i and x;
+
+(C) there is a nondecreasing function χ : [0,∞)→[0,∞), continuous at zero with χ(0)=0, such that for every i, x, and r=0,...,m−1:
+
+V(F_i^r(x)) ≤ χ(V(x)).
+
+Then, for every bounded B⊆Z:
+
+sup { d(F_i^n(z),p) : i, z∈B } → 0 as n→∞.
+
+PROOF
+
+Fix i and z∈B, and consider the block subsequence:
+
+x_k = F_i^(km)(z).
+
+By condition (B):
+
+V(x_(k+1)) ≤ V(x_k) − α3(d(x_k,p)).
+
+The proof of uniform convergence of V(x_k) to zero is the same threshold argument used in Theorem J.2-A. For every η>0, choose δ>0 such that α2(δ)<η. Whenever V(x_k)≥η, necessarily d(x_k,p)≥δ, so the next block decreases V by at least α3(δ). Since V(x_0)≤α2(R_B), the number of such decreases is uniformly bounded. Hence V(x_k)→0 uniformly over i and z∈B.
+
+For any intermediate index r∈{0,...,m−1}, condition (C) gives:
+
+V(F_i^(km+r)(z)) ≤ χ(V(x_k)).
+
+Because χ is continuous at zero and χ(0)=0, the right-hand side converges to zero uniformly. The lower comparison bound then implies that the metric distance to p converges to zero uniformly at every intermediate step as well. Since m is fixed, all integer times are covered. QED.
+
+8. WHAT THE BLOCK CONDITION DOES AND DOES NOT ALLOW
+
+The block theorem permits temporary increases in V and in metric distance between block endpoints. It does not permit arbitrary intermediate behavior. The common bound χ(V(x)) is essential: it prevents intermediate states from escaping to large metric distance while the block endpoint eventually returns.
+
+The fixed block length m and the same common estimates for every i are also essential to the stated uniform conclusion.
+
+If the dynamics are switched at each step among different maps, rather than iterating one fixed F_i, the hypotheses must hold for every allowed composition or switching sequence. The present theorem does not silently cover that stronger setting.
+
+9. FAMILY UNIFORMITY AND FAILURE MODES
+
+The Lyapunov function and all comparison/decrease bounds must be common to the entire family. Having a separate V_i for each F_i is not enough to establish a uniform supremum over i.
+
+The family counterexample from GRT–01–J remains relevant:
+
+F_k(x)=(1−1/k)x, k≥2.
+
+Each map separately converges to zero, but:
+
+sup { |F_k^n(1)| : k≥2 } = 1
+
+for every finite n.
+
+There is no common uniform decay mechanism in this family. A collection of individual Lyapunov proofs with constants or functions deteriorating with k cannot replace the common estimates required above.
+
+Other failure modes:
+- If V does not bound distance from below, V→0 need not imply d→0.
+- If V is not bounded above on bounded initial sets, no uniform initial Lyapunov bound follows.
+- If the decrease estimate is not uniform in i, the family supremum is not controlled.
+- In the block theorem, omitting intermediate-step control can leave excursions between block endpoints uncontrolled.
+- A strict decrease claim must be checked on the full declared domain, not only near p.
+
+10. RELATION TO GRT–01–J
+
+GRT–01–J used a common radial comparison function:
+
+d(F_i(x),p) ≤ φ(d(x,p)).
+
+GRT–01–J.2 replaces this radial one-step estimate with a common Lyapunov function. This is structurally more flexible because V need not be a function of distance alone and may encode anisotropy or coupled state components.
+
+The Lyapunov theorem is sufficient, not necessary. No equivalence with the nonlinear comparison condition is claimed. No theorem here establishes that every uniformly attractive family admits a common Lyapunov function of the stated form.
+
+11. WHAT IS ESTABLISHED AND WHAT REMAINS OPEN
+
+ESTABLISHED UNDER THE STATED ASSUMPTIONS:
+- A common positive-definite, proper Lyapunov function with uniform strict one-step decrease yields uniform attraction on bounded initial sets.
+- The theorem forces p to be a common fixed point.
+- Metric distance may temporarily increase while the common Lyapunov function decreases.
+- A fixed-block decrease condition, together with uniform intermediate-step control, also yields uniform attraction.
+- All estimates are uniform over the family index and bounded initial set.
+
+NOT ESTABLISHED:
+- Necessity of a common Lyapunov function for A2.
+- Derivability of A2 from R-invariance alone.
+- Equivalence between the Lyapunov and nonlinear radial comparison conditions.
+- The result for arbitrary switching sequences without stronger composition hypotheses.
+- Recovery of the original primary Stage 3 specification.
+- Any physical, causal, or ontological interpretation.
+
+12. NEXT MATHEMATICAL QUESTIONS
+
+1. Determine whether a converse Lyapunov theorem is available under additional compactness, continuity, or stability assumptions, and state those assumptions explicitly.
+2. Investigate whether the common Lyapunov function can be constructed on the finite operational pseudometric quotient D_L without changing its declared metric or equivalence relation.
+3. Examine switched dynamics and arbitrary compositions, requiring estimates uniform over all admissible switching sequences.
+4. Separate the weakest useful stability assumption from the strict decrease condition; determine whether practical or asymptotic stability variants are relevant to the exact A2 target.
+5. Compare the Lyapunov criterion with the common nonlinear comparison criterion from GRT–01–J without asserting equivalence absent proof.
+
+13. SOURCE BASIS AND TRACEABILITY
+
+Predecessor mathematical checkpoint:
+audits/OI-STAGE-03-GRT-01-J-UNIFORM-ATTRACTION-WEAKER-THAN-CONTRACTION-2026-11-18.txt
+Verified predecessor blob SHA:
+b24885db91cca0b0e74ffc003242f1881ccc86eb
+
+Candidate A2 sufficient-condition and countermodel audit:
+audits/OI-STAGE-03-A1-A4-SUFFICIENT-CONDITIONS-COUNTERMODELS-2026-11-18.txt
+Previously recorded blob SHA:
+be6d8a2a1ba760a714e5cb52b7ce578f17b8b828
+
+Stage 3 derivability boundary:
+audits/OI-STAGE-03-RELATIONAL-DERIVABILITY-CHECKPOINT-2026-11-18.txt
+Previously recorded blob SHA:
+4c510671a82fc2aed38c6673a63cb3447b0c5ea4
+
+Primary specification recovery boundary:
+audits/OI-STAGE-03-PRIMARY-SPECIFICATION-RECOVERY-SEARCH-2026-11-18.txt
+Previously recorded blob SHA:
+02824dd875a3f4db4d8cf069bc581bff2de329cc
+
+Operational procedure:
+operations/OMEGA-ISOP-M3.2-CONSOLIDATED-OPERATIONAL-RULES-2026-11-18-v0.8.2-R2.txt
+Readback blob SHA:
+11187ab27896fb343bd57b27eee481e10fa46256
+
+14. PROJECT STATUS AND PROTECTION
+
+FROZEN CORE: UNCHANGED.
+VOLUME II: UNCHANGED.
+VOLUME III: UNCHANGED.
+VOLUME IV: UNCHANGED.
+VOLUME V: UNCHANGED.
+CE/CE-V: NO PROMOTION.
+RL REGISTRATION: NOT PERFORMED.
+CANONICAL ACCEPTANCE: NOT CLAIMED.
+
+This is an additive mathematical research checkpoint. GitHub commit and readback verify repository storage and content identity only. They do not constitute independent mathematical review, physical confirmation, official RL registration, CE/CE-V acceptance, Volume V integration, or canonical acceptance.
+
+END OF CHECKPOINT
