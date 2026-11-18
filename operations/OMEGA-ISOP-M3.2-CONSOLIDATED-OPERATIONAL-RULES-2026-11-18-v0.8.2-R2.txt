@@ -55,33 +55,54 @@ CANONICAL ACCEPTANCE: PENDING EXPLICIT USER DECISION NAMING THIS VERSION.
 4.3 Do not hold a result because an unrelated optional check was not run. Record the limitation and continue.
 4.4 Before repeating a check, inspect the latest verified result. Repeat only if an input or assumption changed, reproducibility is needed, a concrete doubt or boundary case exists, or a correction was made.
 4.5 A manual review is not independent review. Do not claim a check was performed unless it was.
-5. MINIMAL RL PATH: RESULT TO REGISTRATION
-Purpose: make a valid RL candidate registration-ready early, without waiting for unrelated audits or CE-V integration.
-STEP 1 - SELECT
-Select one specific result or tightly connected result set. Give it a working title and one-sentence claim. Do not wait for a full-project audit.
-STEP 2 - CLASSIFY
-Identify the evidence class and exact source/version. State whether the item is a theorem, conditional result, computational/numerical result, empirical result, conjecture, or other record type. Do not inflate its class.
-STEP 3 - CHECK THE CLAIM
-Check only what this claim needs: definitions and assumptions; domain/types; derivation or method; relevant counterexample/boundary conditions; provenance; Frozen Core compatibility; and reproducibility where applicable. Mark each item CHECKED, NOT CHECKED, NOT APPLICABLE, or UNRESOLVED. A missing optional check is not a blocker.
-STEP 4 - PREPARE THE RL RECORD
-Prepare the record immediately using the compact template in Section 6. Do not wait for optional review, universal T-tests, CE-V promotion, or canonical acceptance unless an authoritative rule for this item explicitly requires it.
-STEP 5 - DECIDE
-Choose SEND, REVISE, HOLD, or BLOCK for this specific item, with one concrete reason. SEND means ready for the next applicable submission step, not automatically registered. HOLD is permitted only for a named dependency that is genuinely necessary for that step. BLOCK requires a material defect in the stated claim or a mandatory requirement that is demonstrably unmet.
-STEP 6 - SUBMIT / REGISTER
-Identify the authoritative RL corpus, its actual entry schema, the authorized write interface, and any item-specific mandatory requirements from authoritative project/registry documentation. Submit through that interface when it is available and authorized. Never invent an RL-ID or registry requirement. If the registry assigns the ID, use the assigned ID; until then use RL-ID: PENDING REGISTRY ASSIGNMENT.
-STEP 7 - READ BACK
-After submission, retrieve the record from the authoritative registry. Verify the assigned identifier, title/claim, content, evidence class, source/traceability, and status against the submitted packet. Correct discrepancies and read back again.
-STEP 8 - SET STATUS
-Use RL_REGISTERED only after authoritative readback verifies both the registry identifier and the registered content. Before then use the precise applicable status, such as RL_PACKET_PREPARED, RL_SUBMISSION_PENDING, RL_REGISTRATION_REQUIRED, or RL_UNREGISTERED. RL_REGISTRATION_REQUIRED is not RL_REGISTERED.
-5.1 LOCAL BLOCKER RULE
-If the authoritative registry or write interface cannot be identified or accessed, block only the registry-write/readback step. Keep the prepared packet, complete any independent work, and report: (a) the exact blocked action; (b) the missing access, schema, instruction, or authorization; (c) why it is necessary; (d) what evidence was checked; and (e) the smallest action that would unblock registration. Do not turn this local dependency into a project-wide HOLD.
-5.2 REGISTRATION MUST NOT BE CONFUSED WITH
-- saving a file to ChatGPT Library;
-- preparing or reviewing an RL packet;
-- assigning a proposed identifier locally;
-- listing an RL source in a CE-V archive;
-- CE-V integration or canonical acceptance;
-- a claim that an external archive was updated without registry evidence.
+5. MINIMAL RL PATH: INVESTIGATION TO VERIFIED RECORD
+PURPOSE: Define one explicit route from research work to a grounded RL record, then keep validation, CE/CE-V decisions, and Volume V integration as distinct gates. No gate is automatic.
+
+5.1 STAGE A - RL INVESTIGATION
+Conduct the investigation in the Research Laboratory (RL). Define the question, objects, notation, domain, assumptions, and intended claim. Explore constructions, derivations, proofs, counterexamples, boundary cases, alternative interpretations, and failure tests as appropriate. Preserve meaningful negative results and unresolved questions. Do not describe an exploratory observation as an established result.
+
+5.2 STAGE B - GROUNDED RL RECORD
+When the investigation yields a result worth preserving, prepare a concise RL record using Section 6. The record must state the exact claim, record type/evidence class, definitions, domain, assumptions, derivation or reproducible method, checks performed and not performed, limitations, counterexamples/non-implications, provenance, Frozen Core compatibility, and current status. Record the result with its actual evidence status; do not upgrade it merely because it is written down or committed to GitHub.
+An RL record may document a proved result, a conditional result, a computational finding, a negative result, a correction, or an unresolved boundary. The record must make that distinction explicit.
+
+5.3 STAGE C - VALIDATION
+Validate the specific claim against its own requirements. Check, as applicable:
+- logical validity and whether the conclusion follows from the stated premises;
+- consistency and precision of definitions, notation, types, and domain;
+- completeness of the derivation or reproducibility of the method;
+- boundary cases, degenerate cases, counterexamples, and failure tests;
+- dependence on hidden assumptions or external premises;
+- compatibility with protected OMEGA-ISOP architecture and Frozen Core;
+- whether the stated evidence class and status match what was actually established.
+Mark each check CHECKED, FAILED, NOT CHECKED, NOT APPLICABLE, or UNRESOLVED, with a short reason where material. A failed mandatory check requires correction or a status downgrade. An unchecked optional test does not invalidate unrelated work, but it must not be represented as completed validation.
+Validation establishes only the scope actually checked. Mathematical validation does not by itself establish physical truth, empirical confirmation, literature novelty, or external registration.
+
+5.4 STAGE D - CE / CE-V DECISION
+After validation, make an explicit decision under the project's applicable CE/CE-V rules. Use the exact category and terminology defined by the current authoritative CE/CE-V records; do not silently treat the terms CE and CE-V as interchangeable if the governing records distinguish them.
+The decision must be one of: ACCEPT WITHIN STATED SCOPE, RETURN FOR REVISION, REJECT, or DEFER WITH A NAMED DEPENDENCY, or the exact decision vocabulary required by the authoritative CE/CE-V procedure. Record the rationale, validation evidence, assumptions, scope, limitations, and traceability. Passing mathematical validation does not automatically confer CE/CE-V status. A CE/CE-V designation may be claimed only when the relevant authoritative record or procedure confirms that designation.
+
+5.5 STAGE E - SEPARATE VOLUME V INTEGRATION ASSESSMENT
+Assess Volume V integration separately, even when a result has passed validation or received a CE/CE-V decision. Determine whether the result is architecturally relevant, non-duplicative, compatible with the current hierarchy, sufficiently stable, and useful to the theory's development. Consider whether integration would alter definitions, dependencies, scope, or existing claims. Record one decision: INTEGRATE, DO NOT INTEGRATE, or DEFER, with reasons and exact target location if applicable.
+Volume V integration requires its own explicit documented decision and traceability. No RL record, validation result, CE/CE-V decision, or GitHub commit automatically changes Volume V.
+
+5.6 REGISTRATION AND READBACK ARE A DISTINCT ADMINISTRATIVE TRACK
+RL scientific recording and external/authoritative RL registry registration are not the same operation. Identify the authoritative RL corpus, its actual entry schema, the authorized write interface, and item-specific mandatory requirements from authoritative documentation. Submit only when that interface is available and authorized. Never invent an RL-ID or registry requirement. If the registry assigns the ID, use the assigned ID; until then use RL-ID: PENDING REGISTRY ASSIGNMENT.
+After submission, retrieve the record from the authoritative registry. Verify the assigned identifier, title/claim, content, evidence class, source/traceability, and status against the submitted packet. Use RL_REGISTERED only after authoritative readback verifies both the registry identifier and registered content. Before then use the precise applicable status, such as RL_RECORD_PREPARED, RL_SUBMISSION_PENDING, RL_REGISTRATION_REQUIRED, or RL_UNREGISTERED. Use the official status vocabulary if the authoritative registry defines one.
+
+5.7 LOCAL BLOCKER RULE
+If the authoritative registry or write interface cannot be identified or accessed, block only the registry-write/readback step. Continue independent investigation, record preparation, validation, and other authorized work. Report the exact blocked action, missing dependency/authorization, why it is necessary, evidence already checked, and the smallest action that would unblock registration. Do not turn this local dependency into a project-wide HOLD.
+
+5.8 PROHIBITED STATUS COLLAPSES
+Do not equate any of the following:
+- RL investigation with a grounded RL record;
+- a GitHub file/commit with official RL registration;
+- an RL record with completed validation;
+- validation with CE/CE-V acceptance;
+- CE/CE-V acceptance with Volume V integration;
+- Volume V integration with Frozen Core modification or canonical acceptance;
+- a mathematical result with a physical law or empirical confirmation.
+Each status requires its own evidence and, where applicable, its own explicit decision and readback.
+
 6. COMPACT RL RECORD TEMPLATE
 RL-ID: PENDING REGISTRY ASSIGNMENT
 TITLE:
@@ -103,11 +124,14 @@ VERIFIED REGISTRY ID:
 VERIFIED CONTENT MATCH: YES / NO / NOT YET CHECKED
 NEXT ACTION:
 Fill only fields relevant to the record; mark others NOT APPLICABLE with a reason. Do not fabricate missing information. Keep the packet concise enough to submit without rewriting it from scratch.
-7. CE-V AND ARCHIVE CONTROL
-7.1 RL recording and CE-V promotion are separate actions. An RL item does not automatically become a CE-V extension.
-7.2 CE-V promotion requires its own explicit documented integration decision and traceability. Preserve each extension's assumptions, domain, definitions, derivation, validation boundary, and source links.
-7.3 Preserve the current CE-V numbering and hierarchy recorded in the CE-V archive. CE-V-06.1 is a submodule of CE-V-06, not a separate main entry. CE-V-07 remains reserved. RL-022 and RL-023 remain archived/superseded sources under CE-V-06.1; do not reopen them as active independent branches without an explicit decision.
-7.4 Do not reconstruct RL-004 or other unavailable historical records. Do not claim external registration solely from the local CE-V archive.
+7. CE-V, VALIDATION, AND VOLUME V CONTROL
+7.1 Validation is a claim-specific assessment, not a promotion step. Its scope, checks, failures, unchecked items, assumptions, and limitations must be recorded. A validated mathematical result is not automatically a physical result, CE/CE-V extension, or Volume V entry.
+7.2 CE/CE-V classification or acceptance requires a separate explicit decision under the applicable authoritative procedure. Use the exact terminology and status vocabulary of the governing CE/CE-V records. Do not infer CE/CE-V status from an RL record, a successful validation, or a GitHub commit.
+7.3 Volume V integration is a further, independent architectural decision. Assess relevance, non-duplication, compatibility, stability, dependencies, scope, and value to the theory. Record INTEGRATE, DO NOT INTEGRATE, or DEFER with reasons and traceability. Do not modify Volume V merely because an item has passed an earlier gate.
+7.4 Any approved CE-V extension or Volume V integration must preserve its assumptions, domain, definitions, derivation, validation boundary, limitations, decision rationale, and source links. Preserve the current CE-V numbering and hierarchy recorded in the CE-V archive.
+7.5 CE-V-06.1 is a submodule of CE-V-06, not a separate main entry. CE-V-07 remains reserved. RL-022 and RL-023 remain archived/superseded sources under CE-V-06.1; do not reopen them as active independent branches without an explicit decision.
+7.6 Do not reconstruct RL-004 or other unavailable historical records. Do not claim external registration solely from the local CE-V archive.
+7.7 No step in this workflow authorizes a Frozen Core change. Any proposed Core change requires its own explicit authorization and the project's formal change-control process.
 8. FILE AND VERSION CONTROL
 8.1 Preserve the Frozen Core, source records, Volume V, CE-V archive, unique audit/traceability records, and registration evidence. Never change or delete them during ordinary work without explicit authorization for that exact operation.
 8.2 Every new working version states its predecessor, date, change type, source limitations, and current Core/CE-V/RL/canonical status.
@@ -190,14 +214,16 @@ Use evidence-matched language such as PROVED UNDER STATED ASSUMPTIONS, CONDITION
 Confirm the exact target path and intended change. Write only the relevant result, audit, correction, or changelog update, never a chat transcript. Confirm write/commit success, then fetch or read back the saved file and verify its content. If readback fails or differs, report the failure and do not claim verification. Keep file-write success, commit success, readback verification, scientific status, RL registration, and canonical acceptance as separate status dimensions.
 12.7 CORRECTIONS AND CHANGE CONTROL
 Correct working summaries when review reveals a real mathematical or factual defect. Keep changes narrow and traceable. Do not alter Frozen Core, overwrite protected source records, or change canonical project rules without explicit authorization and documented change control. Inspect the current version before changing an existing record and verify after writing.
-12.8 RL AND CE-V BOUNDARY
-This workflow does not create RL records automatically. A GitHub audit or commit is not RL registration, does not assign an official RL-ID, and does not promote a result to CE-V. Consider RL preparation only after review and when warranted. RL_REGISTERED requires authoritative registry readback. Do not claim registration if the authoritative registry/interface remains unidentified or inaccessible.
+12.8 RL → VALIDATION → CE/CE-V → VOLUME V: GATE CONTROL
+The required conceptual route is: RL investigation → grounded RL record → claim-specific Validation → separate CE/CE-V decision → separate Volume V integration assessment. These are distinct stages, not an automatic pipeline. A result may remain in RL without proceeding further; validation may return a result for revision, reject it, or establish only a conditional/scope-limited finding; a CE/CE-V decision does not itself authorize Volume V integration.
+GitHub is a durable project record, not the authoritative RL registry unless an authoritative project rule explicitly identifies it as such. A GitHub audit or commit is not official RL registration, does not assign an official RL-ID, does not complete validation, and does not promote a result to CE/CE-V or Volume V. RL_REGISTERED requires authoritative registry readback. Do not claim registration if the authoritative registry/interface remains unidentified or inaccessible.
+For every transition, record: source record and version; exact claim; decision and decision-maker/authority where applicable; evidence and checks relied upon; scope and limitations; target record/path; and readback/verification status. Keep scientific status, validation status, CE/CE-V status, Volume V integration status, RL registration status, and canonical acceptance status separate.
 12.9 NEW-CHAT CONTINUITY
 At the beginning of a new chat, read this M3.2 file and inspect current GitHub state, relevant project-status documents, and the latest records for the active research thread. Resume from verified artifacts and commit history, not assumptions about remembered conversation details. If repository access is unavailable, state that limitation and do not pretend to have inspected or updated files.
 12.10 SESSION EXIT CHECK
 Before ending a substantial session, identify the durable result, checks actually performed, files written and read back, what remains conditional/unresolved/unverified, and the next concrete research action. Do not create a record merely to show activity. If no material result emerged, do not force a repository write.
 CHANGE SUMMARY FOR SECTION 12
-GitHub is established as a concise, verified scientific-value record rather than a conversation archive. This section adds review-before-write, proportional mathematical checking, correction/traceability rules, readback verification, and new-chat continuity. It does not alter Frozen Core, automatically register RL items, or change canonical acceptance status.
+GitHub is established as a concise, verified scientific-value record rather than a conversation archive. This section adds review-before-write, proportional mathematical checking, correction/traceability rules, readback verification, and new-chat continuity. Section 12.8 now states the distinct RL investigation, grounded record, Validation, CE/CE-V, and Volume V gates. It does not alter Frozen Core, automatically register RL items, or change canonical acceptance status.
 AMENDMENT RECORD v0.8.2-R1 (2026-11-09)
 This revision clarifies the Android copy-presentation rules only. A complete text artifact is delivered in one continuous copyable block. Code, whenever present, is delivered in a separate code block containing only source code or commands. Explanations and execution instructions remain outside copyable blocks. Non-content interface labels, including “Писане”, are prohibited inside or as part of any copyable area.
 No mathematical results, scientific claims, or research records are integrated into M3.2 by this amendment. Such material remains in its designated technical, mathematical, or audit archives.
@@ -231,4 +257,14 @@ CHANGE SUMMARY FOR v0.8.2-R2
 - Recorded that the Drive/Colab provenance relationship is user-declared and is not independently verified unless those sources are actually accessed.
 - No Frozen Core, mathematical result, coefficient, scientific status, RL registration, or CE-V status was changed by this operational amendment.
 M3.2 v0.8.2-R1 and all earlier predecessors remain preserved unchanged. This v0.8.2-R2 revision remains a WORKING CANDIDATE and is NOT CANONICALLY ACCEPTED unless explicitly accepted by the user.
+
+AMENDMENT RECORD v0.8.2-R2 CLARIFICATION (2026-11-18)
+- Replaced the former linear result-to-registration description with an explicit staged route: RL investigation → grounded RL record → claim-specific Validation → separate CE/CE-V decision → separate Volume V integration assessment.
+- Defined the purpose and minimum checks of each stage, including evidence-matched status, boundaries, counterexamples, failed/unchecked checks, and traceability.
+- Clarified that validation does not automatically confer CE/CE-V status; CE/CE-V does not automatically authorize Volume V integration; and none of these stages modifies the Frozen Core.
+- Separated scientific RL recording from authoritative registry registration and readback.
+- Expanded the CE-V/Volume V controls and prohibited status collapse between research, validation, CE/CE-V, Volume V, RL registration, and canonical acceptance.
+- This is an operational clarification of the existing working-candidate text. It does not claim that any research result has been validated, registered, accepted into CE/CE-V or Volume V, or canonically accepted.
+- Frozen Core and protected source records remain unchanged. M3.2 remains a WORKING CANDIDATE and is NOT CANONICALLY ACCEPTED unless explicitly accepted by the user.
+
 END OF OMEGA-ISOP M3.2 CONSOLIDATED OPERATIONAL RULES v0.8.2-R2
