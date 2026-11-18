@@ -1,0 +1,309 @@
+OMEGA-ISOP
+STAGE 3 — A1–A4 SUFFICIENT CONDITIONS AND COUNTERMODELS
+DATE: 2026-11-18
+DOCUMENT ID: OI-STAGE-03-A1-A4-SUFFICIENT-CONDITIONS-COUNTERMODELS-2026-11-18
+STATUS: CONDITIONAL FORMAL ANALYSIS / DEFINITIONS PARTLY OPEN
+TYPE: ADDITIVE MATHEMATICAL AUDIT CHECKPOINT
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+
+1. SCOPE AND SOURCE BASIS
+
+This record develops explicit sufficient conditions and countermodels for the Stage 3 findings A1–A4. It is based on Volume II v1.3-MF-AUDIT-RESTORED-FINAL, especially:
+- V.2–V.5: realized state space, admissible dynamics, and dynamic-selection boundary;
+- VI.3–VI.4: invariant structures and response regularity;
+- VII.1–VII.7: persistence, operational response classes, and organization;
+- VIII.1–VIII.5: operational language, operational distance, and Theorem 91.
+
+The analysis is conditional and additive. It does not change the Frozen Core or any volume.
+
+2. NOTATION AND PRELIMINARY DISTINCTIONS
+
+Fix a realization Φ and its state/model space X or model class M. Let R be the relational constraint structure and let T be an admissible transformation.
+
+R-invariance means only that the selected relational structure is preserved by T, in the exact sense specified by the realization. It does not, without further structure, prescribe how operational responses transform.
+
+For an operational language L_op and response space Y, Volume II gives:
+Resp_M : L_op → Y.
+
+Where Y is normed, Volume II defines:
+D_L(M1,M2) = sup over a in L_op of ||Resp_M1(a)-Resp_M2(a)||_Y,
+when this quantity is well-defined.
+
+D_L is an extended pseudometric, not automatically a finite metric. A metric on L_op is not part of the stated core definition.
+
+The four targets must be kept distinct:
+A1: covariance of response maps under a common pullback;
+A2: attraction toward a common limit or attractor;
+A3: equicontinuity of a specified family of maps;
+A4: existence of a common anchor response or common fixed point.
+
+A3 and A4 require a precise choice of the family and of the meaning of “anchor”. The conditional formulations below are candidate formalizations, not silent amendments to the Frozen Core.
+
+3. A1 — COMMON RESPONSE COVARIANCE
+
+3.1 Target statement
+
+A1 requires one and the same map:
+τ : L_op → L_op
+such that for every model M in the declared comparison class and every a in L_op:
+Resp_(T(M))(a) = Resp_M(τ(a)).
+
+The map τ must be common to the entire comparison class. Model-dependent maps τ_M do not establish the common-map hypothesis of Theorem 91.
+
+3.2 Sufficient condition: operational pullback naturality
+
+Suppose:
+(i) each model M has a realized state x_M in X;
+(ii) every operational symbol a in L_op is represented by an observable a:X→Y;
+(iii) Resp_M(a)=a(x_M);
+(iv) T acts on all model states by the same state transformation T:X→X;
+(v) L_op is closed under pullback by T, so a∘T belongs to L_op for every a in L_op.
+
+Define:
+τ_T(a)=a∘T.
+
+Then:
+Resp_(T(M))(a)
+= a(T(x_M))
+= (a∘T)(x_M)
+= Resp_M(τ_T(a)).
+
+Therefore A1 holds.
+
+This is a valid derivation from the operational representation and pullback-closure assumptions. It is not a derivation from R-invariance alone. R-invariance may establish that T is relationally admissible, but assumptions (i)–(v) supply the missing response semantics and common pullback.
+
+3.3 Countermodel: R-invariance without A1
+
+Let X={0,1}, let R be the empty relation, and let T preserve R. Let L_op={a}, so every map τ:L_op→L_op must satisfy τ(a)=a.
+
+Let the model class contain response states r∈{0,1}, with:
+Resp_r(a)=r,
+and let T act on response states by:
+T(r)=1-r.
+
+The relational structure remains unchanged, but:
+Resp_(T(r))(a)=1-r ≠ r=Resp_r(a).
+
+Thus no τ on the singleton operational language can satisfy common response covariance. R-invariance alone is insufficient.
+
+3.4 Status
+
+A1 is derivable under operational pullback naturality and closure. It is not derivable from R-invariance alone. The extra assumptions are substantive and must be stated whenever A1 is used.
+
+4. A2 — UNIFORM ATTRACTION
+
+4.1 Candidate target
+
+Fix a metric space (Z,d), a family of dynamics F_i:Z→Z, and a proposed common attractor p∈Z. Uniform attraction on a subset B⊆Z means:
+sup over i and z∈B of d(F_i^n(z),p) → 0 as n→∞.
+
+This definition makes explicit the comparison family, the metric, the initial set, and the common target. Other definitions of attraction are possible and must not be conflated with this one.
+
+4.2 Sufficient condition: uniform contraction with a common anchor
+
+Suppose:
+(i) (Z,d) is complete;
+(ii) for every i, F_i:Z→Z;
+(iii) there is one q with 0≤q<1 such that:
+d(F_i(x),F_i(y))≤q d(x,y)
+for all i,x,y;
+(iv) there exists p∈Z such that F_i(p)=p for every i;
+(v) the initial set B is bounded, with sup over z∈B of d(z,p) = C < ∞.
+
+Then, by iteration:
+d(F_i^n(z),p)≤q^n d(z,p)≤q^n C.
+
+Hence:
+sup over i and z∈B of d(F_i^n(z),p)≤q^n C → 0.
+
+This proves uniform attraction to the same p over the family and bounded initial set B.
+
+If there is only one common map F, the common fixed point follows from Banach's contraction theorem on complete Z. For a family of different maps F_i, a shared fixed point is an additional condition; individual contraction alone does not guarantee that their fixed points coincide.
+
+4.3 Countermodel: R-invariance without attraction
+
+Let Z=[0,1] with its usual metric, R be empty, and F_i(z)=z for every i. R is preserved. For any proposed common point p, choose an initial point z≠p. Then:
+d(F_i^n(z),p)=d(z,p)
+for every n.
+Consequently uniform attraction to p fails. Relational invariance does not imply attraction.
+
+4.4 Relation to Theorem 91
+
+Theorem 91 gives non-expansion under a common response pullback:
+D_L(T(M1),T(M2))≤D_L(M1,M2).
+
+Non-expansion is a q=1 bound. It does not provide the strict contraction q<1 needed by the argument in 4.2, nor does it by itself provide a common fixed point. Therefore Theorem 91 alone does not establish A2.
+
+4.5 Status
+
+A2 follows from a complete metric model/response space, a uniform strict contraction bound, a common fixed point for the family, and a bounded initial set. These are additional assumptions, not consequences of R-invariance.
+
+5. A3 — UNIFORM EQUICONTINUITY
+
+5.1 Definition must identify the family
+
+For a family H of maps from a metric space (Z,d_Z) to a metric space (W,d_W), equicontinuity means:
+for every ε>0 there exists δ>0 such that for all h∈H and all x,y∈Z,
+d_Z(x,y)<δ implies d_W(h(x),h(y))<ε.
+
+“Uniform equicontinuity” is used inconsistently in the literature. This record uses equicontinuity uniform over the declared family H. The family and both metrics must be stated.
+
+Two different targets are possible:
+(A) equicontinuity of the iterates {T^n} on model space;
+(B) equicontinuity of the response functions {Resp_M} on operational language.
+They are not the same claim.
+
+5.2 Sufficient condition for iterates
+
+Suppose (Z,d) is a metric space and every iterate T^n is non-expansive:
+d(T^n(x),T^n(y))≤d(x,y)
+for all n≥0 and x,y∈Z.
+
+Then the family {T^n:n≥0} is equicontinuous, with the common choice δ=ε.
+
+A stronger sufficient condition is a uniform Lipschitz bound:
+d(T_i^n(x),T_i^n(y))≤L d(x,y)
+for all family indices i and all n, with fixed finite L.
+
+5.3 Conditional link to Theorem 91
+
+If D_L is finite-valued on the selected model class, if the same transformation T and common pullback hypothesis remain valid under iteration, and if the comparison domain is stable, Theorem 91 can be iterated to give:
+D_L(T^n(M1),T^n(M2))≤D_L(M1,M2).
+
+On the metric quotient that identifies models at zero D_L-distance, this yields equicontinuity of the iterates with respect to the induced metric.
+
+Caveat: D_L is only an extended pseudometric in Volume II. Finiteness and quotient construction must be established for the selected domain. This argument concerns equicontinuity on model space under D_L. It does not establish equicontinuity of Resp_M as functions of a∈L_op.
+
+5.4 Sufficient condition for response-family equicontinuity
+
+To establish equicontinuity of {Resp_M} on L_op, supply a metric d_L on L_op, a metric d_Y on Y, and one common modulus ω such that:
+d_Y(Resp_M(a),Resp_M(b))≤ω(d_L(a,b))
+for every M in the declared model family and all a,b∈L_op,
+where ω(s)→0 as s→0.
+
+A uniform Lipschitz condition is the special case:
+d_Y(Resp_M(a),Resp_M(b))≤C d_L(a,b)
+with C independent of M.
+
+Neither d_L nor such a common modulus is supplied by R-invariance alone.
+
+5.5 Countermodel: failure of equicontinuity
+
+Let Z=R with its usual metric, R be empty, and T(x)=2x. Then R is preserved. The iterate family is T^n(x)=2^n x.
+
+At x=0, for any δ>0 choose n large and y=2^(-n). Then |y-0|<δ for sufficiently large n, while:
+|T^n(y)-T^n(0)|=1.
+
+Thus the family {T^n} is not equicontinuous at 0. R-invariance alone is insufficient.
+
+5.6 Status
+
+A3 is conditionally established for a specified family and metric under a common modulus or non-expansion/Lipschitz bound. The core does not define a metric on L_op or establish response-family continuity. A3 cannot be asserted without specifying which equicontinuity target is intended.
+
+6. A4 — COMMON ANCHOR RESPONSE AND COMMON FIXED POINT
+
+6.1 Two distinct formal meanings
+
+The phrase “common anchor response” is not yet sufficiently precise to identify one theorem. At least two non-equivalent meanings must be separated.
+
+Meaning A — common operational anchor:
+there exist a_*∈L_op and y_*∈Y such that:
+Resp_M(a_*)=y_*
+for every M in the declared comparison class.
+
+Meaning B — common dynamical fixed point:
+there exists p∈Z such that:
+F_i(p)=p
+for every dynamic F_i in the declared family.
+
+Meaning A is a shared response value at one operational input. Meaning B is a shared fixed state of the dynamics. Neither implies the other without additional assumptions.
+
+6.2 Sufficient conditions for a common operational anchor
+
+A direct sufficient condition is an explicitly specified anchor a_* whose response is constrained by the model class:
+Resp_M(a_*)=y_* for every M.
+
+To make the anchor invariant under dynamics as well, require:
+τ(a_*)=a_*
+and common response covariance. Then:
+Resp_(T(M))(a_*)=Resp_M(τ(a_*))=Resp_M(a_*)=y_*.
+
+This establishes persistence of the common anchor response under T. The common value condition itself is an independent hypothesis; it is not obtained from R-invariance alone.
+
+6.3 Sufficient conditions for a common fixed point
+
+A sufficient condition for a family is the explicit shared-anchor condition:
+there exists p∈Z with F_i(p)=p for every i.
+
+For a single self-map F on a nonempty complete metric space, a strict contraction is sufficient by Banach's fixed-point theorem. For a family of maps, individual contractions do not imply a shared fixed point unless a common-anchor or another compatibility condition is added.
+
+6.4 Countermodel: R-invariance without a fixed point
+
+Let Z=R, let the relational structure be empty, and let T(x)=x+1. The empty relation is preserved by T, but:
+T(x)=x
+has no solution in R.
+
+Thus R-invariance does not imply existence of a fixed point, let alone a common fixed point across a family.
+
+6.5 Status
+
+A4 is not established until “anchor response” is formally selected as Meaning A, Meaning B, or another explicit definition. The two meanings must not be merged. Common response values and common dynamical fixed points require separate proof obligations.
+
+7. CONSOLIDATED LOGIC
+
+The following implications are valid only under their listed additional assumptions:
+
+- R-invariance + operational pullback representation + closure of L_op under the common pullback
+  => A1 common response covariance.
+
+- Completeness + uniform strict contraction + common fixed point + bounded initial set
+  => A2 uniform attraction to the common fixed point.
+
+- A common modulus of continuity for the declared map family
+  => A3 equicontinuity.
+
+- Non-expansion of all iterates on a finite metric quotient
+  => A3 equicontinuity of iterates on that quotient.
+
+- Explicit common operational anchor + invariant pullback of the anchor
+  => persistence of the common anchor response.
+
+- Explicit common fixed point for all maps in the family
+  => common fixed-point property.
+
+None of these additional assumptions is supplied by R-invariance alone.
+
+8. IMPORTANT NON-IMPLICATIONS
+
+1. Non-expansion does not imply strict contraction.
+2. Strict contraction of each map separately does not imply a common fixed point for a family.
+3. Equicontinuity does not imply attraction.
+4. Attraction to an attractor set does not necessarily imply convergence to one common point.
+5. A common response value at one operational symbol does not imply a common fixed state.
+6. A common fixed state does not imply common response covariance on all of L_op.
+7. A metric on the model quotient does not automatically define a metric on L_op.
+8. A normed response space Y does not automatically provide continuity of Resp_M in its operational argument.
+
+9. DISPOSITION AND NEXT ACTION
+
+A1: CONDITIONAL SUFFICIENT CONSTRUCTION ESTABLISHED; NOT DERIVABLE FROM R-INVARIANCE ALONE.
+A2: CONDITIONAL UNIFORM-CONTRACTION THEOREM ESTABLISHED; NOT DERIVABLE FROM R-INVARIANCE ALONE.
+A3: CONDITIONAL SUFFICIENT CONDITIONS ESTABLISHED; TARGET FAMILY/TOPOLOGY MUST BE FIXED.
+A4: NOT YET A SINGLE WELL-POSED CLAIM; COMMON OPERATIONAL ANCHOR AND COMMON DYNAMICAL FIXED POINT MUST REMAIN SEPARATE.
+
+NEXT ACTION:
+Recover the exact Stage 3 definitions and intended quantifiers for A1–A4, especially the target family in A3 and the meaning of “common anchor response” in A4. Then test whether the project’s declared admissible-dynamics class can satisfy any of the sufficient conditions without changing the Frozen Core. If not, retain the results as conditional extensions only.
+
+10. PROTECTED STATUS
+
+FROZEN CORE: UNCHANGED.
+VOLUME II: UNCHANGED.
+VOLUME V: UNCHANGED.
+CE-V: NO PROMOTION.
+RL: NO REGISTRATION.
+CANONICAL ACCEPTANCE: NOT CLAIMED.
+
+This file is an additive research checkpoint. It is not a canonical amendment and does not claim that the additional sufficient conditions are consequences of the Frozen Core.
+
+END OF CHECKPOINT
