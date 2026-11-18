@@ -292,4 +292,19 @@ CE-V: NO PROMOTION.
 RL: NO REGISTRATION.
 CANONICAL ACCEPTANCE: NOT CLAIMED.
 
+
+
+8. TERMINOLOGY PRECISION — SCOPE OF THE INDEPENDENCE CLAIM
+
+The three witnesses above establish the following three non-implications:
+(A1 AND A2) does not imply A3.
+(A1 AND A3) does not imply A2.
+(A2 AND A3) does not imply A1.
+
+They therefore show that none of A1, A2, A3 is derivable from the conjunction of the other two within the stated reconstructed model class.
+
+They do NOT, by themselves, establish full Boolean independence in the stronger sense that all 2^3=8 truth-value assignments are realizable. In particular, the truth patterns with two conditions false and the remaining condition true, and the all-false pattern, were not constructed here.
+
+Accordingly, the precise proven result is THREE-WAY NON-IMPLICATION / INDEPENDENCE FROM THE CONJUNCTION OF THE OTHER TWO, not full eight-pattern Boolean independence. This terminology restriction governs Section 5 and the disposition above.
+
 END OF AUDIT
