@@ -1,0 +1,83 @@
+OMEGA-ISOP
+STAGE 3 — GRT-01-A
+TOPOLOGICAL GENERALIZATION
+DATE: 2026-11-18
+STATUS: COMPLETED FOR THIS SUBTASK / NON-CANONICAL
+CLASSIFICATION: RECONSTRUCTED MATHEMATICAL INVESTIGATION
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+
+1. SCOPE
+This record investigates whether reconstructed A1-A3 can be formulated in general topological settings without assuming a metric. It does not recover the original Stage 3 specification and does not modify the Frozen Core or any canonical volume.
+
+2. GENERAL FRAMEWORK
+X and Y are topological spaces.
+I is a nonempty parameter set.
+F_i : X -> Y and T_i : X -> X for every i in I.
+A and B are subsets of X; where attraction to A is discussed, A is nonempty.
+No metric, norm, compactness, linearity, or continuity is assumed unless explicitly stated.
+
+3. A1 — ALGEBRAIC COVARIANCE
+Let G act on X and Y through actions alpha and beta.
+Reconstructed condition:
+For all i in I, g in G, x in X:
+F_i(alpha(g,x)) = beta(g,F_i(x)).
+
+RESULT: PROVEN (DEFINITIONAL / ALGEBRAIC).
+The covariance equality can be stated and checked without a metric or topology. Continuity of the actions, if required, is an additional topological assumption and does not follow from covariance alone.
+
+4. A2 — TOPOLOGICAL UNIFORM ATTRACTION
+Let N(A) denote the open neighborhoods of A.
+Reconstructed condition:
+For every U in N(A), there exists N in the natural numbers such that for every i in I and every n >= N:
+T_i^n(B) is a subset of U.
+
+This is a topological formulation of uniform attraction. It is not asserted to be equivalent to every prior metric formulation without suitable compatibility assumptions.
+
+COUNTERMODEL GRT-A2-CM1:
+X = R, A = {0}, B = {1}, I = positive integers.
+T_i(x) = (1 - 1/(i+1))x.
+For each fixed i, T_i^n(1) tends to 0. However, no common N works for all i for the neighborhood U = (-1/2,1/2), because for every N one can choose i sufficiently large that (1 - 1/(i+1))^N > 1/2.
+RESULT: COUNTERMODEL. Individual attraction does not imply uniform attraction, even in the usual topology on R.
+
+5. A3 — CONTINUITY AND EQUICONTINUITY
+Individual continuity is a topological notion. General uniform equicontinuity, however, is not determined by arbitrary topologies alone; a uniform structure or another explicitly stated replacement is needed.
+
+COUNTERMODEL GRT-A3-CM1:
+X = Y = R with the usual topology; I = positive integers; F_i(x) = i*x.
+Every F_i is continuous and F_i(0) = 0. For V = (-1,1), there is no neighborhood U of 0 such that F_i(U) is a subset of V for every i.
+RESULT: COUNTERMODEL to the claim that individual continuity yields a common neighborhood control at a shared image point. This illustrates failure of family equicontinuity in a setting where the usual uniformity is available. It does not define a canonical equicontinuity notion on every arbitrary topological space.
+
+6. CONSOLIDATED STATUS
+A1:
+PROVEN — algebraic covariance is independent of metric structure, assuming the actions and maps are defined.
+
+A2:
+RECONSTRUCTED — topological neighborhood formulation stated.
+COUNTERMODEL — pointwise/individual attraction does not imply uniform attraction.
+
+A3:
+PROVEN — individual continuity is topologically definable.
+COUNTERMODEL — individual continuity does not imply common family control, as shown by F_i(x)=i*x.
+CONDITIONAL — a general uniform-equicontinuity statement requires an explicitly selected uniform structure or replacement definition.
+
+7. LIMITATIONS AND OPEN ITEMS
+- No equivalence with the unrecovered original A1-A3 has been established.
+- No claim of absolute minimality is made.
+- The A2 formulation uses eventual inclusion of all iterated images of B in every open neighborhood of A; alternative attraction conventions may differ.
+- The A3 countermodel uses a shared image point and must not be overgeneralized into a unique definition for arbitrary topological codomains.
+- Infinite-dimensional, nonlinear, and alternative symmetry settings remain for later GRT subtasks.
+- Independence stability of all three prior countermodels remains to be audited separately.
+
+8. ARCHITECTURAL PROTECTION
+FROZEN CORE: UNCHANGED.
+VOLUME II: UNCHANGED.
+VOLUME IV: UNCHANGED.
+VOLUME V: UNCHANGED.
+A4: UNRESOLVED.
+CE-V: NO PROMOTION.
+RL: NO REGISTRATION.
+CANONICAL ACCEPTANCE: NOT CLAIMED.
+No reconstructed result in this record is promoted to canonical status.
+
+END OF RECORD.
