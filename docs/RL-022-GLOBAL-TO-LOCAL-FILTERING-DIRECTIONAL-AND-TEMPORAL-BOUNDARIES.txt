@@ -1,0 +1,328 @@
+OMEGA-ISOP — RESEARCH LABORATORY
+RL-022 — GLOBAL-TO-LOCAL FILTERING: DIRECTIONAL AND TEMPORAL BOUNDARIES
+Canonical archival record
+Date: 2026-11-18
+Type: CONSOLIDATED ARCHIVAL RESEARCH RECORD
+Status: CLOSED / ARCHIVED / CONSOLIDATED
+Epistemic status: DERIVED / CONDITIONAL / MODEL-DEPENDENT
+
+SOURCE CONSOLIDATION
+RL-022: original directional boundary result.
+RL-023: dynamic/temporal global realization result.
+RL-023 is absorbed into this consolidated RL-022 record. Its scientific content and provenance remain traceable in Sections 6.2, 6.3 and the corresponding boundary, failure and limitation sections.
+
+CE-V TRACEABILITY
+Parent: CE-V-06 — Global Realization Filtering of Local Organizational Realizations (source: RL-006).
+Submodule: CE-V-06.1 — Directional and Temporal Boundaries.
+Repository archive status: CE-V-06.1 is recorded in the retained CE-V archive as an OFFICIAL VALIDATED INTEGRATED SUBMODULE of CE-V-06, sourced from RL-022 + RL-023.
+Integration control: This RL record does not itself authorize or create CE-V promotion. The existing CE-V-06.1 status is taken from the authoritative retained CE-V archive. No CE-V numbering or hierarchy is changed here.
+
+KEY
+ГЛОБАЛНО-ЛОКАЛНО ФИЛТРИРАНЕ / ПОСОЧНОСТ / ВРЕМЕВА ГРАНИЦА / RL-022-023
+
+CLAIMS
+
+C1. The filtering dependency R_global →_F R_i →_F A_i does not entail the presence of A_i →_U R_global.
+
+C2. The same dependency does not entail the absence of A_i →_U R_global.
+
+C3. The filtering construction is conditionally extendable to S_global(t), provided that A4 holds.
+
+GIVEN STRUCTURES
+
+S_global = (M, Γ, Θ)
+
+Local domain:
+D_i ⊂ M
+
+Global relational structure:
+R_global
+
+Local relational structure:
+R_i ∈ Restrict(R_global, D_i) ∩ Compatible(Θ, D_i)
+
+Local admissible dynamics:
+A_i(R_i; Φ_i)
+
+Base CE-V-06 result:
+A selected global realization can conditionally filter the class of locally admissible relational structures and thereby constrain downstream organizational possibilities.
+
+DEFINITIONS
+
+D1. X →_F Y (filtering dependency):
+Y is constrained by X through Restrict ∩ Compatible, or through the A_i(R_i; Φ_i) dependence.
+
+D2. X →_U Y (update dependency):
+In the given discrete-time model, Y(t+1) depends non-constantly on X(t), i.e. there exist admissible values x1 ≠ x2 such that:
+Y(t+1 | X(t)=x1) ≠ Y(t+1 | X(t)=x2).
+The dependence may concern the whole state Y or at least one explicitly defined component of Y.
+
+D3. X ↛_U Y := ¬(X →_U Y) in the same model.
+
+D4. P ⊬ Q:
+Q is not derivable from P; this is shown by a model satisfying P and ¬Q.
+
+ASSUMPTIONS / CONSTRAINTS
+
+A1. Global and local structures are explicitly defined.
+A2. Restriction from the global realization to a local domain is well-defined.
+A3. Compatibility conditions are explicitly specified.
+A4. Where temporal extension is considered, the relevant temporal structures, restriction operations, compatibility conditions and realization context are well-defined at each relevant t.
+A5. The analysis does not assume that global-to-local filtering is the only possible directional dependency.
+A6. No universal global dynamics is assumed.
+A7. Realization is distinguished from selection.
+A8. Admissibility is distinguished from realization.
+A9. Local organization is not identified with global realization.
+
+RULE
+
+Independence of a claim Q from P is shown only by two models:
+one satisfying P ∧ Q
+and one satisfying P ∧ ¬Q.
+
+DERIVATION
+
+6.1 STATIC AND TEMPORAL FORMS
+
+Static:
+S_global = (M, Γ, Θ)
+D_i ⊂ M
+R_i ∈ Restrict(R_global, D_i) ∩ Compatible(Θ, D_i)
+A_i = A_i(R_i; Φ_i)
+
+Temporal (under A4):
+S_global(t) = (M(t), Γ(t), Θ(t))
+D_i(t) ⊂ M(t)
+R_i(t) ∈ Restrict(R_global(t), D_i(t)) ∩ Compatible(Θ(t), D_i(t))
+A_i(t) = A_i(R_i(t); Φ_i(t))
+
+6.2 TEMPORAL RESULT (C3)
+
+If restriction, compatibility and realization-context operations remain well-defined at each relevant t, the CE-V-06 filtering construction extends to:
+
+Global(t) →_F Local(t) →_F Admissible Dynamics(t)
+
+without requiring a static global realization.
+
+No particular law of global evolution is derived.
+
+6.3 DIRECTIONAL RESULT (C1, C2), MODEL-LEVEL VERIFICATION
+
+Common setting (A4, discrete time):
+M = {a, b}
+D_1 = {a}
+R_global(t) = (x_t, y_t) ∈ {0,1}²
+Θ imposes no additional restriction
+R_1(t) = x_t
+A_1(t) = A_1(R_1(t); Φ_1) = R_1(t)
+
+The filtering chain:
+R_global(t) →_F R_1(t) →_F A_1(t)
+holds at every t in both models below.
+
+Model K1 (with feedback):
+x_{t+1} = 1 − A_1(t)
+y_{t+1} = y_t
+
+Therefore:
+A_1(t) →_U R_global(t+1)
+because the x-component of R_global(t+1) depends non-constantly on A_1(t).
+
+This is:
+P ∧ ¬(A_i ↛_U R_global)
+the model for C2.
+
+Model K0 (without feedback):
+x_{t+1} = x_t
+y_{t+1} = y_t
+
+Then R_global(t+1) does not depend on A_1(t), so:
+A_1 ↛_U R_global
+
+This is:
+P ∧ ¬(A_i →_U R_global)
+the model for C1.
+
+Consequences:
+CE-V-06 ⊬ (A_i →_U R_global)
+CE-V-06 ⊬ (A_i ↛_U R_global)
+
+Hence the global-to-local result can be neither strengthened into a universal prohibition of local-to-global feedback nor into a universal existence of it.
+
+K1 and K0 both satisfy the filtering chain, while the presence of reverse update-dependency differs between them.
+
+VERIFICATION
+
+V1. K1 and K0 satisfy A1–A4 and the filtering chain at every t (checked in 6.3).
+V2. K1 and K0 differ only in the update rule of x_t; the filtering chain is identical in both.
+V3. In K1, the x-component of R_global(t+1) depends non-constantly on A_1(t), satisfying D2.
+V4. In K0, R_global(t+1) is independent of A_1(t), satisfying D3.
+V5. Frozen Core Protection Test: Does the result modify, contradict or reinterpret the Frozen Core? NO. Integration is not blocked.
+
+FAILURE TESTS
+
+FAILURE TEST A:
+Derive:
+Global → Local ⊢ Local ↛ Global
+Result: FAILED.
+Reason: K1.
+
+FAILURE TEST B:
+Derive:
+Global → Local ⊢ Local → Global
+Result: FAILED.
+Reason: K0.
+In addition, absence of a prohibition does not establish existence of coupling.
+
+FAILURE TEST C:
+Treat temporal extension as a universal physical law.
+Result: FAILED / NOT DERIVED.
+Reason: Temporal applicability requires explicitly defined temporal structures and operations.
+
+FAILURE TEST D:
+Treat the selected global realization as uniquely derived.
+Result: FAILED / NOT DERIVED.
+Reason: Realization and selection remain distinct.
+
+FAILURE TEST E:
+Extend the filtering construction to S_global(t) when A4 is violated, i.e. when Restrict, Compatible or realization context is undefined at some t.
+Result: NOT APPLICABLE.
+Reason: The construction is undefined, not refuted.
+
+FAILURE TEST F:
+Read →_U (as in K1) as causation.
+Result: FAILED / NOT DERIVED.
+Reason: →_U is a model-level functional dependence. Filtering and update-dependency remain distinct from causation.
+
+RESULT
+
+The consolidated RL-022 establishes two compatible boundaries of CE-V-06.
+
+I. DIRECTIONAL BOUNDARY
+
+The validated global-to-local filtering relation entails neither the universal absence nor the universal existence of local-to-global influence.
+
+The directional structure remains open with respect to possible feedback.
+
+Established at the level of logical consistency (existence of models K1 and K0).
+
+II. TEMPORAL BOUNDARY
+
+S_global(t) →_F R_i(t) →_F A_i(t),
+provided that the temporal structures, restriction operations, compatibility conditions and realization context are explicitly defined (A4).
+
+No universal global dynamics is derived.
+
+RELATION BETWEEN I AND II
+
+The two boundaries have distinct conclusions (C1–C2 versus C3).
+
+The countermodels of I are formulated in discrete time under A4, so I uses the A4 conditions of II.
+
+FAILURE BOUNDARIES
+
+This RL does NOT establish:
+- local-to-global causation;
+- absence of local-to-global feedback;
+- universal bidirectional coupling;
+- universal no-feedback;
+- a universal law of global evolution;
+- unique global realization;
+- unique realization selection;
+- physical realization of the temporal extension;
+- cosmological necessity of any particular realization;
+- automatic local organization from global realization;
+- global realization from local organization;
+- any feedback law, its stability or convergence.
+
+LIMITATIONS
+
+The result is conditional on the formal structures specified above.
+The temporal extension is model-dependent.
+The directional result is a logical boundary result, not an empirical claim about physical systems.
+K0 and K1 use a trivial Compatible(Θ, ·); the result is an existence result and makes no claim for every Θ, in particular no claim that feedback is compatible with any given non-trivial Θ.
+Global realization remains distinct from global selection.
+Admissibility remains distinct from realization.
+Filtering remains distinct from causation.
+Update-dependency remains distinct from causation.
+The result does not modify the Frozen Core.
+
+M3.2 RESEARCH CLASSIFICATION
+
+RL-022 original directional investigation:
+N3 — new logical dependency
+N6 — new validity boundary
+
+RL-023 temporal investigation:
+N4 — new domain/regime/boundary
+N6 — new validity boundary
+
+POST-CONSOLIDATION
+
+The two results have distinct conclusions and are non-redundant.
+Consolidation itself introduces no additional research claim, so no new RL is generated by the consolidation operation.
+Explicit models K0 and K1 formalize the existing directional countermodel and are not a new research claim.
+
+STATUS
+
+Epistemic status:
+DERIVED / CONDITIONAL / MODEL-DEPENDENT
+
+Archival status:
+CLOSED / CONSOLIDATED
+
+RL-023 status:
+ABSORBED INTO CONSOLIDATED RL-022
+
+RL-023 remains identifiable as the temporal-source component (Sections 6.2, 6.3 and the corresponding boundary, failure and limitation sections), but is no longer maintained as an independent RL record.
+
+CE-V STATUS AND TRACEABILITY
+
+CE-V-06:
+VALIDATED INTEGRATED PARENT
+
+CE-V-06.1:
+OFFICIAL VALIDATED INTEGRATED SUBMODULE, as recorded in the retained CE-V archive; subordinate to CE-V-06.
+
+CE-V-06.1 incorporates:
+- RL-022 directional boundary result;
+- RL-023 temporal boundary result.
+
+No new CE-V number is created.
+
+FROZEN CORE STATUS
+
+FROZEN CORE: INTACT
+Frozen Core Protection Test: NO (see V5).
+No modification, contradiction or reinterpretation of Frozen Core.
+No integration conflict detected.
+
+TRACEABILITY
+
+CE-V-06 (source RL-006)
+↓
+CE-V-06.1
+↓
+RL-022 — Directional Boundary
+RL-023 — Temporal Boundary
+↓
+CONSOLIDATED RL-022
+
+Canonical archival record:
+RL-022 — Global-to-Local Filtering: Directional and Temporal Boundaries
+
+The former RL-023 content is preserved in Sections 6.2 and 6.3 and in the corresponding boundary, failure and limitation sections of this consolidated RL-022.
+
+FINAL ARCHIVAL STATEMENT
+
+RL-022 is the single consolidated archival record for the directional and temporal boundary analysis associated with CE-V-06.1.
+
+RL-023 is absorbed into RL-022 for archival economy while its scientific content and provenance remain fully traceable.
+
+CE-V-06 remains the validated parent.
+CE-V-06.1 remains the subordinate integrated submodule.
+No scientific result is deleted by consolidation.
+
+REPOSITORY CONTROL NOTE
+
+This file records the consolidated scientific result and its provenance. The CE-V status wording is aligned with the existing retained CE-V archive, which already records CE-V-06.1 as an official validated integrated submodule. This commit does not alter that archive, M3.2, Volume V, the Frozen Core, or any independent RL registry.
