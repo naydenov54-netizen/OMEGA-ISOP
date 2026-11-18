@@ -1,0 +1,223 @@
+OMEGA-ISOP
+STAGE 3 — GRT–01–J.5
+COMPACT-PARAMETER UNIFORM ATTRACTION WITHOUT A COMMON LYAPUNOV DECREASE
+DATE: 2026-11-18
+DOCUMENT ID: OI-STAGE-03-GRT-01-J5-COMPACTNESS-UNIFORM-STABILITY-2026-11-18
+PREDECESSOR: OI-STAGE-03-GRT-01-J4-SEPARATE-LYAPUNOV-FUNCTIONS-2026-11-18
+STATUS: CONDITIONAL THEOREM PROVED; NECESSITY AND LYAPUNOV CONVERSE NOT ESTABLISHED
+TYPE: ADDITIVE MATHEMATICAL RESEARCH CHECKPOINT
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+
+1. PURPOSE
+
+Investigate whether the common strict-decrease function alpha3 in J.4-A can be removed while retaining uniform attraction for a family of fixed maps.
+
+This checkpoint establishes a sufficient compactness-based alternative. It does not modify the frozen OMEGA-ISOP architecture or promote the result into a canonical theorem.
+
+The target remains fixed-map iteration:
+x_(n+1)=F_theta(x_n),
+where theta is held constant along each orbit.
+
+2. SETTING
+
+Let (X,d) be a metric space, p∈X, and P a compact topological parameter space.
+
+Let F:P×X→X be jointly continuous. Write:
+F_theta(x)=F(theta,x).
+
+Assume:
+(F1) F_theta(p)=p for every theta∈P.
+(F2) For every theta∈P and every x in the compact initial-state set K⊆X:
+d(F_theta^n(x),p)→0 as n→∞.
+(F3) The family is uniformly stable at p: for every epsilon>0 there exists delta>0 such that, for every theta∈P, every x∈X, and every integer n≥0,
+d(x,p)<delta implies d(F_theta^n(x),p)<epsilon.
+
+Uniform stability in (F3) is a family-level condition. Individual stability for each theta is not silently substituted for it.
+
+3. THEOREM J.5-A — COMPACT-PARAMETER UNIFORM ATTRACTION
+
+Under (F1)–(F3), for every epsilon>0 there exists an integer N_epsilon such that:
+d(F_theta^n(x),p)<epsilon
+for every theta∈P, every x∈K, and every n≥N_epsilon.
+
+Thus attraction is uniform both in the parameter theta and in the compact set of initial states K.
+
+No common Lyapunov function and no common strict-decrease function alpha3 are assumed.
+
+PROOF
+
+Fix epsilon>0.
+
+By uniform stability (F3), choose delta>0 such that:
+d(y,p)<delta
+implies
+d(F_theta^m(y),p)<epsilon
+for every theta∈P and every m≥0.
+
+For every pair (theta,x)∈P×K, pointwise attraction (F2) gives an integer n_(theta,x)≥0 such that:
+d(F_theta^(n_(theta,x))(x),p)<delta/2.
+
+For each fixed integer n, the map:
+(theta,x) ↦ F_theta^n(x)
+is continuous. This follows by induction from joint continuity of F.
+
+Therefore, for each (theta,x), there is an open neighborhood U_(theta,x) in P×K such that every (eta,y) in this neighborhood satisfies:
+d(F_eta^(n_(theta,x))(y),p)<delta.
+
+The product P×K is compact. Hence finitely many of these neighborhoods cover P×K:
+U_1,...,U_q.
+
+Let the corresponding finite entry times be n_1,...,n_q, and define:
+N_epsilon=max{n_1,...,n_q}.
+
+Take any eta∈P and y∈K. Since the neighborhoods cover P×K, the pair (eta,y) belongs to at least one U_j. Thus:
+d(F_eta^(n_j)(y),p)<delta
+for some j with n_j≤N_epsilon.
+
+Apply uniform stability (F3) to the state reached at time n_j. Since the parameter eta remains fixed along this orbit, for every n≥N_epsilon:
+d(F_eta^n(y),p)<epsilon.
+
+The bound N_epsilon is independent of eta and y. This proves the theorem. QED.
+
+4. WHAT THE THEOREM REMOVES
+
+J.4-A assumes separate functions V_theta with common comparison envelopes alpha1, alpha2 and a common strict-decrease envelope alpha3.
+
+J.5-A does not assume any Lyapunov functions.
+
+Instead, it uses:
+- compactness of the parameter space P;
+- compactness of the initial-state set K;
+- joint continuity of the family map F;
+- pointwise attraction for every parameter and every initial state in K;
+- uniform stability across the entire parameter family.
+
+The common alpha3 is therefore not logically necessary for every possible proof of uniform attraction. It is one sufficient quantitative mechanism, not the only one.
+
+5. IMPORTANT LIMITS AND FAILURE MODES
+
+5.1 Compactness alone is not enough
+
+The J.4 counterexample is:
+X=R, p=0,
+F_k(x)=(1−1/k)x, k=2,3,...
+
+Each fixed map attracts every initial state to zero, but:
+sup_(k≥2)|F_k^n(1)|=1
+for every finite n.
+
+The parameter set {2,3,...} is not compact in its natural discrete topology. Its natural compactification introduces a limiting parameter whose map is the identity:
+F_infinity(x)=x.
+That limiting map is not attractive except at zero.
+
+This identifies a key obstruction: compactness cannot be used to obtain a uniform conclusion if limiting family members are allowed to lose the attraction property.
+
+5.2 Pointwise attraction is not the same as uniform attraction
+
+The statement:
+for every theta and every x, F_theta^n(x)→p
+does not by itself provide a parameter-independent convergence time.
+
+J.5-A obtains a uniform time only by combining compactness, joint continuity, and uniform stability.
+
+5.3 Uniform stability is not optional in this proof
+
+The finite-cover argument first establishes a uniformly bounded time to enter a delta-neighborhood. It does not, by itself, guarantee that the trajectory remains close to p after that time.
+
+Condition (F3) supplies this persistence. Without it, the proof has a gap and no uniform-attraction conclusion may be claimed from this argument.
+
+5.4 Compact initial sets matter
+
+The theorem is stated for compact K, not arbitrary bounded B.
+
+In finite-dimensional Euclidean space, a closed bounded set is compact. In a general metric space, boundedness does not imply compactness.
+
+To apply J.5-A to a bounded initial set B, one must establish that its closure is compact and that the hypotheses hold on that closure.
+
+5.5 Fixed-map scope remains mandatory
+
+The theorem concerns:
+x_n=F_theta^n(x_0)
+with one fixed theta.
+
+It does not prove stability for switched dynamics:
+x_(n+1)=F_(theta_n)(x_n).
+
+The J.3 switching counterexample remains unchanged:
+A(x,y)=(2y,0)
+B(x,y)=(0,2x).
+
+Alternating A and B can amplify the norm by a factor of 4 every two steps, although each fixed map reaches the origin in at most two iterations.
+
+6. RELATION TO LYAPUNOV THEORY
+
+J.5-A is an alternative sufficient theorem, not a construction theorem for V_theta.
+
+It does not prove:
+- that a family satisfying (F1)–(F3) admits separate Lyapunov functions with common K-infinity comparison bounds;
+- that it admits a common Lyapunov function;
+- that uniform stability follows automatically from compactness and individual stability;
+- that a common alpha3 can always be reconstructed;
+- that the assumptions are necessary.
+
+A future converse result would need additional hypotheses on the state space, regularity, and dynamics.
+
+7. LOGICAL STATUS
+
+PROVED:
+- Under (F1)–(F3), attraction is uniform over the compact parameter set P and compact initial-state set K.
+- A common Lyapunov function is not required by this sufficient theorem.
+- A common strict-decrease function alpha3 is not required by this sufficient theorem.
+- Joint continuity makes finite iterates continuous in parameter and initial state.
+- Compactness gives a finite uniform bound on the time needed to enter a stability neighborhood.
+- Uniform stability converts that entry-time bound into persistent uniform attraction.
+
+NOT PROVED:
+- Compactness alone is sufficient.
+- Individual stability of every F_theta implies uniform stability of the family.
+- Every uniformly attractive family admits a common Lyapunov function.
+- Every family satisfying J.5-A admits separate Lyapunov functions with common K-infinity envelopes.
+- J.5-A applies to arbitrary switching.
+- J.5-A applies to arbitrary bounded sets in noncompact metric spaces.
+- The candidate A2 formulation is the recovered original Stage 3 primary specification.
+- Any physical interpretation or empirical confirmation.
+
+8. NEXT MATHEMATICAL DIRECTIONS
+
+J.6 should investigate the uniform-stability hypothesis.
+
+Specific targets:
+1. Determine sufficient conditions under which compactness of P, joint continuity of F, and individual asymptotic stability of every F_theta imply family-uniform stability.
+2. If this implication is false, construct a fully verified counterexample with compact P and jointly continuous F.
+3. Identify practical conditions such as a common local invariant neighborhood, a common local contraction estimate, or an equicontinuity condition that guarantee uniform stability.
+4. Investigate whether J.5-A can be converted into a converse Lyapunov construction under additional regularity assumptions.
+5. Keep arbitrary switching as a separate problem requiring cross-map control.
+
+9. SOURCE BASIS AND TRACEABILITY
+
+J.4 predecessor:
+audits/OI-STAGE-03-GRT-01-J4-SEPARATE-LYAPUNOV-FUNCTIONS-2026-11-18.txt
+Verified predecessor blob SHA:
+d2ee7152c63d9eb2d84463fbaa1cda06239d9032
+
+J.3 predecessor commit:
+aacb26ca9a213a336d8faa5320ffc285f4a0cce4
+
+J.2 predecessor blob SHA:
+ec738853c08ade767d9035667c76ec42679a5bc5
+
+10. PROJECT STATUS AND PROTECTION
+
+FROZEN CORE: UNCHANGED.
+VOLUME II: UNCHANGED.
+VOLUME III: UNCHANGED.
+VOLUME IV: UNCHANGED.
+VOLUME V: UNCHANGED.
+CE/CE-V: NO PROMOTION.
+RL REGISTRATION: NOT PERFORMED.
+CANONICAL ACCEPTANCE: NOT CLAIMED.
+
+This is an additive mathematical research checkpoint. GitHub commit and readback verify repository storage and content identity only. They do not constitute independent mathematical review, physical confirmation, official RL registration, CE/CE-V acceptance, Volume V integration, or canonical acceptance.
+
+END OF CHECKPOINT
