@@ -1,0 +1,772 @@
+RL-008-BIO
+CONSOLIDATED RESEARCH DOSSIER
+
+TITLE:
+BIOLOGICAL PERSISTENCE, OPERATIONAL REPRESENTATION, AND INTERFACE-UNIQUENESS BOUNDARIES
+
+DOSSIER TYPE:
+ARCHIVAL CONSOLIDATION / CO-LOCATION OF EXISTING RL RECORDS
+
+PURPOSE:
+To place the structurally related records RL-008, RL-023, and RL-023.1 in one location while preserving each record’s original identifier, internal structure, evidential force, scientific status, limitations, and traceability.
+
+M3.2 CONTROL CLASSIFICATION:
+ARCHIVAL CONSOLIDATION
+
+M3.2-NIG PRECHECK:
+No new scientific execution is performed.
+No new model, derivation, countermodel, necessity claim, sufficiency claim, or admissible-model-set change is introduced.
+
+M3.2-NIG POSTCHECK:
+Delta I_struct = 0
+
+RESULT CLASSIFICATION:
+REDUNDANT AS A NEW SCIENTIFIC RESULT
+NON-REDUNDANT AS ARCHIVAL ORGANIZATION
+
+RL DETERMINATION:
+NO NEW SCIENTIFIC RL REGISTRATION REQUIRED
+
+CE-V STATUS:
+NOT PROMOTED
+
+FROZEN CORE STATUS:
+UNCHANGED / INTACT
+
+INTEGRATION STATUS:
+PERMITTED AS NON-SCIENTIFIC ARCHIVAL CONSOLIDATION
+
+CONSOLIDATION NOTICE:
+This dossier co-locates previously established records without modifying, extending, replacing, weakening, or strengthening their respective CLAIMs, GIVENs, DEFINITIONS, ASSUMPTIONS, RULEs, DERIVATIONs, VERIFICATIONs, FAILURE TESTs, RESULTs, STATUSes, CE-V STATUSes, Frozen Core STATUSes, or TRACEABILITY chains.
+Each included RL retains its original identifier, independent evidential force, and original scope.
+No new theorem, causal mechanism, biological realization claim, necessity claim, sufficiency claim, universal generalization, canonical selector, or CE-V promotion is introduced by this dossier.
+
+The dossier does not entail:
+D -> P_TM -> P_TD + M -> unique interface
+D + M -> nonunique interface
+P_T -> unique state identification
+P_T -> unique sufficient interface
+forward invariance(K) -> canonical representative
+forward invariance(K) -> internal state-selection rule
+G + delta + Q -> factor-system nonuniqueness
+
+==================================================
+DOSSIER MAP
+
+PART I:
+RL-008
+BIO-DISSIPATION, LOCAL ENVIRONMENT MODELLING, AND CONDITIONAL BIOLOGICAL PERSISTENCE
+
+PART II:
+RL-008
+INTEGRATED BOUNDARY CHARACTERIZATION:
+PERSISTENCE IS NOT UNIQUE STATE IDENTIFICATION
+
+PART III:
+RL-023
+AUDIT OF ISOMORPHIC UNIQUENESS AND BOUNDARY OF INTERNAL SELECTION
+
+PART IV:
+RL-023.1
+COUNTERMODEL FOR NONUNIQUENESS UP TO AMBIENT ISOMORPHISM
+
+PART V:
+CROSS-RECORD BOUNDARY MAP
+
+==================================================
+PART I
+
+RL-008
+BIO-DISSIPATION, LOCAL ENVIRONMENT MODELLING, AND CONDITIONAL BIOLOGICAL PERSISTENCE
+
+STATUS:
+CLOSED
+
+CLOSURE TYPE:
+CONDITIONAL / MODEL-DEPENDENT RESULT
+
+CLAIM:
+Under independently specified conditions, dissipation D and local environmental modelling M can explicitly participate in a dynamic rule Phi that preserves an independently defined viable region K. If K is forward invariant and K is contained in an independently defined persistence neighbourhood, then independently defined persistence P_T follows.
+
+GIVEN:
+B:
+Biological unit.
+
+E(t):
+Environmental state.
+
+D(t):
+Dissipative parameter.
+
+M(t):
+Local modelling or representation of the environment.
+
+x(t):
+Operational state of B.
+
+P_T:
+Independently defined persistence condition.
+
+Phi:
+Dynamical rule.
+
+K:
+Independently defined operational viability region.
+
+CONDITIONAL INFRASTRUCTURE:
+x(0) in K
+and
+K is forward invariant
+and
+K is a subset of Ball(x_ref, epsilon)
+implies:
+P_T(x0; E)
+
+FORMAL CONSTRUCTION:
+dx/dt = (b - aD(t))x + aD(t)M(t)
+
+with:
+a > 0
+b >= 0
+D(t) >= D_min > 0
+absolute value of M(t) <= m0 < m < r < epsilon
+x_ref = 0
+K = [-r, r]
+
+INDEPENDENCE CONDITIONS:
+P_T is independently defined.
+K is independently defined.
+K is not defined by P_T.
+Phi is not constructed by using P_T.
+D and M enter Phi explicitly.
+
+DERIVATION:
+At x = r:
+dx/dt <= (b - aD_min)r + aD_min m
+
+If:
+aD_min(r - m) > br
+
+then:
+dx/dt < 0
+
+At x = -r:
+dx/dt >= -(b - aD_min)r - aD_min m
+
+Under the same condition:
+dx/dt > 0
+
+Therefore the vector field points inward at both boundaries of K.
+
+Hence:
+K = [-r, r]
+is forward invariant.
+
+Since:
+r < epsilon
+
+it follows that:
+K is a subset of Ball(x_ref, epsilon)
+
+Using the conditional persistence infrastructure:
+x(0) in K
+and
+K is forward invariant
+and
+K is a subset of Ball(x_ref, epsilon)
+implies:
+P_T(x0; E)
+
+DERIVED CONDITIONAL BRIDGE:
+D + M -> Phi -> forward invariance(K) -> P_T
+
+RESULT:
+In the specified formal model, independently imposed lower bounds on D and upper bounds on M can contribute explicitly to a dynamic rule Phi that makes independently defined K forward invariant.
+Persistence follows conditionally through the forward-invariance bridge.
+
+SCIENTIFIC STATUS:
+DERIVED / CONDITIONAL / MODEL-DEPENDENT
+
+WHAT IS ESTABLISHED:
+D and M may explicitly participate in Phi.
+Independently bounded D and M may ensure forward invariance of independently defined K in the stated model.
+If K is contained in Ball(x_ref, epsilon), the conditional persistence criterion yields P_T.
+The persistence bridge does not require P_T to be definitionally embedded in K or Phi.
+
+WHAT IS NOT ESTABLISHED:
+D -> P_T as a universal law.
+M -> P_T as a universal law.
+D necessary for P_T.
+M necessary for P_T.
+D + M sufficient for P_T without further conditions.
+A universal biological mechanism D + M -> P_T.
+Universal existence of K in biological systems.
+Real biological realization of the formal construction.
+
+FAILURE-BOUNDARY SUMMARY:
+F1:
+K is independently defined.
+PASS.
+
+F2:
+Phi is defined through D and M, not through P_T.
+PASS.
+
+F3:
+D > 0 plus bounded M is not automatically sufficient.
+PASS.
+
+F4:
+M is not shown to be an autonomous stabilizer.
+PASS.
+
+F5:
+D is not shown to be a universal cause of persistence.
+PASS.
+
+F6:
+One trajectory is not a universal biological law.
+PASS.
+
+F7:
+Mathematical K does not prove biological realization.
+PASS.
+
+F8:
+No hidden selection rule is introduced.
+PASS.
+
+F9:
+Reduction of the stabilizing D-effect may permit escape from K in this model.
+PASS.
+
+F10:
+D is not universally necessary for persistence.
+PASS.
+
+F11:
+M is not universally necessary for persistence.
+PASS.
+
+F12:
+x_ref is not replaced by E(t).
+PASS.
+
+CE-V STATUS:
+NOT PROMOTED
+
+FROZEN CORE STATUS:
+INTACT / UNCHANGED
+
+TRACEABILITY:
+RL-BIO-DP-08
+-> conditional persistence infrastructure
+-> explicit D and M dependence in Phi
+-> forward-invariant K
+-> RL-008 conditional model-dependent result.
+
+==================================================
+PART II
+
+RL-008
+INTEGRATED BOUNDARY CHARACTERIZATION:
+PERSISTENCE IS NOT UNIQUE STATE IDENTIFICATION
+
+STATUS:
+DERIVED / BOUNDARY CHARACTERIZATION / COMPATIBLE
+
+FUNCTION:
+Logical boundary of the interpretation of the persistence result in PART I.
+
+NON-MODIFICATION RULE:
+This part does not alter the CLAIM, GIVEN, definitions of P_T, K, x_ref, D, M, Phi, formal construction, derivation, failure tests, primary result, or CLOSED status of RL-008.
+
+DEFINITION:
+For a nonempty operational or organizational object O_star and an evaluation v_star:
+
+E_v_star(O_star) = { x(v_star) : x in O_star }
+
+This is the set of states obtained by evaluating the elements of O_star under v_star.
+
+UNIQUE-STATE CONDITION:
+A unique state s0 exists exactly when:
+there exists exactly one s0 in S such that
+for every x in O_star:
+x(v_star) = s0
+
+Equivalently:
+cardinality of E_v_star(O_star) = 1
+
+PERSISTENCE CHAIN:
+forward invariance(K)
+and
+K is a subset of Ball(x_ref, epsilon)
+implies:
+P_T
+
+BOUNDARY RESULT:
+P_T does not imply:
+cardinality of E_v_star(O_star) = 1
+
+Therefore:
+P_T is not equivalent to unique state identification.
+
+FORWARD-INVARIANCE LIMIT:
+Forward invariance guarantees only:
+x(0) in K
+implies
+x(t) in K
+for all relevant times t.
+
+Forward invariance does not imply:
+for all x and y in O_star:
+x(v_star) = y(v_star)
+
+Therefore forward invariance does not itself provide:
+state selection,
+state separation,
+unique operational representation,
+or unique state identification.
+
+REQUIRED ADDITIONAL CONDITION FOR UNIQUE IDENTIFICATION:
+cardinality of E_v_star(O_star) = 1
+
+STATUS:
+DERIVED / BOUNDARY CHARACTERIZATION / COMPATIBLE
+
+CE-V STATUS:
+NOT PROMOTED
+
+FROZEN CORE STATUS:
+UNCHANGED
+
+==================================================
+PART III
+
+RL-023
+AUDIT OF ISOMORPHIC UNIQUENESS AND BOUNDARY OF INTERNAL SELECTION
+
+STATUS:
+CLOSED
+
+CE-V STATUS:
+NOT PROMOTED
+
+FROZEN CORE STATUS:
+UNCHANGED
+
+CLAIM:
+Determine whether the data:
+G = {E, R}
+delta : E partial-to E
+Q = task
+force a unique minimal sufficient interface I_star, including analysis of:
+concrete uniqueness,
+uniqueness up to ambient isomorphism,
+factor-system isomorphism,
+and canonical representative selection.
+
+CORE QUESTION:
+G + delta + Q entails unique(I_star)?
+
+GIVEN:
+G = {E, R}
+delta is a partial transition function.
+Q is a fixed task.
+approx_Q_dyn is the behavioural equivalence induced by Q.
+
+INTERFACE REPRESENTATION:
+An interface I is represented by an equivalence relation approx_I on E.
+
+ORDER:
+I is finer than or equal to J exactly when:
+approx_I is a subset of approx_J
+
+Thus:
+I <= J
+means I is finer and J is coarser.
+
+A minimal-information interface is a maximal element under this order.
+
+SUFFICIENCY DEFINITION:
+Suff_dyn(I, Q) holds exactly when:
+
+S1:
+approx_I is a subset of approx_Q_dyn.
+
+S2:
+For every s1, s2:
+if s1 is equivalent to s2 under approx_I
+and delta(s1) and delta(s2) are defined,
+then:
+delta(s1) is equivalent to delta(s2) under approx_I.
+
+MINIMAL-SUFFICIENT INTERFACES:
+MinSuff_Q(G, delta) = Max(Suff_dyn(G, delta, Q), <=)
+
+WHY S1 IS REQUIRED:
+Without S1, the one-block partition of E may become a unique coarsest dynamically compatible interface independently of the task Q.
+Therefore S1 is structural to the present test.
+
+AMBIENT INTERFACE ISOMORPHISM:
+I is ambient-isomorphic to I_prime exactly when there exists:
+phi in Aut(G, delta, Q)
+such that:
+phi(I) = I_prime
+
+This is distinct from factor-system isomorphism:
+E/I is isomorphic to E/I_prime.
+
+MODEL M:
+E = {0, 1, 2, 3, 4}
+delta = {0 -> 3, 2 -> 4}
+dom(delta) = {0, 2}
+E0 = {{0, 1, 2}, {3}, {4}}
+
+CANDIDATE INTERFACES:
+I1 = {{0, 1}, {2}, {3}, {4}}
+I2 = {{0}, {1, 2}, {3}, {4}}
+
+DERIVATION:
+The equivalence class {0, 1, 2} is insufficient because:
+0 is equivalent to 2
+but:
+delta(0) = 3
+delta(2) = 4
+and:
+3 is not equivalent to 4.
+
+I1 is sufficient.
+I2 is sufficient.
+
+The partition separating 0, 1, and 2 individually is sufficient but is finer than I1 and I2, hence is not maximal in the stated order.
+
+Therefore:
+MinSuff_Q(G, delta) = {I1, I2}
+and:
+cardinality of MinSuff_Q(G, delta) = 2
+
+CONCRETE-UNIQUENESS RESULT:
+Concrete uniqueness is refuted in Model M.
+
+AUTOMORPHISM AUDIT:
+Define T by:
+0 <-> 2
+3 <-> 4
+1 -> 1
+
+Then:
+Aut(G, delta, Q) = {id, T}
+and T maps I1 to I2.
+
+Therefore:
+I1 is not equal to I2
+but:
+I1 is ambient-isomorphic to I2.
+
+CANONICAL-SELECTION BARRIER:
+No Aut-invariant selector can select one concrete element of {I1, I2} because T exchanges them and neither interface is fixed by T.
+
+The orbit:
+{I1, I2}
+may be selected, but not one concrete representative by an Aut-invariant rule.
+
+RESULT OF MODEL M:
+Concrete uniqueness:
+REFUTED.
+
+Concrete canonical representative selection:
+BLOCKED UNDER THE STATED SYMMETRY.
+
+Uniqueness up to ambient isomorphism:
+NOT REFUTED BY MODEL M.
+
+Uniqueness up to factor-system isomorphism:
+NOT REFUTED BY MODEL M.
+
+FACTOR-SYSTEM AUDIT:
+E/I1 is isomorphic to E/I2.
+Therefore Model M is not a countermodel to factor-system uniqueness.
+
+LIMITATION:
+ambient interface isomorphism is not the same as factor-system isomorphism.
+
+STATUS:
+DERIVED / COUNTERMODEL-SUPPORTED
+
+TRACEABILITY:
+N9 structural uniqueness line
+-> RL-023
+-> concrete multiplicity
+-> symmetry orbit
+-> canonical concrete-selection barrier.
+
+==================================================
+PART IV
+
+RL-023.1
+COUNTERMODEL FOR NONUNIQUENESS UP TO AMBIENT ISOMORPHISM
+
+STATUS:
+CLOSED
+
+CE-V STATUS:
+NOT PROMOTED
+
+FROZEN CORE STATUS:
+UNCHANGED
+
+PURPOSE:
+Independently test whether concrete nonuniqueness can persist when the automorphism group is trivial.
+
+MODEL M_PRIME:
+E = {0, 1, 2, 3, 4, 5}
+delta = {0 -> 3, 2 -> 4, 3 -> 5}
+dom(delta) = {0, 2, 3}
+E0 = {{0, 1, 2}, {3}, {4}, {5}}
+
+CANDIDATE INTERFACES:
+I1_prime = {{0, 1}, {2}, {3}, {4}, {5}}
+I2_prime = {{0}, {1, 2}, {3}, {4}, {5}}
+
+DERIVATION:
+The block {0, 1, 2} remains insufficient because:
+0 is equivalent to 2
+but:
+delta(0) = 3
+delta(2) = 4
+and 3 is not equivalent to 4.
+
+I1_prime is sufficient.
+I2_prime is sufficient.
+
+The fully separated refinement of {0, 1, 2} is sufficient but is not maximal.
+
+Therefore:
+MinSuff_Q(G, delta) = {I1_prime, I2_prime}
+and:
+cardinality of MinSuff_Q(G, delta) = 2
+
+AUTOMORPHISM PROOF:
+The block {0, 1, 2} is the only E0-block of cardinality 3.
+Within {3, 4, 5}, only 3 belongs to dom(delta).
+Therefore any automorphism must fix 3.
+
+Since:
+delta(3) = 5
+it must fix 5.
+
+Hence it fixes 4.
+
+Within {0, 1, 2}, only 1 is outside dom(delta), so it fixes 1.
+Since:
+delta inverse of 3 = {0}
+it fixes 0.
+Since:
+delta inverse of 4 = {2}
+it fixes 2.
+
+Therefore:
+Aut(M_prime) = {id}
+
+AMBIENT-ISOMORPHISM RESULT:
+There is no nontrivial automorphism mapping I1_prime to I2_prime.
+
+Therefore:
+I1_prime is not equal to I2_prime
+and:
+I1_prime is not ambient-isomorphic to I2_prime.
+
+COUNTERMODEL RESULT:
+G + delta + Q does not entail uniqueness up to ambient isomorphism in the general class of partial transition systems.
+
+FACTOR-SYSTEM CHECK:
+E/I1_prime is isomorphic to E/I2_prime.
+Therefore Model M_prime does not refute uniqueness under factor-system isomorphism.
+
+SELECTION CONTRAST:
+There is no symmetry barrier in M_prime because Aut(M_prime) is trivial.
+
+A model-specific structural selection rule can select I1_prime:
+merge 1 with the unique x in {0, 2} such that delta(x) belongs to dom(delta).
+
+Here:
+delta(0) = 3 belongs to dom(delta)
+while:
+delta(2) = 4 does not belong to dom(delta).
+
+This establishes only the possibility of a model-specific structural selector.
+It does not establish a universal selector.
+
+RESULT:
+Concrete uniqueness:
+REFUTED IN GENERAL.
+
+Uniqueness up to ambient isomorphism:
+REFUTED IN GENERAL UNDER THE SPECIFIED AMBIENT-ISOMORPHISM NOTION.
+
+Uniqueness up to factor-system isomorphism:
+NOT REFUTED.
+
+Universal canonical representative:
+NOT DERIVED.
+
+Symmetry-based obstruction:
+DERIVED IN MODEL M.
+
+Symmetry-free model-specific concrete selection:
+POSSIBLE IN MODEL M_prime.
+
+STATUS:
+DERIVED / COUNTERMODEL-SUPPORTED
+
+TRACEABILITY:
+RL-023
+-> symmetry and concrete multiplicity boundary
+-> RL-023.1
+-> trivial-automorphism countermodel
+-> nonuniqueness up to ambient isomorphism.
+
+==================================================
+PART V
+
+CROSS-RECORD BOUNDARY MAP
+
+FUNCTION:
+This part is a non-derivational map of the logical boundaries already established independently in Parts I-IV.
+It adds no new scientific claim.
+
+INPUTS RETAINED FROM PART I AND PART II:
+D + M -> Phi -> forward invariance(K) -> P_T
+
+forward invariance(K)
+and
+K is a subset of Ball(x_ref, epsilon)
+implies:
+P_T
+
+P_T does not imply unique state identification.
+
+INPUTS RETAINED FROM PART III AND PART IV:
+G + delta + Q does not guarantee a unique minimal sufficient interface.
+G + delta + Q does not guarantee uniqueness up to ambient isomorphism.
+Factor-system uniqueness is not refuted by the present countermodels.
+
+CONSOLIDATED INTERPRETIVE BOUNDARY:
+Persistence established through forward invariance does not, by itself, establish:
+unique operational-state identification,
+a unique sufficient interface,
+a unique ambient-isomorphism class of minimal sufficient interfaces,
+a canonical concrete representative,
+an internal state-selection principle,
+or a unique realization of operational organization.
+
+FORMALLY:
+forward invariance(K) + K subset Ball(x_ref, epsilon)
+implies
+P_T
+
+but:
+P_T does not imply unique state identification.
+
+Furthermore, in the stated general partial-transition class:
+G + delta + Q does not imply unique minimal sufficient interface.
+
+Therefore no inference from the RL-008 persistence bridge alone to unique internal representational structure is licensed.
+
+NON-INFERENCES PRESERVED:
+D + M -> P_T
+does not imply
+D + M -> unique interface.
+
+D + M -> P_T
+does not imply
+D + M -> nonunique interface.
+
+P_T
+does not imply
+unique operational representation.
+
+P_T
+does not imply
+canonical internal selection.
+
+forward invariance(K)
+does not imply
+state separation.
+
+G + delta + Q not implying ambient uniqueness
+does not imply
+factor-system nonuniqueness.
+
+MODEL-DEPENDENCE BOUNDARY:
+RL-008 is a conditional, model-dependent persistence result.
+RL-023 and RL-023.1 are countermodel-supported nonuniqueness results for a general class of partial transition systems.
+Neither line supplies biological realization of the other.
+No universal bridge between biological persistence and interface nonuniqueness is derived.
+
+NO NEW CLAIM STATUS:
+No additional theorem is asserted in this part.
+No new causal mechanism is asserted.
+No biological universal is asserted.
+No universal selection impossibility is asserted.
+No necessity or sufficiency relation beyond the underlying records is asserted.
+
+STATUS:
+ARCHIVAL / INTERPRETIVE BOUNDARY MAP ONLY
+
+SCIENTIFIC STATUS:
+NO NEW SCIENTIFIC RESULT
+
+CE-V STATUS:
+NOT PROMOTED
+
+FROZEN CORE STATUS:
+UNCHANGED
+
+==================================================
+DOSSIER-WIDE FINAL STATUS
+
+RL-008-BIO:
+ARCHIVAL CONSOLIDATED DOSSIER
+
+SCIENTIFIC CONTENT:
+RL-008:
+DERIVED / CONDITIONAL / MODEL-DEPENDENT
+
+RL-008 boundary characterization:
+DERIVED / BOUNDARY CHARACTERIZATION / COMPATIBLE
+
+RL-023:
+DERIVED / COUNTERMODEL-SUPPORTED
+
+RL-023.1:
+DERIVED / COUNTERMODEL-SUPPORTED
+
+CROSS-RECORD MAP:
+ARCHIVAL / INTERPRETIVE ONLY
+
+NO NEW SCIENTIFIC RESULT
+
+M3.2 STATUS:
+ARCHIVAL CONSOLIDATION PERMITTED
+
+Delta I_struct = 0
+
+NO NEW SCIENTIFIC RL REGISTRATION REQUIRED
+
+CE-V:
+NOT PROMOTED
+
+FROZEN CORE:
+INTACT / UNCHANGED
+
+PRESERVED OPEN QUESTIONS:
+Which classes of real biological systems independently realize the conditions of RL-008?
+Under which extra conditions does persistence imply a uniquely identified operational state?
+Which conditions guarantee uniqueness under factor-system isomorphism?
+Does totality of delta, together with closure of sufficient interfaces under join, guarantee a unique coarsest sufficient interface?
+Is the converse implication from uniqueness to totality false, true, or domain-dependent?
+Can a biologically meaningful bridge be independently derived between persistence structures and sufficient-interface selection?
+
+No answer to any preserved open question is supplied by this dossier.
