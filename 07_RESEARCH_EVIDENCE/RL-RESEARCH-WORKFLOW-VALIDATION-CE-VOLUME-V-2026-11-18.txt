@@ -1,0 +1,108 @@
+OMEGA-ISOP
+RL RESEARCH LABORATORY → VALIDATION → CE → VOLUME V
+WORKFLOW SCHEME
+Date: 2026-11-18
+Status: WORKING RESEARCH PROCEDURE
+
+PURPOSE
+This document records the research workflow agreed for OMEGA-ISOP. It is a process guide, not a new theorem, scientific claim, or change to the Frozen Core.
+
+1. RL — RESEARCH LABORATORY
+RL is the exploratory research environment. Investigations may examine mathematical structures, definitions, theorems, proofs, constructions, dependencies, counterexamples, boundary cases, and potential applications.
+
+An idea or exploratory observation is not automatically a result. Research must distinguish conjecture, preliminary reasoning, demonstrated result, and unresolved question.
+
+2. RL RESEARCH RECORD — RECORDING GROUNDED RESULTS
+When an investigation produces a sufficiently grounded result, record it with its actual status and traceability.
+
+A record should include, as appropriate:
+- research question and key;
+- exact definitions and assumptions;
+- domain and scope;
+- formal construction;
+- proof, derivation, witness, or counterexample;
+- verification and failure tests;
+- corrections to earlier formulations;
+- established results;
+- open questions;
+- limitations and non-claims;
+- status and traceability.
+
+Negative results and non-identifiability results are valid research outcomes. Counterexamples and failed conjectures should be retained where they clarify the scope.
+
+3. VALIDATION
+A result is evaluated for:
+- logical and mathematical correctness;
+- consistency of definitions and assumptions;
+- boundary and degenerate cases;
+- counterexamples and failure tests;
+- reproducibility or independent checking where feasible;
+- compatibility with established results;
+- precise scope and limitations.
+
+Validation must not silently broaden a result beyond its assumptions. Any unresolved issue must remain explicit.
+
+4. CE — CONFIRMED / ESTABLISHED
+Only results that pass the applicable validation criteria may be promoted to CE status.
+
+CE is not awarded because an idea is interesting, useful-looking, or elegantly formulated. Promotion requires evidence appropriate to the claim and a documented status decision.
+
+CE status does not by itself imply physical interpretation, empirical confirmation, universality, or eligibility for Volume V.
+
+5. VOLUME V — SELECTIVE INTEGRATION
+A CE result is not automatically included in Volume V.
+
+Volume V integration is selective and requires a separate assessment of:
+- mathematical and structural significance to OMEGA-ISOP;
+- relevance to the architecture or other established results;
+- non-duplication;
+- compatibility and traceability;
+- suitable placement and documentation;
+- preservation of its actual evidential status.
+
+Only results that merit integration are entered into Volume V. Research records may remain in RL/CE without Volume V promotion.
+
+6. PHYSICAL INTERPRETATION AND APPLICATION
+Where research is intended to support physics or cosmology, the workflow is:
+mathematical result → explicit physical bridge and assumptions → model → derivation → testable consequences.
+
+A mathematical construction is not automatically a physical law. Physical, causal, dynamical, empirical, or cosmological interpretations require their own explicit justification and validation.
+
+7. WORKFLOW SUMMARY
+
+RL RESEARCH LABORATORY
+  |
+  | investigation; definitions; proofs; witnesses;
+  | counterexamples; corrections; open questions
+  v
+RL RESEARCH RECORD
+  |
+  | record grounded result with correct status
+  v
+VALIDATION
+  |
+  | audit assumptions, logic, boundaries,
+  | counterexamples, reproducibility
+  v
+CE
+  |
+  | only after applicable validation criteria pass
+  v
+VOLUME V ASSESSMENT
+  |
+  | separate significance / architecture / integration decision
+  v
+VOLUME V
+  |
+  | only if the result merits integration
+
+8. STATUS AND GOVERNANCE
+- This workflow is a research procedure.
+- It does not modify Frozen Core.
+- It does not automatically alter existing RL, CE, or Volume V records.
+- It does not change the evidential status of any existing result.
+- Promotion decisions must be traceable and explicitly recorded.
+- Open problems remain open until supported resolution.
+- No step may be skipped merely to accelerate integration.
+
+END OF WORKFLOW SCHEME
