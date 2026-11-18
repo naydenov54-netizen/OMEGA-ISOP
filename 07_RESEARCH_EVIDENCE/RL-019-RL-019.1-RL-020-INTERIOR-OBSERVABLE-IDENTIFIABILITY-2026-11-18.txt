@@ -1,0 +1,419 @@
+OMEGA-ISOP
+INTERIOR OBSERVABLE IDENTIFIABILITY
+SINGLE-OBSERVABLE NON-IDENTIFIABILITY AND MULTI-OBSERVABLE EXACT IDENTIFICATION
+
+DOCUMENT_ID: RL-019-RL-019.1-RL-020-INTERIOR-OBSERVABLE-IDENTIFIABILITY-2026-11-18
+RECORD DATE: 2026-11-18
+SOURCE: User-provided consolidated research text, received 2026-11-18
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+RECORD TYPE: ADDITIVE RESEARCH-EVIDENCE ARCHIVE
+THEMATIC KEY: OMEGA / INTERIOR OBSERVABLE IDENTIFIABILITY / SINGLE → MULTI-OBSERVABLE
+STATUS: CONSOLIDATED THEMATIC RECORD; INDIVIDUAL RL STATUSES PRESERVED
+
+ARCHITECTURAL CONTROL
+
+FROZEN CORE: UNCHANGED.
+VOLUME II: UNCHANGED.
+VOLUME III: UNCHANGED.
+VOLUME V: UNCHANGED.
+CE-V: NOT PROMOTED.
+RL REGISTRATION: NOT PERFORMED OR VERIFIED BY THIS RECORD.
+GLOBAL OMEGA-ISOP CERTIFICATION: NOT CLAIMED.
+UNIVERSAL IDENTIFICATION PRINCIPLE: NOT ESTABLISHED.
+
+This file is an additive archival record. It does not amend or replace primary RL sources, register an RL result, promote a result to CE-V, modify Volume V, or alter the Frozen Core.
+
+The thematic consolidation is organizational only:
+THEMATIC CONSOLIDATION ≠ LOGICAL MERGER.
+
+RL-019 and RL-020 remain distinct scientific results.
+RL-019.1 remains an internal audit/correction submodule of RL-019, not an independent physical research line.
+
+I. THEMATIC SCOPE
+
+OMEGA / INTERIOR OBSERVABLE IDENTIFIABILITY
+
+Scope:
+- interior-domain observability;
+- exact observable identification;
+- symmetry-induced degeneracy;
+- single-observable non-identifiability;
+- multi-observable identification;
+- distinction between observable sufficiency and structural identification.
+
+The research line asks when observable data determine the parameters of a specified model uniquely, and when symmetries or degeneracies prevent such identification.
+
+The results below are model-dependent. They must not be generalized to arbitrary observables, initial states, Hamiltonians, or physical systems without separate proofs.
+
+II. RL-019 — INTERIOR-DOMAIN EXACT SYMMETRY TEST
+
+Identifier: RL-019
+Section: §17
+Focus:
+Test whether a single observable can exactly identify the parameters of a specified interior-domain model, and whether observed symmetries generate structural non-identifiability.
+
+Model:
+
+Hamiltonian:
+H(a,b) = aA + bB
+
+Operators:
+A = ZZZ
+B = XXX
+
+Initial state:
+rho* = |psi*><psi*|
+
+where:
+|psi*> = (1,2,...,8) / sqrt(204)
+
+Heisenberg evolution and exact symbolic formulas are used for the observables in the tested set.
+
+A. AUDIT RESULT REPORTED IN THE SOURCE
+
+All eight closed formulas from §17.4 were independently re-derived using exact symbolic/rational arithmetic, according to the supplied research record.
+
+Reported outcome:
+- 7 of 8 originally stated expressions were directly confirmed.
+- The expression for O = YYZ contained a missing factor of 2.
+- The formula was corrected.
+- The qualitative symmetry/non-identifiability result was reported as unchanged.
+
+YYZ correction:
+
+Previous expression:
+25ab/(51r^2)[cos(2rt)-1]
+
+Corrected expression:
+50ab/(51r^2)[cos(2rt)-1]
+
+with:
+r = sqrt(a^2+b^2)
+
+This repository entry records the audit and correction as reported in the supplied source. It does not independently reproduce the symbolic calculations or certify the underlying audit execution.
+
+B. TESTED OBSERVABLES
+
+A. XYZ
+
+O_XYZ = 0
+
+Reported interpretation:
+This observable carries no necessary parameter information for the stated identification task.
+
+B. XXX
+
+O_XXX = (10/17)[b^2/r^2 + (a^2/r^2)cos(2rt)]
+
+Reported symmetry:
+b → -b.
+
+C. YYY
+
+O_YYY = -(10a/(17r)) sin(2rt)
+
+Reported interpretation:
+A sign change of b can remain indistinguishable under the corresponding structure.
+
+D. XXY
+
+O_XXY = -(8a - 9b)/(51r) sin(2rt)
+
+Reported interpretation:
+A degeneracy exists involving the same r and the same linear combination.
+
+E. XXZ
+
+Two independent coefficients:
+
+C0 = a(-9a+8b)/(51r^2)
+C1 = b(-8a-9b)/(51r^2)
+
+Reported special case:
+At b = 0, a blind family occurs.
+
+F. XYY
+
+C0 = 2b(18a+b)/(51r^2)
+C1 = 2a(a-18b)/(51r^2)
+
+Reported special case:
+A scaling degeneracy occurs along a = 18b.
+
+G. YYZ
+
+Corrected expression:
+
+O_YYZ = 50ab/(51r^2)[cos(2rt)-1]
+
+Reported symmetry:
+Swap symmetry.
+
+H. YZZ
+
+O_YZZ = (70a/(51r)) sin(2rt)
+
+Reported symmetry:
+b → -b.
+
+C. RL-019 MAIN RESULT
+
+For the fixed initial state rho*, all eight tested single observables fail as global single-observable candidates for identifying the parameters.
+
+Reported conclusions:
+- Interior non-identifiability is SUPPORTED for all eight tested observables.
+- The specific analytic degeneracies are ESTABLISHED within the stated model and tested set.
+- Global identification from a single tested observable has not been obtained.
+
+Explicit non-claims:
+- It is not established that every possible observable is insufficient.
+- It is not established that k_O = 1 is impossible in all models.
+- It is not established that k_O >= 2 is universally sufficient.
+- The eight tested observables are not established as a complete observable set.
+- The result is not established independently of the initial state.
+- The result is not established for other Hamiltonians.
+- The degeneracy is not established as a boundary artifact.
+
+Boundary-artifact hypothesis:
+NOT SUPPORTED by the reported result.
+
+RL-019 STATUS
+
+OPEN RESEARCH.
+CE-V: NOT VALIDATED.
+FROZEN CORE: INTACT.
+
+III. RL-019.1 — EXACT FORMULA AUDIT / CORRECTION SUBMODULE
+
+Identifier: RL-019.1
+Parent: RL-019
+Role: INTERNAL AUDIT AND CORRECTION SUBMODULE.
+
+Main reported contributions:
+- independent re-derivation of the eight closed formulas;
+- detection of the factor-of-2 error in YYZ;
+- correction of the YYZ expression;
+- confirmation that the correction does not change the qualitative symmetry/non-identifiability conclusion.
+
+RL-019.1 is not a separate independent physical research line and does not replace RL-019.
+
+IV. RL-020 — MULTI-OBSERVABLE EXACT IDENTIFICATION TEST
+
+Identifier: RL-020
+Section: §17
+Relation to RL-019:
+Direct continuation of the identification question, with a distinct result.
+
+Focus:
+Test whether a combination of more than one observable removes degeneracies found in RL-019.
+
+Model:
+
+H(a,b) = aA + bB
+
+with the same fixed initial state:
+rho* = |psi*><psi*|
+
+Selected observables:
+O1 = YYY
+O2 = XXY
+
+A. EXACT SIGNAL FORMULAS
+
+For:
+r = sqrt(a^2+b^2)
+
+the reported formulas are:
+
+f_YYY(t) = -(10a/(17r)) sin(2rt)
+
+f_XXY(t) = -(8a-9b)/(51r) sin(2rt)
+
+Define:
+
+alpha = a/r
+beta = b/r
+q = (8a-9b)/r
+
+Then:
+
+q = 8alpha - 9beta
+
+B. IDENTIFICATION ARGUMENT
+
+Assume equality of both complete time signals:
+
+f_YYY(t) = f'_YYY(t)
+f_XXY(t) = f'_XXY(t)
+
+Under the stated conditions and Assumption A8, the supplied derivation reports:
+
+1. The common oscillation frequency determines r = r'.
+2. The YYY amplitude determines alpha = alpha'.
+3. The XXY amplitude determines q = q'.
+4. Since q = 8alpha - 9beta, equality of q and alpha determines beta = beta'.
+5. From a = r alpha and b = r beta, it follows that:
+   a = a'
+   b = b'.
+
+Therefore, for the stated model and assumptions:
+
+(a,b) = (a',b').
+
+C. ASSUMPTION A8
+
+The complete time signal must be available over an unbounded or sufficiently long interval so that the frequency:
+
+2r
+
+can be uniquely extracted.
+
+Without A8, exact global identification does not follow automatically.
+
+A finite or noisy observation window defines a different identification problem and requires a separate analysis.
+
+D. REPORTED CHECKS
+
+The supplied record reports checks for:
+- sign-of-b ambiguity;
+- same-r degeneracy;
+- scaling degeneracy;
+- global-sign ambiguity;
+- special case a = 0;
+- special case q = 0.
+
+Additional numerical checks reported:
+- 200 random inversion tests;
+- a 79 × 79 parameter grid;
+- 401 time points;
+- direct matrix evolution.
+
+These numerical checks are supporting evidence only. They are not, by themselves, a proof of universality.
+
+E. RL-020 MAIN RESULT
+
+For the specific model:
+
+H(a,b) = aA + bB
+
+with the fixed initial state rho*, and for:
+
+r > 0,
+
+the pair of observables:
+
+YYY + XXY
+
+is reported to identify the parameters (a,b) exactly from the complete exact time signals, provided Assumption A8 holds.
+
+Thus, the two-observable combination removes the specific degeneracies established in the single-observable analysis under the stated conditions.
+
+F. CRITICAL LIMITATIONS
+
+The result does not establish:
+- that two observables are the minimum possible number;
+- that every pair of observables works;
+- validity for other initial states;
+- validity for other Hamiltonians;
+- robustness under noise;
+- exact identification from a finite observation window;
+- a universal OMEGA identification theorem;
+- universal observable completeness;
+- a universal implication from observable identification to semantic legitimacy.
+
+RL-020 STATUS
+
+DERIVED / MODEL-DEPENDENT / AUDIT-CONFIRMED, as reported in the supplied research record.
+CE-V: UNCHANGED / NOT PROMOTED.
+FROZEN CORE: INTACT.
+
+The term AUDIT-CONFIRMED records the status stated by the source. This archival action does not constitute a new independent audit of the derivation or numerical runs.
+
+V. RELATION BETWEEN RL-019, RL-019.1, AND RL-020
+
+The thematic sequence is:
+
+RL-019:
+Single-observable exact identification test.
+↓
+Analytic degeneracies and interior non-identifiability for the eight tested observables.
+↓
+RL-019.1:
+Internal exact-formula audit and correction submodule.
+↓
+RL-020:
+Multi-observable exact identification test.
+↓
+A specific pair of observables removes the stated degeneracies under the declared assumptions.
+
+Logical distinctions:
+
+RL-019 ≠ RL-020.
+
+RL-019.1 is an internal audit/correction submodule of RL-019, not an independent result line.
+
+RL-020 is logically and thematically connected to RL-019 and represents a next step in the same identification line.
+
+The shared boundary is:
+
+Single observable ≠ guaranteed identification.
+
+Multi-observable sufficiency in one model ≠ universal identification principle.
+
+VI. RELATION TO OTHER OMEGA-ISOP RESEARCH LINES
+
+This thematic line remains separate from:
+
+- RL-016 / RL-018: semantic identification and OMEGA selection.
+- RL-021 / RL-021.1: boundary-local identification.
+
+These lines are conceptually related but address different information boundaries and must not be merged without separate definitions and proofs.
+
+VII. RESEARCH AND ARCHITECTURAL BOUNDARIES
+
+The present record supports a model-specific research line concerning the relation between observable data, symmetry, degeneracy, and parameter identification.
+
+It does not by itself establish:
+- a physical realization of OMEGA-ISOP;
+- a derivation from the Frozen Core;
+- a universal law of observability;
+- a universal relation between observability and ontology;
+- a CE-V validated result;
+- a Volume V integration;
+- formal RL registration.
+
+Any future promotion or integration requires the applicable source recovery, mathematical review, proof audit, and explicit change-control procedure.
+
+VIII. PROVENANCE AND VERIFICATION STATUS
+
+Primary source files for RL-019, RL-019.1, and RL-020 were not located by the repository code searches performed immediately before this archival write.
+
+This file therefore records the consolidated text supplied by the user on 2026-11-18. It is not represented as a recovered historical primary source.
+
+The reported exact symbolic audit, corrected formula, identification derivation, and numerical checks are preserved as source-reported claims. Their underlying notebooks, code, execution logs, and complete primary derivations have not been independently inspected as part of this GitHub write operation.
+
+Future source recovery must preserve:
+- the separate identity of RL-019 and RL-020;
+- the parent/submodule relation RL-019.1 → RL-019;
+- the exact YYZ correction history;
+- Assumption A8;
+- all model and initial-state restrictions;
+- the explicit non-claims and status boundaries.
+
+FINAL CONTROL RECORD
+
+THEMATIC BLOCK: OMEGA / INTERIOR OBSERVABLE IDENTIFIABILITY.
+RL-019: OPEN RESEARCH.
+RL-019.1: INTERNAL AUDIT / CORRECTION SUBMODULE OF RL-019.
+RL-020: DERIVED / MODEL-DEPENDENT / AUDIT-CONFIRMED AS REPORTED.
+THEMATIC CONSOLIDATION: RECORDED.
+LOGICAL MERGER: NOT PERFORMED.
+PRIMARY SOURCE RECOVERY: OPEN.
+NEW INDEPENDENT MATHEMATICAL AUDIT: NOT PERFORMED.
+RL REGISTRATION: NOT PERFORMED OR VERIFIED.
+CE-V: NOT PROMOTED.
+VOLUME V: UNCHANGED.
+FROZEN CORE: UNCHANGED.
+UNIVERSAL IDENTIFICATION: NOT ESTABLISHED.
+
+END OF RECORD
