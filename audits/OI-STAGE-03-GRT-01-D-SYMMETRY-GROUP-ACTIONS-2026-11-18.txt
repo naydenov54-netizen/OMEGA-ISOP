@@ -1,0 +1,283 @@
+OMEGA-ISOP
+STAGE 3 — GENERALIZATION AND ROBUSTNESS TEST
+GRT-01-D — SYMMETRY STRUCTURES AND GROUP ACTIONS
+Date: 2026-11-18
+Status: NON-CANONICAL RESEARCH AUDIT
+Architecture: Frozen Core unchanged
+Canonical promotion: NOT AUTHORIZED
+
+0. SCOPE
+
+This audit examines reconstructed A1–A3 under different group actions:
+- compact and noncompact groups;
+- abelian and nonabelian groups;
+- finite and infinite discrete groups;
+- continuous group actions;
+- invariant versus covariant maps.
+
+It tests whether group structure alone forces attraction or equicontinuity. It does not recover the original Stage 3 specification or settle A4.
+
+All definitions are reconstructed for this audit. No result is promoted to canonical status.
+
+Status labels:
+PROVEN: follows from stated definitions and assumptions.
+CONDITIONAL: requires additional hypotheses.
+COUNTERMODEL: explicit construction disproves a proposed implication.
+RECONSTRUCTED: working formulation.
+UNVERIFIED: not established.
+
+1. GROUP ACTIONS AND COVARIANCE
+
+Let G be a group acting on spaces X and Y. Write:
+alpha_g : X -> X
+beta_g : Y -> Y
+
+The action laws are:
+alpha_e = id_X
+alpha_(gh) = alpha_g composed with alpha_h
+beta_e = id_Y
+beta_(gh) = beta_g composed with beta_h
+
+For F:X->Y, covariance means:
+For every g in G and x in X:
+F(alpha_g(x)) = beta_g(F(x)).
+
+This is an intertwining relation between the two actions.
+
+Invariance is the special case in which the action on Y is trivial:
+For every g and x:
+F(alpha_g(x)) = F(x).
+
+Thus:
+Covariance does not generally mean invariance.
+Invariance is covariance with a trivial output action.
+
+Example:
+Let G=SO(3) act on X=Y=R^3 by rotations.
+F(x)=x is covariant, because F(gx)=gF(x).
+The scalar function f(x)=||x|| is invariant, because ||gx||=||x||.
+
+These are different transformation laws.
+
+RESULT: PROVEN.
+
+2. A1 UNDER DIFFERENT GROUP TYPES
+
+2.1 Compact, nonabelian group: SO(3)
+
+Let G=SO(3), acting on X=Y=R^3 by the standard rotation action.
+For every positive integer i, define:
+F_i(x)=i*x.
+
+Then:
+F_i(gx)=i*(gx)=g*(i*x)=gF_i(x).
+
+Therefore every F_i is equivariant under the compact nonabelian group SO(3).
+
+However, the family is not equicontinuous. For epsilon=1 and any proposed delta>0, choose x=(delta/2)e_1 and x'=0, then choose i>2/delta. We have:
+||x-x'||=delta/2<delta,
+but:
+||F_i(x)-F_i(x')||=i*delta/2>1.
+
+RESULT:
+COUNTERMODEL: even covariance under a compact nonabelian group does not imply family equicontinuity.
+
+2.2 Noncompact, abelian group: positive real scalings
+
+Let G=(R_{>0}, multiplication), a noncompact abelian group, act on X=Y=R by:
+alpha_g(x)=g*x
+beta_g(y)=g*y.
+
+Define:
+F_i(x)=i*x.
+
+Then:
+F_i(alpha_g(x))=i*g*x=g*i*x=beta_g(F_i(x)).
+
+So each F_i is covariant under this noncompact abelian action.
+
+The family is not equicontinuous, by the same scaling argument as in section 2.1.
+
+RESULT:
+COUNTERMODEL: covariance under a noncompact abelian group also does not imply family equicontinuity.
+
+2.3 Noncompact, nonabelian group: SL(2,R)
+
+Let G=SL(2,R) act on X=Y=R^2 by matrix multiplication.
+For each positive integer i, define:
+F_i(x)=i*x.
+
+For every g in SL(2,R):
+F_i(gx)=i*(gx)=g*(i*x)=gF_i(x).
+
+Thus the family is covariant under a noncompact nonabelian group. It remains non-equicontinuous in the Euclidean norm because the scaling factors i are unbounded.
+
+This example shows that neither commutativity nor compactness is required for the algebraic covariance identity.
+
+RESULT: PROVEN.
+
+2.4 Infinite discrete group: integer shifts on sequence space
+
+Let G=Z act on ell2 by the bilateral shift S:
+(Sx)_k = x_(k-1), for k in Z.
+
+The shift is a linear isometry, and each integer n acts by S^n.
+
+Define:
+F_i(x)=i*x.
+
+Then:
+F_i(S^n x)=i*S^n x=S^n*(i*x)=S^n F_i(x).
+
+The family is covariant under the infinite discrete group Z, but it is not equicontinuous because the operator norms of F_i equal i.
+
+RESULT: PROVEN.
+
+3. A2 — SYMMETRY DOES NOT FORCE UNIFORM ATTRACTION
+
+Let G=SO(3) act on X=R^3 by rotations.
+Let:
+A={0}
+B={e_1}
+I={1,2,3,...}
+q_i=1-1/(i+1)
+T_i(x)=q_i*x.
+
+Every T_i commutes with the rotation action:
+T_i(gx)=q_i*gx=g*q_i*x=g*T_i(x).
+
+For each fixed i:
+T_i^n(e_1)=q_i^n*e_1 -> 0.
+
+But there is no common N for all i such that all T_i^n(B) lie inside the ball of radius 1/2 around zero for every n>=N.
+
+For any proposed N, choose i large enough that q_i^N>=1/2. Then:
+||T_i^N(e_1)||>=1/2.
+
+RESULT:
+COUNTERMODEL: even when every operator commutes with a compact nonabelian symmetry group and every parameter separately attracts B to A, uniform attraction over the parameter family can fail.
+
+The group symmetry does not repair the missing uniformity in the parameter index.
+
+4. A3 — GROUP EQUIVARIANCE DOES NOT FORCE EQUICONTINUITY
+
+The family F_i(x)=i*x in sections 2.1–2.4 supplies explicit examples.
+
+For compact SO(3), noncompact R_{>0}, noncompact SL(2,R), and the discrete group Z, the family is equivariant under the stated actions but not equicontinuous in the relevant norm.
+
+Therefore:
+A1 covariance does not imply A3 equicontinuity.
+The group being compact does not by itself imply A3.
+The group being abelian or nonabelian does not by itself imply A3.
+The group being discrete or continuous does not by itself imply A3.
+
+These conclusions concern the stated families and structures. They do not rule out additional theorems under stronger hypotheses, such as a common operator-norm bound or an invariant compact domain.
+
+5. WHEN GROUP STRUCTURE CAN HELP
+
+5.1 Isometric actions
+
+If each alpha_g is an isometry on X and each beta_g is an isometry on Y, then the group action preserves the relevant distances.
+
+This can simplify covariance estimates. But isometry of the group action alone says nothing about a family F_i unless the operators have additional common bounds or structural constraints.
+
+5.2 Common Lipschitz control
+
+If there exists L<infinity such that:
+||F_i(x)-F_i(x')|| <= L*||x-x'||
+for every i,x,x',
+then A3 follows, independently of whether G is compact, noncompact, abelian, or nonabelian.
+
+If the maps are equivariant and the actions are isometric, the same Lipschitz bound is compatible with the symmetry. However, equivariance does not generate the bound.
+
+5.3 Averaging over compact groups
+
+For compact groups, invariant averaging can be available when the action and integration setting meet the required hypotheses. In finite-dimensional representations, one can often average an inner product using normalized Haar measure to obtain an invariant inner product.
+
+This does not imply that an arbitrary operator family is uniformly bounded, equicontinuous, or attracting. Averaging is a construction under additional representation and measurability/continuity assumptions, not an automatic consequence for every nonlinear family.
+
+RESULT: CONDITIONAL.
+
+6. INVARIANCE VERSUS COVARIANCE — FAILURE MODES
+
+If beta_g is the identity for all g, covariance reduces to invariance:
+F(alpha_g(x))=F(x).
+
+If beta is nontrivial, covariance allows F(x) to transform in the output space. Replacing covariance by invariance can therefore discard valid equivariant maps.
+
+Conversely, an invariant scalar observable such as ||x|| under an orthogonal action does not establish that the underlying vector-valued map is equivariant.
+
+A proof of A1 must state both actions and verify the transformation identity. It is insufficient to state only that a quantity is "symmetric" or "invariant" without specifying the representation on the output.
+
+RESULT: PROVEN.
+
+7. NECESSITY VERSUS SUFFICIENCY
+
+A1:
+The intertwining identity is the exact algebraic criterion under the reconstructed covariance definition.
+Group compactness, commutativity, connectedness, or discreteness is neither necessary nor sufficient by itself for covariance. Covariance depends on the selected actions and maps.
+
+A2:
+A group symmetry commuting with each T_i is not sufficient for uniform attraction.
+A common contraction estimate and suitable target/invariance assumptions can imply uniform attraction, but symmetry alone cannot replace these estimates.
+
+A3:
+Equivariance is not sufficient for family equicontinuity.
+A common Lipschitz bound is sufficient.
+Compactness of G alone is not sufficient for A3, as shown by F_i=i*I under SO(3).
+
+8. ROBUSTNESS SUMMARY
+
+PROVEN:
+1. Covariance and invariance are distinct; invariance is the trivial-output-action case.
+2. A1 is an intertwining identity and does not require linear maps.
+3. Covariant families exist for compact nonabelian, noncompact abelian, noncompact nonabelian, and infinite discrete groups.
+4. Equivariance under any of these group structures does not by itself imply family equicontinuity.
+5. Commutation with a compact symmetry group does not by itself imply uniform attraction.
+6. Isometric group actions preserve distances but do not automatically bound an unrelated family of operators.
+7. A common Lipschitz bound implies A3 independently of group type.
+
+COUNTERMODEL:
+1. F_i(x)=i*x is equivariant but not equicontinuous for the displayed group actions.
+2. T_i(x)=q_i*x commutes with SO(3), each T_i attracts individually, but uniform attraction fails.
+
+CONDITIONAL:
+1. Compact-group averaging requires appropriate representation, continuity, and integration assumptions.
+2. Symmetry can simplify estimates when combined with common bounds or invariant structures.
+3. Additional invariant-domain or compactness hypotheses may support stronger results, but they are not proved by group compactness alone.
+
+RECONSTRUCTED:
+1. The A1 covariance identity is applied to the tested group actions.
+2. The A2 and A3 tests use the reconstructed definitions from earlier GRT audits.
+
+UNVERIFIED:
+1. Whether original A1 used a single common group action or parameter-dependent actions.
+2. Whether the original symmetry group was compact, noncompact, connected, discrete, or a gauge groupoid.
+3. Whether A4's unresolved anchor is a fixed point, orbit, invariant set, or relational object.
+4. Whether the original A1–A3 independence constructions remain valid under the exact unrecovered Stage 3 domains and quantifiers.
+
+9. MATHEMATICAL QUALITY CONTROL
+
+All examples specify the group, action, space, and map.
+The compact nonabelian example uses SO(3).
+The noncompact abelian example uses positive real scalings.
+The noncompact nonabelian example uses SL(2,R).
+The infinite discrete example uses the bilateral shift action of Z on ell2.
+The failure of equicontinuity is verified by unbounded scalar factors.
+The A2 failure is verified by the absence of a common iteration threshold.
+No claim is made that group type alone determines A1, A2, or A3.
+No sufficient condition is presented as necessary.
+
+10. ARCHITECTURAL PROTECTION
+
+Frozen Core: unchanged.
+Volume II: unchanged.
+Volume IV: unchanged.
+Volume V: unchanged.
+CE-V: no promotion.
+RL: no registration.
+Canonical acceptance: not authorized.
+Stage 3 primary specification: NOT RECOVERED.
+A4: unresolved and not tested.
+
+END OF GRT-01-D
