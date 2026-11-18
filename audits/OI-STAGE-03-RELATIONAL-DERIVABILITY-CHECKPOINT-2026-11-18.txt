@@ -1,0 +1,94 @@
+OMEGA-ISOP
+STAGE 3 — RELATIONAL DERIVABILITY TEST
+RESEARCH CHECKPOINT
+DATE: 2026-11-18
+DOCUMENT ID: OI-STAGE-03-RELATIONAL-DERIVABILITY-CHECKPOINT-2026-11-18
+STATUS: FIRST-PASS AUDIT RECORDED; FOLLOW-UP FORMALIZATION OPEN
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+
+1. PURPOSE
+
+Preserve the Stage 3 first-pass findings on whether common response covariance, uniform attraction, uniform equicontinuity, and a common anchor response follow from relational R-invariance alone.
+
+This is an additive research checkpoint. It does not amend or replace the Frozen Core, Volume II, Volume V, or any canonical source.
+
+2. FIRST-PASS FINDINGS
+
+A1 — COMMON RESPONSE COVARIANCE:
+NOT DERIVABLE FROM R-INVARIANCE ALONE.
+
+A2 — UNIFORM ATTRACTION:
+NOT DERIVABLE FROM R-INVARIANCE ALONE.
+
+A3 — UNIFORM EQUICONTINUITY:
+NOT ESTABLISHED BY THE FROZEN CORE.
+
+A4 — COMMON ANCHOR RESPONSE:
+NOT ESTABLISHED BY THE FROZEN CORE.
+
+ADDITIONAL FINDINGS:
+- A metric structure on L_op is not defined in the Frozen Core.
+- Continuity of Resp_M is not established.
+- A common fixed-point response is not established.
+
+3. MATHEMATICAL CONCLUSION
+
+Relational invariance by itself does not establish universal attractivity or a common attractor.
+
+The derivation of a common attractor remains an open research problem. The listed properties must not be treated as consequences of R-invariance unless additional assumptions and a valid derivation are supplied.
+
+Evidence class:
+FIRST-PASS STRUCTURAL / DERIVABILITY AUDIT FINDINGS.
+
+Scope limitation:
+This checkpoint records the supplied first-pass audit conclusions. It does not claim a complete independent proof of every negative result, nor does it establish that the properties are impossible under all strengthened structures or additional hypotheses.
+
+4. RELATION TO THEOREM 91 QUANTUM REALIZATION
+
+The existing file
+audits/OI-THEOREM-91-QUANTUM-REALIZATION-AND-RL-SOURCE-REVIEW-2026-11-18.txt
+contains a conditional finite-dimensional quantum realization of Theorem 91.
+
+That realization explicitly supplies standard quantum-theory inputs:
+- finite-dimensional Hilbert space;
+- density operators;
+- a completely positive trace-preserving channel;
+- the Born measurement rule;
+- operational effects 0 <= A <= I;
+- the Heisenberg adjoint tau = E*.
+
+The common response covariance in that realization is derived from the adjoint identity for a specified quantum channel. It is therefore an application-level conditional construction under additional physical and mathematical assumptions. It is NOT a derivation of common response covariance from R-invariance alone.
+
+Accordingly, the Stage 3 A1 finding and the conditional quantum realization are compatible. Their scopes and assumptions are different. No contradiction is asserted.
+
+5. STATUS AND PROTECTED MATERIAL
+
+FROZEN CORE: UNCHANGED.
+VOLUME II: UNCHANGED.
+VOLUME V: UNCHANGED.
+CE-V: NO PROMOTION.
+RL: NO REGISTRATION.
+CANONICAL ACCEPTANCE: NOT CLAIMED.
+COMMON ATTRACTOR DERIVATION: OPEN RESEARCH PROBLEM.
+
+No protected source file was edited. No existing audit or checkpoint was deleted or overwritten.
+
+6. NEXT RESEARCH ACTIONS
+
+1. Recover the exact formal definitions of R-invariance, L_op, Resp_M, and the relevant transformation class from the controlling mathematical sources.
+2. State precise candidate assumptions for A1–A4 separately, without importing them into the Frozen Core.
+3. For each candidate assumption set, test sufficiency and necessity with explicit countermodels.
+4. Determine what topology or metric, if any, is required on L_op and on the response space.
+5. Separate pointwise continuity, equicontinuity, uniform attraction, and existence of a common fixed point; do not conflate these properties.
+6. Keep any strengthened result conditional until its assumptions and proof are checked.
+7. Reassess whether a common-attractor theorem is possible only for a restricted class of admissible dynamics.
+
+7. CHANGE CONTROL
+
+This checkpoint is an additive research record only.
+It does not modify the Frozen Core or any volume.
+It does not promote CE-V or register an RL item.
+A successful commit and readback verify repository preservation only, not mathematical certification.
+
+END OF CHECKPOINT
