@@ -1,0 +1,764 @@
+RL-009 — CONSOLIDATED RESEARCH LABORATORY RECORD
+FORMAT: OCAM_COMPACT_RL
+STATUS: RESEARCH LABORATORY / CONSOLIDATED RECORD
+ARCHITECTURAL STATUS: RL RESULT + AUDIT + EXECUTED TEST A + DESIGN PROTOCOL + METHODOLOGICAL BLOCKER
+FROZEN CORE: INTACT
+CE-V: NOT EVALUATED / NO PROMOTION
+
+RECORD CONTROL
+This consolidated record supersedes and replaces the previous RL-009 record and its separate Stage 1B design-proposal record for purposes of the active RL-009 research chain.
+
+The consolidated record incorporates:
+F.2 — Positive Feedback
+F.3 — Negative Feedback
+Stage 1A Audit
+RL-009-AUDIT-CORRECTION-v4
+Stage 1B Design
+RL-009 Stage 1B Design Correction v1.0
+Stage 1B TEST A Execution Record — Persistence-without-Closure
+TEST A — Mathematical Verification Note
+RL-009 Methodological Finding — Active Response Criterion Not Located / Not Locked
+RL-009 Active Response Criterion Recovery Audit
+
+No empirical result is added, removed, or reweighted by consolidation.
+The TEST A result is included as an executed RL-level constructive result.
+The mathematical verification note confirms the recorded TEST A values without changing the protocol, result, scope, or logical interpretation.
+The Active Response Criterion Recovery Audit confirms a methodological and traceability finding concerning TEST B authorization.
+No Frozen-Core element is modified. No CE-V designation is created or modified.
+
+RESEARCH OBJECTIVE
+RL-009 investigates whether feedback-dependent relational dynamics can support claims concerning:
+relational strengthening or reduction;
+persistence;
+active response;
+operational closure;
+organizational-class transition;
+structural independence of candidate organizational predicates.
+
+The investigation is explicitly separated into:
+OBSERVATION → DYNAMIC RESULT → OPERATIONAL PREDICATE → STRUCTURAL INFERENCE → ORGANIZATIONAL CLAIM
+
+No inference may skip these levels.
+In particular:
+Relational Change != Organizational Class Change
+and:
+Not Demonstrated != Impossible.
+
+FROZEN-CORE BOUNDARY
+RL-009 is external research-laboratory work.
+It does not modify:
+PD
+R
+A(R)
+Operational Identity
+Operational Organization
+
+No new Frozen-Core primitive is introduced.
+The Frozen-Core Relational Specification is:
+R := colim(D_CC)
+
+R is not to be conflated with realization-level relational variables.
+For realization-level dynamics:
+r_ij(t)
+denotes a scalar relational-strength variable within a specific model realization.
+Delta r_ij(t)
+denotes its change under the tested dynamics.
+Thus:
+R != r_ij(t)
+and:
+Delta R
+must not be used where the intended quantity is the realization-level:
+Delta r_ij(t).
+
+CONTROLLED MODEL CONDITIONS
+Where explicitly stated, F.2/F.3 comparisons use ceteris paribus discipline:
+fixed initial state x_0;
+fixed model parameters;
+fixed parameter matrices;
+controlled variation of feedback parameter k.
+
+The comparison:
+k = 0 versus k = 0.2
+is a two-point controlled comparison only.
+No continuous dependence on k is inferred. No monotonicity in k is inferred. No interpolation between k = 0 and k = 0.2 is inferred.
+The causal scope is restricted to the tested model and controlled parameter comparison.
+
+F.2 — POSITIVE FEEDBACK
+TEST CONDITION:
+Positive feedback term active.
+
+OBSERVED DYNAMIC RESULT:
+Feedback-dependent relational strengthening occurs:
+feedback → Delta r_ij(t) > 0
+within the tested realization and finite evolution interval.
+
+Under the tested initial conditions and parameter regime:
+x(t) → 0
+and:
+x_i(t) * x_j(t) → 0
+with:
+Delta r_ij(t) → 0
+as the tested dynamics approach extinction.
+
+RESULT:
+Finite relational strengthening: OBSERVED.
+Dynamic extinction: OBSERVED under the tested initial conditions and parameter regime.
+Persistent active regime: NOT DEMONSTRATED.
+Organizational-class transition: NOT DEMONSTRATED.
+Organizational impossibility: NOT ESTABLISHED.
+
+INTERPRETATION:
+F.2 demonstrates a feedback-dependent relational change within the tested model.
+It does not establish a persistent organizational regime.
+
+F.3 — NEGATIVE FEEDBACK
+TEST CONDITION:
+Negative feedback term active.
+
+OBSERVED DYNAMIC RESULT:
+Feedback-dependent relational reduction occurs:
+feedback → Delta r_ij(t) < 0
+within the tested realization and finite evolution interval.
+
+Under the tested initial conditions and parameter regime:
+x(t) → 0
+and:
+x_i(t) * x_j(t) → 0
+with:
+Delta r_ij(t) → 0
+as the tested dynamics approach extinction.
+
+RESULT:
+Finite relational reduction: OBSERVED.
+Dynamic extinction: OBSERVED under the tested initial conditions and parameter regime.
+Dynamic stabilization: NOT DEMONSTRATED.
+Persistent active regime: NOT DEMONSTRATED.
+Organizational-class transition: NOT DEMONSTRATED.
+Organizational impossibility: NOT ESTABLISHED.
+
+INTERPRETATION:
+F.3 demonstrates a feedback-dependent relational change within the tested model.
+It does not establish a persistent organizational regime.
+
+F.2 / F.3 COMMON CAUSAL RESULT
+Under the controlled comparison:
+k = 0: feedback-dependent relational update ABSENT.
+k = 0.2: feedback-dependent relational update PRESENT.
+
+Therefore:
+feedback → Delta r_ij
+is established as a model-conditional causal dependence within the tested model and controlled parameter comparison.
+
+This is a two-point result.
+It does not establish:
+a continuous feedback law;
+monotonicity in k;
+behavior at intermediate k;
+generality across initial states;
+generality across parameter regimes;
+a universal positive-feedback law;
+a universal negative-feedback law.
+
+The observed convergence:
+x(t) → 0
+is scoped to the tested model regime.
+It must not be promoted into a generic law that positive or negative feedback necessarily causes extinction.
+
+STAGE 1A — OPERATIONAL CLOSURE AUDIT
+Operational Closure was investigated as an RL-level candidate concept.
+The audit identified unresolved structural-independence questions relative to:
+Persistence;
+Active Response;
+Operational Identity.
+
+The critical distinction established by the audit is:
+Conceptual / definitional distinctness != Formal structural independence.
+
+Operational Closure therefore remains:
+CANDIDATE / NOT ACCEPTED AS FINAL ORGANIZATIONAL-CLASS CRITERION.
+
+Operational Closure is not identified with:
+Persistence
+Active Response
+Operational Identity
+
+but formal structural independence from these properties has not been established in the Stage 1A audit.
+Potential circular dependence remained a research question until the Stage 1B design correction.
+
+ORGANIZATIONAL STATE-SPACE LIMITATION
+No independently validated organizational state space:
+O = {O_1, O_2, ...}
+has been established in the tested dynamical model.
+
+The membership criterion:
+R, x → O_i
+has not been independently defined.
+
+The reachability relation:
+Reach(O_i,O_j)
+has not been independently defined.
+
+Therefore:
+Delta r behavior does not entail O_i → O_j.
+
+Consequently:
+LOP: NOT EVALUATED.
+Organizational-class transition: NOT DEMONSTRATED.
+
+Further F.2/F.3-style runs alone cannot remove this structural limitation.
+The missing organizational formalism must be independently defined before relational dynamics can legitimately be interpreted as transitions between organizational classes.
+
+RL-009-AUDIT-CORRECTION-v4 FAILURE BOUNDARIES
+FB1.
+The k = 0 / k = 0.2 comparison is a two-point test.
+No claim is made, and none should be inferred, about intermediate k values, monotonicity in k, or a continuous feedback-response curve.
+
+FB2.
+The causal claim:
+feedback → Delta r
+is restricted to the single tested initial state x_0 and the fixed parameter matrices used in the relevant run.
+It is not established for other initial conditions or parameter regimes.
+
+FB3.
+Dynamic extinction:
+x(t) → 0
+observed in both F.2 and F.3 may be an artifact of the specific parameter regime tested.
+No failure-mode analysis has been performed to rule out that extinction is a boundary effect of the chosen k range rather than a generic property of positive or negative feedback.
+
+FB4.
+No inference from:
+Delta r behavior
+to:
+O_i → O_j
+is valid until O, its membership criterion, and Reach(O_i,O_j) are independently and formally defined.
+This boundary is structural, not evidentiary.
+It will not be lifted by further F.2/F.3-style runs alone.
+
+FB5.
+Operational Closure results in Stage 1A apply only to the tested construction.
+No claim is made that Operational Closure fails as a criterion in general.
+Its formal independence from Persistence and Active Response was not established by Stage 1A and was subsequently shown to be definitionally unavailable under the current Stage 1B Closure proxy with respect to Persistence.
+
+Outside FB1-FB5, this record must not be cited in support of the specific broader inference claims excluded by those boundaries.
+Local observations retain their evidentiary value as stated in RESULT.
+FB1-FB5 restrict further inferences beyond the explicitly stated evidentiary scope.
+They do not retroactively qualify the observations themselves.
+
+STAGE 1B — DESIGN CORRECTION
+STATUS:
+DESIGN CORRECTION / PRE-EXPERIMENTAL LOCKED / PARTIALLY EXECUTED
+
+PURPOSE:
+Stage 1B tests the unresolved structural relationship between Operational Closure, Persistence, and Active Response.
+
+The original Stage 1B design contained a structural problem:
+Closure was defined using Persistence.
+Therefore the original design could not legitimately test structural independence between Closure and Persistence.
+
+The corrected design explicitly separates:
+A. structural independence;
+B. definitional dependence;
+C. Persistence-without-Closure;
+D. causal attribution by ablation;
+E. Active Response / Closure realizability.
+
+STRUCTURAL INDEPENDENCE RL-LEVEL WORKING DEFINITION
+Let P1 and P2 be boolean predicates on admissible model instances M in the realized dynamical family compatible with R.
+P1 and P2 are structurally independent on this family if all four combinations:
+(1,1)
+(1,0)
+(0,1)
+(0,0)
+are realizable under the same ceteris paribus discipline.
+
+If a combination is provably unrealizable:
+P1 and P2 are NOT independent
+and the direction of the implication must be explicitly stated.
+
+This definition is RL-level only.
+It is not a Frozen-Core definition.
+
+CLOSURE PROXY DEFINITIONAL DEPENDENCE
+The Stage 1B operational proxy defines:
+Closure(M) := Persistence(M,τ,ε) AND NOT Persistence(M^ablated,τ,ε)
+
+where M^ablated is M with R_self(x) severed and fixed to a constant, while all external inputs are held identical.
+
+Therefore, by construction:
+Closure(M) = 1 → Persistence(M,τ,ε) = 1.
+
+Thus:
+Persistence = 0 AND Closure = 1
+is DEFINITIONALLY UNREALIZABLE under this operationalization.
+
+Consequently:
+Structural Independence(Closure, Persistence)
+NOT SATISFIED under the present Closure proxy.
+
+This is a DESIGN-LEVEL FACT.
+It is not an experimental finding.
+
+The present Closure proxy therefore cannot establish structural independence from Persistence.
+
+REFRAMED QUESTIONS
+
+Q1 — PERSISTENCE-WITHOUT-CLOSURE
+Does there exist M such that:
+Persistence(M,τ,ε) = 1
+AND:
+Closure(M) = 0?
+
+This asks whether:
+Persistence AND NOT Closure
+has a non-degenerate realization.
+
+Q2 — CAUSAL ATTRIBUTION VIA ABLATION
+For a model with:
+Persistence(M,τ,ε) = 1,
+does ablation of R_self(x) break persistence or leave it intact?
+
+Closure = 1: persistence is ablation-sensitive under the operational proxy.
+Closure = 0: persistence is ablation-insensitive under the operational proxy.
+
+Q2 is a causal-attribution test for the defined ablation criterion.
+It is not an independent validation of Closure because ablation sensitivity is already part of the Closure definition.
+
+Q3 — ACTIVE RESPONSE VS CLOSURE
+Under a formally locked Active Response definition, which of:
+(Active, Closure) = (1,1), (1,0), (0,1), (0,0)
+are non-degenerately realizable?
+
+STAGE 1B EXECUTION AUTHORIZATION STATUS
+Active Response must have an independently stated formal operational criterion before TEST B execution.
+No criterion may be reconstructed from informal descriptions, desired quadrants, numerical behavior, or post-hoc interpretation.
+Stage 1B definitions cannot be silently modified after TEST A.
+Frozen Core, Volume V and CE-V remain outside the present operation.
+
+ACTIVE RESPONSE FORMAL CRITERION:
+NOT LOCATED / NOT LOCKED.
+
+The available ML-3.2-RL-SEMANTIC-PRESERVATION material and current Stage 1B material do not contain a sufficiently precise locked definition of Active Response of the form:
+ActiveResponse(M) := [formal predicate]
+
+Informal references to adaptive response, relational control, state distinction, observerhood, agency, or related properties are insufficient to authorize TEST B.
+
+TEST B requires evaluation of Active Response against Closure.
+Evaluation requires a pre-specified operational predicate.
+No such locked predicate is currently available.
+
+Constructing one now would introduce an unapproved assumption and create post-hoc semantic selection risk.
+Therefore TEST B cannot be validly executed under the current protocol.
+
+METHODOLOGICAL FINDING / TEST B AUTHORIZATION BOUNDARY
+FORMAL FINDING:
+ACTIVE RESPONSE FORMAL CRITERION = NOT LOCATED / NOT LOCKED
+
+RESULT:
+TEST B EXECUTION = NOT AUTHORIZED.
+
+This is a methodological finding, not a failure result about Active Response itself.
+
+FAILURE BOUNDARY OF THE METHODOLOGICAL FINDING
+The finding does NOT establish:
+Active Response is impossible.
+Active Response is equivalent to Closure.
+Active Response is dependent on Persistence.
+Any Active Response / Closure quadrant is unrealizable.
+
+It establishes only that the present protocol lacks a locked criterion sufficient for testing those propositions.
+
+LIMITATIONS OF THE METHODOLOGICAL FINDING
+The formal criterion may exist in material not currently incorporated into the active Stage 1B/ML-3.2 chain.
+No attempt is made to infer or reconstruct such a criterion.
+No TEST B numerical realization is authorized until the criterion is independently located or formally established and locked.
+
+TEST A — PERSISTENCE-WITHOUT-CLOSURE
+STATUS:
+EXECUTED / POSITIVE CONSTRUCTIVE RESULT
+
+TEST A was the priority test for the open directional question.
+Search target:
+Persistence(M,τ,ε) = 1
+AND:
+Closure(M) = 0.
+
+Operational interpretation:
+The response remains within the prescribed persistence ε-band over τ while ablation of R_self(x) does not destroy that persistence.
+
+TEST A REALIZATION
+O_id = {o}
+R_M(o,t) = x(t)
+x(0) = 1
+x_0 = 1
+τ = 20
+ε = 0.15
+
+External stabilization:
+R_ext(x) = -1(x - 1)
+
+External input:
+u(t) = 0.1 sin(t)
+
+Internal feedback:
+R_self(x) = 0.1(x - 1)
+
+INTACT MODEL:
+dx/dt = -1(x - 1) + 0.1 sin(t) + 0.1(x - 1)
+
+ABLATED MODEL:
+dx/dt = -1(x - 1) + 0.1 sin(t)
+
+CONTROL CONDITIONS
+x_0 identical.
+External input identical.
+External stabilization identical.
+τ identical.
+ε identical.
+O_id identical.
+Reference state identical.
+Model parameters identical except removal of R_self(x).
+Time integration conditions identical.
+
+PERSISTENCE CRITERION
+Persistence = 1 iff:
+|R_M(o,t) - R_M(o,t_0)| <= ε
+for all t in [0,τ].
+
+The same criterion, with the same τ, ε, O_id, and reference state, is applied to M^ablated.
+
+RESULT A1 — INTACT
+max |x(t) - x(0)| = 0.08089
+
+Since:
+0.08089 < 0.15
+therefore:
+Persistence(M,20,0.15) = 1.
+
+RESULT A2 — ABLATED
+max |x(t) - x(0)| = 0.07562
+
+Since:
+0.07562 < 0.15
+therefore:
+Persistence(M^ablated,20,0.15) = 1.
+
+NON-DEGENERACY
+The response is not identically null.
+Intact maximum deviation from reference:
+approximately 0.08089.
+Ablated maximum deviation from reference:
+approximately 0.07562.
+
+The persistent state is maintained by the specified external stabilizing structure, which remains active after ablation.
+No change to x_0, τ, ε, external input, or parameter regime occurs during ablation.
+
+TARGET EVALUATION
+Persistence(M) = 1
+AND:
+Persistence(M^ablated) = 1.
+
+Therefore:
+Closure(M) = Persistence(M) AND NOT Persistence(M^ablated)
+Closure(M) = 1 AND NOT 1 = 0.
+
+PRIMARY RESULT
+PERSISTENCE-WITHOUT-CLOSURE CONSTRUCTIVELY DEMONSTRATED.
+
+SECONDARY RESULT
+Persistence → Closure
+REFUTED WITHIN THE TESTED MODEL FAMILY.
+
+This is a constructive counterexample to the implication:
+Persistence → Closure
+within the explicitly constructed realization and under the stated control conditions.
+
+This result does not establish:
+Structural Independence(Closure, Persistence).
+
+TEST A — MATHEMATICAL VERIFICATION NOTE
+The two TEST A differential equations were independently solved analytically and the resulting maximum deviations were independently verified.
+
+Intact model:
+max |x(t) - x(0)| ≈ 0.08088
+
+This is consistent with the recorded numerical value:
+0.08089
+
+Ablated model:
+max |x(t) - x(0)| ≈ 0.07562
+
+This is consistent with the recorded numerical value.
+
+Therefore:
+Persistence(M) = 1
+and:
+Persistence(M^ablated) = 1.
+
+Consequently:
+Closure(M) = 0.
+
+The persistence threshold:
+ε = 0.15
+is not a narrow threshold-fit.
+It lies with substantial margin above both observed maximum deviations.
+
+The joint persistence conclusion for both the intact and ablated realizations remains valid for any common:
+ε > approximately 0.0809.
+
+This note does not alter the TEST A protocol, result, scope, or logical interpretation.
+
+VERIFICATION STATUS:
+TEST A mathematics = INDEPENDENTLY VERIFIED.
+TEST A logical evaluation = VERIFIED.
+TEST A result = CONFIRMED.
+NO PROTOCOL CHANGE.
+NO STATUS CHANGE.
+
+SCOPE OF TEST A RESULT
+The result is restricted to the explicitly constructed realization, its equations, initial state, parameter regime, external input, operational observable, horizon, tolerance, and specified ablation operation.
+The result is a constructive counterexample, not a universal theorem about all possible RL-009 models.
+
+ACTIVE RESPONSE CRITERION RECOVERY AUDIT
+FORMAT:
+OCAM_COMPACT_RL
+STATUS:
+RL METHODOLOGICAL FINDING
+ARCHITECTURAL STATUS:
+RESEARCH LABORATORY / EXTERNAL
+SOURCE:
+ML-3.2-RL-SEMANTIC-PRESERVATION
+
+PURPOSE:
+Recovery audit for Stage 1B TEST B authorization.
+
+INPUTS:
+ML-3.2-RL-SEMANTIC-PRESERVATION was audited specifically for an independently stated formal operational criterion for Active Response sufficient to authorize TEST B.
+
+SEARCH TARGET:
+ActiveResponse(M) := [formal predicate]
+
+Relevant located material includes:
+PERSISTENCE
+ROBUSTNESS
+INVARIANCE
+OPERATIONAL IDENTITY
+OBSERVERHOOD
+AGENCY
+SELF-REFERENCE
+ADAPTATION
+RELATIONAL CONTROL
+RELATIONAL COEVOLUTION
+
+ASSUMPTIONS / CONSTRAINTS:
+ML-3.2 is an architectural control layer and does not itself create theory.
+No informal concept may be converted into a formal predicate without explicit authorization.
+Active Response must be operationally defined before TEST B.
+The criterion must be independently stated sufficiently to evaluate Active Response against Closure.
+No post-hoc reconstruction may be performed from numerical behavior, desired quadrants, informal descriptions, or related concepts.
+Existing TEST A definitions and results remain unchanged.
+Frozen Core, Volume V and CE-V remain outside the operation.
+
+AUDIT FINDINGS:
+PERSISTENCE is formally characterized as maintenance of identity or function through time relative to an operational description.
+ROBUSTNESS is distinguished from Persistence and concerns maintenance under specified perturbations.
+INVARIANCE is distinguished from Persistence and concerns preservation under specified transformations.
+OPERATIONAL IDENTITY is formally constrained relative to operational language, resolution, admissible transformations and an operational equivalence relation.
+OBSERVERHOOD is identified as an operational/organizational property with possible properties including record maintenance, state distinction and relational information processing.
+AGENCY is described as potentially representable as adaptive relational control within admissible dynamics.
+SELF-REFERENCE is provided only as a conceptual structural schema:
+D(x) = F(x,R_self(x))
+with explicit recognition that a complete mathematical definition requires additional state-space, operator, feedback-dynamics and existence conditions.
+RELATIONAL COEVOLUTION provides a recognized pathway involving:
+R ↓ A(R) ↓ realized organizational dynamics ↓ feedback ↓ adaptation ↓ persistent relational change ↓ R'
+
+This is a structural pathway, not a locked Active Response predicate.
+
+No sufficiently precise formal definition of Active Response was located in the audited ML-3.2 material.
+No located statement establishes:
+ActiveResponse(M) := [formal predicate]
+
+No located statement specifies the required evaluation procedure, threshold, state variables, admissible inputs, response observable, temporal criterion, or decision rule necessary to operationally classify Active Response.
+
+CRITICAL DISTINCTION:
+The presence of related concepts does NOT authorize the substitution:
+Active Response = Agency
+or:
+Active Response = adaptive relational control
+or:
+Active Response = Observerhood
+or:
+Active Response = feedback
+or:
+Active Response = persistent relational change
+
+Such substitutions would constitute an unapproved semantic reconstruction.
+
+RESULT:
+ACTIVE RESPONSE FORMAL CRITERION = NOT LOCATED / NOT LOCKED
+
+The audit confirms that the currently incorporated ML-3.2 material does not contain a sufficiently precise locked Active Response criterion for TEST B authorization.
+
+TEST B STATUS:
+TEST B EXECUTION = NOT AUTHORIZED
+
+This follows from a methodological precondition failure:
+No locked operational predicate → no valid Active Response evaluation → no valid TEST B quadrant classification.
+
+FAILURE BOUNDARIES:
+The finding does NOT establish:
+Active Response is impossible.
+Active Response is equivalent to Closure.
+Active Response is equivalent to Persistence.
+Active Response is dependent on Persistence.
+Any Active Response / Closure quadrant is unrealizable.
+Active Response cannot be formally defined.
+
+The finding establishes only:
+The currently audited ML-3.2 material does not provide a sufficiently precise locked criterion for executing TEST B.
+
+LIMITATIONS:
+The criterion could exist in material not incorporated into the currently audited chain.
+No claim is made concerning documents or versions not supplied or audited.
+No attempt is made to reconstruct the criterion from related concepts.
+A future criterion may require a separately controlled protocol revision.
+
+TEST B remains blocked until such a criterion is independently located or formally established and locked.
+
+MODEL / ARCHITECTURAL DEPENDENCE:
+The finding concerns the current Stage 1B / ML-3.2 research chain.
+It is not a claim about all possible formulations of Active Response.
+
+VALIDATION STATUS:
+NOT A VALIDATION RESULT.
+This is a methodological / traceability finding concerning test authorization.
+
+RL VALUE:
+RL_PRESERVATION_VALUE = TRUE
+
+Reason:
+The finding is directly relevant to research traceability, formal audit, non-circular protocol design, and authorization of the next research operation.
+
+CE-V STATUS:
+CE-V = NOT EVALUATED
+No CE-V candidate is created.
+
+FROZEN CORE STATUS:
+FROZEN CORE = INTACT
+No Frozen-Core primitive, definition, dependency or architectural relation is modified.
+
+VOLUME V STATUS:
+VOLUME V = UNCHANGED
+
+TEST A STATUS:
+TEST A = UNCHANGED
+TEST A remains:
+EXECUTED / POSITIVE CONSTRUCTIVE RESULT / MATHEMATICALLY VERIFIED
+
+Persistence-without-Closure remains constructively demonstrated within the tested realization.
+
+TRACEABILITY:
+RL-009 ↓ F.2 / F.3 ↓ Stage 1A Audit ↓ RL-009-AUDIT-CORRECTION-v4 ↓ Stage 1B Design Correction v1.0 ↓ LOCKED TEST A / TEST B PROTOCOL ↓ TEST A EXECUTION ↓ TEST A MATHEMATICAL VERIFICATION ↓ Active Response Criterion Audit ↓ ML-3.2-RL-SEMANTIC-PRESERVATION AUDIT ↓ ACTIVE RESPONSE FORMAL CRITERION = NOT LOCATED / NOT LOCKED ↓ TEST B = NOT AUTHORIZED
+
+No change is made to TEST A, the RL-009 substantive results, Stage 1B Design, Frozen Core, Volume V, or CE-V.
+
+FINAL STATUS:
+ACTIVE RESPONSE FORMAL CRITERION = NOT LOCATED / NOT LOCKED
+TEST B = NOT AUTHORIZED
+METHODOLOGICAL FINDING = CONFIRMED
+TEST A = UNCHANGED
+STAGE 1B DESIGN = LOCKED
+FROZEN CORE = INTACT
+VOLUME V = UNCHANGED
+CE-V = NOT EVALUATED / NO PROMOTION
+
+ACTIVE RESPONSE
+Active Response was not used as a success condition for TEST A.
+No additional q_M(o,t) mapping was introduced.
+The Active Response Criterion Recovery Audit confirms that the prior Active Response audit remains unresolved.
+
+ORGANIZATIONAL CLAIMS
+No organizational-class transition follows.
+No organizational criterion is established.
+No claim about:
+O_1 → O_2
+is established.
+No CE-V promotion follows.
+No Frozen-Core modification follows.
+
+ARCHITECTURAL CONCLUSION OF TEST A
+TEST A successfully demonstrates a non-degenerate realization of Persistence without Closure under the current RL-009 Closure proxy.
+This removes the previously open possibility that Persistence necessarily implies Closure within the tested model construction.
+
+RESEARCH STATUS AFTER TEST A AND ACTIVE RESPONSE RECOVERY AUDIT
+F.2 relational strengthening: OBSERVED.
+F.3 relational reduction: OBSERVED.
+Dynamic extinction under tested F.2/F.3 conditions: OBSERVED.
+Persistence-without-Closure: CONSTRUCTIVELY DEMONSTRATED.
+Persistence → Closure: REFUTED WITHIN TESTED MODEL FAMILY.
+Structural independence Closure/Persistence: NOT ESTABLISHED.
+Ablation-based causal attribution: NOT YET INDEPENDENTLY CHARACTERIZED BEYOND THIS CANDIDATE.
+Active Response formal criterion: NOT LOCATED / NOT LOCKED.
+Active Response/Closure quadrants: NOT YET TESTED.
+Organizational-class transition: NOT DEMONSTRATED.
+CE-V: NOT EVALUATED.
+Frozen Core: INTACT.
+
+REMAINING STAGE 1B STATUS
+Stage 1B Design Correction v1.0: LOCKED.
+TEST A: EXECUTED / POSITIVE CONSTRUCTIVE RESULT / MATHEMATICALLY VERIFIED.
+Q2 causal attribution beyond the TEST A candidate: NOT YET INDEPENDENTLY CHARACTERIZED.
+TEST B Active Response / Closure quadrants: NOT AUTHORIZED.
+Active Response formal criterion: NOT LOCATED / NOT LOCKED.
+
+No execution result may alter the locked definitions retrospectively.
+Any substantive change to the protocol after execution requires a separately versioned correction and must not be silently incorporated into an already executed result.
+
+TRACEABILITY
+RL-009 → F.2 → F.3 → Stage 1A Audit → RL-009-AUDIT-CORRECTION-v4 → Stage 1B Design Proposal → Stage 1B Design Correction v1.0 → LOCKED STAGE 1B PROTOCOL → TEST A EXECUTION → TEST A MATHEMATICAL VERIFICATION → Persistence-without-Closure CONSTRUCTIVELY DEMONSTRATED → Active Response Criterion Recovery Audit → ML-3.2-RL-SEMANTIC-PRESERVATION AUDIT → ACTIVE RESPONSE FORMAL CRITERION = NOT LOCATED / NOT LOCKED → TEST B NOT AUTHORIZED
+
+No change is made to TEST A, the RL-009 substantive results, Stage 1B Design, Frozen Core, Volume V, or CE-V.
+
+FINAL ARCHITECTURAL STATEMENT
+RL-009 establishes only what its tested dynamics and explicitly defined RL predicates support.
+
+The central architectural boundary is:
+RELATIONAL CHANGE does not entail ORGANIZATIONAL CLASS CHANGE.
+
+The current Operational Closure proxy is definitionally dependent on Persistence.
+Therefore structural independence of Closure from Persistence is:
+NOT SATISFIED UNDER THIS PROXY.
+
+TEST A establishes:
+Persistence-without-Closure CONSTRUCTIVELY DEMONSTRATED.
+and:
+Persistence → Closure REFUTED WITHIN THE TESTED MODEL FAMILY.
+
+The Active Response formal criterion is:
+NOT LOCATED / NOT LOCKED.
+
+Therefore:
+TEST B = NOT AUTHORIZED.
+
+The remaining questions are:
+causal attribution through ablation beyond the tested candidate;
+Active Response formalization under a separately controlled protocol revision;
+Active Response / Closure realizability;
+organizational-class formalization.
+
+No conclusion beyond these explicitly bounded questions is licensed by RL-009.
+
+RECORD STATUS
+RL-009 — CONSOLIDATED RECORD STATUS = ACTIVE RL RECORD
+F.2 / F.3 = EXECUTED OBSERVATIONS
+STAGE 1A AUDIT = COMPLETED
+STAGE 1B DESIGN = LOCKED
+TEST A = EXECUTED / POSITIVE CONSTRUCTIVE RESULT / MATHEMATICALLY VERIFIED
+TEST B = NOT AUTHORIZED
+PERSISTENCE-WITHOUT-CLOSURE = CONSTRUCTIVELY DEMONSTRATED
+PERSISTENCE → CLOSURE = REFUTED WITHIN THE TESTED MODEL FAMILY
+STRUCTURAL INDEPENDENCE OF CLOSURE AND PERSISTENCE = NOT SATISFIED UNDER CURRENT PROXY BY DEFINITION
+ACTIVE RESPONSE FORMAL CRITERION = NOT LOCATED / NOT LOCKED
+ORGANIZATIONAL-CLASS PROMOTION = NONE
+FROZEN CORE = INTACT
+VOLUME V = UNCHANGED
+CE-V = NOT EVALUATED / NO PROMOTION
