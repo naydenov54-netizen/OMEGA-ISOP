@@ -1,0 +1,559 @@
+M3.2-BOOT (CANONICAL STARTUP LAYER — MUST REMAIN AT THE BEGINNING OF THE FILE)
+1. Output for OMEGA-ISOP/M3.2 must be clean plain text, directly copyable on Android, in one continuous block when a complete artifact is requested.
+2. Frozen Core remains unchanged unless the user explicitly authorizes a change and a documented change-control decision records it.
+3. RL_REGISTRATION_REQUIRED is not RL_REGISTERED. Never claim registration without authoritative registry confirmation and readback.
+4. Distinguish established facts, external assumptions, conditional results, hypotheses, tested claims, rejected claims, and unresolved claims.
+5. Do not claim that a repository, file, registry, or submission was inspected or modified unless the corresponding action succeeded and its result was verified.
+
+OMEGA-ISOP
+MATHEMATICAL AND PHYSICAL FOUNDATION PROGRAM
+CONSOLIDATED RESEARCH MASTER
+DOCUMENT_ID: OI-MATHEMATICAL-AND-PHYSICAL-FOUNDATION-PROGRAM-CONSOLIDATED-2026-11-18
+VERSION: 1.0
+RECORD DATE: 2026-11-18
+STATUS: ACTIVE RESEARCH FRAMEWORK
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+REPOSITORY URL: https://github.com/naydenov54-netizen/OMEGA-ISOP
+
+ARCHITECTURAL STATUS
+FROZEN CORE: UNCHANGED.
+VOLUME II: UNCHANGED.
+VOLUME III: UNCHANGED.
+VOLUME V: UNCHANGED.
+CE-V PROMOTION: NONE AUTHORIZED.
+GLOBAL OMEGA-ISOP CERTIFICATION: NOT GRANTED.
+RL REGISTRATION: NOT PERFORMED OR VERIFIED.
+UNIVERSALITY: NOT ESTABLISHED.
+PHYSICAL LAW DERIVATION FROM THE FROZEN CORE: NOT ESTABLISHED.
+
+DOCUMENT PURPOSE
+
+This document consolidates the foundational mathematical development program, the physicalization-bridge audit, and the physical-research continuity checkpoint into one controlled research reference.
+
+The objective is to strengthen OMEGA-ISOP as a meta-theory by developing and proving rigorous mathematical constructions describing the conditions under which structures arise, are organized, and persist in relational systems.
+
+A separate research objective is to determine whether, and under what additional assumptions, these constructions admit interpretation and application in fundamental physical domains.
+
+This document is a research program and continuity record. It does not amend the Frozen Core, replace primary mathematical sources, promote proof status, establish a physical law, or grant certification.
+
+PART I — CORE RESEARCH PRINCIPLE AND METHOD
+
+The governing sequence for mathematical-to-physical research is:
+
+MATHEMATICAL CONSTRUCTION
+→ MATHEMATICAL PROOF
+→ STRUCTURAL CORRESPONDENCE
+→ PHYSICAL INTERPRETATION
+→ PHYSICAL MODEL
+→ TESTABLE CONSEQUENCES
+→ EMPIRICAL CHECK
+
+Each transition is a separate research obligation. No transition is automatic.
+
+Mathematical validity does not by itself establish physical reality. A mathematically correct construction may have no physical realization. A physical interpretation requires an explicit correspondence to physical states, observables, parameters, units, and operations. A physical model requires additional assumptions and dynamics. Empirical relevance requires consequences that can be measured and can, in principle, count against the model.
+
+The theory must not be modified merely to fit a desired physical interpretation. If a physical application requires additional structure, that structure must be stated as an external or application-level assumption unless it is independently derived from the existing theory.
+
+PART II — SIX-STAGE FOUNDATIONAL DEVELOPMENT
+
+The foundational sequence is:
+
+Difference → Relation → Constraint → Dynamics → Persistence → Organization
+
+These arrows are research questions, not assumed theorems. A result at one stage does not automatically establish the next stage.
+
+STAGE 1 — DIFFERENCE
+
+Question:
+What formal data make two states distinguishable?
+
+Required work:
+- Define the carrier X.
+- Define the feature/signature map or primitive distinction predicate.
+- State exact axioms.
+- Provide examples and counterexamples.
+- Test whether distinctions are observable, structural, or stipulated.
+
+Exit criterion:
+Definitions are unambiguous and their claimed properties are proved.
+
+Recorded status as of 2026-11-11:
+Stage 1 was CONDITIONALLY ACCEPTED as a candidate formalization only. Its audit scope was CLOSED for the declared signature-based construction under classical set theory and the explicit model inputs documented in:
+audits/OI-STAGE-01-CONSOLIDATED-CLOSURE-AUDIT-2026-11-11.txt
+
+The audit found no mathematical contradiction in the checked results within their declared scopes. This does not establish a unique or canonical meaning of Primitive Difference.
+
+Specific limitations:
+- The candidate is not established as the unique or canonical meaning of Primitive Difference.
+- PD is not D and is not #.
+- D is a selected binary apartness-style realization based on explicit carrier/signature inputs.
+- Classical logic is used for the general cotransitivity proof; no unrestricted constructive claim is made.
+- Absolute syntactic minimality is not established.
+- No physical, causal, dynamical, organizational, or universal theorem follows from D alone.
+- D does not derive or replace the Core compatibility-colimit R.
+
+Task 01 traceability:
+- The original historical standalone Task 01 artifact remains NOT RECOVERED.
+- Candidate-only mathematical verification is recorded in audits/OI-STAGE-01-AUDIT-TASK-01-2026-11-11.txt.
+- Source-compatibility reconstruction is recorded in audits/OI-STAGE-01-AUDIT-TASK-01-RECONSTRUCTION-2026-11-11.txt.
+- Neither reconstruction is represented as the historically original artifact.
+- Task 06's earlier TASK 01 TRACEABILITY: OPEN status is a historical checkpoint status superseded by the documented reconstruction under its stated remediation option (b).
+
+STAGE 1 STATUS:
+CONDITIONALLY ACCEPTED — CANDIDATE FORMALIZATION ONLY.
+AUDIT SCOPE: CLOSED FOR THE DECLARED CONSTRUCTION.
+CANONICAL FROZEN CORE ACCEPTANCE: NOT CLAIMED.
+EXTERNAL INDEPENDENT CERTIFICATION: NOT PERFORMED.
+
+STAGE 2 — RELATION
+
+Question:
+Under what additional rule does a distinction support a relation between states?
+
+Required work:
+- Define a typed relation R ⊆ X × X or a richer relational structure.
+- Explicitly test directionality, reflexivity, symmetry, transitivity, and composition conditions.
+- Prove which relations follow from the difference data.
+- Identify which relations require additional structure.
+
+Exit criterion:
+The derivable and additional relational information is distinguished by proof.
+
+Stage 2 has not been opened as a completed foundational stage. It may be opened only as a separate research task. It must define the additional relational data or selection rule not determined by D, preserve the Core compatibility-diagram and colimit construction where applicable, and prove exactly which parts follow from D and which are additional inputs. No unconditional Difference → Relation theorem is assumed.
+
+STAGE 3 — CONSTRAINT
+
+Question:
+Which configurations or relations are admissible?
+
+Required work:
+- Define a constraint predicate C, constraint set, or admissibility operator.
+- Test satisfiability.
+- Provide examples of allowed and forbidden configurations.
+- Test consistency and independence.
+
+Exit criterion:
+Constraints are well-defined and non-vacuous.
+
+STAGE 4 — DYNAMICS
+
+Question:
+What rule, if any, maps one admissible state to another?
+
+Required work:
+- Define the state space.
+- Define a transition relation or operator and its domain/codomain.
+- State existence and uniqueness conditions where relevant.
+- State all assumptions about time or iteration.
+
+Exit criterion:
+The stated dynamical properties are proved. Dynamics must not be inferred merely from static relations or constraints.
+
+STAGE 5 — PERSISTENCE
+
+Question:
+Under which dynamics and conditions does a state, property, relation, or invariant survive?
+
+Required work:
+- Define a precise persistence predicate or invariant.
+- Prove a theorem linking it to specified dynamics.
+- Provide counterexamples showing the limits of the theorem.
+
+Exit criterion:
+Persistence is proved relative to explicit update rules and assumptions, not asserted as a universal consequence.
+
+STAGE 6 — ORGANIZATION
+
+Question:
+When do persistent structures form a higher-level, non-arbitrary organization?
+
+Required work:
+- Define a formal organization criterion.
+- Define composition or coarse-graining rules.
+- State stability or coherence conditions.
+- Distinguish genuine organization from mere aggregation.
+- Provide at least one worked model where the criterion is satisfied and one where it is not.
+
+Exit criterion:
+The criterion's consequences are proved and its limits are demonstrated.
+
+CROSS-STAGE PROOF RULE
+
+For every proposed implication A → B, provide:
+1. Precise hypotheses.
+2. A construction of B from A, or a theorem establishing the implication.
+3. A proof.
+4. A test case.
+5. A counterexample or explicit boundary of applicability.
+6. A statement of every external assumption.
+
+If B requires information not contained in A, classify the transition as conditional and list the additional input. Do not describe it as a derivation from A alone.
+
+EVIDENCE LABELS
+
+PROVED:
+Follows from stated definitions and premises by a checked argument.
+
+TESTED:
+Evaluated on stated examples. Testing alone is not proof.
+
+CONDITIONAL:
+Proved only under explicitly listed additional assumptions.
+
+HYPOTHESIS:
+Proposed interpretation awaiting proof or decisive tests.
+
+REJECTED:
+Failed a stated test or contradicted by a counterexample.
+
+INTEGRATED:
+Accepted into the working theory only after proof audit and explicit change-control. A mathematically correct result is not automatically integrated into Frozen Core.
+
+FOUNDATIONAL WORKING METHOD
+
+- Work one stage at a time.
+- Prefer small explicit models before general claims.
+- Separate definitions, theorems, tests, and interpretations.
+- Search for counterexamples early.
+- Maintain a result ledger: claim, assumptions, proof, tests, limitations, status.
+- Preserve valid earlier mathematics without allowing unrelated speculative branches to dominate.
+- Do not alter Frozen Core, register results, or claim canonical acceptance without the applicable explicit procedure.
+
+PART III — PHYSICALIZATION BRIDGE
+
+SOURCE-BASED ARCHITECTURAL FINDING
+
+The protected source material separates:
+
+CORE THEORY → REALIZATION → VALIDATION RESULT.
+
+It defines a realization map Φ: Real(R) → M and, for a fixed realization, an admissible dynamics class A(R;Φ) ⊆ Evol(X).
+
+The framework explicitly allows A(R;Φ) to be empty or to contain multiple dynamics. It does not derive a unique dynamics from R alone.
+
+Volume III supplies a conditional operational layer:
+- probes/interventions L_op;
+- response maps Resp_M;
+- tolerance-based operational comparison;
+- persistence criteria;
+- perturbation-relative robustness;
+- explicit failure conditions.
+
+These are bridge components, not a complete physical theory. A concrete physical realization, observables, dynamics, parameter interpretation, and discriminating empirical consequences must still be specified for a selected target.
+
+MAIN PHYSICALIZATION GAP
+
+The map from formal relational structure to a physical model remains underdetermined unless the following are fixed:
+
+(a) The physical system and its state space X.
+(b) The physical meaning and units of state variables and parameters.
+(c) A concrete realization map Φ for the selected target.
+(d) The admissible dynamics A(R;Φ), including whether they are uniquely selected or remain a family.
+(e) The observable/probe set L_op and response map for a concrete experiment or astronomical data set.
+(f) A target-specific result that distinguishes the model from relevant alternatives by a measurable outcome.
+
+These are open research dependencies, not proof of inconsistency.
+
+PHYSICALIZATION DEVELOPMENT ORDER
+
+P1 — CHOOSE ONE PHYSICAL TARGET
+
+State a concrete target, scale, system, and domain of validity. Do not attempt to physicalize every application simultaneously. Candidate targets must be selected explicitly, not inferred from the abstract Core.
+
+P2 — SPECIFY A PHYSICAL REALIZATION
+
+Give the state space X, state variables, parameter meanings and units, boundary/initial conditions, and a concrete Φ. Distinguish physical assumptions from mathematical consequences.
+
+P3 — DERIVE RATHER THAN RENAME
+
+From declared assumptions, derive the admissible dynamics A(R;Φ). If multiple dynamics remain, state the family and identify what additional principle or data would discriminate among them. Do not present an inserted law as if it had been derived.
+
+P4 — DEFINE OBSERVABLES AND MEASUREMENTS
+
+Specify operational probes L_op, response map Resp_M, measurement procedure, uncertainty/noise model, and relevant nuisance parameters. Use units and a clear correspondence between formal quantities and measured quantities.
+
+P5 — PRODUCE A DISCRIMINATING PREDICTION
+
+State at least one quantitative prediction or inequality that differs from a named baseline model within a specified regime. Give the parameter domain, expected magnitude, and uncertainty assumptions. If no discriminating prediction is available, classify the model as NOT YET EMPIRICALLY DISCRIMINATING.
+
+P6 — TRY TO BREAK THE MODEL
+
+Test limiting cases, dimensional consistency, conservation laws where applicable, stability, perturbations, and known empirical constraints. Use analytical derivations where possible and numerical experiments as supporting evidence only. Record failed cases rather than tuning them away without documented change control.
+
+P7 — DECIDE WHETHER A CORE CHANGE IS WARRANTED
+
+Propose a Frozen Core amendment only if the obstacle is genuinely in the Core rather than in an incomplete realization or application-specific model. Any proposal must state exact old/new wording, rationale, consequences, counterexamples considered, and validation plan. This program authorizes no Core edit.
+
+DECISION RULE FOR CORE CORRECTIONS
+
+A Core correction may be proposed if at least one of the following is demonstrated:
+(i) An explicit inconsistency or contradiction in the Core.
+(ii) A necessary physical bridge cannot be expressed without changing a Core commitment.
+(iii) A Core claim is stronger than its derivation or validation supports.
+(iv) A key term admits materially incompatible interpretations that block a well-defined realization.
+
+If the gap can be resolved by choosing Φ, X, parameters, dynamics, or observables for a specific model, prefer an application-level extension rather than modifying the Core.
+
+PHYSICALITY TESTS
+
+Every candidate physical model must answer:
+- What is the physical system?
+- What are its states and observables?
+- Which quantities have units, and which are dimensionless?
+- What are the equations of motion or transition rules?
+- What initial and boundary conditions apply?
+- What is measured, and with what uncertainty?
+- Which prediction could be wrong?
+- What existing observation or experiment constrains it?
+- What result would count against the model?
+
+A formal colimit, admissibility condition, or structural relation is not by itself a physical mechanism or empirical prediction.
+
+CATEGORY/COLIMIT DEPENDENCY
+
+Category-level work can clarify whether a relational object R is constructible in a chosen category. Categorical existence alone does not make R physical. A category-level obstruction in a test model does not by itself invalidate a physical realization unless the project establishes that the test category is the intended one and that the obstructed construction is required.
+
+Continue category audits as mathematical dependencies, but do not let them displace the physicalization path.
+
+PART IV — CURRENT MATHEMATICAL CANDIDATE AND COSMOLOGY REGISTER
+
+The following entries preserve the research status recorded in the 2026-11-18 working checkpoint. They are controlled summaries, not substitutes for primary derivations.
+
+1. RL-021
+
+Recorded status in Volume V:
+CLOSED / ESTABLISHED within the stated question and assumptions.
+
+Narrow result:
+The internal relation alone does not identify the external dependence B → X.
+
+Non-implications:
+No causal conclusion. No universal impossibility claim.
+
+Primary source and complete derivation were not surfaced in the source retrieval used for Volume V v2.4-C-1.1. The primary source must be recovered and checked before relying on the result for physical modeling.
+
+2. RL-021.1
+
+Recorded status in Volume V:
+ESTABLISHED WITH EXPLICIT BOUNDARY CONDITIONS.
+
+Recorded result:
+For |X| >= 2, marginal boundary degrees do not by themselves identify the joint boundary incidence Q_B. The relevant joint information J_B / T_B / K_B is required for the stated reconstruction task, subject to the primary RL definitions and conditions.
+
+For |X| = 1, identifiability of G_forward and G_backward is recorded under the specified boundary conditions.
+
+The general characterization of H remains open.
+
+The primary source and complete derivation were not surfaced in the source retrieval used for Volume V v2.4-C-1.1. Recover and compare the primary source before physical modeling.
+
+3. RL-027 — DOMAIN-BOUNDED PURITY IDENTIFIABILITY
+
+Recorded results:
+- In the pure global domain, purity is identifiable from rho_B under the stated assumptions.
+- In the full mixed global domain, purity is not identifiable from rho_B in the considered construction when d_A >= 2.
+- At fixed rho_B, Q_A can attain values in [1/d_A, 1] within the investigated construction.
+
+Recorded status:
+Core domain-bounded results are described as independently verified; the overall RL-027 remains UNDER AUDIT. TEST-I DRAFT-0.2 is not frozen.
+
+The primary RL-027 source must be checked for exact state spaces, dimensions, purity definitions, constructions, proofs, and domain restrictions before physical modeling.
+
+Provisional assessment:
+RL-027 is a candidate for a quantum-information connection. No broad claim about all quantum systems is justified.
+
+4. OPERATIONAL RESPONSE DISTANCE
+
+Definition recorded in Volume II:
+
+Resp_M : L_op → Y
+
+D_L(M1,M2) = sup over a in L_op of ||Resp_M1(a) - Resp_M2(a)||_Y.
+
+Under the stated conditions, when Y is normed and L_op is nonempty, D_L is an extended pseudometric and may take the value infinity. Finiteness requires suitable boundedness.
+
+This mathematical construction may support a framework for distinguishability and dynamics. It is not automatically a physical law.
+
+5. THEOREM 91 — CONDITIONAL OPERATIONAL RESPONSE DISTANCE NON-EXPANSION
+
+Assumptions recorded in Volume II:
+
+H1: R exists and T is admissible, with R preserved under T.
+H2: Y is a normed space.
+H3: There exists tau : L_op → L_op such that Resp_(T(M))(a) = Resp_M(tau(a)).
+H4: The operational criterion and comparison class are fixed.
+
+Conclusion:
+
+D_L(T(M1),T(M2)) <= D_L(M1,M2).
+
+The proof uses response-map compatibility and does not require tau to be surjective.
+
+The theorem does not establish universal information conservation.
+
+Status: CONDITIONAL THEOREM.
+
+Required analysis:
+Check the exact scope of H1-H4, operational language L_op, response map, map tau, and comparison class.
+
+6. COSMOLOGICAL WORK
+
+OI-COSMO-IDENT-RL-PACKET-v2 records a conditional analytical construction in a specified class of smooth expanding flat-FLRW histories.
+
+The construction shows that two scale factors can agree through a chosen time T while producing different future event-horizon radii, under the stated convergence and smooth compact-support conditions.
+
+The effective-fluid reconstruction uses external Einstein-FLRW assumptions. These assumptions are not derived from the OMEGA-ISOP Frozen Core.
+
+OI-COSMO-EXPANSION-LAMBDA-001 records:
+- Relational structure alone does not derive nonzero redshift.
+- Relational structure alone does not derive a cosmological constant Lambda.
+- Relational structure alone does not derive unique cosmological dynamics.
+- Causal structure alone does not fix the full metric scale or Lambda in the tested standard causal-geometry class.
+- The available cosmological realization R_cosmo and Phi_cosmo is insufficiently formalized for a definitive OMEGA-specific derivation or countermodel.
+- No OMEGA-specific observationally distinguishable cosmological prediction is currently derived.
+
+Continue the existing cosmological work from its source records. Do not restart it or present standard GR/FLRW results as new OMEGA-ISOP results.
+
+PART V — SOURCE RECOVERY, AUDIT AND RESEARCH PRIORITIES
+
+PRIMARY SOURCE VERIFICATION GAP
+
+Volume V v2.4-C-1.1 records that the primary RL source files and complete derivations for RL-021, RL-021.1, and RL-027 were not surfaced during the source retrieval used for that revision.
+
+Volume V summaries may be used as controlled status records, but they are not substitutes for primary RL derivations.
+
+Required source-recovery actions:
+A. Locate the authoritative primary RL-021 source and inspect exact definitions, assumptions, proof, counterexamples, and scope.
+B. Locate the authoritative primary RL-021.1 source and inspect exact boundary conditions, joint-incidence definitions, reconstruction data, proof, and open characterization of H.
+C. Locate the authoritative primary RL-027 source and inspect exact state spaces, dimensions, purity definitions, constructions, proofs, and domain restrictions.
+D. Record exact repository paths, versions, and available provenance for each source.
+E. Compare each primary source against the corresponding current Volume V summary. Record discrepancies without silently changing either source or status.
+
+RESEARCH PRIORITIES
+
+Priority 1:
+Recover and verify the primary sources RL-021, RL-021.1, and RL-027.
+
+Priority 2:
+Analyze Theorem 91 in detail, including H1-H4, L_op, response maps, tau, and the comparison class.
+
+Priority 3:
+Map mathematical structures to candidate physical systems only after source verification. For every proposed bridge, define the physical state space, observables, operational language, dynamics, norm or metric, and correspondence to the mathematical objects.
+
+Priority 4:
+Identify possible measurable consequences and distinguish them from assumptions imported from external physical theories.
+
+Priority 5:
+Compare candidate physical applications only after mathematical readiness, source traceability, and possible empirical testability have been assessed.
+
+PROVISIONAL APPLICATION MAP
+
+RL-027:
+Candidate for quantum-information research, subject to primary-source verification and an explicit physical correspondence.
+
+RL-021.1:
+Candidate for complex systems, networks, and boundary-interaction models, subject to an explicit physical correspondence and verification of the primary source.
+
+Operational response distance and Theorem 91:
+Potential mathematical framework for distinguishability and dynamics. They are not automatically physical laws.
+
+No physical pilot is selected by this consolidated record.
+
+PART VI — EVIDENCE DISCIPLINE AND NON-NEGOTIABLE LIMITS
+
+For every candidate, record:
+- exact mathematical formulation;
+- all assumptions and domain restrictions;
+- proof and source provenance;
+- current evidence and audit status;
+- dependencies on other results;
+- proposed physical correspondence;
+- additional external assumptions;
+- possible measurable consequences;
+- limitations and counterexamples.
+
+Never:
+- relabel a conditional theorem as universal;
+- treat a summary as a primary proof;
+- treat a simulation as proof;
+- treat numerical output as an analytical theorem;
+- present standard GR/FLRW results as new OMEGA-ISOP results;
+- infer dynamics from static relations without a derivation;
+- infer a physical mechanism from a formal structural relation alone;
+- claim empirical confirmation without the relevant data and analysis;
+- modify the Frozen Core or existing proof statuses through this research program.
+
+For each physical bridge, explicitly distinguish:
+1. established mathematical result;
+2. external physical assumption;
+3. proposed correspondence;
+4. derived model consequence;
+5. empirical prediction;
+6. observed or measured result;
+7. unresolved limitation.
+
+PART VII — CONSOLIDATED EXECUTION PIPELINE
+
+FOUNDATIONAL MATHEMATICAL TRACK:
+
+Difference
+→ Relation
+→ Constraint
+→ Dynamics
+→ Persistence
+→ Organization
+
+PHYSICAL VALIDATION TRACK:
+
+Mathematical construction
+→ Proof
+→ Structural correspondence
+→ Physical interpretation
+→ Physical realization and model
+→ Observable quantities and measurement protocol
+→ Quantitative testable prediction
+→ Comparison with baseline theories
+→ Empirical evaluation
+→ Independent review
+
+The two tracks are related but not identical. Completion of a foundational stage does not automatically complete a physical validation stage.
+
+NEXT IMMEDIATE ACTIONS
+
+1. Continue repository-level source recovery for RL-021, RL-021.1, and RL-027.
+2. Inspect recovered primary sources directly and compare them with Volume V summaries.
+3. If a primary source is absent, record the exact search scope and unresolved gap. Do not reconstruct or invent missing original proofs.
+4. Analyze Theorem 91 under its exact stated assumptions.
+5. Only after source verification, select one physical target and construct an explicit realization/observable/prediction chain.
+6. Do not select a physical pilot until mathematical readiness, provenance, and empirical testability have been assessed.
+
+CORE RESEARCH PRINCIPLE
+
+First the established mathematics.
+Then the structural correspondence.
+Then the physical bridge.
+Then the model.
+Finally the testable consequences and empirical evaluation.
+
+CHANGE CONTROL AND DOCUMENT STATUS
+
+This consolidated document replaces the three research-program/checkpoint documents listed below as the single working reference for this program:
+
+1. 07_RESEARCH_EVIDENCE/PHYSICAL-RESEARCH-DEVELOPMENT-WORKING-CHECKPOINT-02-2026-11-18.txt
+2. theory/OI-SIX-STAGE-FOUNDATIONAL-PROGRAM-2026-10-28.txt
+3. audits/OI-PHYS-BRIDGE-AUDIT-2026-10-28.txt
+
+Their substantive research content has been consolidated here. Their deletion does not delete or alter the separate primary sources, audit records, mathematical volumes, cosmological source packets, or other files referenced above.
+
+This document is a research-program consolidation only:
+FROZEN CORE: UNCHANGED.
+VOLUME II: UNCHANGED.
+VOLUME III: UNCHANGED.
+VOLUME V: UNCHANGED.
+NO PROOF STATUS PROMOTED.
+NO RL REGISTRATION PERFORMED OR VERIFIED.
+NO CE-V PROMOTION.
+NO GLOBAL CERTIFICATION.
+NO UNIVERSALITY CLAIM.
+NO PHYSICAL LAW CLAIM.
+
+END OF CONSOLIDATED PROGRAM
