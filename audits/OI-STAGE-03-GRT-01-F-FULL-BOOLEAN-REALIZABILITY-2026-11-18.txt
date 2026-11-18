@@ -1,0 +1,285 @@
+OMEGA-ISOP
+STAGE 3 — GRT-01-F: FULL BOOLEAN REALIZABILITY OF A1, A2, AND A3
+DATE: 2026-11-18
+DOCUMENT ID: OI-STAGE-03-GRT-01-F-FULL-BOOLEAN-REALIZABILITY-2026-11-18
+STATUS: NON-CANONICAL RECONSTRUCTED MATHEMATICAL AUDIT
+TYPE: COMPLETE TRUTH-PATTERN CONSTRUCTION
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+
+0. SCOPE AND RELATION TO GRT-01-E
+
+GRT-01-E constructed three truth patterns, each with exactly two conditions true. This audit constructs the five missing patterns and consolidates all eight.
+
+The result is conditional on the reconstructed definitions below. It does not recover the original Stage 3 specification and does not alter the Frozen Core, Volume II, Volume IV, Volume V, CE-V, RL, or canonical status.
+
+1. FIXED COMMON FRAMEWORK
+
+Use throughout all eight models:
+
+X = Y = R with d(x,y)=|x-y|.
+I = N = {1,2,3,...}.
+G = C2 = {e,s}, where s^2=e.
+alpha_e(x)=x; alpha_s(x)=-x.
+beta_e(y)=y; beta_s(y)=-y.
+A={0}.
+B={1}.
+
+For each i, define one map f_i:R->R and impose:
+F_i=T_i=f_i.
+
+Thus the same maps determine the symmetry-covariance test, the attraction test, and the equicontinuity test.
+
+Working reconstructed conditions:
+
+A1:
+f_i(-x)=-f_i(x) for every i and x.
+This is equivariance under the fixed sign action.
+
+A2:
+sup over i in N and x in B of d(f_i^n(x),A) -> 0 as n->infinity.
+
+A3:
+The family {f_i} is equicontinuous on R; namely, for every epsilon>0 there exists delta>0 such that for all i,x,y:
+|x-y|<delta implies |f_i(x)-f_i(y)|<epsilon.
+
+These working definitions are not claimed to be the original Stage 3 definitions.
+
+2. FIVE ADDITIONAL MODELS
+
+2.1 MODEL F-000: A1 FALSE, A2 FALSE, A3 FALSE
+
+Define:
+f_i(x)=i*x+1.
+
+A1 fails:
+f_i(-x)=-i*x+1, while -f_i(x)=-i*x-1.
+
+A2 fails:
+Starting from x=1, f_i(1)=i+1. Already at n=1:
+sup over i of |f_i(1)|=infinity.
+Therefore the required uniform convergence to A={0} is impossible.
+
+A3 fails:
+Choose x_i=0 and y_i=1/i.
+Then |x_i-y_i|=1/i->0, but:
+|f_i(y_i)-f_i(x_i)|=1.
+Thus no common modulus of continuity exists.
+
+Truth pattern:
+A1=FALSE; A2=FALSE; A3=FALSE.
+
+2.2 MODEL F-001: A1 FALSE, A2 FALSE, A3 TRUE
+
+Define:
+q_i=i/(i+1).
+f_i(x)=q_i*x+1.
+
+A1 fails:
+f_i(-x)=-q_i*x+1, whereas -f_i(x)=-q_i*x-1.
+
+A2 fails:
+For every i, if x_0=1 and x_(n+1)=q_i*x_n+1, then x_n>=1 for every n.
+Hence:
+sup over i of d(f_i^n(1),{0})>=1
+for every n.
+Uniform attraction to zero fails.
+
+A3 holds:
+For all i,x,y:
+|f_i(x)-f_i(y)|=q_i|x-y|<=|x-y|.
+The family has common Lipschitz constant 1.
+
+Truth pattern:
+A1=FALSE; A2=FALSE; A3=TRUE.
+
+2.3 MODEL F-010: A1 FALSE, A2 TRUE, A3 FALSE
+
+Define the common base function:
+h(x)=0.1*x^2/(1+x^2).
+g(x)=0.5*x+h(x).
+
+For each i define:
+p_i(x)=max(1-2i*|x-10|,0).
+f_i(x)=g(x)+p_i(x)-p_i(-x).
+
+A1 fails:
+The bump term p_i(x)-p_i(-x) is odd.
+The function 0.5*x is odd.
+The nonzero function h is even.
+For x!=0:
+f_i(-x)+f_i(x)=2h(x)>0.
+Therefore f_i(-x) is not equal to -f_i(x).
+
+A2 holds:
+The derivative of h is:
+h'(x)=0.2*x/(1+x^2)^2.
+Its absolute value is bounded above by 0.065.
+Thus g is globally Lipschitz with constant L=0.565.
+
+Also g(0)=0 and g is increasing. On [0,1]:
+0<=g(x)<=g(1)=0.55.
+
+The supports of p_i(x) and p_i(-x) are localized near +10 and -10. Both vanish on [0,1]. Hence:
+f_i(x)=g(x) for x in [0,1].
+
+Starting from B={1}, every orbit remains in [0,1], and:
+|f_i^n(1)|=|g^n(1)|<=0.565^n.
+The estimate is independent of i and tends to zero. Therefore A2 holds.
+
+A3 fails:
+Take:
+x_i=10.
+y_i=10+1/(2i).
+
+Then:
+|x_i-y_i|=1/(2i)->0.
+At these points, p_i(10)=1 and p_i(y_i)=0; the reflected bump terms vanish.
+Therefore:
+f_i(10)-f_i(y_i)=1 + g(10)-g(y_i).
+
+Since g is globally Lipschitz with constant 0.565:
+|g(10)-g(y_i)|<=0.565/(2i).
+Consequently:
+|f_i(10)-f_i(y_i)|>=1-0.565/(2i)>=0.7175
+for every i>=1.
+
+The input distance tends to zero while the output difference remains greater than 0.7. Equicontinuity fails.
+
+Truth pattern:
+A1=FALSE; A2=TRUE; A3=FALSE.
+
+2.4 MODEL F-100: A1 TRUE, A2 FALSE, A3 FALSE
+
+Define:
+f_i(x)=i*x.
+
+A1 holds:
+f_i(-x)=-i*x=-f_i(x).
+
+A2 fails:
+Starting from 1:
+f_i^n(1)=i^n.
+For every n>=1:
+sup over i of i^n=infinity.
+Uniform attraction fails.
+
+A3 fails:
+Choose x_i=0 and y_i=1/i.
+Then:
+|x_i-y_i|=1/i->0,
+while:
+|f_i(y_i)-f_i(x_i)|=1.
+Thus the family is not equicontinuous.
+
+Truth pattern:
+A1=TRUE; A2=FALSE; A3=FALSE.
+
+2.5 MODEL F-111: A1 TRUE, A2 TRUE, A3 TRUE
+
+Define for every i:
+f_i(x)=x/2.
+
+A1 holds because f_i is odd.
+
+A2 holds:
+f_i^n(1)=2^(-n)->0,
+uniformly in i because the map is independent of i.
+
+A3 holds:
+For all x,y and i:
+|f_i(x)-f_i(y)|=0.5|x-y|.
+The family has common Lipschitz constant 0.5.
+
+Truth pattern:
+A1=TRUE; A2=TRUE; A3=TRUE.
+
+3. CONSOLIDATED EIGHT-PATTERN TABLE
+
+The three patterns already proved in GRT-01-E are retained:
+E1 = (TRUE, TRUE, FALSE).
+E2 = (TRUE, FALSE, TRUE).
+E3 = (FALSE, TRUE, TRUE).
+
+Together with the five constructions above:
+
+000: F-000.
+001: F-001.
+010: F-010.
+011: E3.
+100: F-100.
+101: E2.
+110: E1.
+111: F-111.
+
+All 2^3=8 truth-value assignments are realized.
+
+4. RESULT
+
+Under the fixed reconstructed framework in Section 1, the predicates A1, A2, and A3 are fully Boolean-independent in the model-theoretic realizability sense: every possible truth-value assignment is realized by at least one model.
+
+This is stronger than the three non-implications established in GRT-01-E.
+
+The result remains valid under all the following shared constraints:
+- same state and result spaces;
+- same metric;
+- same parameter set;
+- same symmetry group and actions;
+- same target A;
+- same initial set B;
+- same coupling F_i=T_i.
+
+Only the operator family changes between models.
+
+5. IMPORTANT LIMITS
+
+5.1 A1 semantic mismatch
+
+The A1 tested here is group equivariance:
+f_i(-x)=-f_i(x).
+
+The accessible Volume II formulation of common response covariance instead requires one common map:
+tau:L_op->L_op
+such that:
+Resp_(T(M))(a)=Resp_M(tau(a))
+for every model M and operational input a.
+
+These are not identical statements. Full Boolean realizability for group equivariance does not establish full Boolean independence for the Volume II response-pullback formulation.
+
+5.2 A3 target-family mismatch
+
+This audit defines A3 as equicontinuity of {F_i}.
+It does not establish all eight patterns for:
+- the family of iterates {T^n};
+- the family of response functions {Resp_M} on L_op;
+- any other target family not explicitly defined here.
+
+5.3 Original Stage 3 source
+
+The primary Stage 3 specification and its exact quantifiers remain unrecovered. The present results are reconstructed mathematical results only.
+
+5.4 A4 remains outside this audit
+
+No conclusion about A4 follows from the eight-pattern construction. Common operational anchor response and common dynamical fixed point remain distinct unresolved interpretations.
+
+6. DISPOSITION
+
+FULL EIGHT-PATTERN BOOLEAN REALIZABILITY FOR THE RECONSTRUCTED A1/A2/A3 DEFINITIONS: PROVEN.
+
+ROBUSTNESS UNDER COMMON AMBIENT DATA AND COUPLING F_i=T_i: PROVEN.
+
+TRANSFER TO VOLUME II RESPONSE-COVARIANCE A1: NOT ESTABLISHED.
+
+TRANSFER TO ALTERNATIVE A3 TARGET FAMILIES: NOT ESTABLISHED.
+
+TRANSFER TO ORIGINAL STAGE 3 SPECIFICATION: NOT ESTABLISHED.
+
+FROZEN CORE: UNCHANGED.
+VOLUME II: UNCHANGED.
+VOLUME IV: UNCHANGED.
+VOLUME V: UNCHANGED.
+CE-V: NO PROMOTION.
+RL: NO REGISTRATION.
+CANONICAL ACCEPTANCE: NOT CLAIMED.
+
+END OF AUDIT
