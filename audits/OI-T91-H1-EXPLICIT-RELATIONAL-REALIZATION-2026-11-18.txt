@@ -1,0 +1,229 @@
+OMEGA-ISOP
+THEOREM 91 — EXPLICIT RELATIONAL REALIZATION OF H1
+DOCUMENT_ID: OI-T91-H1-EXPLICIT-RELATIONAL-REALIZATION-2026-11-18
+DATE: 2026-11-18
+STATUS: ADDITIVE WORKING CONSTRUCTION / OPEN-2 CANDIDATE
+BASE: main @ 5dbee8a0eeec466a2ce173e63fdd4285dafa35db
+FROZEN CORE: UNCHANGED
+VOLUME II: UNCHANGED
+VOLUME V: UNCHANGED
+CE-V: NO PROMOTION
+CANONICAL ACCEPTANCE: NOT CLAIMED
+
+1. PURPOSE
+
+This note supplies one explicit finite-dimensional realization in which the same transformation T:
+(a) acts on a specified model space;
+(b) is admissible for a concrete relational structure R;
+(c) preserves R;
+(d) induces the same operational response pullback used in Theorem 91.
+
+The construction addresses the H1 architectural gap for this selected realization. It does not derive quantum theory or the selected relation from the Frozen Core, and it does not claim that this is the unique or canonical realization of R.
+
+2. MODEL SPACE
+
+Let H = C^2 with computational basis |0>, |1>.
+
+Let X be the set of all density operators on H:
+X = {rho : rho = rho†, rho >= 0, Tr(rho)=1}.
+
+Let I be the identity operator and let:
+Z = |0><0| - |1><1|.
+
+Define the selected real observable subspace:
+V = span_R{I,Z}.
+
+For rho in X define its selected relational coordinate:
+z(rho) = Tr(rho Z).
+
+3. CONCRETE RELATIONAL STRUCTURE R
+
+Define a binary relation R_V on X by:
+rho R_V sigma iff Tr(rho A)=Tr(sigma A) for every A in V.
+
+Since I belongs to V and all density operators have trace one, this is equivalent to:
+rho R_V sigma iff Tr(rho Z)=Tr(sigma Z).
+
+Thus R_V is an equivalence relation:
+- reflexive: z(rho)=z(rho);
+- symmetric: z(rho)=z(sigma) implies z(sigma)=z(rho);
+- transitive: z(rho)=z(sigma) and z(sigma)=z(eta) imply z(rho)=z(eta).
+
+R_V is a concrete relational constraint structure on the selected state space X. It identifies states that agree on the chosen relational coordinate. It does not identify states that agree on every quantum observable.
+
+4. TRANSFORMATION T
+
+Fix a damping parameter gamma with:
+0 <= gamma <= 1.
+
+Define Kraus operators:
+K0 = |0><0| + sqrt(1-gamma) |1><1|
+K1 = sqrt(gamma) |0><1|.
+
+Define the amplitude-damping channel:
+T(rho) = E_gamma(rho)
+       = K0 rho K0† + K1 rho K1†.
+
+The operators satisfy:
+K0†K0 + K1†K1 = I.
+
+Therefore E_gamma is completely positive and trace-preserving and maps X into X. Hence T:X -> X is a well-defined deterministic state transformation on the selected model space.
+
+5. EXACT RELATIONAL PRESERVATION
+
+The Heisenberg adjoint is:
+E_gamma*(A) = K0† A K0 + K1† A K1.
+
+Direct calculation gives:
+E_gamma*(I)=I,
+E_gamma*(Z)=gamma I + (1-gamma)Z.
+
+Therefore:
+E_gamma*(V) subseteq V.
+
+For any rho,sigma in X:
+rho R_V sigma
+implies Tr(rho Z)=Tr(sigma Z).
+
+Using the adjoint relation:
+Tr(T(rho)Z)
+= Tr(rho E_gamma*(Z))
+= gamma Tr(rho I) + (1-gamma)Tr(rho Z)
+= gamma + (1-gamma)Tr(rho Z).
+
+Likewise:
+Tr(T(sigma)Z)
+= gamma + (1-gamma)Tr(sigma Z).
+
+Since the initial Z expectations are equal:
+Tr(T(rho)Z)=Tr(T(sigma)Z).
+
+Consequently:
+rho R_V sigma implies T(rho) R_V T(sigma).
+
+Thus T preserves R_V.
+
+In the terminology of the Volume II realization convention:
+T belongs to End(X,R_V), where End(X,R_V) denotes the class of maps from X to X preserving R_V.
+
+This proves the preservation clause of H1 for the selected R_V, X, and T.
+
+6. OPERATIONAL RESPONSE CONSTRUCTION
+
+Let:
+L_op = {A : A=A†, 0<=A<=I}.
+
+This is the fixed set of all qubit measurement effects.
+
+Let Y=R with its usual absolute-value distance.
+
+For each rho in X define:
+Resp_rho(A)=Tr(rho A).
+
+Define:
+tau = E_gamma* restricted to L_op.
+
+Because E_gamma is completely positive and trace-preserving:
+E_gamma* is completely positive and unital.
+
+Hence:
+0<=A<=I implies 0<=E_gamma*(A)<=I.
+
+Therefore:
+tau:L_op -> L_op.
+
+For every rho in X and A in L_op:
+Resp_(T(rho))(A)
+= Tr(E_gamma(rho)A)
+= Tr(rho E_gamma*(A))
+= Resp_rho(tau(A)).
+
+The same tau applies to every model rho in X. The operational comparison class is fixed as all pairs in X x X, and L_op is fixed.
+
+7. THEOREM 91 DISTANCE
+
+Define:
+D_L(rho,sigma)
+= sup over A in L_op of |Tr(rho A)-Tr(sigma A)|.
+
+For density operators:
+D_L(rho,sigma) = (1/2)||rho-sigma||_1.
+
+The common response pullback established above gives:
+D_L(T(rho),T(sigma)) <= D_L(rho,sigma).
+
+Equivalently:
+(1/2)||E_gamma(rho)-E_gamma(sigma)||_1
+<= (1/2)||rho-sigma||_1.
+
+This is the standard trace-distance contractivity of a quantum channel.
+
+8. H1-H4 CHECKLIST FOR THIS REALIZATION
+
+H1:
+R_V exists on X.
+T maps X into X.
+T preserves R_V.
+RESULT: SATISFIED for the selected realization.
+
+H2:
+Y=R is a normed space.
+RESULT: SATISFIED.
+
+H3:
+tau=E_gamma* maps L_op into L_op and is common to all rho.
+Response covariance is proved explicitly.
+RESULT: SATISFIED.
+
+H4:
+The state space X, operational set L_op, response maps, distance, and comparison class X x X are fixed.
+RESULT: SATISFIED.
+
+Theorem 91 non-expansion therefore applies to this selected realization.
+
+9. SCOPE AND LIMITATIONS
+
+Established:
+- a concrete state/model space X;
+- a concrete relational structure R_V;
+- a concrete transformation T;
+- an exact proof that T preserves R_V;
+- the same T induces the operational response covariance through tau;
+- H1-H4 hold together in this selected finite-dimensional example.
+
+Not established:
+- derivation of the Hilbert space, density operators, Kraus representation, or Born rule from the Frozen Core;
+- derivation of R_V or amplitude damping as uniquely selected by OMEGA-ISOP;
+- uniqueness or canonical status of this relational realization;
+- preservation of every possible relational structure under every quantum channel;
+- a new empirical prediction beyond standard quantum theory;
+- a universal realization theorem for arbitrary R and T.
+
+The invariance statement is specific:
+E_gamma*(V) subseteq V.
+
+For a different relational observable subspace V', preservation must be checked again. General CPTP dynamics do not preserve an arbitrary selected observable subspace.
+
+10. CHANGE CONTROL AND NEXT CHECKS
+
+This is an additive working construction only.
+
+Independent checks required:
+1. Verify the Kraus completeness identity and adjoint action.
+2. Verify that the chosen R_V matches the intended interpretation of R in the controlling Volume II context.
+3. Check whether the project requires preservation of additional relational structure beyond the equivalence relation defined here.
+4. Confirm that the same T is used in both the relational and operational parts.
+5. Decide whether this one explicit realization satisfies the intended OPEN-2 scope or whether a realization-independent theorem is required.
+
+No source theorem is edited by this note.
+No status in Volume II or Volume V is changed.
+No registration is asserted.
+
+FROZEN CORE: UNCHANGED.
+VOLUME II: UNCHANGED.
+VOLUME IV: UNCHANGED.
+VOLUME V: UNCHANGED.
+CE-V: NO PROMOTION.
+CANONICAL ACCEPTANCE: NOT CLAIMED.
+
+END OF ADDITIVE H1 REALIZATION
