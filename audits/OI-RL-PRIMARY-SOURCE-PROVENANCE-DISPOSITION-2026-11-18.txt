@@ -1,0 +1,85 @@
+OMEGA-ISOP
+RL PRIMARY-SOURCE PROVENANCE DISPOSITION
+DOCUMENT_ID: OI-RL-PRIMARY-SOURCE-PROVENANCE-DISPOSITION-2026-11-18
+DATE: 2026-11-18
+STATUS: ADDITIVE PROVENANCE CONTROL / NO SCIENTIFIC STATUS PROMOTION
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+
+1. PURPOSE
+
+This record resolves the operational disposition of source recovery for RL-021, RL-021.1, and RL-027 after the project author's explicit clarification dated 2026-11-18.
+
+2. AUTHOR-DECLARED SOURCE HISTORY
+
+The project author states that:
+- the primary materials were laboratory records;
+- the RL records were created from those laboratory materials;
+- the laboratory source materials were subsequently destroyed to avoid retaining storage-consuming originals.
+
+This is recorded as an author-declared provenance statement. The destroyed originals are not available for direct inspection, hashing, or independent source-to-record comparison.
+
+3. SURVIVING CONTROLLED COPIES
+
+The following repository artifacts are the surviving controlled textual copies inspected for this disposition:
+
+- 07_RESEARCH_EVIDENCE/RL-021-RL-021.1-USER-SUPPLIED-CONTROLLED-SOURCE-2026-11-18.txt
+  Blob SHA: 8708a66dc139b42808ea916145250569f71a616f
+  Scope: RL-021 and RL-021.1.
+
+- 07_RESEARCH_EVIDENCE/RL-027-USER-SUPPLIED-CONTROLLED-SOURCE-2026-11-18.txt
+  Blob SHA: 2c5e7d2b753cd4e37e0b170bdd8ef31ab452d3a3
+  Scope: RL-027 and its consolidated RL-027.1 registration/terminology correction.
+
+These files are explicitly labelled USER-SUPPLIED CONTROLLED SOURCE COPY. They are not represented as the destroyed laboratory originals.
+
+4. SOURCE-RECOVERY DISPOSITION
+
+Primary laboratory source recovery:
+STATUS: CLOSED AS NON-RECOVERABLE, BASED ON AUTHOR-DECLARED DESTRUCTION.
+
+Direct inspection of original laboratory records:
+STATUS: NOT POSSIBLE.
+
+Original-source hashes, timestamps, and complete laboratory provenance:
+STATUS: NOT AVAILABLE / NOT VERIFIED.
+
+Comparison of surviving controlled copies against the destroyed originals:
+STATUS: NOT POSSIBLE.
+
+Further repository searching for the same destroyed originals:
+DISCONTINUED AS NON-PRODUCTIVE. This does not preclude discovery of separately preserved derivative records, if any are later identified.
+
+5. SCIENTIFIC STATUS BOUNDARY
+
+The source destruction does not, by itself, refute the mathematical claims in the surviving RL copies. Their mathematical validity must be assessed from the definitions, assumptions, constructions, and proofs that remain available.
+
+Conversely, mathematical checking of a surviving copy does not reconstruct or independently authenticate the destroyed laboratory provenance.
+
+Accordingly:
+- retain the existing claim-specific mathematical statuses only to the extent supported by the surviving text and completed audits;
+- do not claim primary-source re-verification against the laboratory originals;
+- do not infer that missing original files imply missing mathematical proof if the proof is fully preserved in a surviving copy;
+- do not reconstruct absent laboratory data, derivations, timestamps, or execution history.
+
+6. REGISTRATION STATUS SEPARATION
+
+The RL-027 controlled copy states RL_REGISTERED. The current controlled Volume V v2.4-C-1.1 records RL-027 as UNDER AUDIT and does not itself establish authoritative registry readback.
+
+These statements concern distinct evidence/status layers. The RL_REGISTERED claim remains NOT INDEPENDENTLY CONFIRMED until the authoritative RL registry record, assigned identifier, and registered content are retrieved and checked under M3.2 §5.6. No registry status is changed by this provenance disposition.
+
+7. ARCHITECTURAL PROTECTION
+
+FROZEN CORE: UNCHANGED.
+VOLUME II: UNCHANGED.
+VOLUME V: UNCHANGED.
+CE-V ARCHIVE: UNCHANGED.
+RL SCIENTIFIC CLAIMS: NOT PROMOTED OR DOWNGRADED BY THIS DOCUMENT.
+RL REGISTRATION: NOT ALTERED.
+CANONICAL ACCEPTANCE: NOT CLAIMED.
+
+8. NEXT RESEARCH ACTION
+
+Continue claim-specific mathematical review from the surviving controlled RL copies. For RL-027, continue the separately listed audit of TEST-I, minimality, stability, computability, and external dependencies. Do not spend further effort searching for the declared-destroyed laboratory originals.
+
+END OF RECORD
