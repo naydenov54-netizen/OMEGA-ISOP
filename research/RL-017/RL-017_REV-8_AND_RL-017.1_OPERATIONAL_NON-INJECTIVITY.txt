@@ -1,0 +1,795 @@
+ТЕМА: Краен spin-boson модел: локална динамика и информационна достъпност.
+КЛЮЧ: FINITE SPIN-BOSON / INFORMATIONAL ACCESSIBILITY / OPERATIONAL NON-INJECTIVITY
+
+=======================
+FINITE SPIN-BOSON / INFORMATIONAL ACCESSIBILITY / OPERATIONAL NON-INJECTIVITY
+
+ТЕМАТИЧЕН ОБХВАТ
+
+Линията изследва в краен spin-boson модел:
+- релационно взаимодействие между система и крайна среда;
+- промяна на локалната динамика;
+- environmental distinguishability;
+- distinguishability през подмножества;
+- normalized informational accessibility;
+- threshold informational extent;
+- operational interpretation „relational dilution“;
+- operational projection и non-injectivity;
+- границата между пълна реализация, наблюдаемата локална проекция и възстановимостта на динамиката.
+
+RL-017 и RL-017.1 са свързани, но логически различни записи.
+
+======================================================================
+RL-017
+ЧИСЛЕН ПИЛОТ НА КРАЕН SPIN-BOSON МОДЕЛ С КРАЙНА БАНЯ
+REV-8 — FINAL CONTROLLED VERSION
+
+ROLE: Research Laboratory numerical stress-test / finite-bath demonstration / operational informational-accessibility analysis
+STATUS: FINAL / CLOSED / FROZEN
+
+REV-8 съдържа формално контролираните окончателни дефиниции и статуси за RL-017 и supersedes presentation of REV-7.
+Не е въведена нова числена computation. Не е променена нито една reported numerical value.
+FROZEN CORE = INTACT
+CE-V = NO PROMOTION
+
+RESEARCH QUESTION
+
+Може ли изрично конструиран краен spin-boson модел чрез релационно взаимодействие между система и крайна среда да произведе наблюдаема модификация на локалната динамика, зависима от coupling strength или density?
+
+RESULT
+SUPPORTED WITHIN THE TESTED FINITE MODEL.
+
+Резултатът е model-limited и не представлява универсално твърдение.
+
+INPUTS
+
+N = 8
+M = 2
+alpha = 0.5
+Delta = 1
+omega_c = 5
+s = 0.5
+t ∈ [0,1]
+
+Reported temporal resolution:
+Delta t = 0.1
+
+STATUS: ASSUMPTION inferred from reported intervals, not independently recovered from the raw numerical record.
+
+Моделът е finite spin-boson model с finite bath size и finite frequency band.
+
+REPRODUCIBILITY CONTROL
+
+Използват се две начални system states:
+rho_S^(a)(0)
+rho_S^(b)(0)
+
+с обща environment state:
+rho_E^(a)(0) = rho_E^(b)(0) = rho_E(0).
+
+Това условие е необходимо за смислено сравнение чрез D_E.
+
+Exact initial system/environment states, bath temperature/mode occupations и spectral-density normalization convention са наследени от първичния numerical record, ако е наличен.
+
+Ако първичният record не е наличен:
+STATUS: REPRODUCIBILITY GAP.
+
+Не се допуска реконструкция чрез догадка.
+Не се въвежда ретроспективно предположение:
+T = 0
+или:
+rho_E(0) = vacuum.
+
+ASSUMPTIONS / CONSTRAINTS
+
+Finite N/M.
+Finite frequency band.
+Midpoint discretization.
+
+Връзката:
+alpha(rho_E) = kappa_0 rho_E
+е:
+POSTULATED / MODEL-DEPENDENT.
+
+Тя не е derived или universal.
+
+Връзката между:
+alpha, J(omega), {g_k}
+е convention-dependent и не се третира като универсална.
+
+Krylov validation, continuum limit и thermodynamic limit са извън scope.
+
+FORMAL CONSTRUCTION
+
+dim(H_S) = 2
+H_E = ⊗_(k=1)^N H_k
+dim(H_k) = M = 2
+dim(H_E) = M^N = 2^8 = 256
+dim(H) = 2 × 256 = 512
+
+Canonical Hamiltonian
+
+H = (Delta/2) sigma_x ⊗ I_E
+  + sigma_z ⊗ Σ_k g_k(b_k + b_k†)
+  + I_S ⊗ Σ_k omega_k b_k†b_k
+
+omega_k и g_k произлизат от midpoint discretization на избрано:
+J(omega)
+с:
+s = 0.5
+omega_c = 5.
+
+Normalization convention, свързваща J(omega), alpha и {g_k}, е convention-dependent и не е universal.
+
+CANONICAL OBSERVABLE
+
+Z(t) = Tr[sigma_z rho_S(t)]
+rho_S(t) = Tr_E[rho(t)].
+
+ENVIRONMENTAL DISTINGUISHABILITY
+
+rho_E^(a)(t) = Tr_S[rho^(a)(t)]
+rho_E^(b)(t) = Tr_S[rho^(b)(t)]
+
+D_E(t) = (1/2)||rho_E^(a)(t) - rho_E^(b)(t)||_1.
+
+За тествания finite model:
+D_E(t) > 0
+за:
+t ∈ (0,1]
+в рамките на тествания прозорец.
+
+Това не установява:
+- relational dilution;
+- information conservation;
+- entropy conservation;
+- mutual-information conservation;
+- fundamental information spreading.
+
+SUBSET DISTINGUISHABILITY
+
+За:
+A ⊆ {1,...,N}
+с:
+|A| = m
+
+се дефинира:
+
+D_A(t) = (1/2)||Tr_(A^c)[rho_E^(a)(t)] - Tr_(A^c)[rho_E^(b)(t)]||_1.
+
+По contractivity на partial trace:
+D_A(t) <= D_E(t)
+за всяко admissible A.
+
+SUBSET-AVERAGED DISTINGUISHABILITY
+
+Dbar_m(t) = average_A[D_A(t)]
+
+където average е върху всички subsets с:
+|A| = m.
+
+Следователно:
+0 <= Dbar_m(t) <= D_E(t).
+
+NORMALIZED ACCESSIBILITY
+
+За:
+D_E(t) > 0:
+
+Q_m(t) = Dbar_m(t) / D_E(t).
+
+Следователно:
+0 <= Q_m(t) <= 1.
+
+За full environment:
+A = {1,...,N}
+D_N(t) = D_E(t)
+Dbar_N(t) = D_E(t)
+Q_N(t) = 1
+когато:
+D_E(t) > 0.
+
+SUBSET COUNTS
+
+При:
+N = 8:
+
+m = 1: 8
+m = 2: 28
+m = 3: 56
+m = 4: 70
+m = 5: 56
+m = 6: 28
+m = 7: 8
+m = 8: 1
+
+Общо:
+2^8 = 256.
+
+Empty subset:
+m = 0
+е изключен от G_info.
+
+Nonempty subsets:
+2^8 - 1 = 255.
+
+Равенството между environmental Hilbert-space dimension:
+256 = M^N
+и total subset count:
+256 = 2^N
+следва от избора:
+M = 2.
+
+Това не е независима структурна coincidence.
+Двете величини остават различни математически обекти:
+Hilbert-space dimension ≠ subset-lattice cardinality.
+
+Не се извежда structural identification между тях.
+
+INFORMATIONAL EXTENT
+
+G_info(t; epsilon) = min {m ∈ {1,...,N} : Dbar_m(t) >= epsilon}.
+
+Ако няма такова m:
+STATUS: UNREACHED.
+
+OPERATIONAL TOLERANCE
+
+„Practically preserved“ full-environment distinguishability означава:
+|D_E(t2) - D_E(t1)| <= delta
+за конкретно сравняваните времена в съответния crossing interval.
+
+delta е operational tolerance.
+Тя не е fundamental physical constant, derived physical quantity или universal tolerance law.
+
+D_E(t2) ≈ D_E(t1)
+означава единствено, че trace-distance distinguishability се е променила в рамките на избраната operational tolerance.
+
+Това не установява:
+- information conservation;
+- entropy conservation;
+- mutual-information conservation;
+- fundamental conservation law.
+
+NUMERICAL RESULTS
+
+15.1 COUPLING-DEPENDENT LOCAL DYNAMICS
+
+Z(t) показва coupling-dependent modification в тествания finite model.
+
+Operational chain:
+relational interaction
+→ system-environment coupling
+→ environmental degrees of freedom
+→ environmental state differentiation
+→ local observable modification.
+
+STATUS: SUPPORTED WITHIN TESTED FINITE MODEL.
+
+Това не установява:
+- universal dissipation;
+- irreversible thermodynamics;
+- universal density-coupling law;
+- universal dynamic-selection principle.
+
+15.2 ENVIRONMENTAL DISTINGUISHABILITY
+
+За:
+N = 8
+M = 2
+
+се получава:
+D_E(t) > 0
+за:
+t ∈ (0,1]
+в рамките на тествания модел.
+
+Това не установява:
+- relational dilution;
+- information conservation;
+- entropy conservation;
+- mutual-information conservation;
+- fundamental information spreading.
+
+15.3 THRESHOLD EXTENT
+
+За:
+epsilon = 0.2
+
+няма наблюдаван G_info increase в:
+t ∈ [0,1].
+
+STATUS: BOUNDED NEGATIVE RESULT WITHIN TESTED WINDOW.
+
+Няма основание за extension извън:
+t ∈ [0,1]
+или:
+m <= 8.
+
+За:
+epsilon = 0.4
+
+отново няма наблюдаван G_info increase в:
+t ∈ [0,1].
+
+STATUS: BOUNDED NEGATIVE RESULT WITHIN TESTED WINDOW.
+
+За:
+epsilon = 0.6:
+
+G_info: 2 → 3
+между:
+t = 0.8
+и:
+t = 0.9.
+
+STATUS: CROSSING INTERVAL IDENTIFIED.
+
+За:
+epsilon = 0.8:
+
+G_info: 4 → 5
+между:
+t = 0.9
+и:
+t = 1.0.
+
+STATUS: CROSSING INTERVAL IDENTIFIED.
+
+Observed transitions exceed reported numerical margin:
+10^-12.
+
+Exact crossing times:
+NOT RESOLVED.
+
+Continuous-time crossing trajectory не е реконструирана.
+
+15.4 NORMALIZED ACCESSIBILITY Q_m
+
+Reduction е retained само при конкретните comparison/control points, подкрепени от underlying numerical record и съответните crossing intervals.
+
+Не се прави global monotonicity claim.
+Не се твърди:
+Q_m(t) decreases for all t.
+
+Ако raw comparison points не са налични:
+STATUS: INHERITED NUMERICAL CLAIM.
+
+Не се допуска реконструкция чрез assumption.
+
+PRIMARY OPERATIONAL PATTERN
+
+Предпочитан термин:
+THRESHOLDED INFORMATIONAL ACCESSIBILITY PATTERN.
+
+Pattern:
+- D_E(t) > 0 в тествания прозорец;
+- operationally bounded variation на D_E в relevant crossing intervals;
+- reported Q_m reduction при съответните control points;
+- G_info increase при epsilon = 0.6;
+- G_info increase при epsilon = 0.8.
+
+STATUS: SUPPORTED WITHIN TESTED FINITE MODEL.
+
+Pattern-ът е конструиран от:
+D_E → D_A → Dbar_m → Q_m → G_info.
+
+Това не е директно наблюдение на fundamental information-flow law.
+
+RELATIONAL DILUTION
+
+STATUS: CANDIDATE OPERATIONAL INTERPRETATION ONLY.
+
+Operational definition:
+
+При приблизително запазена full-environment distinguishability, relative accessibility през по-малки environmental subsets намалява, докато минималният relational/informational extent, необходим за достигане на фиксиран threshold, се увеличава.
+
+Това не е derived fundamental process.
+
+Не се установява:
+- relational dilution като general physical process;
+- literal geometric dilution;
+- fundamental information conservation;
+- entropy conservation;
+- mutual-information conservation;
+- causal relation:
+  relational dilution → Z(t);
+- universal relational-dilution law.
+
+NUMERICAL VALIDATION STATUS
+
+N-convergence: LOCAL NUMERICAL SUPPORT.
+M-convergence: PARTIAL.
+Discretization robustness: PARTIAL.
+Threshold robustness: PARTIAL, като 2 от 4 thresholds показват G_info increase.
+Recurrence separation: SUPPORTED FOR TESTED WINDOW.
+Krylov validation: OUT OF SCOPE.
+
+Няма extrapolation към:
+N → ∞
+M → ∞
+continuum limit
+thermodynamic limit.
+
+FAILURE BOUNDARIES
+
+Следните inference upgrades са забранени:
+
+D_E(t) > 0 → relational dilution.
+G_info increase → fundamental information conservation.
+Frequency-mode extent → literal geometric extent.
+Finite-model result → universal physical law.
+Operational accessibility → irreversible thermodynamic dissipation.
+Coupling-dependent Z → universal causal law.
+Relational dilution → established physical mechanism.
+D_E(t2) ≈ D_E(t1) → information conservation.
+No G_info increase за epsilon = 0.2 / 0.4 → absence outside t <= 1.
+Operational upgrade → reopening RL-017 за density scans, convergence, continuum, thermodynamic, Krylov или criticality work.
+
+Такова разширение изисква нов RL.
+
+LIMITATIONS
+
+Threshold robustness = PARTIAL.
+N convergence = LOCAL SUPPORT.
+M convergence = PARTIAL.
+Discretization = PARTIAL.
+Independent numerical replication = NOT PERFORMED.
+Krylov = OUT OF SCOPE.
+alpha_c = NOT DERIVED.
+rho_c = NOT DERIVED.
+Criticality = NOT ESTABLISHED.
+Localization transition = NOT ESTABLISHED.
+Continuum-limit convergence = NOT ESTABLISHED.
+Thermodynamic-limit criticality = NOT ESTABLISHED.
+Universal dissipation law = NOT ESTABLISHED.
+Universal density-coupling law = NOT ESTABLISHED.
+Universal dynamic-selection principle = NOT ESTABLISHED.
+Exact crossing times = UNRESOLVED.
+Continuous-time crossing trajectory = UNRESOLVED.
+Delta t = 0.1 = ASSUMPTION.
+delta = operational tolerance, not derived physical constant.
+
+Exact initial states, bath parameters и spectral normalization са inherited от primary record, ако са налични.
+
+При непълен primary record:
+REPRODUCIBILITY GAP.
+
+STATUS MATRIX
+
+SUPPORTED WITHIN TESTED FINITE MODEL:
+- coupling-dependent modification of Z(t);
+- D_E(t) > 0 в tested window;
+- thresholded informational accessibility pattern;
+- G_info increase за epsilon = 0.6;
+- G_info increase за epsilon = 0.8;
+- reported Q_m reduction при specified comparison points.
+
+PARTIAL:
+- threshold robustness;
+- N-convergence;
+- M-convergence;
+- discretization robustness.
+
+CANDIDATE OPERATIONAL INTERPRETATION ONLY:
+- relational dilution.
+
+NOT RESOLVED:
+- exact crossing time;
+- continuous-time crossing trajectory;
+- independent reconstruction from raw data.
+
+NOT DERIVED:
+- fundamental information conservation;
+- causal relation relational dilution → Z(t);
+- alpha_c;
+- rho_c.
+
+NOT ESTABLISHED:
+- relational dilution като general physical process;
+- literal geometric dilution;
+- criticality;
+- localization transition;
+- continuum-limit convergence;
+- thermodynamic-limit criticality;
+- universal dissipation law;
+- universal density-coupling law;
+- universal dynamic-selection principle.
+
+REPRODUCIBILITY GAP IF PRIMARY RECORD INCOMPLETE:
+- exact initial system states;
+- exact initial environmental state;
+- bath temperature / mode occupations;
+- exact spectral-density normalization convention.
+
+CE-V / FROZEN CORE
+
+CE-V:
+NO PROMOTION.
+
+Няма independent validation извън RL.
+CE-V-07 remains RESERVED.
+No new CE-V assignment.
+
+FROZEN CORE:
+INTACT.
+
+RL-017 REV-8 не модифицира:
+- OMEGA-ISOP Frozen Core;
+- Volumes I-IV;
+- Volume V architecture;
+- relational/dynamic chain;
+- scope boundaries;
+- absence of universal dynamic-selection principle.
+
+TRACEABILITY
+
+finite spin-boson model
+→ finite system-environment relational coupling
+→ environmental degrees of freedom
+→ local observable Z(t)
+→ coupling-dependent local dynamical modification
+→ two-state environmental distinguishability D_E(t)
+→ subset distinguishability D_A(t)
+→ subset-averaged distinguishability Dbar_m(t)
+→ contractivity bound
+→ normalized accessibility Q_m(t)
+→ threshold extent G_info(t;epsilon)
+→ thresholded informational accessibility pattern
+→ candidate operational interpretation: relational dilution
+→ explicit interpretation boundary
+→ no universal physical promotion.
+
+FINAL CLAIM CONTROL
+
+COUPLING-DEPENDENT LOCAL DYNAMICAL MODIFICATION
+SUPPORTED WITHIN TESTED FINITE MODEL.
+
+THRESHOLDED INFORMATIONAL ACCESSIBILITY PATTERN
+SUPPORTED WITHIN TESTED FINITE MODEL.
+
+RELATIONAL DILUTION
+CANDIDATE OPERATIONAL INTERPRETATION ONLY.
+
+Нито едно от тях не е promoted to:
+- universal law;
+- fundamental information-conservation principle;
+- fundamental physical mechanism;
+- criticality claim;
+- continuum-limit claim;
+- thermodynamic-limit claim.
+
+M3.2 FINAL AUDIT STATUS
+
+CLAIM: CONTROLLED
+GIVEN: CONTROLLED
+DEFINITION: CONTROLLED
+ASSUMPTION: EXPOSED
+RULE: CONTROLLED
+DERIVATION: TRACEABLE
+VERIFICATION: PASSED WITHIN AVAILABLE NUMERICAL RECORD
+FAILURE TEST: PASSED
+RESULT: MODEL-LIMITED / OPERATIONALLY SUPPORTED
+STATUS: CONTROLLED
+TARGET LOADING: NOT PROMOTED
+UNIVERSALITY UPGRADE: BLOCKED
+CAUSAL UPGRADE: BLOCKED
+NUMERICAL OVERCLAIM: BLOCKED
+ARCHITECTURAL OVERCLAIM: BLOCKED
+
+FINAL CLOSURE
+
+RL-017 REV-8 = FINAL / CLOSED / FROZEN / FORMALLY ADEQUATE / REPRODUCIBILITY-CONTROLLED / CONSOLIDATED.
+
+Няма нова numerical computation, raw tables, source code, independent replication, Krylov validation, continuum validation, thermodynamic validation или new numerical scan.
+
+CE-V = NO PROMOTION.
+FROZEN CORE = INTACT.
+RL-017 = CLOSED / FROZEN.
+REV-8 остава final.
+
+Future revision е оправдана само от new substantive evidence, например:
+- raw numerical record;
+- source code;
+- independent replication;
+- convergence study;
+- numerical scan;
+- Krylov validation;
+- genuine formal defect.
+
+Terminological polishing alone не оправдава нова revision.
+
+FINAL M3.2 STATUS:
+PASS.
+
+======================================================================
+RL-017.1
+DIRECT OPERATIONAL NON-INJECTIVITY / LOCAL OBSERVABLE PROJECTION
+
+Роля
+
+RL-017.1 е подмодул към RL-017, който разглежда отделно въпроса дали локалната operational observable може еднозначно да възстанови пълната dynamic realization.
+
+Това е различен въпрос от числения резултат на RL-017 за coupling-dependent local dynamics и thresholded informational accessibility.
+
+MODEL
+
+Използва се finite spin-boson realization с:
+- 1 qubit;
+- 3 bosonic modes;
+- Fock cutoff N_F = 8;
+- dim(H) = 1024;
+- omega = (1, 1.5, 2);
+- epsilon_q = 0;
+- Delta = 0;
+- X0 = |+> ⊗ |000>;
+- T = 3.
+
+Admissible dynamics:
+A(R) = {H(g) : g ∈ [0,0.5]^3}.
+
+Избира се reference subsystem:
+B_ref = {mode 1, mode 2}.
+
+След trace-out на qubit и mode 3:
+rho_B = reduced state върху B_ref.
+
+OPERATIONAL OBSERVABLE
+
+Определя се:
+O_G(<n1>, <n2>, Tr(rho_B^2)).
+
+Tolerance:
+epsilon = (0.01, 0.01, 0.01).
+
+Това е конкретна operational projection:
+D → G_real → [G_real]_O.
+
+TEST I: OBSERVABILITY OF DISTINCT REALIZATIONS
+
+Избират се:
+D1 = (0.30, 0.15, 0.05)
+D2 = (0.05, 0.15, 0.30).
+
+Получава се:
+|Delta O1| = 0.34825 > 0.01
+|Delta O2| ≈ 0
+|Delta O3| = 0.32783 > 0.01.
+
+Следователно D1 и D2 са operationally distinguishable чрез избрания O_G.
+
+Това показва, че operational projection може да различава някои distinct dynamics.
+
+DIRECT NON-INJECTIVITY TEST
+
+Избират се:
+D1 = (0.30, 0.15, 0.05)
+D2 = (0.30, 0.15, 0.30).
+
+Тогава:
+D1 ≠ D2.
+
+Hamiltonian norm difference:
+||H(D1) - H(D2)|| ≈ 1.0361.
+
+Но operational observables са практически еднакви:
+O_G(D1) = O_G(D2)
+с разлика около:
+2 × 10^-13.
+
+В същото време full states се различават:
+||rho_1 - rho_2|| ≈ 0.141673.
+
+Phase-invariant separation:
+≈ 0.0352745.
+
+Reduced boundary/reference states показват разлика около:
+1.1 × 10^-14.
+
+Следователно две различни full dynamics могат да дадат еднакъв избран operational observable.
+
+ANALYTIC EXPLANATION
+
+При:
+Delta = 0
+sigma_z е conserved.
+
+Следователно evolution-ът има структура, при която избраната reduced observable на reference modes зависи от:
+g1, g2,
+но не от:
+g3.
+
+Следователно:
+g3
+може да бъде променен, без избраният O_G да се промени.
+
+В същото време друга observable, например:
+<n3>,
+може да различи двете realizations.
+
+Това показва, че non-injectivity е property на конкретната operational projection, а не на самата full realization map.
+
+RESULT
+
+Получават се две различни карти:
+D → G_real
+и:
+D → [G_real]_O.
+
+Те не са еквивалентни.
+
+В тестваната configuration:
+D → [G_real]_O
+е non-injective.
+
+Следователно:
+еднакъв operational observable
+не означава:
+еднаква full dynamic realization.
+
+КАКВО НЕ Е УСТАНОВЕНО
+
+Не е установено, че:
+- operational projection е универсално non-injective;
+- всяка observable е non-injective;
+- всяка choice на O_G дава non-injectivity;
+- резултатът важи за всички initial states;
+- резултатът важи при Delta ≠ 0;
+- резултатът важи в continuum limit;
+- резултатът е universal local-to-global non-identifiability theorem;
+- D → G_real е itself non-injective;
+- realization е stochastic или non-unique в общия случай;
+- има универсална връзка към feedback, persistence или organization.
+
+STATUS
+
+MODEL-CONDITIONAL / NUMERICALLY CROSS-VALIDATED / ANALYTICALLY EXPLAINED.
+
+NIG:
+PASSED.
+
+CE-V:
+NOT VALIDATED / NO PROMOTION.
+
+FROZEN CORE:
+INTACT.
+
+ВРЪЗКА С RL-017
+
+RL-017 установява:
+- coupling-dependent local dynamical modification
+
+и изгражда operational informational-accessibility quantities:
+D_E, D_A, Dbar_m, Q_m, G_info.
+
+RL-017.1 разглежда друга граница:
+дали local operational projection може еднозначно да идентифицира underlying realization.
+
+Следователно:
+RL-017 ≠ RL-017.1.
+
+RL-017.1 е подмодул на RL-017, а не негов заместител.
+
+Общата тематична линия е:
+finite system-environment relation
+→ local dynamical modification
+→ environmental distinguishability
+→ operational informational accessibility
+→ local operational projection
+→ identification boundary / non-injectivity.
+
+ОБЩ СТАТУС НА ТЕМАТИЧНАТА ЛИНИЯ
+
+RL-017:
+FINAL / CLOSED / FROZEN / M3.2 PASS.
+
+RL-017.1:
+MODEL-CONDITIONAL / NUMERICALLY CROSS-VALIDATED / ANALYTICALLY EXPLAINED.
+
+CE-V:
+NO PROMOTION.
+
+FROZEN CORE:
+INTACT.
+
+КРАЙ НА ПРЕДОСТАВЕНИЯ ТЕКСТ.
