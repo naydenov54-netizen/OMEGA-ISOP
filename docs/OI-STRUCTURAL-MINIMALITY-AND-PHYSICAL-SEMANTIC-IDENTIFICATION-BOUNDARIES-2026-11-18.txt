@@ -1,0 +1,415 @@
+OMEGA-ISOP
+THEMATIC RESEARCH MAP
+Date: 2026-11-18
+Status: THEMATIC CONSOLIDATION / SOURCE-PRESERVING INDEX
+Scope: RL-014; RL-015; RL-016; RL-018; RL-018.1
+Architecture: Frozen Core unchanged
+CE-V: NO PROMOTION
+Important: Thematic grouping does not merge scientific results, proofs, claims, or registration states. Individual RL records remain logically independent. This document records the user-supplied thematic material and does not independently re-audit the underlying source records.
+
+ОБЩО ОПИСАНИЕ
+
+Какво може и какво не може да бъде изведено от релационната структура на OMEGA-ISOP, включително връзките ѝ с динамика, физически наблюдаеми величини, информационна/енергийна цена и идентификация. Общият резултат е, че няколко интуитивно изглеждащи връзки не следват автоматично от OMEGA, а изискват допълнителни независими условия или мостове.
+
+=======================
+
+RL-016 / RL-018 / RL-018.1
+OMEGA IDENTIFICATION / OBSERVABILITY / SEMANTIC SELECTION
+
+Мото:
+Структурата може да бъде идентифицирана, но семантичният избор изисква независим мост.
+
+RL-014
+RELATIONAL STRUCTURE / DYNAMICS / SPECTRAL CHANGE / REDSHIFT
+
+Мото:
+Релационната структура може да описва спектрална промяна, но сама не я извежда физически.
+
+RL-015
+STRUCTURAL MINIMALITY / MIC / ENERGY SELECTION
+
+Мото:
+Информационната минималност може да определя критерий, но сама не определя физическия минимум.
+
+=======================
+
+ТЕМАТИЧНА ПАПКА
+
+ТЕМА: СТРУКТУРНА МИНИМАЛНОСТ И ГРАНИЦИ НА ФИЗИЧЕСКАТА / СЕМАНТИЧНАТА ИДЕНТИФИКАЦИЯ
+
+Ключ:
+СТРУКТУРА / MINIMALITY / IDENTIFICATION / BRIDGE
+
+Тематичен обхват:
+Обединява на едно място три свързани, но логически независими изследователски линии. Общата тема е границата между структурна/информационна конструкция и физическа или семантична интерпретация.
+
+RL-014
+РЕЛАЦИОННА СТРУКТУРА → ДИНАМИКА → СПЕКТРАЛНА ПРОМЯНА → REDSHIFT
+
+Допълнителна линия: MIC, еквивалентност и quotient-редукция
+
+Статус:
+FINAL / CONSOLIDATED / INDEPENDENTLY AUDITED / CLOSED
+
+CE-V: NO PROMOTION
+FROZEN CORE: NO CHANGE
+Емпиричен статус: NO EMPIRICAL VALIDATION
+Универсалност: NOT ESTABLISHED
+
+Основен резултат
+
+Проверява се дали:
+RELATIONAL STRUCTURE → z ≠ 0
+
+може да бъде универсално изведено без допълнителни физически, динамични, спектрални и времеви предпоставки.
+
+Финален резултат:
+RELATIONAL STRUCTURE ALONE ⊬ z ≠ 0
+
+Релационната структура може да представя спектрално отношение, но представимостта не е извеждане.
+
+Основни отрицателни резултати
+
+Установено е, че:
+- relational asymmetry не налага spectral shift;
+- relational asymmetry не налага temporal arrow;
+- persistence не налага irreversibility;
+- Frozen Core не избира еднозначно realized dynamics;
+- relational scalar ratio не определя автоматично физическа wavelength;
+- physical identification не определя автоматично положителен redshift;
+- syntactic axiom count не е invariant measure на information cost;
+- contextual equivalence не е еквивалентна на cost equivalence;
+- quotient/contextual layer не е необходим за директното определяне на MIC;
+- по-малък quotient не гарантира по-нисък computational cost.
+
+Минимална факторизирана архитектура
+
+За физически z > 0 са логически отделими поне:
+
+RELATIONAL STRUCTURE
+→ PHYSICAL IDENTIFICATION
+→ SPECTRAL COUPLING
+→ DIRECTIONAL DYNAMICS
+→ TEMPORAL ORDER
+→ SPECTRAL RATIO
+→ REDSHIFT
+
+Тези преходи не са универсално дадени от началната relational structure.
+
+MIC
+
+Основната архитектура е:
+
+LANGUAGE + SEMANTICS + MODEL + TARGET-NEUTRALITY
+→ DERIVATION SPACE
+→ COST
+→ MIC
+
+Основен резултат:
+PRIMARY: D → Cost → MIC
+SECONDARY: K → contextual equivalence → quotient
+
+Contextual equivalence не е установена като фундаментална част от MIC.
+
+Equivalence и cost
+
+Установено е:
+
+D1 ≈K D2 ⊬ Cost(D1) = Cost(D2)
+
+и:
+
+Cost(D1) = Cost(D2) ⊬ D1 ≈K D2
+
+Следователно contextual equivalence и cost equivalence са независими отношения.
+
+Quotient и computational cost
+
+Quotient може да намали пространството за търсене, но:
+
+compression ≠ guaranteed speedup
+
+При:
+
+T_D = S C_D
+T_Q = C_Q + S C_Q
+
+реална computational полза има само ако:
+
+C_Q + S C_Q < S C_D
+
+Отворени проблеми
+
+- Universal physical identification между relational scalar и spectral observable.
+- Universal dynamic-selection principle.
+- Canonical representation-invariant MIC.
+
+Финален claim
+
+RELATIONAL STRUCTURE ALONE DOES NOT UNIVERSALLY DERIVE NONZERO REDSHIFT.
+
+По-конкретно:
+
+RELATIONAL STRUCTURE ⊬ z ≠ 0
+
+без допълнителни assumptions, въвеждащи физическа идентификация, спектрално свързване, динамична ориентация и необходимата temporal ordering.
+
+RL-014 = CLOSED / CONSOLIDATED / INDEPENDENTLY AUDITED
+
+=======================
+
+RL-015
+MIC / СТРУКТУРНА МИНИМАЛНОСТ → MINIMUM ENERGY
+
+Selection principle, target-neutrality и model-theoretic bridge
+
+Статус:
+RL RESULT / STRONG METHODOLOGICAL RESULT / FROZEN CONSOLIDATED RECORD
+
+Архитектурен статус:
+външна Research Laboratory линия
+
+FROZEN CORE: INTACT
+VOLUME V: NO MODIFICATION
+CE-V: NO PROMOTION
+
+Основен въпрос
+
+Може ли:
+
+MIC / STRUCTURAL MINIMALITY / SELECTION
+
+да обоснове:
+
+MINIMUM ENERGY
+
+чрез независимо оправдан, target-neutral bridge?
+
+Основни резултати
+
+Не следва универсално:
+- MIC → Energy
+- MIC-ordering → Energy-ordering
+- MIC-minimization → Energy-minimization
+- R + A(R) → unique optimization criterion
+- Admissibility → Energy preference
+- Structural minimum → Energy minimum
+- Selection principle → cost of selected quantity
+
+Коригиран минималностен резултат
+
+Строгото запазване на порядъка само по себе си не е достатъчно поради възможна дегенерация на K.
+
+За:
+
+argmin K = argmin J
+
+е необходима независимо установена връзка, която запазва релевантната структура на реда и равенството.
+
+Достатъчна форма е:
+
+J = f ∘ K
+
+където f е строго монотонна върху релевантния диапазон.
+
+Следователно:
+
+minimum K ≠ minimum J
+
+като общо логическо следствие.
+
+Model-theoretic selector
+
+За теория T и цел J:
+
+CounterModels(T,J) = Mod(T) ∩ Mod(¬J)
+
+и:
+
+T + S ⊨ J
+
+тогава и само тогава, когато:
+
+Mod(S) ∩ CounterModels(T,J) = ∅
+
+Следователно достатъчен selector S трябва да елиминира всички T-countermodels на J.
+
+Но:
+
+T ⊭ J
+
+не означава:
+
+T ⊢ ¬J
+
+и:
+
+not-derived ≠ false
+
+Съществуването на countermodels не доказва автоматично съществуването на независимо оправдан target-neutral selector.
+
+C11
+
+C11 STATUS:
+SCHEMA PASS / OBJECT-LEVEL AMBIGUOUS-DOMAIN (UNRESOLVED)
+
+Проблемът е домейнът, върху който се оценява „minimum Energy“.
+
+Следователно claim:
+
+Unique realization → minimum Energy
+
+не може да бъде класифициран като универсално истинен или универсално неистинен без предварително фиксиран Energy comparison domain.
+
+Countermodel registry
+
+A: MIC(H1) < MIC(H2) while E(H1) > E(H2)
+→ DATA-CONFIRMED
+
+B / C: различни structural criteria при едни и същи R и A(R)
+→ INDEPENDENTLY CONFIRMED + DATA-CONFIRMED
+
+D: refinement на candidate domain не гарантира по-ниска Energy
+→ INDEPENDENTLY CONFIRMED
+
+E: два различни target-neutral selectors, извеждащи една и съща цел
+→ OPEN / SCHEMA-ONLY
+
+Финален резултат
+
+Минималната информационна цена не извежда минималната енергия.
+MIC ordering не определя универсално Energy ordering.
+MIC minimization не определя универсално Energy minimization.
+Структурната admissibility не определя сама уникален optimization criterion.
+Selection principle не е сам по себе си cost measure.
+
+Minimum Energy изисква:
+- независимо оправдан selection principle S, или
+- независимо валидиран bridge между съответния structural/information criterion и физическата Energy.
+
+Съществуването на такъв независим target-neutral bridge остава OPEN.
+
+RL-015 = FROZEN AS CORRECTED CONSOLIDATED RESEARCH RECORD
+
+=======================
+
+RL-016 / RL-018 / RL-018.1
+OMEGA: ИДЕНТИФИКАЦИЯ → НАБЛЮДАЕМОСТ → СЕМАНТИЧЕН ИЗБОР
+
+Статус:
+отделна OMEGA identification line
+
+CE-V: NO PROMOTION
+FROZEN CORE: INTACT
+
+RL-016
+
+Фокус:
+границата между математическа/физическа идентифицируемост и semantic legitimacy.
+
+Основен резултат:
+
+P ⊬ B_Ω
+P ⊬ O
+
+Фиксираната физическа/структурна конструкция P не избира автоматично уникална OMEGA семантика.
+
+Установено е, че:
+- mathematical identifiability ≠ semantic legitimacy;
+- physical identification ≠ OMEGA semantic selection;
+- observable equivalence ≠ OMEGA equivalence;
+- physical observability не установява универсален OMEGA selection rule.
+
+Независим OMEGA bridge B_Ω не е изведен.
+
+RL-018
+
+Фокус:
+
+I,D → CSI → OmegaCSI
+
+като:
+
+CSI(I,D) != OmegaCSI(I,D)
+
+Уникалността на CSI не гарантира уникалност на OMEGA интерпретацията.
+
+Необходим е независимо оправдан semantic bridge:
+
+CSI + B_ext → unique(Omega)
+
+но:
+
+I,D ⊬ B_ext
+
+Следователно unique OMEGA semantics от дадената физическа/структурна информация не е общо изведена.
+
+RL-018.1
+
+Domain-bounded physical identification stress test.
+
+Проверени са границите между:
+- thermodynamic equilibrium;
+- minimum energy;
+- degeneracy;
+- transition structure;
+- Hamiltonian;
+- reachability;
+- OMEGA interpretation.
+
+Установено е, че:
+- finite-T equilibrium не означава minimum-energy microstate;
+- degeneracy влияе върху thermodynamic weight;
+- structural difference не предполага thermodynamic difference;
+- H → unique dynamics не е изведено;
+- equilibrium distribution → unique transition structure не е изведено;
+- R → unique reachability не е изведено;
+- physical consequences → unique OMEGA semantics не е изведено.
+
+RL-018.1 е затворен, domain-bounded submodule на RL-018.
+
+Общ резултат на линията
+
+Физическата или структурната идентификация не е достатъчна сама по себе си за уникален OMEGA semantic assignment.
+
+Необходим е независимо оправдан bridge между идентифицираната структура и OMEGA семантиката.
+
+RL-016 / RL-018 / RL-018.1 остават вътрешно разграничени и не се смесват с RL-014 или RL-015.
+
+=======================
+
+ВЪТРЕШНА АРХИТЕКТУРНА ВРЪЗКА
+
+Общата тематична ос е:
+
+СТРУКТУРА
+→ МИНИМАЛНОСТ / MIC
+→ ИДЕНТИФИКАЦИЯ
+→ BRIDGE
+→ ФИЗИЧЕСКА ИЛИ СЕМАНТИЧНА ИНТЕРПРЕТАЦИЯ
+
+Но трите линии запазват различни цели:
+
+RL-014:
+структура → redshift
+
+RL-015:
+minimality / MIC → Energy
+
+RL-016/018/018.1:
+identification → OMEGA semantics
+
+Нито една от тези връзки не се приема като универсална без независимо установен bridge.
+
+Тематична папка: една.
+RL записи: отделни.
+Claim статуси: непроменени.
+Traceability: запазена.
+
+=======================
+
+КОНСОЛИДАЦИОННА БЕЛЕЖКА
+
+Този документ е тематичен обзор и source-preserving consolidation на предоставения материал. Той не заменя първичните RL записи, не слива доказателства, не променя регистрационни статуси, не променя Frozen Core, Volume V или CE-V и не добавя нови научни твърдения.
+
+Преди бъдещо използване като независимо одитиран обзор трябва да се проверят първичните RL файлове и съответните доказателствени артефакти. Статусите, възпроизведени тук, са записани като предоставени, а не повторно сертифицирани чрез този документ.
