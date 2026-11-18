@@ -1,0 +1,295 @@
+OMEGA-ISOP
+STAGE 3 — GRT-01-E: ROBUSTNESS OF PAIRWISE LOGICAL INDEPENDENCE
+DATE: 2026-11-18
+DOCUMENT ID: OI-STAGE-03-GRT-01-E-ROBUSTNESS-LOGICAL-INDEPENDENCE-2026-11-18
+STATUS: NON-CANONICAL RECONSTRUCTED MATHEMATICAL AUDIT
+TYPE: ADDITIVE COUNTERMODEL / INDEPENDENCE CHECK
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+
+0. SCOPE AND PROTECTION
+
+This audit tests pairwise logical independence of reconstructed A1, A2, and A3 under a stricter common framework.
+
+It does not recover the original Stage 3 specification. It does not alter the Frozen Core, Volume II, Volume IV, Volume V, CE-V, RL, or canonical status.
+
+All conclusions are conditional on the definitions stated below. No result is promoted to a canonical OMEGA-ISOP theorem.
+
+1. DEFINITIONS USED IN THIS AUDIT
+
+Let:
+X = Y = R with the usual metric d(x,y)=|x-y|.
+I = N = {1,2,3,...}.
+G = C2 = {e,s}, with s^2=e.
+The group action on both X and Y is the sign action:
+alpha_e(x)=x; alpha_s(x)=-x.
+beta_e(y)=y; beta_s(y)=-y.
+
+Fix the same target and initial set in all three models:
+A={0}; B={1}.
+
+For each i in I, use one map f_i:R->R and impose the coupling:
+F_i = T_i = f_i.
+
+Thus the response-map family and the dynamical family are not independent in these witnesses.
+
+Reconstructed A1 (group covariance):
+for every i, g, and x,
+F_i(alpha_g(x)) = beta_g(F_i(x)).
+
+Reconstructed A2 (uniform attraction):
+sup over i in I and x in B of d(T_i^n(x),A) -> 0 as n->infinity,
+where d(z,A)=inf over a in A of |z-a|.
+
+Reconstructed A3 (equicontinuity of the family):
+for every epsilon>0 there exists delta>0 such that for all i and x,y in R,
+|x-y|<delta implies |F_i(x)-F_i(y)|<epsilon.
+
+These are the working definitions used in GRT-01-E. They are not claimed to be the original Stage 3 definitions.
+
+2. MODEL E1: A1 TRUE, A2 TRUE, A3 FALSE
+
+For i>=1 define:
+p_i(x)=max(1-2i|x-10|,0).
+
+Define:
+f_i(x)=x/2 + p_i(x) - p_i(-x).
+
+Set F_i=T_i=f_i.
+
+2.1 A1 proof
+
+For every x:
+f_i(-x)
+= -x/2 + p_i(-x)-p_i(x)
+= -f_i(x).
+
+Therefore f_i is equivariant under the sign action. The identity element is automatic. Hence A1 is TRUE.
+
+2.2 A2 proof
+
+For x in [0,1], both p_i(x)=0 and p_i(-x)=0, because the supports of the two triangular functions are localized near +10 and -10.
+
+Therefore:
+f_i(x)=x/2 for every x in [0,1].
+
+Starting from B={1}, the orbit is:
+f_i^n(1)=2^(-n)
+for every i and n.
+
+Consequently:
+sup over i and x in B of d(f_i^n(x),A)=2^(-n)->0.
+
+Hence A2 is TRUE.
+
+2.3 A3 failure proof
+
+Choose:
+x_i=10
+y_i=10+1/(2i).
+
+Then:
+|x_i-y_i|=1/(2i)->0.
+
+At x_i:
+p_i(10)=1 and p_i(-10)=0, so f_i(10)=6.
+
+At y_i:
+p_i(y_i)=0 and p_i(-y_i)=0, so
+f_i(y_i)=5+1/(4i).
+
+Thus:
+|f_i(x_i)-f_i(y_i)|=1-1/(4i)>=3/4.
+
+The input distance tends to zero while the output distance remains bounded below by 3/4. No common delta can satisfy equicontinuity for epsilon=1/2.
+
+Hence A3 is FALSE.
+
+E1 truth pattern:
+A1=TRUE; A2=TRUE; A3=FALSE.
+
+3. MODEL E2: A1 TRUE, A2 FALSE, A3 TRUE
+
+For i>=1 define:
+q_i=1-1/(i+1)=i/(i+1).
+
+Define:
+f_i(x)=q_i*x.
+
+Set F_i=T_i=f_i.
+
+3.1 A1 proof
+
+For every x:
+f_i(-x)=-q_i*x=-f_i(x).
+
+Hence A1 is TRUE.
+
+3.2 A2 failure proof
+
+Starting from B={1}:
+f_i^n(1)=q_i^n.
+
+For every fixed i, q_i<1, so q_i^n->0 as n->infinity.
+
+However, uniform attraction requires:
+sup over i q_i^n ->0.
+
+Since q_i increases to 1 as i->infinity:
+sup over i q_i^n = 1
+for every fixed n.
+
+Therefore the supremum does not tend to zero. A2 is FALSE, even though each individual map attracts the initial point to zero.
+
+3.3 A3 proof
+
+For all i,x,y:
+|f_i(x)-f_i(y)|=q_i|x-y|<=|x-y|.
+
+The family has common Lipschitz constant 1. Therefore it is equicontinuous.
+
+Hence A3 is TRUE.
+
+E2 truth pattern:
+A1=TRUE; A2=FALSE; A3=TRUE.
+
+4. MODEL E3: A1 FALSE, A2 TRUE, A3 TRUE
+
+Define:
+h(x)=0.1*x^2/(1+x^2).
+
+Define one common map for every i:
+f_i(x)=0.5*x+h(x).
+
+Set F_i=T_i=f_i.
+
+4.1 A1 failure proof
+
+The function h is even and is nonzero for x!=0.
+
+For x!=0:
+f_i(-x)=-0.5*x+h(x),
+whereas:
+-f_i(x)=-0.5*x-h(x).
+
+These values differ by 2h(x)>0.
+
+Thus f_i(-x) != -f_i(x) for x!=0. The sign covariance condition fails.
+
+Hence A1 is FALSE.
+
+4.2 A2 proof
+
+Differentiate:
+h'(x)=0.2*x/(1+x^2)^2.
+
+The maximum absolute value of h' occurs at |x|=1/sqrt(3), and equals:
+0.1125/sqrt(3) < 0.065.
+
+Therefore:
+|f_i'(x)| <= 0.5+0.065=0.565
+for every x and i.
+
+By the mean value theorem, each f_i is globally Lipschitz with common constant L=0.565<1.
+
+Also:
+f_i(0)=0.
+
+It follows by iteration:
+|f_i^n(1)|<=0.565^n.
+
+The estimate is independent of i, so:
+sup over i and x in B of d(f_i^n(x),A)<=0.565^n->0.
+
+Hence A2 is TRUE.
+
+4.3 A3 proof
+
+The same global Lipschitz estimate gives:
+|f_i(x)-f_i(y)|<=0.565|x-y|
+for all i,x,y.
+
+Thus the family is equicontinuous.
+
+Hence A3 is TRUE.
+
+E3 truth pattern:
+A1=FALSE; A2=TRUE; A3=TRUE.
+
+5. CONSOLIDATED INDEPENDENCE RESULT
+
+All three models use exactly the same:
+- state and result spaces X=Y=R;
+- metric;
+- parameter set I=N;
+- symmetry group G=C2;
+- sign actions alpha and beta;
+- target A={0};
+- initial set B={1};
+- coupling F_i=T_i.
+
+Only the operator families differ.
+
+The witnesses establish:
+
+To make A3 false while A1 and A2 remain true: Model E1.
+To make A2 false while A1 and A3 remain true: Model E2.
+To make A1 false while A2 and A3 remain true: Model E3.
+
+Therefore A1, A2, and A3 are pairwise logically independent within the reconstructed class defined in Section 1, even under the coupling F_i=T_i and fixed common ambient data.
+
+This is stronger than independence obtained by assigning unrelated response and dynamic operators.
+
+6. LIMITS AND SOURCE-SEMANTIC CAVEATS
+
+6.1 Original A1 is not yet identical to the group-covariance test
+
+The accessible Volume II checkpoint formulates common response covariance as the existence of one common map:
+tau:L_op->L_op
+such that:
+Resp_(T(M))(a)=Resp_M(tau(a))
+for every model M and operational input a.
+
+The group-covariance condition tested here:
+F_i(alpha_g(x))=beta_g(F_i(x))
+is a different formal statement.
+
+GRT-01-D and this GRT-01-E use the latter as a reconstructed symmetry-covariance formulation. The result must not be silently transferred to the Volume II common-pullback formulation. A separate independence test is required if A1 is fixed to that exact response-semantic statement.
+
+6.2 A3 target-family caveat
+
+This audit defines A3 as equicontinuity of the family {F_i}. The accessible Volume II checkpoint distinguishes at least two other possible targets:
+- equicontinuity of iterates {T^n};
+- equicontinuity of response maps {Resp_M} on L_op.
+
+The present proof does not establish independence for either alternative target without a separate construction.
+
+6.3 Original Stage 3 definitions
+
+The primary Stage 3 specification and its exact quantifiers remain unrecovered. Thus the results are reconstructed mathematical witnesses, not canonical interpretations.
+
+6.4 A4
+
+A4 is not tested here. Common operational anchor response and common dynamical fixed point remain distinct unresolved meanings.
+
+7. DISPOSITION
+
+PAIRWISE INDEPENDENCE UNDER THE STATED RECONSTRUCTED GROUP-COVARIANCE MODEL: PROVEN.
+
+ROBUSTNESS UNDER COMMON AMBIENT SPACE, GROUP ACTIONS, TARGET, INITIAL SET, AND COUPLING F_i=T_i: PROVEN.
+
+TRANSFER TO ORIGINAL VOLUME II RESPONSE-COVARIANCE A1: NOT ESTABLISHED.
+
+TRANSFER TO ALTERNATIVE A3 TARGET FAMILIES: NOT ESTABLISHED.
+
+ORIGINAL STAGE 3 CANONICAL STATUS: NOT ESTABLISHED.
+
+FROZEN CORE: UNCHANGED.
+VOLUME II: UNCHANGED.
+VOLUME IV: UNCHANGED.
+VOLUME V: UNCHANGED.
+CE-V: NO PROMOTION.
+RL: NO REGISTRATION.
+CANONICAL ACCEPTANCE: NOT CLAIMED.
+
+END OF AUDIT
