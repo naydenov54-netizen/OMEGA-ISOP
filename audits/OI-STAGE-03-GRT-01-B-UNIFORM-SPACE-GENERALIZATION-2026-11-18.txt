@@ -1,0 +1,275 @@
+OMEGA-ISOP
+STAGE 3 — GENERALIZATION AND ROBUSTNESS TEST
+GRT-01-B — UNIFORM SPACE GENERALIZATION
+Date: 2026-11-18
+Status: NON-CANONICAL RESEARCH AUDIT
+Architecture: Frozen Core unchanged
+Canonical promotion: NOT AUTHORIZED
+
+0. SCOPE AND STATUS
+
+This audit generalizes the reconstructed A1–A3 framework to uniform spaces. It does not recover the missing original Stage 3 specification. All definitions below are reconstructed working definitions and must not be treated as canonical.
+
+Status labels:
+PROVEN: follows rigorously from the stated definitions and assumptions.
+CONDITIONAL: follows only when the listed additional assumptions hold.
+COUNTERMODEL: an explicit model disproves a proposed implication.
+RECONSTRUCTED: a working formulation adopted for this audit.
+UNVERIFIED: not established here.
+
+1. UNIFORM SPACES
+
+A uniform space is a pair (X,U), where U is a uniformity on X. Members E of U are called entourages. They encode uniform closeness of pairs of points without requiring a numerical distance.
+
+The uniformity axioms used here are:
+(U1) Every E in U contains the diagonal Δ_X = {(x,x): x in X}.
+(U2) If E is in U and E is a subset of F subset X×X, then F is in U.
+(U3) If E1,E2 are in U, then E1 intersect E2 is in U.
+(U4) For every E in U, there exists V in U such that V composed with V is a subset of E.
+One may replace V by V intersect V inverse to obtain a symmetric entourage refinement.
+
+For E subset X×X and A subset X, define:
+E[A] = {x in X : there exists a in A such that (x,a) is in E}.
+
+When E is symmetric, E[A] is the uniform E-neighborhood of A. The diagonal axiom implies A subset E[A].
+
+A uniform space need not be separated. It is separated (Hausdorff as a uniform space) when the intersection of all entourages is exactly Δ_X. Separation is not required for the algebraic statements below, but may matter for uniqueness of limits.
+
+2. GENERALIZED A1 — COVARIANCE
+
+Let I be a nonempty parameter set, G a group, X and Y sets, and suppose G acts on X and Y through maps alpha_g:X->X and beta_g:Y->Y.
+
+Let F_i:X->Y for each i in I.
+
+Reconstructed A1:
+For all i in I, g in G, and x in X:
+F_i(alpha_g(x)) = beta_g(F_i(x)).
+
+This is an algebraic covariance identity. It does not require a metric, topology, or uniformity.
+
+If X and Y are uniform spaces, additional regularity conditions may be imposed:
+(a) each alpha_g is uniformly continuous;
+(b) each beta_g is uniformly continuous;
+or, more strongly, the actions are jointly uniformly continuous under an explicitly specified product uniformity.
+
+These regularity conditions do not follow from the covariance identity. Covariance alone is not a continuity theorem.
+
+A1 RESULT:
+PROVEN: the covariance identity is meaningful and unchanged in uniform spaces.
+PROVEN: metric structure is unnecessary for the algebraic identity.
+CONDITIONAL: preservation of uniform continuity under the actions requires separate uniform-continuity assumptions.
+UNVERIFIED: whether the original OMEGA-ISOP A1 intended any topological or uniform regularity requirement. The original specification is not recovered.
+
+3. GENERALIZED A2 — UNIFORM ATTRACTION
+
+Let (X,U_X) be a uniform space, I a nonempty parameter set, A a nonempty subset of X, B a nonempty subset of X, and T_i:X->X for every i in I.
+
+For n in the nonnegative integers, T_i^n denotes n-fold iteration, with T_i^0 the identity.
+
+Reconstructed uniform A2:
+For every entourage E in U_X, there exists N in the nonnegative integers such that for all i in I and all n>=N:
+T_i^n(B) subset E[A].
+
+This is uniform attraction of B toward A in the uniform-neighborhood sense.
+
+The quantifier order is essential:
+For every E, there exists one N, such that for every i and every n>=N the inclusion holds.
+
+This is stronger than pointwise-in-parameter attraction:
+For every i and every E, there exists N(i,E), such that for every n>=N(i,E):
+T_i^n(B) subset E[A].
+
+The latter allows the convergence threshold to depend on i.
+
+3.1 Finite-parameter theorem
+
+Assume I is finite. Suppose that for every i in I, every entourage E, there exists N_i(E) such that:
+for all n>=N_i(E), T_i^n(B) subset E[A].
+
+Then uniform A2 holds.
+
+Proof:
+Fix an arbitrary entourage E. For each i in the finite set I, choose N_i(E). Define N=max{N_i(E):i in I}. Since I is finite, this maximum exists. For every i in I and n>=N, we have n>=N_i(E), hence T_i^n(B) subset E[A]. This is exactly uniform A2.
+
+RESULT: PROVEN.
+
+3.2 Infinite-parameter countermodel
+
+Let X=R with its usual metric uniformity.
+Let A={0}, B={1}, and I={1,2,3,...}.
+For each i define:
+T_i(x) = (1 - 1/(i+1))x.
+
+For every fixed i, the coefficient q_i=1-1/(i+1) satisfies 0<q_i<1. Therefore:
+T_i^n(1)=q_i^n -> 0 as n->infinity.
+Thus each parameter value attracts B to A individually.
+
+However, uniform A2 fails. Choose the entourage:
+E = {(x,y) in R×R : |x-y|<1/2}.
+Then E[A]=(-1/2,1/2).
+
+For any proposed common N, choose i sufficiently large that:
+(1 - 1/(i+1))^N >= 1/2.
+Then T_i^N(1) is not in E[A]. Thus no single N works for all i.
+
+RESULT:
+COUNTERMODEL: individual attraction for every fixed parameter does not imply uniform attraction over an infinite parameter family, even on R with its standard metric uniformity.
+This confirms the same logical gap found in the earlier metric reconstruction; it is not a new claim about the original specification.
+
+3.3 Boundary cases
+
+If B is empty, A2 holds vacuously. Therefore B nonempty is imposed to avoid a vacuous result.
+If A is empty and B is nonempty, E[A] is empty for every entourage E, so A2 cannot hold. Therefore A nonempty is imposed.
+If A=X, then E[A]=X for every entourage E because every entourage contains the diagonal. A2 is then automatic and carries no attraction information.
+If I is empty, the universal quantifier over i is vacuous. Therefore I is assumed nonempty.
+For finite I, individual attraction implies uniform attraction by the theorem above.
+For infinite I, the countermodel shows that this implication fails in general.
+
+3.4 Relation to metric attraction
+
+For a metric space with its metric uniformity, entourages include sets of the form:
+E_epsilon = {(x,y): d(x,y)<epsilon}, epsilon>0.
+
+The uniform-neighborhood condition becomes:
+For every epsilon>0, there exists N such that for all i and n>=N:
+T_i^n(B) subset {x : there exists a in A with d(x,a)<epsilon}.
+
+This is a neighborhood-of-A formulation. It should not be silently identified with every possible convention for distance from a set, especially where infimum distances, closures, or attainment of the infimum differ. Equivalence to the exact original metric A2 remains UNVERIFIED until the original definition and its conventions are recovered.
+
+4. GENERALIZED A3 — UNIFORM EQUICONTINUITY
+
+Let (X,U_X) and (Y,U_Y) be uniform spaces, and let {F_i:X->Y : i in I} be a family of maps.
+
+Reconstructed A3:
+For every entourage V in U_Y, there exists an entourage U in U_X such that for every i in I and every x,x' in X:
+if (x,x') is in U, then (F_i(x),F_i(x')) is in V.
+
+The same input entourage U must work for every member of the family. This is equicontinuity of the family with respect to the specified uniform structures.
+
+This definition is independent of a numerical modulus and therefore applies beyond metric spaces.
+
+For a single map, the corresponding condition is uniform continuity. Family equicontinuity is stronger than requiring each F_i to be uniformly continuous separately when I is infinite.
+
+4.1 Finite-family theorem
+
+If I is finite and every F_i is uniformly continuous, then the family is equicontinuous.
+
+Proof:
+Fix V in U_Y. For each i, uniform continuity gives an entourage U_i in U_X such that (x,x') in U_i implies (F_i(x),F_i(x')) in V. Since I is finite, U = intersection over i in I of U_i is an entourage. Membership in U implies membership in every U_i, so the same U works for every i. Therefore the family is equicontinuous.
+
+RESULT: PROVEN.
+
+4.2 Countermodel: individual continuity is insufficient
+
+Let X=Y=R with the usual metric uniformity and I={1,2,3,...}.
+Define:
+F_i(x)=i*x.
+
+Each F_i is continuous and uniformly continuous. Also F_i(0)=0 for every i.
+
+The family is not equicontinuous at 0. Choose the target entourage:
+V = {(y,y') : |y-y'|<1}.
+
+Suppose a common input entourage U existed. Since U is an entourage of the usual metric uniformity, it contains some metric entourage E_delta for a delta>0. Choose x=0 and x'=delta/2. Then (x,x') is in U. Choose i>2/delta. We obtain:
+|F_i(x)-F_i(x')| = i*delta/2 > 1.
+This contradicts the required inclusion in V.
+
+RESULT:
+COUNTERMODEL: individual continuity, and even individual uniform continuity, does not imply equicontinuity of an infinite family.
+
+4.3 Boundary cases
+
+If X has the discrete uniformity, the diagonal Δ_X is an entourage. Taking U=Δ_X makes every family of maps from X into any uniform space equicontinuous. This is a structural consequence of the discrete domain uniformity, not a general property of discrete-looking notation.
+If I is finite and all maps are uniformly continuous, equicontinuity follows.
+If I is infinite, individual uniform continuity is insufficient, as shown above.
+A3 depends on the chosen uniformities, not merely on the underlying sets.
+
+4.4 Same topology, different uniformities
+
+A uniform structure contains information not determined by topology alone.
+
+On R, consider:
+d(x,y)=|x-y|
+rho(x,y)=|arctan(x)-arctan(y)|.
+
+Both metrics induce the usual topology on R. However, their induced uniformities differ.
+
+The identity map id:(R,d)->(R,rho) is uniformly continuous because:
+rho(x,y) <= |x-y|.
+
+The reverse identity id:(R,rho)->(R,d) is not uniformly continuous. For example, take x_n=n and y_n=n+1. Then:
+rho(x_n,y_n) -> 0,
+while d(x_n,y_n)=1 for every n.
+
+Thus the same topology can support distinct uniform structures. Consequently, a general A3 statement based only on topology cannot replace the uniform-space definition without extra structure.
+
+RESULT: PROVEN.
+
+5. NECESSITY VERSUS SUFFICIENCY
+
+A1:
+The covariance equality is the exact algebraic criterion under the reconstructed definition. Equivariant factorization remains a sufficient construction, not a necessary one. Uniform continuity of actions is an additional regularity property, not implied by covariance.
+
+A2:
+The uniform-neighborhood convergence statement is the exact criterion under reconstructed uniform A2. A common contraction estimate can be sufficient when a common invariant target, a common contraction factor q<1, and suitable boundedness or initial-set control are available. Such contraction assumptions are not necessary for uniform attraction in general.
+No general necessity theorem for contraction is established here.
+
+A3:
+The common-entourage condition is the exact criterion under reconstructed uniform A3. A common Lipschitz bound is sufficient in normed metric settings, but is not necessary. In a general uniform space, a Lipschitz constant may not even be defined.
+For finite families, individual uniform continuity is sufficient. For infinite families, it is not.
+
+6. ROBUSTNESS FINDINGS
+
+PROVEN:
+1. A1 covariance is algebraic and does not require metric or uniform structure.
+2. A2 has a coherent uniform-neighborhood formulation.
+3. Finite parameter families convert individual attraction into uniform attraction when each parameter has the stated attraction property.
+4. Infinite parameter families can fail uniform attraction despite individual attraction.
+5. A3 has a precise uniform-space formulation through entourages.
+6. Finite families of uniformly continuous maps are equicontinuous.
+7. Infinite families of individually uniformly continuous maps need not be equicontinuous.
+8. A topology alone does not uniquely determine a uniform structure in general; the two metrics d and rho above induce the same topology but different uniformities.
+
+CONDITIONAL:
+1. Uniform continuity of symmetry actions requires explicit assumptions.
+2. Common contraction estimates imply uniform attraction only under the associated invariance and boundedness hypotheses.
+3. Common Lipschitz estimates imply equicontinuity only in settings where the relevant metrics or norms and common bound are defined.
+
+COUNTERMODEL:
+1. The family T_i(x)=(1-1/(i+1))x disproves individual attraction => uniform attraction for infinite I.
+2. The family F_i(x)=i*x disproves individual uniform continuity => family equicontinuity for infinite I.
+
+RECONSTRUCTED:
+1. Uniform A2 is defined using E[A].
+2. Uniform A3 is defined by a common input entourage for each target entourage.
+3. These are working generalizations, not recovered original axioms.
+
+UNVERIFIED:
+1. Equivalence of uniform A2 to the original Stage 3 A2.
+2. Whether the original A3 used equicontinuity, uniform continuity, a common modulus, or another family-control condition.
+3. Whether the original A1 imposed regularity on group actions.
+4. Whether the A4 anchor condition admits a meaningful uniform-space formulation.
+5. Stability of the earlier A1–A3 independence constructions under all uniform-space generalizations.
+
+7. MATHEMATICAL QUALITY CONTROL
+
+All quantified claims in this audit specify the parameter set, spaces, maps, and quantifier order.
+The finite-family results use finiteness explicitly.
+The countermodels use infinite parameter sets and standard uniform structures on R.
+No sufficiency condition is presented as necessary.
+No reconstructed statement is promoted to canonical status.
+No conclusion is transferred to the unrecovered original specification.
+
+8. ARCHITECTURAL PROTECTION
+
+Frozen Core: unchanged.
+Volume II: unchanged.
+Volume IV: unchanged.
+Volume V: unchanged.
+CE-V: no promotion.
+RL: no registration.
+Canonical acceptance: not authorized.
+Stage 3 primary specification: NOT RECOVERED.
+A4: unresolved and not tested in this audit.
+
+END OF GRT-01-B
