@@ -1,0 +1,234 @@
+OMEGA-ISOP
+STAGE 3 — GRT–01–J
+UNIFORM ATTRACTION UNDER CONDITIONS WEAKER THAN STRICT CONTRACTION
+DATE: 2026-11-18
+DOCUMENT ID: OI-STAGE-03-GRT-01-J-UNIFORM-ATTRACTION-WEAKER-THAN-CONTRACTION-2026-11-18
+STATUS: CONDITIONAL THEOREM PROVED UNDER STATED ASSUMPTIONS; STRICT CONTRACTION SHOWN NOT NECESSARY
+TYPE: ADDITIVE MATHEMATICAL RESEARCH CHECKPOINT
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+
+1. PURPOSE AND SCOPE
+
+Investigate the Stage 3 A2 question:
+Does uniform attraction to a common point require a uniform strict-contraction bound q < 1?
+
+Answer established here:
+NO. A common nonlinear comparison function provides a sufficient condition weaker than a global linear contraction bound. An explicit one-dimensional map demonstrates uniform attraction on all of R while no global q < 1 exists.
+
+This is a conditional mathematical result under the candidate A2 formulation recorded in the Stage 3 A1–A4 audit. It does not recover or replace the missing primary Stage 3 specification. It does not modify the Frozen Core or any volume.
+
+2. A2 TARGET USED
+
+Let (Z,d) be a metric space, let {F_i : Z → Z} be a family of maps, let p ∈ Z, and let B ⊆ Z.
+
+Uniform attraction to the common point p on B means:
+
+sup { d(F_i^n(z),p) : i, z ∈ B } → 0 as n → ∞.
+
+The index i is included in the supremum. Thus the convergence must be uniform both over initial states in B and over the declared family of dynamics.
+
+This is the candidate formulation in the existing Stage 3 conditional audit. The exact original primary specification and its quantifiers remain unrecovered.
+
+3. NONLINEAR COMPARISON THEOREM
+
+THEOREM J.1 — UNIFORM ATTRACTION FROM A COMMON NONLINEAR COMPARISON FUNCTION
+
+Let (Z,d) be a metric space and let {F_i : Z → Z} be a family of maps. Let p ∈ Z.
+
+Assume there exists a nondecreasing function φ : [0,∞) → [0,∞) such that:
+
+(a) φ(0) = 0;
+
+(b) d(F_i(x),p) ≤ φ(d(x,p)) for every index i and every x ∈ Z;
+
+(c) for every finite R ≥ 0, the iterates of φ satisfy φ^n(R) → 0 as n → ∞.
+
+Let B ⊆ Z be bounded relative to p, meaning:
+
+R_B = sup { d(z,p) : z ∈ B } < ∞.
+
+Then:
+
+sup { d(F_i^n(z),p) : i, z ∈ B } ≤ φ^n(R_B) → 0.
+
+Therefore the family is uniformly attracted to p on every such bounded set B.
+
+PROOF
+
+From assumption (b):
+
+d(F_i(x),p) ≤ φ(d(x,p)).
+
+By induction on n, using that φ is nondecreasing:
+
+d(F_i^n(z),p) ≤ φ^n(d(z,p)).
+
+Since z ∈ B, d(z,p) ≤ R_B. Monotonicity gives:
+
+d(F_i^n(z),p) ≤ φ^n(R_B).
+
+The right-hand side is independent of i and z. Taking the supremum over all i and z ∈ B yields:
+
+sup { d(F_i^n(z),p) : i, z ∈ B } ≤ φ^n(R_B).
+
+Assumption (c) makes the right-hand side converge to zero. QED.
+
+4. RELATION TO STRICT CONTRACTION
+
+The previous strict-contraction hypothesis is the special case:
+
+φ(r) = q r, with one constant 0 ≤ q < 1.
+
+Theorem J.1 does not require φ to be linear, nor does it require a global constant q < 1.
+
+A convenient sufficient subcondition for (c) on bounded initial sets is:
+φ is continuous, nondecreasing, φ(0)=0, and φ(r)<r for every r>0.
+For any finite R, the sequence φ^n(R) is nonincreasing and bounded below by zero. Its limit L satisfies L=φ(L) by continuity. The strict inequality for positive arguments forces L=0.
+
+The theorem itself uses the more direct condition φ^n(R)→0 and does not require continuity if that condition is verified directly.
+
+5. EXPLICIT COUNTEREXAMPLE TO NECESSITY OF q < 1
+
+Take:
+
+Z = R
+d(x,y) = |x-y|
+p = 0
+F(x) = x/(1+|x|)
+
+Then F(0)=0 and:
+
+|F(x)-p| = |x|/(1+|x|).
+
+Define:
+
+φ(r) = r/(1+r).
+
+This φ is nondecreasing, φ(0)=0, and:
+
+|F(x)| = φ(|x|).
+
+Its iterates are:
+
+φ^n(r) = r/(1+n r).
+
+Correspondingly, direct induction gives:
+
+F^n(x) = x/(1+n|x|).
+
+For every n ≥ 1:
+
+sup { |F^n(x)| : x ∈ R } = sup { r/(1+n r) : r ≥ 0 } = 1/n.
+
+Hence:
+
+sup { d(F^n(x),0) : x ∈ R } = 1/n → 0.
+
+The attraction is uniform on the entire real line, including the unbounded initial set B=R.
+
+However, F is not a strict contraction with any global constant q<1. Indeed, for x ≠ 0:
+
+|F(x)-F(0)|/|x-0| = 1/(1+|x|).
+
+As x→0, this ratio tends to 1. Therefore, for every q<1, there are nonzero x sufficiently close to zero for which:
+
+|F(x)-F(0)| > q|x-0|.
+
+The map is non-expansive (Lipschitz constant 1), but not a strict contraction with a uniform factor below 1.
+
+This is an explicit counterexample to the claim that A2 requires a global strict-contraction constant q<1.
+
+6. FAMILY-UNIFORMITY COUNTEREXAMPLE
+
+Pointwise attraction for each member of a family does not imply uniform attraction over the family.
+
+Let Z=R, p=0, and for each integer k≥2 define:
+
+F_k(x) = (1-1/k)x.
+
+Each F_k is a strict contraction with its own factor q_k=1-1/k<1 and has the common fixed point 0.
+
+For B={1}:
+
+sup { |F_k^n(1)| : k≥2 }
+= sup { (1-1/k)^n : k≥2 }
+= 1
+
+for every finite n.
+
+Thus:
+
+sup { d(F_k^n(1),0) : k≥2 } does not converge to zero.
+
+The family is not uniformly attractive, despite every individual map being a strict contraction. A common uniform contraction factor, or another common uniform comparison mechanism, is needed for a family-level conclusion.
+
+7. FIXED-POINT STATUS
+
+Under Theorem J.1, p is automatically a fixed point of every F_i, because:
+
+d(F_i(p),p) ≤ φ(d(p,p)) = φ(0) = 0.
+
+Thus F_i(p)=p for all i.
+
+This is stronger and cleaner than assuming attraction alone. In the general A2 definition, convergence to a point p from a set B that does not contain p does not, without continuity or another structural assumption, automatically establish F_i(p)=p. If F_i is continuous and B is nonempty, convergence of an orbit to p does imply F_i(p)=p by continuity and the shifted-orbit identity.
+
+8. WHAT IS AND IS NOT ESTABLISHED
+
+ESTABLISHED:
+- A uniform nonlinear comparison function φ yields uniform attraction on bounded initial sets when its scalar iterates converge to zero.
+- The strict-contraction theorem is a special case, not the only sufficient route.
+- The map F(x)=x/(1+|x|) is uniformly attracted to zero on all of R, with exact uniform error 1/n, while no global strict-contraction factor q<1 exists.
+- Individual attraction or individual contraction of each family member is insufficient for uniform attraction over an unrestricted family.
+
+NOT ESTABLISHED:
+- The nonlinear comparison condition is necessary for A2. It is a sufficient condition only.
+- Every A2 system admits a one-step radial comparison function of this form.
+- A2 follows from R-invariance alone.
+- The candidate A2 formulation here is the unrecovered original Stage 3 specification.
+- Any physical or ontological interpretation of the mathematical result.
+
+9. NEXT MATHEMATICAL QUESTIONS
+
+1. Determine whether a more general common Lyapunov-function condition can establish A2 when no one-step radial comparison function exists.
+2. Test multi-step comparison conditions, allowing transient expansion before uniform attraction begins.
+3. Separate necessary conditions for uniform attraction from convenient sufficient conditions.
+4. Examine whether the result can be formulated directly on the finite operational pseudometric quotient D_L, with all finiteness and invariance assumptions stated.
+5. Preserve the distinction between attraction to a common point, existence of a common fixed point, and equicontinuity.
+
+10. SOURCE BASIS AND TRACEABILITY
+
+Primary working definition and sufficient-condition comparison:
+audits/OI-STAGE-03-A1-A4-SUFFICIENT-CONDITIONS-COUNTERMODELS-2026-11-18.txt
+Previously read blob SHA:
+be6d8a2a1ba760a714e5cb52b7ce578f17b8b828
+
+First-pass Stage 3 derivability boundary:
+audits/OI-STAGE-03-RELATIONAL-DERIVABILITY-CHECKPOINT-2026-11-18.txt
+Previously read blob SHA:
+4c510671a82fc2aed38c6673a63cb3447b0c5ea4
+
+Primary specification recovery boundary:
+audits/OI-STAGE-03-PRIMARY-SPECIFICATION-RECOVERY-SEARCH-2026-11-18.txt
+Previously read blob SHA:
+02824dd875a3f4db4d8cf069bc581bff2de329cc
+
+M3.2 operational procedure consulted:
+operations/OMEGA-ISOP-M3.2-CONSOLIDATED-OPERATIONAL-RULES-2026-11-18-v0.8.2-R2.txt
+Readback blob SHA:
+11187ab27896fb343bd57b27eee481e10fa46256
+
+11. PROJECT STATUS AND PROTECTION
+
+FROZEN CORE: UNCHANGED.
+VOLUME II: UNCHANGED.
+VOLUME III: UNCHANGED.
+VOLUME IV: UNCHANGED.
+VOLUME V: UNCHANGED.
+CE/CE-V: NO PROMOTION.
+RL REGISTRATION: NOT PERFORMED.
+CANONICAL ACCEPTANCE: NOT CLAIMED.
+
+This checkpoint records a conditional mathematical result and its explicit counterexamples. A GitHub commit and readback verify repository preservation only; they do not by themselves establish independent review, physical truth, RL registration, CE/CE-V acceptance, or Volume V integration.
+
+END OF CHECKPOINT
