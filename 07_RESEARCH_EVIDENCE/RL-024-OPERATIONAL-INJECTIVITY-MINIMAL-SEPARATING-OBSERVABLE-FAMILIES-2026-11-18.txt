@@ -1,0 +1,187 @@
+RL-024
+OPERATIONAL INJECTIVITY AND MINIMAL SEPARATING OBSERVABLE FAMILIES
+
+USER-SUPPLIED ARCHIVAL RECORD
+Date: 2026-11-18
+Repository action: additive registration in 07_RESEARCH_EVIDENCE/
+Control: This record does not modify the Frozen Core, Volume V, or CE-V. The supplied status labels are archived as submitted and are not, by this registration, independently validated or promoted.
+
+RL-024 дава строгото математическо доказателство, че за да разпознаеш нещо напълно по измервания, измервателната ти система трябва да е инжективна (да не дава един и същ образ за две различни неща). И ти казва как да съкратиш излишните измервания до минимум, без да губиш информация.
+Обект/състояние → измерване → резултат → сравнение → разпознаване
+↓ Инжективност ↔ разделяне
+↓ Минималност
+↓ премахване на излишните измервания
+
+1. ROLE
+Parent RL for the operational-observability line.
+RL-024 establishes the formal relation between operational observables, injectivity, separation, exact operational reconstruction, and minimal separating observable families.
+It does NOT establish semantic OMEGA identification, physical ontology, universal observer families, or a universal minimum number of observables.
+
+2. FORMAL SETTING
+Let:
+P_O : R_real -> O_R
+be the operational observation map induced by observable family O.
+For r1,r2 ∈ R_real define:
+D_O(r1,r2) = Δ(P_O(r1), P_O(r2))
+where Δ is the specified separation metric.
+Define the operational equivalence relation:
+r1 ~_O r2 iff P_O(r1) = P_O(r2)
+For S ⊆ O:
+P_S = π_S ∘ P_O
+and correspondingly:
+D_S(r1,r2) = Δ(P_S(r1), P_S(r2))
+
+3. ASSUMPTIONS
+A1. R_C is an explicitly specified admissible realization class.
+A2. P_O is well-defined on R_C.
+A3. Δ is nonnegative.
+A4. Δ(x,y)=0 iff x=y.
+A5. Operational identification is distinct from semantic OMEGA identification.
+A6. Exact reconstruction is always relative to the specified realization class R_C.
+A7. No universal minimum observable count is assumed.
+A8. No uniqueness of a minimal observable subset is assumed.
+A9. A concrete model/domain result is not elevated to a universal identification law.
+
+4. DEFINITION: SEPARATING OBSERVABLE FAMILY
+O separates R_C iff:
+∀r1,r2 ∈ R_C,r1 != r2 => P_O(r1) != P_O(r2)
+Under A3-A4 this is equivalent to:
+∀r1,r2 ∈ R_C,r1 != r2 => D_O(r1,r2) > 0
+
+5. MAIN DERIVATION
+P_O is injective on R_C iff O separates R_C.
+Therefore:
+P_O injective on R_C
+iff
+O separates R_C
+iff
+all distinct realization pairs have D_O > 0.
+Consequently, exact operational reconstruction is possible whenever P_O is injective on R_C.
+This reconstruction is explicitly relative to R_C.
+No claim is made that operational reconstruction constitutes semantic identification of an OMEGA component.
+
+6. MONOTONICITY
+If:
+S ⊆ S' ⊆ O
+and S separates R_C, then S' also separates R_C.
+Thus adding observables cannot destroy an already established separating property.
+
+7. MINIMAL SEPARATING FAMILIES
+If O is finite and separates R_C, at least one inclusion-minimal separating subset exists.
+S is inclusion-minimal separating iff:
+S separates R_C
+and for every q ∈ S:
+S  {q}
+does not separate R_C.
+Hence each member of an inclusion-minimal separating family has a witness degeneracy pair that becomes indistinguishable when that member is removed.
+Define minimum cardinality:
+m(R_C,O) = min{|S| : S ⊆ O and P_S is injective on R_C}
+when at least one separating subset exists.
+A minimum-cardinality separating family is inclusion-minimal.
+The converse is not generally true.
+Different inclusion-minimal separating families may:
+differ in membership;
+differ in cardinality;
+both satisfy the same separation requirement.
+Therefore no universal unique minimal observable family follows from the theorem.
+
+8. SCIENTIFIC BOUNDARY
+The result establishes a formal operational theorem:
+injectivity <-> separation <-> exact operational reconstruction
+within the specified realization class.
+It does NOT establish:
+operational separation = semantic OMEGA identification;
+operational identity = semantic identity;
+observable injectivity = physical ontology;
+a universal observer family;
+a universal minimum observable count;
+uniqueness of minimal separating families;
+a universal identification law.
+
+9. FAILURE BOUNDARIES
+F1. Operational separation != semantic OMEGA identification.
+F2. Exact operational reconstruction is relative to R_C.
+F3. Minimal separating family != unique separating family.
+F4. Minimum cardinality != universal constant.
+F5. Observable injectivity != physical ontology.
+F6. Operational identity != semantic identity.
+F7. No universal observer family or universal identification law is derived.
+
+10. M3.2 NOVELTY AUDIT
+M3.2-NIG: PASSED.
+Novelty classification:
+N9 = new necessity / sufficiency result.
+The derivation supplies a formal necessary-and-sufficient condition for exact operational reconstruction and a formal construction criterion for minimal separating observable families.
+This is not merely a reformulation or repetition of an existing statement.
+ΔI_struct > 0.
+NIG postcheck: PASSED.
+
+11. FROZEN CORE CHECK
+No Frozen Core modification is required.
+No conflict with the Frozen Core has been identified.
+In particular, RL-024 does not establish:
+R -> unique dynamics
+or:
+A(R;Φ) -> unique dynamics
+and does not introduce a universal dynamic-selection principle.
+No operational-to-semantic identification bridge is introduced.
+Frozen Core remains intact.
+
+12. RELATION TO SUBSEQUENT TESTS
+RL-024 is the parent formal layer for the subsequent concrete operational recoverability and bridge investigations:
+RL-024.1
+CONCRETE FORMAL RECOVERABILITY TEST FOR CONSTRAINT-ROLE
+RL-024.2
+INDEPENDENT STRUCTURAL CRITERION TO OPERATIONAL OBSERVABLE BRIDGE
+These are retained as distinct submodels/results and do not modify the parent theorem.
+Traceability:
+RL-024
+|+-- RL-024.1
+|   |
+|   +-- TEST-024.1-A
+|+-- RL-024.2
+|   |
+|   +-- TEST-024.2-A
+
+13. CE-V STATUS
+CE-V promotion: NOT AUTOMATIC.
+RL-024 remains an RL result.
+No CE-V promotion is performed by this closure.
+
+14. ARCHIVAL STATUS
+ARCHIVE STATUS:
+REGISTERED / CLOSED
+CLOSURE TYPE:
+CLOSED FOR CURRENT DERIVATION
+This closure freezes the present RL-024 result for archival purposes.
+It does not prohibit future independent research that introduces new admissible information, domain, regime, bridge condition, assumption, validity boundary, failure mode, model discrimination, necessity/sufficiency question, or admissible-model-set change.
+
+15. RESEARCH-LINE STATUS
+RESEARCH-LINE STATUS: OPEN FOR NEW INDEPENDENT TESTS
+The closure of RL-024 therefore means:
+the current result is complete and archived,
+not:
+the research direction is exhausted.
+Future extensions must pass the M3.2 New Information / Structural Novelty Gate.
+
+16. NEXT INDEPENDENT RL
+NEXT INDEPENDENT RL:
+RL-025
+RL-025 is reserved for the next genuinely independent RL result and is not created automatically by this closure.
+
+17. FINAL STATUS
+STATUS: DERIVED / CONDITIONAL
+M3.2 STATUS: PASSED / CLOSED FOR CURRENT DERIVATION
+CE-V STATUS: NOT PROMOTED
+FROZEN CORE RL-024: Операционна инжективност и минимални разделящи семейства от наблюдаеми.
+Доказва връзката инжективност ↔ разделяне ↔ точно оперативно възстановяване и формализира минималните набори от наблюдаеми, необходими за различаване на реализациите.
+STATUS: INTACT
+RESEARCH-LINE STATUS: OPEN
+FINAL ARCHIVAL CLASSIFICATION:
+RL-024 — REGISTERED / CLOSED
+
+SCIENTIFIC REGISTRATION NOTE
+The supplied text is archived without changing its stated classifications. Registration is not an independent proof audit. Two formal scope points remain for any later mathematical audit:
+1. The notation Δ is applied to both P_O and P_S outputs; its domain/codomain or a compatible family of separation metrics must be specified so each expression is well-defined.
+2. Injectivity gives a set-theoretic inverse on the image of P_O. Continuity, stability, measurability, or computability of a reconstruction procedure require additional assumptions and are not implied by injectivity alone.
+The finite-family existence claim in Section 7 is valid under the stated finite-O and separation assumptions. Inclusion-minimality and minimum cardinality are correctly distinguished.
