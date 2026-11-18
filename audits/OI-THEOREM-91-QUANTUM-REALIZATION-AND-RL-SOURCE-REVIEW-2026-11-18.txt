@@ -1,0 +1,391 @@
+OMEGA-ISOP
+THEOREM 91 AND QUANTUM REALIZATION
+RL SOURCE REVIEW AND PHYSICALIZATION AUDIT
+DOCUMENT_ID: OI-THEOREM-91-QUANTUM-REALIZATION-AND-RL-SOURCE-REVIEW-2026-11-18
+DATE: 2026-11-18
+STATUS: WORKING MATHEMATICAL REVIEW
+TYPE: SOURCE-BOUNDED ANALYTICAL REVIEW / CONDITIONAL PHYSICAL REALIZATION
+FROZEN CORE: UNCHANGED
+VOLUME II: UNCHANGED
+VOLUME V: UNCHANGED
+CE-V: NO PROMOTION
+RL REGISTRATION: NO NEW REGISTRATION CLAIM
+CANONICAL ACCEPTANCE: NOT CLAIMED
+
+1. PURPOSE
+
+This record reviews the recovered controlled source copies for RL-021, RL-021.1, and RL-027, checks the stated mathematical arguments within those copies, and analyzes the Volume II Theorem 91 as a candidate bridge to a finite-dimensional quantum-information realization.
+
+This is an additive audit artifact. It does not replace primary RL records, modify Volume V, change any registration status, or claim a new physical law.
+
+2. SOURCES INSPECTED
+
+A. theory/OMEGA-ISOP-VOLUME-V-v2.4-C-1.1-CONTROLLED-MASTER-2026-11-14.txt
+Role: controlling Volume V working master.
+Relevant recorded status:
+- RL-021: CLOSED / ESTABLISHED within its stated assumptions.
+- RL-021.1: ESTABLISHED WITH EXPLICIT BOUNDARY CONDITIONS.
+- RL-027: core domain-bounded results described as independently verified; overall item UNDER AUDIT.
+- The primary RL derivations were not surfaced during the source retrieval used for that master.
+
+B. 07_RESEARCH_EVIDENCE/RL-021-RL-021.1-USER-SUPPLIED-CONTROLLED-SOURCE-2026-11-18.txt
+Role: user-supplied controlled source copy containing explicit constructions, corrections, and proofs.
+Source limitation: the file identifies itself as a controlled source copy. It is not, by that label alone, proof that the historically authoritative original RL records or external registry entries have been recovered.
+
+C. 07_RESEARCH_EVIDENCE/RL-027-USER-SUPPLIED-CONTROLLED-SOURCE-2026-11-18.txt
+Role: user-supplied consolidated scientific source copy.
+It states RL_REGISTERED, but the text itself is not an authoritative registry readback.
+
+D. 07_RESEARCH_EVIDENCE/RL-027-DOMAIN-BOUNDED-LOCAL-SUFFICIENCY-2026-11-18.txt
+Role: additive research artifact preserving user-supplied content.
+Its control note explicitly says that it does not resolve the existing UNDER AUDIT status in Volume V and that the status declarations are not silently reconciled or promoted.
+
+E. docs/OMEGA-ISOP-VOLUME-II-MATHEMATICAL-FOUNDATIONS-v1.3-MF-AUDIT-RESTORED-FINAL.txt
+Role: mathematical source for Theorem 91 and operational response distance.
+
+F. docs/OI-MATHEMATICAL-AND-PHYSICAL-FOUNDATION-PROGRAM-CONSOLIDATED-2026-11-18.txt
+Role: active physicalization and source-recovery program.
+
+3. RL-021 — MATHEMATICAL CHECK
+
+Domain:
+G_adm = {G=(M,R): M finite, M nonempty, R subset M x M}.
+For a fixed nonempty proper subset B of M, let X=M\B.
+
+Observable:
+I_B^0(G) = R intersect (B x B).
+
+Target:
+P_B(G)=1 iff R intersect (B x X) is nonempty.
+
+Construction:
+Choose S subset B x B, b in B, and x in X.
+R1=S.
+R2=S union {(b,x)}.
+
+Then:
+I_B^0(G1)=I_B^0(G2)=S,
+P_B(G1)=0,
+P_B(G2)=1.
+
+Therefore no function F on the internal observable alone can recover P_B over the stated unrestricted domain.
+
+CHECK:
+The witness is valid under the declared finite relational domain and unrestricted external-relation assumptions.
+The non-identifiability conclusion follows directly from equal observations and unequal target values.
+
+SCOPE:
+This is a result about the specified relational class and target predicate. It does not by itself establish physical causation, a physical boundary law, or a universal statement about all relational formalisms.
+
+REVIEW STATUS:
+ARGUMENT CHECKED WITHIN THE RECOVERED CONTROLLED SOURCE COPY.
+HISTORICAL PRIMARY-SOURCE PROVENANCE: NOT YET VERIFIED.
+
+4. RL-021.1 — MATHEMATICAL CHECK
+
+Target:
+Q_B(G)=1 iff there exist b1,b2 in B and x in X such that (b1,x) and (x,b2) belong to R.
+
+For each boundary node b:
+d_out(b)=number of x in X with (b,x) in R.
+d_in(b)=number of x in X with (x,b) in R.
+D_B is the complete boundary degree profile.
+
+A. Unrestricted domain, |X| >= 2
+
+Choose distinct x1,x2 in X and b1,b2 in B.
+R1=S union {(b1,x1),(x2,b2)}.
+R2=S union {(b1,x1),(x1,b2)}.
+
+The boundary degree profile is identical in both structures.
+In R1 the incoming and outgoing incidences occur at different external nodes, so Q_B=0.
+In R2 both incidences meet at x1, so Q_B=1.
+
+This remains valid when b1=b2: the same boundary node has one outgoing and one incoming incidence in both structures, while only R2 has a common external witness.
+
+Conclusion:
+For |X| >= 2, Q_B is not identifiable from (R_B_int,D_B) over the unrestricted domain.
+
+B. Joint-incidence sufficient data
+
+j_B(b1,b2)=number of x in X for which (b1,x) and (x,b2) both belong to R.
+J_B is the matrix of these joint counts.
+
+T_B = sum over b1,b2 of j_B(b1,b2)
+    = sum over x in X of o_B(x) times i_B(x).
+
+Therefore:
+Q_B=1 iff T_B>0.
+Also Q_B=1 iff some entry of J_B is positive.
+
+The identity for T_B follows by counting each ordered pair of boundary incidences through its common external node.
+
+C. Restricted domains
+
+On G_forward, where every positive outgoing external incidence at x implies a positive incoming incidence at x:
+Q_B=1 iff D_out>0.
+
+On G_backward, where every positive incoming external incidence at x implies a positive outgoing incidence at x:
+Q_B=1 iff D_in>0.
+
+For |X|=1:
+Q_B=1 iff D_out>0 and D_in>0.
+
+D. Necessity correction
+
+C_forward is sufficient for identification through D_out, but it is not necessary for identification from the full D_B.
+On G_backward, D_B identifies Q_B through D_in, even when C_forward fails for a graph containing an external state (o,i)=(1,0).
+
+The source correctly leaves a general necessary-and-sufficient characterization for arbitrary allowed state sets H open. The degenerate example H={(1,0)} makes Q_B identically zero and therefore identifiable despite containing an unpaired outgoing state.
+
+REVIEW STATUS:
+The constructions and stated domain distinctions are internally consistent in the recovered controlled source copy.
+GENERAL H CHARACTERIZATION: OPEN.
+HISTORICAL PRIMARY-SOURCE PROVENANCE: NOT YET VERIFIED.
+
+5. RL-027 — MATHEMATICAL CHECK
+
+Finite-dimensional bipartite quantum system:
+H_A tensor H_B, with density operator rho_AB.
+rho_A=Tr_B(rho_AB).
+rho_B=Tr_A(rho_AB).
+Q_A=Tr(rho_A squared).
+
+Operational identifiability on a domain D means that a function F exists such that:
+Q_A(rho_AB)=F(rho_B)
+for every rho_AB in D.
+
+Equivalent condition:
+If two states in D have the same rho_B, they must have the same Q_A.
+
+A. Pure global states
+
+For a pure bipartite state, Schmidt decomposition gives:
+|psi>=sum_i sqrt(lambda_i) |a_i> tensor |b_i>,
+where lambda_i are nonnegative and sum to one.
+
+Both reduced states have the same nonzero eigenvalues lambda_i. Therefore:
+Tr(rho_A squared)=sum_i lambda_i squared
+                 =Tr(rho_B squared).
+
+Thus on the pure global domain:
+Q_A=F(rho_B), with F(X)=Tr(X squared).
+
+This result holds for finite dimensions without requiring d_A=d_B.
+
+B. Mixed-state counterexample
+
+For d_A=d_B=2, use:
+rho_AB_1=|00><00|.
+rho_AB_2=(1/2)|00><00|+(1/2)|10><10|.
+
+Then:
+rho_B_1=rho_B_2=|0><0|,
+Q_A_1=1,
+Q_A_2=1/2.
+
+Equal local observations with unequal target values disprove identifiability on the full mixed-state domain.
+
+C. Fixed-marginal range
+
+For fixed sigma=rho_B, product states rho_AB=tau_A tensor sigma preserve rho_B while allowing Q_A=Tr(tau_A squared).
+
+For a d_A-dimensional density operator, purity ranges from 1/d_A to 1. Every intermediate value is attainable by a continuous family of density operators. Hence:
+{Q_A : rho_AB has fixed rho_B=sigma}=[1/d_A,1]
+for d_A >= 2.
+
+REVIEW STATUS:
+The pure-state identity, mixed-state witness, and fixed-marginal range follow from the supplied finite-dimensional definitions and constructions.
+This checks the mathematical content of the recovered copy. It does not verify external RL registration or establish the OMEGA-ISOP-to-quantum correspondence.
+
+6. THEOREM 91 — EXACT MATHEMATICAL CONTENT
+
+Volume II defines:
+Resp_M : L_op -> Y,
+where Y is normed, and:
+D_L(M1,M2)=sup over a in L_op of ||Resp_M1(a)-Resp_M2(a)||.
+
+Theorem 91 assumes, among other contextual conditions, a map tau:L_op -> L_op satisfying:
+Resp_(T(M))(a)=Resp_M(tau(a)).
+
+For a common tau applying to both models, the proof is:
+
+For every a in L_op:
+||Resp_(T(M1))(a)-Resp_(T(M2))(a)||
+=||Resp_M1(tau(a))-Resp_M2(tau(a))||
+<=D_L(M1,M2).
+
+Since tau(a) belongs to L_op, taking the supremum over a yields:
+D_L(T(M1),T(M2))<=D_L(M1,M2).
+
+The proof is valid when the response maps and comparison domains are well-defined and the same tau is used for both models.
+
+7. THEOREM 91 — PRECISION FINDINGS
+
+7.1 Common-map condition
+
+The same map tau must apply to both M1 and M2. If each model is allowed a different map tau_M, the inequality does not follow in general.
+
+7.2 Surjectivity
+
+Surjectivity of tau is not needed for non-expansion.
+If tau is surjective, the supremum is taken over the whole L_op through tau, and equality follows:
+D_L(T(M1),T(M2))=D_L(M1,M2).
+
+If tau is not surjective, strict decrease is possible but not guaranteed.
+
+7.3 Redundant or contextual hypotheses
+
+H1, concerning existence and preservation of R under T, is not used in the algebraic inequality once the response covariance in H3 is assumed. H1 may remain as an architectural condition identifying T as an admissible relational dynamics, but it is not a proof premise for the norm inequality itself.
+
+H4 fixes the operational comparison context. It is needed for an unambiguous physical comparison, although it does not add a separate algebraic step to the displayed proof.
+
+7.4 Minimal mathematical setting
+
+The proof does not require vector-space structure on Y. It is sufficient for Y to be a metric space with distance d_Y, replacing the norm by d_Y.
+
+For a clean statement, require L_op to be nonempty and the response maps to be defined on the full common operational domain. Partial response maps require an explicit common-domain condition.
+
+7.5 Boundary test for model-dependent tau
+
+Let L_op={a,b}. Let two models have identical response maps:
+Resp_M1(a)=Resp_M2(a)=0,
+Resp_M1(b)=Resp_M2(b)=1.
+Then D_L(M1,M2)=0.
+
+If model-dependent pullbacks are permitted, choose tau_1(a)=a and tau_2(a)=b. The transformed responses at a differ by 1. Thus non-expansion can fail.
+
+This confirms that a common tau is a substantive hypothesis, not a notational convenience.
+
+8. CONDITIONAL QUANTUM REALIZATION OF THEOREM 91
+
+This section supplies an explicit application-level realization. It does not derive quantum mechanics from OMEGA-ISOP.
+
+Physical input:
+- finite-dimensional Hilbert space H;
+- density operators rho and sigma;
+- a completely positive trace-preserving quantum channel E;
+- the Born measurement rule.
+
+Operational language:
+L_op={A: 0<=A<=I}, the set of quantum measurement effects.
+
+Response space:
+Y=R with distance |u-v|.
+
+Response map:
+Resp_rho(A)=Tr(rho A).
+
+Dynamics:
+T(rho)=E(rho).
+
+Adjoint map:
+tau(A)=E*(A), where E* is the Heisenberg adjoint of E.
+
+Because E is trace-preserving, E*(I)=I.
+Because E is completely positive, E* is positive.
+Therefore E* maps every effect 0<=A<=I to another effect in the same L_op.
+
+By the adjoint relation:
+Resp_(E(rho))(A)
+=Tr(E(rho)A)
+=Tr(rho E*(A))
+=Resp_rho(tau(A)).
+
+Thus the common-map response covariance required by Theorem 91 is satisfied.
+
+The operational distance becomes:
+D_L(rho,sigma)=sup over 0<=A<=I of |Tr((rho-sigma)A)|
+              =(1/2)||rho-sigma||_1.
+
+Theorem 91 therefore yields:
+(1/2)||E(rho)-E(sigma)||_1
+<=
+(1/2)||rho-sigma||_1.
+
+This is the standard contractivity of quantum trace distance under completely positive trace-preserving maps.
+
+9. PHYSICAL INTERPRETATION AND LIMITS
+
+Established mathematical correspondence:
+Theorem 91's response-map covariance is realized by the Heisenberg adjoint of a quantum channel acting on measurement effects.
+
+Physical interpretation:
+A quantum channel cannot increase the operational distinguishability of two states when distinguishability is measured by the optimal measurement over all effects.
+
+Status:
+CONDITIONAL REALIZATION OF THEOREM 91 IN STANDARD FINITE-DIMENSIONAL QUANTUM THEORY.
+
+This is not a new prediction of OMEGA-ISOP. The Hilbert space, density operators, quantum channel, Born rule, and measurement effects are supplied by standard quantum theory. The result reproduces a known quantum-information inequality.
+
+No derivation is established here of:
+- Hilbert space from the Frozen Core;
+- the Born rule from OMEGA-ISOP;
+- complete positivity or trace preservation from OMEGA-ISOP;
+- a unique quantum dynamics;
+- a new experimentally discriminating prediction.
+
+The quantum realization demonstrates a mathematically explicit bridge and a valid physical application of the response-distance structure. It does not establish a new physical law.
+
+10. RELATION TO RL-027
+
+RL-027 concerns domain-dependent identifiability of subsystem purity from a reduced state.
+Theorem 91 concerns non-expansion of operational distinguishability under a response-compatible transformation.
+
+These are distinct mathematical claims.
+
+Theorem 91 does not imply that subsystem purity is preserved under every quantum channel.
+Trace-distance contractivity does not imply purity preservation.
+The pure-state identity Tr(rho_A squared)=Tr(rho_B squared) does not by itself imply persistence under dynamics.
+
+Any future combination of RL-027 and Theorem 91 must specify the channel class, state domain, observable set, and exact quantity whose persistence or identifiability is being tested.
+
+11. CONSOLIDATED STATUS
+
+RL-021:
+MATHEMATICAL ARGUMENT CHECKED WITHIN RECOVERED CONTROLLED SOURCE COPY.
+HISTORICAL PRIMARY SOURCE: NOT YET VERIFIED.
+
+RL-021.1:
+MATHEMATICAL ARGUMENTS CHECKED WITHIN RECOVERED CONTROLLED SOURCE COPY.
+GENERAL H CHARACTERIZATION: OPEN.
+HISTORICAL PRIMARY SOURCE: NOT YET VERIFIED.
+
+RL-027:
+FINITE-DIMENSIONAL DOMAIN-BOUNDED MATHEMATICAL ARGUMENTS CHECKED WITHIN RECOVERED CONTROLLED SOURCE COPY.
+OVERALL VOLUME V STATUS: UNDER AUDIT UNTIL FORMALLY RECONCILED.
+EXTERNAL RL REGISTRY READBACK: NOT INSPECTED / NOT VERIFIED.
+
+THEOREM 91:
+CONDITIONAL MATHEMATICAL THEOREM.
+COMMON RESPONSE PULLBACK CONDITION IS ESSENTIAL.
+QUANTUM CHANNEL REALIZATION: DERIVED UNDER STANDARD QUANTUM INPUTS.
+NOVEL OMEGA-SPECIFIC EMPIRICAL PREDICTION: NONE ESTABLISHED.
+
+FROZEN CORE:
+UNCHANGED.
+
+VOLUME II:
+UNCHANGED.
+
+VOLUME V:
+UNCHANGED.
+
+CE-V:
+NO PROMOTION.
+
+12. NEXT ACTIONS
+
+1. Recover the authoritative original RL-021 and RL-021.1 records, not merely the user-supplied controlled source copy, and compare exact versions and provenance.
+2. Recover the authoritative original RL-027 record and its registration evidence.
+3. Resolve the RL-027 UNDER AUDIT versus RL_REGISTERED discrepancy only through the applicable controlled audit and authoritative registry readback.
+4. If the quantum channel realization is selected as a physicalization pilot, specify a narrower channel or operational regime only if it yields a genuinely new OMEGA-derived constraint or a measurable distinction from standard quantum theory.
+5. Do not promote Theorem 91, RL-027, or this audit to CE-V or Volume V without separate documented decisions.
+
+FINAL DISPOSITION:
+SEND AS A WORKING MATHEMATICAL REVIEW.
+SOURCE PROVENANCE AND REGISTRY STATUS REMAIN OPEN.
+NO CANONICAL STATUS CHANGE.
+NO FROZEN CORE CHANGE.
+
+END OF AUDIT
