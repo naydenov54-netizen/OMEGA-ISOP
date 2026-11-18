@@ -1,0 +1,215 @@
+OMEGA-ISOP
+STAGE 3 — GRT–01–J.4
+SEPARATE LYAPUNOV FUNCTIONS FOR FIXED-MAP FAMILY UNIFORM ATTRACTION
+DATE: 2026-11-18
+DOCUMENT ID: OI-STAGE-03-GRT-01-J4-SEPARATE-LYAPUNOV-FUNCTIONS-2026-11-18
+PREDECESSOR: OI-STAGE-03-GRT-01-J3-CONVERSE-LYAPUNOV-CONSTRUCTION-2026-11-18
+STATUS: CONDITIONAL THEOREM PROVED; NECESSITY AND GENERAL CONVERSE NOT ESTABLISHED
+TYPE: ADDITIVE MATHEMATICAL RESEARCH CHECKPOINT
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+
+1. PURPOSE
+
+Investigate whether the candidate fixed-map family uniform-attraction property can be established using a separate Lyapunov function V_i for each map F_i, without requiring one common Lyapunov function V.
+
+The distinction from arbitrary switching is mandatory. The target concerns iteration of one fixed F_i at a time:
+x_n = F_i^n(x_0).
+It does not quantify over switching sequences that change i at each step.
+
+2. SETTING AND DEFINITIONS
+
+Let (Z,d) be a metric space, p∈Z, and {F_i:Z→Z}_{i∈I} a nonempty family of maps.
+
+For each i∈I, let V_i:Z→[0,∞) be a map-specific Lyapunov candidate.
+
+A function α:[0,∞)→[0,∞) is of class K∞ if it is continuous, strictly increasing, α(0)=0, and α(r)→∞ as r→∞.
+
+The uniformity requirement is imposed on the comparison and decrease functions, not on identity of the Lyapunov candidates.
+
+3. THEOREM J.4-A — SEPARATE LYAPUNOV FUNCTIONS WITH COMMON UNIFORM ENVELOPES
+
+Assume there exist three functions α1, α2, α3 of class K∞ such that, for every i∈I and every x∈Z:
+
+(A) α1(d(x,p)) ≤ V_i(x) ≤ α2(d(x,p));
+
+(B) V_i(F_i(x)) − V_i(x) ≤ −α3(d(x,p)).
+
+The functions V_i may depend on i and need not be equal.
+
+Then:
+
+(i) p is a fixed point of every map:
+F_i(p)=p for every i∈I.
+
+(ii) For every bounded B⊆Z:
+sup { d(F_i^n(z),p) : i∈I, z∈B } → 0 as n→∞.
+
+(iii) The entry time into every prescribed ε-neighborhood can be bounded independently of i and z∈B.
+
+PROOF
+
+Fix i∈I. At x=p, condition (A) gives V_i(p)=0. Condition (B) gives:
+V_i(F_i(p)) ≤ 0.
+Since V_i is nonnegative, V_i(F_i(p))=0. The lower comparison bound and α1(r)>0 for r>0 imply:
+d(F_i(p),p)=0.
+Thus F_i(p)=p.
+
+Now fix ε>0. Choose δ>0 such that:
+α2(δ)<α1(ε).
+If V_i(x)≥α1(ε), then d(x,p)≥δ. Indeed, if d(x,p)<δ, then:
+V_i(x)≤α2(d(x,p))≤α2(δ)<α1(ε),
+a contradiction.
+
+Whenever V_i(x)≥α1(ε), condition (B) therefore gives:
+V_i(F_i(x))≤V_i(x)−α3(δ).
+
+For bounded B, put:
+R_B=sup{d(z,p):z∈B}<∞.
+The initial bound is uniform:
+V_i(z)≤α2(R_B).
+
+Define:
+Nε=floor(α2(R_B)/α3(δ))+1.
+
+If V_i(F_i^k(z)) remained at least α1(ε) for all k=0,...,Nε−1, then Nε decreases of at least α3(δ) would force V_i(F_i^Nε(z))<0, contradicting nonnegativity.
+
+Thus for every i and z∈B there is k≤Nε such that:
+V_i(F_i^k(z))<α1(ε).
+
+The decrease condition also makes V_i nonincreasing along the subsequent orbit of this same fixed map F_i. Therefore, for every n≥Nε:
+V_i(F_i^n(z))<α1(ε).
+
+Using the lower comparison bound:
+α1(d(F_i^n(z),p))≤V_i(F_i^n(z))<α1(ε).
+Strict monotonicity of α1 yields:
+d(F_i^n(z),p)<ε.
+
+Nε is independent of i and z. This proves the uniform conclusion. QED.
+
+4. WHAT J.4-A RELAXES
+
+J.2-A requires one function V that decreases under every family member.
+
+J.4-A permits a different function V_i for each fixed map F_i.
+
+The following remain common across the family:
+- the target p;
+- the lower comparison function α1;
+- the upper comparison function α2;
+- the strict decrease function α3;
+- the resulting uniform entry-time estimate.
+
+Therefore J.4-A is weaker in its requirement of a single shared Lyapunov candidate, but it does not discard family-uniform quantitative control.
+
+5. COUNTEREXAMPLE — INDIVIDUAL LYAPUNOV FUNCTIONS WITHOUT UNIFORM DECREASE ARE INSUFFICIENT
+
+Let Z=R, p=0, I={2,3,...}, and:
+F_k(x)=(1−1/k)x.
+
+For every fixed k, choose:
+V_k(x)=x².
+
+Then:
+V_k(F_k(x))−V_k(x)
+=((1−1/k)²−1)x²
+=−(2/k−1/k²)x².
+
+Every individual map has a strict Lyapunov decrease. The comparison bounds are even identical:
+|x|²≤V_k(x)≤|x|².
+
+But the decrease coefficient:
+2/k−1/k²
+tends to zero as k→∞.
+There is no common positive-definite decrease function α3(r) valid for every k.
+
+For B={1}:
+sup_{k≥2}|F_k^n(1)|
+=sup_{k≥2}(1−1/k)^n
+=1
+for every finite n.
+
+Thus the family is not uniformly attractive.
+
+This shows that separate Lyapunov functions with merely map-by-map strict decrease do not suffice. Uniformity of the decrease estimate is essential for the stated family-level conclusion.
+
+6. RELATION TO ARBITRARY SWITCHING
+
+J.4-A concerns fixed-map iteration:
+x_n=F_i^n(x_0), with i held constant along the orbit.
+
+It does not establish stability for:
+x_(n+1)=F_(i_n)(x_n),
+where the index may change at every step.
+
+The J.3 counterexample remains valid:
+A(x,y)=(2y,0)
+B(x,y)=(0,2x).
+
+Each fixed map reaches the origin in at most two iterations, but alternating A and B produces:
+||(x_(2k),y_(2k))||=4^k
+from initial state (1,0).
+
+Separate V_A and V_B do not by themselves control the transition from one Lyapunov function to another. A switching theorem would require additional cross-function conditions, such as a controlled comparison of V_j(F_i(x)) with V_i(x), or a suitable multiple-Lyapunov/dwell-time argument. No such condition is assumed or proved here.
+
+7. LOGICAL STATUS
+
+PROVED:
+- Separate V_i with common K∞ comparison bounds and a common K∞ strict-decrease bound imply fixed-map family uniform attraction on bounded initial sets.
+- The proof gives a uniform finite entry-time bound.
+- A common Lyapunov function is not required by this sufficient theorem.
+- Separate strict decreases without a uniform decrease envelope do not imply family uniform attraction.
+- The theorem does not imply arbitrary-switching stability.
+
+NOT PROVED:
+- That every family satisfying candidate A2 admits such a family {V_i}.
+- That common K∞ comparison and decrease envelopes are necessary.
+- That separate Lyapunov functions can always be constructed under continuity, compactness, or equicontinuity assumptions.
+- That J.4-A applies to arbitrary switching.
+- That the candidate A2 formulation is the recovered original Stage 3 primary specification.
+- That A2 follows from R-invariance alone.
+
+8. NEXT MATHEMATICAL DIRECTIONS
+
+1. Investigate converse constructions for each V_i, with explicit conditions that make the comparison envelopes uniform in i.
+2. Determine whether compactness of the family of maps, equicontinuity, or uniform stability can supply the missing common envelopes.
+3. Study multiple-Lyapunov switching conditions separately, including cross-function inequalities and dwell-time restrictions. Do not conflate these with fixed-map A2.
+4. Examine whether a map-dependent block length m_i can be allowed. For a uniform family conclusion, identify what uniform bound on m_i and on intermediate excursions is sufficient.
+5. Check whether the construction can be placed on the operational pseudometric quotient D_L only after its authoritative metric, domain, and invariance assumptions are verified.
+
+9. SOURCE BASIS AND TRACEABILITY
+
+J.3 predecessor:
+audits/OI-STAGE-03-GRT-01-J3-CONVERSE-LYAPUNOV-CONSTRUCTION-2026-11-18.txt
+Commit:
+aacb26ca9a213a336d8faa5320ffc285f4a0cce4
+
+J.2 predecessor:
+audits/OI-STAGE-03-GRT-01-J2-COMMON-LYAPUNOV-UNIFORM-ATTRACTION-2026-11-18.txt
+Verified blob SHA:
+ec738853c08ade767d9035667c76ec42679a5bc5
+
+Earlier nonlinear comparison checkpoint:
+audits/OI-STAGE-03-GRT-01-J-UNIFORM-ATTRACTION-WEAKER-THAN-CONTRACTION-2026-11-18.txt
+Verified blob SHA:
+b24885db91cca0b0e74ffc003242f1881ccc86eb
+
+Operational procedure:
+operations/OMEGA-ISOP-M3.2-CONSOLIDATED-OPERATIONAL-RULES-2026-11-18-v0.8.2-R2.txt
+Readback blob SHA:
+11187ab27896fb343bd57b27eee481e10fa46256
+
+10. PROJECT STATUS AND PROTECTION
+
+FROZEN CORE: UNCHANGED.
+VOLUME II: UNCHANGED.
+VOLUME III: UNCHANGED.
+VOLUME IV: UNCHANGED.
+VOLUME V: UNCHANGED.
+CE/CE-V: NO PROMOTION.
+RL REGISTRATION: NOT PERFORMED.
+CANONICAL ACCEPTANCE: NOT CLAIMED.
+
+This is an additive mathematical research checkpoint. GitHub commit and readback verify repository storage and content identity only. They do not constitute independent mathematical review, physical confirmation, official RL registration, CE/CE-V acceptance, Volume V integration, or canonical acceptance.
+
+END OF CHECKPOINT
