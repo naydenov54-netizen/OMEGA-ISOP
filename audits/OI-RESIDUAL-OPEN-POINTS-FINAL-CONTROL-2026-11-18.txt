@@ -1,0 +1,177 @@
+OMEGA-ISOP
+FINAL RESIDUAL OPEN-POINTS CONTROL
+DOCUMENT_ID: OI-RESIDUAL-OPEN-POINTS-FINAL-CONTROL-2026-11-18
+DATE: 2026-11-18
+STATUS: ADDITIVE MATHEMATICAL / ARCHITECTURAL CONTROL
+METHOD: CLAIM-BY-CLAIM CLOSURE REVIEW
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+
+1. PURPOSE AND CONTROL RULE
+
+This checkpoint consolidates the residual open points identified by the Ockham audit and the subsequent RL-027 and Stage 3 audits.
+It does not repeat completed laboratory work, seek destroyed laboratory materials, modify any RL source record, or alter the Frozen Core.
+The RL laboratory origin and validation are treated as an established project premise as instructed by the project owner. This checkpoint audits the mathematical scope preserved in the surviving controlled records only.
+
+No mathematical result is promoted beyond its stated domain. No conditional construction is converted into a universal theorem.
+
+2. RL-021.1 — GENERAL H-CHARACTERIZATION
+
+Established:
+- In the unrestricted finite relational domain with |X| >= 2, the complete marginal boundary degree profile D_B does not identify Q_B.
+- The joint-incidence statistic T_B = sum_x o_B(x) i_B(x) is sufficient for the binary target: Q_B = 1 iff T_B > 0.
+- On G_forward, Q_B = 1 iff D_out > 0.
+- On G_backward, Q_B = 1 iff D_in > 0.
+- For |X| = 1, Q_B = 1 iff D_out > 0 and D_in > 0.
+- C_forward is not necessary for identification from the full D_B.
+
+Open:
+A general necessary-and-sufficient structural characterization for arbitrary H remains OPEN.
+
+Reason:
+The definition of G_H alone does not fix enough comparison structure to justify an unrestricted necessity theorem. Degenerate H can make Q_B constant and therefore identifiable, even when one-sided incidence states are allowed. Any stronger theorem must explicitly fix:
+(a) whether B and X are fixed or vary;
+(b) the cardinalities of B and X;
+(c) the permitted state set H and its realizability constraints;
+(d) whether the observation is D_B alone or (R_B^int,D_B);
+(e) the exact quantifiers over graphs in G_H.
+
+Safe exact criterion:
+D_B identifies Q_B on G_H iff Q_B is constant on every fiber of the observation map D_B restricted to G_H.
+This is an exact fiber criterion, not yet the desired structural classification of H.
+
+Disposition:
+KEEP OPEN. Do not claim C_forward, C_backward, or their conjunction is a complete characterization for arbitrary H. A further theorem requires a separately stated nondegeneracy/comparison class and proof.
+
+3. RL-027 — CORE MATHEMATICAL RESULTS
+
+The later core audit OI-RL-027-CORE-MINIMALITY-STABILITY-COMPUTABILITY-AUDIT-2026-11-18 was inspected. Its mathematical conclusions are accepted within the finite-dimensional controlled-copy scope.
+
+3.1 Pure global state domain — PASS
+For a pure bipartite state, Schmidt decomposition gives:
+Q_A = Tr(rho_A^2) = Tr(rho_B^2).
+The recovery map is F(rho_B) = Tr(rho_B^2).
+No equality of d_A and d_B is required.
+
+3.2 Full state domain — PASS
+For fixed rho_B = sigma and product states rho_AB = tau_A tensor sigma:
+Q_A = Tr(tau_A^2).
+For finite d_A >= 2, the attainable range is:
+[1/d_A, 1].
+Therefore Q_A is not identifiable from rho_B alone on the full state domain.
+
+3.3 Essential assumptions and minimality — BOUNDED PASS
+d_A >= 2 is essential for the non-identifiability claim.
+Finite d_A is needed for the exact lower endpoint 1/d_A, but not for a rank-two counterexample.
+Finite d_B is not essential to the product-state counterexample, provided a density operator on H_B exists.
+This is an assumption-cost audit of the stated claims, not a proof of globally minimal axioms for all of TEST-I.
+
+3.4 Stability — PASS WITH STATED NORM
+For density operators rho and sigma:
+|Tr(rho^2) - Tr(sigma^2)| <= 2 ||rho-sigma||_1.
+By contractivity of trace norm under partial trace:
+|Q_A(rho_AB) - Q_A(sigma_AB)| <= 2 ||rho_AB-sigma_AB||_1.
+On the pure-state domain, F(rho_B)=Tr(rho_B^2) obeys the corresponding marginal bound.
+This proves continuity/stability of the purity functional. It does not create an inverse on the full domain, where identifiability fails.
+
+3.5 Computability — PASS WITH INPUT-REPRESENTATION LIMITS
+In finite dimension, Tr(rho^2) is computable by finite matrix arithmetic for exact rational/algebraic entries and to arbitrary requested precision for effectively approximable entries.
+The pure-domain recovery map is computable under those representations.
+No general complexity bound or exact equality decision procedure for arbitrary computable reals is established.
+No algorithm can recover Q_A from rho_B alone on the full domain when d_A >= 2, because the target is not identifiable.
+
+3.6 Terminology correction — REQUIRED FOR FUTURE EDITING
+If D_all = S(H_A tensor H_B), call it the FULL STATE DOMAIN or ALL-STATE DOMAIN. It includes pure and mixed states. Do not call it the "full mixed global domain" unless the domain is separately restricted to mixed states and the endpoint/range claims are re-proved for that restriction.
+
+3.7 TEST-I overall disposition
+Core RL-027 identifiability, fixed-marginal range, stability, and computability claims: SEND within stated scope.
+Global axiomatic minimality: OPEN.
+TEST-I as a complete framework: OPEN / NOT FROZEN.
+External quantum formalism is an explicit mathematical input; it is not derived from the Frozen Core.
+No change to RL registration or CE-V status is made by this checkpoint.
+
+4. THEOREM 91 — MATHEMATICAL AND RELATIONAL BOUNDARY
+
+4.1 Algebraic theorem — PASS CONDITIONALLY
+With a common map tau:L_op -> L_op for all models in the comparison class and:
+Resp_(T(M))(a) = Resp_M(tau(a)),
+the operational response distance is non-expansive:
+D_L(T(M1),T(M2)) <= D_L(M1,M2).
+The proof needs a common operational domain, well-defined response maps, and the same tau for both compared models. Surjectivity of tau is not needed for non-expansion.
+
+4.2 Quantum realization — PASS AS STANDARD-THEORY CONDITIONAL REALIZATION
+A finite-dimensional CPTP channel E and its Heisenberg adjoint E* provide a common pullback on measurement effects. This realizes the response-map covariance and reproduces trace-distance contractivity.
+It is a valid application in standard quantum theory, not a derivation of Hilbert space, the Born rule, CPTP dynamics, or a new OMEGA-ISOP prediction from the Frozen Core.
+
+4.3 Full relational realization — OPEN
+The response-map construction does not, by itself, complete the architectural H1 requirement.
+A full relational realization must specify, without changing the Frozen Core:
+(a) the concrete relational structure R in the selected realization;
+(b) the state/model space on which R is defined;
+(c) the precise transformation T;
+(d) the exact preservation condition for R taken from the controlling source;
+(e) a proof that the selected T satisfies that condition;
+(f) the compatibility of this same T with the operational response construction.
+
+Until these are supplied and checked, describe the result as the algebraic response-distance theorem plus a conditional quantum response-map realization, not as a complete realization of the entire relational architecture.
+
+5. STAGE 3 — A1–A4 DERIVABILITY CONTROL
+
+The inspected Stage 3 records are mutually consistent.
+
+A1 — Common response covariance:
+Not derivable from R-invariance alone. It is derivable under explicit operational representation, common state action, and pullback closure of L_op. A common tau is essential.
+
+A2 — Uniform attraction:
+Not derivable from R-invariance or Theorem 91 non-expansion alone. A sufficient theorem requires a specified complete metric space, a uniform strict contraction q < 1, a common fixed point for the whole family, and a bounded initial set.
+
+A3 — Equicontinuity:
+The target must be disambiguated.
+- For iterates on the model-space metric quotient, A1 can imply equicontinuity conditionally if D_L is finite on the class, the quotient is well-defined, the class is invariant under T, and the same covariance hypothesis iterates.
+- For response maps as functions on L_op, a metric/uniform structure on L_op and a common modulus are required. A1 does not imply this version.
+
+A4 — Common anchor:
+A common operational anchor response and a common dynamical fixed point are different statements. The target definition and comparison class remain to be fixed.
+
+Disposition:
+R-invariance alone establishes none of A1–A4. Existing sufficient-condition and countermodel records remain conditional. Do not promote any of these results to unconditional Frozen Core consequences.
+
+6. CONSOLIDATED DISPOSITION
+
+RL-021.1:
+ESTABLISHED RESULTS RETAINED.
+GENERAL H-CHARACTERIZATION: OPEN.
+
+RL-027:
+CORE IDENTIFIABILITY: PASS.
+FIXED-MARGINAL RANGE: PASS.
+STABILITY: PASS WITH TRACE-NORM BOUND.
+COMPUTABILITY: PASS WITH EFFECTIVE INPUT REPRESENTATION.
+GLOBAL AXIOMATIC MINIMALITY: OPEN.
+TEST-I COMPLETE FRAMEWORK: OPEN.
+TERMINOLOGY: REVISE "FULL MIXED GLOBAL DOMAIN" TO "FULL STATE DOMAIN" WHEN D_all IS THE ENTIRE STATE SPACE.
+
+THEOREM 91:
+ALGEBRAIC NON-EXPANSION: PASS CONDITIONALLY.
+QUANTUM RESPONSE-MAP REALIZATION: PASS AS STANDARD-THEORY CONDITIONAL APPLICATION.
+FULL RELATIONAL H1 REALIZATION: OPEN.
+
+STAGE 3:
+A1–A4 NOT DERIVABLE FROM R-INVARIANCE ALONE.
+CONDITIONAL SUFFICIENT CONDITIONS RETAINED.
+A3 TARGET AND A4 MEANING REQUIRE EXPLICIT SPECIFICATION.
+
+7. PROTECTED ARCHITECTURE AND CHANGE CONTROL
+
+FROZEN CORE: UNCHANGED.
+VOLUME II: UNCHANGED.
+VOLUME IV: UNCHANGED.
+VOLUME V: UNCHANGED.
+CE-V: NO PROMOTION.
+RL SCIENTIFIC CONTENT: NOT MODIFIED.
+LABORATORY MATERIALS: NOT SOUGHT OR RE-AUDITED.
+CANONICAL ACCEPTANCE: NOT CLAIMED BY THIS ADDITIVE CHECKPOINT.
+
+This checkpoint is an additive control record. It does not overwrite prior audits, change RL source files, or silently promote any conditional result.
+
+END OF FINAL RESIDUAL OPEN-POINTS CONTROL
