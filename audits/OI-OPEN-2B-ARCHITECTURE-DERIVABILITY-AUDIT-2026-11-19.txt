@@ -1,0 +1,486 @@
+OMEGA-ISOP
+OPEN-2b — ARCHITECTURE-DERIVABILITY AUDIT
+SOURCE-BASED REVIEW OF THE RELATIONAL-TO-REALIZATION CHAIN
+
+DOCUMENT ID:
+OI-OPEN-2B-ARCHITECTURE-DERIVABILITY-AUDIT-2026-11-19
+
+DATE:
+2026-11-19
+
+REPOSITORY:
+naydenov54-netizen/OMEGA-ISOP
+
+WORKING BRANCH:
+work/open-2-theorem91-relational-realization-2026-11-18
+
+BRANCH HEAD AT AUDIT START:
+095e311e384112f49416aa145fca7da1666ee379
+
+AUDIT MODE:
+READ-ONLY REVIEW OF AUTHORITATIVE ARCHITECTURAL SOURCES.
+THIS DOCUMENT IS ADDITIVE ONLY.
+
+STATUS:
+SOURCE-DERIVABILITY REVIEW COMPLETE.
+PROJECT-LEVEL ARCHITECTURAL REALIZATION: NOT DERIVED.
+OPEN-2b: REMAINS OPEN.
+
+============================================================
+1. PURPOSE AND QUESTION
+============================================================
+
+Determine whether the existing OMEGA-ISOP source documents provide enough formal information to derive, without adding arbitrary assumptions or choosing a convenient test category, the architecture required to turn the OPEN-2 / Theorem 91 witness into a genuine architectural realization.
+
+The required chain is:
+
+C_METACORE
+-> admissible configurations
+-> compatibility CC
+-> diagram D_CC
+-> R = colim(D_CC)
+-> Real(R)
+-> Phi : Real(R) -> M
+-> X_R
+-> A(R;Phi)
+-> admissible T and preservation of R
+-> End(X,R), where applicable.
+
+The audit does not attempt to construct missing objects by invention. It distinguishes source-defined concepts from incomplete specifications, uninstantiated constructions, and absent formal definitions.
+
+No project-owner choice is inferred.
+
+============================================================
+2. SOURCES INSPECTED
+============================================================
+
+A. Volume II:
+docs/OMEGA-ISOP-VOLUME-II-MATHEMATICAL-FOUNDATIONS-v1.3-MF-AUDIT-RESTORED-FINAL.txt
+
+Inspected sections:
+II; III.4-III.5; IV.1-IV.3; V.1-V.3; VIII.5 / Theorem 91.
+
+B. Volume III:
+docs/OMEGA-ISOP-VOLUME-III-VALIDATION-FRAMEWORK-v1.1-VAL-RESTORED.txt
+
+Inspected sections:
+6-10, especially 8-9.
+
+C. Volume IV:
+docs/OMEGA-ISOP-VOLUME-IV-UNIFIED-EXTENSION-FRAMEWORK-v1.4-R-RESTORED.txt
+
+Inspected recovered content:
+9, 15, 17, 18, 28, 52 and the R' integration block.
+The source itself states that Volume IV is only partially recovered. No missing section is reconstructed or treated as evidence.
+
+D. Volume V:
+theory/OMEGA-ISOP-VOLUME-V-v2.4-C-1.1-CONTROLLED-MASTER-2026-11-14.txt
+
+Inspected:
+canonical notation N1-N2; active open formalization programs; dependency architecture; authority and status boundaries.
+
+E. Existing source-to-specification work:
+audits/OI-STAGE-02-S2-04C-17-SOURCE-TO-SPECIFICATION-GAP-CLOSURE-PLAN-2026-11-12.txt
+
+F. Existing category and amalgamation audits:
+audits/OI-STAGE-02-S2-04C-04-CHECKPOINT-2026-11-11.txt
+audits/OI-STAGE-02-S2-04C-08-ADMISSIBLE-AMALGAM-SOURCE-AUDIT-2026-11-12.txt
+audits/OI-STAGE-02-S2-04C-09-CATEGORY-SPECIFICATION-DECISION-SHEET-2026-11-12.txt
+audits/OI-STAGE-02-AMALGAMATION-COLIMIT-AUDIT-2026-10-28.txt
+audits/OI-STAGE-02-CORE-MORPHISM-DEPENDENCY-AUDIT-2026-10-28.txt
+
+G. OPEN-2 witness and independent audit:
+audits/OI-T91-H1-EXPLICIT-RELATIONAL-REALIZATION-2026-11-18.txt
+audits/OI-OPEN-2-THEOREM-91-INDEPENDENT-AUDIT-2026-11-18.txt
+
+The inspected Volume II, III, IV and V source files were read from the OPEN-2 working branch. Their content hashes were checked through the repository file reads. The branch reference was separately checked and resolved to the stated HEAD at audit start.
+
+============================================================
+3. SOURCE-LEVEL FINDINGS
+============================================================
+
+3.1 CONFIGURATIONS AND C_METACORE
+
+Volume II III.4 gives a local configuration representation:
+
+C = (S_C,#_C)
+S_C subseteq U0
+#_C = # restricted to S_C x S_C.
+
+It states |S_C| >= 2 for a minimal nontrivial configuration, but also says that exact admissibility conditions remain realization-dependent.
+
+Volume II III.5 defines an embedding f:C1 -> C2 as injective and preserving and reflecting apartness:
+
+x #1 y iff f(x) #2 f(y).
+
+Volume II III.4 describes C_METACORE as a category whose objects are admissible configurations and whose morphisms preserve selected structural properties.
+
+Finding:
+- The local configuration representation is DEFINED.
+- A local embedding template is DEFINED.
+- The complete admissibility predicate Adm(C) is UNDER-SPECIFIED.
+- The exhaustive hom-class Hom_C_METACORE is UNDER-SPECIFIED.
+- The complete categorical signature and preservation policy are UNDER-SPECIFIED.
+
+The source does not establish that every local apartness embedding is a C_METACORE morphism. It also does not establish that the only morphisms are literal inclusions or restrictions of global automorphisms.
+
+Volume III Section 6 supplies a nontriviality test. It does not declare that test to be the complete, realization-independent admissibility predicate.
+
+3.2 COMPATIBILITY CC
+
+Volume II IV.1 defines:
+
+CC(C1,C2) = 1 iff an admissible amalgamation of C1 and C2 exists;
+otherwise CC(C1,C2) = 0.
+
+The source calls the binary form a minimal representation and does not claim it is the unique possible representation.
+
+Finding:
+- The binary notation is DEFINED.
+- The full meaning of admissible amalgamation is UNDER-SPECIFIED.
+- The source does not settle whether the input is a pair with a common-target witness or a span with a designated common base and two maps.
+- The target object's admissibility, the morphisms, and any agreement equation are not completely specified by the Boolean value.
+
+A Boolean compatibility predicate is not, by itself, a categorical diagram.
+
+3.3 DIAGRAM D_CC
+
+Volume II IV.2 says that D_CC denotes the diagram generated by selected configurations and their admissible compatibility relations.
+
+Volume III Section 9 explicitly states that the notation D_CC does not itself define a complete categorical construction. A complete realization requires:
+- an indexing category J;
+- a functor D:J -> C_METACORE;
+- specified objects and morphisms;
+- specified compatibility conditions;
+- the required universal property.
+
+Finding:
+- D_CC is NAMED and conceptually DESCRIBED.
+- The project-specific indexing category J is NOT SPECIFIED.
+- The project-specific functor D is NOT SPECIFIED.
+- The object and arrow assignments are NOT SPECIFIED.
+- Functoriality cannot be checked without those assignments.
+
+Classification:
+D_CC is UNDER-SPECIFIED as a project-level categorical diagram.
+The missing data are explicit formalization requirements, not details that may be inferred from a Boolean CC matrix.
+
+3.4 RELATIONAL STRUCTURE R
+
+Volume II IV.2 gives the conditional construction:
+
+R := colim(D_CC).
+
+Volume II IV.3 states that this requires a valid compatibility diagram, the relevant categorical structure, and existence of the required colimit or an equivalent constraint-preserving construction. It expressly states that R existence is conditional.
+
+Volume III Sections 8-9 also require the explicit diagram and universal property.
+
+Finding:
+- The abstract colimit prescription is DEFINED CONDITIONALLY.
+- A project-specific D_CC has not been instantiated by the inspected source.
+- No project-level cocone and no universal-property proof are supplied in the inspected sources.
+- No general existence theorem is asserted.
+
+Classification:
+R = colim(D_CC) is DEFINED AS A CONDITIONAL CONSTRUCTION, BUT THE PROJECT-LEVEL INSTANCE IS NOT INSTANTIATED.
+Its existence for the intended project diagram is NOT ESTABLISHED.
+This is not proof that R cannot exist.
+
+3.5 REALIZATION SPACE Real(R) AND MAP Phi
+
+Volume II II and V.1 state:
+
+Phi : Real(R) -> M
+
+and describe Real(R) as admissible mathematical realizations of R. Phi represents a realization choice.
+
+Finding:
+- The abstract role and type of Phi are STATED.
+- The construction of Real(R), its elements, admissibility predicate, and equivalence notion are not formally specified in the inspected source.
+- No particular R has been constructed for the OPEN-2 witness.
+- No particular realization object in Real(R) is supplied.
+- No concrete Phi is supplied for the quantum witness.
+
+Classification:
+Real(R) is NAMED but UNDER-SPECIFIED as a constructible mathematical space.
+Phi is ABSTRACTLY TYPED but NOT INSTANTIATED for the OPEN-2 witness.
+
+3.6 REALIZED STATE SPACE X_R
+
+Volume II V.2 states:
+
+X_R = {x in X | x satisfies the constraints induced by R}.
+
+Finding:
+- The set-builder form is DEFINED.
+- The phrase "satisfies the constraints induced by R" has no explicit constraint family, satisfaction relation, or evaluation rule in the inspected source.
+- Without a constructed R and a realization Phi, X_R cannot be computed or identified.
+- The OPEN-2 witness uses X as its state space but does not define X_R or prove X_R = X.
+
+Classification:
+X_R is ABSTRACTLY DEFINED but UNDER-SPECIFIED and NOT INSTANTIATED in the witness.
+
+3.7 ADMISSIBLE DYNAMICS A(R;Phi)
+
+Volume II II and V.2-V.3 state:
+
+A(R;Phi) subseteq Evol(X).
+
+A(R;Phi) is the class of evolution laws compatible with the realized relational structure. The source requires A(R;Phi) to be nonempty for a dynamically admissible realization. It then states that T in A(R;Phi) is compatible with the relational constraints in the selected realization.
+
+Finding:
+- The abstract type and intended role of A(R;Phi) are DEFINED.
+- The exact compatibility predicate for membership is not given in a form that can be applied to the OPEN-2 quantum channel.
+- The nonemptiness condition is explicit, but no proof for the OPEN-2 architecture follows without R and Phi.
+- The witness does not prove T in A(R;Phi).
+
+Classification:
+A(R;Phi) is ABSTRACTLY DEFINED but UNDER-SPECIFIED for the proposed witness.
+A(R;Phi) != empty and T in A(R;Phi) are NOT ESTABLISHED.
+
+3.8 End(X,R) AND Aut(X,R)
+
+Volume II V.3 says:
+
+A reversible realization may be represented by T in Aut(X,R).
+
+An irreversible compatibility-preserving evolution may be represented by an appropriate endomorphism class:
+
+T in End(X,R).
+
+Finding:
+- The symbols Aut(X,R) and End(X,R) are NAMED.
+- The phrase "appropriate endomorphism class" is not a formal definition.
+- No objects, arrows, composition, identity, preservation condition, or relation to the colimit cocone are specified for End(X,R).
+- No source passage equates preservation of an arbitrary equivalence relation on X with membership in End(X,R).
+
+Classification:
+End(X,R) is NOT FORMALLY DEFINED in the inspected sources.
+The statement that T preserves the witness relation R_V does not establish T in End(X,R).
+
+3.9 VOLUME IV AND VOLUME V CROSS-CHECK
+
+The recovered Volume IV repeats the constraint-to-dynamics relation and preserves the open status of general construction and existence of R. Its recovered sections do not provide the missing categorical specification. The Volume IV source explicitly warns that it is a partial recovery.
+
+Volume V preserves the canonical notation:
+Phi : Real(R) -> M
+A(R;Phi) subseteq Evol(X)
+and the dependency chain from configurations through compatibility and R to dynamics and operational response.
+
+Volume V also lists the general existence theorem for R as OPEN and preserves the distinction between admissibility and realization.
+
+Neither Volume IV nor Volume V supplies the missing project-specific J, D, full C_METACORE hom-class, amalgam witness definition, colimit cocone, Real(R) construction, or End(X,R) definition.
+
+============================================================
+4. DERIVABILITY MATRIX
+============================================================
+
+OBJECT / SYMBOL:
+C=(S_C,#_C)
+SOURCE STATUS:
+Defined in Volume II III.4.
+DERIVABILITY:
+Defined local representation.
+GAP:
+Exact admissibility remains realization-dependent.
+
+OBJECT / SYMBOL:
+Adm(C)
+SOURCE STATUS:
+Only minimal nontriviality conditions are stated; exact admissibility remains realization-dependent.
+DERIVABILITY:
+Under-specified.
+GAP:
+No complete predicate with full domain and quantifiers.
+
+OBJECT / SYMBOL:
+C_METACORE and Hom_C_METACORE
+SOURCE STATUS:
+Category role and selected-property morphism description are stated; local embedding template is separately defined.
+DERIVABILITY:
+Under-specified.
+GAP:
+No exhaustive hom-set or complete signature.
+
+OBJECT / SYMBOL:
+CC(C1,C2)
+SOURCE STATUS:
+Binary predicate defined in Volume II IV.1.
+DERIVABILITY:
+Defined at a minimal verbal/Boolean level.
+GAP:
+Admissible amalgam witness and pair-versus-span semantics under-specified.
+
+OBJECT / SYMBOL:
+D_CC
+SOURCE STATUS:
+Named as a diagram generated by selected configurations and admissible compatibility relations.
+DERIVABILITY:
+Under-specified.
+GAP:
+No J, functor D, object assignment, arrow assignment, or functoriality proof.
+
+OBJECT / SYMBOL:
+R=colim(D_CC)
+SOURCE STATUS:
+Conditional definition in Volume II IV.2-IV.3.
+DERIVABILITY:
+Defined but not instantiated.
+GAP:
+No project-specific diagram, cocone, or universal-property proof.
+
+OBJECT / SYMBOL:
+Real(R)
+SOURCE STATUS:
+Named as admissible mathematical realizations in Volume II II and V.1.
+DERIVABILITY:
+Under-specified.
+GAP:
+No construction of its elements or admissibility conditions.
+
+OBJECT / SYMBOL:
+Phi : Real(R) -> M
+SOURCE STATUS:
+Abstract map type defined.
+DERIVABILITY:
+Defined abstractly but not instantiated.
+GAP:
+No selected R, realization object, or concrete map for the witness.
+
+OBJECT / SYMBOL:
+X_R
+SOURCE STATUS:
+Set-builder definition in Volume II V.2.
+DERIVABILITY:
+Abstractly defined but under-specified.
+GAP:
+No explicit constraint family or satisfaction relation; no proof X_R=X.
+
+OBJECT / SYMBOL:
+A(R;Phi)
+SOURCE STATUS:
+Abstract class of compatible evolutions in Volume II II and V.2-V.3.
+DERIVABILITY:
+Defined abstractly but under-specified for the witness.
+GAP:
+No executable membership criterion; nonemptiness and T-membership not proved.
+
+OBJECT / SYMBOL:
+Aut(X,R), End(X,R)
+SOURCE STATUS:
+Named in Volume II V.3.
+DERIVABILITY:
+End(X,R) not formally defined.
+GAP:
+No exact preservation, object, arrow, identity, or composition specification.
+
+OBJECT / SYMBOL:
+H1 of Theorem 91
+SOURCE STATUS:
+Stated in Volume II VIII.5.
+DERIVABILITY:
+Not satisfied architecturally by the current witness.
+GAP:
+The witness proves preservation of externally introduced R_V, not existence and preservation of the architecture's R with T admissible under A(R;Phi).
+
+============================================================
+5. RELATION TO THE EXISTING EIGHT-GAP AUDIT
+============================================================
+
+The findings above independently align with the eight unresolved items already recorded in S2-04C-17:
+
+1. Adm(C).
+2. Hom_C_METACORE.
+3. Additional categorical signature and preservation policy.
+4. Carrier convention for amalgams and colimits.
+5. Pair-based or span-based CC semantics.
+6. Exact admissible-amalgam witness.
+7. Indexing category J and functor D.
+8. Colimit cocone and universal property.
+
+This OPEN-2b audit does not replace S2-04C-17 and does not claim to have closed any of its eight items.
+
+S2-04C-17 explicitly requires project-owner approval for choices not fixed by authoritative sources. It also identifies S2-04C-18 as the next owner-decision protocol and dependency-lock task.
+
+No such decision is made in this document.
+
+============================================================
+6. CONSEQUENCE FOR THE OPEN-2 WITNESS
+============================================================
+
+The quantum witness establishes an internally correct, model-specific construction involving:
+- a qubit state space X;
+- an externally selected equivalence relation R_V;
+- an amplitude-damping channel T;
+- preservation of R_V;
+- an operational response map and its pullback;
+- the response-distance non-expansion result.
+
+The witness does not establish:
+- that R_V is the architecture's R=colim(D_CC);
+- that R_V is an element or realization of Real(R);
+- a realization map Phi for the architectural R;
+- the constraint-defined state space X_R;
+- A(R;Phi) != empty;
+- T in A(R;Phi);
+- T in the formally specified End(X,R).
+
+The independent OPEN-2 audit already establishes that the mathematical calculations M1-M9 pass. This source audit does not challenge those calculations. It identifies the missing architectural bridge between that valid quantum example and the OMEGA-ISOP relational construction.
+
+The direction-of-dependence issue also remains:
+the witness defines R_V through operational expectation values, whereas the OMEGA-ISOP dependency architecture places R before admissible dynamics and operational response. The current witness therefore cannot be treated as an independent derivation of the relational layer from the architecture.
+
+============================================================
+7. FINAL DETERMINATION
+============================================================
+
+RESULT:
+OPEN-2b ARCHITECTURE-DERIVABILITY AUDIT — SOURCE REVIEW COMPLETE.
+
+MATHEMATICAL STATUS OF THE QUANTUM WITNESS:
+UNCHANGED — INTERNAL MATHEMATICS PASS, AS RECORDED IN THE INDEPENDENT AUDIT.
+
+ARCHITECTURAL DERIVABILITY:
+NOT ESTABLISHED FROM THE CURRENT AUTHORITATIVE SOURCES.
+
+PROJECT-LEVEL R:
+CONDITIONAL IN THE THEORY; NOT INSTANTIATED FOR THIS WITNESS.
+
+PROJECT-LEVEL REALIZATION:
+NOT ESTABLISHED.
+
+OPEN-2:
+REMAINS OPEN.
+
+This conclusion means that the existing sources do not determine enough data to construct the required architecture without additional explicit specification and approval. It does NOT mean that an architectural realization is impossible.
+
+The next valid step is not to invent C_METACORE, CC, J, D, a colimit, or End(X,R). The next step is the controlled owner-decision protocol already identified by S2-04C-17, followed by proofs for the exact approved choices. Until those inputs are fixed, colimit and architectural-witness work must stop.
+
+============================================================
+8. CHANGE CONTROL AND PRESERVATION
+============================================================
+
+This document is an additive audit record only.
+
+No changes are made to:
+- Frozen Core;
+- Volume II;
+- Volume III;
+- Volume IV;
+- Volume V;
+- CE-V;
+- M3.2;
+- main branch;
+- existing OPEN-2 witness;
+- existing OPEN-2 independent audit;
+- existing S2-04C source audits.
+
+No category is selected.
+No new axiom is introduced.
+No project-owner approval is inferred.
+No RL registration is claimed.
+No CE-V promotion is claimed.
+No merge is performed.
+No OPEN-3 work is authorized by this audit.
+
+END OF OPEN-2b AUDIT
