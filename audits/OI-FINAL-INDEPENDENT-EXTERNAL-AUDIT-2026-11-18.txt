@@ -1,0 +1,211 @@
+OMEGA-ISOP
+FINAL INDEPENDENT EXTERNAL AUDIT
+DOCUMENT_ID: OI-FINAL-INDEPENDENT-EXTERNAL-AUDIT-2026-11-18
+DATE: 2026-11-18
+AUDIT BASE COMMIT: 238f3d09ea7241c3e3c8cf2fa55ad266f0de9bc6
+BRANCH: main
+MODE: READ-ONLY
+OVERALL DISPOSITION: PASS WITH NOTES
+CRITICAL FINDINGS: 0
+
+PROVENANCE AND STATUS
+This document records the external audit report supplied by the project owner from Claude.
+The findings below are preserved as reported by the external auditor. This repository entry records that report; it does not claim that this assistant independently repeated the external audit or independently verified every calculation.
+The audit was reported as READ-ONLY. No project files were changed during the reported audit.
+The audit base was commit 238f3d09ea7241c3e3c8cf2fa55ad266f0de9bc6.
+
+EXECUTIVE CONCLUSION
+The external auditor reports no mathematical contradictions, no integration-level logical inconsistencies, no identified overextension of proven results beyond their stated domains, and no critical issue threatening the established results.
+The overall result is PASS WITH NOTES.
+The system is assessed as internally consistent and scientifically defensible as a conditional structural framework. It is not assessed as a universal theory, nor does the project claim that status.
+The audit stage may be closed, while the explicitly listed OPEN items remain tracked for subsequent work.
+
+AUDIT SCOPE AND LIMITATIONS
+
+Reported as read in full:
+- OI-RESIDUAL-OPEN-POINTS-FINAL-CONTROL
+- OI-OMEGA-RAZOR-MINIMALITY-AUDIT
+- OI-RL-PRIMARY-SOURCE-PROVENANCE-DISPOSITION
+- docs/PROJECT_STATUS.md
+- CHANGELOG.md
+- docs/OMEGA-ISOP-CONDITIONAL-STRUCTURAL-FRAMEWORK-IDENTITY
+
+Reported as targeted reads by sections and keyword searches:
+- Volume II: Theorem 91 and VIII.5
+- Volume V v2.4-C-1.1: §§XXVI-XXXII and NOTATION N1-N6
+- CE-V archive
+- RL-021 / RL-021.1 controlled copy
+- Stage 3 A1-A4 and GRT-01 J5: titles and Disposition sections
+- хокинг/04_CHECKPOINT_LOG
+
+Reported as title/date-only review:
+- Approximately 120 other files in audits/, including Stage 1 and Stage 2. The auditor treated these as closed and did not repeat their reviews.
+
+Explicit limitation:
+- The primary text of Volume I (Frozen Core) was not present in the repository. Volume II is present and identifies itself as a "FROZEN CORE COMPONENT", with references to v2.0-FC10.1. Therefore, the auditor could not compare the Frozen Core against its primary source text. Consistency was assessed through Volume II and indirect references only.
+
+Other limitations:
+- Primary laboratory materials were not requested.
+- Three quick numerical checks were reportedly performed. The auditor explicitly characterizes these as confirmations, not proofs.
+- No compilation was performed.
+
+1. INTERNAL CONTRADICTIONS
+Disposition: PASS.
+The auditor reports finding no mathematical contradictions. Documentation discrepancies are listed in Section 6 below.
+
+2. CONSISTENCY OF THE MAIN COMPONENTS
+Disposition: PASS WITH NOTES.
+
+Reported findings:
+- The dependency chain is consistent between Volume V §XX and docs/OMEGA-ISOP-CONDITIONAL-STRUCTURAL-FRAMEWORK-IDENTITY:
+  Difference -> Relation -> Constraint -> Dynamics -> Persistence -> Organization.
+  It is consistently marked as conditional.
+- Negative boundaries in Volume V §XIX are consistently respected in PROJECT_STATUS.md, RESIDUAL-CONTROL §7, and the CE-V archive.
+- CE-V-07 is RESERVED consistently in Volume V, the CE-V archive, and M3.2 R2 §7.5.
+- RL-022/RL-023 are archived under CE-V-06.1 consistently in Volume V, the archive, and M3.2 R2.
+- Frozen Core primary-source absence remains the scope limitation described above.
+
+3. MATHEMATICAL AND LOGICAL INTEGRATION
+
+RL-021 — PASS
+Basis reported: Razor §2 and controlled RL-021 copy.
+Witnesses R1 = empty set and R2 = {(b,x)} reportedly produce the same observable I_B^0 and different target P_B.
+The domain is correctly restricted to the finite unrestricted relational class.
+
+RL-021.1 — PASS
+Basis reported: controlled copy, lines 209-248, and Razor §3.
+A numerical check at |X|=2 reportedly gives two counterexamples with the same boundary degrees (1,1) but different Q_B values (0 and 1).
+The statistic T_B = sum_x o_B(x)*i_B(x) is sufficient for the binary target.
+The claim that C_forward is necessary is correctly refuted by the G_backward witness.
+The general H-characterization remains explicitly OPEN and is not represented as proven.
+
+RL-027 — PASS WITHIN THE STATED DOMAIN
+Basis reported: RESIDUAL-CONTROL §§3.1-3.5.
+For pure states, Tr(rho_A^2) = Tr(rho_B^2). A numerical example with d_A=3 and d_B=5 reportedly gave 0.41628 on both sides.
+For fixed rho_B, product states tau_A tensor sigma reportedly realize the range [1/d_A, 1]. The auditor states that the universal bounds and attainability establish the exact range.
+The stability estimate
+|Q_A(rho) - Q_A(sigma)| <= 2*||rho-sigma||_1
+is reported valid, using
+Tr(rho^2 - sigma^2) = Tr((rho-sigma)(rho+sigma)).
+The auditor notes that stability does not contradict non-identifiability over the full domain because these are different claims.
+
+THEOREM 91 — PASS CONDITIONALLY
+Basis reported: Volume II §VIII.5 and RESIDUAL-CONTROL §4.1.
+The proof is reported correct: one common tau is used for both models, followed by a supremum over a. Surjectivity is not required.
+H1 does not enter the algebraic proof; it is an architectural condition rather than a proof step. Razor §5 is reported to state this correctly.
+Full relational realization of H1 remains OPEN (see Section 5).
+
+STAGE 3, A1-A4 — PASS WITH OPEN SPECIFICATION ITEMS
+Basis reported: RESIDUAL-CONTROL §5, Stage 3 A1-A4 SUFFICIENT-CONDITIONS §9, and GRT-01 J5.
+None of A1-A4 follows from R-invariance alone.
+The sufficient-condition theorems are marked conditional.
+GRT-01 J5 reportedly records that without condition (F3), the proof has a gap.
+The records are reported mutually consistent.
+The precise target for A3 and meaning of A4 remain OPEN (see Section 5).
+
+4. OVEREXTENSION BEYOND PROVEN DOMAINS
+Disposition: PASS.
+The auditor reports no identified case of improper extension.
+- RL-027 is limited to finite-dimensional standard quantum states. The documentation explicitly rejects an ontological inference.
+- RL-021 is limited to the finite unrestricted relational domain.
+- Theorem 91 is presented as conditional non-expansion, not as an information-preservation theorem.
+- CAPD entries in Volume V §§22-23 are limited to the stated construction (single bump, q=+-1, [0,3]). Universality and multiple-bump extensions are marked NOT ESTABLISHED.
+
+5. REAL OPEN ITEMS
+
+OPEN-1. RL-021.1: general H-characterization.
+Source: RESIDUAL-CONTROL §2.
+An exact fiber criterion exists, but a structural classification is not yet established.
+
+OPEN-2. Theorem 91: full relational realization of H1.
+Source: RESIDUAL-CONTROL §4.3, items (a)-(f).
+The algebraic theorem and conditional quantum realization exist; a concrete realization of R and verification of its preservation condition remain outstanding.
+
+OPEN-3. RL-027: global axiomatic minimality and TEST-I as a completed framework.
+Source: RESIDUAL-CONTROL §3.7.
+TEST-I is not frozen.
+
+OPEN-4. Stage 3: A3 and A4.
+Source: RESIDUAL-CONTROL §5.
+A3 still needs its target specified (equicontinuity of iterates on a quotient space or of maps on L_op). A4 still needs its intended meaning specified (common operational anchor response or common dynamical fixed point).
+
+OPEN-5. RL-027 administration.
+The RL_REGISTERED status in the controlled copy is not confirmed by an authoritative register (PROVENANCE-DISPOSITION §6).
+This is an administrative status/readback issue, not a mathematical issue.
+
+OPEN-6. Engineering line (Hawking/CP22).
+Hawking/04_CHECKPOINT_LOG, CP22-14: mutation accounting remains OPEN, with no corrected result assigned.
+CAPD interval proof and AUDIT #36 v3.3 are not certified. Their status is reported as non-canonical and not independently attested in the F1-F7 verification log.
+These items are correctly declared and do not affect the RL results.
+
+The auditor explicitly states that none of OPEN-1 through OPEN-6 calls the already established results into question.
+
+6. DOCUMENTATION ISSUES
+
+DOC-1. Notation conflict A(Phi(R)).
+Location: docs/OMEGA-ISOP-CONDITIONAL-STRUCTURAL-FRAMEWORK-IDENTITY, lines 41 and 45.
+The document uses A(Phi(R)), while Volume V NOTATION N2 states that A(Phi(R)) is not used, Phi(R)=A(R) is deleted, and A(R;Phi) is adopted.
+Recommended action: align the identity document notation with A(R;Phi).
+
+DOC-2. Outdated next actions concerning primary RL sources.
+Locations: Volume V v2.4-C-1.1, lines 224 and 651; FOUNDATION-PROGRAM, lines 420-434 and 522.
+These passages say that primary RL sources should be recovered and recommend continuing the search. PROVENANCE-DISPOSITION §4 (2026-11-18) closes recovery as non-recoverable and discontinued.
+Recommended action: add a control-index note that the older instructions have been superseded.
+
+DOC-3. Three RL-027 statuses without a unified table.
+Locations: Volume V (~lines 299-353), controlled copy, Razor §7, PROVENANCE §6.
+The reported statuses are UNDER AUDIT, RL_REGISTERED, and the separated audit/registration/readback dispositions.
+Recommended action: add one control-index row with four separate dimensions: mathematics / overall audit / registration / readback.
+
+DOC-4. Terminology and numbering.
+- RESIDUAL-CONTROL §3.6 uses "full mixed global domain" for D_all = S(H_A tensor H_B). Recommended term: "full state domain".
+- Volume V §VII and CE-V archive line 491 use "CE-V-004", while other entries use CE-V-01..05. The numbering is inconsistent, although described as corrected numbering.
+Recommended action: add a numbering note or standardize the format without changing the underlying record identity.
+
+DOC-5. Normed space versus metric space.
+Volume II H2 and Volume V N4 require a normed Y. Razor §5 shows that a metric space is sufficient.
+The auditor does not classify this as an error because the normed-space assumption is stronger than necessary.
+Recommended action: note explicitly that H2 is stronger than required.
+
+DOC-6. Volume II Frozen Core label and documentation disclaimer.
+Volume II line ~7 identifies it as a "FROZEN CORE COMPONENT"; its preface line ~1398 says it is a "documentation snapshot" that does not independently validate mathematical claims.
+The auditor considers these statements compatible (frozen does not mean independently certified), but recommends an explicit cross-reference to the upper label.
+
+7. CRITICAL RISKS
+CRITICAL: 0.
+The auditor reports no issue threatening the established core results.
+
+8. READINESS AND FINAL DISPOSITION
+
+Overall: PASS WITH NOTES.
+
+The auditor's proposed closure:
+- The system is internally consistent, consistently conditional, and does not make unsupported extensions.
+- It is scientifically defensible as a conditional structural framework.
+- It is not established as a universal theory and does not claim to be one.
+- DOC-1 through DOC-4 are recommended as short additive documentation notes, without changing Frozen Core or repeating RL proofs.
+- OPEN-1 through OPEN-6 should remain explicit items for the next development stage.
+
+The auditor states that the following are NOT established by this audit:
+- Canonical acceptance of RL-027 or confirmation of its registration.
+- Certification of CAPD, Curvature Engine (CP22-13), or AUDIT #36 v3.3.
+- Independent verification of the primary Frozen Core text, because Volume I is absent from the repository.
+
+SUMMARY TABLE
+
+Frozen Core / architecture: PASS WITH NOTES (Volume I absent from repository)
+RL-021: PASS
+RL-021.1: PASS (general H-characterization OPEN)
+RL-027: PASS within domain (global minimality and TEST-I OPEN; registration OPEN)
+Theorem 91: PASS CONDITIONALLY (full H1 realization OPEN)
+Stage 3 A1-A4: PASS WITH NOTES (A3/A4 specification OPEN)
+CE-V / Volume V boundaries: PASS (CE-V-07 RESERVED consistently)
+Inter-volume integration: PASS WITH NOTES (DOC-1 through DOC-6)
+Engineering line CP22/CAPD/AUDIT #36: OPEN (declared correctly; does not affect RL results)
+Critical findings: 0
+
+FINAL RECORD
+This is a record of the external audit report as supplied. It does not modify Frozen Core, RL source files, Volume II, Volume IV, Volume V, CE-V, or canonical acceptance status.
+The external auditor's final recommendation is to close this audit stage with PASS WITH NOTES and carry the six OPEN items and six documentation issues forward under their stated scopes.
+
+END OF FINAL INDEPENDENT EXTERNAL AUDIT
