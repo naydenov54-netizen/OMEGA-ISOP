@@ -1,0 +1,261 @@
+OMEGA-ISOP
+RESEARCH LINE RL-025
+OCAM_COMPACT_RL
+
+Title:
+Robustness Boundary of Operational Identity under Observable-Set Variation in General Relativity
+
+Record date: 2026-11-18
+Source: Complete research text supplied by the user in the conversation.
+Record type: Additive research evidence record.
+Domain: General Relativity (GR) only.
+Classification: SUPPORTED / CONDITIONAL (as stated in the submitted record).
+Promotion status: NOT PROMOTED / NOT VALIDATED for CE-V.
+Frozen Core status: NO CONFLICT (as stated in the submitted record).
+
+CONTROL AND ARCHITECTURAL NOTE
+This file records RL-025 as supplied. It is an additive research record only.
+It does not modify the Frozen Core, Volume V, CE-V, or the OMEGA-ISOP dependency architecture.
+The classification SUPPORTED / CONDITIONAL is preserved as the submitted RL determination, not upgraded to independent validation or universal theorem status.
+The counterconstruction is conditional on the existence and independent physical admissibility of the specified observables A and B and configurations O1 and O2 in a concrete GR model.
+No claim is made here that a particular such pair has been established for every GR solution.
+The record remains distinct from TEST-28 (minimality selection) and TEST-29 (symmetry selection), as specified by the source.
+The source identifies TEST-17, TEST-17A, and TEST-18 as preceding Q-dependence results; this traceability is recorded but not independently audited in this commit.
+
+STRUCTURAL POSITION
+Не въвеждаме нова структурна роля, ако тя може да бъде строго изведена от вече наличните.
+Но не редуцираме структурна роля само защото е възможно да бъде преименувана или опакована в друга.
+
+Статус на линията:
+Realization → Persistence → Operational Identity
+
+Редуцируемостта се тества.
+Независимостта се тества.
+Нито едната не е предварително приета като доказана.
+
+INPUTS
+General Relativity as the physical domain.
+Realized physical configuration G.
+Realized dynamics D.
+Persistence criterion P.
+Observable set Q.
+Operational tolerance epsilon.
+Identity rule IR.
+
+Operational Identity represented as:
+OI = F(G, D, P, Q, epsilon, IR)
+
+ASSUMPTIONS / CONSTRAINTS
+A1. The GR domain remains the exclusive research domain.
+A2. Block-universe interpretations are excluded.
+A3. Q is an operational specification and is not assumed to be uniquely selected by GR.
+A4. IR is not assumed to be uniquely derived from GR dynamics.
+A5. No identification criterion may be silently encoded into Q.
+A6. epsilon may be set to zero to test exact equivalence.
+A7. The test concerns robustness of Operational Identity, not ontological status.
+A8. IR is Q-relative. For configurations X and Y it decides:
+X ~OI Y iff |q(X) - q(Y)| <= epsilon
+for every q in Q.
+
+For epsilon = 0:
+q(X) = q(Y)
+for every q in Q.
+
+For epsilon > 0, each observable q in Q is assumed to have a specified comparison metric, norm, or normalized scale under which |q(X) - q(Y)| <= epsilon is well-defined. The same epsilon is used only after this comparison convention has been fixed.
+
+Within the construction, Q-values are the only operational channel through which IR distinguishes configurations.
+
+A9. G, D, P, IR and epsilon are identical in both operational specifications. Only Q is varied.
+A10. A and B are admissible observables of the GR domain and are well-defined on both O1 and O2. Their admissibility is not derived here and must be established independently for any concrete GR model.
+
+FORMAL CONSTRUCTION
+Let two operational specifications be:
+
+S1 = (G, D, P, Q1, epsilon, IR)
+S2 = (G, D, P, Q2, epsilon, IR)
+
+where Q1 and Q2 are sets of observable channels, with:
+Q1 = {A}
+Q2 = {A, B}
+
+and:
+Q1 is a proper subset of Q2.
+
+Formally:
+Q1 ⊊ Q2
+
+Consider two physical configurations O1 and O2 satisfying:
+A(O1) = A(O2)
+but:
+B(O1) != B(O2)
+
+For epsilon = 0:
+
+Under S1:
+O1 ~OI O2
+
+Under S2:
+O1 not~OI O2
+
+For epsilon > 0, the same construction requires:
+|A(O1) - A(O2)| <= epsilon
+and:
+|B(O1) - B(O2)| > epsilon
+
+The primary test is epsilon = 0.
+
+DERIVATION
+Under Q1, only A contributes to the operational partition. Since A(O1) = A(O2), the condition of A8 holds for every q in Q1. Therefore O1 and O2 belong to the same operational equivalence class.
+
+Under Q2, B is additionally observable. Since B(O1) != B(O2), the condition of A8 fails for q = B. Therefore O1 and O2 are separated.
+
+The operational partition of the pair {O1, O2} is:
+
+Under S1:
+{{O1, O2}}
+
+Under S2:
+{{O1}, {O2}}
+
+Thus, the partition under S2 strictly refines the partition under S1 on this pair.
+
+Therefore:
+F(G, D, P, Q1, epsilon, IR) != F(G, D, P, Q2, epsilon, IR)
+
+That is:
+OI(Q1) != OI(Q2)
+
+with G, D, P, IR and epsilon identical.
+
+The difference persists for epsilon = 0. Therefore the effect cannot be attributed merely to measurement noise or finite tolerance.
+
+Because Q1 is a subset of Q2, equivalence under S2 implies equivalence under S1. The converse fails by the construction above.
+
+Formally:
+X ~S2 Y implies X ~S1 Y
+
+but:
+X ~S1 Y does not necessarily imply X ~S2 Y.
+
+This implication holds because the comparison conditions imposed by Q1 are a subset of those imposed by Q2.
+
+Consequently, identical G, D, P, IR and epsilon do not uniquely determine OI unless Q is independently fixed.
+
+VERIFICATION
+The counterconstruction preserves:
+- the same physical domain;
+- the same realized dynamics;
+- the same persistence structure;
+- the same identity rule;
+- the same operational tolerance;
+- exact operational comparison with epsilon = 0.
+
+Only the observable specification Q is changed.
+
+FAILURE TEST
+Candidate rescue principle R1:
+"Q must contain all physically relevant observables."
+
+This does not independently solve the problem unless "physically relevant" is itself defined by a non-circular selection rule. If the rule selecting Q is constructed specifically to guarantee a desired operational partition, that rule functions as an additional IdentityRule or selection criterion rather than as a derivation from GR dynamics.
+
+Candidate rescue principle R2:
+"Nonzero epsilon absorbs the difference in B."
+
+This does not rescue the universal claim because the primary construction holds at epsilon = 0.
+
+For epsilon > 0, the counterexample remains valid whenever:
+|A(O1) - A(O2)| <= epsilon
+and:
+|B(O1) - B(O2)| > epsilon.
+
+Candidate rescue principle R3:
+"Fix Q by an independently justified physical rule."
+
+This removes the Q-dependence only by introducing an additional independent input. It is therefore compatible with, rather than contradictory to, the established boundary:
+
+G + D + P + IR
+does not uniquely determine OI unless Q is independently fixed.
+
+RESULT
+Operational Identity is not universally robust under admissible changes of the observable specification.
+
+Established conditional boundary:
+G + D + P + IR
+does not uniquely determine OI
+unless Q is independently fixed.
+
+The result remains valid in the exact limit:
+epsilon = 0
+
+Therefore the demonstrated Q-dependence is structural rather than merely a measurement-error effect.
+
+FAILURE BOUNDARIES
+- Does not prove ontological independence of OI.
+- Does not prove that every admissible Q produces different OI.
+- Does not establish that Q is arbitrary in physical practice.
+- Does not establish a unique physically preferred Q.
+- Does not reduce OI to dynamics, persistence, or realization.
+- Does not introduce a new universal IdentityRule.
+- Does not cover identity rules that use information outside the Q-values specified by A8.
+- Does not establish the physical existence of a particular pair of observables A and B for every GR solution.
+- Does not establish that every enlargement Q1 -> Q2 changes the operational partition.
+
+LIMITATIONS
+The countermodel is conditional on:
+- the existence of at least two admissible observable specifications Q1 and Q2 satisfying the stated separation condition;
+- the existence of configurations O1 and O2 in the GR domain such that:
+  A(O1) = A(O2)
+  and:
+  B(O1) != B(O2);
+- A and B being physically admissible and well-defined observables for the concrete GR model under consideration;
+- the Q-relative form of IR stated in A8;
+- the assumption that G, D, P, IR and epsilon remain identical between S1 and S2.
+
+The physical admissibility and relevance of particular observables must therefore be established independently for any concrete GR model.
+
+STATUS
+RL determination:
+SUPPORTED / CONDITIONAL
+
+Specific classifications:
+Q-independent OI: REFUTED AS UNIVERSAL CLAIM
+GR dynamics -> unique operational partition: NOT DERIVED
+Persistence -> robust OI: NOT DERIVED
+Universal robustness of OI: NOT DERIVED
+Ontological independence of OI: NOT DERIVED
+
+CE_V_Status:
+NOT PROMOTED / NOT VALIDATED
+
+Frozen_Core_Status:
+NO CONFLICT
+
+The result does not modify or reinterpret the Frozen Core.
+
+TRACEABILITY
+OTO research line only.
+
+Extends previous Q-dependence results TEST-17, TEST-17A and TEST-18 by making the issue an explicit robustness/validity-boundary test.
+
+Distinct from TEST-28:
+Minimality selection.
+
+Distinct from TEST-29:
+Symmetry selection.
+
+New information class:
+N6, new validity boundary.
+
+M3.2 NIG precheck:
+PASS
+
+M3.2 NIG postcheck:
+PASS
+
+RL determination:
+RL REQUIRED
+
+RL identifier:
+RL-025
+
+END OF RL-025 RECORD
