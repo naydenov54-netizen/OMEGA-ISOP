@@ -1,0 +1,59 @@
+OMEGA-ISOP
+STAGE 3 — HISTORICAL CONTEXT RECOVERY ADDENDUM
+DATE: 2026-11-18
+STATUS: ORIGINAL PRIMARY SPECIFICATION STILL NOT RECOVERED
+TYPE: ADDITIVE SOURCE-TRACEABILITY RECORD
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+
+1. PURPOSE
+Supplement the prior primary-specification recovery search by checking available historical conversation context and repeating Library semantic searches with shorter query variants.
+
+2. ADDITIONAL SEARCH
+A. Historical conversation context retrieval:
+Searched for the original Stage 3 specification / discussion, exact A1–A4 wording, quantifiers, domains, criteria, and context.
+Returned context confirms that the user accepted recovery work and that exact A1–A4 wording, quantifiers, domains, and criteria remain outstanding. The retrieval did not surface the full original specification or its source document.
+
+B. Library semantic search, expanded:
+- “Original Stage 3 OMEGA-ISOP A1 A2 A3 A4 wording common response covariance uniform attraction”
+- “Stage 3 relational derivability test date 18.11.2026 original prompt specification”
+- “common anchor response uniform equicontinuity exact definitions OMEGA ISOP”
+C. Library semantic search, shorter variants:
+- “A1 common response covariance”
+- “Stage 3 A2 uniform attraction A3 equicontinuity”
+- “OMEGA-ISOP relational derivability audit”
+
+Both Library search rounds returned no results. Zero-result searches do not prove absence; indexing, query mismatch, or unavailable source content may explain the result.
+
+3. CURRENT SOURCE STATUS
+Recovered:
+- User-provided first-pass statement dated 2026-11-18, reproduced in conversation.
+- Existing Stage 3 audit checkpoints and later conditional formalizations.
+
+Not recovered:
+- A separate original Stage 3 specification document.
+- Exact formal quantifiers/domains/acceptance criteria beyond the user-provided initial statement.
+- Definitive intended meaning of A3 family and A4 anchor.
+
+4. TRACEABILITY CONCLUSION
+Primary specification remains NOT RECOVERED after repository, Library, and available historical-context searches.
+
+This is a bounded search result, not a proof that the source never existed. Do not elevate the later reconstructed formalizations to original/canonical definitions.
+
+5. NEXT STEP
+If the primary source remains unavailable, prepare a proposed RECONSTRUCTED STAGE 3 SPECIFICATION for explicit user review. It must:
+- preserve original labels A1–A4 and initial wording;
+- mark each newly formalized domain, quantifier, metric, family, and anchor interpretation as RECONSTRUCTION;
+- distinguish the supplied first-pass findings from proofs and countermodels;
+- avoid changing Frozen Core or promoting conditional assumptions to core properties.
+
+6. STATUS
+FROZEN CORE: UNCHANGED.
+VOLUME II: UNCHANGED.
+VOLUME IV: UNCHANGED.
+VOLUME V: UNCHANGED.
+CE-V: NO PROMOTION.
+RL: NO REGISTRATION.
+CANONICAL ACCEPTANCE: NOT CLAIMED.
+
+END OF ADDENDUM
