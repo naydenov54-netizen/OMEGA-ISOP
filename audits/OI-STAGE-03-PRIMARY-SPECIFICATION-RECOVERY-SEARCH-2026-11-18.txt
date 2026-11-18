@@ -1,0 +1,60 @@
+OMEGA-ISOP
+STAGE 3 — PRIMARY SPECIFICATION RECOVERY SEARCH
+DATE: 2026-11-18
+STATUS: SEARCH NEGATIVE / ORIGINAL SPECIFICATION NOT RECOVERED
+TYPE: SOURCE-TRACEABILITY CHECKPOINT
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+
+1. PURPOSE
+Search for the primary Stage 3 specification containing exact definitions, quantifiers, domains, and acceptance criteria for A1–A4, rather than treating later audit paraphrases as the original.
+
+2. SEARCHES PERFORMED
+A. ChatGPT Library semantic search:
+- OMEGA-ISOP Stage 3 relational derivability A1 A2 A3 A4 original specification
+- common response covariance uniform attraction uniform equicontinuity common anchor Stage 3
+- Stage 3 A1 A4 common anchor response definitions original audit
+Result: no results returned. The search interface warned that zero results do not establish absence.
+
+B. GitHub repository search in naydenov54-netizen/OMEGA-ISOP:
+- “Stage 3”
+- “RELATIONAL DERIVABILITY”
+- “common anchor response”
+- “uniform equicontinuity”
+- “A1 covariance”
+
+Results surfaced the existing Stage 3 checkpoints and related Stage 1 files, but no primary specification containing exact formal definitions or acceptance quantifiers.
+
+3. SOURCES FOUND AND READ BACK
+- audits/OI-STAGE-03-RELATIONAL-DERIVABILITY-CHECKPOINT-2026-11-18.txt
+- audits/OI-STAGE-03-A1-A4-SUFFICIENT-CONDITIONS-COUNTERMODELS-2026-11-18.txt
+- audits/OI-STAGE-03-ADMISSIBLE-DYNAMICS-A1-A4-CHECK-2026-11-18.txt
+
+These are audit/research records, not demonstrated primary Stage 3 specifications. They preserve the target labels and first-pass conclusions but explicitly leave A3 and A4 interpretations open.
+
+4. NEGATIVE SEARCH FINDING
+The exact primary Stage 3 specification has NOT BEEN RECOVERED in the search scope above.
+
+This is a bounded search result, not proof that the specification does not exist. It may be unindexed, stored under a different name, in another Library folder/surface, in a conversation attachment, or outside the searched repository paths.
+
+5. FORMALIZATION BOUNDARY
+Until the primary specification is recovered:
+- A1–A4 labels may be used as supplied in the initial Stage 3 statement.
+- The candidate formalizations in the conditional audit remain reconstructions.
+- A3's target family is not fixed by source evidence.
+- A4's “common anchor response” meaning is not fixed by source evidence.
+- No acceptance criteria, quantifiers, or original wording may be invented and attributed to the primary specification.
+
+6. NEXT ACTION
+Search additional historical conversations and project archives for the exact Stage 3 statement and its source context. If no primary source is recovered, prepare an explicitly labeled reconstructed specification for user review, preserving the original A1–A4 labels and clearly marking all formal choices as reconstruction rather than canonical definition.
+
+7. STATUS
+FROZEN CORE: UNCHANGED.
+VOLUME II: UNCHANGED.
+VOLUME IV: UNCHANGED.
+VOLUME V: UNCHANGED.
+CE-V: NO PROMOTION.
+RL: NO REGISTRATION.
+CANONICAL ACCEPTANCE: NOT CLAIMED.
+
+END OF CHECKPOINT
