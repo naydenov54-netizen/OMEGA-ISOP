@@ -1,0 +1,236 @@
+OMEGA-ISOP
+RL-027 CORE AUDIT: MINIMALITY, STABILITY, COMPUTABILITY, AND DOMAIN PRECISION
+DOCUMENT_ID: OI-RL-027-CORE-MINIMALITY-STABILITY-COMPUTABILITY-AUDIT-2026-11-18
+DATE: 2026-11-18
+STATUS: ADDITIVE CLAIM-SPECIFIC MATHEMATICAL AUDIT
+SCOPE: SURVIVING CONTROLLED RL-027 COPY; CORE IDENTIFIABILITY CLAIMS ONLY
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+
+1. SOURCE BASIS AND LIMIT
+
+Inspected source:
+07_RESEARCH_EVIDENCE/RL-027-USER-SUPPLIED-CONTROLLED-SOURCE-2026-11-18.txt
+Blob SHA: 2c5e7d2b753cd4e37e0b170bdd8ef31ab452d3a3
+
+Controlling status reference:
+theory/OMEGA-ISOP-VOLUME-V-v2.4-C-1.1-CONTROLLED-MASTER-2026-11-14.txt
+Blob SHA: 8bb853e2f667a780a3ac55aabe5a71066ac7a751
+
+The RL-027 file is a surviving USER-SUPPLIED CONTROLLED SOURCE COPY. Per the separate provenance disposition dated 2026-11-18, the original laboratory materials are author-declared destroyed and cannot be inspected or compared. This audit checks the mathematical content preserved in the controlled copy. It does not authenticate the destroyed laboratory provenance, establish RL registry status, or certify TEST-I as a whole.
+
+2. CLAIM AND DEFINITIONS
+
+Let H_A and H_B be finite-dimensional Hilbert spaces with dimensions d_A and d_B, and let ρ_AB be a density operator on H_A ⊗ H_B.
+
+ρ_A = Tr_B(ρ_AB)
+ρ_B = Tr_A(ρ_AB)
+Q_A(ρ_AB) = Tr(ρ_A²)
+
+Identifiability of Q_A from ρ_B on a domain D means that there exists a function F, defined on the image of the marginal map, such that:
+Q_A(ρ_AB) = F(ρ_B)
+for every ρ_AB ∈ D.
+
+Equivalently, on D:
+ρ_B = ρ'_B implies Q_A(ρ_AB) = Q_A(ρ'_AB).
+
+3. PURE-GLOBAL-STATE RESULT
+
+For ρ_AB = |ψ><ψ|, write a Schmidt decomposition:
+|ψ> = Σ_i √λ_i |a_i> ⊗ |b_i>
+with λ_i ≥ 0 and Σ_i λ_i = 1.
+
+Then:
+ρ_A = Σ_i λ_i |a_i><a_i|
+ρ_B = Σ_i λ_i |b_i><b_i|
+
+Therefore:
+Tr(ρ_A²) = Σ_i λ_i² = Tr(ρ_B²).
+
+Hence, on the pure-global-state domain:
+Q_A = F(ρ_B), where F(X) = Tr(X²).
+
+DISPOSITION: PASS.
+EVIDENCE CLASS: ANALYTICAL PROOF UNDER THE SCHMIDT-DECOMPOSITION ASSUMPTIONS.
+BOUNDARY: This is a domain-restricted identity. It does not establish identifiability on the full state domain.
+
+4. FULL-STATE-DOMAIN NON-IDENTIFIABILITY
+
+Fix any density operator σ_B on H_B. For any density operator τ_A on H_A, define:
+ρ_AB = τ_A ⊗ σ_B.
+
+Then:
+ρ_B = σ_B
+ρ_A = τ_A
+Q_A = Tr(τ_A²).
+
+If d_A ≥ 2, choose, for example:
+τ_A^(1) = |0><0|
+τ_A^(2) = I_A/d_A.
+
+Both global states have the same B marginal σ_B, while:
+Q_A^(1) = 1
+Q_A^(2) = 1/d_A.
+
+Thus no function of ρ_B alone can recover Q_A on the full state domain when d_A ≥ 2.
+
+Moreover, the exact attainable purity range at fixed σ_B is:
+{Tr(τ_A²) : τ_A is a density operator on H_A} = [1/d_A, 1].
+
+The lower endpoint is attained by I_A/d_A; the upper endpoint by a pure τ_A. Every intermediate value is attained, for example by the continuous family:
+τ_A(t) = diag(t, (1-t)/(d_A-1), ..., (1-t)/(d_A-1)),
+t ∈ [1/d_A, 1].
+
+Its purity varies continuously from 1/d_A to 1.
+
+DISPOSITION: PASS.
+EVIDENCE CLASS: CONSTRUCTIVE ANALYTICAL NON-IDENTIFIABILITY PROOF.
+BOUNDARY: The range statement uses finite d_A. It is not a universal infinite-dimensional range claim.
+
+5. MINIMALITY AND ASSUMPTION COST
+
+5.1 Essential condition for the non-identifiability claim
+
+d_A ≥ 2 is essential. If d_A = 1, every state on H_A is the unique one-dimensional density operator and:
+Q_A = 1.
+The target is then constant and identifiable, regardless of ρ_B.
+
+5.2 Dimension of H_B
+
+Finite d_B is not needed for the product-state non-identifiability construction, provided H_B admits a density operator σ_B. The construction τ_A ⊗ σ_B and the equality of the B marginals remain valid.
+
+Finite-dimensional H_B is therefore a simplifying assumption for the stated finite-dimensional framework, not a necessary assumption for this particular non-identifiability argument.
+
+5.3 Pure-state identity
+
+The equality Tr(ρ_A²) = Tr(ρ_B²) follows from the Schmidt coefficients. The finite-dimensional presentation is sufficient, but the identity extends to the usual bipartite pure-state setting in which the Schmidt decomposition is valid. Such an extension is not needed to establish the current finite-dimensional claim.
+
+5.4 Exact interval
+
+The lower endpoint 1/d_A and the stated closed interval [1/d_A, 1] depend on finite d_A. Do not remove d_A from the formula while retaining that interval.
+
+5.5 Terminology correction
+
+The source names D_all = S(H_A ⊗ H_B) the “full mixed global domain.” The set of all density operators S(H_A ⊗ H_B) includes pure as well as mixed states. The mathematically precise label is FULL STATE DOMAIN or ALL-STATE DOMAIN. If a domain excluding pure global states is intended, it must be separately defined and the endpoint claims rechecked for that restricted domain.
+
+MINIMALITY DISPOSITION:
+- d_A ≥ 2: ESSENTIAL for non-identifiability.
+- Finite d_A: needed for the exact lower endpoint 1/d_A; not needed for a rank-two counterexample to identifiability.
+- Finite d_B: NOT REQUIRED for the core product-state counterexample.
+- Schmidt decomposition: the operative mathematical bridge for the pure-domain equality.
+- No claim is made that a globally minimal axiom system for all of TEST-I has been established.
+
+6. STABILITY
+
+For density operators ρ and σ:
+|Tr(ρ²) - Tr(σ²)|
+= |Tr((ρ-σ)(ρ+σ))|
+≤ ||ρ-σ||_1 ||ρ+σ||_∞
+≤ 2 ||ρ-σ||_1.
+
+Thus purity is 2-Lipschitz in trace norm on density operators.
+
+For bipartite density operators ρ_AB and σ_AB, contractivity of trace norm under partial trace gives:
+||ρ_A - σ_A||_1 ≤ ||ρ_AB - σ_AB||_1.
+
+Consequently:
+|Q_A(ρ_AB) - Q_A(σ_AB)| ≤ 2 ||ρ_AB - σ_AB||_1.
+
+On the pure-global-state domain, the identifiable marginal function:
+F(ρ_B) = Tr(ρ_B²)
+also obeys:
+|F(ρ_B) - F(σ_B)| ≤ 2 ||ρ_B - σ_B||_1.
+
+If trace distance is defined as D(ρ,σ) = (1/2)||ρ-σ||_1, the corresponding Lipschitz constant is 4.
+
+DISPOSITION: PASS FOR THE STATED TRACE-NORM STABILITY CLAIMS.
+LIMITATION: This establishes continuity/stability of the purity functional and of the pure-domain marginal map. It does not establish a stable inverse on the full state domain, where Q_A is not a function of ρ_B at all.
+
+7. COMPUTABILITY
+
+In finite dimension, if the matrix entries of ρ_A or ρ_B are given as exact rational/algebraic data, Tr(ρ²) is computable by finite matrix multiplication and addition.
+
+For computable real/complex entries supplied with effective approximation procedures, purity is computable to arbitrary requested numerical precision by finite-dimensional arithmetic with controlled precision.
+
+The pure-domain recovery map F(ρ_B) = Tr(ρ_B²) is therefore an explicit computable function under these input representations.
+
+On the full state domain with d_A ≥ 2, no algorithm receiving only ρ_B can return Q_A correctly for every admissible ρ_AB, because two admissible inputs can have exactly the same ρ_B and different Q_A. This is an information/identifiability obstruction, not a computational-complexity result.
+
+Caution: computability of a numerical value to arbitrary precision does not automatically decide exact equality of arbitrary computable real inputs.
+
+DISPOSITION: PASS FOR THE FINITE-DIMENSIONAL FUNCTIONAL CLAIM.
+LIMITATION: No general complexity bound, exact-equality decision procedure, or algorithm for the unprovided global state is established.
+
+8. EXTERNAL MATHEMATICAL DEPENDENCIES
+
+The core argument uses standard finite-dimensional quantum formalism:
+- tensor-product Hilbert spaces;
+- density operators and positivity/trace-one conditions;
+- partial trace;
+- purity Tr(ρ²);
+- Schmidt decomposition for pure bipartite states;
+- trace norm and its contractivity under partial trace.
+
+These are explicit mathematical premises of the quantum realization. Their use does not derive them from the OMEGA-ISOP Frozen Core and does not establish an OMEGA-specific physical mechanism or prediction.
+
+9. CONSOLIDATED FINDINGS
+
+PURE GLOBAL DOMAIN:
+IDENTIFIABLE FROM ρ_B. PASS.
+
+FULL STATE DOMAIN, d_A ≥ 2:
+NOT IDENTIFIABLE FROM ρ_B. PASS.
+
+FIXED ρ_B, FINITE d_A:
+ATTAINABLE Q_A RANGE IS [1/d_A, 1]. PASS.
+
+ESSENTIAL DIMENSION CONDITION:
+d_A ≥ 2. PASS.
+
+FINITE d_B:
+NOT NECESSARY FOR THE CORE PRODUCT-STATE COUNTEREXAMPLE.
+
+STABILITY:
+PURITY IS TRACE-NORM CONTINUOUS WITH THE BOUNDS GIVEN ABOVE. PASS.
+
+COMPUTABILITY:
+FINITE-DIMENSIONAL PURITY MAP IS COMPUTABLE FOR EFFECTIVELY REPRESENTED INPUT MATRICES. PASS.
+
+DOMAIN TERMINOLOGY:
+“FULL MIXED GLOBAL DOMAIN” SHOULD BE RENAMED “FULL STATE DOMAIN” IF D_all = S(H_A ⊗ H_B) IS RETAINED. REVISE.
+
+TEST-I GENERAL FRAMEWORK:
+NOT AUDITED OR FROZEN BY THIS CORE AUDIT.
+GENERAL AXIOMATIC MINIMALITY:
+OPEN.
+EXTERNAL DEPENDENCIES:
+IDENTIFIED, NOT DERIVED FROM FROZEN CORE.
+
+10. FINAL DISPOSITION
+
+SEND:
+- the pure-domain identifiability proof;
+- the full-state-domain non-identifiability proof for d_A ≥ 2;
+- the fixed-marginal purity range [1/d_A, 1] in finite d_A;
+- the trace-norm stability bounds;
+- the finite-dimensional computability statement, with its input-representation limits.
+
+REVISE:
+- terminology “full mixed global domain” to “full state domain” where the domain is S(H_A ⊗ H_B);
+- any claim that finite d_B is essential to the core product-state non-identifiability construction.
+
+HOLD / OPEN:
+- TEST-I as a complete framework;
+- global minimality/axiomatic-cost claims;
+- any claim that the quantum construction is derived from the Frozen Core;
+- registry status pending authoritative registry readback.
+
+ARCHITECTURAL CONTROL:
+FROZEN CORE: UNCHANGED.
+VOLUME II: UNCHANGED.
+VOLUME V: UNCHANGED.
+CE-V: UNCHANGED; NO PROMOTION.
+RL REGISTRATION: NOT ALTERED.
+CANONICAL ACCEPTANCE: NOT CLAIMED.
+
+END OF AUDIT
