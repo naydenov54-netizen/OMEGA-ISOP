@@ -3,7 +3,7 @@
 Дата на снимката: 2026-11-19
 Хранилище: naydenov54-netizen/OMEGA-ISOP
 Клон: main
-Базов commit: 5dbee8a0eeec466a2ce173e63fdd4285dafa35db
+Базов commit за тази актуализация: a5df1a989f5abfb13f4fd8b25ce38a364708f857
 Тип документ: навигационен и контролен индекс; НЕ е нов математически резултат.
 
 ## 1. Цел и правило против LOOP
@@ -355,7 +355,7 @@ END.
 ### 15.4 Документационни корекции DOC-1…DOC-6
 
 DOC-1 — NOTATION:
-Външният доклад посочва конфликт между A(Phi(R)) и контролираното A(R;Phi). Последващото Library-first търсене откри текущия Library документ `OMEGA-ISOP-CONDITIONAL-STRUCTURAL-FRAMEWORK-IDENTITY-2026-11-19.txt` (Library file ID: `libfile_e6d3bf6e50fc81918ecfdfc06bcfdc9d`; version 1). Прочетеният текст действително използва `A(Φ(R)) = множество от допустими динамики...`, докато Volume II v1.3 задава `A(R;Φ) ⊆ Evol(X)` и допуска съкратено `A(R)` само при фиксирано Φ. Следователно DOC-1 остава реален документационен конфликт. GitHub пътят, посочен в одита (`docs/OMEGA-ISOP-CONDITIONAL-STRUCTURAL-FRAMEWORK-IDENTITY`), връща 404; не е намерено GitHub копие под този път. Library документът не е редактиран в тази сесия и не е синхронизиран в GitHub. Следваща операция: тясна редакция на Library документа или потвърждаване на каноничния GitHub път, като се запази точният смисъл на A(R;Φ); не се променя Frozen Core.
+Външният доклад посочи конфликт между `A(Φ(R))` и контролираното означение `A(R;Φ)`. На 2026-11-19 Library документът `OMEGA-ISOP-CONDITIONAL-STRUCTURAL-FRAMEWORK-IDENTITY-2026-11-19.txt` беше редактиран тясно: въведено е `A(R;Φ) ⊆ Evol(X)` за фиксирана, изрично зададена реализация Φ; добавено е съкратеното означение `A(R) := A(R;Φ)` само когато Φ е фиксирана и еднозначна; запазено е `|A(R;Φ)| > 1` като възможност. Редакцията следва Volume II v1.3, Section II. Frozen Core и Volume II не са променяни. Коригираният Library документ е синхронизиран в GitHub на `docs/OMEGA-ISOP-CONDITIONAL-STRUCTURAL-FRAMEWORK-IDENTITY-2026-11-19.txt`; GitHub read-back потвърждава липса на старото означение `A(Φ(R))` и наличие на `A(R;Φ)`. DOC-1: CLOSED AS DOCUMENTATION CORRECTION; не е нов математически резултат и не променя статуса на теорията.
 
 DOC-2 — RL PRIMARY-SOURCE RECOVERY:
 По-старите инструкции за продължаване на търсенето на първични RL лабораторни източници са SUPERSEDED от audits/OI-RL-PRIMARY-SOURCE-PROVENANCE-DISPOSITION-2026-11-18.txt, §4. Recovery е CLOSED AS NON-RECOVERABLE; повторното търсене на същите унищожени оригинали е DISCONTINUED. По-старите master документи не се презаписват в тази операция.
@@ -376,7 +376,7 @@ DOC-6 — VOLUME II LABEL:
 
 Текущата непосредствена работа е документационна консолидация, не повторен общ одит и не ново доказване на затворените резултати.
 
-1. При възстановяване/потвърждаване на точния файл за DOC-1 направи тясна редакция A(Phi(R)) -> A(R;Phi), след като прочетеш актуалния файл и провериш контекста.
+1. DOC-1 е затворен като документационна корекция и синхронизиран в GitHub; не повтаряй тази редакция. Следващата малка документационна задача е DOC-2: добави supersession note в бъдеща контролирана редакция, без да изтриваш историческите инструкции.
 2. В бъдеща контролирана редакция добави supersession note за DOC-2, без да изтриваш историческите инструкции.
 3. Запази таблицата от §15.2 като статусна референция; не променяй RL registration без authoritative readback.
 4. За DOC-4 запази CE-V идентификаторите до сверка с авторитетния архив.
@@ -390,3 +390,16 @@ DOC-6 — VOLUME II LABEL:
 Commit: f97f25b18b56060f8dd65dc218c7f311f28bb53c.
 Read-back: успешен от main; blob SHA fb92cbb0fa1fcd8d1e1777169dc641fb9a0ef93f.
 Тази контролна актуализация е записана и прочетена обратно. Commit-ът потвърждава съхранението, не научна сертификация.
+
+
+### 15.7 DOC-1 — NOTATION ALIGNMENT / VERIFIED SYNC
+
+Library source: `/OMEGA-ISOP/OMEGA-ISOP-CONDITIONAL-STRUCTURAL-FRAMEWORK-IDENTITY-2026-11-19.txt`.
+Library file ID: `libfile_e6d3bf6e50fc81918ecfdfc06bcfdc9d`.
+Library overwrite: SUCCEEDED; read-back verified on 2026-11-19.
+GitHub mirror: `docs/OMEGA-ISOP-CONDITIONAL-STRUCTURAL-FRAMEWORK-IDENTITY-2026-11-19.txt`.
+GitHub create commit: `a5df1a989f5abfb13f4fd8b25ce38a364708f857`.
+GitHub read-back blob SHA: `5bb132d3b1cd78916c1df4d0fd2f837819198d88`.
+Content check: old `A(Φ(R))` absent; controlled `A(R;Φ)` present; `A(R)` shorthand explicitly conditional on fixed, unambiguous Φ.
+Scope: documentation-only alignment with Volume II v1.3, Section II. Frozen Core and Volume II unchanged. No RL registration, CE-V promotion, or canonical acceptance claimed.
+STATUS: LIBRARY SAVED / VERIFIED; GITHUB MIRROR SAVED / VERIFIED.
