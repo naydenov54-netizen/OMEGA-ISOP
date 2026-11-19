@@ -60,6 +60,19 @@
 
 Не търси повторно workbook-а или осемте имена само за да възпроизведеш вече записания инвентар. Не търси повторно post-audit attachment като рутинна стъпка; workflow stop rule е записано в `хокинг/03_SOURCE_AND_CONTINUATION_INDEX.txt`.
 
+### A2.1. Резултат от targeted SOURCE_INVENTORY inspection — 2026-11-19
+
+Проверени са осемте точни имена от вече записания workbook inventory. Оригиналните byte streams не са retrieved от inspected repository material. Наличните свързани записи са inventory metadata, archive-discovery summaries или CAPD forensic excerpts; те не предоставят редова CP22-13 mutation matrix за M01–M13. За OMEGA_FORENSIC_AUDIT_PARTS.txt изрично е записано, че оригиналният source report не е upload-нат. Untitled109 extracts се отнасят до CAPD build/rounding evidence, а не до curvature-engine mutation outcomes.
+
+Резултат:
+- Primary M01–M13 mutation matrix: NOT LOCATED IN THE INSPECTED REPOSITORY MATERIAL.
+- Denominator membership и двата отделни outcome слоя: UNRESOLVED.
+- Repository-suite и independent-fixture scores: NOT RECOMPUTED.
+- Артитметичната неяснота 10/13 срещу четири съобщени repository misses остава OPEN.
+
+Това не доказва липса във всички външни Drive/Colab хранилища. Следващо действие само при предоставяне на точните първични байтове/raw outputs или конкретен проверим път към тях. Подробният disposition е в:
+`хокинг/checkpoints/CP22-13_MUTATION_ACCOUNTING_RECONCILIATION_2026-11-16.md`, §8.
+
 ### A3. Основни референции
 
 - `хокинг/checkpoints/CP22-13_MUTATION_ACCOUNTING_RECONCILIATION_2026-11-16.md`
