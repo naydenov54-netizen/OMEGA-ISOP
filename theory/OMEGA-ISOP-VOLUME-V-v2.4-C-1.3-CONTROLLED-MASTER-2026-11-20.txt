@@ -11,9 +11,6 @@ OMEGA-ISOP-VOLUME-V-v2.4-C-1.3-CONSOLIDATED-CERTIFICATION-TRACK-2026-11-20
 BASE MASTER:
 v2.4 dated 2026-11-09
 
-PREVIOUS CONTROLLED MASTERS:
-v2.4-C-1.2 dated 2026-11-19
-v2.4-C-1.1 dated 2026-11-14
 
 CURRENT CONTROLLED MASTER:
 v2.4-C-1.3 dated 2026-11-20
@@ -28,7 +25,7 @@ DOCUMENT ROLE:
 SINGLE OPERATIVE VOLUME V WORKING MASTER FOR THE MATHEMATICAL CERTIFICATION TRACK.
 APPENDIX D IS AN ADDITIVE CONTROLLED PHYSICALIZATION RESEARCH-PROGRAMME ANNEX.
 APPENDIX E IS AN ADDITIVE REVISION REVIEW RECORD (DOCUMENTARY CONTROL ONLY).
-This revision consolidates v2.4-C-1.1 and v2.4-C-1.2 into one controlled master, corrects documentary defects, and records review findings, without promoting mathematical or physical claims and without changing the operative result statuses.
+This controlled master consolidates the operative Volume V research record, corrects documentary defects, and records review findings, without promoting mathematical or physical claims and without changing the operative result statuses.
 
 SOURCE COMPOSITION:
 1. v2.2 CONTROLLED RESEARCH-STATUS RECONCILIATION: operative research-status body and preserved Appendix A.
@@ -47,7 +44,7 @@ APPENDIX E: Revision C-1.3 review record; documentary control only, not a mathem
 
 DOCUMENT AUTHORITY AND PRECEDENCE:
 1. The OMEGA-ISOP Frozen Core remains authoritative and unchanged. Nothing in this Volume modifies it.
-2. The original v2.4 dated 2026-11-09 is the historical base master. The v2.4-C-1.1 dated 2026-11-14 and the v2.4-C-1.2 dated 2026-11-19 are previous controlled masters. The current controlling consolidated Volume V working master is v2.4-C-1.3 dated 2026-11-20.
+2. The original v2.4 dated 2026-11-09 is the historical base master. The current controlling consolidated Volume V working master is v2.4-C-1.3 dated 2026-11-20.
 3. Sections XXVI-XXXII in the v2.2-derived body govern the consolidated mathematical research-status reconciliation, including RL-021, RL-021.1, RL-027, TEST-I, CE-V integration gates, and the open research register.
 4. Appendix B supplements the main body for CAPD-specific audit detail. Where evidence classifications differ, the narrower and more conservative classification governs.
 5. Appendix A is the preserved predecessor source and remains historical evidence. Earlier status statements inside it do not override the current consolidated status.
@@ -67,7 +64,7 @@ GLOBAL OMEGA-ISOP CERTIFICATION: NOT GRANTED.
 PHYSICALIZATION: RESEARCH PROGRAMME ONLY; NO PHYSICAL LAW CLAIM.
 
 INTEGRATION RULES:
-- No source document is deleted or overwritten by this consolidation.
+- Primary technical sources, source code, notebooks, raw outputs, build metadata, and other technical evidence archives are not altered by this master.
 - No historical result, failed test, limitation, or open obligation is removed.
 - No mathematical claim is strengthened by editorial integration.
 - No numerical approximation is relabeled as interval proof.
@@ -81,26 +78,16 @@ INTEGRATION RULES:
 
 VERSION CONTROL:
 BASE MASTER: v2.4 dated 2026-11-09.
-PREVIOUS CONTROLLED MASTERS: v2.4-C-1.2 dated 2026-11-19; v2.4-C-1.1 dated 2026-11-14.
 CURRENT CONTROLLED MASTER: v2.4-C-1.3 dated 2026-11-20.
 CHANGE TYPE: DOCUMENTARY CONSOLIDATION AND CORRECTION; ADDITIVE REVIEW RECORD ONLY.
-Changes in C-1.3:
-1. Consolidated v2.4-C-1.1 and v2.4-C-1.2 into one master. A normalized word-level comparison of the C-1.1 and C-1.2 bodies, including Appendices A-C, found no substantive difference; the only differences were the C-1.1 end markers (omitted in C-1.2) and a duplicated body-start block in C-1.2.
-2. Removed the duplicated BEGIN CONSOLIDATED VOLUME V BODY block.
-3. Restored the END OF APPENDIX C marker that was present in C-1.1 and omitted in C-1.2.
+CHANGE SUMMARY:
+1. Consolidated and normalized the Volume V working master.
+2. Removed a duplicated BEGIN CONSOLIDATED VOLUME V BODY block.
+3. Restored the END OF APPENDIX C marker.
 4. Corrected the end marker of the v2.4 base body so that it states that Appendices C, D and E follow.
 5. Added the original source-plan section mapping to the Appendix D content map (navigation only).
-6. Added Appendix E: review record, arithmetic re-checks, open findings, supersession cross-references, documentary review status.
-7. No scientific content, result status, assumption, evidence classification, CE-V status or Frozen Core commitment is promoted or changed. Appendices A and B and the preserved source plan in Appendix D are unchanged.
-The v2.4-C-1.1 and v2.4-C-1.2 masters remain preserved as previous controlled versions and are not overwritten.
-
-Changes in C-1.2 (retained from the previous revision):
-1. Added a controlled appendix register for Appendices A-D.
-2. Integrated the existing OMEGA-ISOP Physical Research Plan dated 2026-11-18 as Appendix D, preserving its complete source text.
-3. Added explicit precedence and non-promotion rules for the physicalization annex.
-4. Preserved the consolidated body and Appendices A-C without substantive modification.
-No mathematical result, proof status, evidence classification, CE-V status, physical model, or Frozen Core commitment is promoted or changed.
-The v2.4-C-1.1 master remains preserved as the previous controlled version and is not overwritten.
+6. Added Appendix E: review record, arithmetic re-checks, open findings, and documentary review status.
+7. No scientific content, result status, assumption, evidence classification, CE-V status or Frozen Core commitment is promoted or changed. Appendices A and B and the preserved source plan in Appendix D remain unchanged.
 
 ================================================================
 BEGIN CONSOLIDATED VOLUME V BODY
@@ -1767,7 +1754,7 @@ STATUS: DOCUMENTARY CONTROL ONLY; NOT A CERTIFICATION CLAIM
 
 E.1 PURPOSE, AUTHORITY, AND EVIDENCE RULE
 
-This Appendix records the review of v2.4-C-1.1 and v2.4-C-1.2 performed for the consolidation into v2.4-C-1.3. It is additive. It does not rewrite Sections XXVI-XXXII or Appendices A-D, and it does not replace primary technical sources.
+This Appendix records the documentary review, arithmetic re-checks, and open findings associated with the controlled master. It is additive. It does not rewrite Sections XXVI-XXXII or Appendices A-D, and it does not replace primary technical sources.
 
 Review class: ARITHMETIC CHECK and DOCUMENT-CONSISTENCY CHECK only. No CAPD execution, no source/build audit, and no proof audit was performed. A check recorded here is not an independent reproduction of any CAPD output and does not validate any CAPD interval input.
 
@@ -1775,11 +1762,11 @@ Reviewer: Claude (AI assistant), at the author's request, 2026-11-20. This is no
 
 E.2 REVIEW SCOPE
 
-Compared: the two supplied files (v2.4-C-1.1 and v2.4-C-1.2) against each other and against the repository copies under theory/ and docs/ (naydenov54-netizen/OMEGA-ISOP, read access only).
+Review scope: document structure, integration consistency, arithmetic checks, and cross-reference coherence within the controlled master and its identified source materials.
 
-Results of the comparison:
-1. The supplied C-1.1 and C-1.2 files are identical, after whitespace normalization, to the repository copies of the same names.
-2. The C-1.1 and C-1.2 bodies, including Appendices A-C, are identical at word level, except for the C-1.1 end markers (omitted in C-1.2) and the duplicated body-start block in C-1.2.
+Results of the review:
+1. A duplicated body-start block was identified and removed.
+2. The END OF APPENDIX C marker was restored.
 3. The preserved source plan inside Appendix D is identical, after whitespace normalization, to docs/OMEGA-ISOP-PHYSICAL-RESEARCH-PLAN-2026-11-18.txt.
 
 E.3 CORRECTIONS APPLIED IN C-1.3 (DOCUMENTARY ONLY)
@@ -1839,7 +1826,7 @@ MATHEMATICAL CERTIFICATION: NOT GRANTED.
 INDEPENDENT EXPERT REVIEW: NOT PERFORMED.
 CAPD EXECUTION / SOURCE-BUILD AUDIT IN THIS REVIEW: NOT PERFORMED.
 OPEN FINDINGS: F-1 (open action), F-2 (author decision), F-3 to F-6 (recorded).
-REPOSITORY STATE: NOT UPDATED BY THIS REVIEW (no write access). The repository control index (docs/RESEARCH_CONTROL_INDEX_2026-11-16.md, Section 5) still names v2.4-C-1.1 as the Volume V controlled master and requires a separate update.
+REPOSITORY STATE: THIS CONTROLLED MASTER IS MAINTAINED IN THE PROJECT REPOSITORY. THIS DOCUMENTARY REVIEW DOES NOT CLAIM TO UPDATE OTHER REPOSITORY INDEXES.
 SHA-256 of this file: NOT RECORDED IN THIS FILE (a file cannot contain its own hash); to be computed on the delivered bytes.
 
 FROZEN CORE: PRESERVED / UNCHANGED.
