@@ -355,7 +355,7 @@ END.
 ### 15.4 Документационни корекции DOC-1…DOC-6
 
 DOC-1 — NOTATION:
-Външният доклад посочва конфликт A(Phi(R)) срещу действащото A(R;Phi). Препоръчва се A(R;Phi). Файлът docs/OMEGA-ISOP-CONDITIONAL-STRUCTURAL-FRAMEWORK-IDENTITY не беше открит под посочения път в текущото GitHub дърво (fetch върна 404; търсенето откри само препратката в одитния доклад). Не се прави редакция на несъществуващ/непотвърден target.
+Външният доклад посочва конфликт между A(Phi(R)) и контролираното A(R;Phi). Последващото Library-first търсене откри текущия Library документ `OMEGA-ISOP-CONDITIONAL-STRUCTURAL-FRAMEWORK-IDENTITY-2026-11-19.txt` (Library file ID: `libfile_e6d3bf6e50fc81918ecfdfc06bcfdc9d`; version 1). Прочетеният текст действително използва `A(Φ(R)) = множество от допустими динамики...`, докато Volume II v1.3 задава `A(R;Φ) ⊆ Evol(X)` и допуска съкратено `A(R)` само при фиксирано Φ. Следователно DOC-1 остава реален документационен конфликт. GitHub пътят, посочен в одита (`docs/OMEGA-ISOP-CONDITIONAL-STRUCTURAL-FRAMEWORK-IDENTITY`), връща 404; не е намерено GitHub копие под този път. Library документът не е редактиран в тази сесия и не е синхронизиран в GitHub. Следваща операция: тясна редакция на Library документа или потвърждаване на каноничния GitHub път, като се запази точният смисъл на A(R;Φ); не се променя Frozen Core.
 
 DOC-2 — RL PRIMARY-SOURCE RECOVERY:
 По-старите инструкции за продължаване на търсенето на първични RL лабораторни източници са SUPERSEDED от audits/OI-RL-PRIMARY-SOURCE-PROVENANCE-DISPOSITION-2026-11-18.txt, §4. Recovery е CLOSED AS NON-RECOVERABLE; повторното търсене на същите унищожени оригинали е DISCONTINUED. По-старите master документи не се презаписват в тази операция.
