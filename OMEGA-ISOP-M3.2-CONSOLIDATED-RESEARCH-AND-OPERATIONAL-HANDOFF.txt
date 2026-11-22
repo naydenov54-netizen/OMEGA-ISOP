@@ -4,7 +4,7 @@ DOCUMENT_ID:
 OI-M3.2-CONSOLIDATED-RESEARCH-OPERATIONAL-HANDOFF-2026-11-22
 
 VERSION:
-1.1
+1.2
 
 DATE:
 2026-11-22
@@ -59,6 +59,29 @@ Before starting any new OMEGA-ISOP task:
 STARTUP_COMPLETION_CRITERIA:
 Establish CURRENT_TASK, LAST_VERIFIED_PROJECT_STATE, RELEVANT_PRIMARY_SOURCES, RELEVANT_RESEARCH_RECORDS, PROTECTED_SCOPE, AVAILABLE_TOOLS, UNRESOLVED_DEPENDENCIES, and NEXT_JUSTIFIED_ACTION.
 The startup process must be proportional to the task. Do not perform a full project audit for a narrow question.
+
+
+LIBRARY_PERSISTENCE_AND_NEW_CHAT_BOOT:
+PURPOSE:
+Prevent repeated manual submission of this handoff in every new ChatGPT conversation.
+
+REQUIRED_STARTUP_SEQUENCE:
+1. At the beginning of every new OMEGA-ISOP conversation, search ChatGPT Library for the exact file name:
+   OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF.txt
+2. If the file is found, open and read the latest available saved version before continuing OMEGA-ISOP work.
+3. Confirm the document version and date from the file itself. Do not assume that a Library copy is current merely because it exists.
+4. If the Library copy is missing or cannot be read, retrieve the verified repository copy from:
+   https://github.com/naydenov54-netizen/OMEGA-ISOP/blob/main/OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF.txt
+5. If neither source is accessible, state that the handoff could not be loaded and ask for the minimum required recovery action. Do not pretend that its contents were loaded.
+6. Do not ask the user to upload or paste this handoff again when a readable Library or repository copy is available.
+7. Do not assume Library automatically injects the file into a new chat. The assistant must explicitly search for and read it in that chat.
+8. After the user saves this file to Library once, use that saved copy in later chats. Re-upload is not required unless the file has been replaced by a newer version or access is lost.
+
+SOURCE_AND_VERSION_RULE:
+The GitHub repository is the verified fallback/archive. The Library copy is a user-accessible working copy. If their versions differ, compare version, date, and content; report the discrepancy and prefer the newest version whose provenance can be verified. Never silently merge conflicting copies.
+
+SCOPE:
+This startup procedure changes only handoff retrieval and session initialization. It does not modify the Frozen Core, scientific claims, RL status, registry state, or canonical acceptance status.
 
 ==================================================
 SECTION 1. MANDATORY OPERATING RULES
@@ -667,5 +690,5 @@ THIS DOCUMENT DOES NOT:
 
 FINAL STATUS:
 CONSOLIDATED WORKING HANDOFF
-VERSION 1.1
+VERSION 1.2
 NOT CANONICALLY ACCEPTED
