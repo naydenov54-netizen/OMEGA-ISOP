@@ -1,0 +1,671 @@
+OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF.txt
+
+DOCUMENT_ID:
+OI-M3.2-CONSOLIDATED-RESEARCH-OPERATIONAL-HANDOFF-2026-11-22
+
+VERSION:
+1.1
+
+DATE:
+2026-11-22
+
+STATUS:
+WORKING HANDOFF
+NOT CANONICALLY ACCEPTED
+NOT A NEW SCIENTIFIC RESULT
+NOT A FROZEN CORE AMENDMENT
+NOT AN RL REGISTRATION
+
+PROJECT:
+OMEGA-ISOP
+
+GITHUB_REPOSITORY:
+https://github.com/naydenov54-netizen/OMEGA-ISOP
+
+PURPOSE:
+This document consolidates exactly two source documents into one operational and research framework for continued OMEGA-ISOP work.
+
+SOURCE_DOCUMENT_1:
+OMEGA-ISOP MATHEMATICAL AND PHYSICAL FOUNDATION PROGRAM — CONSOLIDATED RESEARCH MASTER
+DOCUMENT_ID: OI-MATHEMATICAL-AND-PHYSICAL-FOUNDATION-PROGRAM-CONSOLIDATED-2026-11-18
+VERSION: 1.0
+STATUS: ACTIVE RESEARCH FRAMEWORK
+
+SOURCE_DOCUMENT_2:
+OMEGA-ISOP-M3.2-WORKING-HANDOFF.txt
+BASED_ON: OMEGA-ISOP-M3.2-CONSOLIDATED-OPERATIONAL-RULES-2026-11-18-v0.8.2-R2.txt
+STATUS: WORKING CANDIDATE / NOT CANONICALLY ACCEPTED
+
+CONSOLIDATION_RULE:
+Only the two documents listed above are the source documents for this consolidation. This handoff is not a third scientific source. Do not invent scientific results or silently change definitions, theorems, assumptions, evidence status, or Frozen Core content. If a conflict is discovered, preserve the original source statements and report the conflict explicitly.
+
+==================================================
+SECTION 0. STARTUP DIRECTIVE
+==================================================
+
+Before starting any new OMEGA-ISOP task:
+
+1. Load and follow this consolidated handoff.
+2. Determine the latest verified project state from available primary sources, research records, registry records, and repository records.
+3. Continue from the last verified state, not from assumptions, reconstructed history, or outdated summaries.
+4. Distinguish information in this handoff, information verified from primary sources, information verified from repository records, unverified inferences, and unresolved information.
+5. Do not repeat completed work without new evidence, a suspected defect, a reproducibility requirement, a discovered counterexample, a necessary correction, or an explicit user request.
+6. If a source is unavailable, continue independent work that does not depend on it.
+7. Never claim that a source, file, registry, repository, or external system has been inspected unless inspection actually succeeded.
+8. Never claim that a file, checkpoint, registry record, or repository has been modified unless the operation succeeded and the result was verified.
+9. Preserve the Frozen Core and all protected source documents.
+10. If the current project state conflicts with this handoff, identify the conflict, inspect authoritative sources where possible, and report the verified result. Do not silently choose one version.
+
+STARTUP_COMPLETION_CRITERIA:
+Establish CURRENT_TASK, LAST_VERIFIED_PROJECT_STATE, RELEVANT_PRIMARY_SOURCES, RELEVANT_RESEARCH_RECORDS, PROTECTED_SCOPE, AVAILABLE_TOOLS, UNRESOLVED_DEPENDENCIES, and NEXT_JUSTIFIED_ACTION.
+The startup process must be proportional to the task. Do not perform a full project audit for a narrow question.
+
+==================================================
+SECTION 1. MANDATORY OPERATING RULES
+==================================================
+
+RULE_01:
+All OMEGA-ISOP research outputs use clean plain text. Mathematical expressions and formulas must be copyable on Android. Do not use LaTeX in copy-ready artifacts unless explicitly requested.
+
+RULE_02:
+A complete document must be one continuous text block.
+
+RULE_03:
+The Frozen Core is protected. No modification, replacement, restructuring, renaming, deletion, or reinterpretation is permitted without explicit user authorization and a documented change-control decision.
+
+RULE_04:
+RL_REGISTRATION_REQUIRED is not equivalent to RL_REGISTERED. Never claim registration without authoritative registry confirmation and successful readback.
+
+RULE_05:
+Never claim that a repository, file, registry, source, submission, or external record has been inspected or modified unless the operation actually succeeded and the result was verified.
+
+RULE_06:
+Classify every scientific statement as one of:
+ESTABLISHED
+PROVED UNDER CONDITIONS
+CONDITIONAL
+COMPUTATIONALLY TESTED
+NUMERICALLY TESTED
+EMPIRICALLY OBSERVED
+HYPOTHESIS
+INTERPRETATION
+UNRESOLVED
+REJECTED
+
+RULE_07:
+A mathematical result does not automatically establish a physical result. A simulation does not establish a theorem. A numerical result does not establish a universal law. A repository commit does not establish scientific validity.
+
+RULE_08:
+Continue independent work without unnecessary user interruptions. Ask only when authorization, a missing decision, or essential information is genuinely required.
+
+RULE_09:
+Do not repeat completed audits or searches without a reason. Repeat only for new evidence, suspected defect, counterexample, reproducibility, or correction.
+
+RULE_10:
+Never invent file paths, commit hashes, registry identifiers, citations, execution results, or verification outcomes.
+
+==================================================
+SECTION 2. SOURCE HIERARCHY
+==================================================
+
+Resolve conflicts using this hierarchy:
+
+LEVEL_1: Frozen Core and explicitly protected canonical theory sources.
+LEVEL_2: Authoritative primary source documents and canonical volume records.
+LEVEL_3: Verified research records, registry records, and authoritative readbacks.
+LEVEL_4: Latest verified research checkpoints and execution records.
+LEVEL_5: This consolidated operational handoff.
+LEVEL_6: Older summaries, working notes, and reconstructed descriptions.
+
+A summary cannot replace a primary proof. A checkpoint cannot replace a canonical source. A GitHub copy is not automatically the original source. A reconstruction must never be presented as a recovered original.
+
+SOURCE_ORIGIN_POLICY:
+DRIVE = original source location, where applicable.
+COLAB = authoritative execution and computational work environment, where applicable.
+GITHUB = derivative archive, version traceability, and collaboration repository. A GitHub file is not automatically the original scientific source.
+
+REPOSITORY:
+https://github.com/naydenov54-netizen/OMEGA-ISOP
+
+==================================================
+SECTION 3. FROZEN CORE PROTECTION
+==================================================
+
+FROZEN_CORE_STATUS:
+PROTECTED
+
+PROTECTED_SCOPE:
+Frozen Core; Volume II; Volume III; Volume V; and other explicitly protected canonical source files.
+
+PROHIBITED_WITHOUT_AUTHORIZATION:
+- Editing protected definitions.
+- Changing mathematical foundations.
+- Replacing canonical proofs.
+- Moving, renaming, or deleting protected documents.
+- Deleting source records.
+- Promoting conditional results into established theory.
+- Promoting CE-V without a separate decision.
+- Claiming global certification.
+- Claiming universal validity without proof.
+
+CHANGE_CONTROL must include:
+1. Exact target.
+2. Scientific reason.
+3. Source evidence.
+4. Mathematical consequences.
+5. Compatibility analysis.
+6. Risk analysis.
+7. Explicit user authorization.
+8. Documented change-control decision.
+
+DEFAULT:
+NO FROZEN CORE CHANGE.
+
+==================================================
+SECTION 4. MATHEMATICAL FOUNDATION PROGRAM
+==================================================
+
+PROGRAM_NAME:
+OMEGA-ISOP MATHEMATICAL AND PHYSICAL FOUNDATION PROGRAM
+
+RESEARCH_OBJECTIVE:
+Investigate whether a mathematically rigorous chain can connect relational foundations to physical realization without assuming the desired physical conclusions.
+
+SIX_STAGE_ARCHITECTURE:
+STAGE_1: DIFFERENCE
+STAGE_2: RELATION
+STAGE_3: CONSTRAINT
+STAGE_4: DYNAMICS
+STAGE_5: PERSISTENCE
+STAGE_6: ORGANIZATION
+
+The six stages define a research architecture. Arrows between stages are research questions, not automatically established mathematical implications.
+
+Every transition requires precise definitions, explicit assumptions, a formal statement, proof or clearly identified conjecture, counterexample analysis, domain limitations, non-implications, and Frozen Core compatibility analysis.
+
+STAGE_1_CURRENT_BOUNDARY:
+The available Stage 1 work is a conditional candidate formalization. The declared signature construction has a closed audit scope. This does not establish canonical Frozen Core acceptance. Classical logic was used for cotransitivity.
+
+Stage 1 does not establish physical laws, causal laws, dynamics, organization, universality, or a replacement for Core compatibility-colimit R.
+
+The historical Task 01 artifact has not been recovered as an original source. A reconstruction must not be presented as the original artifact.
+
+STAGES_2_TO_6:
+OPEN RESEARCH. Do not present these stages as completed theorems without separate proof records.
+
+==================================================
+SECTION 5. MATHEMATICAL-TO-PHYSICAL BRIDGE
+==================================================
+
+MANDATORY_CHAIN:
+MATHEMATICAL_CONSTRUCTION
+-> MATHEMATICAL_PROOF
+-> STRUCTURAL_CORRESPONDENCE
+-> PHYSICAL_INTERPRETATION
+-> PHYSICAL_MODEL
+-> TESTABLE_CONSEQUENCES
+-> EMPIRICAL_CHECK
+
+No transition in this chain is automatic. A mathematical structure is not automatically a physical object. A formal correspondence is not automatically a physical mechanism. A physical interpretation is not automatically an empirical result.
+
+ARCHITECTURAL_SEPARATION:
+CORE THEORY
+-> REALIZATION
+-> VALIDATION RESULT
+
+PHYSICALIZATION_NOTATION:
+Phi: Real(R) -> M
+A(R;Phi) subset Evol(X)
+
+Phi represents a proposed realization map from a relational structure to a model. A(R;Phi) represents admissible dynamics associated with the realization. The admissible set may be empty, a singleton, or contain multiple possible dynamics. Do not assume relational structure alone determines a unique physical evolution.
+
+VOLUME_III_OPERATIONAL_LAYER:
+Operational probes and interventions L_op; response maps Resp_M; tolerance comparisons; persistence criteria; robustness criteria; failure conditions.
+This architecture is not, by itself, a complete physical theory.
+
+==================================================
+SECTION 6. PHYSICALIZATION RESEARCH SEQUENCE
+==================================================
+
+P1: Choose a precise physical target.
+P2: Specify the realization map and its domain.
+P3: Derive dynamics rather than merely renaming an existing equation.
+P4: Define observables and measurement procedures.
+P5: Derive a discriminating prediction.
+P6: Attempt to falsify the model.
+P7: Consider a Core change only if independently justified and explicitly authorized.
+
+No stage authorizes automatic modification of the Frozen Core.
+
+==================================================
+SECTION 7. RESEARCH LIMITATIONS AND EXISTING RESULTS
+==================================================
+
+RL_021:
+CURRENT_RESEARCH_SUMMARY:
+An internal relation does not, by itself, identify external dependence B -> X.
+LIMITATION:
+No causal or universal impossibility conclusion follows.
+SOURCE_LIMITATION:
+The primary derivation was not surfaced in the identified Volume V v2.4-C-1.1 source retrieval.
+Do not upgrade the result beyond its documented scope.
+
+RL_021_1:
+CURRENT_RESEARCH_SUMMARY:
+For |X| >= 2, marginal boundary degrees are insufficient to identify joint boundary incidence Q_B under the investigated conditions.
+Joint information may require J_B, T_B, K_B.
+For |X| = 1, identifiability of G_forward/backward is recorded under stated boundary conditions.
+GENERAL_STATUS:
+The general case H remains open.
+SOURCE_LIMITATION:
+The primary derivation was not surfaced in the older Volume V source retrieval.
+
+RL_027:
+CURRENT_RESEARCH_SUMMARY:
+Purity is identifiable from rho_B in the pure global domain.
+In the investigated full mixed global domain with d_A >= 2, purity is not identifiable from rho_B alone.
+For fixed rho_B: Q_A belongs to [1/d_A, 1].
+STATUS:
+Core domain-bounded results are described as independently verified. Overall RL-027 remains UNDER AUDIT. TEST-I DRAFT-0.2 is not frozen. Primary source verification remains necessary where required.
+
+SOURCE_RECOVERY_POLICY:
+A later Library search result indicated that Volume V v2.4-C-1.5 contains a closed/nonrecoverable source-recovery status for RL-021, RL-021.1, and RL-027, with further repository archaeology discontinued. Treat this cautiously until the exact source record is inspected.
+
+Do not restart repeated repository searches merely because an older handoff requested them.
+
+Reopen source recovery only if new evidence appears, a new source path is identified, a new primary document becomes available, a concrete inconsistency is discovered, or the user explicitly requests renewed investigation.
+
+==================================================
+SECTION 8. OPERATIONAL RESPONSE DISTANCE
+==================================================
+
+DEFINITION:
+D_L(M1,M2) = sup over a in L_op of ||Resp_M1(a) - Resp_M2(a)||_Y
+
+CONDITIONS:
+Y is a normed space; L_op is nonempty; response maps are defined on the relevant operational domain.
+
+INTERPRETATION:
+D_L is an extended pseudometric under the stated conditions. It may take the value infinity. Finiteness requires additional boundedness conditions. Do not call it a metric unless the separation property is established.
+
+==================================================
+SECTION 9. THEOREM 91: CONDITIONAL NON-EXPANSION
+==================================================
+
+THEOREM_STATUS:
+CONDITIONAL RESULT
+
+ASSUMPTIONS:
+H1: R exists, T is admissible, and R is preserved.
+H2: Y is normed.
+H3: There exists a map tau:L_op -> L_op such that Resp_(T(M))(a) = Resp_M(tau(a)).
+H4: The operational criterion and comparison class remain fixed.
+
+CONCLUSION:
+D_L(T(M1),T(M2)) <= D_L(M1,M2)
+
+INTERPRETATION:
+Under the stated assumptions, the operational response distance does not increase under T.
+
+LIMITATION:
+This is not a universal information-conservation theorem. Do not remove or weaken the assumptions when presenting the result.
+
+==================================================
+SECTION 10. COSMOLOGY RESEARCH STATUS
+==================================================
+
+OI-COSMO-IDENT-RL-PACKET-v2:
+STATUS: CONDITIONAL ANALYTICAL CONSTRUCTION
+RESULT:
+Within smooth expanding flat-FLRW histories, two scale factors can agree through time T and differ in their future event-horizon radii under the stated conditions.
+LIMITATION:
+The effective-fluid reconstruction imports external Einstein-FLRW assumptions. It does not independently derive those assumptions from OMEGA-ISOP.
+
+OI-COSMO-EXPANSION-LAMBDA-001:
+CURRENT_RESEARCH_BOUNDARY:
+Relational structure alone does not derive nonzero redshift, a cosmological constant Lambda, or unique cosmological dynamics.
+The investigated standard causal-geometry class does not allow causal structure alone to fix the full metric scale or Lambda.
+
+OMEGA_SPECIFIC_LIMITATION:
+The OMEGA-specific realization and Phi remain insufficiently formalized for a complete physical derivation.
+
+CURRENT_CONCLUSION:
+No OMEGA-specific observationally distinguishable cosmological prediction has yet been derived.
+
+Do not claim that OMEGA-ISOP has derived cosmic expansion, dark energy, Lambda, or a unique cosmological model unless a new derivation establishes that result.
+
+==================================================
+SECTION 11. RESEARCH LOG AND RL PROCEDURE
+==================================================
+
+RL_WORKFLOW:
+STAGE_A: INVESTIGATION
+STAGE_B: GROUNDED RL RECORD
+STAGE_C: CLAIM-SPECIFIC VALIDATION
+STAGE_D: SEPARATE CE / CE-V DECISION
+STAGE_E: SEPARATE VOLUME V INTEGRATION ASSESSMENT
+
+POSSIBLE_VOLUME_V_DECISIONS:
+INTEGRATE
+DO NOT INTEGRATE
+DEFER
+
+These decisions are independent. An RL record does not automatically become a CE. A CE does not automatically become CE-V. A validated result does not automatically enter Volume V.
+
+REQUIRED_RL_FIELDS:
+RL_ID
+TITLE
+CLAIM
+EVIDENCE_CLASS
+SOURCE
+SOURCE_VERSION
+DEFINITIONS
+DOMAIN
+ASSUMPTIONS
+RESULT
+DERIVATION
+METHOD
+CHECKS_PERFORMED
+CHECKS_NOT_PERFORMED
+LIMITATIONS
+COUNTEREXAMPLES
+NON_IMPLICATIONS
+FROZEN_CORE_COMPATIBILITY
+REFERENCES
+PROVENANCE
+REPRODUCIBILITY
+PROPOSED_STATUS
+REGISTRY_STATUS
+AUTHORITATIVE_READBACK
+VERIFIED_ID
+CONTENT_MATCH
+NEXT_ACTION
+
+REGISTRATION_RULE:
+RL_REGISTRATION_REQUIRED != RL_REGISTERED
+
+RL_REGISTERED is permitted only after:
+1. An authoritative registry operation succeeds.
+2. The registry returns an authoritative result.
+3. The registered identifier is verified.
+4. The registered content is read back.
+5. The readback matches the intended record.
+
+A GitHub commit is not an RL registration. A local file is not an RL registration. A proposed RL record is not an RL registration.
+
+==================================================
+SECTION 12. EVIDENCE CLASSIFICATION
+==================================================
+
+ANALYTICAL_PROOF:
+A formal proof under stated definitions and assumptions.
+
+SYMBOLIC_DERIVATION:
+A symbolic derivation or formal manipulation.
+
+COMPUTATIONAL_RESULT:
+A result obtained by executing a computational procedure.
+
+NUMERICAL_RESULT:
+A numerical calculation with stated parameters and limitations.
+
+SIMULATION:
+A simulated behavior under a specified model.
+
+EMPIRICAL_OBSERVATION:
+An observation supported by empirical data.
+
+CONJECTURE:
+A proposed statement not yet proved.
+
+INTERPRETATION:
+A proposed meaning or physical interpretation.
+
+UNRESOLVED:
+A question for which the available evidence is insufficient.
+
+REJECTED:
+A claim contradicted by valid evidence or shown to be invalid within its stated domain.
+
+RULE:
+Never convert one evidence class into a stronger class without additional evidence.
+
+==================================================
+SECTION 13. CHECKPOINT POLICY
+==================================================
+
+CHECKPOINT_LOCATION:
+checkpoints/
+
+A checkpoint must include:
+CHECKPOINT_ID
+DATE
+WORKSTREAM
+TITLE
+OBJECTIVE
+RESULT
+EVIDENCE_CLASS
+SOURCE_REFERENCES
+METHOD
+CHECKS_PERFORMED
+CHECKS_NOT_PERFORMED
+LIMITATIONS
+STATUS
+NEXT_ACTION
+
+CHECKPOINT_RULES:
+Create checkpoints for meaningful completed work. Do not create repetitive checkpoints without new information. Verify successful file creation and read back saved content. Never claim a checkpoint exists without successful verification.
+
+A checkpoint is not a canonical theory amendment, RL registration, GitHub commit, or scientific certification.
+
+==================================================
+SECTION 14. GITHUB AND VERSION CONTROL
+==================================================
+
+REPOSITORY:
+https://github.com/naydenov54-netizen/OMEGA-ISOP
+
+GITHUB_ROLE:
+Derivative archive and traceability system.
+
+BEFORE_COMMIT:
+1. Inspect the current branch.
+2. Inspect the current commit.
+3. Inspect all changed files.
+4. Confirm the intended scope.
+5. Exclude protected files unless explicitly authorized.
+6. Exclude unrelated changes.
+7. Check for sensitive data.
+8. Confirm that the change is meaningful.
+
+AFTER_COMMIT:
+1. Verify the commit operation succeeded.
+2. Obtain the actual commit SHA.
+3. Read back the committed content.
+4. Confirm the content matches the intended result.
+5. Create a commit record when appropriate.
+
+COMMIT_RECORD must include:
+DATE
+BRANCH
+COMMIT_SHA
+CHANGED_FILES
+PURPOSE
+VERIFICATION
+READBACK_RESULT
+
+Do not invent a commit SHA. Do not claim a commit succeeded without verification. Do not confuse a checkpoint with a commit or a commit with an RL registration.
+
+==================================================
+SECTION 15. COLAB AND COMPUTATIONAL WORK
+==================================================
+
+Executable code must be separated from explanatory documentation.
+
+For each computational task, specify:
+OBJECTIVE
+INPUTS
+DEFINITIONS
+ASSUMPTIONS
+ALGORITHM
+EXPECTED_OUTPUT
+ACTUAL_OUTPUT
+VALIDATION_CHECKS
+LIMITATIONS
+
+Do not claim code was executed unless it was actually executed.
+A code block is not an execution result.
+A successful execution is not automatically a mathematical proof.
+A numerical match is not automatically a physical validation.
+
+==================================================
+SECTION 16. FILE AND SOURCE PROTECTION
+==================================================
+
+Do not move, rename, delete, or overwrite protected source documents.
+
+Preserve source provenance.
+
+When editing a derivative document:
+- Keep the original source unchanged.
+- Create a clearly identified derivative version.
+- Record the relationship to the original.
+- Verify the new file.
+- Read back the saved content.
+
+If a source cannot be accessed, report the limitation. Do not reconstruct it silently. Do not claim that it was inspected.
+
+==================================================
+SECTION 17. WORK EFFICIENCY
+==================================================
+
+WORK_INDEPENDENTLY:
+Continue useful work without waiting for unnecessary confirmation.
+
+AVOID:
+- Repeating completed audits.
+- Repeating failed searches without new evidence.
+- Rechecking unchanged results without a reason.
+- Producing redundant documents.
+- Promoting hypotheses prematurely.
+- Making unsupported completion claims.
+
+If one source or tool is unavailable, continue independent work that does not depend on it.
+
+STOP_ONLY_WHEN:
+- Essential information is missing.
+- Explicit authorization is required.
+- A protected change is proposed.
+- A scientific contradiction requires a decision.
+- The next action could cause an irreversible external change.
+
+==================================================
+SECTION 18. WORK STATUS
+==================================================
+
+SEND:
+The artifact or result is ready for the intended next step.
+
+REVISE:
+The result is useful but requires correction.
+
+HOLD:
+The result must not advance until a specified issue is resolved.
+
+BLOCK:
+The task cannot proceed because an essential dependency or authorization is missing.
+
+Scientific status and operational status must remain separate. A document can be operationally ready while scientifically conditional. A research result can be scientifically valid within a domain while not approved for canonical integration.
+
+==================================================
+SECTION 19. END-OF-SESSION REPORT
+==================================================
+
+Every substantial work session must conclude with:
+
+WORK_COMPLETED:
+What was actually completed.
+
+RESULT:
+The exact outcome.
+
+EVIDENCE:
+The evidence class and supporting sources.
+
+FILES:
+Files actually created or modified.
+
+CHECKPOINT:
+Actual checkpoint status.
+
+COMMIT:
+Actual GitHub commit status, if applicable.
+
+READBACK:
+What was successfully read back and verified.
+
+LIMITATIONS:
+What remains unverified or unresolved.
+
+NEXT_STEP:
+The next justified action.
+
+Do not fill fields with assumed or invented results.
+
+==================================================
+SECTION 20. CURRENT RESEARCH PRIORITIES
+==================================================
+
+PRIORITY_1:
+Maintain strict protection of the Frozen Core.
+
+PRIORITY_2:
+Use the latest verified primary sources and research records. Do not restart source recovery for RL-021, RL-021.1, or RL-027 without new evidence or a specific user request.
+
+PRIORITY_3:
+Clarify the mathematical assumptions and limits of Theorem 91.
+
+PRIORITY_4:
+Continue the six-stage mathematical foundation program without assuming that the six stages are already proven transitions.
+
+PRIORITY_5:
+Formalize the physicalization bridge:
+Phi: Real(R) -> M
+A(R;Phi) subset Evol(X)
+
+PRIORITY_6:
+Select a precise physical target before attempting a physical derivation.
+
+PRIORITY_7:
+Require testable and potentially falsifiable consequences before making claims of physical validation.
+
+PRIORITY_8:
+Keep cosmological claims within their demonstrated mathematical and physical scope.
+
+PRIORITY_9:
+Maintain the separation between CORE THEORY, REALIZATION, and VALIDATION RESULT.
+
+PRIORITY_10:
+Create checkpoints and commits only when meaningful work has been completed and can be verified.
+
+==================================================
+SECTION 21. FINAL OPERATING DIRECTIVE
+==================================================
+
+Treat this document as the consolidated operational handoff for OMEGA-ISOP/M3.2 work.
+
+The assistant must preserve the Frozen Core; follow the source hierarchy; use precise mathematical language; separate proofs from interpretations; separate mathematical results from physical claims; maintain evidence classification; follow the RL registration procedure; avoid repetitive and purposeless work; continue independent research where possible; verify every claimed file and repository operation; never invent registration, execution, commit, or validation results; and preserve the GitHub repository address.
+
+THIS DOCUMENT DOES NOT:
+- Amend the Frozen Core.
+- Establish new scientific theorems.
+- Register any RL record.
+- Certify the complete OMEGA-ISOP theory.
+- Authorize CE-V promotion.
+- Authorize Volume V integration.
+- Claim that any external file or repository has been modified.
+
+FINAL STATUS:
+CONSOLIDATED WORKING HANDOFF
+VERSION 1.1
+NOT CANONICALLY ACCEPTED
