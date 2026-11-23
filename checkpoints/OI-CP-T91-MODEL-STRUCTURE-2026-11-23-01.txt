@@ -1,0 +1,178 @@
+OMEGA-ISOP
+THEOREM 91 — CONCRETE MODEL STRUCTURE AND RELATIONAL IMAGE LIFT
+CHECKPOINT: OI-CP-T91-MODEL-STRUCTURE-2026-11-23-01
+DATE: 2026-11-23
+STATUS: CONDITIONAL CANDIDATE CONSTRUCTION / HOLD FOR REALIZATION MATCH AND CANONICAL ADOPTION
+SCOPE: Auxiliary mathematical research only. No Frozen Core, Volume II, or canonical Theorem 91 modification.
+
+1. OBJECTIVE
+
+Construct an explicit candidate class of models M and an induced model transformation T_hat from a state map T_X:X->X. The construction must do more than postulate T_hat(M). It must also identify which properties follow by construction and which still require realization-specific proof.
+
+2. SOURCE BOUNDARY
+
+Volume II, Section II defines Phi:Real(R)->M, with M the selected mathematical model or state-space realization, and A(R;Phi) subset Evol(X). It does not provide a complete relational signature for every M.
+Volume II, V.2-V.3 and the Frozen Core distinguish the realized state space, state-level dynamics, and realization-dependent preservation conditions.
+Volume II, VIII.1 defines Resp_M:L_op->Y. Theorem 91, VIII.5 uses Resp_(T(M))(a), but does not construct T(M) from T_X:X->X.
+Therefore the construction below is a candidate realization of the missing bridge, not a recovered canonical definition of M.
+
+3. RELATIONAL MODEL SIGNATURE
+
+Fix a realization Phi and an explicitly chosen relational signature:
+
+Sigma_R = {rho_i | i in I}
+
+with arity n_i in N for each rho_i.
+A relational model over Sigma_R is:
+
+M = (X_M, Sigma_R, I_M)
+
+where:
+I_M = {rho_i^M | i in I}
+rho_i^M subseteq X_M^(n_i).
+
+The signature and its interpretations must be supplied by the selected realization. No claim is made that an arbitrary abstract R already comes with this signature.
+
+For the fixed-carrier case used below, X_M=X_R and T_X:X_R->X_R.
+
+4. CONCRETE RELATIONAL IMAGE CONSTRUCTION
+
+For each relation symbol rho_i, define:
+
+rho_i^(T_hat(M)) :=
+{(T_X(x1),...,T_X(x_(n_i))) |
+ (x1,...,x_(n_i)) in rho_i^M}.
+
+Define:
+
+T_hat(M) := (X_R, Sigma_R, {rho_i^(T_hat(M)) | i in I}).
+
+Define the witness:
+
+j_M:X_R->X_R
+j_M(x):=T_X(x).
+
+For every i and every tuple (x1,...,x_(n_i)):
+
+rho_i^M(x1,...,x_(n_i))
+=>
+rho_i^(T_hat(M))(j_M(x1),...,j_M(x_(n_i))).
+
+Thus j_M is a homomorphism of relational structures from M to T_hat(M), by direct construction. No injectivity or surjectivity of T_X is needed for this forward-preservation statement.
+
+5. FUNCTORIALITY CHECK
+
+For state maps S,T:X_R->X_R, relational direct image satisfies:
+
+(T o S)_*(rho) = T_*(S_*(rho)).
+
+The identity map induces the identity transformation on relational interpretations. Hence the direct-image construction is compatible with composition at the level of relational structures. This is a construction-level fact; it does not establish closure in the selected OMEGA-ISOP realization class.
+
+6. IMPORTANT LIMITATION: THIS IS A RELATIONAL REDUCT
+
+The construction above is complete for a purely relational signature. If the selected model signature also contains function symbols, constants, measurable structure, topology, order, probability measures, or other decorations, those components cannot be silently transported by the relational-image formula.
+
+For an n-ary function f^M, the formula
+
+f'(T_X(x1),...,T_X(xn)) := T_X(f^M(x1,...,xn))
+
+is well-defined on image arguments only if T_X is compatible with the kernel equivalence:
+
+T_X(x_k)=T_X(x'_k) for all k
+=>
+T_X(f^M(x1,...,xn))=T_X(f^M(x'1,...,x'n)).
+
+An extension outside T_X(X_R) may be nonunique. Such algebraic structure therefore requires an explicit congruence/descent condition or a different target-carrier construction. It is not included in the present relational candidate.
+
+7. CLASS CLOSURE AND REALIZATION COMPATIBILITY
+
+The direct-image model is a well-defined relational structure over Sigma_R. This alone does not prove it is admissible under Phi.
+
+Required realization-specific condition:
+
+M in C_Phi => T_hat(M) in C_Phi.
+
+Equivalently, for a comparison class C subseteq M_Phi:
+
+T_hat(C) subseteq C.
+
+This condition must be checked against the exact constraints defining the selected realization. It cannot be inferred merely from the existence of T_X or from the fact that j_M is a homomorphism.
+
+8. OPERATIONAL RESPONSE IS A SEPARATE LAYER
+
+The relational image construction does not, by itself, imply:
+
+Resp_(T_hat(M))(a)=Resp_M(tau(a)).
+
+The response semantics and operational probes must be specified independently. The common map tau must be independent of M and defined on the same L_op for every model in C.
+
+A possible special realization illustrating how H3 could be derived is a measurable/probabilistic model:
+
+M=(X_R, Sigma_X, I_M, mu_M),
+
+where T_X is measurable, mu_M is a probability measure, and operational probes are measurable integrable functions a:X_R->Y (with the required integrability conditions). Define the transformed measure by pushforward:
+
+mu_(T_hat(M)) := (T_X)_* mu_M.
+
+Define responses by:
+
+Resp_M(a):= integral_X a(x) d mu_M(x).
+
+If L_op is closed under precomposition with T_X, define the one common map:
+
+tau(a):=a o T_X.
+
+Then the pushforward identity gives:
+
+Resp_(T_hat(M))(a)
+= integral_X a(y) d((T_X)_*mu_M)(y)
+= integral_X a(T_X(x)) dmu_M(x)
+= Resp_M(tau(a)).
+
+This is a valid conditional route to H3 in this specifically enriched realization, subject to measurability, integrability, common probe-domain, and closure requirements. It is an illustrative candidate subclass only. Volume II does not state that every model M carries a probability measure or that every operational probe is a state function. It must not be promoted to the universal OMEGA-ISOP model definition.
+
+9. THEOREM 91 CONSEQUENCE
+
+If, for a fixed realization and comparison class C, all of the following hold:
+(a) T_hat is the above explicitly constructed model transformation (or another explicitly verified lift);
+(b) T_hat(C) subseteq C;
+(c) all Resp_M are defined on one common nonempty L_op and take values in a normed space Y;
+(d) one common tau:L_op->L_op satisfies the operational covariance identity for every M in C and every a in L_op;
+then the existing Theorem 91 estimate follows:
+
+D_L(T_hat(M1),T_hat(M2)) <= D_L(M1,M2)
+
+for all M1,M2 in C.
+
+No surjectivity of tau is required. This is a conditional application of the existing estimate, not a replacement or amendment of canonical Theorem 91.
+
+10. PROVENANCE AND STATUS OF CLAIMS
+
+ESTABLISHED BY CONSTRUCTION:
+- A relational model structure over an explicitly supplied signature can be defined.
+- The direct-image operation produces a relational structure on the same carrier.
+- T_X is a homomorphism from M to its direct-image model.
+- The direct-image operation respects composition of state maps.
+
+NOT ESTABLISHED:
+- That the selected canonical realization Phi supplies this exact signature and no additional structure.
+- That T_hat(M) remains in the admissible realization class C_Phi.
+- That every structure component of a full model is transported by the relational construction.
+- That operational covariance follows for the canonical L_op and Resp_M.
+- That the illustrative measure-enriched realization is the intended or canonical OMEGA-ISOP realization.
+- Existence or uniqueness of a universal lift for every T in A(R;Phi).
+
+11. NEXT MATHEMATICAL TASKS
+
+1. Extract the exact structure carried by M in the chosen realization Phi: carrier, relational signature, additional structure, and operational semantics.
+2. Decide whether the relevant model class is purely relational or enriched; do not add decorations without source or realization justification.
+3. Verify closure of the candidate image model under the exact Phi constraints.
+4. Derive or refute the common operational covariance map tau from the actual probe/response definitions.
+5. Check non-injective, non-surjective, identity, and composition cases; record counterexamples where closure or covariance fails.
+6. Only after these checks, assess whether the auxiliary construction is compatible with canonical Theorem 91. No canonical edit is authorized by this checkpoint.
+
+FINAL STATUS:
+The missing model-level map now has an explicit relational candidate construction and a structure-preserving witness. The construction resolves the bare existence-by-notation problem for a chosen relational signature, but does not yet establish a lift in the canonical OMEGA-ISOP realization or the operational covariance required by Theorem 91.
+
+FROZEN CORE MODIFICATION: NONE
+CANONICAL THEOREM MODIFICATION: NONE
