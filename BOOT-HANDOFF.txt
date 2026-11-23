@@ -22,12 +22,12 @@ REPOSITORY:
 https://github.com/naydenov54-netizen/OMEGA-ISOP
 
 PRIMARY_OPERATIONAL_HANDOFF:
-OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF.txt
-VERSION 1.2
+OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF-v1.3.txt
+VERSION 1.3
 DATE 2026-11-22
 
 PURPOSE:
-Preserve the verified session state and next justified action for Theorem 91 / H1. This file supplements, and does not replace, the primary operational handoff v1.2.
+Preserve the verified session state and next justified action for Theorem 91 / H1. This file supplements, and does not replace, the primary operational handoff v1.3.
 
 ==================================================
 1. STARTUP AND REPOSITORY STATE VERIFIED ON 2026-11-23
@@ -39,15 +39,15 @@ Branch inventory checked: main only
 Latest commit inspected:
 93cff8c54e74ca213db62384eaba87d6a4cff1aa
 Commit message:
-Add Library persistence and new-chat boot procedure; handoff v1.2
+Add Library persistence and new-chat boot procedure; handoff v1.3
 
 Recursive Git tree inspected at that commit:
 Only one tracked file was present:
-OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF.txt
+OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF-v1.3.txt
 
 No file named BOOT-HANDOFF existed in the inspected main-branch tree before this supplementary file was created.
 
-The v1.2 operational handoff was fetched and read in full. Its operating rules, source hierarchy, Frozen Core protection, Theorem 91 assumptions, evidence classification, and GitHub verification requirements apply to this file.
+The v1.3 operational handoff was fetched and read in full. Its operating rules, source hierarchy, Frozen Core protection, Theorem 91 assumptions, evidence classification, and GitHub verification requirements apply to this file.
 
 ==================================================
 2. THEOREM 91 — VERIFIED HANDOFF STATE
@@ -156,7 +156,7 @@ Therefore the next justified action is source retrieval and exact logical classi
 
 Frozen Core: PROTECTED.
 Canonical Theorem 91 text: DO NOT EDIT.
-Primary operational handoff v1.2: PRESERVE.
+Primary operational handoff v1.3: PRESERVE.
 This BOOT-HANDOFF file: supplementary working record only.
 
 No definitions, theorem statements, assumptions, proofs, or canonical source documents are changed by this record.
@@ -179,7 +179,7 @@ If the canonical source is not present in the repository, search the available p
 
 WORK_COMPLETED:
 - Located the OMEGA-ISOP GitHub repository.
-- Inspected repository metadata, branch inventory, latest commit, recursive tree, and primary handoff v1.2.
+- Inspected repository metadata, branch inventory, latest commit, recursive tree, and primary handoff v1.3.
 - Read the primary handoff in full.
 - Recovered the working decision for irreversible/reversible relation preservation.
 - Recorded the distinction between domain preservation and relational preservation.
