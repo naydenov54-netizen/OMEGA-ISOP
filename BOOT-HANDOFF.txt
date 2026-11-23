@@ -1,0 +1,209 @@
+OMEGA-ISOP BOOT HANDOFF
+DOCUMENT_ID:
+OI-BOOT-HANDOFF-THEOREM-91-2026-11-23
+
+VERSION:
+1.0
+
+DATE:
+2026-11-23
+
+STATUS:
+SUPPLEMENTARY WORKING HANDOFF
+NOT CANONICALLY ACCEPTED
+NOT A SCIENTIFIC RESULT
+NOT A FROZEN CORE AMENDMENT
+NOT AN RL REGISTRATION
+
+PROJECT:
+OMEGA-ISOP
+
+REPOSITORY:
+https://github.com/naydenov54-netizen/OMEGA-ISOP
+
+PRIMARY_OPERATIONAL_HANDOFF:
+OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF.txt
+VERSION 1.2
+DATE 2026-11-22
+
+PURPOSE:
+Preserve the verified session state and next justified action for Theorem 91 / H1. This file supplements, and does not replace, the primary operational handoff v1.2.
+
+==================================================
+1. STARTUP AND REPOSITORY STATE VERIFIED ON 2026-11-23
+==================================================
+
+Repository: naydenov54-netizen/OMEGA-ISOP
+Default branch: main
+Branch inventory checked: main only
+Latest commit inspected:
+93cff8c54e74ca213db62384eaba87d6a4cff1aa
+Commit message:
+Add Library persistence and new-chat boot procedure; handoff v1.2
+
+Recursive Git tree inspected at that commit:
+Only one tracked file was present:
+OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF.txt
+
+No file named BOOT-HANDOFF existed in the inspected main-branch tree before this supplementary file was created.
+
+The v1.2 operational handoff was fetched and read in full. Its operating rules, source hierarchy, Frozen Core protection, Theorem 91 assumptions, evidence classification, and GitHub verification requirements apply to this file.
+
+==================================================
+2. THEOREM 91 — VERIFIED HANDOFF STATE
+==================================================
+
+Theorem title/status from the primary operational handoff:
+THEOREM 91: CONDITIONAL NON-EXPANSION
+THEOREM_STATUS: CONDITIONAL RESULT
+
+Theorem 91 assumptions recorded in primary handoff:
+H1: R exists, T is admissible, and R is preserved.
+H2: Y is normed.
+H3: There exists a map tau:L_op -> L_op such that
+    Resp_(T(M))(a) = Resp_M(tau(a)).
+H4: The operational criterion and comparison class remain fixed.
+
+Conclusion:
+D_L(T(M1),T(M2)) <= D_L(M1,M2)
+
+Interpretation:
+Under the stated assumptions, operational response distance does not increase under T.
+
+This supplementary handoff records the current H1 verification discussion only. It does not alter the theorem statement or its assumptions.
+
+==================================================
+3. H1 — CURRENT WORKING STATUS
+==================================================
+
+H1 COMPONENT A:
+R EXISTS
+Status: CONDITIONAL / NOT INDEPENDENTLY RE-VERIFIED IN THIS SESSION.
+The primary handoff records this as part of H1. The exact primary construction/source for R was not retrieved in this session.
+
+H1 COMPONENT B:
+T IS ADMISSIBLE
+Status: CONDITIONAL / WORKINGLY ASSOCIATED WITH A(R;Phi).
+The session discussion treated admissibility through A(R;Phi), but the exact canonical definition and domain/codomain conditions of A(R;Phi) were not available in the inspected repository file. Do not upgrade this to a proved implication.
+
+H1 COMPONENT C:
+R IS PRESERVED UNDER T
+Status: WORKING FORMALIZATION CLARIFIED; SOURCE-LEVEL MATCH STILL UNVERIFIED.
+
+For a relational signature Sigma_R with relations rho_i of arity n_i, the proposed homomorphism-preservation condition is:
+
+For every rho_i in Sigma_R and all x1,...,xn_i in the corresponding domain:
+rho_i(x1,...,xn_i) =>
+rho_i(T(x1),...,T(xn_i)).
+
+For irreversible dynamics:
+Use End(X,R), interpreted as endomorphisms/homomorphisms preserving each designated relation in the forward direction. No converse implication is required by the standard relational-homomorphism condition.
+
+For reversible dynamics:
+Use Aut(X,R), interpreted as automorphisms, with structural preservation and reflection:
+rho_i(x1,...,xn_i) <=>
+rho_i(T(x1),...,T(xn_i)).
+This includes the automorphism requirement, not merely a forward homomorphism condition.
+
+USER DECISION:
+The user explicitly agreed to this as the working choice on 2026-11-23:
+- Irreversible dynamics: one-way relation preservation / End(X,R).
+- Reversible dynamics: two-way structural preservation / Aut(X,R).
+
+Decision status:
+WORKINGLY ACCEPTED.
+NOT CANONICALLY ACCEPTED.
+NOT A FROZEN CORE CHANGE.
+
+IMPORTANT DISTINCTION:
+T(X_R) subseteq X_R only guarantees preservation of the admissible domain/set. It does not, in general, prove preservation of all relations in Sigma_R. Domain preservation and relational-structure preservation must remain separate unless a formal argument proves their equivalence in the chosen realization.
+
+IMPORTANT LOGICAL LIMIT:
+The current record does NOT establish that A(R;Phi) implies relational preservation. Such an implication may only be asserted if the exact definition of A(R;Phi), together with the relevant assumptions, entails the relation-preservation condition. Do not assume this implication from notation or from T being admissible alone.
+
+The primary handoff states H1 as three conjunctive requirements: R exists, T is admissible, and R is preserved. It does not, in the retrieved text, state that the third requirement follows automatically from A(R;Phi).
+
+==================================================
+4. WHAT REMAINS OPEN
+==================================================
+
+1. Retrieve the exact canonical definition of A(R;Phi).
+2. Retrieve the original/canonical statement and context of Theorem 91, including the definitions of X_R, R, Evol(X), and admissibility of T.
+3. Determine whether the canonical definition of A(R;Phi) entails relation preservation, or whether preservation is an independent H1 assumption/condition.
+4. Check whether the relevant T is an endomorphism of the full relational structure, or only a self-map preserving the admissible domain.
+5. Check domain/codomain and typing conditions for every rho_i and T(x_j).
+6. Check whether reversible T is explicitly bijective and whether the full automorphism condition is justified.
+7. Only after source-level comparison, decide whether the working formalization accurately expresses the canonical theorem.
+
+Do not close H1 until these checks are supported by the primary source.
+
+==================================================
+5. CORRECTION TO THE SESSION'S PREVIOUS NEXT-STEP FRAMING
+==================================================
+
+The earlier working discussion proposed checking whether A(R;Phi) implies preservation of R. This is a valid question to investigate, but it is not established as a necessary theorem obligation by the currently retrieved primary handoff.
+
+Theorem 91's H1, as recorded in the primary handoff, lists "R is preserved" as a requirement. Unless the original theorem explicitly derives it from admissibility, it may be an independent assumption. Do not silently convert an assumption into a derived consequence, or vice versa.
+
+Therefore the next justified action is source retrieval and exact logical classification:
+- independent assumption;
+- consequence of A(R;Phi);
+- or equivalent condition under explicitly stated definitions.
+
+==================================================
+6. PROTECTED SCOPE AND CHANGE CONTROL
+==================================================
+
+Frozen Core: PROTECTED.
+Canonical Theorem 91 text: DO NOT EDIT.
+Primary operational handoff v1.2: PRESERVE.
+This BOOT-HANDOFF file: supplementary working record only.
+
+No definitions, theorem statements, assumptions, proofs, or canonical source documents are changed by this record.
+
+Any future canonical modification requires the change-control procedure in the primary operational handoff and explicit user authorization.
+
+==================================================
+7. NEXT JUSTIFIED ACTION
+==================================================
+
+Continue Theorem 91 / H1 source verification from the exact canonical definitions and theorem context.
+
+Do not ask the user to repeat information already present in this handoff.
+Do not invent missing definitions or source paths.
+If the canonical source is not present in the repository, search the available project Library/source records before asking the user for the minimum missing primary source.
+
+==================================================
+8. END-OF-SESSION RECORD
+==================================================
+
+WORK_COMPLETED:
+- Located the OMEGA-ISOP GitHub repository.
+- Inspected repository metadata, branch inventory, latest commit, recursive tree, and primary handoff v1.2.
+- Read the primary handoff in full.
+- Recovered the working decision for irreversible/reversible relation preservation.
+- Recorded the distinction between domain preservation and relational preservation.
+- Recorded that A(R;Phi) => preservation is not yet established.
+- Created this supplementary BOOT-HANDOFF record.
+
+EVIDENCE:
+Repository metadata, Git tree, commit, and primary handoff were directly retrieved during this session.
+The mathematical status remains conditional/working pending canonical source verification.
+
+FILES:
+This file only, as a supplementary working handoff.
+No Frozen Core or canonical theorem file modified.
+
+CHECKPOINT:
+No separate research checkpoint created.
+
+RL_REGISTRATION:
+None. No registration claimed.
+
+NEXT_STEP:
+Retrieve exact canonical definitions and Theorem 91 source context; then complete the H1 implication audit.
+
+FINAL STATUS:
+SUPPLEMENTARY BOOT HANDOFF
+VERSION 1.0
+WORKING RECORD ONLY
