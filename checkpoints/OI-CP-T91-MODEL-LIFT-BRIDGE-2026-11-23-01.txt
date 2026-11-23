@@ -1,0 +1,236 @@
+OMEGA-ISOP
+THEOREM 91 — MODEL-LEVEL LIFT BRIDGE
+CHECKPOINT: OI-CP-T91-MODEL-LIFT-BRIDGE-2026-11-23-01
+STATUS: CONDITIONAL FORMALIZATION / HOLD FOR CANONICAL ADOPTION
+SCOPE: Auxiliary formal bridge only. No Frozen Core or canonical theorem modification.
+
+1. PURPOSE
+
+Theorem 91 compares operational responses of models through D_L and writes
+Resp_(T(M))(a). Volume II defines state-level evolution T_X : X -> X, while
+the operational distance is written for models M. A model-level lift is
+therefore required to type the theorem without identifying a model with a
+state.
+
+2. MODEL CLASS AND UNDERLYING STATE SPACE
+
+Fix a realization Phi and let M_Phi be a class of mathematical models
+admissible under that realization.
+
+For each M in M_Phi, let X_M be its state space and let
+
+U : M_Phi -> Set
+U(M) = X_M
+
+denote the underlying-state-space assignment.
+
+Let
+
+Resp_M : L_op -> Y
+
+be the operational response map for model M, on the fixed operational
+domain L_op, with Y a normed space.
+
+Let C be the fixed comparison class, C subseteq M_Phi.
+
+3. STATE-LEVEL DYNAMICS
+
+For each model M under consideration, let
+
+T_X,M : X_M -> X_M
+
+be a state-level evolution map. In the common-carrier case this may be one
+fixed map T_X : X -> X, as in the Volume II notation.
+
+State-level admissibility and relational preservation remain governed by
+the selected realization Phi. In particular, nonemptiness
+
+A(R;Phi) != empty
+
+means that at least one compatible evolution exists. It does NOT imply
+that an arbitrary selected T_X is admissible.
+
+4. MODEL-LEVEL LIFT
+
+A model-level lift is a map
+
+T_hat : C -> M_Phi
+
+such that T_hat(M) is the model obtained by transporting or transforming
+the model structure of M consistently with T_X,M.
+
+The lift condition must be witnessed by a structure-preserving model
+morphism
+
+j_M : M -> T_hat(M)
+
+whose underlying state map is T_X,M:
+
+U(j_M) = T_X,M.
+
+The precise meaning of model morphism depends on the explicitly declared
+signature and structure of M. It must preserve every structure that the
+selected model category declares to be preserved. This checkpoint does
+not assume that the signature is already specified in Volume II.
+
+For T_hat to be an endomorphism of the comparison class, require
+
+T_hat(C) subseteq C.
+
+At minimum, all original and transformed models must lie in one common
+domain on which their response maps and D_L are defined.
+
+IMPORTANT:
+The existence of T_X,M does not by itself prove the existence or
+uniqueness of T_hat. A lift can fail to exist if the state map does not
+transport the model's operations, relations, observables, or other
+declared structure. A non-injective map may require additional quotient
+or congruence conditions. These conditions must be established for the
+chosen model category, not presumed.
+
+5. OPERATIONAL COVARIANCE CONDITION
+
+The model-level lift alone does not imply the response identity required
+by Theorem 91.
+
+Introduce the separate covariance condition:
+
+There exists one common map
+
+tau : L_op -> L_op
+
+such that
+
+for every M in C and every a in L_op:
+
+Resp_(T_hat(M))(a) = Resp_M(tau(a)).
+
+The same tau must work for all M in C. A model-dependent tau_M is
+insufficient for the contraction proof.
+
+Also require:
+(a) L_op is nonempty;
+(b) all response maps in the identity are defined;
+(c) Y is a normed space;
+(d) the operational criterion and comparison class are fixed;
+(e) T_hat(C) subseteq C, or an equivalent common-domain condition.
+
+6. MODEL-LEVEL OPERATIONAL DISTANCE
+
+Define
+
+D_L(M1,M2) =
+sup_(a in L_op) ||Resp_M1(a) - Resp_M2(a)||_Y.
+
+For M1,M2 in C, the lifted dynamics obeys
+
+D_L(T_hat(M1),T_hat(M2))
+=
+sup_(a in L_op)
+||Resp_(T_hat(M1))(a) - Resp_(T_hat(M2))(a)||_Y
+
+=
+sup_(a in L_op)
+||Resp_M1(tau(a)) - Resp_M2(tau(a))||_Y
+
+<=
+sup_(b in L_op)
+||Resp_M1(b) - Resp_M2(b)||_Y
+
+=
+D_L(M1,M2).
+
+Therefore
+
+D_L(T_hat(M1),T_hat(M2)) <= D_L(M1,M2).
+
+No surjectivity of tau is required. The inequality follows because
+tau(L_op) is a subset of L_op.
+
+7. BRIDGE DIAGRAM
+
+For each M:
+
+M  --j_M-->  T_hat(M)
+|                 |
+U                 U
+|                 |
+X_M --T_X,M-->   X_M
+
+The diagram expresses that the underlying state map of the model
+transformation is the chosen state evolution. It is meaningful only
+after the model category, its objects, morphisms, and preserved
+structure have been specified.
+
+8. RELATION TO THEOREM 91 HYPOTHESES
+
+H1 remains the structural applicability condition: R exists, T_X is
+admissible, and R is preserved under the selected realization.
+
+H2 supplies the normed-space structure of Y.
+
+H3 is now typed at model level by using T_hat and one common tau.
+
+H4 must ensure a fixed operational criterion and comparison domain.
+For an explicit fully typed statement, class closure
+T_hat(C) subseteq C should be stated, unless equivalent domain closure
+is already guaranteed elsewhere.
+
+H1 is not used directly in the norm inequality, but remains a required
+structural precondition. It must not be removed merely because the
+algebraic estimate uses H2-H4.
+
+9. WHAT THIS BRIDGE DOES AND DOES NOT ESTABLISH
+
+Established conditionally:
+- the type distinction between state dynamics and model dynamics;
+- the required shape of a model-level lift;
+- the need for a structure-preserving witness j_M;
+- the common-domain/closure requirement;
+- the uniformity requirement on tau;
+- the non-expansion inequality once the stated assumptions hold.
+
+Not established by the current canonical source material:
+- the explicit model signature;
+- the concrete construction of T_hat from T_X;
+- existence or uniqueness of the lift;
+- whether the model morphism must preserve all relations, operations,
+  observables, or a specified sub-signature;
+- the operational covariance identity as a consequence of the lift.
+
+Thus this bridge resolves the typing architecture conditionally, but it
+does not yet prove that a suitable lift exists in the canonical OMEGA-ISOP
+model category.
+
+10. RECOMMENDED TYPED FORM OF THEOREM 91 CONCLUSION
+
+Given H1-H4 together with an explicitly defined model-level lift
+T_hat : C -> C and the uniform operational covariance condition,
+
+D_L(T_hat(M1),T_hat(M2)) <= D_L(M1,M2)
+
+for all M1,M2 in C.
+
+This is an auxiliary typed formulation, not a replacement of the
+canonical Theorem 91 text.
+
+11. OPEN VERIFICATION TASKS
+
+Before canonical adoption:
+1. Identify the exact model objects M in the relevant OMEGA-ISOP
+   realization.
+2. Declare their signature and model morphisms.
+3. Define the action of T_X on each declared structure.
+4. Prove existence of j_M and T_hat, including closure conditions.
+5. Establish the uniform operational covariance map tau.
+6. Verify all response maps are defined on the common comparison domain.
+
+FINAL STATUS:
+The model/state typing bridge is formally specified as a conditional
+construction. Theorem 91's non-expansion estimate remains valid under
+the explicit assumptions above. Canonical status remains HOLD until
+the concrete lift and operational covariance are derived from the
+selected OMEGA-ISOP realization.
+
+FROZEN CORE MODIFICATION: NONE
+CANONICAL THEOREM MODIFICATION: NONE
