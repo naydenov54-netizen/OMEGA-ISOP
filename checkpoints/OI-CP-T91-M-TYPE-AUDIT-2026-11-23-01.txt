@@ -1,0 +1,109 @@
+OMEGA-ISOP
+THEOREM 91 — MODEL SYMBOL TYPE AUDIT
+CHECKPOINT: OI-CP-T91-M-TYPE-AUDIT-2026-11-23-01
+DATE: 2026-11-23
+STATUS: DOCUMENTED NOTATION GAP / CONDITIONAL RESEARCH PROPOSAL
+SCOPE: Auxiliary audit. No Frozen Core, Volume II, or Theorem 91 modification.
+
+1. AUDIT QUESTION
+
+Does the existing OMEGA-ISOP source material define one exact mathematical type and internal structure for M, such that the model-level expression T_hat(M) can be constructed canonically from a state-level map T_X:X->X?
+
+2. SOURCE FINDINGS
+
+A. FROZEN CORE, PART II, SECTION 2.1:
+- Configuration category C has admissible configurations compatible with R as objects and structure-preserving maps as morphisms.
+- Phi:Real(R)->M.
+- M is described as a mathematical realization space.
+- X is the state space associated with the chosen realization and is equipped with the structure required by that realization.
+- X is introduced through a realization functor, representation, or equivalent construction.
+
+B. VOLUME II v1.3, SECTION II:
+- Phi:Real(R)->M.
+- Here M is described as the selected mathematical model or state-space realization.
+- A(R;Phi) subseteq Evol(X).
+
+C. VOLUME II, SECTION VIII AND THEOREM 91, SECTION VIII.5:
+- For a model M, Resp_M:L_op->Y.
+- The theorem compares M1 and M2 through D_L(M1,M2).
+- It writes Resp_(T(M))(a), but does not define the internal data type of a model M, nor construct T(M) from a state-space map T_X.
+
+D. VOLUME III, PART IV:
+- It defines the operational response map Resp_M:L_op->Y and the distance on model pairs.
+- It does not supply a universal tuple defining M.
+
+3. RESULT OF THE AUDIT
+
+The available canonical sources specify a realization interface and a state-space interface, but do not give a complete universal internal structure for M.
+
+There is a notation-level ambiguity:
+- In the realization-map declaration, M is described as a mathematical realization space / selected realization.
+- In the operational layer and Theorem 91, M behaves as an individual model with its own response map.
+
+These uses may be made consistent by interpreting the codomain M as a class/space of model instances, with each individual model denoted m and carrying its own state space X_m. However, that interpretation is not explicitly fixed by the current source text and must not be silently treated as canonical.
+
+4. TYPE-SAFE RESEARCH NOTATION (PROPOSAL ONLY)
+
+For an auxiliary formalization, distinguish:
+
+mathcal_M_Phi = selected class/space of models admitted by the realization Phi.
+
+m in mathcal_M_Phi = one individual realized model.
+
+X_m = state space carried by model m.
+
+Resp_m:L_op->Y = operational response map of model m.
+
+If a model-level transformation is to be constructed:
+
+T_hat:mathcal_M_Phi->mathcal_M_Phi.
+
+If the state-level dynamics depend on the model:
+
+T_m:X_m->X_m.
+
+A universal state-level T_X:X->X may be used only when a common carrier X and common state dynamics are part of the selected realization.
+
+The source notation Phi:Real(R)->M is not changed here. mathcal_M_Phi and m are proposed disambiguating notation for research use only.
+
+5. CONSEQUENCE FOR THE PREVIOUS RELATIONAL-IMAGE CHECKPOINT
+
+The relational-image construction in OI-CP-T91-MODEL-STRUCTURE-2026-11-23-01 is mathematically valid for a chosen relational structure on a fixed carrier and a map T_X:X->X.
+
+It does NOT yet establish:
+- that canonical OMEGA-ISOP M is exactly such a relational structure;
+- that all models in the comparison class share one carrier X;
+- that the state maps T_m assemble into one model-level transformation T_hat;
+- that T_hat preserves the selected realization class;
+- that the operational response maps satisfy Theorem 91's common tau identity.
+
+The previous checkpoint must therefore be read as a conditional candidate construction, not as the canonical construction of T(M).
+
+6. MINIMAL FORMAL GAP
+
+To construct T_hat canonically, a chosen realization must specify at least:
+
+(i) the model class mathcal_M_Phi;
+(ii) the data carried by each model m;
+(iii) the carrier X_m and all additional structures;
+(iv) the admissibility predicate defining membership in mathcal_M_Phi;
+(v) the meaning of a model transformation and its action on each component;
+(vi) the relation between state dynamics T_m and the model-level map T_hat;
+(vii) the operational response assignment m |-> Resp_m.
+
+Without these, T_hat(M) remains underdetermined at the canonical level.
+
+7. NEXT RESEARCH ACTION
+
+Do not add arbitrary structures such as a relational signature, topology, sigma-algebra, probability measure, or observable function space to every model. Select one explicit realization target (for example, relational structures on a fixed carrier, measurable dynamical systems, or another justified realization), declare its model class and morphisms, then test the lift and the response covariance there.
+
+A realization-specific theorem may then be proved. No universal model-lift theorem follows from the current interface alone.
+
+8. STATUS CONTROL
+
+MATHEMATICAL FINDING: The canonical source set does not presently provide a unique complete type definition for M or a canonical model-level lift T_hat.
+PREVIOUS RELATIONAL CONSTRUCTION: Valid as a conditional construction on relational structures with a fixed carrier; not canonically identified with every OMEGA-ISOP model.
+THEOREM 91: Unchanged. Its conditional assumptions and conclusion remain as written.
+FROZEN CORE: UNCHANGED.
+VOLUME II: UNCHANGED.
+CANONICAL ADOPTION: NOT PROPOSED.
