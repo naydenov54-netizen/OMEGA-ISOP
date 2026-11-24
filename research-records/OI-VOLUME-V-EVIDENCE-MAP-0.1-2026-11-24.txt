@@ -1161,7 +1161,7 @@ Limit: the candidate model structure is not the canonical OMEGA-ISOP realization
 Assessment: SECOND-STRONGEST INTERFACE; requires more realization-specific work than CE-V-04.
 
 Candidate CE-V-06 — Global Realization Filtering
-Classification: M1 (conditional structural claim as retained); P1 (global constraints filtering local admissible structures); P2 only if a specific cosmological realization is independently hypothesized; O1 (global realization selection, local nonemptiness and persistence).
+Classification: retained archive-level validated conditional structural claim; this assessment does NOT independently assign M1 to the whole CE-V-06 entry because the primary RL-006 proof is non-recoverable and was not re-derived here; P1 (global constraints filtering local admissible structures); P2 only if a specific cosmological realization is independently hypothesized; O1 (global realization selection, local nonemptiness and persistence).
 MR 3/5; PI 3/5; F 3/5; T 2/5; TOTAL 11/20.
 Strength: explicit global/local restriction and compatibility interface.
 Limit: global realization is externally selected, not derived; no cosmological realization, expansion law, Lambda, local nonemptiness, temporal propagation or unique selection follows. M3.2 Section 10 explicitly states that relational structure alone does not derive redshift, Lambda or unique cosmological dynamics and that no OMEGA-specific observationally distinguishable cosmological prediction has yet been derived.
@@ -1175,14 +1175,14 @@ Limit: equivalence of reachable sets has limited discriminating physical content
 Assessment: useful auxiliary criterion, not the leading pilot.
 
 Candidate CE-V-03 — Organizational Transition Geometry
-Classification: M1 (conditional formal transition structure); P1 (transition landscape); O1 (metric axioms and physical dynamics if claimed).
+Classification: formal transition-structure definition retained as a conditional CE-V claim; this assessment does NOT independently assign M1 to the whole entry; P1 (transition landscape); O1 (metric axioms and physical dynamics if claimed).
 MR 3/5; PI 3/5; F 3/5; T 2/5; TOTAL 11/20.
 Strength: state space, transition relation, accessibility, stability and barrier can organize a model-specific analysis.
 Limit: d is only distance-like unless metric axioms are proved; barrier is not logical impossibility; no universal or realized evolution law follows.
 Assessment: insufficiently operational for the first pilot.
 
 Candidate CE-V-01 / CE-V-02
-Classification: M1 only within retained conditional archive scope; P1 (accessibility/realization distinction and criterion-relative structural necessity).
+Classification: retained validated conditional archive claims; this assessment does NOT independently assign M1 to the whole CE-V-01/02 entries because their primary RL sources are non-recoverable; P1 (accessibility/realization distinction and criterion-relative structural necessity).
 Combined indicative rating: MR 3/5; PI 2/5; F 3/5; T 2/5; TOTAL 10/20.
 Limit: task/criterion dependence is clear, but a concrete physical transition model and observables are not supplied. Primary RL-001/RL-002 sources are non-recoverable.
 Assessment: not preferred for the first pilot.
