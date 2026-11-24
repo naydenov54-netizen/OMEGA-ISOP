@@ -496,3 +496,346 @@ NO FROZEN CORE CHANGE.
 Among the mapped candidates, CE-V-04 currently has the clearest operational bridge to a physical modeling problem because its reduced-state closure criterion can be tested directly against a specified dynamics. Theorem 91 provides a second possible interface through operational response contraction, but its common-tau condition is a strong compatibility requirement. CE-V-06/06.1 remains conditional on a selected global realization and does not derive cosmological dynamics or local nonemptiness.
 
 This is a provisional evidence-based comparison, not the final pilot selection. The full Appendix A-C claim map and comparative assessment remain open.
+
+
+18. APPENDIX A — CLAIM-LEVEL MAP (HISTORICAL PREDECESSOR TRANSCRIPTION)
+
+SOURCE: Volume V v2.4-C-1.5, Appendix A, lines 729-922.
+SOURCE IDENTITY: preserved predecessor source "VOLUME 5 v2.1-CAPD-RESEARCH-INSERT-R1", snapshot 2026-11-05.
+TRANSCRIPTION LIMIT: Appendix A is preserved in a compressed historical transcription; Appendix F.6 states that it is not a literal verbatim reproduction and that some predecessor line breaks were lost. No missing structure is reconstructed from formatting alone. Earlier statuses are historical; Sections XXVI-XXXII and Appendix F control current status.
+
+A-01 — ARCHITECTURAL POSITION AND SEMANTIC SEPARATIONS
+Source location: Appendix A, predecessor Sections I-II (within lines 729-787).
+Claim: Volume V is a research/validation layer and does not silently modify the Frozen Core; the listed semantic distinctions must be maintained (representation/mechanism, relation/causation, persistence/robustness, simulation/proof, numerical result/analytical theorem, etc.).
+Assumptions: the listed terms retain their definitions in their respective source records.
+Evidence class: documentary statement / architectural constraint.
+Current status: RETAINED; Frozen Core unchanged. These distinctions are governance rules, not independent physical or mathematical theorems.
+Missing evidence: none for recording the rule; claim-specific derivations remain in their own sources.
+Next permitted action: apply the distinctions when classifying each downstream claim; no theoretical promotion.
+
+A-02 — CANONICAL REALIZATION, DYNAMICS, STOCHASTIC, OBSERVABLE AND REDUCTION NOTATION
+Source location: Appendix A, predecessor Section III.
+Claims: Phi: Real(R) -> M; A(R;Phi) subset Evol(X); Markov kernel kappa:X x Sigma_X -> [0,1] with deterministic Dirac special case; Resp_M:L_op -> Y; D_L as a supremum response distance; reduction xi:X -> Z and induced equivalence.
+Assumptions: Phi fixed when A(R) shorthand is used; measurable state space for kernels; response maps defined on common probe set; nonempty L_op and normed Y for extended-pseudometric statement.
+Evidence class: formal definitions and conditional mathematical property.
+Current status: notation retained in the controlled source hierarchy. D_L pseudometric status is conditional; finiteness requires bounded response differences. No physical observables or realization are supplied by notation alone.
+Missing evidence: concrete physical realization, observable map, probe protocol, dynamics, and domain-specific verification.
+Next permitted action: retain as interfaces; do not infer a physical system from notation.
+
+A-03 — CE-V-01 LATENT ORGANIZATIONAL POTENTIAL
+Source location: Appendix A, predecessor Section IV; current status governed by CE-V archive and Sections XXVI/XXX.
+Claim: accessibility of a target organization is distinct from actual transition and realized organization.
+Assumptions: specified R, A(R), target O_target and accessibility definition.
+Evidence class: validated conditional CE-V claim by archive status; historical source transcription.
+Current status: RETAINED UNDER ARCHIVE BOUNDARIES; primary RL-001 source not available in current Library inventory and is covered by primary-source non-recoverability disposition.
+Missing evidence: no recoverable primary RL-001 derivation for fresh source-level verification; no physical transition model.
+Next permitted action: retain archive classification; use only in a specified model with an operational target. No new RL/CE record.
+
+A-04 — CE-V-02 ORGANIZATIONAL DEGENERACY AND STRUCTURAL NECESSITY
+Source location: Appendix A, predecessor Section V; CE-V archive.
+Claim: structural necessity and degeneracy are criterion-relative to task, representation, operational criterion and equivalence relation; one model does not establish universal necessity.
+Assumptions: fixed task, representation, criterion and equivalence relation.
+Evidence class: validated conditional CE-V claim by archive status.
+Current status: RETAINED CONDITIONALLY; primary RL-002 source not available in current Library inventory.
+Missing evidence: primary-source re-derivation; no specified physical task/model.
+Next permitted action: preserve criterion-relative scope; do not universalize.
+
+A-05 — CE-V-03 ORGANIZATIONAL TRANSITION GEOMETRY
+Source location: Appendix A, predecessor Section VI; CE-V archive.
+Claim: L_T=(Org,T_rel,Acc,d,Stability,Barrier) is a selected transition-structure description; d is distance-like unless metric axioms are established; Barrier is not logical impossibility.
+Assumptions: selected state space, transition relation, accessibility, distance-like relation and stability/barrier criteria.
+Evidence class: validated conditional structural construction by archive status.
+Current status: RETAINED WITH EXPLICIT DEFINITIONS; primary RL-003 source not available in current Library inventory.
+Missing evidence: primary-source derivation and any metric axioms if a metric is claimed; physical transition model.
+Next permitted action: use only as a model-specific descriptive structure; no universal evolution law.
+
+A-06 — CE-V-04 DYNAMIC STATE SUFFICIENCY
+Source location: Appendix A, predecessor Section VII; current controlled identifier CE-V-04; detailed audit in working register Section 16.
+Claim: deterministic reduced-state sufficiency requires closure of the induced equivalence under the specified dynamics.
+Assumptions: specified X, xi:X->Z and deterministic T/F.
+Evidence class: formal quotient/factor-map criterion; finite counterexample validation in this register.
+Current status: DETERMINISTIC CRITERION AND DISPLAYED FINITE COUNTEREXAMPLE PASS; primary RL-007 source unavailable in current Library inventory. Stochastic extension not established by this example.
+Missing evidence: stochastic lumpability result if a stochastic pilot is chosen; concrete physical X, xi and T.
+Next permitted action: retain as leading operational bridge for later comparison; no pilot selection until map completion.
+
+A-07 — CE-V-05 REACHABILITY EQUIVALENCE
+Source location: Appendix A, predecessor Sections VIII and XVI.
+Claim: O_i ~reach O_j iff Reach(O_i)=Reach(O_j) is an equivalence relation.
+Assumptions: Reach is well-defined under fixed relational/dynamical conditions.
+Evidence class: formal elementary theorem from equality of sets.
+Current status: CONDITIONAL THEOREM RETAINED; reflexivity, symmetry and transitivity follow directly.
+Missing evidence: a concrete realization and well-defined Reach construction for any physical application.
+Next permitted action: preserve as a formal comparison tool; no physical claim.
+
+A-08 — CE-V-06 GLOBAL REALIZATION FILTERING
+Source location: Appendix A, predecessor Section IX; current controlled Sections XXVI/XXX; CE-V archive.
+Claim: selected global realization constraints can filter local relational structures through restriction and compatibility conditions.
+Assumptions: selected global context, local domain, restriction operation, compatibility predicate and global realization.
+Evidence class: validated conditional structural claim by archive status.
+Current status: RETAINED CONDITIONALLY. Global realization and its selection are not derived by CE-V-06.
+Missing evidence: explicit physical global realization, local nonemptiness and persistence where claimed, and physical dynamics.
+Next permitted action: preserve global-to-local interface only; do not infer cosmological dynamics, expansion law, Lambda or unique selection.
+
+A-09 — OPERATIONAL IDENTITY / ORGANIZATIONAL FUNCTIONAL
+Source location: Appendix A, predecessor Sections X-XI.
+Claims: operational identity depends on selected operational language/probes/responses/tolerance/persistence/closure/task criteria; Omega(org|Rel,A_D)=F(C,P,D,S,Fc) is a research target, not an established universal metric/law/unique measure/theorem.
+Assumptions: selected operational language and model-specific criteria.
+Evidence class: conditional definitions plus explicit research target.
+Current status: definitions retained; universal organizational metric and functional closure remain OPEN in Section XXVI.
+Missing evidence: rigorous functional definition, axioms, existence/uniqueness and validation against a specified model.
+Next permitted action: keep as research target; do not treat the displayed functional as a result.
+
+A-10 — CE-V INTEGRATION, SYMBOL NORMALIZATION AND COPY/INTEGRATION-MAP CONTROLS
+Source location: Appendix A, predecessor Sections XII-XVII.
+Claims: CE-V integration preserves assumptions/domain/operational definitions/derivation/validation boundary/traceability; no automatic promotion; symbol changes Delta19-Delta23 are normalization/cleanup or terminology corrections; historical inferred section maps do not reconstruct missing content; nonzero-tolerance operational relation is not exact equivalence.
+Assumptions: controlled source hierarchy and exact definitions.
+Evidence class: documentary/editorial control and semantic clarification.
+Current status: retained as historical/editorial constraints; current CE-V identifier is CE-V-04 per Appendix F.4.
+Missing evidence: no new mathematical evidence implied by editorial normalization.
+Next permitted action: no source reconstruction from missing line breaks or inferred maps; preserve exact-vs-tolerance distinction.
+
+A-11 — OPEN FORMALIZATION PROGRAMS, NEGATIVE BOUNDARIES AND DEPENDENCY ARCHITECTURE
+Source location: Appendix A, predecessor Sections XVIII-XXI.
+Claims: dynamic selection, general existence of R, persistence existence, functional closure, rigorous Omega metric, autonomous persistence, causal bridge, unique structural classification and general robustness remain open; the listed implications (e.g. R -> unique dynamics; accessibility -> realization; reduced non-Markovianity -> fundamental memory) are not established; the dependency chain is conditional.
+Assumptions: the definitions and domains of each individual program.
+Evidence class: explicit OPEN/HYPOTHESIS register and non-implication boundaries.
+Current status: OPEN ITEMS RETAINED; no general theorem is supplied by this list.
+Missing evidence: claim-specific proof obligations in the relevant source records.
+Next permitted action: leave each program open unless a separate proof record closes it; do not infer ontology or causation.
+
+A-12 — SINGLE-BUMP TRANSFER CONSTRUCTION
+Source location: Appendix A, predecessor Section XXII, subsections 22.1-22.9.
+Claims: specified system x'=v, v'=q*k*phi_2(t)*x; single-bump profile and fixed parameters; transfer composition M_full=F(beta)*M_core*F(alpha); trace-zero Liouville invariant; boundary/central estimates and reported error budget; recorded CAPD Wronskian/full-transfer outputs.
+Assumptions: phi_2 profile, mu=27/28, w=13/20, L=22/70, R=113/70, eta=1/100, alpha=227/700, beta=977/700, q=+/-1, k=1, interval [0,3], exact source definitions and supplied interval inputs.
+Evidence class: analytical identity; exact algebraic composition; conditional arithmetic; recorded computational outputs.
+Current status: analytical determinant invariant and composition identity are valid within the stated exact system; CAPD construction remains conditionally validated with reproduction/provenance tasks open. No multi-bump or general-potential result.
+Missing evidence: exact S48 derivation and indexing; source notebook/raw endpoints; machine-readable automated post-processing; full error-budget derivation; source/build/environment/output chain; independent clean rerun.
+Next permitted action: retain separate mathematical and computational classifications. Do not treat determinant containment as validation of every matrix entry or target enclosure.
+
+A-13 — O0 BOUNDARY ONE-STEP DIFFERENTIAL-INCLUSION TEST
+Source location: Appendix A, predecessor Section XXIII, subsections 23.1-23.9.
+Claims: rational boundary parameters and U bound; one-step inclusion x' in [0,U]*x, x(0)=1, h=0.01; exp(z)<=1+2z on 0<=z<=1/2; recorded CAPD result and EXPECTED_SUBSET_RESULT=TRUE; preliminary exp(Uh) subset test failed.
+Assumptions: stated U interval, CAPD interval semantics/configuration, solver and rounding behavior, exact expected interval construction.
+Evidence class: conditional analytical scalar inequality plus recorded narrow computational test.
+Current status: limited conditional pass as recorded; independent reproduction not established. The historical failed preliminary assertion remains a failure and must not be erased. Appendix F.2 records the endpoint discrepancy: recorded lower endpoint 0.99999999999999988898 is below displayed EXPECTED lower endpoint 1.
+Missing evidence: exact source and EXPECTED construction, raw endpoints, comparison expression, interval/rounding semantics and reproducible build/run. The endpoint discrepancy remains OPEN.
+Next permitted action: do not repeat arithmetic-only checking of displayed endpoints; resolve only with source and raw output evidence in the planned CAPD F-1 stage.
+
+A-14 — HISTORICAL XXIV FINAL STATUS
+Source location: Appendix A, predecessor Section XXIV.
+Claim: historical status snapshot records Volume V active, CE-V integration conditional, Frozen Core preserved, general programs open and automatic promotion prohibited.
+Assumptions: status as of predecessor source date.
+Evidence class: historical documentary status.
+Current status: SUPERSEDED FOR CURRENT STATUS by operative Sections XXVI-XXXII and Appendix F where explicitly reconciled.
+Missing evidence: none for historical transcription; current status is sourced elsewhere.
+Next permitted action: cite only as historical context, never as current status override.
+
+A-15 — TASK 01E.1 / 01E.2 MATHEMATICAL AND SOURCE AUDIT ADDENDUM
+Source location: Appendix A, appended XXV, subsections 25.1-25.9.
+Claims: CAPD interval-time storage/propagation source findings; rational post-processing; transfer-matrix composition arithmetic; recorded q=+1/-1 outputs and Wronskian checks; source/build provenance limitation; open concrete solver/StepControl/encloseC0Map/Taylor remainder inspections.
+Assumptions: inspected source paths correspond to described implementation; exact rational inputs and recorded notebook outputs are as stated.
+Evidence class: source-level finding, arithmetic check, recorded output, and open implementation/provenance obligation, kept separate.
+Current status: interval-time semantics SOURCE-LEVEL CONFIRMED FOR INSPECTED PATH; rational post-processing PASS conditional on inputs; matrix outputs historical with provenance link open; local Taylor/remainder and target enclosure OPEN; no independent CAPD rerun.
+Missing evidence: concrete executed solver path; final-step selection; encloseC0Map; Taylor/remainder and dependency handling; exact dynsys.getStep semantics; source-to-binary/output provenance, compiler flags and captured stdout/stderr.
+Next permitted action: retain open items for the designated CAPD stage; no claim of target-construction certification.
+
+19. APPENDIX B — CLAIM-LEVEL MAP (PRESERVED v2.3 AUDIT INSERT)
+
+SOURCE: Volume V v2.4-C-1.5, Appendix B, lines 923-1260. Original source-local labels XXVI-XXXI are subordinate to Appendix B and do not replace operative Sections XXVI-XXXII.
+
+B-01 — PURPOSE, SCOPE, EVIDENCE CLASSES AND STATUS DISCIPLINE
+Source location: Appendix B, source-local XXVI.1-XXVI.4, lines 954-1001.
+Claim: distinguishes analytical results, source-level findings, recorded computation, interval result, numerical cross-check, conditional result and OPEN/NOT ESTABLISHED; source inspection, compile, execute, enclosure correctness, analytical justification, provenance, independent reproduction and target certification are distinct gates.
+Assumptions: classifications are applied to a specifically identified claim/test and its exact scope.
+Evidence class: evidence-governance schema.
+Current status: schema is explicit and compatible with the operative evidence taxonomy; schema itself validates no scientific claim.
+Missing evidence: claim-by-claim application and source linkage, supplied in this working map where available.
+Next permitted action: use as classification rule; do not infer PASS from a neighboring stage.
+
+B-02 — ANALYTICAL IDENTITIES
+Source location: Appendix B, source-local XXVII.1-XXVII.2, lines 1002-1016.
+Claim: Liouville determinant identity for the exact trace-zero system; determinant equals 1 for initial determinant 1.
+Assumptions: exact system, trace(A(t))=0, fundamental matrix exists on interval.
+Evidence class: analytical result.
+Current status: PASS within stated exact-system assumptions; it does not certify computed interval enclosures.
+Missing evidence: none for the identity beyond source-system definition; interval enclosure validation is separate.
+Next permitted action: retain as analytical layer only.
+
+B-03 — RATIONAL POST-PROCESSING AND BOUNDARY MAJORANT
+Source location: Appendix B, source-local XXVII.3-XXVII.4, lines 1017-1031.
+Claims: rational post-processing relations; conditional boundary majorant using exp(z)<=1+2z on stated 0<=z<=1/2 domain.
+Assumptions: supplied rational/interval inputs, exact S48 and error-budget derivations, stated z-domain and upper coefficient bound.
+Evidence class: arithmetic check and conditional analytical estimate.
+Current status: arithmetic checks pass for stated inputs; complete source derivation and upstream interval inputs remain conditional/open.
+Missing evidence: source-linked S48 definition/indexing, derivation of boundary contributions and every propagation/printing factor, machine-readable raw endpoints.
+Next permitted action: do not re-compute the same displayed rational arithmetic absent changed inputs; verify source derivation in the CAPD stage.
+
+B-04 — FAILED PRELIMINARY CRITERION
+Source location: Appendix B, source-local XXVII.5, line 1032 onward.
+Claim: preliminary exp(U*h)-based subset criterion failed.
+Assumptions: historical test inputs and expected enclosure as recorded.
+Evidence class: recorded failed computational assertion.
+Current status: FAILED, retained as historical test history; it is not a solver-failure proof and not superseded by silently deleting it.
+Missing evidence: exact source/run provenance if reproducing the historical failure is required.
+Next permitted action: preserve failure; no status rewrite.
+
+B-05 — OPEN MATHEMATICAL OBLIGATIONS
+Source location: Appendix B, source-local XXVII.6, lines 1035-1047.
+Claims: local validated state enclosure, Taylor/remainder, full error budget and target-specific analytical obligations remain open.
+Assumptions: target construction and actual executed solver path.
+Evidence class: OPEN proof/validation obligations.
+Current status: OPEN; no root existence, uniqueness or universal transfer theorem.
+Missing evidence: concrete implementation, local enclosure proof, full error budget and source-backed analytical derivation.
+Next permitted action: carry into CAPD F-1/technical stage without repeating closed algebra.
+
+B-06 — TOOL-LEVEL AND TEST-SPECIFIC RESULTS
+Source location: Appendix B, source-local XXVIII.1-XXVIII.3, lines 1048-1076.
+Claims: CAPD 6.0.0 smoke test pass for y'=y only; TEST 13A-R3 pass for its exact multiplication operands only; TEST 13A overall OPEN/INCONCLUSIVE.
+Assumptions: exact test-specific inputs and configuration.
+Evidence class: recorded test result / narrow computational check.
+Current status: narrow passes retained; overall TEST 13A remains OPEN/INCONCLUSIVE; none validates GR-TRANSFER-06C.
+Missing evidence: full target-specific arithmetic and source/build/execution chain.
+Next permitted action: do not repeat smoke test or R3 as proxy for target validation.
+
+B-07 — TASK 01E.1 SOURCE-LEVEL TIME SEMANTICS
+Source location: Appendix B, source-local XXVIII.4-XXVIII.5, lines 1077-1094.
+Claims: inspected TimeRange/C0Set/C0DoubletonSet/TimeMap/StepControl paths retain interval-valued time; recorded q outputs and Wronskians exist but lack unbroken provenance to the later source/build invocation.
+Assumptions: inspected code path is the identified path; saved notebook output accurately represents its recorded state.
+Evidence class: source-level finding plus recorded output/provenance limitation.
+Current status: narrow source-path finding PASS; exact state-enclosure validity and output provenance OPEN.
+Missing evidence: concrete solver and local remainder proof; exact source/build/stdout link.
+Next permitted action: keep source-level and execution claims separate; no inferred reproduction.
+
+B-08 — SOURCE DISCOVERY, COMPILER AND FLOATING-POINT ENVIRONMENT
+Source location: Appendix B, source-local XXVIII.6-XXVIII.7, lines 1095-1106.
+Claims: identified source paths missing; some source generated/inspected without execution established; compiler version/flags and complete floating-point environment incompletely verified.
+Assumptions: bounded to documented discovery and inspection.
+Evidence class: audit finding / provenance limitation.
+Current status: OPEN or NOT ESTABLISHED where the record says so; absence from the inspected inventory is not proof of destruction.
+Missing evidence: exact source files, compiler identity/flags, environment, directed-rounding and execution evidence.
+Next permitted action: inspect only if new identified artifacts become available; do not infer presence/absence of flags.
+
+B-09 — VALIDATION CHAIN AND CERTIFICATION LIMITS
+Source location: Appendix B, source-local XXIX.1-XXIX.4, lines 1111-1161.
+Claim: validation requires linked source, hashes, CAPD identity, compiler/flags, build, binary, inputs, raw outputs, endpoints, independent arithmetic, analytical obligations, reproduction and target decision.
+Assumptions: each link is claim-specific and must be evidenced.
+Evidence class: required validation schema and boundary statement.
+Current status: chain defined; chain not completed. Target certification remains OPEN.
+Missing evidence: multiple chain elements identified in Sections XXVIII/XXIX and Appendix C.
+Next permitted action: use as completion checklist, not as evidence that the chain exists.
+
+B-10 — TEMPORARY OPEN-OBLIGATION REGISTER
+Source location: Appendix B, source-local XXX, lines 1162-1188.
+Claims: open obligations grouped into mathematical, source/build/machine, reproducibility and certification gates.
+Assumptions: each listed item belongs to the target CAPD certification track.
+Evidence class: work queue / open-obligation register.
+Current status: OPEN register; listing does not close any item.
+Missing evidence: item-specific source and validation evidence.
+Next permitted action: carry unresolved items forward once; avoid reopening completed narrow checks.
+
+B-11 — HISTORICAL TEMPORARY STATUS
+Source location: Appendix B, source-local XXXI, lines 1189-1260.
+Claim: historical temporary status snapshot records partial audit pass, certification open, Frozen Core unchanged, CE-V-07 reserved, universality not established.
+Assumptions: status as of 2026-11-09 source date.
+Evidence class: historical documentary status.
+Current status: retained historically; current controlling statuses are the operative Sections XXVI-XXXII and Appendix F of C-1.5.
+Missing evidence: none for historical status; use current reconciliation for present state.
+Next permitted action: do not allow source-local Appendix B labels/status to override current main-body reconciliation.
+
+20. APPENDIX C — CLAIM-LEVEL MAP (COMPLETED WORK PRODUCTS REGISTER)
+
+SOURCE: Volume V v2.4-C-1.5, Appendix C, lines 1261-1452; revision C-1.0 dated 2026-11-14.
+
+C-01 — PURPOSE AND EVIDENCE RULE
+Source location: Appendix C.1, lines 1269-1276.
+Claim: additive register of completed work products and bounded results; it does not replace primary technical sources or establish independent end-to-end reproduction.
+Assumptions: the listed classifications remain linked to their upstream inputs and records.
+Evidence class: documentary scope/evidence rule.
+Current status: RETAINED; no scientific claim promoted by inclusion.
+Missing evidence: claim-specific upstream material as detailed below.
+Next permitted action: apply as a boundary on all Appendix C entries.
+
+C-02 — ANALYTICAL LIOUVILLE INVARIANT
+Source location: Appendix C.2, lines 1277-1299.
+Claim: for x'(t)=A(t)x(t), trace(A(t))=0 and det(M(t0))=1, Liouville formula gives det(M(t))=1.
+Assumptions: stated exact linear system; coefficient continuity on finite interval (or standard local-integrability conditions); fundamental matrix exists.
+Evidence class: analytical identity.
+Current status: PASS within stated assumptions. Does not validate interval matrix enclosure, CAPD implementation or provenance.
+Missing evidence: none for the conditional identity; computed enclosure validation remains a distinct open claim.
+Next permitted action: retain as exact analytical invariant only.
+
+C-03 — TRANSFER-MATRIX COMPOSITION
+Source location: Appendix C.3, lines 1300-1325.
+Claim: M_full=F(beta)*M_core*F(alpha), with stated component identities.
+Assumptions: free-propagation matrix F(s) and the specified multiplication order.
+Evidence class: exact algebraic identity.
+Current status: PASS as algebra; it does not validate M_core interval enclosure or target computation.
+Missing evidence: verified source enclosure for M_core and end-to-end composition provenance.
+Next permitted action: preserve the ordered composition; no independent numerical claim from the identity alone.
+
+C-04 — TOOL-LEVEL / TEST-SPECIFIC CAPD RESULTS
+Source location: Appendix C.4, lines 1326-1347.
+Claims: CAPD 6.0.0 ODE smoke test pass for stated y'=y case; TEST 13A-R3 pass for specific multiplication; TEST 13A overall OPEN/INCONCLUSIVE; preliminary exp(U*H) subset test FAILED; corrected one-step scalar comparison conditional pass; rational post-processing pass conditional on supplied interval inputs and analytical estimates.
+Assumptions: exact test inputs, interval operands, stated scalar inequality domain and source configurations.
+Evidence class: test-specific recorded computational results and conditional arithmetic.
+Current status: each result retains its narrow status; no aggregate target pass.
+Missing evidence: raw source/build/output chain and target-specific local enclosure proof.
+Next permitted action: preserve every distinct status; do not combine into one overall PASS.
+
+C-05 — RATIONAL BOUNDARY ESTIMATE AND S48
+Source location: Appendix C.5, lines 1348-1364.
+Claim: rho=eta/w=1/65; r_max=2*rho-rho^2=129/4225; exp(-4225/129)<1/S48(4225/129)<6e-15.
+Assumptions: exact rational parameters and exact positive Taylor partial-sum definition/indexing.
+Evidence class: recorded rational post-processing assertion, conditional on primary derivation.
+Current status: parameter arithmetic checked; S48 bound not independently reproved in this appendix.
+Missing evidence: primary source definition of S48, term indexing and derivation.
+Next permitted action: trace to source derivation during the designated CAPD technical stage; no guessed reconstruction.
+
+C-06 — SOURCE-LEVEL TIME INSPECTION BOUNDARIES
+Source location: Appendix C.6, lines 1365-1383.
+Claim: inspected CAPD time paths retain interval-valued time; this does not establish exact-solution containment by returned state enclosure.
+Assumptions: only the inspected TimeRange/C0Set/C0DoubletonSet/TimeMap/StepControl paths.
+Evidence class: source-level finding with explicit scope boundary.
+Current status: narrow source-path finding retained; target state-enclosure validation OPEN.
+Missing evidence: BasicOdeSolver/IOdeSolver, concrete StepControl/final step, encloseC0Map, Taylor/remainder, dependency handling, dynsys.getStep semantics and source-to-output provenance.
+Next permitted action: inspect only the missing concrete paths if source is available; no inference from high-level API comments.
+
+C-07 — CURRENT CAPD CERTIFICATION BOUNDARY
+Source location: Appendix C.7, lines 1384-1411.
+Claims: partial audit pass; independent full source/build/run reproduction not established; target local enclosure OPEN; root existence/uniqueness not proved; Krawczyk not performed/not authorized; GR-TRANSFER-06C OPEN/INCONCLUSIVE; global certification not granted; universality not established.
+Assumptions: current controlled evidence inventory.
+Evidence class: current certification-status boundary.
+Current status: RETAINED AND CONSISTENT WITH CURRENT CONTROLLED STATUS.
+Missing evidence: target-specific proof, implementation, provenance and independent reproduction.
+Next permitted action: no Krawczyk or root-certification operation absent new explicit authorization and prerequisites; continue bounded evidence work.
+
+C-08 — SOURCE AND EVIDENCE TRACEABILITY REGISTER REQUIREMENT
+Source location: Appendix C.8, lines 1412-1427.
+Claim: each material claim should carry identifier, exact wording, source/version/location, computed hash only when available, repository/source identity, build/environment, binary, inputs, raw outputs, evidence class, status and unresolved dependencies; missing values must be explicitly labeled.
+Assumptions: source identifiers and hashes are reported only when actually established.
+Evidence class: traceability schema / administrative requirement.
+Current status: schema defined; claim-level completion is the present purpose of this working register.
+Missing evidence: exact hashes and build metadata where unavailable; never infer.
+Next permitted action: populate only verified fields; mark others NOT RECORDED / NOT VERIFIED / NOT AVAILABLE.
+
+C-09 — APPENDIX C FINAL CLASSIFICATION
+Source location: Appendix C.9, lines 1428-1452.
+Claim: Appendix C is additive and scope-limited, not independent certification, target-construction certification, universal theorem, CE-V decision or Frozen Core modification.
+Assumptions: source hierarchy and current controlled status.
+Evidence class: documentary status/control statement.
+Current status: RETAINED; CAPD partial audit pass, certification open, GR-TRANSFER-06C open/inconclusive, CE-V-07 reserved, universality not established.
+Missing evidence: none for the recorded boundary; scientific gaps remain in C-02 through C-08 as specified.
+Next permitted action: preserve boundary; no status promotion.
+
+21. APPENDICES A-C COMPLETION CHECK
+
+Appendix A material claim groups A-01 through A-15: IDENTIFIED, source-located, assumptions/class/status/limitations/next action recorded.
+Appendix B material claim groups B-01 through B-11: IDENTIFIED, source-located, assumptions/class/status/limitations/next action recorded.
+Appendix C material claim groups C-01 through C-09: IDENTIFIED, source-located, assumptions/class/status/limitations/next action recorded.
+
+Known source limitation: Appendix A is a compressed historical transcription with lost line breaks in parts of the predecessor. This limits literal reconstruction but does not block mapping of the claims that are actually present in the controlled Appendix A text. No absent predecessor text is inferred.
+
+Overlap control: Appendix B and Appendix C repeat or narrow CAPD claims already mapped in Appendix A. Repetition is recorded as cross-source corroboration/status control, not counted as independent reproduction. The analytical Liouville identity, algebraic composition, arithmetic estimate, recorded CAPD output, source inspection, and provenance remain separate evidence classes.
+
+STAGE 2 APPENDIX A-C SUBTASK: COMPLETE AT THE CLAIM-GROUP LEVEL.
+STAGE 2 OVERALL: NOT YET CLOSED. Remaining completion work: reconcile any remaining material claims in operative Sections XXVI-XXXII against the existing claim IDs; confirm exact Volume II/III source locations for the candidate interfaces; then perform the comparative physical-potential assessment. No physical pilot selected.
