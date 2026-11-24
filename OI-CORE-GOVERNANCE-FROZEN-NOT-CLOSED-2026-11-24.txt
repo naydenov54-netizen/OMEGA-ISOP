@@ -1,0 +1,51 @@
+OMEGA-ISOP — CORE GOVERNANCE PRINCIPLE
+DOCUMENT_ID: OI-CORE-GOVERNANCE-FROZEN-NOT-CLOSED-2026-11-24
+DATE: 2026-11-24
+STATUS: AUTHORIZED GOVERNANCE CLARIFICATION
+PROJECT: OMEGA-ISOP
+APPLIES_TO: FROZEN CORE AND ALL CONTROLLED CORE COMPONENTS
+
+FROZEN ≠ CLOSED
+Замразено ≠ затворено.
+
+FROZEN означава запазена, идентифицирана и версионирана научна основа.
+То не означава забрана за бъдеща научна ревизия.
+
+CLOSED би означавало окончателно затваряне за развитие.
+Това не е статутът на OMEGA-ISOP.
+
+Frozen Core остава отворено за математически, логически, теоретично
+или емпирично обоснована ревизия, когато проверими основания я налагат.
+
+УСЛОВИЯ ЗА РЕВИЗИЯ:
+1. Точно посочване на засегнатия елемент.
+2. Ясно описание на проблема или необходимостта.
+3. Подходящо математическо доказателство, логически аргумент,
+   теоретично основание или емпирични данни.
+4. Анализ на последствията и съвместимостта с останалата архитектура.
+5. Оценка на рисковете и ограниченията.
+6. Изрично разрешение и документирано change-control решение.
+7. Нова версия с пълна проследимост.
+8. Предишната версия се запазва непроменена.
+
+Елегантност, удобство или предпочитание сами по себе си не са
+достатъчно основание за ревизия. Математическото основание може да
+оправдае предложение за промяна, но не извършва промяната автоматично.
+
+SCOPE:
+Това е принцип за управление и версиониране, а не нов математически
+постулат. Сам по себе си той не променя дефиниции, аксиоми, теореми,
+доказателства или научни статуси.
+
+CHANGE-CONTROL:
+AUTHORIZED BY EXPLICIT USER INSTRUCTION — 2026-11-24.
+SCOPE: GOVERNANCE CLARIFICATION ONLY.
+MATHEMATICAL FOUNDATIONS: UNCHANGED.
+
+CONTROLLED SUCCESSORS RECORDED IN LIBRARY:
+- OMEGA-ISOP VOLUME II MATHEMATICAL FOUNDATIONS v1.4
+- M3.2 CONSOLIDATED RESEARCH AND OPERATIONAL HANDOFF v1.6
+- RESEARCH IDENTITY AND FUTURE PROGRAM v3.1
+
+PREDECESSOR DOCUMENTS:
+Preserved unchanged.
