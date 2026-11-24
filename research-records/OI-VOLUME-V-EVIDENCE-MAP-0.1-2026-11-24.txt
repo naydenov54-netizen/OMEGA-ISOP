@@ -1,13 +1,13 @@
 OMEGA-ISOP
 VOLUME V EVIDENCE MAP
-WORKING REGISTER v0.3
+WORKING REGISTER v0.4
 DATE: 2026-11-24
 
 DOCUMENT ID:
 OI-VOLUME-V-EVIDENCE-MAP-0.1-2026-11-24
 
 STATUS:
-STAGE 2 — PARTIAL BASELINE v0.3
+STAGE 2 — PARTIAL BASELINE v0.4
 NOT A MATHEMATICAL CERTIFICATION
 NO PHYSICAL PILOT SELECTED
 NO MASTER REVISION
@@ -314,7 +314,7 @@ STILL OPEN:
 NEXT BOUNDED ACTION:
 Map the exact operational-response / Theorem 91 evidence chain, including the proof source for the conditional non-expansion estimate. Do not reopen the Brown/EMB-CC research line as a substitute for this plan.
 
-END OF WORKING REGISTER v0.3
+END OF WORKING REGISTER v0.4
 
 
 12. CE-V-06.1 / RL-022-RL-023 — FORMAL CONSISTENCY CHECK
@@ -361,3 +361,69 @@ NO CANONICAL SOURCE EDIT.
 13. NEXT BOUNDED ACTION
 
 Complete the exact operational-response / Theorem 91 evidence chain and map the remaining Appendix A-C claim groups. The CE-V-06.1 issue is recorded; do not repeat the same K0 arithmetic/logic check unless the source model or D2 definition changes.
+
+
+14. THEOREM 91 — OPERATIONAL RESPONSE NON-EXPANSION: PROOF AUDIT
+
+AUTHORITATIVE MATHEMATICAL SOURCE:
+Volume II v1.3-MF-AUDIT-RESTORED-FINAL, Section VIII.5.
+CONTROLLED HANDOFF:
+M3.2 v1.5, Section 9.
+RELATED DEFINITIONS:
+Volume II Section VIII.3; Volume III Sections 18-20.
+
+STATEMENT:
+D_L(T(M1),T(M2)) <= D_L(M1,M2).
+
+PROOF CHECK:
+For a common map tau:L_op -> L_op and every a in L_op:
+||Resp_(T(M1))(a)-Resp_(T(M2))(a)||
+= ||Resp_M1(tau(a))-Resp_M2(tau(a))||
+<= sup_{b in L_op} ||Resp_M1(b)-Resp_M2(b)||
+= D_L(M1,M2).
+Taking the supremum over a gives the stated inequality.
+The proof is mathematically valid under the uniform compatibility and domain conditions below.
+
+REQUIRED QUANTIFIER / DOMAIN CONDITIONS:
+1. One and the same tau must work for every M in the comparison class C, not a different tau_M for each model.
+2. tau(a) must lie in the same L_op over which the original D_L is defined.
+3. Responses for M, T(M), and all relevant probes must be defined in the common response space Y.
+4. T must map the selected comparison class into the domain on which the transformed distance is evaluated. A sufficient explicit condition is T(C) subseteq C.
+5. The operational criterion, response space and comparison class must remain fixed.
+6. L_op must be nonempty for the stated extended-pseudometric interpretation; Y must be normed.
+
+QUANTIFIER CHECK:
+The Volume II proof applies the same tau to both M1 and M2. The theorem's singular "there exists a map tau" must therefore be read uniformly over the comparison class. If tau is allowed to depend on M, the displayed proof does not follow.
+
+FINITE COUNTEREXAMPLE TO MODEL-DEPENDENT tau:
+Let L_op={a,b}, Y=R.
+Let Resp_M1(a)=0, Resp_M1(b)=10.
+Let Resp_M2(a)=0, Resp_M2(b)=10.
+Then D_L(M1,M2)=0.
+If tau_M1 is the constant map to a and tau_M2 is the constant map to b, define transformed responses by the model-specific covariance identities. Then Resp_T(M1)(a)=0 and Resp_T(M2)(a)=10, so the transformed distance is at least 10.
+Therefore a model-dependent tau cannot replace the common tau assumption.
+
+SURJECTIVE-tau COROLLARY:
+If the common tau is surjective, then:
+D_L(T(M1),T(M2)) = D_L(M1,M2).
+Reason: the supremum over tau(L_op) equals the supremum over all L_op.
+Surjectivity is not needed for non-expansion; it is sufficient for exact distance preservation.
+If tau is not surjective, strict contraction may occur.
+
+H1 / H4 INTERPRETATION:
+The algebraic inequality itself uses the response covariance, norm and common probe domain. R-existence, admissibility and preservation supply the structural context for T. The comparison-class condition must also ensure the transformed models remain in the relevant response domain. These semantic conditions must not be silently omitted when applying the theorem to a concrete realization.
+
+PHYSICAL BRIDGE STATUS:
+Theorem 91 is a conditional mathematical statement about a response-distance under a probe-covariant transformation. It does not by itself establish physical information conservation, entropy conservation, unitarity, or a physical law. A physical application requires a concrete model, observables/probes, response map, transformation T, and a verified common tau.
+
+AUDIT RESULT:
+PROOF: PASS UNDER THE EXPLICIT UNIFORM-tau AND DOMAIN CONDITIONS.
+THEOREM STATUS: CONDITIONAL THEOREM, UNCHANGED.
+NEW COROLLARY: SURJECTIVE tau IMPLIES DISTANCE PRESERVATION, NOT MERELY NON-EXPANSION.
+NO CANONICAL THEOREM EDIT.
+NO PHYSICAL CLAIM.
+NO RL / CE REGISTRATION.
+
+15. STAGE 2 NEXT ACTION
+
+Continue the subsection-level map of Appendix A-C claims, focusing on the exact source and proof status of the remaining mathematical constructions. Theorem 91 is mapped; do not repeat its supremum proof unless a new assumption, source version or counterexample is introduced.
