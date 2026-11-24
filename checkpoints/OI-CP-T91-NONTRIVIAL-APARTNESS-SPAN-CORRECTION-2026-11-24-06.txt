@@ -1,0 +1,308 @@
+OMEGA-ISOP CHECKPOINT
+CHECKPOINT_ID: OI-CP-T91-NONTRIVIAL-APARTNESS-SPAN-CORRECTION-2026-11-24-06
+DATE: 2026-11-24
+WORKSTREAM: THEOREM_91 / H1 / STOCHASTIC_RELATIONAL_DYNAMICS
+RESEARCH_STAGE: NONTRIVIAL FINITE APARTNESS SPAN
+PARENT_CHECKPOINTS:
+- OI-CP-T91-FINITE-COMPATIBILITY-DIAGRAM-COLIMIT-AUDIT-2026-11-24-04
+- OI-CP-T91-STRONG-APARTNESS-AMALGAM-AUDIT-2026-11-24-05
+
+TITLE: КОРЕКЦИЯ НА КРАЙНАТА ДИАГРАМА С НЕТРИВИАЛНА ОБЩА ОСНОВА
+STATUS:
+NONTRIVIAL FINITE SPAN ESTABLISHED
+STRONG AMALGAM ESTABLISHED FOR THIS SPAN
+CATEGORICAL PUSHOUT NOT ESTABLISHED
+CANONICAL C_METACORE IDENTIFICATION NOT ESTABLISHED
+NO FROZEN CORE CHANGE
+
+============================================================
+1. REASON FOR CORRECTION
+============================================================
+
+Volume III, Section 6, specifies for nontrivial configuration tests:
+|S_C| >= 2
+and
+there exist x,y in S_C such that x # y.
+
+The earlier finite span used S0={a}, a singleton with no apartness pair.
+That singleton is an object of a broad auxiliary category if singleton structures are admitted, but it does not satisfy the stated nontrivial-configuration test.
+
+Therefore the previous span is not sufficient as a test whose every object is required to be a nontrivial configuration.
+
+This checkpoint replaces that span for the nontrivial finite test.
+It does not erase the historical calculation in checkpoints 04 and 05.
+Checkpoint 05 remains a valid result in its explicitly defined auxiliary category, but its singleton base does not satisfy the Volume III nontriviality condition.
+
+============================================================
+2. SOURCE REALIZATION AND CATEGORY
+============================================================
+
+Choose the finite carrier:
+U0={a,b,c,d}.
+
+Use the standard finite apartness realization:
+x # y iff x != y.
+
+This relation satisfies:
+IRREFLEXIVITY:
+not(x # x).
+
+SYMMETRY:
+x # y iff y # x.
+
+COTRANSITIVITY:
+if x # y, then for every z either x # z or z # y.
+For inequality on a set, if z=x then z!=y; if z!=x then x!=z.
+
+This is the standard apartness realization described in Volume II, Section III.2.
+Volume II explicitly treats it as one admissible realization, not the only possible realization.
+
+Define APFin_nontriv_emb as the auxiliary category with:
+- objects: finite sets of size at least 2 carrying standard inequality apartness;
+- morphisms: injective maps preserving and reflecting apartness.
+
+This auxiliary category is a test realization compatible with the stated finite nontriviality condition.
+It is not asserted to be the complete canonical C_METACORE.
+
+============================================================
+3. NONTRIVIAL SPAN
+============================================================
+
+Define:
+S0={a,b}
+S1={a,b,c}
+S2={a,b,d}
+
+On each set, apartness is inequality.
+
+The inclusions:
+e1:S0->S1
+e2:S0->S2
+are embeddings.
+
+Nontriviality audit:
+S0: |S0|=2 and a#b.
+S1: |S1|=3 and a#b.
+S2: |S2|=3 and a#b.
+
+All three objects satisfy:
+|S_i| >= 2
+and
+there exist x,y in S_i with x#y.
+
+============================================================
+4. STRONG AMALGAM
+============================================================
+
+Define:
+P={a,b,c,d}
+with:
+x #P y iff x != y.
+
+Let:
+j1:S1->P be the inclusion;
+j2:S2->P be the inclusion.
+
+Both are injective and preserve and reflect apartness.
+
+Their images satisfy:
+j1(S1) intersect j2(S2) = {a,b} = image(S0).
+
+Thus the non-base elements c and d remain distinct.
+P is a valid finite nontrivial apartness object.
+
+Therefore P is a strong amalgam of this specific span in APFin_nontriv_emb.
+
+This is an existence result for the selected span, not a proof that every span in the category has a strong amalgam.
+
+============================================================
+5. CATEGORICAL PUSHOUT TEST
+============================================================
+
+P is not a categorical pushout in APFin_nontriv_emb.
+
+Take:
+Q=S1={a,b,c}
+with inequality apartness.
+
+Let:
+f1:S1->Q be the identity;
+f2:S2->Q be:
+f2(a)=a;
+f2(b)=b;
+f2(d)=c.
+
+Both maps are embeddings because each source and target carries full inequality apartness and each map is injective.
+
+They agree on S0.
+
+If h:P->Q were a morphism satisfying:
+h composed with j1 = f1
+and
+h composed with j2 = f2,
+then:
+h(a)=a;
+h(b)=b;
+h(c)=c;
+h(d)=c.
+
+Hence h(c)=h(d), so h is not injective.
+Therefore h is not an embedding.
+
+The cocone has no mediating morphism from P in the embedding category.
+Thus P is not a categorical pushout.
+
+The result is consistent:
+P is a strong amalgam, but not a categorical pushout.
+
+============================================================
+6. STOCHASTIC AUTOMORPHISM ON THE CORRECTED P
+============================================================
+
+Define:
+g(a)=a;
+g(b)=b;
+g(c)=d;
+g(d)=c.
+
+Then:
+g(g(x))=x.
+
+Since g is a permutation, it preserves and reflects inequality:
+x #P y iff g(x) #P g(y).
+
+Thus g is an automorphism of the corrected P.
+
+For p in [0,1], define:
+kappa(x,.)=(1-p)delta_x+p delta_g(x).
+
+For n-tuples:
+Lambda_n(x1,...,xn;.)
+=(1-p)delta_(x1,...,xn)
++p delta_(g(x1),...,g(xn)).
+
+Properties:
+- each coordinate marginal is kappa(x_i,.);
+- projective consistency holds;
+- permutation equivariance holds;
+- any coordinatewise inequality constraint is preserved because the same injective map g acts on every coordinate;
+- the kernel is measurable on the finite discrete space.
+
+This proves relational stochastic preservation for this particular finite nontrivial realization.
+
+============================================================
+7. CANONICAL SOURCE BOUNDARIES
+============================================================
+
+Volume II:
+- C_METACORE objects are admissible configurations;
+- exact admissibility conditions are realization-dependent;
+- embeddings are injective and preserve and reflect the selected apartness;
+- CC(C1,C2)=1 iff an admissible amalgamation exists;
+- R=colim(D_CC) only where the required categorical construction exists;
+- R existence is conditional.
+
+Volume III:
+- nontrivial finite structures require at least two elements and at least one apart pair;
+- D_CC requires explicit indexing category J, functor D:J->C_METACORE, morphisms and compatibility conditions;
+- D_CC remains an open formalization program until these are specified.
+
+The corrected span satisfies the explicit finite nontriviality condition and uses the standard apartness realization.
+It does not establish that the complete canonical C_METACORE has no additional admissibility constraints.
+It does not supply the full canonical D_CC indexing category.
+
+============================================================
+8. RESULT CLASSIFICATION
+============================================================
+
+ESTABLISHED:
+1. A finite standard apartness carrier U0={a,b,c,d}.
+2. Three nontrivial configurations S0, S1, S2.
+3. Embeddings of S0 into S1 and S2.
+4. A strong amalgam P with disjoint non-base images.
+5. Failure of the categorical pushout property for P in the embedding category.
+6. An involutive automorphism g of P.
+7. A finite Markov kernel and coherent joint lift preserving the selected apartness constraints.
+
+NOT ESTABLISHED:
+1. Complete canonical C_METACORE identification.
+2. Universal strong amalgamation property.
+3. Canonical D_CC indexing category and functor.
+4. Canonical colimit R.
+5. Realization map Phi for canonical R.
+6. kappa in A(R;Phi).
+7. K_kappa(L_op) subseteq L_op.
+8. Universal H1/H3.
+9. Universal stochastic extension of Theorem 91.
+
+============================================================
+9. LOOP AUDIT
+============================================================
+
+VOLUME III NONTRIVIALITY CONDITION:
+PASS FOR S0, S1, S2 AND P.
+
+STANDARD APARTNESS AXIOMS:
+PASS.
+
+EMBEDDINGS:
+PASS.
+
+STRONG AMALGAM:
+PASS FOR THIS SPAN.
+
+CATEGORICAL PUSHOUT:
+FAILS FOR P IN THE EMBEDDING CATEGORY.
+
+INVOLUTIONAL AUTOMORPHISM:
+PASS.
+
+FINITE STOCHASTIC RELATIONAL PRESERVATION:
+PASS FOR THIS REALIZATION.
+
+CANONICAL C_METACORE:
+OPEN.
+
+CANONICAL D_CC:
+OPEN.
+
+CANONICAL R AND A(R;Phi):
+OPEN.
+
+OPERATIONAL CLOSURE:
+OPEN.
+
+THEOREM 91:
+CONDITIONAL; NOT PROMOTED.
+
+FROZEN CORE:
+INTACT.
+
+VOLUMES II / III / V:
+UNCHANGED.
+
+CE-V:
+NOT PROMOTED.
+
+RL REGISTRATION:
+NONE. DERIVATIVE GITHUB RESEARCH CHECKPOINT ONLY.
+
+============================================================
+10. NEXT JUSTIFIED ACTION
+============================================================
+
+The next task is to formalize the compatibility diagram using only admissible amalgamation data, not merely a chosen strong amalgam.
+
+Specifically:
+1. define the indexing category J;
+2. define the functor D:J->C_METACORE;
+3. specify which spans count as compatible under CC;
+4. specify whether the target is an amalgam object or a categorical colimit;
+5. test the relevant universal property in the actual selected category.
+
+Do not identify strong amalgamation with categorical pushout.
+Do not identify this auxiliary finite category with the complete C_METACORE.
+Do not promote A(R;Phi), Theorem 91, or CE-V.
+Do not modify the Frozen Core.
+
+END OF CHECKPOINT
