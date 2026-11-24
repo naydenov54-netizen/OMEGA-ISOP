@@ -1,215 +1,138 @@
-OMEGA-ISOP BOOT HANDOFF
-DOCUMENT_ID:
-OI-BOOT-HANDOFF-THEOREM-91-2026-11-23
+OMEGA-ISOP BOOT-HANDOFF
+DOCUMENT_ID: OI-BOOT-HANDOFF-2026-11-24
+VERSION: 1.1
+DATE: 2026-11-24
+STATUS: OPERATIONAL STARTUP GUIDE
+SCIENTIFIC RESULT: NONE
+FROZEN CORE AMENDMENT: NONE
+RL REGISTRATION: NONE
 
-VERSION:
-1.0
-
-DATE:
-2026-11-23
-
-STATUS:
-SUPPLEMENTARY WORKING HANDOFF
-NOT CANONICALLY ACCEPTED
-NOT A SCIENTIFIC RESULT
-NOT A FROZEN CORE AMENDMENT
-NOT AN RL REGISTRATION
-
-PROJECT:
-OMEGA-ISOP
-
-REPOSITORY:
-https://github.com/naydenov54-netizen/OMEGA-ISOP
-
-PRIMARY_OPERATIONAL_HANDOFF:
-OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF-v1.4.txt
-VERSION 1.4
-DATE 2026-11-23
-
-VERSION_LINEAGE:
-Version 1.4 is the v1.3 operational handoff with one added operational element: the anti-circularity / anti-LOOP verification protocol in Section 1 (RULE_11 and LOOP_AUDIT_PROTOCOL).
-All other handoff content is carried forward from v1.3. Version 1.4 is not a broader rewrite and does not introduce a new scientific result or change the Frozen Core.
-
-PURPOSE:
-Preserve the verified session state and next justified action for Theorem 91 / H1. This file supplements, and does not replace, the current primary operational handoff v1.4.
+PROJECT: OMEGA-ISOP
+REPOSITORY: https://github.com/naydenov54-netizen/OMEGA-ISOP
+DEFAULT BRANCH: main
 
 ==================================================
-1. STARTUP AND REPOSITORY STATE VERIFIED ON 2026-11-23
+1. GOVERNING RULES
 ==================================================
 
-Repository: naydenov54-netizen/OMEGA-ISOP
-Default branch: main
-Branch inventory checked: main only
-Latest commit inspected:
-93cff8c54e74ca213db62384eaba87d6a4cff1aa
-Commit message:
-Add Library persistence and new-chat boot procedure; handoff v1.3
+FROZEN ≠ CLOSED.
 
-Recursive Git tree inspected at that commit:
-Only one tracked file was present:
-OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF-v1.3.txt
+The Frozen Core is a protected, versioned scientific baseline, not a permanently closed body. A justified revision remains possible only through explicit change control and explicit user authorization. Preserve every predecessor unchanged.
 
-No file named BOOT-HANDOFF existed in the inspected main-branch tree before this supplementary file was created.
+The active GitHub main-branch tree must contain only:
+BOOT-HANDOFF.txt
 
-The v1.3 operational handoff was fetched and read in full during the original 2026-11-23 session. The current v1.4 handoff was subsequently verified in the repository. For operational use, follow v1.4: it carries forward the v1.3 content and adds only RULE_11 plus the LOOP_AUDIT_PROTOCOL in Section 1. The original repository-state observations above remain historical observations from the earlier commit.
+GitHub is used for commit history and recovery of previous repository states. Do not add project masters, research records, duplicate copies, or checkpoint files to the active main-branch tree.
+
+Do not create duplicate checkpoint files in the active Library. Do not create checkpoint files in the active GitHub tree. Update the relevant existing master or research record only when a durable scientific or operational change genuinely requires it. A Git commit is version history, not scientific validation.
+
+Do not silently promote a hypothesis, conditional result, computation, numerical result, or working audit into a theorem or established result.
 
 ==================================================
-2. THEOREM 91 — VERIFIED HANDOFF STATE
+2. CHATGPT LIBRARY — ACTIVE PROJECT STRUCTURE
 ==================================================
 
-Theorem title/status from the primary operational handoff:
-THEOREM 91: CONDITIONAL NON-EXPANSION
-THEOREM_STATUS: CONDITIONAL RESULT
+PROJECT ROOT:
+/OMEGA-ISOP/
 
-Theorem 91 assumptions recorded in primary handoff:
-H1: R exists, T is admissible, and R is preserved.
-H2: Y is normed.
-H3: There exists a map tau:L_op -> L_op such that
-    Resp_(T(M))(a) = Resp_M(tau(a)).
-H4: The operational criterion and comparison class remain fixed.
+ACTIVE MASTER DOCUMENTS:
+/OMEGA-ISOP/актуални MASTER документи/
+- OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF-v1.6.txt
+- OMEGA-ISOP-RESEARCH-IDENTITY-AND-FUTURE-PROGRAM-v3.1-2026-11-24.txt
+- CE-V-OMEGA-ISOP-RETAINED-EXTENSIONS-STATUS-FINAL.txt
 
-Conclusion:
-D_L(T(M1),T(M2)) <= D_L(M1,M2)
+VOLUMES:
+/OMEGA-ISOP/VOLUME II–V/
+- OMEGA-ISOP-VOLUME-II-MATHEMATICAL-FOUNDATIONS-v1.4-GOVERNANCE-ADDENDUM-2026-11-24.txt
+- &OMEGA-ISOP-VOLUME-III-VALIDATION-FRAMEWORK-v1.1-VAL-RESTORED.txt
+- &OMEGA-ISOP-VOLUME-IV-UNIFIED-EXTENSION-FRAMEWORK-v1.4-R-RESTORED.txt
+- &OMEGA-ISOP-VOLUME-V-v2.4-C-1.5-CONTROLLED-MASTER-2026-11-22.txt
 
-Interpretation:
-Under the stated assumptions, operational response distance does not increase under T.
+FROZEN CORE:
+/OMEGA-ISOP/Frozen Core/
+- &OMEGA-ISOP-v2.0-FC10.2-CONSOLIDATED-FROZEN-CORE.txt
 
-This supplementary handoff records the current H1 verification discussion only. It does not alter the theorem statement or its assumptions.
+RESEARCH RECORDS:
+/OMEGA-ISOP/Research Records/
+- OMEGA-ISOP-RL-022-RL-023-CONSOLIDATED-ARCHIVAL-SUPPLEMENT-2026-11-24.txt
+- OMEGA-ISOP-VOLUME-V-THAW-AUDIT-0.1-2026-11-22.txt
 
-==================================================
-3. H1 — CURRENT WORKING STATUS
-==================================================
+RL-026:
+/OMEGA-ISOP/RL-026/OMEGA-ISOP_RL-026_R6_CLEANED.txt
 
-H1 COMPONENT A:
-R EXISTS
-Status: CONDITIONAL / NOT INDEPENDENTLY RE-VERIFIED IN THIS SESSION.
-The primary handoff records this as part of H1. The exact primary construction/source for R was not retrieved in this session.
+RL-027:
+/OMEGA-ISOP/RL-027/OMEGA-ISOP_RL-027_CONSOLIDATED.txt
 
-H1 COMPONENT B:
-T IS ADMISSIBLE
-Status: CONDITIONAL / WORKINGLY ASSOCIATED WITH A(R;Phi).
-The session discussion treated admissibility through A(R;Phi), but the exact canonical definition and domain/codomain conditions of A(R;Phi) were not available in the inspected repository file. Do not upgrade this to a proved implication.
-
-H1 COMPONENT C:
-R IS PRESERVED UNDER T
-Status: WORKING FORMALIZATION CLARIFIED; SOURCE-LEVEL MATCH STILL UNVERIFIED.
-
-For a relational signature Sigma_R with relations rho_i of arity n_i, the proposed homomorphism-preservation condition is:
-
-For every rho_i in Sigma_R and all x1,...,xn_i in the corresponding domain:
-rho_i(x1,...,xn_i) =>
-rho_i(T(x1),...,T(xn_i)).
-
-For irreversible dynamics:
-Use End(X,R), interpreted as endomorphisms/homomorphisms preserving each designated relation in the forward direction. No converse implication is required by the standard relational-homomorphism condition.
-
-For reversible dynamics:
-Use Aut(X,R), interpreted as automorphisms, with structural preservation and reflection:
-rho_i(x1,...,xn_i) <=>
-rho_i(T(x1),...,T(xn_i)).
-This includes the automorphism requirement, not merely a forward homomorphism condition.
-
-USER DECISION:
-The user explicitly agreed to this as the working choice on 2026-11-23:
-- Irreversible dynamics: one-way relation preservation / End(X,R).
-- Reversible dynamics: two-way structural preservation / Aut(X,R).
-
-Decision status:
-WORKINGLY ACCEPTED.
-NOT CANONICALLY ACCEPTED.
-NOT A FROZEN CORE CHANGE.
-
-IMPORTANT DISTINCTION:
-T(X_R) subseteq X_R only guarantees preservation of the admissible domain/set. It does not, in general, prove preservation of all relations in Sigma_R. Domain preservation and relational-structure preservation must remain separate unless a formal argument proves their equivalence in the chosen realization.
-
-IMPORTANT LOGICAL LIMIT:
-The current record does NOT establish that A(R;Phi) implies relational preservation. Such an implication may only be asserted if the exact definition of A(R;Phi), together with the relevant assumptions, entails the relation-preservation condition. Do not assume this implication from notation or from T being admissible alone.
-
-The primary handoff states H1 as three conjunctive requirements: R exists, T is admissible, and R is preserved. It does not, in the retrieved text, state that the third requirement follows automatically from A(R;Phi).
+Library is the active document workspace. Superseded documents must not remain in the active project structure. The Volume V v2.1 CAPD research insert was moved to Library trash after identification of the controlled Volume V v2.4-C-1.5 Master. No scientific content was edited by the organizational moves.
 
 ==================================================
-4. WHAT REMAINS OPEN
+3. REQUIRED STARTUP SEQUENCE
 ==================================================
 
-1. Retrieve the exact canonical definition of A(R;Phi).
-2. Retrieve the original/canonical statement and context of Theorem 91, including the definitions of X_R, R, Evol(X), and admissibility of T.
-3. Determine whether the canonical definition of A(R;Phi) entails relation preservation, or whether preservation is an independent H1 assumption/condition.
-4. Check whether the relevant T is an endomorphism of the full relational structure, or only a self-map preserving the admissible domain.
-5. Check domain/codomain and typing conditions for every rho_i and T(x_j).
-6. Check whether reversible T is explicitly bijective and whether the full automorphism condition is justified.
-7. Only after source-level comparison, decide whether the working formalization accurately expresses the canonical theorem.
-
-Do not close H1 until these checks are supported by the primary source.
+1. Read the latest M3.2 handoff in the active MASTER folder.
+2. Read the Research Identity and Future Program document.
+3. Consult the relevant Volume and Frozen Core sources for the task.
+4. Consult the relevant RL and Research Records.
+5. Verify source version, provenance, and status before relying on a claim.
+6. Continue from the last verified state. Do not reconstruct missing facts or ask the user to repeat information already available.
+7. Do not edit the Frozen Core, canonical theorems, or controlled masters without the applicable authorization.
 
 ==================================================
-5. CORRECTION TO THE SESSION'S PREVIOUS NEXT-STEP FRAMING
+4. GITHUB STATE AND HISTORICAL BRANCHES
 ==================================================
 
-The earlier working discussion proposed checking whether A(R;Phi) implies preservation of R. This is a valid question to investigate, but it is not established as a necessary theorem obligation by the currently retrieved primary handoff.
+The verified main-branch tree at the last inspection contained exactly one file:
+BOOT-HANDOFF.txt
 
-Theorem 91's H1, as recorded in the primary handoff, lists "R is preserved" as a requirement. Unless the original theorem explicitly derives it from admissibility, it may be an independent assumption. Do not silently convert an assumption into a derived consequence, or vice versa.
+The following additional branch refs were found:
+- research/emb-cc-03-amalgamation-witness
+- research/rl-027-domain-identifiability-audit
+- research/volume-v-evidence-map-01
 
-Therefore the next justified action is source retrieval and exact logical classification:
-- independent assumption;
-- consequence of A(R;Phi);
-- or equivalent condition under explicitly stated definitions.
+These branches contain checkpoint directories and research material absent from the active main tree. Their tips are not ancestors of the inspected main head; the histories diverge from commit 560287a9babd6da690497341d5831937469a2cad.
 
-==================================================
-6. PROTECTED SCOPE AND CHANGE CONTROL
-==================================================
+Do not treat these branch trees as active project workspaces. Do not delete their refs until their commits have been made reachable from main history and the user’s intended archival treatment is respected. Their checkpoint files are not part of the active main tree.
 
-Frozen Core: PROTECTED.
-Canonical Theorem 91 text: DO NOT EDIT.
-Primary operational handoff v1.4: PRESERVE.
-Version lineage: v1.4 = v1.3 + anti-circularity / anti-LOOP protocol only.
-This BOOT-HANDOFF file: supplementary working record only.
-
-No definitions, theorem statements, assumptions, proofs, or canonical source documents are changed by this record.
-
-Any future canonical modification requires the change-control procedure in the primary operational handoff and explicit user authorization.
+The previous BOOT-HANDOFF v1.0 and all earlier repository states remain recoverable through Git commit history.
 
 ==================================================
-7. NEXT JUSTIFIED ACTION
+5. OPEN DOCUMENT-CONTROL ISSUE
 ==================================================
 
-Continue Theorem 91 / H1 source verification from the exact canonical definitions and theorem context.
+The active Frozen Core filename identifies v2.0-FC10.2.
+The Volume II v1.4 governance addendum header states compatibility with v2.0-FC10.1 / M3.2-FINAL.
 
-Do not ask the user to repeat information already present in this handoff.
-Do not invent missing definitions or source paths.
-If the canonical source is not present in the repository, search the available project Library/source records before asking the user for the minimum missing primary source.
+This version-label discrepancy has not been resolved. Do not normalize, rename, or edit either document by assumption. Verify the intended compatibility against the source/version lineage before any future revision.
+
+Volume IV v1.4-R-RESTORED explicitly states that its recovered source is partial. Do not describe it as a complete restoration.
 
 ==================================================
-8. END-OF-SESSION RECORD
+6. PROTECTED STATUS AND NON-IMPLICATIONS
 ==================================================
 
-WORK_COMPLETED:
-- Located the OMEGA-ISOP GitHub repository.
-- Inspected repository metadata, branch inventory, commit, recursive tree, and primary handoff v1.3 during the original session.
-- Subsequently verified the current primary handoff v1.4 and its stated version delta: only the LOOP protocol was added to the v1.3 baseline.
-- Read the current v1.4 handoff sufficiently to verify its metadata and LOOP addition.
-- Recovered the working decision for irreversible/reversible relation preservation.
-- Recorded the distinction between domain preservation and relational preservation.
-- Recorded that A(R;Phi) => preservation is not yet established.
-- Created this supplementary BOOT-HANDOFF record.
+FROZEN ≠ CLOSED.
+A preserved Core may be revised through justified and authorized change control.
 
-EVIDENCE:
-Repository metadata, Git tree, commit, and primary handoff v1.3 were directly retrieved during the original session. The current v1.4 handoff and current main-branch head were separately verified during the correction.
-The mathematical status remains conditional/working pending canonical source verification.
+A Library move is not a scientific revision.
+A Git commit is not proof.
+A research record is not automatically an RL registration.
+A validation result is not automatically a universal theorem.
+A mathematical construction is not automatically a physical mechanism.
+A physical interpretation is not empirical evidence.
 
-FILES:
-This file only, as a supplementary working handoff.
-No Frozen Core or canonical theorem file modified.
+No RL registration, CE-V promotion, Frozen Core amendment, or scientific certification is implied by this BOOT-HANDOFF.
 
-CHECKPOINT:
-No separate research checkpoint created.
+==================================================
+7. NEXT JUSTIFIED OPERATIONAL ACTION
+==================================================
 
-RL_REGISTRATION:
-None. No registration claimed.
+Complete the GitHub branch-history consolidation without adding any files to the active main tree. Preserve all branch commits as reachable history before removing obsolete branch refs. Then verify:
+- one active branch, main;
+- one active tracked file, BOOT-HANDOFF.txt;
+- no checkpoint files in the active tree;
+- previous commits remain reachable.
 
-NEXT_STEP:
-Retrieve exact canonical definitions and Theorem 91 source context; then complete the H1 implication audit.
+Until branch-history consolidation and branch cleanup are verified, report the three research refs as archival branches rather than claiming that GitHub has only one branch.
 
-FINAL STATUS:
-SUPPLEMENTARY BOOT HANDOFF
-VERSION 1.0
-WORKING RECORD ONLY
+END OF BOOT-HANDOFF
+VERSION 1.1
