@@ -1,0 +1,222 @@
+OMEGA-ISOP
+EMB-CC-04 / FINITE-FAMILY EXTENSION
+FINITE-CLOSURE CRITERION UNDER A FIXED SUBCATEGORY-WITNESS CONVENTION
+
+CHECKPOINT_ID:
+OI-CP-EMB-CC-04-FINITE-CLOSURE-CRITERION-2026-11-24-02
+
+DATE:
+2026-11-24
+
+STATUS:
+GENERAL CATEGORY-THEORETIC RESULT UNDER AN EXPLICIT WITNESS CONVENTION
+CC-SPECIFIC APPLICATION UNRESOLVED
+ORIGINAL EMB-CC-03 PREDICATE NOT RECOVERED
+NO CANONICAL OMEGA-ISOP CLAIM
+NO FROZEN CORE CHANGE
+NO RL REGISTRATION
+
+============================================================
+1. OBJECTIVE
+============================================================
+
+Continue the finite-family question from:
+OI-CP-EMB-CC-04-FINITE-FAMILY-TEST-2026-11-24-01.
+
+Determine exactly what additional condition converts finitely many finite individual subcategory witnesses into a finite common subcategory witness.
+
+This checkpoint does not reconstruct or replace the missing original EMB-CC-03 definition.
+
+============================================================
+2. SOURCE-RECOVERY RESULT
+============================================================
+
+The OMEGA-ISOP Library was searched for:
+- the exact phrase "diagram-relative sufficiency";
+- EMB-CC-03 witness predicate and closure operator;
+- witness type, containment/factorization, minimality, and finite-family quantifiers.
+
+No exact original EMB-CC-03 source artifact or authoritative definition was recovered.
+
+The controlled Volume II wording continues to state that local-configuration admissibility is realization-dependent. It defines configuration embeddings as injective maps preserving and reflecting the selected apartness structure. It defines CC through existence of an admissible amalgamation, but does not provide the full witness predicate or closure operation.
+
+Accordingly, the original CC-specific predicate remains unresolved. The D_infinity construction remains a counterexample only under the explicit subcategory-witness convention below, not a certified counterexample to canonical OMEGA-ISOP.
+
+============================================================
+3. EXPLICIT WITNESS CONVENTION
+============================================================
+
+For this checkpoint only, fix a category C.
+
+A subcategory witness for a diagram D is a subcategory W of C that contains the image of D (on objects and arrows).
+
+For a finite family D_1,...,D_n, a common subcategory witness W must contain the images of every D_i.
+
+This convention is a mathematical test definition, not a recovered OMEGA-ISOP definition.
+
+Let S be the union of the object and arrow data of a family of subcategories W_1,...,W_n. Define <S>_C as the least subcategory of C containing S, obtained by adjoining all required identity arrows and all finite composites of composable arrows in S.
+
+If no such subcategory exists under the chosen ambient restrictions, the convention itself is not applicable; in an ordinary category C, the generated subcategory exists.
+
+============================================================
+4. FINITE-CLOSURE LEMMA
+============================================================
+
+LEMMA:
+Let C be a category and let D_1,...,D_n be a finite family of diagrams. Suppose:
+
+(1) For each i, there is a finite subcategory W_i of C containing the image of D_i.
+
+(2) The generated subcategory
+    W := < union_i W_i >_C
+    is an admissible witness under the selected witness convention.
+
+(3) The closure W has finitely many objects and finitely many arrows.
+
+Then W is a finite common subcategory witness for the entire family.
+
+PROOF:
+By construction, W contains every W_i, hence contains the image of every D_i. By assumption (2), W is an admissible witness. By assumption (3), its object and arrow sets are finite. Therefore W is a finite common witness. QED.
+
+IMPORTANT:
+Assumption (3) is not implied by finiteness of the individual W_i.
+If admissibility is not closed under generated subcategories, assumption (2) is an independent requirement.
+The lemma is conditional and does not prove either condition from the OMEGA-ISOP source architecture.
+
+============================================================
+5. FINITE AMBIENT SUFFICIENT CONDITION
+============================================================
+
+COROLLARY:
+If all W_i are subcategories of one finite category C_f, and C_f is an admissible common witness containing all D_i, then a finite common witness exists.
+
+PROOF:
+Take W=C_f. It contains all D_i by assumption and is finite because C_f is finite. QED.
+
+A sharper generated witness is < union_i W_i >_(C_f), which is also finite because it is a subcategory of a finite category.
+
+This corollary is sufficient, not necessary. A finite generated common witness may exist inside an infinite ambient category.
+
+============================================================
+6. CONTRASTING EXAMPLES
+============================================================
+
+6.1 INFINITE CLOSURE
+
+Let:
+C = one-object category with endomorphism group
+D_infinity = <a,b | a^2=e, b^2=e>.
+
+Set:
+W_1 = {e,a}
+W_2 = {e,b}.
+
+Each W_i is a finite subcategory.
+
+The generated common subcategory contains every alternating reduced word:
+(ab)^n, for n >= 0.
+
+Since ab has infinite order in C_2 * C_2, these arrows are pairwise distinct. Therefore:
+|<W_1 union W_2>_C| = infinity.
+
+Thus finite individual witnesses do not imply a finite common generated witness.
+
+6.2 FINITE CLOSURE
+
+Let:
+C = one-object category with endomorphism group
+C_2 x C_2 = <a,b | a^2=e, b^2=e, ab=ba>.
+
+Again set:
+W_1={e,a}
+W_2={e,b}.
+
+The generated common subcategory is:
+{e,a,b,ab}.
+
+It is finite, with four arrows.
+
+The two examples have the same finite individual witness sizes and involution relations. The difference is the interaction/closure relation between generators: in the second example they commute, while in the first there is no relation forcing ab to have finite order.
+
+============================================================
+7. EXACT LOGICAL CONCLUSION
+============================================================
+
+The finite-family implication is not valid from individual finiteness alone.
+
+Under the explicit subcategory-witness convention, the exact additional requirement is that the jointly generated closure be finite and admissible.
+
+A finite ambient category is one sufficient way to guarantee finite closure.
+
+The condition is not a universal OMEGA-ISOP axiom. It is a conditional criterion for this witness convention.
+
+The D_infinity example refutes the unrestricted implication in the general category-theoretic setting. The C_2 x C_2 example shows that finite common closure can hold in another category under the same individual finite-witness pattern.
+
+============================================================
+8. LOOP / INDEPENDENCE AUDIT
+============================================================
+
+TARGET:
+Finite individual subcategory witnesses imply a finite common subcategory witness.
+
+COUNTERMODEL:
+D_infinity as specified in Section 6.1.
+
+INDEPENDENT POSITIVE CONDITION:
+Finite jointly generated closure plus admissibility of that closure.
+
+NO CONCLUSION-SMUGGLING:
+The finite-closure condition is stated as an additional premise, not derived from the desired conclusion.
+
+PREMISE REMOVAL:
+Removing finite closure admits the D_infinity counterexample.
+Removing closure-admissibility means the generated subcategory may fail the selected witness predicate even if it is finite.
+
+CLASSIFICATION:
+GENERAL IMPLICATION: REFUTED.
+CONDITIONAL FINITE-CLOSURE LEMMA: PROVED.
+OMEGA-ISOP CC-SPECIFIC IMPLICATION: UNRESOLVED.
+
+============================================================
+9. LIMITATIONS AND NON-IMPLICATIONS
+============================================================
+
+This checkpoint does not:
+- recover the original EMB-CC-03 definition;
+- establish that OMEGA-ISOP witnesses are subcategories;
+- establish that witness admissibility is closed under generated subcategories;
+- establish a canonical C_METACORE arrow class;
+- define D_CC or its universal property;
+- establish strong amalgamation;
+- establish a canonical R;
+- modify Theorem 91;
+- modify Frozen Core or Volumes II, III, or V;
+- create an RL registration, CE, or CE-V result.
+
+============================================================
+10. NEXT JUSTIFIED ACTION
+============================================================
+
+Continue source recovery only if a genuinely new authoritative source path or original EMB-CC-03 artifact becomes available.
+
+Otherwise, keep the source gap explicit and proceed with a separately labelled reconstruction only if the user/project workflow requires a CC-specific formal predicate.
+
+Any reconstruction must be marked NON-CANONICAL / WORKING DEFINITION and must not be retroactively attributed to EMB-CC-03.
+
+Before applying the D_infinity countermodel to OMEGA-ISOP, compare the reconstructed predicate clause-by-clause with the actual intended witness semantics.
+
+============================================================
+11. ARCHITECTURAL INVARIANTS
+============================================================
+
+FROZEN CORE: UNCHANGED.
+VOLUME II: UNCHANGED.
+VOLUME III: UNCHANGED.
+VOLUME V: UNCHANGED.
+THEOREM 91: CONDITIONAL / UNCHANGED.
+D_CC: FORMALIZATION OPEN.
+RL REGISTRATION: NONE.
+CE / CE-V PROMOTION: NONE.
+MAIN BRANCH: MUST REMAIN UNCHANGED.
+
+END OF CHECKPOINT
