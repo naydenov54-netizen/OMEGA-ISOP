@@ -1,0 +1,266 @@
+OMEGA-ISOP
+THEOREM 91 / EMB_CC RESEARCH
+FINITE-FAMILY EXTENSION: CATEGORY-THEORETIC TEST AND RECOVERY CHECKPOINT
+
+CHECKPOINT_ID:
+OI-CP-EMB-CC-04-FINITE-FAMILY-TEST-2026-11-24-01
+
+DATE:
+2026-11-24
+
+WORKSTREAM:
+EMB_CC-04 / FINITE FAMILY EXTENSION
+
+RESEARCH_STAGE:
+SOURCE RECOVERY, CONDITIONAL COUNTERMODEL, AND FORMALIZATION BOUNDARY
+
+CONTROLLING HANDOFF:
+OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF-v1.5.txt
+VERSION 1.5, DATE 2026-11-24
+
+============================================================
+1. OBJECTIVE
+============================================================
+
+Continue from the user-provided EMB_CC-03 status and test whether finite individual witnesses for a finite family of finite diagrams imply a finite common witness.
+
+Preserve the protected OMEGA-ISOP architecture. Do not modify Frozen Core, Volume II, Volume III, Volume V, R, CORE, STRONGNESS, HANDOFF v1.5, or THEOREM_91.
+
+============================================================
+2. SOURCE AND REPOSITORY RECOVERY
+============================================================
+
+Repository:
+https://github.com/naydenov54-netizen/OMEGA-ISOP
+
+Branch inspected:
+main
+
+HEAD before this checkpoint:
+441ee9a6cdc6c796b11155e86190b14a3f89d1a3
+
+Controlling handoff read:
+OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF-v1.5.txt
+
+Relevant verified checkpoints read:
+- OI-CP-T91-FINITE-COMPATIBILITY-DIAGRAM-COLIMIT-AUDIT-2026-11-24-04
+- OI-CP-T91-NONTRIVIAL-APARTNESS-SPAN-CORRECTION-2026-11-24-06
+- OI-CP-T91-EXPLICIT-CC-DIAGRAM-AND-COLIMIT-OBSTRUCTION-2026-11-24-07
+- OI-CP-T91-MINIMAL-APARTNESS-PUSHOUT-HOM-CATEGORY-2026-11-24-08
+- OI-CP-T91-FINITE-ADMISSIBLE-AMALGAMATION-PROFILE-2026-11-24-13
+- OI-CP-T91-CC-STRONGNESS-ARCHITECTURE-SOURCE-AUDIT-2026-11-24-14
+
+Source-audit finding from CP-14:
+CC(C1,C2)=1 iff an admissible amalgamation exists.
+The controlled wording does not explicitly require strong amalgamation.
+The realization-specific admissibility class, exact arrow class, and complete D_CC formalization remain underdetermined/open.
+D_CC requires an indexing category, a functor, morphisms, compatibility conditions, and a universal property.
+
+IMPORTANT SOURCE GAP:
+No repository checkpoint or controlled source containing the exact EMB_CC-03 definition of “diagram-relative sufficiency,” its witness predicate, or its closure operator was found in the inspected repository and handoff.
+The EMB_CC-03 status list in the conversation is user-provided context, not a recovered archival source.
+Therefore the exact CC-specific implication cannot yet be certified.
+
+============================================================
+3. TARGET PROPOSITION
+============================================================
+
+Target question:
+For a finite family of finite diagrams D_1,...,D_n, if each D_i has a finite diagram-relative witness, must there exist a finite common witness sufficient for the entire family?
+
+The exact quantifiers and meaning of “witness” remain dependent on the missing EMB_CC-03 definition.
+
+============================================================
+4. CATEGORY-THEORETIC TEST MODEL
+============================================================
+
+Define the infinite dihedral group:
+
+D_infinity = <a,b | a^2=e, b^2=e>
+
+Let C be the one-object category whose endomorphism monoid is D_infinity.
+Composition is group multiplication.
+
+Define two finite subcategories on the same object X:
+
+D_1: Hom_D1(X,X) = {e,a}
+D_2: Hom_D2(X,X) = {e,b}
+
+Each is a finite category because a^2=e and b^2=e.
+
+Each diagram has an individual finite witness:
+W_1 = D_1
+W_2 = D_2
+
+Any subcategory W of C containing both D_1 and D_2 must contain a and b and be closed under composition. Hence it contains (ab)^n for every integer n >= 0.
+
+In D_infinity, ab has infinite order. Therefore W has infinitely many morphisms.
+
+Conclusion within this explicitly specified category/subcategory witness convention:
+Two finite diagrams can each have a finite individual witness while every common subcategory witness containing both is infinite.
+
+This is a valid counterexample to the unrestricted inference:
+“finite family + finite individual subcategory witnesses => finite common subcategory witness.”
+
+It is NOT yet a CC-specific counterexample because the exact EMB_CC-03 CC-sufficiency predicate and its witness object have not been recovered.
+
+============================================================
+5. CORRECTION OF THE EARLIER BZ EXAMPLE
+============================================================
+
+The previous BZ example correctly illustrated that a finite generating set can generate an infinite subcategory, but it did not establish the finite-family claim with finite individual subcategory witnesses.
+
+The D_infinity construction is stronger for the finite-family test:
+each individual witness is itself a finite subcategory, while the jointly generated subcategory is infinite.
+
+The earlier BZ construction is retained only as a basic finite-generation/closure illustration, not as proof of the CC-family claim.
+
+============================================================
+6. CONDITIONAL FINITENESS LEMMA
+============================================================
+
+A positive finite-family theorem can be obtained under an additional finite-closure condition.
+
+Suppose:
+(1) The family D_1,...,D_n is finite.
+(2) Each D_i has a finite witness W_i.
+(3) The union of the W_i is contained in a common admissible witness construction.
+(4) The closure of the finite union under all required witness operations is finite.
+
+Then the resulting common witness is finite.
+
+Condition (4) is substantive and is not implied merely by the finiteness of the W_i.
+Condition (3) is also substantive: individually admissible witnesses need not be jointly compatible.
+
+This is a conditional lemma schema, not a theorem of canonical OMEGA-ISOP until the witness and closure notions are fixed.
+
+============================================================
+7. LOOP AND COUNTERMODEL AUDIT
+============================================================
+
+TARGET:
+Finite individual witnesses imply a finite joint witness.
+
+PREMISES:
+Finite family; finite individual witnesses; category closure under composition.
+
+COUNTERMODEL:
+D_infinity with D_1={e,a}, D_2={e,b}.
+
+FAILED INFERENCE:
+Finiteness of each W_i does not imply finiteness of the subcategory generated jointly by their union.
+
+CLASSIFICATION:
+REFUTED as a general category-theoretic implication under the stated subcategory-witness convention.
+CC-SPECIFIC STATUS:
+UNRESOLVED / INCOMPLETE pending exact EMB_CC-03 definitions.
+
+NON-IMPLICATIONS:
+This does not prove that a finite common CC witness fails in the selected OMEGA-ISOP realization.
+It does not determine the admissibility class.
+It does not establish or require strong amalgamation.
+It does not define D_CC or R.
+It does not modify or strengthen THEOREM_91.
+
+============================================================
+8. RESULTS AND EVIDENCE CLASS
+============================================================
+
+ESTABLISHED MATHEMATICAL CONSTRUCTION:
+The D_infinity finite-family countermodel is explicitly defined and its infinite joint closure follows from the infinite order of ab.
+
+CONDITIONAL RESULT:
+Finite joint witness follows if joint admissibility and finite closure are independently assumed.
+
+UNRESOLVED:
+Whether the exact EMB_CC-03 notion of diagram-relative sufficiency uses subcategory witnesses and the closure operation modeled here.
+
+EVIDENCE_CLASS:
+ANALYTICAL CONSTRUCTION / CONDITIONAL LEMMA / SOURCE-GAP IDENTIFICATION.
+
+CHECKS PERFORMED:
+- Inspected branch and current HEAD.
+- Read controlling handoff v1.5.
+- Inspected the six related checkpoints listed above.
+- Checked repository checkpoint directory for EMB_CC-03 and its exact terminology; no matching checkpoint was found.
+- Verified the group presentation and finite subcategory closure argument mathematically.
+
+CHECKS NOT PERFORMED:
+- No formal proof assistant verification.
+- No exhaustive search over alternative witness definitions.
+- No claim that the D_infinity model satisfies canonical CC-sufficiency.
+
+============================================================
+9. ARCHITECTURAL INVARIANTS
+============================================================
+
+FROZEN CORE:
+UNCHANGED.
+
+VOLUME II:
+UNCHANGED.
+
+VOLUME III:
+UNCHANGED.
+
+VOLUME V:
+UNCHANGED.
+
+R:
+UNCHANGED.
+
+D_CC:
+UNDEFINED / FORMALIZATION OPEN.
+
+STRONGNESS:
+INDEPENDENT; NOT UNIVERSALLY REQUIRED BY THE INSPECTED SOURCE WORDING.
+
+THEOREM_91:
+CONDITIONAL / NOT PROMOTED.
+
+HANDOFF:
+v1.5 UNCHANGED.
+
+CANONICAL REGISTRATION:
+NONE.
+
+RL REGISTRATION:
+NONE.
+
+============================================================
+10. PRECISE NEXT ACTION
+============================================================
+
+Recover the exact EMB_CC-03 source definition:
+- diagram-relative sufficiency;
+- witness object/type;
+- witness containment or factorization condition;
+- closure operations;
+- minimality order;
+- well-foundedness criterion;
+- finite-family quantifiers.
+
+Search the user's Library and any authoritative source location for the original EMB_CC-03 artifact before reconstructing it.
+If it cannot be recovered, explicitly create a separately labelled reconstruction only after preserving this source gap.
+
+Then instantiate the D_infinity countermodel against the exact predicate.
+If it does not satisfy that predicate, discard it as a CC counterexample while retaining the general category-theoretic result.
+Test the positive theorem under independently justified finite-closure and joint-admissibility assumptions.
+
+============================================================
+11. ARCHIVAL / RECOVERY INSTRUCTIONS
+============================================================
+
+At the start of the next OMEGA-ISOP session:
+1. Read handoff v1.5.
+2. Read this checkpoint before doing new EMB_CC-04 work.
+3. Do not repeat the CP-13/CP-14 source audit unless new evidence or a correction requires it.
+4. Do not ask the user to repeat the EMB_CC-03 status already present in the conversation.
+5. Search Library for the exact EMB_CC-03 source artifact.
+6. Continue from Section 10 above.
+
+GITHUB_STATUS:
+This checkpoint is intended for checkpoints/ on branch main.
+The actual commit SHA and readback result must be recorded only after successful repository write and readback.
+
+END OF CHECKPOINT
