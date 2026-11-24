@@ -140,38 +140,34 @@ C_METACORE.
 3. TWO INCOMPARABLE MINIMAL AMALGAMS
 ======================================================================
 
-Let G0 be the one-vertex graph:
+Let G0 be the one-edge graph on {c,d} with edge {c,d}.
 
-V_G0={c}.
+Let G1 be the graph on {c,d,a} with edges {c,d} and {c,a}.
+Let G2 be the graph on {c,d,b} with edges {c,d} and {c,b}.
 
-Let G1 be the one-edge graph on {c,a} with edge {c,a}.
-Let G2 be the one-edge graph on {c,b} with edge {c,b}.
+All three configurations are connected and have at least two vertices.
 
 The diagram is the span:
 
 G1 <- G0 -> G2
 
-where both maps include the vertex c.
+where both maps include the common edge on {c,d}.
 
 Construct two candidate amalgams.
 
 W_P:
-A_P is the path on three vertices:
+A_P is the four-vertex tree with edges:
 
-c -- a
-|
-b
+E_A_P={{c,d},{c,a},{c,b}}
 
-More precisely:
-E_A_P={{c,a},{c,b}}
 and there is no edge {a,b}.
 
 The two span legs are the evident induced embeddings.
 
 W_K:
-A_K is the triangle on three vertices:
+A_K is the four-vertex graph with edges:
 
-E_A_K={{c,a},{c,b},{a,b}}.
+E_A_K={{c,d},{c,a},{c,b},{a,b}}.
 
 Again, the two span legs are induced embeddings.
 
@@ -188,14 +184,14 @@ V <=_Delta W_P.
 Then there is an induced embedding h:D->A_P commuting with all
 diagram legs.
 
-The image of c must be c.
+The images of the two common-base vertices c,d must be c,d.
 The image of the non-base vertex from G1 must be a.
 The image of the non-base vertex from G2 must be b.
 
-These are three distinct vertices. Hence |V_D|>=3.
+These are four distinct vertices. Hence |V_D|>=4.
 
-But A_P has exactly three vertices. Since h is injective, D has
-exactly three vertices and h is bijective onto A_P. An induced
+But A_P has exactly four vertices. Since h is injective, D has
+exactly four vertices and h is bijective onto A_P. An induced
 bijection is an isomorphism.
 
 Therefore V is equivalent to W_P over the diagram.
@@ -213,7 +209,7 @@ Any witness factoring into W_K must contain the three distinct
 distinguished images c,a,b. Therefore its apex has at least three
 vertices.
 
-Since A_K has exactly three vertices, any such embedding is an
+Since A_K has exactly four vertices, any such embedding is an
 isomorphism.
 
 Thus W_K is minimal.
