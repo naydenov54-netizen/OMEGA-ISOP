@@ -1,0 +1,294 @@
+OMEGA-ISOP CHECKPOINT
+CHECKPOINT_ID: OI-CP-T91-MINIMAL-APARTNESS-PUSHOUT-HOM-CATEGORY-2026-11-24-08
+DATE: 2026-11-24
+WORKSTREAM: THEOREM_91 / H1 / STOCHASTIC_RELATIONAL_DYNAMICS
+RESEARCH_STAGE: MINIMAL GENERATED AMALGAM IN HOMOMORPHISM CATEGORY
+PARENT_CHECKPOINT: OI-CP-T91-EXPLICIT-CC-DIAGRAM-AND-COLIMIT-OBSTRUCTION-2026-11-24-07
+
+TITLE: МИНИМАЛНА APARTNESS-АМАЛГАМАЦИЯ КАТО PUSHOUT В КАТЕГОРИЯТА НА ХОМОМОРФИЗМИТЕ
+STATUS:
+AUXILIARY HOMOMORPHISM CATEGORY EXPLICITLY DEFINED
+PUSHOUT UNIVERSAL PROPERTY PROVED
+MINIMAL GENERATED AMALGAM UNIQUELY DETERMINED IN THIS CATEGORY
+NOT A PUSHOUT IN THE EMBEDDING CATEGORY
+CANONICAL C_METACORE IDENTIFICATION NOT ESTABLISHED
+NO FROZEN CORE CHANGE
+
+============================================================
+1. PURPOSE
+============================================================
+
+The preceding checkpoint established:
+- the finite span has admissible amalgams;
+- at least two non-isomorphic-over-the-span strong amalgams exist in the embedding category;
+- the span has no categorical pushout in the embedding category.
+
+This checkpoint tests whether a canonical minimal generated amalgam exists after explicitly changing the morphism class.
+
+No claim is made that this auxiliary category replaces canonical C_METACORE.
+
+============================================================
+2. AUXILIARY CATEGORY RelFin_hom
+============================================================
+
+Objects:
+Finite sets X equipped with a binary relation # satisfying:
+1. irreflexivity;
+2. symmetry;
+3. cotransitivity.
+
+Morphisms:
+Functions f:X->Y such that:
+x #X y implies f(x) #Y f(y).
+
+A morphism need not be injective and need not reflect apartness.
+
+This category is deliberately different from the embedding category, whose morphisms are injective and satisfy:
+x #X y iff f(x) #Y f(y).
+
+============================================================
+3. THE SPAN
+============================================================
+
+S0={a,b}
+S1={a,b,c}
+S2={a,b,d}.
+
+Each source carries inequality apartness:
+x #i y iff x != y.
+
+The maps S0->S1 and S0->S2 are inclusions.
+They are morphisms in RelFin_hom and are also embeddings in the previously defined embedding category.
+
+============================================================
+4. GENERATED PUSHOUT CANDIDATE
+============================================================
+
+Let P_gen={a,b,c,d}.
+
+Define:
+#gen={
+(a,b),(b,a),
+(a,c),(c,a),
+(b,c),(c,b),
+(a,d),(d,a),
+(b,d),(d,b)
+}.
+
+Equivalently:
+x #gen y iff x and y belong to different blocks of the partition:
+{{a},{b},{c,d}}.
+
+Thus c and d are not apart:
+not(c #gen d).
+
+The relation is:
+- irreflexive;
+- symmetric;
+- cotransitive.
+
+The inclusions:
+j1:S1->P_gen
+j2:S2->P_gen
+preserve the source apartness relation.
+They are not embeddings, because they do not reflect all target relations on pairs outside each source; in particular the ambient relation does not impose c#d, but this is not a source pair in either S1 or S2. More precisely, their induced substructures on the source images are exactly the source structures, so these particular inclusions actually are embeddings as maps from S1 and S2 into P_gen. The distinction between categories lies in the universal morphism class, not in these two inclusions.
+
+============================================================
+5. PUSHOUT UNIVERSAL PROPERTY IN RelFin_hom
+============================================================
+
+Let Q be any object of RelFin_hom.
+Let:
+f1:S1->Q
+f2:S2->Q
+be morphisms satisfying:
+f1(a)=f2(a);
+f1(b)=f2(b).
+
+Define h:P_gen->Q by:
+h(a)=f1(a)=f2(a);
+h(b)=f1(b)=f2(b);
+h(c)=f1(c);
+h(d)=f2(d).
+
+This map is well-defined because the two maps agree on the common base {a,b}.
+
+Relation preservation:
+Every pair in #gen belongs to #1 or #2 under the corresponding inclusion:
+- (a,b),(b,a),(a,c),(c,a),(b,c),(c,b) come from S1;
+- (a,b),(b,a),(a,d),(d,a),(b,d),(d,b) come from S2.
+Since f1 and f2 preserve apartness, h preserves every pair in #gen.
+
+Existence:
+Therefore h is a morphism in RelFin_hom.
+
+Uniqueness:
+Every element of P_gen is in the image of one of j1 or j2.
+The equations h∘j1=f1 and h∘j2=f2 fix h on a,b,c,d.
+Hence h is unique.
+
+Therefore P_gen with j1,j2 is the categorical pushout of this span in RelFin_hom.
+
+============================================================
+6. WHY THIS DOES NOT CONTRADICT THE EMBEDDING-CATEGORY OBSTRUCTION
+============================================================
+
+The pushout universal property above permits non-injective mediating morphisms.
+
+In the embedding category, every mediating morphism must be injective and reflect apartness.
+The two-cocone contradiction in checkpoint 07 shows no such pushout exists there.
+
+Thus:
+- in RelFin_hom: P_gen is a pushout;
+- in APFin_nontriv_emb: this span has no pushout.
+
+There is no contradiction because the categories have different morphisms and therefore different universal properties.
+
+The source inclusions into P_gen are embeddings, but the universal mediating maps to arbitrary cocones need only be homomorphisms. This is exactly why the pushout exists in one category and fails in the other.
+
+============================================================
+7. MINIMALITY AND UNIQUENESS
+============================================================
+
+The relation #gen is the least relation on the fixed carrier {a,b,c,d} that contains the images of both source relations.
+
+Any relation #' on this carrier that contains all source-image apartness pairs must satisfy:
+#gen subseteq #'.
+
+Since #gen itself is an apartness relation, it is the minimal generated apartness relation on this fixed carrier.
+
+The categorical pushout is unique up to unique isomorphism in RelFin_hom, as every categorical pushout is.
+
+This does not imply uniqueness among strong amalgams in the embedding category.
+The complete inequality amalgam A_STRONG has the additional pair c#d and is a different object over the span.
+
+============================================================
+8. CONSEQUENCE FOR CC AND R
+============================================================
+
+The existence predicate:
+CC(S1,S2)=1
+is compatible with the existence of both:
+- a strong amalgam in the embedding category;
+- a categorical pushout in RelFin_hom.
+
+However, the selected construction depends on the category.
+
+If OMEGA-ISOP uses the embedding category for C_METACORE, P_gen cannot be imported as its categorical pushout.
+If OMEGA-ISOP explicitly adopts RelFin_hom as an auxiliary or alternative realization category, P_gen is its pushout for this finite span.
+
+No source evidence currently authorizes silently replacing the canonical morphism class.
+
+============================================================
+9. STOCHASTIC AUTOMORPHISM
+============================================================
+
+On P_gen define:
+g(a)=a;
+g(b)=b;
+g(c)=d;
+g(d)=c.
+
+The partition blocks {{a},{b},{c,d}} are invariant under g.
+Therefore g is an automorphism of P_gen.
+
+For p in [0,1]:
+kappa(x,.)=(1-p)delta_x+p delta_g(x).
+
+For n-tuples:
+Lambda_n(x1,...,xn;.)
+=(1-p)delta_(x1,...,xn)
++p delta_(g(x1),...,g(xn)).
+
+The joint lift has the required one-coordinate marginals.
+It is projectively consistent and permutation-equivariant.
+Because g is an automorphism, it preserves #gen on every coordinate.
+
+This establishes relational stochastic preservation on P_gen only.
+It does not establish membership in canonical A(R;Phi) or operational closure.
+
+============================================================
+10. RESULT CLASSIFICATION
+============================================================
+
+ESTABLISHED:
+1. Explicit auxiliary category RelFin_hom.
+2. Explicit finite span S1<-S0->S2.
+3. P_gen satisfies apartness axioms.
+4. Source maps into P_gen are embeddings.
+5. P_gen is the categorical pushout in RelFin_hom.
+6. Universal existence and uniqueness of the mediating homomorphism proved.
+7. #gen is the least generated apartness relation on the fixed carrier.
+8. P_gen is not a pushout in the embedding category.
+9. The involution g is an automorphism of P_gen.
+10. The common-noise joint lift preserves #gen.
+
+NOT ESTABLISHED:
+1. RelFin_hom is canonical C_METACORE.
+2. Canonical C_METACORE permits non-injective, non-reflecting morphisms.
+3. Canonical D_CC uses this homomorphism category.
+4. P_gen is canonical R.
+5. An equivalence functor transports this pushout to canonical C_METACORE while preserving all required information.
+6. A(R;Phi) membership.
+7. Operational closure K_kappa(L_op) subseteq L_op.
+8. Universal H1/H3 or universal Theorem 91 extension.
+
+============================================================
+11. LOOP AUDIT
+============================================================
+
+APARTNESS AXIOMS FOR P_gen:
+PASS.
+
+SOURCE MAPS:
+PASS.
+
+PUSHOUT UNIVERSAL PROPERTY IN RelFin_hom:
+PASS.
+
+MINIMAL GENERATED RELATION:
+PASS.
+
+PUSHOUT IN EMBEDDING CATEGORY:
+NO; PREVIOUS NONEXISTENCE PROOF REMAINS VALID.
+
+CANONICAL C_METACORE IDENTIFICATION:
+OPEN.
+
+CANONICAL R:
+OPEN.
+
+A(R;Phi):
+OPEN.
+
+OPERATIONAL CLOSURE:
+OPEN.
+
+THEOREM 91:
+CONDITIONAL; NOT PROMOTED.
+
+FROZEN CORE:
+INTACT.
+
+VOLUMES II / III / V:
+UNCHANGED.
+
+CE-V:
+NOT PROMOTED.
+
+RL REGISTRATION:
+NONE. DERIVATIVE GITHUB RESEARCH CHECKPOINT ONLY.
+
+============================================================
+12. NEXT JUSTIFIED ACTION
+============================================================
+
+The next task is to inspect the exact canonical morphism clause in the controlled Volume II / Volume III / Volume V sources and decide whether the homomorphism category is:
+A. explicitly allowed as the canonical morphism class;
+B. allowed only as an auxiliary realization category;
+C. incompatible with the canonical embedding requirement.
+
+If only auxiliary, specify any candidate realization functor and test which properties it preserves and reflects.
+Do not infer categorical equivalence from the fact that the same finite objects and source inclusions occur in both categories.
+
+END OF CHECKPOINT
