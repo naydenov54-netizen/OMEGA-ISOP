@@ -116,10 +116,20 @@ AMALGAM A_GENERATED:
 Underlying set:
 {a,b,c,d}.
 Apartness relation:
-#G={(a,b),(b,a),(a,c),(c,a),(a,d),(d,a)}.
-This is the star with center a.
+#G={
+(a,b),(b,a),
+(a,c),(c,a),
+(b,c),(c,b),
+(a,d),(d,a),
+(b,d),(d,b)
+}.
+The only unordered pair of distinct points that is not apart is {c,d}.
+This relation is the inequality relation on the quotient classes
+{a}, {b}, {c,d}; equivalently, x #G y iff their equivalence classes differ.
 It satisfies irreflexivity, symmetry and cotransitivity.
-The inclusions of S1 and S2 preserve and reflect their source apartness.
+The induced relation on S1={a,b,c} is exactly inequality.
+The induced relation on S2={a,b,d} is exactly inequality.
+Thus both source inclusions preserve and reflect apartness.
 The images intersect exactly in {a,b}.
 
 This is the star with center a.
