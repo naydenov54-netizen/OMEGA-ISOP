@@ -1,0 +1,474 @@
+OMEGA-ISOP
+RL-027 DOMAIN-BOUNDED IDENTIFIABILITY AUDIT CHECKPOINT
+DATE: 2026-11-24
+
+DOCUMENT_ID:
+OI-RL-027-DOMAIN-IDENTIFIABILITY-AUDIT-2026-11-24-01
+
+WORKSTREAM:
+RL-027 / TEST-A QUANTUM DOMAIN EXTENSION / TEST-I BOUNDARY
+
+CONTROLLING HANDOFF:
+OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF-v1.5
+DATE: 2026-11-24
+STATUS: WORKING HANDOFF / NOT CANONICALLY ACCEPTED
+
+======================================================================
+1. AUDIT OBJECTIVE AND SCOPE
+======================================================================
+
+Apply the M3.2 v1.5 research sequence and LOOP_AUDIT_PROTOCOL to the surviving consolidated RL-027 record.
+
+Required sequence:
+LABORATORY -> RESULTS -> RL -> POSSIBLE CE -> POSSIBLE VOLUME V
+
+These transitions are separate. An RL record does not automatically become a CE/CE-V entry, and a CE does not automatically enter Volume V.
+
+Scope:
+- inspect the surviving consolidated RL-027 record;
+- independently check the explicit domain-bounded purity-identifiability mathematics reproduced in that record;
+- separate mathematical validity from primary-source provenance, registry confirmation, CE promotion, and Volume V integration;
+- identify which RL claims cannot be checked from the surviving consolidated text.
+
+This is not a reconstruction of destroyed laboratory files and not a global audit of all RL records.
+
+======================================================================
+2. SOURCES ACTUALLY INSPECTED
+======================================================================
+
+A. Library:
+OMEGA-ISOP_RL-027_CONSOLIDATED.txt
+The complete 9,378-byte text was read.
+It identifies itself as RL-027 / CONSOLIDATED and contains the explicit mathematical definitions, pure-domain derivation, mixed-domain counterexample, fixed-marginal interval result, structural boundary, status labels, and correction log.
+
+B. Library:
+OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF-v1.5.txt
+The complete handoff was read.
+Relevant controls inspected:
+- anti-LOOP rules and LOOP_AUDIT_PROTOCOL;
+- RL status and source-recovery control;
+- required RL fields;
+- authoritative registry/readback rule;
+- research sequence and checkpoint rules.
+
+C. Library:
+&OMEGA-ISOP-VOLUME-V-v2.4-C-1.5-CONTROLLED-MASTER-2026-11-22.txt
+Relevant RL-027 and Appendix F passages were inspected through Library search results.
+The controlled Volume V states:
+- core domain-bounded identifiability results are independently verified within their stated domains;
+- overall RL-027 remains UNDER AUDIT;
+- TEST-I draft-0.2 remains an audited working draft, not frozen;
+- general framework, minimality, stability, computability, external dependencies, and broader generalization remain open;
+- RL-027 is not assigned a CE-V number;
+- the primary RL sources are recorded as non-recoverable;
+- registration is not independently confirmed.
+
+D. Library search:
+Searches for the exact RL-027 TEST-A / N4 / N6 / N8 / N9 / Delta-I_struct support did not surface a separate surviving source containing the definitions and detailed test protocols for those labels.
+Searches for the exact provenance disposition surfaced its controlling statements through Volume V and M3.2. The provenance disposition itself was not separately opened in this audit.
+
+E. Repository:
+Repository: naydenov54-netizen/OMEGA-ISOP
+Main HEAD verified before branch creation:
+560287a9babd6da690497341d5831937469a2cad
+A separate research branch was created from that main commit:
+research/rl-027-domain-identifiability-audit
+No main-branch change was made.
+No protected source or canonical Volume was modified.
+
+======================================================================
+3. MATHEMATICAL OBJECT AND EXACT CLAIMS
+======================================================================
+
+Assumptions stated in the consolidated RL record:
+- H_A and H_B are finite-dimensional Hilbert spaces;
+- rho_AB is a normalized bipartite density operator;
+- rho_A = Tr_B(rho_AB);
+- rho_B = Tr_A(rho_AB);
+- Q_A(rho_AB) = Tr(rho_A^2);
+- the locally available observable is O_B(rho_AB) = rho_B.
+
+For a domain D of admissible global states, identifiability means that there exists a function
+F: S(H_B) -> R
+such that
+Q_A(rho_AB) = F(rho_B)
+for every rho_AB in D.
+
+The record also states the equivalent fiber condition:
+for all rho_AB, rho'_AB in D,
+rho_B = rho'_B implies Q_A(rho_AB) = Q_A(rho'_AB).
+
+This equivalence is valid: a function on the image O_B(D) exists exactly when Q_A is constant on every fiber of the map rho_AB -> rho_B. The function is uniquely determined on O_B(D), while its values outside O_B(D) are unconstrained.
+
+======================================================================
+4. INDEPENDENT MATHEMATICAL CHECKS
+======================================================================
+
+4.1 Pure global-state domain
+
+For a pure bipartite state, Schmidt decomposition gives
+|psi> = sum_i sqrt(lambda_i) |a_i> tensor |b_i>,
+with lambda_i >= 0 and sum_i lambda_i = 1.
+
+The reduced states have the same nonzero eigenvalues:
+rho_A = sum_i lambda_i |a_i><a_i|
+rho_B = sum_i lambda_i |b_i><b_i|.
+
+Therefore:
+Tr(rho_A^2) = sum_i lambda_i^2 = Tr(rho_B^2).
+
+Thus on the pure global-state domain:
+Q_A = F(rho_B), with F(X) = Tr(X^2).
+
+CLASSIFICATION:
+ESTABLISHED ANALYTICALLY under finite-dimensional bipartite quantum-state assumptions and the pure-global-state domain.
+
+This is domain-specific. It does not establish identifiability on the full mixed-state domain.
+
+4.2 Full mixed global-state domain
+
+The consolidated record gives, for d_A = d_B = 2:
+rho_AB(1) = |00><00|
+rho_AB(2) = (1/2)|00><00| + (1/2)|10><10|.
+
+For both states:
+rho_B(1) = rho_B(2) = |0><0|.
+
+But:
+rho_A(1) = |0><0|
+rho_A(2) = (1/2)(|0><0| + |1><1|).
+
+Hence:
+Q_A(1) = 1
+Q_A(2) = 1/2.
+
+The same local marginal is compatible with different subsystem purities. No function F(rho_B) can identify Q_A on the full mixed domain in this case.
+
+The obstruction extends to every d_A >= 2 and every nonzero finite d_B by choosing any fixed pure state |b> in H_B and two distinct states on H_A with different purities, then taking product states with the same |b><b| marginal.
+
+CLASSIFICATION:
+ESTABLISHED ANALYTICALLY for the stated full mixed domain when d_A >= 2.
+
+BOUNDARY:
+If d_A = 1, Q_A is identically 1, so this non-identifiability claim does not apply. The d_A >= 2 condition is essential.
+
+4.3 Fixed-marginal range
+
+For fixed sigma = rho_B, choose arbitrary density operator tau on H_A and form:
+rho_AB = tau tensor sigma.
+
+Then:
+rho_B = sigma
+Q_A = Tr(tau^2).
+
+For a d_A-dimensional system, the purity of tau lies in [1/d_A, 1].
+Both endpoints are attained:
+- tau = I/d_A gives 1/d_A;
+- any pure tau gives 1.
+
+Every intermediate value is attained, for example along the continuous family:
+tau(t) = diag(t, (1-t)/(d_A-1), ..., (1-t)/(d_A-1)),
+with t in [1/d_A, 1].
+Its purity varies continuously from 1/d_A to 1.
+
+Therefore:
+{Q_A : rho_AB in D_all and rho_B = sigma} = [1/d_A, 1]
+for d_A >= 2.
+
+CLASSIFICATION:
+ESTABLISHED ANALYTICALLY under the finite-dimensional full-state-space assumptions.
+
+4.4 Consolidated mathematical conclusion
+
+The core domain-bounded result is correct within the assumptions stated in the consolidated record:
+
+- On pure global states, local rho_B determines Q_A.
+- On the full mixed global domain with d_A >= 2, rho_B alone does not determine Q_A.
+- At fixed rho_B, the allowed Q_A values span [1/d_A, 1].
+
+The mathematical result does not identify a primitive information source, establish an OMEGA-specific physical mechanism, or prove a universal relation for all physical theories.
+
+======================================================================
+5. LOOP AUDIT
+======================================================================
+
+LOOP TARGET A:
+For pure bipartite global states, Tr(rho_A^2) = Tr(rho_B^2).
+
+L2 DEPENDENCIES:
+Finite-dimensional bipartite Hilbert spaces, normalized pure state, Schmidt decomposition, partial trace, and the definition of purity.
+
+L3 CONCLUSION SMUGGLING:
+The equality is not inserted into the definition of purity or the reduced states. It follows from the common Schmidt coefficients.
+
+L4 INDEPENDENCE:
+The Schmidt decomposition independently supplies the shared nonzero spectrum.
+
+L5 COUNTERMODEL:
+No countermodel exists within the stated pure-state assumptions because the equality follows algebraically from the Schmidt form. This is a proof, not merely a failed countermodel search.
+
+L6 PREMISE REMOVAL:
+Removing the pure-state restriction invalidates the shared-spectrum argument for general mixed global states.
+
+L7 CLASSIFICATION:
+NON-CIRCULAR ANALYTICAL DERIVATION within the pure-state domain.
+
+L8 NON-IMPLICATIONS:
+No mixed-domain identifiability and no physical interpretation follow.
+
+LOOP TARGET B:
+There is no function F of rho_B alone that recovers Q_A for every state in the full mixed domain when d_A >= 2.
+
+L2 DEPENDENCIES:
+The two explicit density operators, partial traces, and purity definition.
+
+L3 CONCLUSION SMUGGLING:
+The counterexample states are specified independently of the desired conclusion.
+
+L4 INDEPENDENCE:
+Their equal rho_B and unequal Q_A are directly computed.
+
+L5 COUNTERMODEL:
+The two states form a direct counterexample to the existence of a single-valued F on the full mixed domain.
+
+L6 PREMISE REMOVAL:
+If d_A = 1, Q_A is constant and the counterexample fails. The dimension condition is necessary for this obstruction.
+
+L7 CLASSIFICATION:
+REFUTED for any claim of unrestricted mixed-domain identifiability; the negative identifiability result is established.
+
+L8 NON-IMPLICATIONS:
+This does not rule out identifiability on restricted mixed-state domains.
+
+LOOP TARGET C:
+For fixed rho_B = sigma, the attainable Q_A range is [1/d_A,1].
+
+L2 DEPENDENCIES:
+Product-state construction, finite-dimensional density-operator purity bounds, and continuity of the displayed one-parameter family.
+
+L3 CONCLUSION SMUGGLING:
+The construction fixes rho_B independently while varying tau on H_A.
+
+L4 INDEPENDENCE:
+The lower and upper bounds follow from density-operator eigenvalues; attainability follows from the explicit family.
+
+L5 COUNTERMODEL:
+No counterexample was found within the stated finite-dimensional full-state domain; the product-state family supplies all values in the interval.
+
+L6 PREMISE REMOVAL:
+Removing the full state-space/product-state admissibility or changing the subsystem dimension changes the attainable range and requires a new analysis.
+
+L7 CLASSIFICATION:
+NON-CIRCULAR ANALYTICAL DERIVATION under the stated assumptions.
+
+L8 NON-IMPLICATIONS:
+The interval is not universal outside the stated domain and definitions.
+
+LOOP TARGET D:
+Existence of F on D is equivalent to constancy of Q_A on each rho_B fiber.
+
+L2 DEPENDENCIES:
+The definition of a function and the map rho_AB -> rho_B.
+
+L3 CONCLUSION SMUGGLING:
+This is a characterization derived from single-valuedness, not an independent empirical or physical premise.
+
+L4 INDEPENDENCE:
+The two directions follow directly: a function has one value on each input; conversely, fiber constancy defines F on the image.
+
+L5 COUNTERMODEL:
+A domain containing two states with the same rho_B and different Q_A violates fiber constancy and prevents F.
+
+L6 PREMISE REMOVAL:
+If fiber constancy is removed, F need not exist.
+
+L7 CLASSIFICATION:
+NON-CIRCULAR CHARACTERIZATION, logically direct from the definition.
+
+L8 NON-IMPLICATIONS:
+This equivalence alone does not prove identifiability for any particular domain.
+
+======================================================================
+6. AUDIT OF M3.2 LABELS AND STRUCTURAL CLAIMS
+======================================================================
+
+The consolidated RL record states:
+N4 = PASS
+N6 = PASS
+N8 = PASS
+N9 = PASS
+Delta I_struct > 0 = ESTABLISHED
+
+However, the surviving consolidated file does not provide:
+- exact definitions or test statements for N4, N6, N8, N9 as used in this RL classification;
+- the test procedures and outputs corresponding to those labels;
+- the definition of I_struct or Delta I_struct;
+- the baseline, comparison class, or derivation establishing strict positivity;
+- the source-version identifiers and hashes of the underlying laboratory evidence.
+
+Library searches for these exact RL-027 / TEST-A support materials did not surface a separate surviving document containing those missing definitions and protocols.
+
+IMPORTANT LABEL COLLISION RISK:
+The Volume III / Volume V notation also uses labels such as N4 and N6 for other objects (for example observable space and reduction map in the operational notation). The RL-027 file does not expand its N4/N6/N8/N9 labels. They must not be silently identified with the unrelated notation labels. Exact source-local definitions are required.
+
+CLASSIFICATION:
+- N4/N6/N8/N9 PASS: RECORDED IN THE CONSOLIDATED RL FILE, NOT INDEPENDENTLY RE-CHECKED IN THIS AUDIT.
+- Delta I_struct > 0: RECORDED ASSERTION, NOT INDEPENDENTLY VERIFIED because the quantity and comparison are not defined in the surviving record.
+- Structural minimality / axiomatic cost / primitives / anti-bundling: OPEN OR UNRESOLVED to the extent that their detailed definitions and proofs are absent from the surviving consolidated file.
+
+The domain-bounded purity results are not invalidated by these missing ancillary definitions. Conversely, those core proofs do not establish the missing N-label or structural-minimality claims.
+
+======================================================================
+7. PRIMARY-SOURCE PROVENANCE
+======================================================================
+
+The controlling M3.2 and Volume V records state that the primary RL laboratory source files were author-declared destroyed / non-recoverable and that further searches for those same originals are discontinued.
+
+This audit did not repeat repository archaeology for those same destroyed originals.
+
+The surviving consolidated RL-027 file is available and was read. It is a surviving controlled scientific record. It is not the destroyed original laboratory source package and does not restore the missing source provenance.
+
+The loss of the primary laboratory files does not logically invalidate a mathematical proof that can be independently checked from surviving text. It does limit verification of:
+- the original laboratory process;
+- the exact historical sequence of tests;
+- raw source data and outputs not reproduced in the surviving file;
+- the provenance of N4/N6/N8/N9 and Delta I_struct;
+- the completeness of the original derivation package.
+
+CLASSIFICATION:
+PRIMARY LABORATORY PROVENANCE: CLOSED AS NON-RECOVERABLE, AS RECORDED IN THE CONTROLLING DISPOSITION.
+SURVIVING CONSOLIDATED RL RECORD: AVAILABLE AND INSPECTED.
+PRIMARY-SOURCE RE-VERIFICATION: NOT CLAIMED.
+
+======================================================================
+8. REGISTRY STATUS
+======================================================================
+
+The consolidated Library file labels itself:
+RL-027 = RL_REGISTERED / CONSOLIDATED.
+
+This establishes that a consolidated RL-027 record exists in the Library and that the record asserts RL_REGISTERED.
+
+M3.2 v1.5 separately requires, for independently confirmed RL_REGISTERED status:
+1. successful authoritative registry operation;
+2. authoritative registry result;
+3. verified registered identifier;
+4. content readback;
+5. readback matching the intended record.
+
+The current audit did not inspect an authoritative registry transaction or authoritative registry readback matching this file.
+
+Therefore:
+RECORD_EXISTENCE_IN_LIBRARY: CONFIRMED.
+CONTROLLED_COPY_LABEL: RL_REGISTERED.
+INDEPENDENT_AUTHORITATIVE_REGISTRY_CONFIRMATION: NOT ESTABLISHED.
+REGISTRY_STATE: NOT INDEPENDENTLY CONFIRMED.
+
+Do not relabel this as RL_UNREGISTERED. The available evidence is insufficient to establish either a verified registry readback or the absence of registration.
+
+This preserves the distinction between a surviving RL record and independently confirmed registry state.
+
+======================================================================
+9. CE / VOLUME V / FROZEN CORE STATUS
+======================================================================
+
+CE / CE-V:
+NOT PROMOTED.
+No CE-V identifier is assigned to RL-027 by this audit.
+
+Volume V:
+RL-027 remains an active research-status record under audit. The controlled Volume V master retains the domain-bounded core results and their stated limits. This audit does not authorize a new Volume V integration or revision.
+
+Frozen Core:
+UNCHANGED.
+No Core modification is proposed or performed.
+
+TEST-I:
+DRAFT-0.2 remains a working draft, not frozen.
+General framework, minimality, stability, computability, external dependencies, and generalization remain open as stated in the controlled Volume V.
+
+No physical law, causal mechanism, primitive relational information carrier, or universal OMEGA-ISOP claim is established by this quantum-state identifiability result.
+
+======================================================================
+10. EVIDENCE CLASSIFICATION
+======================================================================
+
+ESTABLISHED ANALYTICALLY:
+- pure-state equality of subsystem purities;
+- mixed-domain non-identifiability for d_A >= 2;
+- fixed-marginal purity range [1/d_A,1] under the full finite-dimensional state-space assumptions;
+- fiber-constancy characterization of identifiability.
+
+SURVIVING DOCUMENTARY FACT:
+- consolidated RL-027 file exists in Library and was read;
+- that file records RL_REGISTERED and N4/N6/N8/N9 PASS;
+- M3.2 and Volume V retain overall RL-027 UNDER AUDIT and registry NOT INDEPENDENTLY CONFIRMED;
+- primary laboratory sources are recorded as destroyed / non-recoverable.
+
+NOT INDEPENDENTLY VERIFIED:
+- original laboratory execution history;
+- N4/N6/N8/N9 test meanings and detailed outputs;
+- Delta I_struct > 0;
+- structural minimality, axiomatic cost, primitives, and anti-bundling claims;
+- authoritative RL registry readback.
+
+OPEN:
+- TEST-I general framework;
+- minimality proof;
+- stability;
+- computability;
+- complete external-dependency treatment;
+- generalization beyond stated finite-dimensional domains.
+
+NOT ESTABLISHED:
+- CE/CE-V promotion;
+- canonical acceptance;
+- physical interpretation or empirical validation;
+- universal identifiability or universal non-identifiability outside the stated domains.
+
+======================================================================
+11. FINAL AUDIT CONCLUSION
+======================================================================
+
+RL-027 IS AVAILABLE AS A SURVIVING CONSOLIDATED RESEARCH RECORD.
+
+Its central domain-bounded purity-identifiability mathematics is independently checkable from that surviving record and passes the present analytical and LOOP audit within the explicitly stated finite-dimensional assumptions.
+
+The correct scientific classification is:
+CORE DOMAIN-BOUNDED RESULTS: ESTABLISHED ANALYTICALLY WITHIN STATED DOMAINS.
+OVERALL RL-027: UNDER AUDIT.
+TEST-I GENERAL FRAMEWORK: OPEN.
+PRIMARY LABORATORY PROVENANCE: NON-RECOVERABLE AS RECORDED.
+REGISTRY CONFIRMATION: NOT INDEPENDENTLY ESTABLISHED.
+CE / CE-V: NOT PROMOTED.
+VOLUME V: ACTIVE RESEARCH-STATUS RECORD ONLY.
+FROZEN CORE: UNCHANGED.
+
+The surviving mathematical proof and the lost primary laboratory provenance are separate matters. The former can be checked from the consolidated record; the latter cannot be restored by repeating searches for files already formally dispositioned as destroyed.
+
+NEXT JUSTIFIED ACTION:
+Continue only with the surviving evidence. The next useful step is a claim-by-claim audit of the unresolved TEST-A structural claims, but only if a surviving controlled source supplies the exact definitions and test protocols for N4/N6/N8/N9 and Delta I_struct. Do not restart searches for the destroyed primary files. If no surviving source supplies those definitions, retain those claims as recorded but unverified and proceed no further toward CE/CE-V promotion.
+
+======================================================================
+12. REPOSITORY / RECOVERY STATUS
+======================================================================
+
+Repository:
+naydenov54-netizen/OMEGA-ISOP
+
+Branch:
+research/rl-027-domain-identifiability-audit
+
+Branch base:
+560287a9babd6da690497341d5831937469a2cad
+
+Checkpoint path:
+checkpoints/OI-RL-027-DOMAIN-IDENTIFIABILITY-AUDIT-2026-11-24-01.txt
+
+This document is a research checkpoint only.
+It is not an RL registry operation.
+It is not a CE/CE-V entry.
+It is not a Volume V amendment.
+It is not a Frozen Core amendment.
+
+END OF CHECKPOINT
