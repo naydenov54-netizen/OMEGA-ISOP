@@ -997,3 +997,57 @@ NO PHYSICAL PILOT SELECTED BY THIS MAP.
 NO RL REGISTRATION.
 NO CE-V PROMOTION.
 NO FROZEN CORE OR MASTER CHANGE.
+
+
+25. CAPD F-1 — BOUNDED SOURCE-DISCOVERY PASS (2026-11-24)
+
+TARGET:
+Appendix F.2 F-1, CAPD one-step endpoint discrepancy.
+Required closure evidence remains: exact test source; exact EXPECTED construction; interval type/rounding semantics; raw machine-readable endpoints; comparison expression; reproducible build/run record.
+
+25.1 CONTROLLED RECORDS RE-CHECKED
+- Volume V Appendix A, predecessor Section XXIII.4-XXIII.5: displays EXPECTED=[1,1.000000000000000222], CAPD result=[0.99999999999999988898,1.000000000000000222], and EXPECTED_SUBSET_RESULT=TRUE.
+- Volume V Appendix E, E.5 F-1: explicitly identifies 0.99999999999999988898 as nextafter(1.0,0.0), hence below 1; records possible outward rounding only as a hypothesis.
+- Volume V Appendix F.2: current controlling classification OPEN / NOT RESOLVED; exact source, EXPECTED construction, interval semantics, raw endpoints and comparison code not independently inspected.
+- Preserved v2.1 CAPD insert, Section 23.5-23.9: records CAPD 6.0.0, configuration path /content/capd/build-o0-verified/bin/capd-config, build mode -O0 -frounding-math -fno-fast-math, source repository commit 693998cd6d73a0c4e1b141bfb79fcad1c40c3cbe, CWDiffInclSolver order 10, IMaxNormInclRect2Set, and build/runtime exit codes 0. These are archival recorded facts, not independently reproduced in this pass.
+
+25.2 UPSTREAM CAPD COMMIT IDENTIFICATION
+The recorded source commit resolves to:
+Repository: CAPDGroup/CAPD
+Commit: 693998cd6d73a0c4e1b141bfb79fcad1c40c3cbe
+Date: 2024-01-31
+Message: "FILIB cflags added to CAPD cflags in capd-config"
+The inspected commit diff changes only:
+- capdMake/bin/CMakeLists.txt
+- capdMake/libcapd/CMakeLists.txt
+It adds FILIB compile options to generated CAPD flags and adjusts the CMake flag construction. This confirms the identity of the cited upstream CAPD commit and the scope of that commit's changes. It does NOT contain the O0 test source, EXPECTED interval construction, comparison expression, raw test output or notebook. The commit is a dependency/build-configuration reference, not the test implementation.
+
+25.3 SOURCE SEARCH RESULT
+- Library search for the exact O0 test/source identifiers and EXPECTED_SUBSET_RESULT returned the controlled Volume V records and the preserved v2.1 CAPD insert, but no standalone test source or raw notebook.
+- GitHub code search in naydenov54-netizen/OMEGA-ISOP for EXPECTED_SUBSET_RESULT, CAPD-BOUNDARY-O0-001 and CWDiffInclSolver returned no matching files.
+- GitHub code search for EXPECTED_SUBSET_RESULT CAPD returned no matching source.
+Interpretation: the exact O0 test source and notebook were not located in the inspected Library/repository search surfaces. This does not prove that they do not exist elsewhere. No destruction inference is made.
+
+25.4 MATHEMATICAL ENDPOINT CHECK
+Displayed recorded lower endpoint:
+0.99999999999999988898
+Displayed EXPECTED lower endpoint:
+1
+The first value is less than 1. Appendix E identifies it as the binary64 predecessor of 1.0, i.e. nextafter(1.0,0.0). Therefore, using the displayed intervals literally:
+[0.99999999999999988898,1.000000000000000222] is NOT a subset of [1,1.000000000000000222].
+This confirms the displayed-endpoint discrepancy. It does not establish whether the actual source-level EXPECTED interval had a different outward-rounded lower endpoint or whether the comparison code used another interval representation. That distinction cannot be decided without the test source and raw typed output.
+
+25.5 F-1 RESULT AND NEXT PERMITTED ACTION
+SOURCE-COMMIT IDENTITY: CONFIRMED.
+UPSTREAM COMMIT SCOPE: CONFIRMED; CMake CAPD/FILIB flags only.
+EXACT O0 TEST SOURCE: NOT LOCATED.
+EXACT EXPECTED CONSTRUCTION: NOT VERIFIED.
+INTERVAL TYPE / ROUNDING SEMANTICS IN THE TEST: NOT VERIFIED.
+RAW MACHINE-READABLE ENDPOINTS: NOT AVAILABLE IN THE inspected Library/repository search surfaces.
+COMPARISON EXPRESSION: NOT LOCATED.
+RECORDED BUILD/RUNTIME EXIT CODES: PRESERVED IN ARCHIVAL RECORD; NOT INDEPENDENTLY REPRODUCED.
+DISPLAYED INTERVAL SUBSET ASSERTION: FAILS AS WRITTEN.
+POSSIBLE OUTWARD-ROUNDING EXPLANATION: OPEN HYPOTHESIS ONLY.
+F-1 OVERALL: OPEN / NOT RESOLVED.
+
+Next permitted action: obtain the exact original notebook or test source, including the interval object construction and comparison statement, plus raw typed endpoint export and the reproducible build/run record. Until then, retain the historical boolean as recorded but do not cite it as proof of the displayed containment. Do not alter Appendix F, Volume V, or the historical CAPD archive; do not rerun the same arithmetic-only comparison.
