@@ -1119,3 +1119,159 @@ Frozen Core: unchanged.
 
 RL / CE-V TRACEABILITY STAGE: COMPLETE TO THE EXTENT OF THE SURVIVING CONTROLLED SOURCES, WITH PRIMARY-SOURCE NON-RECOVERABILITY AND CE-V-06.1 INTEGRATION QUALIFICATION EXPLICIT.
 NEXT PLAN STEP: COMPARATIVE PHYSICAL-POTENTIAL ASSESSMENT, THEN PHYSICAL PILOT DECISION. F-1 REMAINS OPEN / SOURCE-DEPENDENT AND DOES NOT BLOCK THE MAP OR THE COMPARATIVE ASSESSMENT; it remains a separate CAPD closure obligation.
+
+
+27. STAGE 3 — COMPARATIVE PHYSICAL-POTENTIAL ASSESSMENT
+
+GOVERNING PLAN:
+Volume V Appendix D, source plan Sections V-VIII and IX-X, lines 1587-1702.
+The plan requires comparison by mathematical readiness, clarity of physical interpretation, formalizability and potential testability. It forbids choosing a candidate merely because it resembles a familiar physical theory. M1/M2/P1/P2/P3/E1/C1/O1 are separate classifications; mathematical status does not transfer automatically to physical or empirical claims.
+
+27.1 CLASSIFICATION RUBRIC
+M1: proven mathematical result under exact stated assumptions.
+M2: formal consequence from identified results plus explicit assumptions.
+P1: proposed mathematical-to-physical correspondence, not yet established as mechanism.
+P2: physical hypothesis requiring verification.
+P3: formal physical model with declared physical assumptions, variables and domain.
+E1: empirical question/result requiring observational or experimental data.
+C1: computational/numerical result with method, inputs, precision, environment and limitations.
+O1: open mathematical problem.
+
+The ratings below are a transparent qualitative decision aid, not an objective measurement or new evidence class. Four axes are scored 1-5:
+MR = mathematical readiness;
+PI = clarity of physical interpretation;
+F = ease of explicit formalization;
+T = potential testability.
+The scores measure suitability as a first bounded pilot, not importance or truth.
+
+27.2 COMPARATIVE TABLE
+
+Candidate CE-V-04 — Dynamic State Sufficiency and Closure
+Classification: M1 (deterministic closure criterion); M2 (quotient/factor-map interpretation); C1 (finite validation example); P1 (reduced state as coarse-grained physical variables); O1 (stochastic extension if required). No OMEGA-derived P3 or E1 yet.
+MR 5/5; PI 4/5; F 5/5; T 5/5; TOTAL 19/20.
+Strength: explicit full state X, reduction xi:X->Z, dynamics T and a direct closure test. The criterion can be falsified by finding two states with the same reduced representation but distinguishable next reduced states under the same admissible input.
+Limit: the deterministic criterion is established; stochastic extension requires a separate lumpability/quotient result. Failure of reduced closure does not establish fundamental memory or hidden ontology.
+Assessment: BEST CURRENT CANDIDATE.
+
+Candidate Theorem 91 — Operational Response Non-Expansion
+Classification: M1 (conditional theorem); M2 (surjective-tau distance-preservation corollary and the measure-enriched candidate construction); P1 (response distance as operationally measured model comparison); P2 (possible physical non-expansion claim under a concrete realization); O1 (canonical realization match and common tau derivation remain open). No P3 or E1 yet.
+MR 4/5; PI 3/5; F 4/5; T 3/5; TOTAL 14/20.
+Strength: exact proof exists under common tau, fixed comparison class, common probe domain and response-space conditions. The auxiliary OI-CP-T91 model structure provides a relational direct-image candidate and a measure-enriched pushforward example for H3.
+Limit: the candidate model structure is not the canonical OMEGA-ISOP realization; closure in C_Phi and operational covariance for the actual L_op/Resp_M are not established. No physical information conservation, entropy conservation or unitarity follows.
+Assessment: SECOND-STRONGEST INTERFACE; requires more realization-specific work than CE-V-04.
+
+Candidate CE-V-06 — Global Realization Filtering
+Classification: M1 (conditional structural claim as retained); P1 (global constraints filtering local admissible structures); P2 only if a specific cosmological realization is independently hypothesized; O1 (global realization selection, local nonemptiness and persistence).
+MR 3/5; PI 3/5; F 3/5; T 2/5; TOTAL 11/20.
+Strength: explicit global/local restriction and compatibility interface.
+Limit: global realization is externally selected, not derived; no cosmological realization, expansion law, Lambda, local nonemptiness, temporal propagation or unique selection follows. M3.2 Section 10 explicitly states that relational structure alone does not derive redshift, Lambda or unique cosmological dynamics and that no OMEGA-specific observationally distinguishable cosmological prediction has yet been derived.
+Assessment: relevant to later cosmology research, but NOT the first pilot.
+
+Candidate CE-V-05 — Reachability Equivalence
+Classification: M1 (conditional equivalence theorem); P1 (comparison of reachable futures); no P3/E1.
+MR 4/5; PI 2/5; F 4/5; T 3/5; TOTAL 13/20.
+Strength: clean formal theorem if Reach is well-defined under fixed R, Phi and A(R;Phi).
+Limit: equivalence of reachable sets has limited discriminating physical content by itself and does not imply ontological or physical identity.
+Assessment: useful auxiliary criterion, not the leading pilot.
+
+Candidate CE-V-03 — Organizational Transition Geometry
+Classification: M1 (conditional formal transition structure); P1 (transition landscape); O1 (metric axioms and physical dynamics if claimed).
+MR 3/5; PI 3/5; F 3/5; T 2/5; TOTAL 11/20.
+Strength: state space, transition relation, accessibility, stability and barrier can organize a model-specific analysis.
+Limit: d is only distance-like unless metric axioms are proved; barrier is not logical impossibility; no universal or realized evolution law follows.
+Assessment: insufficiently operational for the first pilot.
+
+Candidate CE-V-01 / CE-V-02
+Classification: M1 only within retained conditional archive scope; P1 (accessibility/realization distinction and criterion-relative structural necessity).
+Combined indicative rating: MR 3/5; PI 2/5; F 3/5; T 2/5; TOTAL 10/20.
+Limit: task/criterion dependence is clear, but a concrete physical transition model and observables are not supplied. Primary RL-001/RL-002 sources are non-recoverable.
+Assessment: not preferred for the first pilot.
+
+Candidate CE-V-06.1
+Classification: archival submodule / candidate integration qualification; P1 at most; O1 for any stronger temporal or propagation claim.
+MR 2/5; PI 2/5; F 2/5; T 1/5; TOTAL 7/20.
+Limit: integration wording remains qualified; supplied K0 countermodel has a formal defect under D2; K0* repairs only the finite laboratory witness; local nonemptiness and temporal preservation are not established.
+Assessment: NOT READY.
+
+CAPD single-bump transfer construction
+Classification: M1 (Liouville identity in exact trace-zero system); M2 (exact transfer-matrix composition); C1 (recorded CAPD outputs and narrow tests); O1 (target local enclosure, F-1, provenance and GR-TRANSFER-06C certification).
+Indicative physical-pilot suitability: MR 3/5; PI 1/5; F 3/5; T 2/5; TOTAL 9/20.
+Strength: concrete mathematical/numerical construction with exact parameters.
+Limit: the computation is not a physical realization; CAPD target certification remains open; F-1 unresolved; no physical observable, mechanism or empirical prediction is defined.
+Assessment: continue as a separate mathematical validation track, not the first physical pilot.
+
+27.3 DECISION
+The evidence favors CE-V-04 as the first physical-model pilot. It has the clearest direct map from a proven deterministic criterion to an explicit physical state description and a falsifiable closure test. This choice is based on formal readiness and testability, not on similarity to a preferred physical theory.
+
+CE-V-04 is not claimed to be a new physical law. The pilot would test whether the existing criterion correctly classifies a known physical model under a precisely chosen reduction. A successful classification would demonstrate a usable operational bridge, not new physics. A failure would expose a missing assumption or defect in the bridge.
+
+27.4 PROPOSED PILOT SCOPE — ONE-DIMENSIONAL CLASSICAL HARMONIC OSCILLATOR
+
+Status: PROPOSED CANDIDATE ONLY; not yet a selected or completed physical pilot.
+
+Reference physical model:
+State space X = R^2 with x=(q,p).
+Parameters m>0 and omega>0.
+Dynamics:
+dq/dt = p/m
+dp/dt = -m*omega^2*q
+
+Exact time-t map:
+T_t(q,p) = (q*cos(omega*t) + p/(m*omega)*sin(omega*t),
+            p*cos(omega*t) - m*omega*q*sin(omega*t))
+
+Reduced representation:
+xi(q,p) = q.
+
+Closure test:
+Take two states (q,p1) and (q,p2) with p1 != p2.
+They have the same reduced state:
+xi(q,p1) = xi(q,p2) = q.
+
+Their reduced states after time t differ by:
+xi(T_t(q,p1)) - xi(T_t(q,p2))
+= (p1-p2)/(m*omega)*sin(omega*t).
+
+For generic t with sin(omega*t) != 0, this difference is nonzero. Therefore the position-only representation is not closed under the first-order state evolution. The full state (q,p) is closed.
+
+Critical qualification:
+This does NOT mean the oscillator cannot be described using q. The familiar second-order equation
+d^2q/dt^2 + omega^2*q = 0
+is valid, but it uses q and its time derivative/initial velocity as dynamical information. The pilot tests sufficiency of q ALONE as a first-order state representation, not the validity of the oscillator model.
+
+Physical interpretation:
+q is position; p is momentum; xi discards momentum. The omitted momentum affects the future position. This is an explicit coarse-graining/state-sufficiency test.
+
+Proposed checks:
+1. Verify the exact flow map and its domain.
+2. Verify closure for the full representation xi_full(q,p)=(q,p).
+3. Construct explicit same-q/different-p counterexamples for the reduced representation.
+4. Identify exceptional times where sin(omega*t)=0 and explain why a single-time coincidence does not establish closure for all t.
+5. Compare the first-order reduced-state requirement with the equivalent second-order q equation.
+6. State clearly that omitted momentum is a standard dynamical variable, not a newly discovered hidden entity or fundamental memory.
+7. Keep all physical parameters and assumptions explicit; do not claim an empirical result from the analytic model alone.
+
+Classification at proposal stage:
+M1: CE-V-04 deterministic closure criterion.
+M2: exact difference formula above, conditional on the standard oscillator flow.
+P1: position-only coarse-graining correspondence.
+P3: NOT YET ASSIGNED as an OMEGA-derived physical model; the oscillator is a known reference system used to test the criterion.
+C1: NOT YET GENERATED; no new simulation has been run.
+E1: NOT PRESENT; no experiment or observation is claimed.
+O1: stochastic extension is not part of this deterministic pilot.
+
+27.5 WHY COSMOLOGY IS NOT THE FIRST PILOT
+CE-V-06 offers a potentially relevant global-to-local interface, but its own archive does not derive the global realization or cosmological dynamics. M3.2 Section 10 states that the OMEGA-specific realization/Phi remains insufficiently formalized and that no OMEGA-specific observationally distinguishable cosmological prediction has yet been derived.
+Choosing cosmology first would therefore require adding more physical assumptions before the mathematical bridge is testable. It is deferred, not rejected.
+
+27.6 STAGE 3 RESULT
+COMPARATIVE ASSESSMENT: COMPLETE.
+LEADING CANDIDATE: CE-V-04 deterministic state-sufficiency / coarse-graining.
+PROPOSED REFERENCE SYSTEM: one-dimensional classical harmonic oscillator, position-only reduction.
+PHYSICAL PILOT STATUS: NOT YET SELECTED OR EXECUTED.
+F-1: OPEN / SOURCE-DEPENDENT; remains a separate CAPD closure obligation.
+FROZEN CORE: UNCHANGED.
+VOLUME II/III/IV/V: UNCHANGED.
+NO RL REGISTRATION.
+NO CE-V PROMOTION.
+NO EMPIRICAL OR NEW PHYSICAL-LAW CLAIM.
