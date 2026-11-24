@@ -1,13 +1,13 @@
 OMEGA-ISOP
 VOLUME V EVIDENCE MAP
-WORKING REGISTER v0.1
+WORKING REGISTER v0.2
 DATE: 2026-11-24
 
 DOCUMENT ID:
 OI-VOLUME-V-EVIDENCE-MAP-0.1-2026-11-24
 
 STATUS:
-STAGE 2 — PARTIAL BASELINE
+STAGE 2 — PARTIAL BASELINE v0.2
 NOT A MATHEMATICAL CERTIFICATION
 NO PHYSICAL PILOT SELECTED
 NO MASTER REVISION
@@ -207,7 +207,7 @@ Disposition: do not repeat arithmetic-only audits of the same displayed endpoint
 7. STAGE 2 COMPLETION GATE
 
 The evidence map is not complete yet. Remaining bounded tasks:
-1. Map the exact contents of Sections XXVI and XXXI-XXXII against the claim groups above.
+1. Map the detailed source-level claims within Sections XXVI and XXXI-XXXII. (Section-level inventory completed in v0.2; claim-to-source linkage remains open.)
 2. Map CE-V-06.1 to its exact controlling Volume V source section.
 3. Map the detailed proof obligations and evidence labels for RL/CE claims that have surviving controlled copies, without re-searching for primary files already dispositioned as non-recoverable.
 4. Add exact Volume II/III source locations for each candidate interface.
@@ -228,3 +228,90 @@ Do not select a physical pilot before the evidence map and comparative assessmen
 Do not alter the Frozen Core, Volume V Master, CE-V archive or any canonical theorem through this working register.
 
 END OF WORKING REGISTER v0.1
+
+
+9. SECTION-LEVEL MAP — XXVI TO XXXII
+
+XXVI — EVIDENCE GOVERNANCE
+Function: defines evidence classes and prevents conflation of source inspection, compilation, execution, interval correctness, analytical justification, provenance, independent reproduction and target certification.
+Audit finding: this is the controlling classification scheme for the entire map. A PASS without exact test, inputs, configuration and scope is insufficient.
+Disposition: CLOSED AS A CLASSIFICATION MAP. No scientific claim is validated by this section alone.
+
+XXVII — MATHEMATICAL AUDIT
+Material claims:
+- Liouville determinant identity for the exact trace-zero system.
+- Rational post-processing and transfer-matrix composition.
+- Conditional boundary majorant using exp(z) <= 1 + 2*z on 0 <= z <= 1/2.
+- Failed preliminary exp(U*h) inclusion criterion.
+- Open local Taylor/remainder, exact state-enclosure, nonautonomous solver and complete error-budget obligations.
+Disposition: the analytical identity and algebraic composition are distinct from interval certification. The arithmetic checks remain conditional on supplied inputs. The failed preliminary test remains in the record. Root existence, uniqueness and a universal transfer theorem are not established.
+
+XXVIII — COMPUTATIONAL AND MACHINE AUDIT
+Material claims:
+- CAPD 6.0.0 smoke test passes only for y'=y, y(0)=1 on [0,1].
+- TEST 13A-R3 passes only for the specified multiplication and operands.
+- TEST 13A overall remains OPEN / INCONCLUSIVE.
+- TimeRange/C0Set/C0DoubletonSet/TimeMap/StepControl source-path findings are narrow source-level findings.
+- Recorded q=+1 and q=-1 outputs lack a complete source/build/stdout provenance chain.
+- Compiler, flags, floating-point configuration and target execution path remain incompletely verified.
+Disposition: no target-construction certification. No repeated smoke-test or arithmetic-only pass is permitted as a substitute for the missing target evidence.
+
+XXIX — CAPD INTERVAL VALIDATION REGISTER
+Function: consolidates exact test statuses and states the required source-to-output chain:
+source -> source hashes -> CAPD identity -> compiler/flags -> build -> binary hash -> inputs -> raw outputs -> interval endpoints -> independent arithmetic -> analytical obligations -> independent reproduction -> target decision.
+Disposition: the chain is a required schema, not evidence that the links exist. Target local enclosure, full provenance and independent reproduction remain OPEN. Krawczyk/root certification is not authorized or established.
+
+XXX — TEMPORARY OPEN-OBLIGATION REGISTER
+Groups remaining obligations into:
+A. mathematical local enclosure and error budget;
+B. source/build/machine identity and provenance;
+C. clean reproducibility and raw endpoint export;
+D. certification gate.
+Disposition: retained as the task inventory. The existence of the list does not itself close any item.
+
+XXXI — OPEN VALIDATION AND RESEARCH REGISTER
+Named workstreams:
+- RL-021.1: preserve definitions and boundary assumptions; complete general H characterization; keep the C_forward refutation tied to its exact construction.
+- RL-027: separate working-draft audit and open framework questions.
+- CAPD: implementation inspection, build identity, provenance, independent rerun and automated post-processing.
+- General OMEGA-ISOP programs: remain open unless separately closed by a source record.
+- Unified source/evidence traceability register: remains open until claim-level links are populated and checked.
+Disposition: the section is a work queue, not a result. The primary RL-source recovery instructions are narrowed by Appendix F.3 and the Thaw Audit: primary RL sources are recorded as non-recoverable, and further repository searching for those files is discontinued. This does not imply that missing CAPD notebook/build materials are destroyed; their availability outside the current Library remains unverified.
+
+XXXII — HISTORICAL FINAL STATUS
+Section XXXII is the v2.2 status snapshot preserved in the controlled master. Its source-verification statements are historical. Current document-control reconciliation is governed by Appendix F of v2.4-C-1.5. The current controlling statuses include: Frozen Core unchanged; CE-V-07 reserved; GR-TRANSFER-06C open/inconclusive; global certification not granted; no automatic CE-V promotion.
+Disposition: retain XXXII as historical status record; use Appendix F for current C-1.5 reconciliation.
+
+10. BOUNDED FINDINGS FROM THE SECTION MAP
+
+A. The evidence taxonomy is explicit and usable. The principal failure mode was not a lack of categories, but failure to apply them consistently to each claim.
+
+B. The CAPD line contains at least four distinct proof layers: analytical identity, rational arithmetic, interval computation, and implementation/provenance. Passing one does not pass the others.
+
+C. The primary RL-source limitation and the CAPD-source limitation are different:
+- primary RL sources are recorded as non-recoverable under the provenance disposition;
+- CAPD notebook/source/build materials are not present in the current Library inventory, but their status outside the Library is not established as destroyed.
+These must not be conflated.
+
+D. Appendix F is not a new scientific audit. It is the current documentary reconciliation layer and controls the interpretation of the C-1.4 findings without upgrading the scientific evidence.
+
+11. CURRENT STAGE 2 STATE
+
+COMPLETED IN THIS WORKING REGISTER:
+- baseline claim families identified;
+- Volume II/III/IV and CE-V source hierarchy mapped at document level;
+- Sections XXVI-XXXII classified by role and open-obligation type;
+- F-1 discrepancy and CAPD provenance limits carried forward without repeating the same arithmetic check;
+- physical pilot selection explicitly deferred.
+
+STILL OPEN:
+- exact subsection-level trace for every claim in Appendix A-C;
+- exact source location and proof dependency for each retained CE-V extension;
+- detailed mapping of CE-V-06.1;
+- full claim-level source/evidence register fields and actual hashes where available;
+- comparative physical-potential assessment after the map is complete.
+
+NEXT BOUNDED ACTION:
+Continue with exact subsection-level mapping of the CE-V-06.1 source and the operational response / Theorem 91 evidence chain. Do not reopen the Brown/EMB-CC research line as a substitute for this plan.
+
+END OF WORKING REGISTER v0.2
