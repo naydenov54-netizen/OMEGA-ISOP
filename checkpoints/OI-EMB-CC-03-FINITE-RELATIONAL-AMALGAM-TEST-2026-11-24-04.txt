@@ -1,0 +1,387 @@
+OMEGA-ISOP
+EMB_CC-03
+FINITE RELATIONAL REALIZATION: AMALGAM EXISTENCE AND MINIMAL NON-UNIQUENESS
+DOCUMENT_ID: OI-EMB-CC-03-FINITE-RELATIONAL-AMALGAM-TEST-2026-11-24-04
+DATE: 2026-11-24
+STATUS: DERIVATIVE RESEARCH CHECKPOINT / NON-CANONICAL
+PREDECESSOR:
+OI-EMB-CC-03-ADMISSIBLE-AMALGAMATION-WITNESS-2026-11-24-03
+WORK BRANCH:
+research/emb-cc-03-amalgamation-witness
+
+======================================================================
+0. PURPOSE AND STATUS
+======================================================================
+
+This checkpoint tests the cocone witness candidate in a nontrivial
+finite relational class and constructs incomparable minimal witnesses.
+
+It is a model-specific mathematical result.
+It is not a recovered original EMB_CC-03 source and is not a canonical
+OMEGA-ISOP theorem.
+
+The model uses:
+- finite connected simple graphs;
+- induced embeddings;
+- an apartness relation # defined by inequality;
+- graph adjacency E as an additional selected relational predicate.
+
+The additional predicate E is a realization-level test structure.
+It does not modify the Frozen Core or assert that every C_METACORE
+realization must contain E.
+
+======================================================================
+1. TEST CATEGORY
+======================================================================
+
+Define C_ConnGraph as follows.
+
+OBJECTS:
+Finite, nonempty, connected, simple undirected graphs:
+
+G=(V_G,E_G)
+
+where:
+- V_G is finite and nonempty;
+- E_G is a symmetric, irreflexive binary relation;
+- the graph is connected.
+
+Equip each graph with the apartness relation:
+
+x #_G y iff x != y.
+
+This # relation satisfies:
+- irreflexivity;
+- symmetry;
+- cotransitivity.
+
+The graph relation E_G is an additional selected structural relation.
+
+MORPHISMS:
+An induced embedding f:G->H is an injective map such that, for all
+x,y in V_G:
+
+x E_G y iff f(x) E_H f(y).
+
+Because f is injective, it also preserves and reflects apartness #.
+
+Composition and identities are the ordinary composition and identity
+maps. Thus C_ConnGraph is a category of finite admissible relational
+configurations with embedding morphisms.
+
+======================================================================
+2. FINITE AMALGAM EXISTENCE FOR NONEMPTY SPANS
+======================================================================
+
+Let:
+
+G1 <-i1- G0 -i2-> G2
+
+be a span in C_ConnGraph.
+
+Since G0 is an object, it is nonempty and connected.
+Both i1 and i2 are induced embeddings.
+
+Construct:
+
+A = (V_G1 disjoint-union V_G2) / ~
+
+where ~ identifies i1(x) with i2(x) for every x in V_G0 and makes no
+other identifications.
+
+Define E_A to be the union of the transported edge relations from G1
+and G2. No cross-edge is added.
+
+The canonical maps:
+
+m1:G1->A
+m2:G2->A
+
+are injective.
+
+They preserve and reflect E:
+- edges within each side are retained;
+- no new edge is introduced between two vertices from the same side;
+- any pair of vertices in one side has exactly its original adjacency
+  status.
+
+They also preserve and reflect # because # is inequality.
+
+They agree on G0:
+
+m1 o i1 = m2 o i2.
+
+A is connected:
+- every vertex in G1 has a path to every selected vertex of G0 because
+  G1 is connected;
+- every vertex in G2 has a path to every selected vertex of G0 because
+  G2 is connected;
+- the two copies of G0 are identified and G0 is nonempty.
+
+A is finite because G1 and G2 are finite.
+
+Therefore:
+
+THEOREM 1 — FINITE CONNECTED-GRAPH AMALGAM
+
+Every span in C_ConnGraph has a finite admissible amalgam.
+
+Proof:
+The construction above supplies a finite connected graph A and
+embedding legs m1,m2 satisfying the cocone equation.
+
+SCOPE:
+This is proved only for the stated category and span class. It does not
+establish the amalgamation property for arbitrary relational classes,
+arbitrary admissibility restrictions, or the canonical OMEGA-ISOP
+C_METACORE.
+
+======================================================================
+3. TWO INCOMPARABLE MINIMAL AMALGAMS
+======================================================================
+
+Let G0 be the one-vertex graph:
+
+V_G0={c}.
+
+Let G1 be the one-edge graph on {c,a} with edge {c,a}.
+Let G2 be the one-edge graph on {c,b} with edge {c,b}.
+
+The diagram is the span:
+
+G1 <- G0 -> G2
+
+where both maps include the vertex c.
+
+Construct two candidate amalgams.
+
+W_P:
+A_P is the path on three vertices:
+
+c -- a
+|
+b
+
+More precisely:
+E_A_P={{c,a},{c,b}}
+and there is no edge {a,b}.
+
+The two span legs are the evident induced embeddings.
+
+W_K:
+A_K is the triangle on three vertices:
+
+E_A_K={{c,a},{c,b},{a,b}}.
+
+Again, the two span legs are induced embeddings.
+
+Both are valid finite admissible amalgamating cocones.
+
+----------------------------------------------------------------------
+3.1 Minimality of W_P
+----------------------------------------------------------------------
+
+Suppose V=(D,(eta_0,eta_1,eta_2)) is any admissible witness and:
+
+V <=_Delta W_P.
+
+Then there is an induced embedding h:D->A_P commuting with all
+diagram legs.
+
+The image of c must be c.
+The image of the non-base vertex from G1 must be a.
+The image of the non-base vertex from G2 must be b.
+
+These are three distinct vertices. Hence |V_D|>=3.
+
+But A_P has exactly three vertices. Since h is injective, D has
+exactly three vertices and h is bijective onto A_P. An induced
+bijection is an isomorphism.
+
+Therefore V is equivalent to W_P over the diagram.
+
+No strictly smaller witness factors into W_P.
+Thus W_P is minimal.
+
+----------------------------------------------------------------------
+3.2 Minimality of W_K
+----------------------------------------------------------------------
+
+The same argument applies to W_K.
+
+Any witness factoring into W_K must contain the three distinct
+distinguished images c,a,b. Therefore its apex has at least three
+vertices.
+
+Since A_K has exactly three vertices, any such embedding is an
+isomorphism.
+
+Thus W_K is minimal.
+
+----------------------------------------------------------------------
+3.3 Incomparability
+----------------------------------------------------------------------
+
+There is no witness factorization:
+
+W_P <=_Delta W_K.
+
+Such a factorization would be an induced embedding fixing the
+distinguished vertices c,a,b. But A_P has no edge between a and b,
+whereas A_K does. The embedding would fail to reflect adjacency.
+
+There is also no factorization:
+
+W_K <=_Delta W_P.
+
+It would have to preserve the edge between a and b, which does not
+exist in A_P.
+
+Therefore W_P and W_K are incomparable minimal witnesses.
+
+----------------------------------------------------------------------
+3.4 No Least Witness
+----------------------------------------------------------------------
+
+Assume a least witness L existed.
+
+Then:
+
+L <=_Delta W_P
+and
+L <=_Delta W_K.
+
+The factorization into W_P forces the two distinguished non-base
+vertices of L to be nonadjacent, because their images a,b in A_P are
+nonadjacent and the factorization is an induced embedding.
+
+The factorization into W_K forces the same two distinguished vertices
+to be adjacent, because their images a,b in A_K are adjacent and the
+factorization is an induced embedding.
+
+Contradiction.
+
+Therefore no least witness exists for this span in C_ConnGraph.
+
+THEOREM 2 — MINIMAL NON-UNIQUENESS
+
+There exist finite diagrams in a finite relational embedding category
+with two incomparable minimal admissible amalgamation witnesses and
+with no least witness.
+
+This theorem is established by the span above.
+
+======================================================================
+4. CONSEQUENCES FOR EMB_CC-03
+======================================================================
+
+The model establishes:
+
+1. Finite amalgam existence can hold in a nontrivial constrained
+   relational class.
+
+2. Finite amalgam existence does not imply uniqueness of minimal
+   witnesses.
+
+3. Minimality does not imply leastness.
+
+4. A least witness cannot be assumed merely because all individual
+   witnesses are finite.
+
+5. The witness preorder and its factorization maps are essential
+   mathematical data. Cardinality alone does not capture the order.
+
+6. Strong amalgamation is not needed for the two examples. The
+   embeddings are induced, but the witness definition does not impose
+   the strong-amalgamation intersection condition.
+
+SCOPE:
+These results concern C_ConnGraph. They are not automatically
+transferable to every C_METACORE realization.
+
+======================================================================
+5. LOOP / ANTI-CIRCULARITY AUDIT
+======================================================================
+
+TARGET:
+Two incomparable minimal amalgams exist.
+
+INDEPENDENT DATA:
+- explicit finite category C_ConnGraph;
+- explicit finite span;
+- two explicit three-vertex apex graphs;
+- explicit induced embedding legs;
+- explicit factorization preorder.
+
+MINIMALITY:
+Derived from the fact that every witness factoring into either
+three-vertex apex must contain the three distinguished vertices.
+
+INCOMPARABILITY:
+Derived from the preservation-and-reflection requirement for E.
+
+NO LEASTNESS:
+Derived by contradiction from the incompatible adjacency status of
+the two distinguished non-base vertices.
+
+No finiteness or minimality conclusion is included in the definitions.
+
+======================================================================
+6. LIMITATIONS AND OPEN TESTS
+======================================================================
+
+NOT ESTABLISHED:
+- that graph adjacency E is part of the canonical OMEGA-ISOP
+  configuration signature;
+- that C_ConnGraph is the canonical C_METACORE;
+- that the original EMB_CC-03 uses this factorization order;
+- that all canonical configurations are finite;
+- that the canonical witness class has an amalgamation property;
+- that the canonical witness class is well-founded;
+- that D_CC has a colimit;
+- that R exists for the candidate diagram.
+
+NEXT:
+1. Recover the original EMB_CC-03 witness definition if possible.
+2. Compare its witness order with <=_Delta.
+3. Test whether the original admissibility predicate permits the
+   P3-versus-triangle distinction.
+4. Specify the actual compatibility diagram shape.
+5. Only then classify the model as a canonical counterexample,
+   a compatible realization, or an irrelevant test model.
+
+======================================================================
+7. ARCHITECTURAL INVARIANTS
+======================================================================
+
+FROZEN CORE: UNCHANGED.
+VOLUME II: UNCHANGED.
+VOLUME III: UNCHANGED.
+VOLUME V: UNCHANGED.
+R: UNCHANGED.
+D_CC: NOT FORMALLY CONSTRUCTED.
+STRONGNESS: INDEPENDENT.
+CANONICAL REGISTRATION: NONE.
+RL REGISTRATION: NONE.
+INTEGRATION: NOT APPROVED.
+
+======================================================================
+8. FINAL DISPOSITION
+======================================================================
+
+FINITE_AMALGAM:
+PROVED FOR C_ConnGraph AND THE STATED SPANS.
+
+MINIMAL_NON_UNIQUENESS:
+PROVED IN C_ConnGraph.
+
+LEAST_WITNESS:
+NOT GUARANTEED; EXPLICITLY ABSENT IN THE TEST MODEL.
+
+CANONICAL_EMB_CC-03_STATUS:
+OPEN / NOT RECOVERED / NOT ACCEPTED.
+
+FROZEN_CORE_CHANGE:
+NONE.
+
+END OF CHECKPOINT
