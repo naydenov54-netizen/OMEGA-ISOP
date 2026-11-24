@@ -839,3 +839,161 @@ Overlap control: Appendix B and Appendix C repeat or narrow CAPD claims already 
 
 STAGE 2 APPENDIX A-C SUBTASK: COMPLETE AT THE CLAIM-GROUP LEVEL.
 STAGE 2 OVERALL: NOT YET CLOSED. Remaining completion work: reconcile any remaining material claims in operative Sections XXVI-XXXII against the existing claim IDs; confirm exact Volume II/III source locations for the candidate interfaces; then perform the comparative physical-potential assessment. No physical pilot selected.
+
+
+22. EXACT CROSS-SOURCE TRACE — OPERATIONAL RESPONSE, THEOREM 91 AND CE-V ARCHIVE
+
+22.1 VOLUME II — OPERATIONAL RESPONSE GEOMETRY
+Source: OMEGA-ISOP-VOLUME-II-MATHEMATICAL-FOUNDATIONS-v1.3-MF-AUDIT-RESTORED-FINAL.txt.
+Exact locations:
+- Section VIII.1, lines 362-380: operational language L_op and response map Resp_M:L_op->Y.
+- Section VIII.2, lines 381-392: epsilon=0 exact operational equivalence; epsilon>0 tolerance is not generally transitive with the same epsilon and may yield a 2*epsilon bound in a two-step comparison.
+- Section VIII.3, lines 393-404: D_L extended pseudometric; zero distance means indistinguishability under selected L_op, not ontological identity.
+- Section VIII.4, lines 405-415: response stability and transient amplification; transient amplification alone is not organization, identity, causality or functional closure.
+- Section VIII.5, lines 416-450: Theorem 91 and proof.
+Audit linkage: VM-03, VM-04, VM-05; detailed proof audit in Section 14 of this register.
+Evidence class: formal definitions, conditional theorem and proof.
+Status: Theorem 91 proof PASS under a single common tau for all models in the comparison class, common probe domain, common response space and fixed comparison class. It does not establish universal information conservation.
+Missing evidence for physical application: actual physical realization, T, observables/probes, Resp_M and common tau derived from that realization.
+Next permitted action: retain conditional theorem; no canonical theorem edit.
+
+22.2 VOLUME III — OPERATIONAL VALIDATION FRAMEWORK
+Source: OMEGA-ISOP-VOLUME-III-VALIDATION-FRAMEWORK-v1.1-VAL-RESTORED.txt.
+Exact locations:
+- Section 18, lines 200-213: probes/interventions L_op and response map Resp_M:L_op->Y.
+- Section 19, lines 214-223: epsilon operational tolerance relation.
+- Section 20, lines 224-243: D_L extended pseudometric and non-implication from zero operational distance to physical/ontological identity.
+- Section 21, lines 244-255: persistence detection requires object, representation, time domain, tolerance, criterion and perturbations.
+- Section 22, lines 256-267: robustness requires specified perturbation family, tolerance, observable and persistence/response criterion.
+- Section 23, lines 268-283: operational organization remains a candidate construct requiring persistence, distinguishability, response, closure/task performance, constraints and dynamics.
+- Sections 24-25, lines 284-300: computational realization/testing is model-dependent; simulation is not proof.
+Audit linkage: VM-03, VM-04, VM-05 and A-09.
+Evidence class: operational definitions and validation requirements, not a physical model.
+Status: definitions and boundaries are present. No universal robustness or organizational theorem follows.
+Missing evidence: a selected physical model, observables, measurement protocol, perturbation family, tolerance and testable predictions.
+Next permitted action: preserve as an interface; require model-specific operationalization before any physical claim.
+
+22.3 CE-V RETAINED EXTENSIONS ARCHIVE — EXACT SOURCE LOCATIONS
+Source: CE-V-OMEGA-ISOP-RETAINED-EXTENSIONS-STATUS-FINAL.txt.
+- CE-V-01: lines 16-50. Conditional accessibility distinction; accessible does not imply transition, realization or necessity.
+- CE-V-02: lines 51-91. Criterion-relative equivalence, robustness and structural necessity; no universal necessity.
+- CE-V-03: lines 92-145. Transition landscape; d is distance-like unless metric axioms are proven; geometry does not select physical realization.
+- CE-V-04: lines 146-267. Reduced-state dynamic closure under every admissible input; displayed finite validation and non-implications. The current register's deterministic quotient proof independently checks the displayed criterion; it does not recover RL-007.
+- CE-V-05: lines 268-312. Reachability equivalence conditional on fixed R, Phi, A(R;Phi), defined Reach and state domain.
+- CE-V-06: lines 313-377. Global-to-local filtering conditional on selected global realization; it does not derive global realization, cosmological realization or unique selection.
+- CE-V-06.1: lines 378-399. Retained subordinate directional/temporal module; archive explicitly delegates formal/validation detail to the controlling Volume V record and does not itself add a theorem.
+- CE-V-07 reserved; integration requirements and retained corpus: lines 400-465.
+- Documentary audit and limits: lines 466-505; it confirms identifier/corpus/documentary consistency, not independent re-derivation of every RL source.
+Evidence class: official retained-archive status plus explicit conditional claim boundaries; documentary audit is not a new mathematical proof.
+Status: archive designations retained. CE-V-06.1 qualification conflict with the RL-022/RL-023 archival supplement remains unresolved as already recorded in Sections 12-13 of this working register; do not treat the supplement as recovered RL-006 primary source.
+Missing evidence: primary RL source files are non-recoverable under the recorded provenance disposition; this limits fresh source-level re-derivation. CE-V-06 local nonempty fibers and temporal persistence are not established by the supplied RL-022/RL-023 supplement.
+Next permitted action: keep archive status and source-level findings distinct; no CE status change.
+
+23. OPERATIVE SECTIONS XXVI-XXXII — CLAIM-LEVEL COMPLETION RECONCILIATION
+
+The following IDs supplement the earlier VM-01 to VM-16 baseline. Appendix B source-local labels are not substituted for these operative main-body sections.
+
+VM-17 — XXVI ARCHITECTURAL STATUS AND RESEARCH STATUS RECONCILIATION
+Source: Volume V v2.4-C-1.5, XXVI.1-XXVI.2, lines 174-247.
+Claims: Frozen Core unchanged; CE-V-01..06.1 retained under archive boundaries; CE-V-07 reserved; automatic promotion prohibited; universal Omega necessity, general dynamic selection, general existence of R, persistence existence, functional closure, rigorous general organizational metric, causal bridge, unique structural classification and general robustness remain open. RL-021 closed within scope; RL-021.1 established with boundary conditions; RL-027 core domain results verified but overall item under audit; CAPD partial audit pass/certification open.
+Assumptions: statuses are inherited from their controlled source records and are not new derivations in this section.
+Evidence class: current status reconciliation and documentary source limitation.
+Current status: status table retained; primary RL source verification is explicitly not freshly performed in the source master. RL primary sources are separately dispositioned non-recoverable; surviving controlled copies are comparison sources only.
+Missing evidence: no primary RL-021/021.1/027 source derivations for fresh re-audit; exact definitions and hashes remain unavailable from current source set.
+Next permitted action: retain carried-forward classifications with provenance caveat; no redundant search for files formally dispositioned non-recoverable.
+
+VM-18 — XXVII RL-021 INTERNAL RELATION / EXTERNAL DEPENDENCE
+Source: Volume V XXVII.1, lines 251-269; primary RL-021 not present in current Library.
+Claim: internal relation alone does not identify external dependence B -> X.
+Assumptions: exact variables, admissible structures and formal domain in RL-021.
+Evidence class: carried-forward closed research result; controlled Volume V statement, not fresh primary-source derivation.
+Current status: CLOSED / ESTABLISHED within stated scope only.
+Missing evidence: primary definitions/proof not re-readable from current Library; no universal or causal conclusion.
+Next permitted action: preserve the narrow result and provenance limitation; no CE promotion or generalization.
+
+VM-19 — XXVII RL-021.1 JOINT BOUNDARY INCIDENCE
+Source: Volume V XXVII.2-XXVII.3, lines 270-320; primary RL-021.1 not present in current Library.
+Claims: for |X|>=2, marginal boundary degrees alone do not identify joint incidence Q_B; joint data J_B/T_B/K_B are sufficient for the stated reconstruction under source conditions; for |X|=1, G_forward and G_backward identifiable; general characterization of H remains OPEN; necessity of C_forward is refuted in a specific construction.
+Assumptions: exact source definitions, admissible domain, cardinality and explicit boundary conditions.
+Evidence class: carried-forward domain-bounded formal results and a local counterexample.
+Current status: ESTABLISHED WITH EXPLICIT BOUNDARY CONDITIONS; general H characterization OPEN; no CE-V promotion.
+Missing evidence: primary definitions/proof/counterexample not independently re-read; full boundary conditions not reproduced in this Volume excerpt.
+Next permitted action: retain scope and open H; do not broaden the C_forward refutation beyond its construction.
+
+VM-20 — XXVIII RL-027 DOMAIN-BOUNDED PURITY IDENTIFIABILITY
+Source: Volume V XXVIII.1-XXVIII.4, lines 321-376; primary RL-027 not present in current Library.
+Claims: purity identifiable from rho_B on pure-global-state domain; not identifiable from rho_B on full mixed-global domain when d_A>=2 under the stated construction; for fixed rho_B, Q_A ranges over [1/d_A,1] in the examined construction.
+Assumptions: exact state domain, dimension condition, definitions of purity/rho_B/Q_A and construction in RL-027.
+Evidence class: domain-bounded core propositions carried forward as independently verified in the controlled status record; broader framework is under audit.
+Current status: core results marked independently verified within stated domains; overall RL-027 UNDER AUDIT; TEST-I Draft-0.2 audited working draft, not frozen.
+Missing evidence: primary RL-027 definitions and complete derivations; general framework, minimality, stability, computability, external dependencies and broader dimensions remain open.
+Next permitted action: retain each domain qualifier; do not state unrestricted purity identifiability or universal bound.
+
+VM-21 — XXIX CAPD CERTIFICATION RECONCILIATION
+Source: Volume V XXIX.1-XXIX.6, lines 377-557.
+Claims: smoke test and TEST 13A-R3 narrow passes; TEST 13A overall open; single-bump construction partial audit pass; boundary majorant conditional; preliminary exp(U*h) test failed; corrected scalar test conditional pass; source/build/provenance, local enclosure and independent reproduction open; root existence/uniqueness not proved; Krawczyk not authorized/performed.
+Assumptions: exact test-specific inputs/configurations; construction-specific profile and parameters.
+Evidence class: mixed tool-level test outputs, arithmetic checks, analytical identities and open implementation/provenance findings.
+Current status: as recorded, no aggregate target certification.
+Missing evidence: as detailed in VM-13 to VM-16 and Appendix A/B/C map.
+Next permitted action: keep distinct test statuses; F-1 and CAPD traceability remain next technical stage after Stage 2 map completion.
+
+VM-22 — XXX CE-V ARCHITECTURE AND INTEGRATION GATES
+Source: Volume V XXX.1-XXX.3, lines 558-624.
+Claims: retained numbering CE-V-01..06.1 unchanged, CE-V-07 reserved; RL closed status, bounded theorem, smoke test, arithmetic pass, conditional estimate, numerical cross-check or source inspection alone do not authorize CE-V promotion; future integration requires defined claim, assumptions/domain, derivation, validation boundary, traceability, Frozen Core compatibility and explicit decision.
+Assumptions: current controlled CE-V governance.
+Evidence class: integration gate / governance rule.
+Current status: ACTIVE; no automatic promotion; RL-021, RL-021.1, RL-027 and CAPD have no new CE-V assignment.
+Missing evidence for any future proposal: all listed gates must be independently satisfied.
+Next permitted action: no promotion in this workstream.
+
+VM-23 — XXXI OPEN VALIDATION AND RESEARCH REGISTER
+Source: Volume V XXXI, lines 625-663.
+Claims: unresolved workstreams for RL-021.1 general H, RL-027 TEST-I/minimality/stability/computability/external dependencies, CAPD source/build/reproduction/raw endpoint/error budget, general OMEGA-ISOP open programs, unified source/evidence traceability.
+Assumptions: workstream-specific source definitions and status.
+Evidence class: open-obligation register, not a result.
+Current status: OPEN as a queue. Appendix F.3 narrows RL primary-source recovery: non-recoverable and further search discontinued. CAPD raw notebook/build materials are not present in current Library, but are not thereby declared destroyed.
+Missing evidence: each workstream's specific outstanding source/proof/build artifacts.
+Next permitted action: preserve the bounded queue; do not repeat completed searches or treat absence as falsity.
+
+VM-24 — XXXII HISTORICAL FINAL STATUS SNAPSHOT
+Source: Volume V XXXII, lines 664-728.
+Claims: historical v2.2 status; Frozen Core unchanged, CE-V numbering preserved, CE-V-07 reserved, RL-021/021.1/027 classifications, CAPD partial audit pass, GR-TRANSFER-06C open/inconclusive, universality not established and no automatic promotion.
+Assumptions: status as of 2026-11-09.
+Evidence class: historical documentary status.
+Current status: RETAINED AS HISTORICAL; Appendix F of C-1.5 governs current documentary reconciliation where explicitly specified.
+Missing evidence: none for historical status; do not rely on this snapshot alone for current state.
+Next permitted action: cite current status from operative C-1.5 plus Appendix F, not historical XXXII.
+
+24. STAGE 2 COMPLETION AUDIT
+
+Material claim coverage:
+- Operative Sections XXVI-XXXII: VM-17 through VM-24, plus VM-13 through VM-16 for CAPD proof/test layers.
+- Appendix A: A-01 through A-15.
+- Appendix B: B-01 through B-11.
+- Appendix C: C-01 through C-09.
+- Foundational/CE-V claims: VM-01 through VM-12.
+- Theorem 91 and operational response: VM-04/VM-05 and Sections 14, 22.1-22.2.
+- CE-V archive exact source trace: Section 22.3.
+
+Completion criterion check:
+1. Identifier: PRESENT for every material claim group.
+2. Source location: PRESENT at section/subsection and line-range level where the controlled source exposes it.
+3. Assumptions: PRESENT; where primary RL definitions are unavailable, exact assumptions are explicitly marked as source-dependent rather than reconstructed.
+4. Evidence class: PRESENT.
+5. Current status: PRESENT, with historical/current distinctions.
+6. Missing evidence: PRESENT.
+7. Next permitted action: PRESENT.
+
+Known limitations that do not block map closure:
+- Primary RL sources remain non-recoverable by the recorded provenance disposition; controlled copies are not represented as primary-source recovery.
+- Appendix A has lost line breaks in predecessor transcription; only extant claims are mapped.
+- CAPD raw notebook/source/build package is absent from current Library inventory; no destruction inference.
+- Exact file hashes are not copied into the register unless actually computed from exact bytes. Git blob SHA is recorded by GitHub separately and is not represented as SHA-256 source-file hash.
+
+STAGE 2 EVIDENCE MAP: COMPLETE AT CLAIM-GROUP LEVEL, WITH THE ABOVE SOURCE LIMITATIONS EXPLICIT.
+NEXT PLAN STEP: CAPD F-1 ENDPOINT DISCREPANCY RESOLUTION / SOURCE-LEVEL TRACEABILITY, THEN RL/CE-V TRACEABILITY, THEN COMPARATIVE PHYSICAL-POTENTIAL ASSESSMENT AND PHYSICAL PILOT DECISION.
+NO PHYSICAL PILOT SELECTED BY THIS MAP.
+NO RL REGISTRATION.
+NO CE-V PROMOTION.
+NO FROZEN CORE OR MASTER CHANGE.
