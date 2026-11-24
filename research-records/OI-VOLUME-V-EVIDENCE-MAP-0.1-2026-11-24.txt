@@ -1,13 +1,13 @@
 OMEGA-ISOP
 VOLUME V EVIDENCE MAP
-WORKING REGISTER v0.4
+WORKING REGISTER v0.5
 DATE: 2026-11-24
 
 DOCUMENT ID:
 OI-VOLUME-V-EVIDENCE-MAP-0.1-2026-11-24
 
 STATUS:
-STAGE 2 — PARTIAL BASELINE v0.4
+STAGE 2 — PARTIAL BASELINE v0.5
 NOT A MATHEMATICAL CERTIFICATION
 NO PHYSICAL PILOT SELECTED
 NO MASTER REVISION
@@ -314,7 +314,7 @@ STILL OPEN:
 NEXT BOUNDED ACTION:
 Map the exact operational-response / Theorem 91 evidence chain, including the proof source for the conditional non-expansion estimate. Do not reopen the Brown/EMB-CC research line as a substitute for this plan.
 
-END OF WORKING REGISTER v0.4
+END OF WORKING REGISTER v0.5
 
 
 12. CE-V-06.1 / RL-022-RL-023 — FORMAL CONSISTENCY CHECK
@@ -427,3 +427,72 @@ NO RL / CE REGISTRATION.
 15. STAGE 2 NEXT ACTION
 
 Continue the subsection-level map of Appendix A-C claims, focusing on the exact source and proof status of the remaining mathematical constructions. Theorem 91 is mapped; do not repeat its supremum proof unless a new assumption, source version or counterexample is introduced.
+
+
+16. CE-V-04 — DYNAMIC STATE SUFFICIENCY: FORMAL PROOF AUDIT
+
+SOURCE:
+CE-V retained extensions archive, CE-V-04 entry.
+Related formal setting: Volume II v1.3, reduction/coarse-graining and dynamical sections.
+Related validation framework: Volume III v1.1, deterministic/stochastic dynamics and operational validation.
+
+FORMAL SETTING:
+X is the full state space.
+xi:X -> Z is a selected reduced representation.
+Define x ~_xi y iff xi(x)=xi(y).
+For deterministic T:X->X, the closure condition is:
+xi(x)=xi(y) => xi(T(x))=xi(T(y)).
+
+MATHEMATICAL INTERPRETATION:
+The condition is exactly the requirement that T descend to a well-defined map T_bar on the image xi(X), satisfying:
+xi(T(x)) = T_bar(xi(x)).
+Proof of sufficiency: define T_bar(z)=xi(T(x)) for any x with xi(x)=z. The closure condition guarantees that the value is independent of the representative x. Necessity follows immediately if such a T_bar exists.
+This is the standard quotient/factor-map condition for deterministic dynamics. It is not a new universal physical theorem.
+
+FINITE VALIDATION MODEL:
+X={(0,0),(0,1),(1,0),(1,1)}
+T(s,z)=(s xor z,z)
+xi_full(s,z)=(s,z)
+xi_red(s,z)=s.
+
+Full representation:
+xi_full is injective, so equality of reduced labels implies equality of full states. Closure holds.
+
+Reduced representation:
+(0,0) ~_xi_red (0,1), because both map to 0.
+T(0,0)=(0,0), with reduced value 0.
+T(0,1)=(1,1), with reduced value 1.
+Therefore closure fails. The reduced variable s alone does not determine its next value because the update depends on the omitted coordinate z.
+
+FINITE CHECK:
+Exhaustive evaluation of all pairs in X confirms that the reduced relation has closure violations, while the full identity representation has none.
+
+STOCHASTIC LIMIT:
+The displayed CE-V-04 test is deterministic. For a stochastic Markov kernel, the corresponding quotient condition is not simply equality of deterministic images. A stochastic coarse-graining generally requires a lumpability condition: states identified by xi must induce the same transition probabilities into every reduced-state fiber. That stochastic condition is not established by the finite deterministic example and must be treated as a separate theorem/assumption if the physical pilot uses stochastic dynamics.
+
+PHYSICAL-POTENTIAL ASSESSMENT:
+This is a relatively concrete bridge to coarse-grained physical models:
+- full state X;
+- reduced/macroscopic variables xi(X);
+- physical evolution T or a stochastic kernel;
+- test whether the reduced variables define closed dynamics.
+It can diagnose when a reduced description is insufficient and when omitted variables matter for prediction.
+It does NOT establish fundamental memory, hidden ontology, a new physical degree of freedom, or a physical law. Non-Markovian behavior of a reduced description may arise from information omitted by the coarse-graining.
+
+PROVENANCE LIMIT:
+The controlled CE-V archive contains the explicit finite construction and validation result. The primary RL-007 file is not present in the current Library inventory. The derivation above is an independent check of the displayed criterion and example; it does not restore the primary RL-007 source or its provenance.
+
+AUDIT RESULT:
+DISPLAYED FINITE COUNTEREXAMPLE: PASS.
+DETERMINISTIC QUOTIENT-FACTOR INTERPRETATION: PASS.
+STOCHASTIC EXTENSION: NOT ESTABLISHED BY THIS EXAMPLE.
+PHYSICAL MODEL: NOT YET SPECIFIED.
+PILOT SELECTION: DEFERRED UNTIL STAGE 2 MAP IS COMPLETE.
+NO CE-V STATUS CHANGE.
+NO FROZEN CORE CHANGE.
+
+17. CANDIDATE READINESS UPDATE
+
+Among the mapped candidates, CE-V-04 currently has the clearest operational bridge to a physical modeling problem because its reduced-state closure criterion can be tested directly against a specified dynamics. Theorem 91 provides a second possible interface through operational response contraction, but its common-tau condition is a strong compatibility requirement. CE-V-06/06.1 remains conditional on a selected global realization and does not derive cosmological dynamics or local nonemptiness.
+
+This is a provisional evidence-based comparison, not the final pilot selection. The full Appendix A-C claim map and comparative assessment remain open.
