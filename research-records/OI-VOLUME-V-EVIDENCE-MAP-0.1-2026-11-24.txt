@@ -315,3 +315,49 @@ NEXT BOUNDED ACTION:
 Continue with exact subsection-level mapping of the CE-V-06.1 source and the operational response / Theorem 91 evidence chain. Do not reopen the Brown/EMB-CC research line as a substitute for this plan.
 
 END OF WORKING REGISTER v0.2
+
+
+12. CE-V-06.1 / RL-022-RL-023 — FORMAL CONSISTENCY CHECK
+
+SOURCE:
+OMEGA-ISOP-RL-022-RL-023-CONSOLIDATED-ARCHIVAL-SUPPLEMENT-2026-11-24.txt
+Source basis declared by that file: user-provided consolidated record; it is not the recovered primary RL-006 source.
+
+DEFINED UPDATE-DEPENDENCY TEST D2:
+X ->_U Y iff Y(t+1) depends non-constantly on X(t), witnessed by admissible x1 != x2 for which the next Y values differ.
+
+COMMON MODEL:
+M={a,b}; D1={a}; R_global(t)=(x_t,y_t) in {0,1}^2; R1(t)=x_t; A1(t)=x_t.
+The filtering chain R_global(t) ->_F R1(t) ->_F A1(t) is satisfied in both models below.
+
+K1 AS SUPPLIED:
+x_(t+1)=1-A1(t); y_(t+1)=y_t.
+Since A1(t)=x_t, choosing x_t=0 and x_t=1 at fixed y_t gives different next global states. K1 VALIDLY witnesses A1 ->_U R_global.
+
+K0 AS SUPPLIED:
+x_(t+1)=x_t; y_(t+1)=y_t.
+But A1(t)=x_t, so x_(t+1)=A1(t). At fixed y_t, choosing x_t=0 and x_t=1 gives different next global states. Under D2, K0 therefore ALSO has A1 ->_U R_global.
+Finding: the supplied K0 does NOT witness A1 not->_U R_global. This is a formal countermodel defect in the archival supplement as written.
+
+CORRECTED LABORATORY COUNTERMODEL K0*:
+x_(t+1)=0; y_(t+1)=y_t.
+For any two admissible current states with the same y_t and different A1(t)=x_t, the next global state is the same (0,y_t). Thus A1 not->_U R_global under D2.
+K0* retains the same static filtering chain and time-defined structures. It differs from K1 only in the update rule for x.
+
+NARROW CONCLUSION:
+- The K1 witness for possible reverse update-dependency is valid.
+- The supplied K0 witness for absence of reverse update-dependency is invalid under the supplement's own D2 definition.
+- The intended non-entailment result can be restored at the level of the stated finite laboratory model by replacing K0 with K0*.
+- This is a correction to a model in a supplementary archival copy, not a proof of physical feedback or causation.
+- It does not alter canonical Theorem 91, the Frozen Core, CE-V-06, CE-V-06.1 integration status, or any RL/CE register.
+- Because the supplement is not the recovered primary RL-006 source, the finding is limited to the supplied archival record and the explicit definitions printed in it.
+
+STATUS:
+SOURCE-LEVEL FORMAL CONSISTENCY FINDING — K0 DEFECT IDENTIFIED; K0* CORRECTION VERIFIED BY DIRECT FINITE-STATE CHECK.
+NO RL REGISTRATION.
+NO CE-V PROMOTION.
+NO CANONICAL SOURCE EDIT.
+
+13. NEXT BOUNDED ACTION
+
+Complete the exact operational-response / Theorem 91 evidence chain and map the remaining Appendix A-C claim groups. The CE-V-06.1 issue is recorded; do not repeat the same K0 arithmetic/logic check unless the source model or D2 definition changes.
