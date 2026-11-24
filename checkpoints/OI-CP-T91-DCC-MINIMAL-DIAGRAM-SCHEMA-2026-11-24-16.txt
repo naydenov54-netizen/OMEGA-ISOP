@@ -1,0 +1,316 @@
+OMEGA-ISOP
+D_CC / THEOREM 91
+SOURCE-COMPATIBLE MINIMAL DIAGRAM SCHEMA AND BROWN TRIANGLE CLASSIFICATION
+
+CHECKPOINT_ID:
+OI-CP-T91-DCC-MINIMAL-DIAGRAM-SCHEMA-2026-11-24-16
+
+DATE:
+2026-11-24
+
+STATUS:
+SOURCE-GROUNDED FORMALIZATION BOUNDARY
+MINIMAL PARAMETERIZED SCHEMA RECOVERED
+CANONICAL D_CC DIAGRAM CLASS NOT FULLY SPECIFIED
+BROWN TRIANGLE: UNDECIDABLE FOR CANONICAL D_CC
+NO THEOREM 91 CONTRADICTION ESTABLISHED
+
+============================================================
+LAYER 1. RESEARCH CHECKPOINT
+============================================================
+
+WORKSTREAM:
+D_CC formalization / EMB-CC-04 / Theorem 91 scope
+
+RESEARCH_STAGE:
+Source-compatible diagram schema recovery, before further counterexample search.
+
+TITLE:
+Narrowest source-compatible schema for D_CC and classification of the Brown triangle.
+
+OBJECTIVE:
+Recover only the formal data explicitly required or safely implied by the controlled OMEGA-ISOP sources. Do not choose an indexing category, diagram shape, admissibility predicate, or target finiteness rule that the sources leave open.
+
+SOURCE_REFERENCES:
+1. Frozen Core:
+&OMEGA-ISOP-v2.0-FC10.2-CONSOLIDATED-FROZEN-CORE.txt
+Sections 1.6, 1.7, 1.8, 2.1.
+
+2. Volume II:
+&OMEGA-ISOP-VOLUME-II-MATHEMATICAL-FOUNDATIONS-v1.3-MF-AUDIT-RESTORED-FINAL.txt
+Sections III.4, III.5, IV.1, IV.2, IV.3.
+
+3. Volume III:
+&OMEGA-ISOP-VOLUME-III-VALIDATION-FRAMEWORK-v1.1-VAL-RESTORED.txt
+Sections 8 and 9.
+
+4. Operational handoff:
+OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF-v1.5.txt
+Sections 0, 1, 13, 14, 19, 20.
+
+5. Prior research checkpoints:
+OI-CP-T91-CC-STRONGNESS-ARCHITECTURE-SOURCE-AUDIT-2026-11-24-14
+OI-CP-T91-BROWN-TRIANGLE-DCC-SCOPE-AUDIT-2026-11-24-15
+OI-CP-EMB-CC-04-THOMPSON-TRIANGLE-OBSTRUCTION-2026-11-24-04
+
+ESTABLISHED SOURCE FACTS:
+
+A. Objects
+Frozen Core 1.6 and Volume II III.4 define local configurations as admissible relational substructures:
+C = (S_C,#_C)
+where S_C is a subset of the selected carrier and #_C is the restricted apartness structure.
+The admissible configurations form, or may be represented by, C_METACORE.
+
+B. Morphisms
+Volume II III.5 defines a configuration embedding f:C1->C2 as injective and preserving and reflecting apartness:
+x #1 y iff f(x) #2 f(y).
+
+Volume II III.4 and Frozen Core 2.1 describe C_METACORE morphisms more generally as maps preserving the selected structural properties. The sources do not explicitly state that every morphism of every D_CC realization must be an embedding of the exact III.5 type. The selected morphism class must therefore be declared by the realization.
+
+C. Binary compatibility
+Frozen Core 1.7 and Volume II IV.1 state:
+CC(C1,C2)=1 iff an admissible amalgamation of C1 and C2 exists.
+Otherwise CC(C1,C2)=0.
+
+This is a binary minimal representation of compatibility. It does not define all higher-order compatibility data.
+
+D. Relational specification
+Frozen Core 1.8 and Volume II IV.2 state:
+R := colim(D_CC)
+when the required categorical construction exists.
+
+The construction requires a valid compatibility diagram, a relevant categorical structure, and a colimit or an equivalent constraint-preserving construction. Existence is conditional.
+
+E. Formalization boundary
+Volume III Section 9 explicitly states that D_CC is not a complete categorical construction by notation alone. A complete realization requires:
+J = indexing category
+D:J->C_METACORE
+the required morphisms and compatibility conditions
+the required universal property.
+
+No particular J or universal property beyond this requirement is fixed in that section.
+
+============================================================
+MINIMAL PARAMETERIZED SCHEMA
+============================================================
+
+The narrowest faithful schema is not one fully specified diagram. It is the following parameterized interface:
+
+(1) Select a category C_METACORE whose objects are admissible configurations.
+
+(2) Select a category J and a functor:
+D:J->C_METACORE.
+
+(3) Declare the allowed object and morphism data of J and D. The arrows must be morphisms of the selected C_METACORE realization. When they are configuration embeddings in the sense of Volume II III.5, they must be injective and preserve and reflect apartness.
+
+(4) Declare the compatibility predicate Adm for the selected realization. For a binary pair, its minimal source-level encoding is CC(C1,C2)=1 iff an admissible amalgamation exists.
+
+(5) Supply all compatibility/coherence conditions needed for the complete diagram, not merely the pairwise CC values.
+
+(6) Define the required cocone and universal property if R is a categorical colimit:
+For every compatible cocone from D to an object X, there must be a unique factorization through the colimit object R, in the selected category.
+This is the ordinary categorical meaning of colimit, not a recovered OMEGA-ISOP-specific strengthening.
+
+(7) If an alternative constraint-preserving representation is used instead of a colimit, specify and verify exactly which compatibility information it preserves. The sources require preservation of the compatibility information required by the selected realization, but do not give a complete formal predicate for that preservation.
+
+(8) Require only the existence conditions stated by the selected construction. No finiteness condition on R or on every admissible target appears in the inspected source clauses.
+
+Important qualification:
+The schema above is a formalization interface reconstructed from source requirements. It is not a new canonical definition of D_CC, Adm, or C_METACORE. It does not select a particular J or expand the allowed diagram class.
+
+============================================================
+DIAGRAM-SHAPE AND COHERENCE FINDINGS
+============================================================
+
+1. The sources do not restrict J to binary spans.
+
+2. The sources do not explicitly authorize every arbitrary finite diagram or every cyclic diagram.
+
+3. The phrase "diagram generated by selected configurations and their admissible compatibility relations" does not specify whether the indexing category is:
+- a span-only category;
+- a finite graph/category allowing cycles;
+- a larger category with additional higher-order morphisms or coherence data.
+
+4. Pairwise compatibility is not enough, by itself, to establish a compatible cocone for a complete multi-object diagram. A higher-order compatibility/coherence condition must be supplied whenever the selected J contains joint constraints not reducible to its pairwise edges.
+
+5. The exact morphism class in a selected D_CC realization must be stated. The existence of configuration embeddings in Volume II III.5 does not prove that every group monomorphism in an external category is a permitted C_METACORE morphism.
+
+6. The ordinary colimit universal property is required if the construction is claimed to be a colimit. The alternative constraint-preserving construction remains possible under Frozen Core 1.8 / Volume II IV.3, but its preservation criterion must be specified.
+
+============================================================
+BROWN TRIANGLE CLASSIFICATION
+============================================================
+
+Brown's six-object triangle consists of three finite vertex groups and three finite edge groups, with six injective edge-to-vertex maps. In the group category it has an infinite simple direct limit and no finite common target. Each proper two-vertex edge span has a finite completion.
+
+Classification against the recovered OMEGA-ISOP schema:
+
+CANONICAL D_CC STATUS: UNDECIDABLE.
+
+Reasons:
+A. J's permitted diagram shapes are not fixed. Therefore the source does not establish whether the cyclic six-object indexing category is admitted or excluded.
+
+B. C_METACORE's realization-specific object and morphism class is not fixed sufficiently to establish that Brown's finite groups and all six group monomorphisms are admissible configurations and configuration embeddings.
+
+C. The realization-specific Adm predicate is not fully specified. Pairwise group-theoretic amalgamation data do not establish that the complete triangle satisfies OMEGA-ISOP higher-order compatibility.
+
+D. The inspected sources do not require R or every common target to be finite. Brown's infinite direct limit therefore does not contradict the general existence of R.
+
+Conditional classification:
+- If a selected D_CC realization restricts J to binary spans only, Brown's full triangle is EXCLUDED by diagram shape. This is a conditional statement about that selected realization, not a source-established canonical restriction.
+- If a selected realization admits the six-object cyclic diagram, admits the group objects and six monomorphisms as its configurations and morphisms, and its Adm/coherence conditions accept the Brown diagram, then Brown is ADMISSIBLE in that realization and excludes a finite common target for that diagram.
+- The inspected canonical source set does not decide between these cases.
+
+============================================================
+THEOREM 91 SCOPE
+============================================================
+
+Theorem 91 H1 requires R to exist, T to be admissible, and R to be preserved. The inspected source wording does not require R to be finite.
+
+Brown's construction has an infinite direct limit. It therefore does not establish failure of R existence in the group test category. It does not address H2 (normed Y), H3 (the response-map relation involving tau), or H4 (fixed operational criterion and comparison class).
+
+Result:
+THEOREM 91: NOT REFUTED BY THE BROWN TRIANGLE.
+THEOREM 91: NOT PROVED BY THIS SCHEMA AUDIT.
+THEOREM 91: REMAINS CONDITIONAL ON H1-H4.
+
+No bridge from finite-family amalgamation to H1 has been established.
+
+============================================================
+LOOP / DEPENDENCY AUDIT
+============================================================
+
+No theorem asserting a universal D_CC diagram class or universal finite-family amalgamation property is claimed here.
+
+The schema records the missing inputs explicitly rather than assuming a target conclusion in Adm or in the definition of J. Brown's classification is conditional on those inputs.
+
+Therefore this checkpoint is a source-grounded formalization boundary, not a proof that Brown is or is not a canonical OMEGA-ISOP counterexample.
+
+============================================================
+EVIDENCE CLASS
+============================================================
+
+SOURCE-ESTABLISHED:
+- Configuration and embedding clauses in Volume II III.4-III.5.
+- Binary compatibility clause in Volume II IV.1 / Frozen Core 1.7.
+- Conditional colimit construction in Volume II IV.2-IV.3 / Frozen Core 1.8.
+- Explicit open boundary for J, D, morphisms, compatibility conditions, and universal property in Volume III Section 9.
+- Theorem 91 H1-H4 wording in Volume II VIII.5 and M3.2 v1.5.
+
+MATHEMATICAL RESULT IN EXTERNAL TEST MODEL:
+- Brown finite triangle has no finite common target and has an infinite direct limit, as recorded in CP-04.
+
+UNRESOLVED:
+- Canonical J and its permitted diagram shapes.
+- Exact D_CC morphism class.
+- Exact realization-specific Adm.
+- Higher-order coherence rules.
+- Whether Brown's group model is admitted by any intended C_METACORE realization.
+
+CHECKS PERFORMED:
+- Read the current Library copies of Volume II, Volume III, and Frozen Core FC10.2.
+- Read the M3.2 v1.5 handoff and its checkpoint policy.
+- Located and inspected Volume III Sections 8-9.
+- Cross-checked Volume II III.4-III.5 and IV.1-IV.3.
+- Cross-checked Frozen Core 1.6-1.8 and 2.1.
+- Inspected the current research branch head and main branch head before archival commit.
+
+CHECKS NOT PERFORMED:
+- No construction of a canonical J, because the sources do not specify one.
+- No proof that Brown's group objects belong to C_METACORE.
+- No proof that Brown's triangle satisfies canonical Adm.
+- No finite-target theorem for OMEGA-ISOP.
+- No new search for further counterexamples.
+- No changes to protected source documents.
+
+LIMITATIONS AND NON-IMPLICATIONS:
+- This does not complete D_CC formalization.
+- This does not prove arbitrary finite-diagram admissibility.
+- This does not prove span-only restriction.
+- This does not require finite R.
+- This does not refute or prove Theorem 91.
+- This does not establish a physical result.
+- No RL, CE, CE-V, or Volume V promotion is made.
+
+OPEN PROBLEMS:
+1. Recover or formally authorize the intended indexing category J.
+2. Specify the selected morphism class for D_CC.
+3. Specify Adm for individual amalgamations and complete finite diagrams.
+4. State higher-order coherence conditions.
+5. State the exact colimit universal property or alternative constraint-preservation test.
+6. Determine whether any finite-family property is required by the intended research claim and under what assumptions.
+
+ARCHITECTURAL INVARIANTS:
+FROZEN CORE: UNCHANGED.
+VOLUME II: UNCHANGED.
+VOLUME III: UNCHANGED.
+VOLUME V: UNCHANGED.
+M3.2 v1.5: UNCHANGED.
+THEOREM 91: UNCHANGED / CONDITIONAL.
+D_CC: FORMALIZATION OPEN.
+RL REGISTRATION: NONE.
+CE / CE-V PROMOTION: NONE.
+MAIN BRANCH: MUST REMAIN UNCHANGED.
+
+NEXT ACTION:
+Do not search for another counterexample yet. First inspect the source-origin research master document and any already-existing D_CC/J specification, if present, for an explicit diagram class or admissibility/coherence rule not repeated in the currently inspected Volume II/III/Frozen Core clauses. If no such source is found, record the missing decision as an unresolved architectural input and continue only with model-relative tests.
+
+============================================================
+LAYER 2. ARCHIVAL / RECOVERY CHECKPOINT
+============================================================
+
+PROJECT_AND_WORKSTREAM:
+OMEGA-ISOP / D_CC formalization / EMB-CC-04 / Theorem 91.
+
+CHECKPOINT_ID_AND_DATE:
+OI-CP-T91-DCC-MINIMAL-DIAGRAM-SCHEMA-2026-11-24-16
+2026-11-24
+
+CONTROLLING_HANDOFF:
+OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF-v1.5.txt
+Version 1.5, dated 2026-11-24.
+Status: working handoff, not canonically accepted.
+
+EXACT_CURRENT_TASK:
+Recover the narrowest source-compatible D_CC diagram schema and classify Brown's triangle against it without inventing missing architecture.
+
+LAST_VERIFIED_STATE:
+The latest verified research branch before this checkpoint was:
+research/emb-cc-03-amalgamation-witness
+HEAD: 285303ff9c1a1655417925247040465f3547f8f7
+
+Main branch before this checkpoint:
+HEAD: 560287a9babd6da690497341d5831937469a2cad
+
+COMPLETED_WORK:
+Source inspection and parameterized schema formalization as documented in Layer 1.
+
+UNRESOLVED_DEPENDENCIES:
+Canonical J, diagram shape, selected D morphisms, Adm, higher-order coherence, and colimit/alternative-preservation details.
+
+PROTECTED_SCOPE_AND_PROHIBITIONS:
+Do not modify Frozen Core, Volume II, Volume III, Volume V, M3.2 v1.5, or Theorem 91.
+Do not alter main.
+Do not register RL or CE/CE-V.
+Do not promote this checkpoint into a canonical definition.
+
+FILES_CREATED_OR_MODIFIED:
+Intended new file:
+checkpoints/OI-CP-T91-DCC-MINIMAL-DIAGRAM-SCHEMA-2026-11-24-16.txt
+
+No other project file is intended to change.
+
+GITHUB_STATUS:
+Pre-commit branch and main heads were inspected as stated above.
+Commit SHA and readback status are intentionally left to the post-save verification record.
+
+READBACK_AND_VERIFICATION_STATUS:
+PENDING at checkpoint authoring time. Must be updated in the session report only after the GitHub create operation and exact content readback succeed.
+
+PRECISE_NEXT_ACTION:
+After saving, read back the exact checkpoint from the same branch, compare its content and terminal marker, and verify branch head and main head. Then inspect the source-origin research master document for any explicit J/Adm/coherence specification not already present in Volume II, Volume III, and Frozen Core.
+
+RECOVERY_INSTRUCTIONS:
+Resume from this checkpoint and controlling M3.2 v1.5 handoff. Treat Layer 1 as a source-grounded working formalization boundary, not canonical architecture. Do not repeat the completed Volume II/III/Frozen Core checks absent new evidence. Begin with source-origin research master / any existing D_CC specification. If unavailable or silent, preserve Brown classification as UNDECIDABLE for canonical D_CC.
+
+END OF CHECKPOINT
