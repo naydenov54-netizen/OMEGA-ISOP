@@ -1,0 +1,623 @@
+OMEGA-ISOP
+EMB_CC-03
+ADMISSIBLE AMALGAMATION WITNESS: COCONE FORMALIZATION
+DOCUMENT_ID: OI-EMB-CC-03-ADMISSIBLE-AMALGAMATION-WITNESS-2026-11-24-03
+DATE: 2026-11-24
+STATUS: DERIVATIVE RESEARCH CHECKPOINT / NON-CANONICAL / CANDIDATE FORMALIZATION
+PREDECESSOR:
+OI-EMB-CC-03-BASELINE-PREDICATE-TEST-2026-11-24-02
+USER-SELECTED WITNESS TYPE:
+(A) ADMISSIBLE AMALGAMATION WITH STRUCTURAL EMBEDDINGS
+REPOSITORY BASE:
+main@560287a9babd6da690497341d5831937469a2cad
+WORK BRANCH:
+research/emb-cc-03-amalgamation-witness
+
+======================================================================
+0. PROVENANCE AND CONTROL
+======================================================================
+
+This document develops the user-selected witness type A.
+
+It is a new derivative formalization. It is not recovery of the missing
+original EMB_CC-03 source and is not canonically accepted.
+
+The construction is constrained by the surviving Volume II definitions:
+
+- configurations are admissible relational structures;
+- configuration embeddings are injective and preserve and reflect the
+  selected apartness relation;
+- CC(C1,C2)=1 iff an admissible amalgamation exists;
+- D_CC is the compatibility diagram;
+- R := colim(D_CC) only when the required categorical construction exists.
+
+No definition in the Frozen Core is modified.
+
+======================================================================
+1. AMBIENT CATEGORY AND EMBEDDINGS
+======================================================================
+
+Let C_METACORE be a selected category of admissible configurations.
+
+An object C in C_METACORE is a configuration:
+C = (S_C,#_C)
+
+where S_C is its carrier and #_C is its selected apartness relation.
+
+For configurations C1=(S1,#1) and C2=(S2,#2), an embedding
+f:C1 -> C2 is an injective map f:S1 -> S2 satisfying:
+
+x #1 y iff f(x) #2 f(y)
+
+for all x,y in S1.
+
+The biconditional is required. Preservation without reflection is not
+sufficient for an embedding under the Volume II convention.
+
+All morphisms used as legs of the candidate amalgamation witness are
+embeddings. No assumption is made that every abstract category morphism
+in every possible realization is an embedding.
+
+======================================================================
+2. FINITE DIAGRAM
+======================================================================
+
+Let J be a finite category and let:
+
+Delta:J -> C_METACORE
+
+be a functor.
+
+Finite means that Ob(J) and Mor(J) are finite.
+
+For every object j in J, Delta(j) is a configuration.
+For every arrow u:j->k, Delta(u) is an embedding.
+
+The diagram may encode:
+- a pair of configurations with no specified common subconfiguration;
+- a span over a specified common subconfiguration;
+- a larger finite compatibility pattern.
+
+The shape of J must be explicitly stated for each application.
+No canonical indexing category for D_CC is supplied by this checkpoint.
+
+======================================================================
+3. CANDIDATE WITNESS: ADMISSIBLE AMALGAMATING COCONE
+======================================================================
+
+DEFINITION A1 — AMALGAMATING COCONE
+
+An admissible amalgamating cocone over Delta is a tuple:
+
+W = (A, (eta_j)_{j in Ob(J)})
+
+such that:
+
+(A1) A is an object of C_METACORE.
+
+(A2) For every j in Ob(J), eta_j:Delta(j)->A is an embedding.
+
+(A3) For every arrow u:j->k in J, the cocone equation holds:
+
+eta_k o Delta(u) = eta_j.
+
+The apex A is the amalgamating configuration.
+The maps eta_j are its structural embeddings.
+
+The witness is the full tuple W, not merely the apex A. Different leg
+families into the same apex may define different cocones.
+
+DEFINITION A2 — DIAGRAM-RELATIVE AMALGAMATION SUFFICIENCY
+
+Suff_A(Delta,W) iff W is an admissible amalgamating cocone over Delta
+satisfying A1-A3.
+
+Existence predicate:
+
+Amalg(Delta) iff there exists W such that Suff_A(Delta,W).
+
+This is a candidate realization of diagram-relative sufficiency. It is
+not asserted to be the recovered original EMB_CC-03 predicate.
+
+DEFINITION A3 — PAIRWISE COMPATIBILITY
+
+For a selected compatibility diagram Delta_12 representing C1 and C2:
+
+CC_A(C1,C2)=1 iff Amalg(Delta_12).
+
+Otherwise:
+
+CC_A(C1,C2)=0.
+
+If a common subconfiguration C0 and embeddings
+i1:C0->C1, i2:C0->C2 are specified, Delta_12 is the span:
+
+C1 <-i1- C0 -i2-> C2.
+
+An amalgam is then a configuration A and embeddings
+m1:C1->A, m2:C2->A satisfying:
+
+m1 o i1 = m2 o i2.
+
+If no common subconfiguration is specified, the chosen diagram shape must
+say so explicitly. A span must not be silently assumed.
+
+======================================================================
+4. STRONG AMALGAMATION IS NOT REQUIRED
+======================================================================
+
+The candidate definition requires embeddings and the cocone equations.
+It does not require the images of different configurations to intersect
+only in the image of their declared common part.
+
+For a span, strong amalgamation would add:
+
+m1(C1) intersect m2(C2) = m1(i1(C0)).
+
+This is an additional condition and is NOT part of Suff_A.
+
+Therefore:
+ordinary admissible amalgamation != strong amalgamation.
+
+The distinction preserves the existing status:
+STRONG AMALGAMATION: NOT REQUIRED.
+
+======================================================================
+5. COMPARISON OF WITNESSES, MINIMALITY, AND LEASTNESS
+======================================================================
+
+Let:
+
+W=(A,(eta_j))
+V=(B,(theta_j))
+
+be two admissible cocones over the same Delta.
+
+DEFINITION A4 — WITNESS FACTORIZATION
+
+Write W <=_Delta V iff there exists an embedding h:A->B such that:
+
+h o eta_j = theta_j
+
+for every j in Ob(J).
+
+This relation is reflexive and transitive. It is generally a preorder,
+not necessarily a partial order on raw cocone tuples.
+
+Define equivalence of witnesses by:
+
+W ~=_Delta V iff W <=_Delta V and V <=_Delta W.
+
+For an embedding-based category, this identifies witnesses that are
+isomorphic over the diagram, subject to the selected category's
+monomorphism and isomorphism properties.
+
+DEFINITION A5 — MINIMAL AMALGAMATION WITNESS
+
+A witness W is minimal if there is no witness V such that:
+
+V <=_Delta W
+
+and not(V ~=_Delta W).
+
+Minimality is therefore relative to factorization by embeddings over Delta.
+It is not minimization of the cardinality of A unless a separate theorem
+establishes that relationship.
+
+DEFINITION A6 — LEAST AMALGAMATION WITNESS
+
+A witness W_* is least if:
+
+W_* <=_Delta V
+
+for every admissible witness V over Delta.
+
+Leastness is stronger than minimality.
+It is an initial-object condition in the category/preorder of admissible
+amalgamation witnesses and their over-Delta embedding factorizations.
+
+No existence or uniqueness of a least witness is asserted here.
+
+======================================================================
+6. FINITENESS: EXACT STATEMENT
+======================================================================
+
+DEFINITION A7 — FINITE WITNESS
+
+W=(A,(eta_j)) is finite iff the apex A has finite carrier and the
+selected relational data on A is finite.
+
+For a finite relational signature, finite carrier implies finite
+relational data.
+
+The finite diagram condition:
+
+|Ob(J)| < infinity and |Mor(J)| < infinity
+
+does NOT by itself imply that an admissible cocone exists.
+
+It also does NOT imply that every admissible cocone has a finite apex.
+
+The finite-witness assertion is:
+
+FW(Delta) iff there exists a finite W with Suff_A(Delta,W).
+
+This is an existence claim and must be proved for the selected category
+and diagram. It is not included in the definition of sufficiency.
+
+Important separation:
+
+finite indexing diagram
+!= finite apex
+!= existence of an admissible amalgam
+!= existence of a least amalgam.
+
+If C_METACORE is deliberately restricted to finite configurations, every
+existing witness in that selected category has a finite apex. This is a
+property of that restricted realization, not a theorem that a witness
+exists. The restriction must be declared before it is used.
+
+======================================================================
+7. FINITE APARTNESS REALIZATION: CONSTRUCTIVE POSITIVE TEST
+======================================================================
+
+Define FinApart as follows.
+
+Objects:
+finite sets S with |S|>=2, equipped with:
+
+x # y iff x != y.
+
+Morphisms:
+injective maps.
+
+These maps preserve and reflect #, so they are embeddings under the
+Volume II convention.
+
+Consider a span of finite configurations:
+
+C1 <- C0 -> C2
+
+with both span maps embeddings.
+
+Construct the set-theoretic free amalgam:
+
+A = (S1 disjoint-union S2) / ~
+
+where the equivalence relation identifies the two copies of every
+element in the image of C0 and makes no other identifications.
+
+Equip A with:
+
+x #_A y iff x != y.
+
+The canonical maps:
+
+m1:C1->A
+m2:C2->A
+
+are injective and preserve and reflect apartness.
+
+They agree on C0:
+
+m1 o i1 = m2 o i2.
+
+A is finite because S1 and S2 are finite.
+
+Therefore every finite span in this particular FinApart realization has
+a finite admissible amalgam.
+
+RESULT:
+FINITE AMALGAM EXISTENCE: PROVED FOR THIS REALIZATION AND THIS SPAN CLASS.
+
+SCOPE:
+This result depends on the unrestricted class of finite sets with
+apartness defined by inequality. It does not establish amalgamation for
+every admissible subclass of C_METACORE, every apartness realization,
+or the canonical OMEGA-ISOP category.
+
+======================================================================
+8. IMPORTANT DISTINCTION: AMALGAM IS NOT AUTOMATICALLY A COLIMIT
+======================================================================
+
+The free amalgam above is an admissible amalgam, but it is not generally
+a categorical pushout in the category whose morphisms are embeddings.
+
+Counterexample:
+
+C0={0,1}
+C1={0,1,p}
+C2={0,1,q}
+
+All structures use apartness x#y iff x!=y.
+
+The free amalgam A identifies the two copies of 0 and 1, but keeps
+p_A and q_A distinct.
+
+Now let B={0,1,r}. Define embeddings:
+
+f1:C1->B by p->r.
+f2:C2->B by q->r.
+
+They agree on C0.
+
+A map h:A->B agreeing with both f1 and f2 would have to satisfy:
+
+h(p_A)=r
+h(q_A)=r.
+
+Since p_A != q_A, h is not injective and therefore is not an embedding.
+
+Thus the free amalgam does not have the categorical pushout universal
+property inside the embedding-only category.
+
+CONCLUSION:
+
+admissible amalgam existence
+does not imply
+categorical pushout existence.
+
+Accordingly, the core construction:
+
+R := colim(D_CC)
+
+still requires a separate indexing category, functor, morphism class,
+and universal-property proof. The existence of pairwise amalgams alone
+does not construct the required colimit.
+
+This distinction is essential for preventing an invalid inference from
+CC(C1,C2) to existence of R.
+
+======================================================================
+9. D_INFINITY RE-TEST UNDER THE COCONE PREDICATE
+======================================================================
+
+The previous baseline obstruction used the one-object category with:
+
+End(X)=D_infinity=<a,b | a^2=e, b^2=e>.
+
+A finite diagram Delta mapped two unrelated arrows to a and b.
+The subcategory generated by {a,b} was infinite because ab has infinite
+order.
+
+That result concerns the closure of diagram image data under
+subcategory composition.
+
+It does not automatically refute the present cocone-witness predicate.
+
+Use the same finite indexing category J with objects A,B,C,D and
+nonidentity arrows:
+
+u:A->B
+v:C->D.
+
+Let Delta map every object to X and:
+
+Delta(u)=a
+Delta(v)=b.
+
+Choose apex X and cocone legs:
+
+eta_B=e
+eta_A=a
+eta_D=e
+eta_C=b.
+
+Then:
+
+eta_B o Delta(u) = e o a = a = eta_A
+eta_D o Delta(v) = e o b = b = eta_C.
+
+All legs are isomorphisms, hence monomorphisms, in the one-object group
+category.
+
+Therefore this finite diagram has a finite cocone witness in this
+abstract category, although the subcategory generated by a and b is
+infinite.
+
+RESULT:
+The D_infinity model refutes the unrestricted finite-generated-
+subcategory-witness claim.
+
+It does NOT refute finite cocone-witness existence in general.
+
+It is not a CC-specific counterexample unless the selected CC
+realization independently identifies its witnesses with the
+subcategory-closure construction.
+
+This re-test demonstrates that choosing the witness type changes the
+mathematical problem. The old obstruction must not be carried over
+without checking the new predicate.
+
+======================================================================
+10. JOINT WITNESS: INDIVIDUAL EXISTENCE IS NOT ENOUGH
+======================================================================
+
+A finite family Delta_1,...,Delta_n has a joint witness only if the
+combined compatibility diagram admits one common cocone.
+
+Individual witnesses:
+
+Amalg(Delta_i) for every i
+
+do not logically entail:
+
+Amalg(Delta_1 union ... union Delta_n).
+
+Simple categorical countermodel:
+
+Let C be a discrete category with two distinct objects P and Q and
+only identity morphisms.
+
+Let Delta_P and Delta_Q be the one-object identity diagrams.
+
+Each has an individual finite witness:
+P witnesses Delta_P.
+Q witnesses Delta_Q.
+
+There is no common cocone for their disjoint union, because a cocone
+would require an object receiving morphisms from both P and Q, and no
+such object exists in C.
+
+Therefore:
+
+individual finite amalgams
+does not entail
+a joint amalgam.
+
+A separate joint compatibility condition remains necessary.
+
+This is a general categorical countermodel, not a claim about the
+canonical OMEGA-ISOP realization.
+
+======================================================================
+11. WHAT THIS CANDIDATE NOW ESTABLISHES
+======================================================================
+
+DEFINED IN THIS CANDIDATE:
+- finite diagram Delta:J->C_METACORE;
+- admissible amalgamating cocone;
+- diagram-relative amalgamation sufficiency Suff_A;
+- pairwise CC_A relative to an explicit compatibility diagram;
+- witness factorization;
+- minimal witness;
+- least witness;
+- finite witness.
+
+PROVED:
+- the candidate cocone definition is well-typed;
+- it generalizes a pairwise amalgam over a specified span;
+- strong amalgamation is not required;
+- finite spans have finite amalgams in the specific FinApart realization;
+- admissible amalgam is not automatically categorical pushout;
+- finite diagram does not automatically imply a common witness;
+- D_infinity subcategory-closure obstruction does not automatically
+  apply to cocone witnesses.
+
+NOT PROVED:
+- the candidate predicate is identical to the missing original
+  EMB_CC-03 predicate;
+- all objects in the canonical C_METACORE have finite carriers;
+- finite amalgams exist in every canonical CC realization;
+- minimal amalgams exist in every realization;
+- least amalgams exist;
+- the relevant colimit for D_CC exists;
+- the canonical R construction follows from pairwise CC alone.
+
+======================================================================
+12. LOOP / ANTI-CIRCULARITY AUDIT
+======================================================================
+
+TARGET:
+A finite diagram has a finite admissible amalgamation witness.
+
+INVALID SHORTCUT:
+J finite => finite apex.
+
+VALID ROUTE:
+1. Specify C_METACORE and its object class.
+2. Specify the exact diagram Delta and its embeddings.
+3. Construct an apex A in C_METACORE.
+4. Construct all cocone legs eta_j.
+5. Verify the cocone equations.
+6. Verify that every leg is an embedding.
+7. Verify that A is finite independently.
+
+The FinApart proof satisfies these steps for its stated class.
+
+TARGET:
+A minimal amalgam is finite.
+
+No general theorem is established.
+Minimality is defined by factorization, not by cardinality.
+A separate finite-support or rank argument, or a direct finite-amalgam
+existence theorem together with an appropriate minimality argument, is
+required.
+
+TARGET:
+A finite family has a finite common amalgam.
+
+No inference from individual witnesses is permitted.
+Joint cocone existence and finite apex must be checked directly or
+proved from independent hypotheses.
+
+D_INFINITY:
+No longer used as a direct counterexample to the cocone predicate.
+It remains a counterexample to the baseline subcategory-closure
+predicate.
+
+No desired conclusion has been inserted into a definition.
+
+======================================================================
+13. ARCHITECTURAL INVARIANTS
+======================================================================
+
+FROZEN CORE: UNCHANGED.
+VOLUME II: UNCHANGED.
+VOLUME III: UNCHANGED.
+VOLUME V: UNCHANGED.
+R: UNCHANGED.
+D_CC: NOT FORMALLY CONSTRUCTED.
+STRONGNESS: INDEPENDENT.
+THEOREM_91: UNCHANGED.
+CANONICAL REGISTRATION: NONE.
+RL REGISTRATION: NONE.
+INTEGRATION: NOT APPROVED.
+
+This candidate supplies a possible witness-level formalization only.
+It does not construct or replace D_CC and does not modify R.
+
+======================================================================
+14. NEXT JUSTIFIED TESTS
+======================================================================
+
+TEST A — CATEGORY MATCH:
+Determine whether the intended C_METACORE objects and morphisms are
+exactly admissible configurations and the Volume II embeddings.
+
+TEST B — PAIR DIAGRAM:
+Recover or specify whether each CC pair is represented by a discrete
+two-object diagram or by a span over a common subconfiguration.
+
+TEST C — ADMISSIBLE APEX:
+Specify all conditions an amalgamating apex must satisfy beyond being
+an object of C_METACORE.
+
+TEST D — FINITE EXISTENCE:
+Test finite amalgamation in at least one nontrivial constrained
+configuration class, not only FinApart.
+
+TEST E — MINIMALITY:
+Construct two incomparable minimal cocone witnesses or prove a
+uniqueness/leastness result under explicit assumptions.
+
+TEST F — JOINT COMPATIBILITY:
+Test finite families using one combined diagram. Do not infer joint
+existence from individual CC values.
+
+TEST G — COLIMIT BOUNDARY:
+Specify J, the functor D:J->C_METACORE, and the exact universal
+property required for R := colim(D_CC). Do not substitute pairwise
+amalgams for the colimit.
+
+TEST H — SOURCE MATCH:
+Compare every candidate definition against the original EMB_CC-03
+source if it is recovered. Until then retain derivative status.
+
+======================================================================
+15. FINAL DISPOSITION
+======================================================================
+
+USER_SELECTED_OPTION: A.
+CANDIDATE_WITNESS: ADMISSIBLE AMALGAMATING COCONE WITH EMBEDDING LEGS.
+FORMALIZATION_STATUS: DEFINED AS A NON-CANONICAL CANDIDATE.
+FINITE_APEX: REALIZATION-DEPENDENT.
+D_INFINITY: NOT A COUNTEREXAMPLE TO THIS COCONE PREDICATE.
+PAIRWISE_AMALGAM: DISTINCT FROM CATEGORICAL COLIMIT.
+STRONG_AMALGAMATION: NOT REQUIRED.
+JOINT_AMALGAM: REQUIRES SEPARATE EXISTENCE CHECK.
+FROZEN_CORE_CHANGE: NONE.
+CANONICAL_ACCEPTANCE: NONE.
+INTEGRATION_STATUS: NOT APPROVED.
+
+END OF CHECKPOINT
