@@ -116,20 +116,11 @@ AMALGAM A_GENERATED:
 Underlying set:
 {a,b,c,d}.
 Apartness relation:
-#G={
-(a,b),(b,a),
-(a,c),(c,a),
-(b,d),(d,b)
-}.
-[Correction: this displayed relation is not the minimal pushout relation for the source span if d is the non-base point of S2. The correct generated relation is:
-#G={
-(a,b),(b,a),
-(a,c),(c,a),
-(a,d),(d,a)
-}.]
-
-Use the corrected relation:
 #G={(a,b),(b,a),(a,c),(c,a),(a,d),(d,a)}.
+This is the star with center a.
+It satisfies irreflexivity, symmetry and cotransitivity.
+The inclusions of S1 and S2 preserve and reflect their source apartness.
+The images intersect exactly in {a,b}.
 
 This is the star with center a.
 It satisfies irreflexivity, symmetry and cotransitivity.
