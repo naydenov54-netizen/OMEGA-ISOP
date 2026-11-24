@@ -1,0 +1,458 @@
+OMEGA-ISOP
+M3.2 v1.5 CONTROLLED AUDIT RECORD
+EMB_CC-03 / THEOREM 91 / SOURCE / LOOP / OPERATIONAL STATUS
+
+DOCUMENT_ID:
+OI-M3.2-COMPLETE-AUDIT-EMB-CC-03-2026-11-24-01
+
+DATE:
+2026-11-24
+
+HANDOFF:
+OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF-v1.5
+DATE: 2026-11-24
+STATUS: WORKING HANDOFF / NOT CANONICALLY ACCEPTED
+
+AUDIT_STATUS:
+COMPLETED FOR THE CURRENT EMB_CC-03 WORKSTREAM AND ITS DIRECT THEOREM 91 DEPENDENCIES.
+CANONICAL ADMISSIBILITY AND D_CC FORMALIZATION REMAIN OPEN.
+NO UNIVERSALITY OR UNIQUENESS OBJECTIVE IS ADOPTED.
+NO FROZEN CORE CHANGE.
+NO CANONICAL ACCEPTANCE.
+NO RL REGISTRATION.
+NO CE-V PROMOTION.
+
+======================================================================
+LAYER 1. RESEARCH CHECKPOINT
+======================================================================
+
+1. AUDIT SCOPE AND METHOD
+
+Applied the operating controls in M3.2 v1.5:
+- source hierarchy and version control;
+- mathematical/evidence classification;
+- protected-source boundary;
+- LOOP_AUDIT_PROTOCOL L1-L8;
+- countermodel and premise-removal checks;
+- theorem 91 assumption audit;
+- RL status/provenance separation;
+- finite computational verification;
+- checkpoint and GitHub verification requirements.
+
+Scope is proportional to the active EMB_CC-03 workstream and its direct Theorem 91 / H1 dependencies. This is not a global audit of every OMEGA-ISOP claim.
+
+2. SOURCES AND REPOSITORY STATE INSPECTED
+
+Library sources read:
+- OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF-v1.5.txt, full 406-line read.
+- Volume II v1.3-MF-AUDIT-RESTORED-FINAL, relevant Sections III.2-III.5 and IV.1-IV.3, plus realization/dynamics boundaries.
+- Volume III v1.1-VAL-RESTORED, relevant finite-test and D_CC formalization clauses.
+- Frozen Core v2.0-FC10.2, relevant Sections 1.6-1.8 and dynamic/realization boundaries.
+- Volume V v2.4-C-1.5 controlled master, as cited by M3.2 for RL and validation status.
+
+Repository:
+naydenov54-netizen/OMEGA-ISOP
+
+Verified active branch:
+research/emb-cc-03-amalgamation-witness
+
+Verified branch HEAD before this audit checkpoint:
+ea473ae63857f8b40992fc1ec8570e2a4628284a
+
+Verified main:
+560287a9babd6da690497341d5831937469a2cad
+
+The two refs are distinct. No protected file was edited. The primary controlled source documents were read from Library; the attempted root-path fetches for their filenames on this research branch returned 404, so no claim is made that those protected source files were fetched from this branch.
+
+Existing research records reviewed rather than needlessly repeated:
+- OI-EMB-CC-03-SOURCE-MATCH-AND-APARTNESS-ONLY-AUDIT-2026-11-24-05
+- OI-EMB-CC-03-FIXED-AMBIENT-REALIZATION-TEST-2026-11-24-06
+- OI-CP-T91-CANONICAL-STOCHASTIC-COMPATIBILITY-AUDIT-2026-11-24-01
+- OI-CP-T91-FINITE-ADMISSIBLE-AMALGAMATION-PROFILE-2026-11-24-13
+- OI-CP-T91-CC-STRONGNESS-ARCHITECTURE-SOURCE-AUDIT-2026-11-24-14
+and the intervening T91 morphism, diagram, and finite apartness checkpoints.
+
+3. SOURCE AUDIT: WHAT THE CONTROLLED TEXT ACTUALLY ESTABLISHES
+
+3.1 Local configurations
+
+Volume II III.4 gives:
+C=(S_C,#_C)
+S_C subset U0
+#_C = # restricted to S_C x S_C
+and |S_C| >= 2 for a minimal nontrivial configuration.
+
+It explicitly leaves the exact admissibility conditions realization-dependent.
+
+3.2 Apartness
+
+Volume II III.2 lists irreflexivity, symmetry, and cotransitivity as one standard admissible apartness realization, not as the only possible realization.
+
+3.3 Embeddings
+
+Volume II III.5 defines a configuration embedding as injective and preserving and reflecting the selected apartness:
+x #1 y iff f(x) #2 f(y).
+
+This is the explicit embedding contract. It does not define every arrow of C_METACORE.
+
+3.4 Compatibility and R
+
+Volume II IV.1 defines:
+CC(C1,C2)=1 iff an admissible amalgamation exists.
+
+It does not state that every categorical cocone is automatically source-admissible. It does not impose strongness as a universal clause.
+
+Volume II IV.2-IV.3 makes:
+R := colim(D_CC)
+conditional on a valid diagram, the relevant category, and existence of the required colimit or equivalent constraint-preserving construction.
+
+3.5 D_CC
+
+Volume III Section 9 requires an explicit indexing category J, functor D:J->C_METACORE, arrows, compatibility/coherence conditions, and the required universal property. The full canonical D_CC formalization is not supplied by the inspected clauses.
+
+SOURCE AUDIT RESULT:
+The exact realization-specific admissibility predicate and complete C_METACORE arrow class remain underdetermined. Strong amalgamation is not established as a universal requirement. An arbitrary homomorphism or cocone cannot be silently substituted for the source-level admissible amalgamation.
+
+4. FIXED-AMBIENT FINITE TEST
+
+Selected one explicit finite ambient realization:
+
+U0={a,b,c,d}
+
+Define apartness by the partition:
+{{a},{b},{c,d}}
+
+Equivalently:
+x # y iff x and y lie in different partition blocks.
+
+Choose:
+S0={a,b}
+S1={a,b,c}
+S2={a,b,d}
+SA=S1 union S2=U0
+
+Define each local relation by restriction of the same ambient #.
+
+Finite verification:
+- ambient irreflexivity: PASS;
+- ambient symmetry: PASS;
+- ambient cotransitivity: PASS;
+- C0, C1, C2 and A each have at least two elements: PASS;
+- each has at least one apart pair: PASS;
+- each restricted relation satisfies all three selected apartness axioms: PASS;
+- inclusion maps S0->S1 and S0->S2 are embeddings: PASS;
+- inclusion maps S1->SA and S2->SA preserve and reflect apartness: PASS;
+- cocone agreement on S0: PASS;
+- S1 intersect S2=S0: PASS;
+- strongness of this particular aligned inclusion amalgam: PASS.
+
+The computation was executed directly over all finite relation checks for the selected four-element model. It verifies this explicit finite realization only.
+
+RESULT:
+A=(SA,# restricted to SA x SA) is an amalgam of this particular aligned inclusion span in the explicitly selected finite apartness-only test class.
+
+SOURCE BOUNDARY:
+This does not prove that A belongs to every possible realization-dependent canonical admissibility class. The source does not provide the complete predicate needed for that stronger claim.
+
+5. IMPORTANT DISTINCTION: TWO DIFFERENT SPAN SETTINGS
+
+The abstract span profile in the prior CP-13 record uses separate source copies and permits cross-source identification in a jointly-generated apex. Its three classes A1/A2/A3 are valid within that abstract finite test convention.
+
+The fixed-ambient inclusion test instead places S1 and S2 as actual subsets of one U0, with S1 intersect S2=S0. Here c and d are already distinct elements of U0. The A3 identification option is not available in this aligned inclusion setting.
+
+These results are not contradictory. They concern different diagram/carrier conventions and must not be merged into one claim.
+
+6. AMALGAMATION CLAIM BOUNDARIES
+
+Established in the explicit finite test:
+- the union carrier and restricted ambient relation form an object of the selected finite apartness-only test class;
+- the inclusion legs are embeddings;
+- the cocone equations hold;
+- the particular amalgam is strong because the source images intersect exactly in the common base.
+
+Not established:
+- the exact canonical admissibility predicate for all C_METACORE objects;
+- closure of all canonical admissible configurations under finite unions;
+- a canonical D_CC diagram;
+- a categorical pushout or colimit;
+- a universal strong amalgamation property;
+- any universal leastness or uniqueness claim.
+
+Leastness and uniqueness are not objectives of this research step.
+
+7. LOOP AUDIT A: FIXED-AMBIENT UNION AMALGAM
+
+L1 - TARGET:
+For the selected fixed-ambient finite span, determine whether
+A=(S1 union S2,# restricted)
+is an admissible amalgam with the inclusion legs.
+
+L2 - PREMISES AND DEFINITIONS:
+- One fixed ambient pair (U0,#).
+- S0 subset S1 and S0 subset S2.
+- S1 intersect S2=S0.
+- Local relations are restrictions of the same ambient #.
+- The selected finite test class requires the stated apartness axioms, at least two carrier elements, and at least one apart pair.
+- Embeddings are injective and preserve/reflect apartness.
+
+L2 - DEPENDENCY CHAIN:
+Ambient apartness axioms -> restrictions satisfy the same axioms.
+Set inclusions -> injectivity.
+Restriction identity -> preservation and reflection.
+Aligned inclusions -> cocone equality.
+Explicit finite predicate -> A is an object of the selected auxiliary test class.
+These facts jointly establish the selected finite amalgam.
+
+L3 - POSSIBLE CONCLUSION SMUGGLING:
+The target is not used to define the ambient relation or the embedding maps.
+However, canonical source-admissibility is not independently supplied by the source text. It must not be silently identified with the auxiliary finite predicate.
+
+L4 - INDEPENDENT JUSTIFICATION:
+The finite relation checks, carrier conditions, restriction identities, and set intersection were independently verified in the explicit finite model.
+Canonical membership in C_METACORE has no independent justification because the full admissibility predicate is absent.
+
+L5 - COUNTERMODEL ATTEMPT:
+The abstract-span A3 case is not a countermodel to the fixed-ambient inclusion result; it changes the carrier/map convention.
+A realization with extra admissibility restrictions could exclude the union apex while leaving the listed apartness axioms intact. This is a countermodel to any unconditional inference from the listed axioms alone to canonical admissibility, not to the auxiliary finite result.
+
+L6 - PREMISE-REMOVAL TEST:
+- Remove fixed ambient restrictions: the union relation is no longer determined by one inherited #.
+- Remove literal/aligned inclusions: the raw set union does not automatically define the apex maps; images must first be aligned.
+- Remove the explicit admissibility predicate: source-level CC cannot be concluded.
+- Remove the apartness axioms: the selected test-class object check fails.
+
+L7 - CLASSIFICATION:
+NON-CIRCULAR DERIVATION within the explicitly defined finite apartness-only test class.
+CONDITIONAL / INCOMPLETE for canonical C_METACORE admissibility.
+
+L8 - NON-IMPLICATIONS:
+No global finite-union closure theorem.
+No universal amalgamation theorem.
+No canonical pushout/colimit.
+No leastness or uniqueness result.
+No physical interpretation.
+
+8. LOOP AUDIT B: THEOREM 91
+
+TARGET:
+D_L(T(M1),T(M2)) <= D_L(M1,M2).
+
+PREMISES:
+H1: R exists, T is admissible, and R is preserved.
+H2: Y is normed.
+H3: There is one common tau:L_op->L_op such that
+Resp_(T(M))(a)=Resp_M(tau(a)).
+H4: The operational criterion and comparison class remain fixed.
+The operational probe set is nonempty as required by the operational-distance definition.
+
+DEPENDENCY:
+For each a in L_op:
+||Resp_(T(M1))(a)-Resp_(T(M2))(a)||
+=
+||Resp_M1(tau(a))-Resp_M2(tau(a))||.
+Since tau(a) belongs to L_op:
+the right-hand quantity is bounded above by
+sup over b in L_op of
+||Resp_M1(b)-Resp_M2(b)||.
+Taking the supremum over a gives the claimed inequality.
+
+CONCLUSION:
+Theorem 91 is a valid conditional non-expansion result under H1-H4 and the stated operational-domain conditions.
+
+LOOP CHECK:
+H3 is a substantive response-covariance premise. It is not derived by Theorem 91. H1 is also a substantive admissibility/preservation premise. The theorem does not prove H1 or H3 from the Frozen Core.
+
+COUNTERMODEL / PREMISE REMOVAL:
+If tau is not constrained to map L_op into L_op, the transformed response may sample probes outside the comparison supremum; the inequality need not follow.
+If no common tau works for both models, the pointwise comparison cannot be placed under one common supremum in the stated way.
+If the response identity is assumed only for one model or one probe, the universal comparison is incomplete.
+
+CLASSIFICATION:
+CONDITIONAL RESULT; NON-CIRCULAR when H1-H4 are independently stated assumptions.
+INCOMPLETE if presented as deriving H1, H3, or stochastic relational preservation from the theorem itself.
+
+NON-IMPLICATIONS:
+No universal non-expansion law.
+No universal stochastic admissibility.
+No canonical derivation of H1/H3.
+No physical or empirical theorem.
+
+9. H1 / STOCHASTIC PRESERVATION AUDIT
+
+The reviewed canonical stochastic compatibility record distinguishes:
+- existence of a Markov kernel;
+- relational preservation;
+- existence of pairwise couplings;
+- existence of a globally coherent measurable joint lift;
+- operational closure of L_op.
+
+The finite three-coordinate equality/equality/inequality construction in the existing audit shows pairwise coupling feasibility does not imply one global coherent coupling.
+
+Therefore:
+- Markov-kernel formalism: established in the controlled sources;
+- arbitrary Markov-kernel membership in A(R;Phi): not established;
+- canonical stochastic relational lift: not defined by the inspected source clauses;
+- H1 for arbitrary stochastic dynamics: not established;
+- H3 in the specifically enriched measurable pushforward realization: conditional, with measurability, integrability, common probe domain, and closure assumptions;
+- canonical H3: not established.
+
+The earlier finite obstruction is retained. No new universal claim is made.
+
+10. RL / PROVENANCE / REGISTRY AUDIT
+
+M3.2 v1.5 carries the following controlled statuses:
+RL-021: CLOSED / ESTABLISHED within its stated question and assumptions.
+RL-021.1: ESTABLISHED with explicit boundary conditions; general characterization of H remains open.
+RL-027: core domain-bounded identifiability results independently verified; overall research item remains under audit.
+RL-027 registry label in a controlled copy is NOT independently confirmed.
+
+Primary RL laboratory source files are recorded as DESTROYED / NON-RECOVERABLE in the provenance disposition. Further searches for those same originals are discontinued unless a specific reopening condition occurs.
+
+This audit did not repeat searches for destroyed primary files and did not perform a registry write or claim a registry readback.
+Mathematical result status, source provenance, registry status, and canonical integration remain separate.
+
+11. EVIDENCE CLASSIFICATION
+
+ESTABLISHED / SOURCE-GROUNDED:
+- Volume II definitions and boundaries stated in Section 3 above.
+- Theorem 91 conditional inequality under H1-H4.
+- Finite apartness checks in the explicit selected model.
+
+CONDITIONALLY ESTABLISHED:
+- The aligned inclusion union is an amalgam in the selected finite apartness-only test class.
+- H3 in the specific measurable pushforward realization, under its stated closure and integrability conditions.
+
+COMPUTATIONALLY TESTED:
+- Finite four-element ambient apartness relation and restrictions.
+
+UNRESOLVED:
+- Exact canonical admissibility predicate.
+- Full C_METACORE arrow class.
+- Canonical D_CC diagram and its universal property.
+- Canonical stochastic relational lift and universal H1/H3.
+
+NOT ESTABLISHED:
+- Universal finite-union closure.
+- Universal strong amalgamation.
+- Canonical pushout/colimit from the present finite test.
+- Physical realization or empirical prediction from this work.
+
+REJECTED AS AN INFERENCE:
+- A categorical cocone automatically is a source-admissible amalgam.
+- Embedding injectivity alone implies strongness.
+- Non-apartness implies equality.
+- Pairwise coupling feasibility implies global coherent coupling.
+- Markov-kernel existence alone implies relational preservation.
+- Theorem 91 proves its own H1/H3 assumptions.
+
+12. ARCHITECTURAL INVARIANTS
+
+FROZEN CORE: UNCHANGED.
+VOLUME II: UNCHANGED.
+VOLUME III: UNCHANGED.
+VOLUME V: UNCHANGED.
+THEOREM 91 CANONICAL STATUS: CONDITIONAL / NOT PROMOTED.
+D_CC: FORMALIZATION OPEN.
+R: CONDITIONAL ON THE REQUIRED CATEGORY, DIAGRAM AND CONSTRUCTION.
+CE-V: NO PROMOTION.
+RL REGISTRATION: NONE.
+CANONICAL ACCEPTANCE: NONE.
+UNIVERSALITY / UNIQUENESS OBJECTIVE: NONE.
+
+13. RESEARCH CHECKPOINT CONCLUSION
+
+The finite fixed-ambient inclusion test succeeds in the explicitly selected apartness-only realization. It supplies a concrete amalgam witness for that span.
+
+The source-level canonical admissibility question remains open because Volume II explicitly leaves exact admissibility realization-dependent and Volume III leaves the full D_CC categorical data to be specified.
+
+Theorem 91 remains mathematically valid under its explicit assumptions. The substantive H1/H3 bridges are not derived universally from the canonical sources.
+
+Overall research status:
+REVISE / CONTINUE.
+The finite test is usable as a local result. Do not promote it to a canonical C_METACORE theorem until the selected realization's admissibility predicate and arrow class are explicitly grounded.
+
+NEXT JUSTIFIED ACTION:
+Recover the exact source-level admissibility predicate if present in any remaining authoritative source; otherwise retain the source gap and continue with the explicit finite realization without claiming canonical closure.
+
+======================================================================
+LAYER 2. ARCHIVAL / RECOVERY CHECKPOINT
+======================================================================
+
+PROJECT:
+OMEGA-ISOP
+
+WORKSTREAM:
+EMB_CC-03 / T91-H1-H3 audit
+
+CHECKPOINT_ID:
+OI-M3.2-COMPLETE-AUDIT-EMB-CC-03-2026-11-24-01
+
+DATE:
+2026-11-24
+
+CONTROLLING HANDOFF:
+OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF-v1.5
+Library version read: 1.5
+Handoff date: 2026-11-24
+
+RELEVANT SOURCE REFERENCES:
+- Volume II v1.3-MF-AUDIT-RESTORED-FINAL, Library source.
+- Volume III v1.1-VAL-RESTORED, Library source.
+- Frozen Core v2.0-FC10.2, Library source.
+- Volume V v2.4-C-1.5, Library controlled source.
+- Existing EMB_CC-03 and T91 checkpoints listed in Section 2 above.
+
+EXACT CURRENT TASK:
+Apply all relevant M3.2 v1.5 audit controls to the active EMB_CC-03 finite amalgamation work and its direct T91/H1 dependencies, including LOOP audit.
+
+LAST VERIFIED STATE:
+Research branch HEAD before this checkpoint:
+ea473ae63857f8b40992fc1ec8570e2a4628284a
+main:
+560287a9babd6da690497341d5831937469a2cad
+
+COMPLETED WORK:
+- Read M3.2 v1.5 in full.
+- Read relevant source clauses from Library.
+- Reviewed existing source, finite-amalgam, strongness, morphism, D_CC, and stochastic T91 audit records.
+- Re-executed the explicit four-element finite apartness test.
+- Completed separate LOOP audits for the fixed-ambient union witness and Theorem 91.
+- Separated fixed-ambient inclusion spans from abstract jointly-generated spans.
+- Preserved RL provenance and registry boundaries.
+
+UNRESOLVED DEPENDENCIES:
+- Exact canonical local-configuration admissibility predicate.
+- Complete canonical C_METACORE morphism class.
+- Fully specified D_CC indexing category, diagram, and universal property.
+- Canonical stochastic relational lift and universal H1/H3 justification.
+
+PROTECTED SCOPE:
+Frozen Core, Volumes II, III and V.
+No protected source modification is authorized or performed.
+
+FILES CREATED OR MODIFIED:
+This checkpoint only, under checkpoints/ on the research branch.
+No Library file changed.
+No protected canonical source changed.
+
+GITHUB STATUS:
+The checkpoint is to be committed only to:
+research/emb-cc-03-amalgamation-witness
+The main branch must remain unchanged.
+
+READBACK / VERIFICATION:
+To be completed after repository write. Do not infer success from a requested operation.
+
+PRECISE NEXT ACTION:
+After successful commit, fetch this exact checkpoint from the research branch, compare its content, verify the new branch HEAD, and re-check main.
+
+RECOVERY INSTRUCTIONS:
+1. Load M3.2 v1.5 from Library.
+2. Read this checkpoint.
+3. Continue from the unresolved dependencies above.
+4. Do not repeat the existing CP-13/CP-14 source audit absent new evidence or a concrete defect.
+5. Do not search again for the same destroyed RL primary sources.
+6. Do not change Frozen Core or canonical Volumes.
+7. Do not pursue universality, uniqueness, leastness, or canonical acceptance as research objectives unless separately authorized and justified.
+
+END OF CHECKPOINT
