@@ -99,13 +99,19 @@ A commit was created with the unchanged main tree and the three research branch 
 The three branch refs remain visible. They may now be deleted without making their commits unreachable from main history. Branch-ref deletion was not performed in this session because the available GitHub connection does not expose a branch/ref deletion operation. The previous BOOT-HANDOFF v1.0 and all earlier repository states remain recoverable through Git commit history.
 
 ==================================================
-5. OPEN DOCUMENT-CONTROL ISSUE
+5. VERIFIED VERSION LINEAGE AND DOCUMENT-CONTROL NOTES
 ==================================================
 
-The active Frozen Core filename identifies v2.0-FC10.2.
-The Volume II v1.4 governance addendum header states compatibility with v2.0-FC10.1 / M3.2-FINAL.
+The user clarified on 2026-11-24:
+FC10.2 is the successor to FV10.1.
 
-This version-label discrepancy has not been resolved. Do not normalize, rename, or edit either document by assumption. Verify the intended compatibility against the source/version lineage before any future revision.
+The active Frozen Core v2.0-FC10.2 source confirms:
+BASE: OMEGA-ISOP v2.0-FC10.1 (CORRECTED STRUCTURAL LOCK)
+CONTROLLED CORRECTION: FC10.2
+RELATION TO PREVIOUS VERSION: FC10.1 with controlled formal corrections integrated.
+The FC10.2 document states that it consolidates the supplied FC10.1 core and the mandatory controlled replacements and clarifications in the FC10.2 formal correction patch. Unamended sections retain the FC10.1 wording and structure.
+
+Therefore, Volume II v1.4's compatibility reference to v2.0-FC10.1 / M3.2-FINAL is a predecessor-lineage reference, not by itself evidence of incompatibility with FC10.2. The apparent version mismatch is resolved at the lineage level. Do not rewrite the historical Volume II header merely to replace the predecessor reference. If a future compatibility declaration is needed, add it only through authorized document control and preserve the existing version history.
 
 Volume IV v1.4-R-RESTORED explicitly states that its recovered source is partial. Do not describe it as a complete restoration.
 
