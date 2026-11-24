@@ -436,12 +436,18 @@ No Library file changed.
 No protected canonical source changed.
 
 GITHUB STATUS:
-The checkpoint is to be committed only to:
-research/emb-cc-03-amalgamation-witness
-The main branch must remain unchanged.
+CHECKPOINT CREATED ON research/emb-cc-03-amalgamation-witness.
+CREATION COMMIT: 7f7bca05c8fb8ca613091fd8dbfc7d439c8211a3
+The main branch was verified unchanged at:
+560287a9babd6da690497341d5831937469a2cad
 
 READBACK / VERIFICATION:
-To be completed after repository write. Do not infer success from a requested operation.
+The checkpoint was fetched back from the research branch.
+The returned file title, document identifier, both checkpoint layers, all audit sections, and terminal END OF CHECKPOINT marker were verified.
+Returned blob SHA: 9710b9fc9025e6ef520b25b851dd44e2149a60a3.
+The research branch ref was verified at the creation commit above.
+The main branch remained unchanged.
+
 
 PRECISE NEXT ACTION:
 After successful commit, fetch this exact checkpoint from the research branch, compare its content, verify the new branch HEAD, and re-check main.
