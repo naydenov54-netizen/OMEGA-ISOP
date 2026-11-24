@@ -1051,3 +1051,71 @@ POSSIBLE OUTWARD-ROUNDING EXPLANATION: OPEN HYPOTHESIS ONLY.
 F-1 OVERALL: OPEN / NOT RESOLVED.
 
 Next permitted action: obtain the exact original notebook or test source, including the interval object construction and comparison statement, plus raw typed endpoint export and the reproducible build/run record. Until then, retain the historical boolean as recorded but do not cite it as proof of the displayed containment. Do not alter Appendix F, Volume V, or the historical CAPD archive; do not rerun the same arithmetic-only comparison.
+
+
+26. RL / CE-V TRACEABILITY PASS
+
+26.1 GOVERNING PROCEDURE
+Source: OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF-v1.5.txt.
+Exact locations:
+- Section 7, lines 160-172: status/provenance separation; surviving controlled copies are documentary comparison sources, not substitutes for destroyed primary records; primary RL source recovery/search is closed/discontinued; RL-027 registry status is NOT INDEPENDENTLY CONFIRMED; no automatic promotion.
+- Section 8, lines 174-178: operational response distance definition and assumptions.
+- Section 9, lines 180-190: Theorem 91 conditional status, H1-H4 and non-universality boundary.
+- Section 11, lines 202-220: RL workflow; CE/CE-V and Volume V integration decisions are separate; RL registration requires authoritative registry success, identifier verification and content readback; a GitHub commit or local file is not RL registration.
+- Section 12, lines 222 onward: evidence classification vocabulary.
+Evidence class: governance and workflow requirements.
+Current status: controlling handoff rule. The evidence map GitHub commit is not an RL registration and no RL registration is claimed here.
+Next permitted action: preserve status/provenance/registration distinctions in every trace row.
+
+26.2 CE-V / RL TRACEABILITY MATRIX
+Controlling archive: CE-V-OMEGA-ISOP-RETAINED-EXTENSIONS-STATUS-FINAL.txt.
+Archive line locations and declared RL trace:
+- CE-V-01, lines 16-50 -> RL-001. Claim: latent accessibility differs from actual transition and realized organization. Conditional on fixed relational constraints and admissible dynamics. Archive status: official validated integrated. Primary RL-001 source: non-recoverable under the global primary-source disposition; no fresh primary-source re-derivation claimed.
+- CE-V-02, lines 51-91 -> RL-002. Claim: equivalence, robustness and structural necessity are distinct; necessity is criterion-relative. Archive status: official validated integrated. Primary RL-002 source: non-recoverable; no fresh primary-source re-derivation claimed.
+- CE-V-03, lines 92-145 -> RL-003. Claim: conditional transition landscape L_T; d is only distance-like absent metric axioms; structural geometry does not determine realized evolution. Archive status: official validated integrated. Primary RL-003 source: non-recoverable; no fresh primary-source re-derivation claimed.
+- CE-V-04, lines 146-267 -> RL-007. Claim: reduced representation closure under all admissible inputs; finite counterexample and non-implications. Archive status: official validated integrated / formal criterion. Primary RL-007 source: non-recoverable; displayed criterion and finite model independently checked in this working register, which does not restore primary provenance.
+- CE-V-05, lines 268-312 -> RL-005. Claim: equality of well-defined reachable sets is an equivalence relation for fixed R, Phi, A(R;Phi) and state domain. Archive status: official validated integrated / conditional theorem. Primary RL-005 source: non-recoverable; no fresh primary-source re-derivation claimed.
+- CE-V-06, lines 313-377 -> RL-006. Claim: selected global realization conditionally filters local relational specifications. Archive status: official validated integrated under specified realization. It does not derive global realization, cosmological realization, local nonemptiness or unique selection. Primary RL-006 source: non-recoverable; no fresh primary-source re-derivation claimed.
+- CE-V-06.1, lines 378-389 -> subordinate directional/temporal module. The CE archive says retained submodule and indexed in Volume V, while delegating formal/validation detail to Volume V.
+- CE-V-07, lines 390-399 -> RESERVED; independent validation, explicit integration decision, traceability and Frozen Core compatibility audit required before assignment.
+The archive's documentary audit, lines 466-505, confirms identifier/corpus consistency and Frozen Core subordination only. It explicitly does not independently re-derive every RL primary source or reproduce every validation computation.
+
+26.3 RL-022 / RL-023 AND CE-V-06.1 QUALIFICATION
+Source: OMEGA-ISOP-RL-022-RL-023-CONSOLIDATED-ARCHIVAL-SUPPLEMENT-2026-11-24.txt.
+Exact locations:
+- Lines 1-31: archival copy of a user-supplied consolidated RL-022 record; not a new RL item; parent CE-V-06 / RL-006; integration qualification says explicit M3.2 decision is required and, absent it, CE-V-06.1 is an integration candidate; this qualification takes precedence over unqualified shorthand saying fully integrated.
+- Lines 117-176: directional countermodels K1 and K0 and their claimed difference.
+- Lines 230-263: RL-022/RL-023 consolidation; RL-023 absorbed into canonical archival RL-022; CE-V-06.1 remains subject to explicit M3.2 integration-decision qualification.
+- Lines 265-296: local nonempty-fiber condition F_i != empty; temporal well-definedness A4 does not prove pointwise nonemptiness or propagation; no explicit T_i or successor-preservation theorem is supplied.
+- Lines 305-309: no canonical CE-V-06 text modification, no unconditional CE-V-06.1 integration claim, and no independent re-derivation of destroyed RL-006 originals.
+Evidence class: user-supplied supplementary archival copy; formal consistency check of its displayed model; not primary RL-006 evidence.
+Current status:
+1. K1 validly witnesses possible reverse update-dependency.
+2. Supplied K0 is defective under the supplement's own D2 definition because x_(t+1)=x_t=A1(t); it also exhibits non-constant dependence.
+3. K0* correction is a valid finite laboratory countermodel for absence of reverse update-dependency under D2.
+4. The K0 defect is local to the supplied archival model and does not refute CE-V-06 or the canonical Frozen Core.
+5. Pointwise local-fiber nonemptiness and temporal propagation remain NOT ESTABLISHED.
+6. CE-V-06.1 integration qualification conflict remains OPEN; do not resolve by choosing the stronger wording.
+Missing evidence: recovered primary RL-006 source (recorded non-recoverable); explicit authoritative M3.2 integration decision for CE-V-06.1; separate proof of local nonemptiness and successor preservation if those claims are pursued.
+Next permitted action: preserve the conditional/candidate qualification; do not create a new RL/CE entry or change the CE archive.
+
+26.4 RL-021 / RL-021.1 / RL-027 TRACEABILITY
+Source: Volume V Sections XXVII-XXVIII, M3.2 Section 7, and surviving controlled records.
+- RL-021: Volume V XXVII.1, lines 251-269; M3.2 Section 7. Closed/established only within stated question and assumptions. Primary source non-recoverable; no CE-V promotion.
+- RL-021.1: Volume V XXVII.2-XXVII.3, lines 270-320; M3.2 Section 7. Established with explicit boundary conditions; general H characterization open; C_forward necessity refuted only in the examined construction. Primary source non-recoverable; no CE-V promotion.
+- RL-027: Volume V XXVIII.1-XXVIII.4, lines 321-376; M3.2 Section 7. Core domain-bounded purity identifiability results retained as independently verified in controlled records; overall RL-027 under audit; TEST-I Draft-0.2 not frozen; registry label RL_REGISTERED is not independently confirmed.
+Evidence class: carried-forward controlled-copy status with explicit provenance limitation.
+Current status: no primary-source re-verification claimed; no CE-V promotion; RL-027 registry confirmation not claimed.
+Missing evidence: destroyed primary RL files cannot be restored through editorial work; only identified surviving sources and documented independent derivations may support future re-verification.
+Next permitted action: use surviving controlled copies as documentary comparison base; do not repeat repository archaeology for the same primary files.
+
+26.5 TRACEABILITY COMPLETION RESULT
+CE-V-01..06.1: each has an archive location, linked RL identifier or subordinate-module designation, stated scope and status boundary recorded above.
+RL-021 / RL-021.1 / RL-027: each has current Volume V/M3.2 location, status and primary-source limitation recorded.
+RL-022 / RL-023: canonical archival consolidation and CE-V-06.1 qualification recorded; no new RL item.
+RL registration: none performed or claimed.
+CE-V promotion: none performed or claimed.
+Frozen Core: unchanged.
+
+RL / CE-V TRACEABILITY STAGE: COMPLETE TO THE EXTENT OF THE SURVIVING CONTROLLED SOURCES, WITH PRIMARY-SOURCE NON-RECOVERABILITY AND CE-V-06.1 INTEGRATION QUALIFICATION EXPLICIT.
+NEXT PLAN STEP: COMPARATIVE PHYSICAL-POTENTIAL ASSESSMENT, THEN PHYSICAL PILOT DECISION. F-1 REMAINS OPEN / SOURCE-DEPENDENT AND DOES NOT BLOCK THE MAP OR THE COMPARATIVE ASSESSMENT; it remains a separate CAPD closure obligation.
