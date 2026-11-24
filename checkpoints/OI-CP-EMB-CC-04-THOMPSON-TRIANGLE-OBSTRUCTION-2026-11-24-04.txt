@@ -1,0 +1,256 @@
+OMEGA-ISOP
+EMB-CC-04 / FINITE-FAMILY EXTENSION
+FINITE THREE-VERTEX AMALGAM WITH NO FINITE COMMON COMPLETION
+
+CHECKPOINT_ID:
+OI-CP-EMB-CC-04-THOMPSON-TRIANGLE-OBSTRUCTION-2026-11-24-04
+
+DATE:
+2026-11-24
+
+STATUS:
+MATHEMATICAL COUNTEREXAMPLE ESTABLISHED IN GROUP-THEORETIC TEST MODEL
+FINITE COMMON WITNESS: IMPOSSIBLE
+INFINITE COMMON WITNESS: EXISTS
+STRONGNESS: EXISTS IN THE INFINITE WITNESS
+NO OMEGA-ISOP ADM IDENTIFICATION
+NO RL / CE REGISTRATION
+NO ARCHITECTURAL MODIFICATION
+
+============================================================
+1. PURPOSE AND SCOPE
+============================================================
+
+This checkpoint tests whether a finite family of finite source objects can have finite common witnesses for every proper subdiagram while the complete finite diagram has no finite common witness.
+
+The result is a classical finite group amalgam due to Kenneth S. Brown, based on a triangle of finite groups whose direct limit is Thompson's infinite simple group.
+
+This is a result in the category of groups with injective homomorphisms. It is NOT identified with the OMEGA-ISOP realization class or its unspecified Adm predicate.
+
+Primary source:
+Kenneth S. Brown, "The Geometry of Finitely Presented Infinite Simple Groups", 1992, Section 6, Theorem 3 and Corollary, pp. 133-134.
+PDF:
+https://pi.math.cornell.edu/~kbrown/scan/1992.0000.0121.pdf
+
+Relevant statements:
+- Section 1 defines a triangle of groups and its direct limit.
+- A triangle is realizable when the vertex groups embed and the edge groups are exactly the intersections of the corresponding vertex groups.
+- Theorem 3 constructs a realizable triangle of finite groups whose amalgamated free product is Thompson's infinite simple group.
+- The corollary proves that this finite amalgam is not embeddable in any finite group.
+
+============================================================
+2. AMBIENT CLASS AND ARROWS
+============================================================
+
+Ambient category:
+K = category of all groups.
+
+Objects:
+Groups.
+
+Arrows:
+Injective group homomorphisms (monomorphisms).
+
+Finite objects:
+Groups with finite underlying carrier.
+
+The diagram is a finite triangle, not merely a two-object span.
+
+============================================================
+3. THE FINITE DIAGRAM
+============================================================
+
+Vertex groups:
+A = S_5
+B = S_6
+C = S_7
+
+Edge groups:
+U = S_4, embedded in A and B;
+V = S_5, embedded in B and C;
+W = S_3 x S_2, embedded in A and C.
+
+All six edge-to-vertex maps are injective.
+
+Map conventions as specified by Brown:
+
+(1) U = S_4 -> A = S_5 and U -> B = S_6:
+standard inclusions, with S_4 permuting {1,2,3,4}.
+
+(2) V = S_5 -> B = S_6 and V -> C = S_7:
+the embeddings described by the corresponding five-letter supports in Brown's construction.
+
+(3) W = S_3 x S_2 -> A = S_5:
+standard embedding; S_3 acts on {1,2,3} and S_2 acts on {4,5}.
+
+(4) W = S_3 x S_2 -> C = S_7:
+the first factor acts on {1,2,3}; the nonidentity element of the S_2 factor maps to (46)(57), not to a single transposition.
+
+The three edge groups encode the pairwise identifications. The diagram is commutative by construction.
+
+Brown's Theorem 3 states that this triangle is realizable and that its amalgamated free product/direct limit is Thompson's infinite simple group G.
+
+============================================================
+4. PROOF THAT NO FINITE COMMON TARGET EXISTS
+============================================================
+
+Let G be the direct limit (colimit) of the triangle diagram.
+
+Brown's Theorem 3 identifies G with Thompson's infinite simple group. Therefore:
+- G is infinite;
+- G is simple;
+- G is nontrivial.
+
+Assume, for contradiction, that there is a finite group Q and a compatible cocone of injective homomorphisms:
+f_A: A -> Q
+f_B: B -> Q
+f_C: C -> Q
+
+Compatibility means that the two maps from each edge group into Q agree after composition with the corresponding edge-to-vertex maps.
+
+By the universal property of the direct limit, this compatible cocone induces a homomorphism:
+phi: G -> Q.
+
+Since G is simple, ker(phi) is either:
+ker(phi) = {e}
+or
+ker(phi) = G.
+
+Case 1:
+ker(phi) = {e}.
+Then phi is injective. This is impossible because G is infinite and Q is finite.
+
+Case 2:
+ker(phi) = G.
+Then phi is the trivial homomorphism. Its restriction to each vertex group is trivial, contradicting injectivity of f_A, f_B, and f_C because A, B, and C are nontrivial.
+
+Both cases are impossible.
+
+Therefore:
+NO FINITE GROUP Q admits a compatible cocone of injective maps for the complete triangle.
+
+This excludes every finite common target in K, not merely one chosen pushout or generated subgroup.
+
+============================================================
+5. INFINITE WITNESS AND STRONGNESS
+============================================================
+
+An infinite common target does exist: G itself.
+
+Brown's construction gives a realizable triangle. In Brown's definition, realizability means:
+- each vertex group embeds in G;
+- each edge group maps onto the intersection of the corresponding vertex-group images.
+
+Thus G is an infinite common witness with the exact pairwise intersections prescribed by U, V, and W.
+
+This is stronger than merely having compatible embeddings. It preserves the specified pairwise intersections.
+
+For this three-vertex diagram, the exact pairwise-intersection property is the relevant strongness condition.
+
+Consequently:
+WEAK COMMON WITNESS IN SOME GROUP: YES.
+STRONG / EXACT-INTERSECTION COMMON WITNESS IN SOME GROUP: YES.
+WEAK COMMON WITNESS IN A FINITE GROUP: NO.
+STRONG COMMON WITNESS IN A FINITE GROUP: NO.
+
+The finite impossibility is stronger than a failure of strongness: even weak compatible embeddings into a finite group are impossible.
+
+============================================================
+6. PROPER SUBDIAGRAM CHECK
+============================================================
+
+Every proper two-vertex edge amalgam consists of two finite groups with a common finite subgroup and injective maps.
+
+The classical two-factor theorem states that an amalgam of two finite groups can be embedded in a finite group. This is also summarized in the Encyclopedia of Mathematics entry "Amalgam of groups":
+https://encyclopediaofmath.org/wiki/Amalgam_of_groups
+
+Therefore each individual edge amalgam has a finite common completion.
+
+The obstruction appears at the complete three-vertex diagram, where all three pairwise identifications must hold simultaneously.
+
+This establishes the required finite-family pattern:
+- each vertex object is finite;
+- each edge/base object is finite;
+- each two-vertex edge amalgam has a finite completion;
+- the full three-vertex diagram has no finite common completion;
+- the full diagram does have an infinite strong realization.
+
+The statement concerns the three pairwise edge amalgams as separate proper subdiagrams. It does not claim that every conceivable subdiagram or every alternative choice of embeddings has the same property.
+
+============================================================
+7. CLASSIFICATION OF THE RESULT
+============================================================
+
+A. Genuine finite-family obstruction:
+PROVED in the category of groups with injective homomorphisms.
+
+B. Failure only of a selected pushout:
+NO. The proof excludes every finite target by the universal property and simplicity of G.
+
+C. Failure of all amalgams:
+NO. An infinite realization exists.
+
+D. Failure of finite amalgams:
+YES. No finite common target exists.
+
+E. Strongness:
+An infinite exact-intersection realization exists; no finite weak realization exists, hence no finite strong realization exists.
+
+F. Two-vertex versus three-vertex distinction:
+Two finite groups with a common finite subgroup admit a finite embedding; the three-vertex triangle can nevertheless fail finite embeddability.
+
+============================================================
+8. LIMITS FOR OMEGA-ISOP
+============================================================
+
+This example proves that the implication
+
+"every proper finite subdiagram has a finite common witness"
+implies
+"the entire finite diagram has a finite common witness"
+
+is false in at least one well-defined mathematical realization.
+
+It does NOT prove that the same implication is false for OMEGA-ISOP, because the exact OMEGA-ISOP Adm predicate and its selected category remain unspecified.
+
+No new axiom is inferred.
+
+No strongness requirement is added to CC.
+
+No claim is made that the OMEGA-ISOP D_CC diagram is this group-theoretic triangle.
+
+The result may be used as a countermodel to any future universal finite-family extension claim, but only if that claim's assumptions include a realization class broad enough to admit this group-theoretic diagram.
+
+============================================================
+9. NEXT RESEARCH TASK
+============================================================
+
+Return to the OMEGA-ISOP source-controlled semantics and ask:
+
+(1) Does the intended finite-family extension claim quantify over arbitrary finite diagrams or only over a restricted diagram shape?
+
+(2) Does the selected realization class have a finite-amalgamation property for all finite diagrams, or only for binary spans?
+
+(3) Is Adm closed under iterative composition of admissible binary witnesses?
+
+(4) Does the intended target require only a compatible cocone, exact pairwise intersections, or a colimit universal property?
+
+(5) Can the source-authorized Adm be shown to exclude the Brown triangle, or is its status genuinely undecided?
+
+Until these are answered, the Brown triangle remains a model-relative obstruction, not an OMEGA-ISOP theorem.
+
+============================================================
+10. ARCHITECTURAL INVARIANTS
+============================================================
+
+FROZEN CORE: UNCHANGED.
+VOLUME II: UNCHANGED.
+VOLUME III: UNCHANGED.
+VOLUME V: UNCHANGED.
+THEOREM 91: UNCHANGED / CONDITIONAL.
+D_CC: FORMALIZATION OPEN.
+RL REGISTRATION: NONE.
+CE / CE-V PROMOTION: NONE.
+WORKING WITNESS PREDICATE: NON-CANONICAL / NOT INTEGRATED.
+
+END OF CHECKPOINT
