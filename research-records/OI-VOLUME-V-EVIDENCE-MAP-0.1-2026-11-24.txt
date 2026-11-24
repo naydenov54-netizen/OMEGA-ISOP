@@ -1,13 +1,13 @@
 OMEGA-ISOP
 VOLUME V EVIDENCE MAP
-WORKING REGISTER v0.2
+WORKING REGISTER v0.3
 DATE: 2026-11-24
 
 DOCUMENT ID:
 OI-VOLUME-V-EVIDENCE-MAP-0.1-2026-11-24
 
 STATUS:
-STAGE 2 — PARTIAL BASELINE v0.2
+STAGE 2 — PARTIAL BASELINE v0.3
 NOT A MATHEMATICAL CERTIFICATION
 NO PHYSICAL PILOT SELECTED
 NO MASTER REVISION
@@ -307,14 +307,14 @@ COMPLETED IN THIS WORKING REGISTER:
 STILL OPEN:
 - exact subsection-level trace for every claim in Appendix A-C;
 - exact source location and proof dependency for each retained CE-V extension;
-- detailed mapping of CE-V-06.1;
+- canonical M3.2 integration decision for CE-V-06.1 remains separate and unresolved; the available supplementary record has been mapped and its K0 countermodel defect checked;
 - full claim-level source/evidence register fields and actual hashes where available;
 - comparative physical-potential assessment after the map is complete.
 
 NEXT BOUNDED ACTION:
-Continue with exact subsection-level mapping of the CE-V-06.1 source and the operational response / Theorem 91 evidence chain. Do not reopen the Brown/EMB-CC research line as a substitute for this plan.
+Map the exact operational-response / Theorem 91 evidence chain, including the proof source for the conditional non-expansion estimate. Do not reopen the Brown/EMB-CC research line as a substitute for this plan.
 
-END OF WORKING REGISTER v0.2
+END OF WORKING REGISTER v0.3
 
 
 12. CE-V-06.1 / RL-022-RL-023 — FORMAL CONSISTENCY CHECK
