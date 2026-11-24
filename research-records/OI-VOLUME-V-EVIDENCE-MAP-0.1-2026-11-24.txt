@@ -1,0 +1,230 @@
+OMEGA-ISOP
+VOLUME V EVIDENCE MAP
+WORKING REGISTER v0.1
+DATE: 2026-11-24
+
+DOCUMENT ID:
+OI-VOLUME-V-EVIDENCE-MAP-0.1-2026-11-24
+
+STATUS:
+STAGE 2 — PARTIAL BASELINE
+NOT A MATHEMATICAL CERTIFICATION
+NO PHYSICAL PILOT SELECTED
+NO MASTER REVISION
+FROZEN CORE UNCHANGED
+
+1. PURPOSE AND CONTROL
+
+This register begins Stage 2 of the active Volume V research plan: claim-by-claim mapping of the evidence in Sections XXVI-XXXII and Appendices A-C.
+
+The governing controlled source is:
+OMEGA-ISOP-VOLUME-V-v2.4-C-1.5-CONTROLLED-MASTER-2026-11-22.txt
+
+The controlling workflow is Appendix D, source plan version 1.0, especially Sections IV-V and IX-X. The Thaw Audit 0.1 records the document-level inventory as complete and identifies the evidence map as the next work item.
+
+This register is a working evidence map. It does not upgrade, downgrade, certify, or integrate any claim. A claim may be marked OPEN and the audit proceeds to the next claim. Missing evidence is not a reason to repeat the same search indefinitely.
+
+2. SOURCE INVENTORY AVAILABLE IN LIBRARY
+
+The recursive Library inventory currently exposes:
+- Frozen Core v2.0-FC10.2.
+- Volume II v1.3-MF-AUDIT-RESTORED-FINAL.
+- Volume III v1.1-VAL-RESTORED.
+- Volume IV v1.4-R-RESTORED.
+- Volume V v2.4-C-1.5 controlled master.
+- Volume V v2.1 CAPD research insert.
+- CE-V retained extensions status archive.
+- Thaw Audit 0.1.
+- Selected RL controlled copies and research records.
+
+The inventory does not expose the original CAPD notebook, raw CAPD output package, complete source/build/provenance package, or the destroyed primary RL source set. The Thaw Audit explicitly treats the absence of primary RL files as a current provenance limitation, not as evidence that the results are false.
+
+Volume IV v1.4-R is explicitly partial: only Sections 9, 15, 17, 18, 28, 52 and the R' integration block are present. Missing sections are not reconstructed.
+
+3. CLAIM MAP — FOUNDATIONAL MATHEMATICAL LAYER
+
+VM-01 — CONFIGURATIONS, COMPATIBILITY AND R
+Source: Frozen Core v2.0-FC10.2, Sections 1.6-1.9; Volume II v1.3, foundational relational sections.
+Claim class: definitions and conditional construction.
+Content: local configurations; realization-dependent compatibility; R := colim(D_CC) when the relevant diagram and colimit exist.
+Dependencies: selected realization rules; exact diagram D_CC; selected category and morphism class; existence of the required colimit; preservation of compatibility information.
+Evidence status: definitions are present in controlled sources. General existence and uniqueness of R are explicitly open.
+Physical bridge status: none established by this construction alone.
+Audit disposition: MAP THE CONDITIONAL CONSTRUCTION; DO NOT TREAT R AS A UNIVERSAL PHYSICAL OBJECT.
+
+VM-02 — REALIZATION AND ADMISSIBLE DYNAMICS
+Source: Frozen Core v2.0-FC10.2, Sections 1.9 and 2.1-2.3; Volume II v1.3; Volume III v1.1, Sections 10-17.
+Claim class: realization interface and conditional definitions.
+Content: Phi: Real(R) -> M; A(R;Phi) subset Evol(X); deterministic T and stochastic Markov-kernel realizations.
+Dependencies: an explicitly selected Phi, state space X, model-specific admissibility conditions and, for stochastic models, measurable structure.
+Evidence status: formal interfaces defined. A(R;Phi) may be empty, singleton or multiple-valued. Non-emptiness and unique dynamic selection are not derived from R alone.
+Physical bridge status: no physical dynamics or unique law follows from R alone.
+Audit disposition: RETAIN AS REALIZATION-DEPENDENT INTERFACE; DYNAMIC SELECTION REMAINS OPEN.
+
+VM-03 — PERSISTENCE, RESPONSE AND OPERATIONAL ORGANIZATION
+Source: Volume II v1.3, Sections 2-3; Volume III v1.1, Sections 14-23 and 27-33.
+Claim class: conditional operational definitions and model-dependent validation framework.
+Content: persistence, robustness and invariance are distinct; Resp_M: L_op -> Y; operational tolerance; D_L; persistence tests; candidate operational organization.
+Dependencies: chosen realization, nonempty probe set, response space, operational language, tolerance, time horizon, perturbation family and explicit organization criterion.
+Evidence status: definitions and validation rules are present. No universal organization theorem or universal Omega metric is established.
+Physical bridge status: operational probes and responses offer a possible interface to observables, but no concrete physical system or measurement map is supplied by these definitions alone.
+Audit disposition: MAP DEFINITIONS AND ASSUMPTIONS; DO NOT PROMOTE THEM TO A PHYSICAL MODEL.
+
+VM-04 — OPERATIONAL RESPONSE DISTANCE
+Source: Volume II v1.3, operational-distance section; Volume III v1.1, Sections 18-20; M3.2 v1.5, Section 8.
+Claim:
+D_L(M1,M2) = sup_{a in L_op} ||Resp_M1(a)-Resp_M2(a)||_Y.
+Under nonempty L_op, normed Y and defined response maps, D_L is an extended pseudometric.
+Dependencies: nonempty L_op; normed Y; common defined response domain. Finiteness requires additional boundedness. Separation of distinct models is not guaranteed.
+Evidence status: formal construction and stated properties are present in controlled sources. The distinction between pseudometric and metric is explicit.
+Physical bridge status: potentially compatible with operational comparison of models, but physical observables and measurement protocols must be supplied by a selected realization.
+Audit disposition: HIGH-READINESS FORMAL INTERFACE; NO PHYSICAL CLAIM.
+
+VM-05 — THEOREM 91, CONDITIONAL NON-EXPANSION
+Source: M3.2 v1.5, Section 9; Volume II/III operational-response framework.
+Assumptions:
+H1: R exists, T is admissible, and R is preserved.
+H2: Y is normed.
+H3: there is tau:L_op -> L_op with Resp_(T(M))(a)=Resp_M(tau(a)).
+H4: operational criterion and comparison class remain fixed.
+Conclusion:
+D_L(T(M1),T(M2)) <= D_L(M1,M2).
+Claim class: conditional theorem.
+Evidence status: statement and assumptions are explicit in M3.2. The estimate depends on the common tau and the fixed comparison class; it is not a universal information-conservation law.
+Physical bridge status: potentially testable in a specified model only after T, probes, response maps and tau are physically defined.
+Audit disposition: KEEP CONDITIONAL; DO NOT REMOVE H1-H4.
+
+4. CLAIM MAP — RETAINED CE-V EXTENSIONS
+
+VM-06 — CE-V-01, LATENT ORGANIZATIONAL POTENTIAL
+Source: CE-V archive; trace points to RL-001.
+Claim: accessibility of a target organizational state is distinct from actual transition and realization.
+Status in archive: validated conditional claim.
+Evidence limitation: primary RL source is not present in the current Library inventory; archive status is not a substitute for a fresh source-level derivation.
+Physical potential: low-to-moderate until a specific transition model and operational target are selected.
+Disposition: retain archive status; primary derivation not independently reverified here.
+
+VM-07 — CE-V-02, ORGANIZATIONAL DEGENERACY AND STRUCTURAL NECESSITY
+Source: CE-V archive; trace points to RL-002.
+Claim: operational equivalence, robustness and criterion-relative structural necessity are distinct.
+Status in archive: validated conditional claim.
+Evidence limitation: primary RL source is not present in the current Library inventory.
+Physical potential: criterion-dependent; no universal necessity claim.
+Disposition: retain archive status; no universalization.
+
+VM-08 — CE-V-03, ORGANIZATIONAL TRANSITION GEOMETRY
+Source: CE-V archive; trace points to RL-003.
+Claim: transition landscape L_T=(Org,T_rel,Acc,d,Stability,Barrier).
+Status in archive: validated conditional claim.
+Evidence limitation: primary RL source is not present in the current Library inventory; d is only distance-like unless metric axioms are separately established.
+Physical potential: possible model-analysis interface, but no universal evolution law.
+Disposition: retain stated boundaries; no metric or dynamical law inferred.
+
+VM-09 — CE-V-04, DYNAMIC STATE SUFFICIENCY AND CLOSURE
+Source: CE-V archive; Volume V controlled record; trace points to RL-007.
+Claim: a reduced representation is dynamically sufficient only when its induced equivalence is preserved by the specified dynamics for all admissible inputs.
+Recorded finite realization:
+X={(0,0),(0,1),(1,0),(1,1)}
+T(s,z)=(s xor z,z)
+R_full(s,z)=(s,z)
+R_red(s,z)=s.
+The pair (0,0),(0,1) is equivalent under R_red but maps to reduced outputs 0 and 1, so the reduced representation fails closure.
+Status in archive: validated formal criterion; finite example is explicitly displayed.
+Evidence limitation: the controlled copy permits inspection of the displayed construction and counterexample, but the primary RL-007 file is not in the current Library inventory.
+Physical potential: comparatively strong candidate interface to coarse-graining, reduced-state models and Markovian closure. It does not establish fundamental memory, hidden ontology or a physical law.
+Disposition: retain as a leading candidate for later physical-potential comparison; do not select a pilot before the full map is complete.
+
+VM-10 — CE-V-05, REACHABILITY EQUIVALENCE
+Source: CE-V archive; Volume V; trace points to RL-005.
+Claim: equality of well-defined reachable sets defines an equivalence relation.
+Evidence: reflexivity, symmetry and transitivity follow from equality of sets.
+Status in archive: validated conditional theorem.
+Evidence limitation: conditional on a fixed realization/dynamics and well-defined Reach.
+Physical potential: formal comparison tool; by itself has limited discriminating physical content.
+Disposition: retain conditional theorem; avoid presenting the set-equality proof as a new physical result.
+
+VM-11 — CE-V-06, GLOBAL REALIZATION FILTERING
+Source: CE-V archive; Volume V; trace points to RL-006.
+Claim: a selected global realization can filter locally admissible relational structures under explicit restriction and compatibility conditions.
+Status in archive: validated conditional structural claim.
+Dependencies: selected global realization, global constraints, local domains, restriction operation and compatibility predicate.
+Evidence limitation: the global realization and its selection are not derived by CE-V-06.
+Physical potential: possible global-to-local modeling interface, including cosmological questions, but no cosmological realization, Lambda, expansion law or unique selection follows from the extension.
+Disposition: retain conditional status; external selection remains explicit.
+
+VM-12 — CE-V-06.1
+Source: CE-V archive and Volume V.
+Status: retained submodule of CE-V-06; detailed formal/validation status is governed by the primary Volume V record.
+Evidence status: not independently mapped in this baseline.
+Disposition: defer detailed mapping to its exact Volume V subsection; do not invent additional theorem content.
+
+5. CLAIM MAP — CAPD SINGLE-BUMP TRANSFER CONSTRUCTION
+
+VM-13 — EXACT TRANSFER-MATRIX INVARIANT
+Source: Volume V v2.4-C-1.5, Section XXVII; Appendix A, Section 25; Appendix C, Sections C.2-C.3.
+Claim: for the exact trace-zero first-order system and fundamental matrix initialized with determinant 1, Liouville's formula gives det(M(t))=1.
+Claim class: analytical identity.
+Dependencies: exact system definition; trace(A(t))=0; existence of the fundamental matrix on the stated interval.
+Evidence status: analytically justified for the exact system. It does not certify a computed interval matrix enclosure.
+Disposition: mathematical identity retained; separate interval-enclosure proof required.
+
+VM-14 — RATIONAL BOUNDARY AND ERROR-BUDGET POST-PROCESSING
+Source: Volume V Appendix A, Sections 22-25; Appendix C C.5; Appendix E E.4.
+Claim class: arithmetic check conditional on supplied inputs and source derivation.
+Evidence status: listed rational relations and arithmetic recomputations pass for the stated inputs. The derivation of all error-budget factors and source definition/indexing of S48 must remain traceable to primary derivations.
+Disposition: arithmetic pass is narrow; upstream interval inputs and complete estimate derivation remain unverified.
+
+VM-15 — CAPD INTERVAL OUTPUTS AND TARGET VALIDATION
+Source: Volume V Sections XXVIII-XXX; Appendices A-C; Thaw Audit 0.1.
+Evidence status:
+- CAPD 6.0.0 ODE smoke test: pass for the stated smoke test only.
+- TEST 13A-R3: pass for the specific multiplication and operands only.
+- TEST 13A overall: open/inconclusive.
+- target single-bump computation: recorded outputs; independent end-to-end reproduction not established.
+- local Taylor/remainder and target state-enclosure validation: open.
+- source/build/output provenance: open.
+- raw notebook and full source/build/provenance package: not present in current Library inventory.
+- Krawczyk/root existence/root uniqueness: not established; no operation authorized by the controlling record.
+
+VM-16 — F-1 ONE-STEP ENDPOINT DISCREPANCY
+Source: Volume V Appendix F.2.
+Recorded interval: [0.99999999999999988898, 1.000000000000000222].
+Displayed EXPECTED interval: [1, 1.000000000000000222].
+The recorded lower endpoint is less than 1, so the displayed intervals do not satisfy the stated subset relation.
+Status: OPEN / NOT RESOLVED.
+This is a discrepancy in the displayed containment assertion. It does not prove the CAPD enclosure is wrong.
+Required evidence: exact test source; exact EXPECTED construction; interval type and rounding semantics; raw machine-readable endpoints; comparison expression; reproducible build/run record.
+Disposition: do not repeat arithmetic-only audits of the same displayed endpoints. Close only when the listed source evidence is available.
+
+6. SOURCE AND PROVENANCE LIMITS
+
+- The current Library inventory contains controlled copies and selected research records, not the original CAPD notebook or full raw execution package.
+- The Thaw Audit records primary RL source recovery as non-recoverable and repository searching as discontinued under the provenance disposition. Surviving controlled copies may be used for documentary comparison but must not be represented as recovered primary sources.
+- Volume IV is partial and cannot be used to reconstruct absent sections.
+- A claim appearing in a controlled archive is not thereby independently re-proved.
+- No missing source, hash, execution identifier or raw output path is inferred.
+
+7. STAGE 2 COMPLETION GATE
+
+The evidence map is not complete yet. Remaining bounded tasks:
+1. Map the exact contents of Sections XXVI and XXXI-XXXII against the claim groups above.
+2. Map CE-V-06.1 to its exact controlling Volume V source section.
+3. Map the detailed proof obligations and evidence labels for RL/CE claims that have surviving controlled copies, without re-searching for primary files already dispositioned as non-recoverable.
+4. Add exact Volume II/III source locations for each candidate interface.
+5. Mark each candidate as M1/M2/P1/P2/P3/E1/C1/O1 only where the plan's classification actually applies.
+6. Produce a comparative physical-potential score only after the evidence map is complete.
+
+Completion criterion:
+Every material claim in Sections XXVI-XXXII and Appendices A-C is assigned an identifier, source location, assumptions, evidence class, current status, missing evidence and next permitted action. Open items do not block closure of the map when their limitations are explicit and their next action is recorded.
+
+8. LOOP CONTROL
+
+One bounded pass per claim:
+IDENTIFY -> TRACE -> CLASSIFY -> RECORD LIMITS -> SET NEXT ACTION -> MOVE ON.
+
+Do not repeat a completed source search without a new source identifier or a specific reason.
+Do not reopen an item solely because it remains OPEN.
+Do not select a physical pilot before the evidence map and comparative assessment are complete.
+Do not alter the Frozen Core, Volume V Master, CE-V archive or any canonical theorem through this working register.
+
+END OF WORKING REGISTER v0.1
