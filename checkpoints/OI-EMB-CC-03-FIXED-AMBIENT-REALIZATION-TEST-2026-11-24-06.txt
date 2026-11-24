@@ -1,0 +1,155 @@
+OMEGA-ISOP
+EMB_CC-03
+FIXED-AMBIENT REALIZATION TEST
+DOCUMENT_ID: OI-EMB-CC-03-FIXED-AMBIENT-REALIZATION-TEST-2026-11-24-06
+DATE: 2026-11-24
+STATUS: DERIVATIVE RESEARCH CHECKPOINT / SOURCE-GROUNDED WORKING CONVENTION
+BRANCH: research/emb-cc-03-amalgamation-witness
+PREDECESSOR:
+OI-EMB-CC-03-SOURCE-MATCH-AND-APARTNESS-ONLY-AUDIT-2026-11-24-05
+
+======================================================================
+0. DECISION
+======================================================================
+
+For each individual realization/test of C_METACORE, use one fixed
+ambient apartness structure (U0,#).
+
+This is the most directly source-supported working interpretation:
+Volume II III.4 defines each local configuration by
+C=(S_C,#_C), S_C subset U0, and #_C the restriction of the ambient #.
+
+This does NOT assert that OMEGA-ISOP permits only one realization
+globally. Different realizations may use different ambient pairs.
+They must not be mixed within one fixed-realization test.
+
+This is a working interpretation for the present EMB_CC-03 test,
+not a new canonical axiom or a permanent architecture amendment.
+
+======================================================================
+1. CONSEQUENCE FOR THE TWO-WITNESS TEST
+======================================================================
+
+The earlier A1/A2 pair varied the apartness relation on the apex pair
+(c,d). It therefore compared two different ambient apartness
+realizations, not two apex objects inside one fixed (U0,#).
+
+Accordingly, the earlier result:
+- remains valid in the abstract category ranging over apartness
+  structures;
+- does not establish two incomparable minimal witnesses inside one
+  fixed ambient realization;
+- must not be used as a canonical C_METACORE non-uniqueness theorem.
+
+For a fixed ambient pair (U0,#), the value of c#d is already fixed.
+A1 and A2 cannot both be realized on the same labelled four-point
+subset with the same restricted ambient relation.
+
+======================================================================
+2. FIXED-AMBIENT SPAN TEST
+======================================================================
+
+Let (U0,#) be fixed.
+
+Let C0,C1,C2 be admissible local configurations:
+Ci=(Si,# restricted to Si),
+with Si subset U0 and |Si|>=2.
+
+Let the span maps be embeddings:
+i1:C0->C1
+i2:C0->C2.
+
+The embedding contract is:
+x#0y iff i_k(x)#_k i_k(y).
+
+For a compatible aligned span in the subconfiguration/inclusion case,
+S0 subset S1 and S0 subset S2, define:
+S_A := S1 union S2
+#_A := # restricted to S_A x S_A
+A := (S_A,#_A).
+
+Then the inclusion maps:
+m1:C1->A
+m2:C2->A
+are embeddings, and:
+m1 o i1 = m2 o i2.
+
+This is a valid fixed-ambient amalgam IF AND ONLY IF A is an admissible
+object of C_METACORE under the selected realization's admissibility
+conditions.
+
+The source text explicitly leaves exact admissibility
+realization-dependent. Therefore closure under finite unions is NOT
+assumed and is the central remaining existence obligation.
+
+======================================================================
+3. MINIMALITY / LEASTNESS BOUNDARY
+======================================================================
+
+If admissible configurations are closed under the relevant unions,
+and morphisms in the tested subcategory are literal inclusions, then
+A=(S1 union S2,# restricted) is the least amalgam under inclusion:
+for any admissible B containing both S1 and S2,
+S1 union S2 subset B.
+
+This inclusion-minimality statement is conditional on:
+1. the union being admissible;
+2. the span being aligned by literal inclusions;
+3. the tested order being inclusion, not arbitrary embedding
+   factorization.
+
+For arbitrary embedding spans, the union construction requires an
+explicit alignment of the two images in U0.
+For arbitrary morphism classes, leastness under factorization does
+not follow merely from subset minimality.
+
+No general least-amalgam theorem is claimed.
+
+======================================================================
+4. CURRENT STATUS
+======================================================================
+
+FIXED AMBIENT PER REALIZATION:
+SELECTED AS THE SOURCE-FAITHFUL WORKING CONVENTION.
+
+CROSS-REALIZATION CATEGORY:
+POSSIBLE AT A META-LEVEL, BUT NOT MIXED INTO THIS TEST.
+
+A1/A2 TWO-WITNESS RESULT:
+VALID IN ABSTRACT MULTI-REALIZATION CATEGORY ONLY.
+NOT A FIXED-AMBIENT RESULT.
+
+UNION AMALGAM:
+CONSTRUCTED FOR ALIGNED INCLUSION SPANS.
+ADMISSIBILITY OF THE UNION REMAINS A CONDITION TO PROVE.
+
+FINITE-UNION CLOSURE OF C_METACORE:
+NOT ESTABLISHED BY THE INSPECTED SOURCE CLAUSES.
+
+GENERAL LEAST WITNESS:
+NOT ESTABLISHED.
+
+CANONICAL CC / D_CC / R:
+UNCHANGED AND OPEN.
+
+FROZEN CORE:
+UNCHANGED.
+NO CANONICAL REGISTRATION.
+NO INTEGRATION.
+
+======================================================================
+5. NEXT TESTS
+======================================================================
+
+1. Recover the exact admissibility predicate for a local configuration
+   in the selected realization.
+2. Test whether that predicate is closed under S1 union S2.
+3. If closure fails, construct an explicit fixed-ambient counterexample
+   using only the canonical signature (S,#), without auxiliary
+   relations.
+4. If closure holds, prove the inclusion-union amalgam theorem for
+   aligned spans.
+5. Only then test whether the result extends to arbitrary embedding
+   spans and to the original EMB_CC-03 diagram class.
+
+END OF CHECKPOINT
