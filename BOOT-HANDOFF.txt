@@ -91,9 +91,12 @@ The following additional branch refs were found:
 
 These branches contain checkpoint directories and research material absent from the active main tree. Their tips are not ancestors of the inspected main head; the histories diverge from commit 560287a9babd6da690497341d5831937469a2cad.
 
-Do not treat these branch trees as active project workspaces. Do not delete their refs until their commits have been made reachable from main history and the user’s intended archival treatment is respected. Their checkpoint files are not part of the active main tree.
+Do not treat these branch trees as active project workspaces. Their checkpoint files are not part of the active main tree.
 
-The previous BOOT-HANDOFF v1.0 and all earlier repository states remain recoverable through Git commit history.
+HISTORY CONSOLIDATION VERIFIED ON 2026-11-24:
+A commit was created with the unchanged main tree and the three research branch tips as additional parents. Main now reaches all three branch histories without importing their files into the active tree. Consolidation commit: 1196863d8bf71ff325d9a46fbd0d8d58e6fe4155.
+
+The three branch refs remain visible. They may now be deleted without making their commits unreachable from main history. Branch-ref deletion was not performed in this session because the available GitHub connection does not expose a branch/ref deletion operation. The previous BOOT-HANDOFF v1.0 and all earlier repository states remain recoverable through Git commit history.
 
 ==================================================
 5. OPEN DOCUMENT-CONTROL ISSUE
@@ -126,13 +129,11 @@ No RL registration, CE-V promotion, Frozen Core amendment, or scientific certifi
 7. NEXT JUSTIFIED OPERATIONAL ACTION
 ==================================================
 
-Complete the GitHub branch-history consolidation without adding any files to the active main tree. Preserve all branch commits as reachable history before removing obsolete branch refs. Then verify:
-- one active branch, main;
+Complete the remaining branch-ref cleanup through GitHub repository settings or branch management. The history has already been consolidated and verified reachable from main. After deleting the three archival refs, verify:
+- one branch, main;
 - one active tracked file, BOOT-HANDOFF.txt;
 - no checkpoint files in the active tree;
-- previous commits remain reachable.
-
-Until branch-history consolidation and branch cleanup are verified, report the three research refs as archival branches rather than claiming that GitHub has only one branch.
+- all prior commits remain reachable from main history.
 
 END OF BOOT-HANDOFF
 VERSION 1.1
