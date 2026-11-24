@@ -1,0 +1,305 @@
+OMEGA-ISOP CHECKPOINT
+CHECKPOINT_ID: OI-CP-T91-EXPLICIT-CC-DIAGRAM-AND-COLIMIT-OBSTRUCTION-2026-11-24-07
+DATE: 2026-11-24
+WORKSTREAM: THEOREM_91 / H1 / STOCHASTIC_RELATIONAL_DYNAMICS
+RESEARCH_STAGE: EXPLICIT INDEXING CATEGORY AND COMPATIBILITY DIAGRAM
+PARENT_CHECKPOINT: OI-CP-T91-NONTRIVIAL-APARTNESS-SPAN-CORRECTION-2026-11-24-06
+
+TITLE: ИЗРИЧНА ДИАГРАМА D_CC, СЪВМЕСТИМОСТ И ПРЕПЯТСТВИЕ ЗА КОЛИМИТ
+STATUS:
+INDEXING CATEGORY EXPLICITLY DEFINED
+FUNCTOR EXPLICITLY DEFINED
+CC=1 ESTABLISHED FOR THE SELECTED SPAN
+MULTIPLE ADMISSIBLE AMALGAMS EXHIBITED
+NO PUSHOUT IN THE EMBEDDING CATEGORY
+CANONICAL R NOT ESTABLISHED
+NO FROZEN CORE CHANGE
+
+============================================================
+1. SELECTED REALIZATION AND CATEGORY
+============================================================
+
+Use the finite carrier:
+U0={a,b,c,d}.
+
+For this explicit test realization:
+x # y iff x != y.
+
+Define APFin_nontriv_emb:
+Objects are finite sets X with at least two elements and standard inequality apartness.
+Morphisms are embeddings f:X->Y satisfying:
+x #X y iff f(x) #Y f(y).
+
+This is an auxiliary category for the finite test.
+It is not asserted to be the complete canonical C_METACORE.
+
+============================================================
+2. OBJECTS AND MORPHISMS OF THE INDEXING CATEGORY J
+============================================================
+
+Define J as the finite span category:
+Objects: j0,j1,j2.
+Non-identity arrows:
+u1:j0->j1
+u2:j0->j2.
+There are no other non-identity arrows.
+
+This is a category:
+- identities are included;
+- no nontrivial composable pair of arrows exists;
+- composition with identities is the required identity operation.
+
+============================================================
+3. THE FUNCTOR D:J->APFin_nontriv_emb
+============================================================
+
+Define:
+D(j0)=S0={a,b}
+D(j1)=S1={a,b,c}
+D(j2)=S2={a,b,d}.
+
+Each object carries inequality apartness.
+
+Define:
+D(u1):S0->S1 as inclusion;
+D(u2):S0->S2 as inclusion.
+
+Both are embeddings because the apartness relation on each source is exactly the restriction of the target relation.
+
+Functor laws:
+D(id_j)=id_D(j).
+D preserves composition; the only compositions are with identities.
+
+Thus D is a well-defined functor from the explicit span category J into the auxiliary finite embedding category.
+
+All three objects satisfy the Volume III nontriviality test:
+|S_i|>=2 and there exist x,y in S_i with x#y.
+
+============================================================
+4. COMPATIBILITY VALUE
+============================================================
+
+Volume II defines:
+CC(C1,C2)=1 iff an admissible amalgamation of C1 and C2 exists.
+
+For S1 and S2 over the common base S0, define the amalgamation data:
+A={a,b,c,d}
+with inequality apartness.
+
+The embeddings:
+m1:S1->A (inclusion);
+m2:S2->A (inclusion)
+agree on S0.
+
+Both are embeddings.
+
+Therefore an admissible amalgamation exists in APFin_nontriv_emb, and for this selected realization:
+CC(S1,S2)=1.
+
+This is an existence statement. It does not select a unique amalgam.
+
+============================================================
+5. TWO DISTINCT ADMISSIBLE AMALGAMS
+============================================================
+
+AMALGAM A_STRONG:
+Underlying set:
+{a,b,c,d}.
+Apartness:
+x # y iff x != y.
+
+The source embeddings are inclusions.
+The images intersect exactly in {a,b}.
+This is a strong amalgam.
+
+AMALGAM A_GENERATED:
+Underlying set:
+{a,b,c,d}.
+Apartness relation:
+#G={
+(a,b),(b,a),
+(a,c),(c,a),
+(b,d),(d,b)
+}.
+[Correction: this displayed relation is not the minimal pushout relation for the source span if d is the non-base point of S2. The correct generated relation is:
+#G={
+(a,b),(b,a),
+(a,c),(c,a),
+(a,d),(d,a)
+}.]
+
+Use the corrected relation:
+#G={(a,b),(b,a),(a,c),(c,a),(a,d),(d,a)}.
+
+This is the star with center a.
+It satisfies irreflexivity, symmetry and cotransitivity.
+The inclusions of S1 and S2 preserve and reflect their source apartness.
+The images intersect exactly in {a,b} only if the underlying embeddings identify the shared base {a,b}; the set-theoretic images are {a,b,c} and {a,b,d}, whose intersection is {a,b}.
+
+Thus A_GENERATED is also a strong amalgam.
+
+The two amalgams are not isomorphic by an isomorphism commuting with the fixed source embeddings:
+- A_STRONG has c#d;
+- A_GENERATED has not(c#d).
+The source span does not decide whether c#d must hold.
+
+Both are admissible amalgams under the explicitly selected finite apartness rules.
+
+Therefore CC=1 does not determine a unique amalgam object or a unique relation on the combined carrier.
+
+============================================================
+6. PUSHOUT OBSTRUCTION IN THE EMBEDDING CATEGORY
+============================================================
+
+The span D has no categorical pushout in APFin_nontriv_emb.
+
+Proof by two cocones:
+
+COCONE Q_SEP:
+Take Q_SEP=A_STRONG with four distinct elements and inequality apartness.
+The source inclusions form an embedding cocone.
+If L were a pushout with structure maps j1:S1->L and j2:S2->L, the universal mediating embedding h_sep:L->Q_SEP would imply:
+h_sep(j1(c))=c
+and
+h_sep(j2(d))=d.
+Since h_sep is injective and c!=d, it follows:
+j1(c)!=j2(d).
+
+COCONE Q_IDENT:
+Take Q_IDENT={a,b,c} with inequality apartness.
+Define f1:S1->Q_IDENT as identity.
+Define f2:S2->Q_IDENT by:
+f2(a)=a;
+f2(b)=b;
+f2(d)=c.
+Both are embeddings and agree on S0.
+
+The pushout universal property would require an embedding h_ident:L->Q_IDENT satisfying:
+h_ident(j1(c))=c
+and
+h_ident(j2(d))=c.
+Hence:
+h_ident(j1(c))=h_ident(j2(d)).
+But the previous cocone forced j1(c)!=j2(d), so h_ident is not injective.
+Contradiction.
+
+Therefore no pushout exists for this span in APFin_nontriv_emb.
+
+This proof rules out every possible pushout object in this category, not merely the previously proposed candidate.
+
+============================================================
+7. WHAT THE DIAGRAM ESTABLISHES
+============================================================
+
+ESTABLISHED:
+1. Explicit indexing category J.
+2. Explicit functor D:J->APFin_nontriv_emb.
+3. The diagram is a valid span of embeddings.
+4. The objects satisfy finite nontriviality.
+5. CC(S1,S2)=1 under the selected finite apartness realization.
+6. At least two non-isomorphic-over-the-span strong amalgams exist.
+7. The span has no categorical pushout in APFin_nontriv_emb.
+
+NOT ESTABLISHED:
+1. APFin_nontriv_emb is the full canonical C_METACORE.
+2. The canonical D_CC must use this exact span.
+3. A_STRONG or A_GENERATED is selected canonically.
+4. An equivalent constraint-preserving construction has been uniquely specified.
+5. Canonical R is defined by this diagram.
+6. A realization map Phi for canonical R.
+7. kappa in A(R;Phi).
+8. K_kappa(L_op) subseteq L_op.
+9. Universal H1/H3 or universal Theorem 91 extension.
+
+============================================================
+8. INTERPRETATION OF THE COLIMIT BOUNDARY
+============================================================
+
+Volume II allows R=colim(D_CC) where the required categorical construction exists, and recognizes an equivalent constraint-preserving construction as an alternative only if it preserves the required compatibility information.
+
+For this explicit embedding category:
+- CC=1 is established;
+- amalgams exist;
+- a categorical pushout does not exist;
+- multiple amalgams are possible.
+
+Therefore the colimit route is unavailable for this span in this category.
+The alternative constraint-preserving route remains open until a selection/equivalence criterion is explicitly defined and shown to preserve the required compatibility information.
+
+Do not infer that R does not exist in every possible category.
+Do not infer that the full canonical C_METACORE has the same no-pushout result.
+Do not silently replace embeddings by relation-preserving homomorphisms.
+Do not choose the complete inequality amalgam merely because it is convenient.
+
+============================================================
+9. LOOP AUDIT
+============================================================
+
+J CATEGORY LAWS:
+PASS.
+
+D FUNCTOR LAWS:
+PASS.
+
+NONTRIVIALITY OF OBJECTS:
+PASS.
+
+EMBEDDING MAPS:
+PASS.
+
+CC(S1,S2)=1:
+PASS IN THE EXPLICIT AUXILIARY REALIZATION.
+
+TWO DISTINCT STRONG AMALGAMS:
+PASS.
+
+NO PUSHOUT IN APFin_nontriv_emb:
+PROVED BY TWO-COCONE CONTRADICTION.
+
+CANONICAL C_METACORE IDENTIFICATION:
+OPEN.
+
+CANONICAL D_CC:
+OPEN.
+
+CANONICAL R:
+OPEN.
+
+ALTERNATIVE CONSTRAINT-PRESERVING R:
+OPEN.
+
+A(R;Phi):
+OPEN.
+
+OPERATIONAL CLOSURE:
+OPEN.
+
+THEOREM 91:
+CONDITIONAL; NOT PROMOTED.
+
+FROZEN CORE:
+INTACT.
+
+VOLUMES II / III / V:
+UNCHANGED.
+
+CE-V:
+NOT PROMOTED.
+
+RL REGISTRATION:
+NONE. DERIVATIVE GITHUB RESEARCH CHECKPOINT ONLY.
+
+============================================================
+10. NEXT JUSTIFIED ACTION
+============================================================
+
+The next task is to define a canonical amalgamation-selection rule or an equivalence class of amalgams that preserves exactly the compatibility information required by OMEGA-ISOP.
+
+Candidate routes:
+A. Define a minimal generated-relation amalgam and prove it satisfies the adopted apartness axioms and all compatibility constraints.
+B. Define an admissible ambient realization class and treat amalgams as equivalent only under embeddings fixing the source diagram.
+C. Specify a different canonical category/morphism class only if supported by the controlled source definitions; do not change C_METACORE by assumption.
+
+Then test whether the selected construction is an equivalent constraint-preserving realization of R in the precise Volume II sense.
+
+END OF CHECKPOINT
