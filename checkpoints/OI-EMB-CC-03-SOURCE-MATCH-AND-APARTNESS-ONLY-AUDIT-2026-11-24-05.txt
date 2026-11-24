@@ -1,0 +1,373 @@
+OMEGA-ISOP
+EMB_CC-03
+SOURCE MATCH AUDIT AND APARTNESS-ONLY AMALGAM TEST
+DOCUMENT_ID: OI-EMB-CC-03-SOURCE-MATCH-AND-APARTNESS-ONLY-AUDIT-2026-11-24-05
+DATE: 2026-11-24
+STATUS: DERIVATIVE RESEARCH CHECKPOINT / SOURCE-GROUNDED / NON-CANONICAL
+PREDECESSOR:
+OI-EMB-CC-03-FINITE-RELATIONAL-AMALGAM-TEST-2026-11-24-04
+WORK BRANCH:
+research/emb-cc-03-amalgamation-witness
+
+======================================================================
+0. PURPOSE AND CONTROL
+======================================================================
+
+This checkpoint tests the candidate amalgamation witness against the
+controlled OMEGA-ISOP source clauses and removes an invalid transfer from
+an auxiliary graph model.
+
+No canonical definition is changed.
+No Frozen Core, Volume II, Volume III, Volume V, R, or D_CC source is
+modified.
+No canonical registration or integration is claimed.
+
+The current cocone predicate remains a candidate witness formalization.
+It is not identified with the original EMB_CC-03 predicate.
+
+======================================================================
+1. CONTROLLED SOURCE CLAUSES INSPECTED
+======================================================================
+
+VOLUME II v1.3-MF-AUDIT-RESTORED-FINAL:
+
+III.2 Apartness:
+A standard example satisfies:
+- irreflexivity;
+- symmetry;
+- cotransitivity:
+  x#y => (x#z or z#y), for all z.
+These are one admissible realization, not the only possible realization.
+
+III.4 Local configurations:
+C=(S_C,#_C)
+where S_C is a subset of U0 and #_C is the restriction of the ambient
+apartness relation.
+A minimal nontrivial configuration has |S_C|>=2.
+Exact admissibility conditions remain realization-dependent.
+C_METACORE objects are admissible configurations.
+Its morphisms preserve selected structural properties.
+
+III.5 Configuration embeddings:
+An embedding f:C1->C2 is injective and satisfies:
+x #1 y iff f(x) #2 f(y).
+
+IV.1 Compatibility:
+CC(C1,C2)=1 iff an admissible amalgamation exists.
+Otherwise CC(C1,C2)=0.
+The binary form is a minimal representation, not the unique possible
+representation. Compatibility is structural admissibility, not causation.
+
+IV.2-IV.3:
+R:=colim(D_CC) only where the valid diagram, category, and required
+colimit or equivalent constraint-preserving construction exist.
+
+VOLUME III v1.1-VAL-RESTORED:
+
+Sections 5-6 require, for nontrivial finite tests:
+|X|>=2 and at least one apart pair.
+Section 9 requires an explicit indexing category J and functor
+D:J->C_METACORE, with arrows, compatibility conditions, and the
+universal property specified.
+
+FROZEN CORE v2.0-FC10.2:
+
+Sections 1.6-1.8 and 2.1-2.3 preserve realization dependence and
+describe configuration-category morphisms generally as structure-
+preserving maps. They do not supply a complete D_CC arrow contract.
+
+======================================================================
+2. SOURCE-MATCH FINDINGS
+======================================================================
+
+2.1 The explicit embedding contract is known:
+injective + apartness preservation + apartness reflection.
+
+2.2 It is NOT established that every morphism of canonical C_METACORE
+must be exactly such an embedding. The general morphism clause remains
+broader and under-specified.
+
+2.3 It is also NOT established that every structure-preserving map is
+admissible as an arrow. Non-injective homomorphisms cannot be silently
+introduced.
+
+2.4 The source-level predicate is existence of an admissible
+amalgamation. It is not defined as existence of an arbitrary categorical
+cocone. A cocone in a chosen category is only a candidate witness until
+its legs and apex satisfy the source-level admissibility rules.
+
+2.5 A span is a useful explicit test shape:
+C1 <- C0 -> C2.
+But the source clauses do not provide one universal indexing category
+or state that every CC pair must be represented by this span. The shape
+must be declared per application.
+
+2.6 Strong amalgamation is not explicitly imposed by the inspected
+universal CC/R clauses. The selected realization may impose additional
+admissibility conditions, but those conditions are not fully specified.
+
+======================================================================
+3. CORRECTION TO THE GRAPH TEST
+======================================================================
+
+Checkpoint 04 used finite connected graphs and induced embeddings, with
+graph adjacency E as an additional relation.
+
+The canonical local configuration signature in Volume II III.4 is:
+C=(S_C,#_C).
+
+No graph adjacency predicate E is part of that source-level signature.
+No protected/weak split or second relation is supplied by the inspected
+source clauses.
+
+Therefore the two graph witnesses from checkpoint 04 are valid results
+inside that explicitly defined graph category only.
+They are NOT a source-matched C_METACORE test.
+Their incomparability and no-least conclusion must not be transferred
+to canonical OMEGA-ISOP.
+
+Checkpoint 04 remains archived as an auxiliary graph result. It is not
+deleted, but its scope is narrowed.
+
+======================================================================
+4. APARTNESS-ONLY SPAN
+======================================================================
+
+Use the nontrivial finite span:
+
+S0={a,b}
+S1={a,b,c}
+S2={a,b,d}
+
+On S0, S1, and S2, define apartness by inequality:
+x#i y iff x!=y.
+
+The inclusions:
+i1:S0->S1
+i2:S0->S2
+are embeddings.
+
+Each object is nontrivial:
+|S0|=2, |S1|=3, |S2|=3,
+and a#b in each.
+
+For this finite test, an amalgam is a pair of embeddings:
+j1:S1->A
+j2:S2->A
+with:
+j1 o i1 = j2 o i2.
+
+The selected apex apartness must satisfy irreflexivity, symmetry, and
+cotransitivity. This is an explicit test realization, not a declaration
+that these are the complete canonical admissibility conditions.
+
+======================================================================
+5. JOINTLY-GENERATED APARTNESS PROFILE
+======================================================================
+
+Restrict to apex carriers generated by the two source images:
+A=j1(S1) union j2(S2).
+
+The common base forces the images of a,b to agree.
+Injectivity forces the images of c and d to be distinct from a,b.
+There are two independent questions:
+- whether j1(c) and j2(d) are equal;
+- if distinct, whether they are apart.
+
+CASE A1:
+Four distinct elements a,b,c,d.
+Apartness is full inequality:
+x#y iff x!=y.
+The source maps are embeddings.
+This is a strong amalgam.
+
+CASE A2:
+Four distinct elements a,b,c,d.
+Apartness is determined by the partition:
+{{a},{b},{c,d}}.
+Equivalently, all pairs in different blocks are apart and c,d are not
+apart.
+The source restrictions on S1 and S2 are still exactly inequality.
+The source maps are embeddings.
+This is also a strong amalgam because the two source images intersect
+exactly in {a,b}.
+
+A1 and A2 satisfy the three selected apartness axioms.
+For partition apartness, irreflexivity and symmetry are immediate.
+If x,y lie in different blocks, then for any z, z cannot lie in both
+blocks; hence x#z or z#y. Thus cotransitivity holds.
+
+CASE A3:
+Identify j1(c)=j2(d).
+The apex carrier has three elements a,b,c with full inequality.
+Both source maps remain injective embeddings, but their images intersect
+in more than the common base. This is a non-strong amalgam.
+
+Thus, under the jointly-generated convention:
+Profile_strong={A1,A2}
+Profile_core={A1,A2,A3}
+provided non-strong amalgams are admitted by the selected realization.
+
+This finite enumeration does not count extensions with arbitrary
+additional apex elements.
+
+======================================================================
+6. TWO INCOMPARABLE MINIMAL STRONG WITNESSES
+======================================================================
+
+Compare witnesses over the fixed span by factorization through an
+embedding h commuting with both source legs.
+
+A1 and A2 are not comparable.
+
+A map A1->A2 commuting with the source maps must fix the four labelled
+elements a,b,c,d. But A1 has c#d and A2 has not(c#d), so this map does
+not preserve apartness.
+
+A map A2->A1 also fixes all four labelled elements, but it fails to
+reflect apartness on c,d.
+
+Therefore neither witness factors into the other.
+
+Minimality:
+Suppose V is any witness with an embedding h:V->A1 commuting with the
+source maps. Since the two source embeddings force four distinct
+distinguished images a,b,c,d in V, its carrier has at least four
+elements. Since A1 has exactly four, h is bijective. An embedding is
+bijective and preserves/reflects apartness, so h is an isomorphism over
+the span. Thus A1 is minimal.
+The same argument applies to A2.
+
+No least witness exists in this jointly-generated class:
+A least witness would have to embed into both A1 and A2 over the span.
+The source legs force its four distinguished elements to remain
+distinct. Its carrier would therefore have exactly four elements, and
+the commuting embedding would fix the labelled c,d pair. But c#d is
+true in A1 and false in A2. No single apartness relation on that
+four-point carrier can satisfy both embedding conditions.
+
+RESULT:
+Two incomparable minimal strong amalgams and absence of a least
+amalgam are proved in the auxiliary category of finite nontrivial
+apartness structures with the stated axioms and embedding morphisms.
+
+This is not yet a canonical C_METACORE theorem.
+
+======================================================================
+7. FIXED-AMBIENT REALIZATION CAVEAT
+======================================================================
+
+Volume II III.4 states that configurations are subsets of a carrier U0
+and their apartness is the restriction of one ambient relation #.
+
+If a single fixed ambient pair (U0,#) and fixed source inclusions are
+used, then the cross-pair relation between the already identified
+ambient elements c and d is fixed. In that strict fixed-ambient setup,
+A1 and A2 cannot both be alternative structures on the same four
+labelled carrier with the same ambient relation.
+
+The two-witness result in Section 6 instead treats A1 and A2 as distinct
+admissible apex realizations in an abstract category of finite
+apartness structures, with the same abstract source span.
+
+The source architecture permits realization-dependent apartness, but
+the exact intended scope of C_METACORE across realizations is not
+specified in the inspected clauses.
+
+Consequently:
+- two minimal witnesses: proved in the abstract auxiliary category;
+- two minimal witnesses inside one fixed ambient (U0,#): not proved and
+  generally unavailable for this labelled carrier;
+- canonical C_METACORE non-uniqueness: unresolved.
+
+If the selected realization fixes standard inequality on every apex,
+A1 is the only jointly-generated four-point apex profile of this form.
+If it permits non-tight apartness satisfying the stated axioms, A2 is
+also admissible.
+
+======================================================================
+8. FINITE COCOONUS CANDIDATE: STATUS CORRECTION
+======================================================================
+
+The candidate:
+W=(A,(eta_j))
+with embedding legs and cocone equations is a well-typed categorical
+cocone in a selected category.
+
+However:
+Cocone(Delta,W) does not by itself imply source-level
+AdmAmalg(Delta,W).
+
+The source-level admissibility predicate must independently state:
+- which configurations are allowed as apex objects;
+- which embeddings are allowed as source legs;
+- whether cross-image identifications are permitted;
+- whether strongness is required or merely recorded;
+- which apartness axioms and realization restrictions apply.
+
+Thus Suff_A remains a candidate formalization of a source admissible
+amalgamation, not a recovered definition.
+The D_infinity cocone re-test remains a category-theoretic observation,
+not a canonical CC counterexample or proof.
+
+======================================================================
+9. CLASSIFICATION
+======================================================================
+
+SOURCE CLAUSES:
+INSPECTED.
+
+EXPLICIT EMBEDDING CONTRACT:
+SOURCE-GROUNDED.
+
+GENERAL C_METACORE MORPHISM CLASS:
+UNDER-SPECIFIED.
+
+SOURCE-LEVEL CC VS CATEGORICAL COCONE:
+MUST REMAIN DISTINCT.
+
+GRAPH TEST WITH EXTRA E:
+VALID ONLY IN ITS AUXILIARY GRAPH CATEGORY; NOT SOURCE-MATCHED.
+
+APARTNESS-ONLY TWO-MINIMAL-WITNESS RESULT:
+PROVED IN THE ABSTRACT AUXILIARY CATEGORY OF FINITE APARTNESS
+STRUCTURES WITH THE STATED AXIOMS AND EMBEDDINGS.
+
+FIXED-AMBIENT TWO-WITNESS RESULT:
+NOT ESTABLISHED.
+
+CANONICAL C_METACORE NON-UNIQUENESS:
+UNRESOLVED.
+
+CANONICAL D_CC AND R:
+OPEN.
+
+FROZEN CORE:
+UNCHANGED.
+VOLUME II / III / V:
+UNCHANGED.
+CANONICAL REGISTRATION:
+NONE.
+RL REGISTRATION:
+NONE.
+INTEGRATION:
+NOT APPROVED.
+
+======================================================================
+10. NEXT JUSTIFIED TESTS
+======================================================================
+
+1. Recover or explicitly select whether C_METACORE is a category within
+one fixed (U0,#) or a category ranging over multiple realizations.
+2. State whether the canonical CC witness requires only two embeddings
+into an admissible apex or additional amalgamation constraints.
+3. Determine whether non-tight apartness is admitted in the selected
+apex class.
+4. Specify the arrow class of D_CC; do not infer it from the embedding
+definition alone.
+5. Re-evaluate minimality and leastness only after these choices.
+6. Specify J, D:J->C_METACORE, and the required universal property for R.
+7. Keep D_CC arrows separate from End(X,R)/Aut(X,R) dynamic maps unless
+a transport bridge is independently proved.
+
+END OF CHECKPOINT
