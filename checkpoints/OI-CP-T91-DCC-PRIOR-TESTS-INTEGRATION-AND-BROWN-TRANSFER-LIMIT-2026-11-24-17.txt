@@ -1,0 +1,337 @@
+OMEGA-ISOP
+D_CC / THEOREM 91
+PRIOR CATEGORY TESTS INTEGRATION AND BROWN TRANSFER LIMIT
+
+CHECKPOINT_ID:
+OI-CP-T91-DCC-PRIOR-TESTS-INTEGRATION-AND-BROWN-TRANSFER-LIMIT-2026-11-24-17
+
+DATE:
+2026-11-24
+
+STATUS:
+PRIOR RESEARCH RECORDS RECONCILED
+EXPLICIT SPAN TESTS CONFIRMED AS AUXILIARY
+BROWN TRANSFER LIMIT MADE EXPLICIT
+CANONICAL D_CC SHAPE AND REALIZATION CLASS STILL UNDERDETERMINED
+NO THEOREM 91 CONTRADICTION
+NO ARCHITECTURAL CHANGE
+
+============================================================
+LAYER 1. RESEARCH CHECKPOINT
+============================================================
+
+WORKSTREAM:
+D_CC formalization / finite-family amalgamation / Theorem 91 H1.
+
+RESEARCH_STAGE:
+Integration of earlier category-level tests with Brown's finite triangle obstruction.
+
+OBJECTIVE:
+Ensure the source-compatible D_CC schema is consistent with all already-recorded tests and determine exactly which parts of Brown's group-theoretic obstruction could transfer to an OMEGA-ISOP realization.
+
+============================================================
+1. PRIOR CHECKPOINTS RECOVERED AND INSPECTED
+============================================================
+
+The following existing branch records were read:
+
+CP-07:
+OI-CP-T91-EXPLICIT-CC-DIAGRAM-AND-COLIMIT-OBSTRUCTION-2026-11-24-07
+
+CP-08:
+OI-CP-T91-MINIMAL-APARTNESS-PUSHOUT-HOM-CATEGORY-2026-11-24-08
+
+CP-09:
+OI-CP-T91-CMETACORE-MORPHISM-CLASS-UNDERDETERMINATION-2026-11-24-09
+
+CP-10:
+OI-CP-T91-FORMAL-MORPHISM-INFORMATION-TEST-2026-11-24-10
+
+CP-11:
+OI-CP-T91-SOURCE-GROUNDED-MORPHISM-CLASS-AUDIT-2026-11-24-11
+
+CP-12:
+OI-CP-T91-DCC-ALTERNATIVE-CONSTRAINT-AND-PHI-TRANSPORT-2026-11-24-12
+
+CP-13:
+OI-CP-T91-FINITE-ADMISSIBLE-AMALGAMATION-PROFILE-2026-11-24-13
+
+Also inspected:
+CP-14: CC strongness and architecture source audit.
+CP-15: Brown triangle / D_CC / Theorem 91 scope audit.
+CP-16: minimal source-compatible D_CC schema.
+
+The earlier records contain substantial completed work. They must not be repeated as new research.
+
+============================================================
+2. ALREADY ESTABLISHED AUXILIARY SPAN TEST
+============================================================
+
+The prior explicit test uses:
+
+S0={a,b}
+S1={a,b,c}
+S2={a,b,d}
+
+with:
+i1:S0->S1
+i2:S0->S2
+
+and standard inequality apartness on each source.
+
+The explicit indexing category J_span has objects:
+j0,j1,j2
+
+and non-identity arrows:
+u1:j0->j1
+u2:j0->j2.
+
+The functor D:J_span->APFin_nontriv_emb is fully specified in CP-07.
+
+This is an explicit AUXILIARY finite span test. It is not the recovered canonical D_CC indexing category.
+
+For this test:
+- source-level admissible amalgamations exist;
+- at least two non-isomorphic-over-the-span strong amalgams exist;
+- the span has no pushout in APFin_nontriv_emb, proved by two cocones;
+- P_gen is a pushout in the distinct category RelFin_hom;
+- the two category results do not conflict because their morphism classes and universal properties differ.
+
+CP-13 further enumerates the jointly-generated finite core profile:
+Profile_strong(D)={A1,A2}
+Profile_core(D)={A1,A2,A3}
+where A3 identifies the two non-base points and is non-strong.
+These counts depend on the jointly-generated finite-core convention. They are not counts of all possible ambient extensions.
+
+The alternative profile representation:
+R_alt(D)=(Profile(D),Constraints(D),RestrictionData(D))
+is a candidate only. Its adequacy, compositional behavior, and authorization as an alternative R remain unproved.
+
+============================================================
+3. SOURCE-GROUNDED MORPHISM CONCLUSION
+============================================================
+
+The controlled sources establish:
+- objects of C_METACORE are admissible configurations;
+- its morphisms preserve selected structural properties;
+- a configuration embedding is injective and preserves and reflects apartness:
+  x #X y iff f(x) #Y f(y).
+
+The inspected source clauses do not fully specify every morphism of canonical C_METACORE.
+
+The earlier audits distinguish:
+E: exact configuration embeddings;
+H: apartness-preserving homomorphisms, not necessarily injective or reflecting;
+M: a mixed class template.
+
+For the current one-relation configuration signature (S,#), no source-grounded protected/weak partition exists that would instantiate a genuinely intermediate mixed class. If # is protected, the condition reduces to E. If # is only forward-preserved, it reduces to H.
+
+No category may be selected merely because it supplies a convenient pushout.
+
+The following distinctions remain mandatory:
+1. source-level admissible amalgamation;
+2. categorical cocone in the selected morphism class;
+3. categorical pushout universal property.
+
+A categorical cocone in a weaker homomorphism category is not automatically a source-admissible CC amalgamation.
+
+============================================================
+4. BROWN TRIANGLE: EXACT TRANSFER LIMIT
+============================================================
+
+Brown's obstruction is a theorem about a diagram of finite groups and injective group homomorphisms. Its no-finite-target proof uses the group multiplication structure, the universal direct limit, and the fact that the direct limit is an infinite simple group.
+
+The OMEGA-ISOP local configuration source signature is:
+C=(S_C,#_C).
+
+The explicit apartness signature alone does not contain a group multiplication operation.
+
+Consequently, there are two different possible translations, which must not be conflated:
+
+A. FORGETFUL UNDERLYING-CARRIER TRANSLATION
+
+If each Brown group is replaced merely by its underlying finite carrier with inequality apartness, and the group operation is forgotten, then the Brown group-theoretic obstruction is lost. As finite sets with injective maps, the diagram has ordinary finite common set completions. The infinite-simple-group argument no longer applies.
+
+B. STRUCTURE-RETENTIVE GROUP TRANSLATION
+
+To retain Brown's obstruction, the selected OMEGA-ISOP realization must encode the group multiplication (or an equivalent group structure) as part of the admissible configuration structure, and its morphisms must preserve that structure as well as the relevant embeddings. The selected category and Adm must admit the resulting six-object triangle and its six edge maps.
+
+The inspected Frozen Core / Volume II / Volume III clauses do not specify such a group-enriched configuration signature or authorize its use as the canonical C_METACORE realization.
+
+Therefore Brown cannot be transferred to canonical D_CC merely because its groups have finite underlying sets or because its maps are injective.
+
+This strengthens, but does not change, the CP-15/CP-16 classification.
+
+============================================================
+5. BROWN CLASSIFICATION AGAINST EXISTING TESTS
+============================================================
+
+A. Against the explicit CP-07 / CP-12 span test:
+EXCLUDED BY DIAGRAM SHAPE.
+The CP-07 test J_span has one common base and two outgoing arrows. Brown's complete triangle is a six-object cyclic diagram with three edge objects and three vertex objects. They are not the same indexing category.
+
+B. Against the canonical D_CC:
+UNDECIDABLE.
+The canonical indexing category and permitted diagram shapes are not specified. The selected group-enriched object and morphism class is also not specified.
+
+C. Under a hypothetical group-enriched realization admitting Brown's full diagram and maps:
+ADMISSIBLE IN THAT SELECTED REALIZATION, subject to its explicit Adm/coherence conditions.
+In that realization, Brown excludes every finite common target for the full triangle while allowing an infinite direct limit.
+
+D. Under the bare apartness-carrier realization that forgets group multiplication:
+Brown's group-theoretic no-finite-target conclusion does not transfer.
+
+No one of these conditional cases is selected as canonical by the inspected sources.
+
+============================================================
+6. R FINITENESS AND THEOREM 91
+============================================================
+
+No inspected controlled clause requires R or every admissible amalgamation target to be finite.
+
+Brown's infinite direct limit therefore does not contradict the general requirement that R exist, where the relevant colimit or alternative constraint-preserving construction exists.
+
+Theorem 91 H1 requires:
+R exists, T is admissible, and R is preserved.
+
+Brown does not establish failure of R existence in the group category. It also does not address H2, H3, or H4.
+
+Result:
+THEOREM 91: NOT REFUTED.
+THEOREM 91: NOT PROVED.
+THEOREM 91: CONDITIONAL STATUS UNCHANGED.
+
+No bridge from a finite-family amalgamation property to H1 has been established.
+
+============================================================
+7. SOURCE-RECOVERY CHECK
+============================================================
+
+The M3.2 v1.5 handoff identifies an original source document titled:
+OMEGA-ISOP MATHEMATICAL AND PHYSICAL FOUNDATION PROGRAM — CONSOLIDATED.
+
+A Library-wide recursive metadata listing and targeted Library searches were performed. The exact titled source document was not located in the returned accessible items.
+
+The accessible derivative:
+OMEGA-ISOP-RESEARCH-IDENTITY-AND-FUTURE-PROGRAM-v3.0-2026-11-23.txt
+was read in full. It contains no D_CC, amalgamation, indexing-category, or compatibility-diagram formalization.
+
+The recovered Volume IV v1.4-R source was also inspected. It is explicitly partial and contains selected sections 9, 15, 17, 18, 28, 52, and an R' block. It contains no D_CC or amalgamation specification.
+
+Therefore no additional D_CC diagram rule was recovered from these accessible sources.
+
+This is an access/recovery finding, not proof that the original source document never existed or contains no such material.
+
+============================================================
+8. INTEGRATED RESULT
+============================================================
+
+ESTABLISHED:
+- The explicit finite span test and its two auxiliary category results are already recorded in CP-07 through CP-13.
+- The canonical C_METACORE morphism class remains underdetermined.
+- The exact D_CC indexing category and permitted diagram shapes remain underdetermined.
+- The bare apartness signature does not by itself retain Brown's group-theoretic obstruction.
+- A group-enriched realization would need explicit structure, arrows, and Adm/coherence conditions.
+- No finite-target requirement for R was found.
+- Brown does not refute Theorem 91.
+
+NOT ESTABLISHED:
+- Canonical D_CC admits Brown's cyclic triangle.
+- Canonical C_METACORE contains group-enriched objects and group monomorphisms.
+- The Brown triangle satisfies canonical Adm.
+- A universal finite-family amalgamation theorem or its negation for canonical OMEGA-ISOP.
+- Theorem 91 H1-H4 from the finite amalgamation tests.
+
+EVIDENCE CLASS:
+SOURCE-ESTABLISHED ARCHITECTURAL LIMITS;
+PROVED AUXILIARY CATEGORY RESULTS;
+MODEL-RELATIVE GROUP-THEORETIC OBSTRUCTION;
+CANONICAL TRANSFER UNDECIDABLE.
+
+============================================================
+9. CHECKS AND LIMITATIONS
+============================================================
+
+CHECKS PERFORMED:
+- Read prior branch checkpoints CP-07 through CP-13.
+- Reconciled their explicit span, morphism, profile, and Phi-transport findings with CP-14 through CP-16.
+- Read the Library copy of Research Identity v3.0.
+- Read the recovered partial Volume IV v1.4-R.
+- Searched the accessible Library for the titled original Mathematical and Physical Foundation Program source.
+- Inspected the GitHub main tree for available source files.
+
+CHECKS NOT PERFORMED:
+- No proof that a group-enriched C_METACORE is source-authorized.
+- No proof that the original Mathematical and Physical Foundation Program file is permanently unavailable.
+- No new Brown group-theoretic proof; CP-04 remains the existing proof record.
+- No further counterexample search.
+
+LIMITATIONS:
+This checkpoint does not complete canonical D_CC formalization, does not choose a morphism class, does not amend the Frozen Core, and does not establish a Theorem 91 contradiction.
+
+ARCHITECTURAL INVARIANTS:
+FROZEN CORE: UNCHANGED.
+VOLUME II: UNCHANGED.
+VOLUME III: UNCHANGED.
+VOLUME IV: UNCHANGED.
+VOLUME V: UNCHANGED.
+M3.2 v1.5: UNCHANGED.
+THEOREM 91: CONDITIONAL / UNCHANGED.
+D_CC: FORMALIZATION OPEN.
+RL REGISTRATION: NONE.
+CE / CE-V PROMOTION: NONE.
+MAIN BRANCH: UNCHANGED.
+
+NEXT JUSTIFIED ACTION:
+Stop repeating the binary span and Brown transfer audits. If the original Mathematical and Physical Foundation Program source becomes accessible, inspect it specifically for J, D_CC, the morphism class, and higher-order Adm/coherence. Until then, keep canonical transfer undecidable. Continue only with a separately bounded mathematical result whose assumptions are explicitly stated, without presenting it as a canonical OMEGA-ISOP result.
+
+============================================================
+LAYER 2. ARCHIVAL / RECOVERY CHECKPOINT
+============================================================
+
+PROJECT_AND_WORKSTREAM:
+OMEGA-ISOP / D_CC / finite-family amalgamation / Theorem 91 H1.
+
+CHECKPOINT_ID_AND_DATE:
+OI-CP-T91-DCC-PRIOR-TESTS-INTEGRATION-AND-BROWN-TRANSFER-LIMIT-2026-11-24-17
+2026-11-24
+
+CONTROLLING_HANDOFF:
+OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF-v1.5.txt
+Version 1.5, dated 2026-11-24.
+
+RELEVANT_CHECKPOINTS:
+CP-04, CP-07, CP-08, CP-09, CP-10, CP-11, CP-12, CP-13, CP-14, CP-15, CP-16.
+
+EXACT_CURRENT_TASK:
+Integrate the previously recorded category-level span and morphism tests with Brown's triangle, and state the precise transfer boundary.
+
+LAST_VERIFIED_STATE:
+CP-16 archival commit:
+37742f11925797208b2e7309abbfa4ef1bbd6391
+Branch: research/emb-cc-03-amalgamation-witness.
+Main was unchanged at 560287a9babd6da690497341d5831937469a2cad at the CP-16 verification.
+
+COMPLETED_WORK:
+Prior checkpoints CP-07 through CP-13 were read and reconciled. Research Identity v3.0 and recovered partial Volume IV v1.4-R were inspected. No additional D_CC schema was recovered.
+
+UNRESOLVED_DEPENDENCIES:
+Original Mathematical and Physical Foundation Program source copy not located in accessible Library/repository items; canonical J, C_METACORE morphism class, group-enriched realization, Adm and higher-order coherence remain unspecified.
+
+PROTECTED_SCOPE:
+Frozen Core, Volumes II/III/IV/V, M3.2 v1.5, and Theorem 91 are unchanged and protected.
+
+FILES_CREATED_OR_MODIFIED:
+Intended new checkpoint:
+checkpoints/OI-CP-T91-DCC-PRIOR-TESTS-INTEGRATION-AND-BROWN-TRANSFER-LIMIT-2026-11-24-17.txt
+
+GITHUB_STATUS:
+Commit SHA and post-save readback are pending at authoring time and must be verified before claiming archival completion.
+
+PRECISE_NEXT_ACTION:
+After save, read back this checkpoint and verify branch/main heads. Resume by stopping repeated span/Brown audits; only reopen canonical source recovery if the original foundation-program source becomes accessible.
+
+RECOVERY_INSTRUCTIONS:
+Use CP-17 together with M3.2 v1.5 and the listed CP-04/CP-07 through CP-16 records. Treat all auxiliary categories as model-specific. Brown's theorem transfers only to a realization that retains group structure and admits the complete triangle. Do not infer canonical D_CC admissibility.
+
+END OF CHECKPOINT
