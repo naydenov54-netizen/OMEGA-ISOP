@@ -1,0 +1,256 @@
+OMEGA-ISOP
+RESEARCH DIRECTION / EXPLORATORY HYPOTHESIS
+
+DOCUMENT_ID: OI-RELATIONAL-EMERGENCE-RESEARCH-DIRECTION
+VERSION: 0.2
+DATE: 2026-11-25
+STATUS: EXPLORATORY HYPOTHESIS / PARKED-HOLD / NOT A THEOREM
+WORKSTREAM: MATHEMATICAL FOUNDATION PROGRAM / STAGE 2 - RELATION
+REPOSITORY_ROLE: DERIVATIVE RESEARCH ARCHIVE
+GOVERNING_HANDOFF: OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF-v1.9.txt
+
+==================================================
+1. CENTRAL HYPOTHESIS
+==================================================
+
+H_REL:
+
+Spatial geometry may not be fundamental. It may emerge as an effective structure from a deeper, non-spatial relational substrate.
+
+In this hypothesis, relations among more primitive degrees of freedom are primary, while spatial distance, topology, dimensionality, and possibly spacetime geometry arise only at a higher descriptive level.
+
+This is an exploratory hypothesis. It is not an established result of OMEGA-ISOP, not a theorem, not a physical interpretation already derived from the Frozen Core, and not a claim that current physics has demonstrated that space is non-fundamental.
+
+Preferred working formulation:
+
+A pre-geometric relational structure may generate an effective spatial geometry under additional mathematical and physical conditions.
+
+The phrase "pre-geometric" means that primitive spatial coordinates, a spatial metric, and a pre-assigned spatial dimension are not included in the foundational input.
+
+==================================================
+2. MOTIVATION AND SCOPE
+==================================================
+
+The research question is whether spatial geometry can be reconstructed from relations rather than assumed at the beginning.
+
+This direction is compatible with the open Stage 2 - RELATION of the OMEGA-ISOP six-stage research architecture. The six-stage architecture does not itself prove that relation generates geometry. The transition must be established independently.
+
+The present workstream is therefore:
+
+RELATIONAL STRUCTURE
+    -> MATHEMATICAL CONDITIONS
+    -> EFFECTIVE DISTANCE / TOPOLOGY
+    -> EFFECTIVE DIMENSION AND LOCALITY
+    -> CONTINUUM OR SPACETIME LIMIT
+    -> PHYSICAL MODEL
+    -> TESTABLE CONSEQUENCES
+
+Every arrow is a separate research obligation. No arrow is assumed to be valid merely because the sequence is written down.
+
+This workstream does not depend on Theorem 91 or on the missing primary sources for 91.3 and 91.4. It must not be used to reinterpret those results.
+
+==================================================
+3. MINIMAL MATHEMATICAL STARTING POINT
+==================================================
+
+A candidate primitive relational system may be represented as:
+
+S = (X, R, Sigma)
+
+where:
+
+X = a set of primitive elements, events, or degrees of freedom;
+R = one or more relations defined on X;
+Sigma = optional non-spatial state or relational data.
+
+At the initial level, the construction must not assume:
+
+- spatial coordinates;
+- a background spatial metric;
+- a predetermined spatial dimension;
+- a pre-existing embedding into Euclidean or Lorentzian space;
+- a distance function that already contains the desired geometry.
+
+The exact mathematical type of R and Sigma remains OPEN. Possibilities such as binary relations, partial orders, weighted relations, correlation structures, or dynamical transition relations must be evaluated separately. They must not be merged as though they were equivalent.
+
+A candidate effective distance would be a derived map:
+
+d_eff: X x X -> [0, infinity)
+
+If it is claimed to be a metric, it must independently satisfy:
+
+D1: d_eff(x,y) >= 0
+D2: d_eff(x,y) = 0 iff x = y
+D3: d_eff(x,y) = d_eff(y,x)
+D4: d_eff(x,z) <= d_eff(x,y) + d_eff(y,z)
+
+If only D1, D3, and D4 hold, or if distinct elements can have zero separation, the construction may yield a pseudometric rather than a metric. The appropriate quotient construction must then be stated explicitly.
+
+These axioms are target criteria for a derived object, not assumptions that may be silently inserted into the primitive relational substrate.
+
+==================================================
+4. CENTRAL NON-CIRCULARITY REQUIREMENT
+==================================================
+
+The main danger is smuggling geometry into the relational input.
+
+Examples of possible conclusion-smuggling:
+
+- Calling a primitive relation "near" or "adjacent" when that term already means spatial proximity.
+- Assigning edge weights that are simply assumed to be physical distances.
+- Embedding X into a metric space before claiming to derive a metric.
+- Choosing a correlation-to-distance formula and treating its output as a metric without proving the metric axioms.
+- Defining dimension through a formula that already presupposes the geometry whose emergence is being claimed.
+
+Every proposed construction must answer:
+
+1. What is primitive?
+2. What is derived?
+3. Which assumptions carry spatial content?
+4. Can the same primitive relational data support two inequivalent effective geometries?
+5. Can a countermodel satisfy all primitive assumptions while failing to generate any useful geometry?
+
+A successful derivation must show that the effective geometry follows from independently justified relational premises, not from a relabelled geometric assumption.
+
+==================================================
+5. FIRST RESEARCH QUESTIONS
+==================================================
+
+RQ1 - DISTANCE:
+Under what minimal conditions on a non-spatial relation R can a distance function be constructed?
+
+RQ2 - UNIQUENESS:
+When is the resulting effective distance unique, and when can several inequivalent metrics arise from the same relational data?
+
+RQ3 - TOPOLOGY:
+Can an effective topology be derived from the relational structure without assuming a spatial topology in advance?
+
+RQ4 - DIMENSION:
+Can effective dimension be defined and shown to emerge from scaling, connectivity, spectral behavior, or another invariant of the relational system?
+
+RQ5 - LOCALITY:
+What conditions distinguish genuinely local effective geometry from a highly connected or nonlocal relational network?
+
+RQ6 - DYNAMICS:
+Can changes in relational structure generate a coherent effective geometric dynamics?
+
+RQ7 - CONTINUUM LIMIT:
+Under what conditions does a sequence or family of relational structures converge to a continuum geometry, and what notion of convergence is mathematically appropriate?
+
+RQ8 - PHYSICAL CONTENT:
+What additional assumptions are required to obtain causal structure, Lorentzian spacetime, or dynamics compatible with known physical observations?
+
+No answer to RQ1 alone would establish RQ4-RQ8.
+
+==================================================
+6. IMPORTANT COUNTERMODELS AND FAILURE MODES
+==================================================
+
+CF1 - INSUFFICIENT RELATION:
+A completely symmetric all-to-all relation may contain too little information to distinguish any meaningful spatial organization.
+
+CF2 - NON-UNIQUE GEOMETRY:
+The same abstract relational structure may admit multiple inequivalent geometric realizations. If so, the relation alone does not determine a unique geometry.
+
+CF3 - HIDDEN METRIC:
+A construction may appear relational while its edge weights, correlation scale, or embedding already encode metric information.
+
+CF4 - WRONG DIMENSION:
+A derived distance may exist while the resulting space has no stable or physically relevant effective dimension.
+
+CF5 - NONLOCALITY:
+The derived structure may be mathematically metric but fail to reproduce the locality properties required by the intended physical model.
+
+CF6 - NO CONTINUUM LIMIT:
+A family of discrete relational structures may fail to approach any smooth manifold or physically useful continuum description.
+
+CF7 - DYNAMICAL INSTABILITY:
+A geometry may be reconstructible at one instant but fail to persist under the proposed relational dynamics.
+
+These are not merely technical inconveniences. Any one of them could restrict or defeat a strong version of H_REL.
+
+==================================================
+7. RESEARCH METHOD
+==================================================
+
+PHASE A - FORMALIZE:
+Choose one precise type of primitive relational structure. Do not combine different relation types prematurely.
+
+PHASE B - CONSTRUCT:
+Attempt to derive an effective distance or topology using only the declared primitive data and independently justified assumptions.
+
+PHASE C - AUDIT:
+Apply the OMEGA-ISOP LOOP_AUDIT_PROTOCOL. State the target, dependency chain, conclusion-smuggling risks, independent justification, countermodel attempts, premise-removal tests, classification, and non-implications.
+
+PHASE D - TEST UNIQUENESS:
+Search for two non-isomorphic effective geometries compatible with the same primitive relational data.
+
+PHASE E - TEST DIMENSION AND LOCALITY:
+Determine whether dimension and locality are derivable, stable, and independent of arbitrary representation choices.
+
+PHASE F - DYNAMICS:
+Only after the static reconstruction is understood, investigate whether relational evolution induces geometric evolution.
+
+PHASE G - PHYSICAL BRIDGE:
+Only after the mathematical construction survives the preceding tests, identify a physical model and derive potentially falsifiable consequences.
+
+==================================================
+8. EVIDENCE CLASS AND CURRENT LIMITS
+==================================================
+
+EVIDENCE_CLASS: HYPOTHESIS / RESEARCH PROGRAM.
+
+ESTABLISHED WITHIN THIS DOCUMENT:
+- The research target has been stated.
+- A minimal abstract starting signature has been proposed.
+- Metric axioms and major failure modes have been identified as audit criteria.
+- A sequence of research questions has been defined.
+
+NOT ESTABLISHED:
+- That the relational substrate exists physically.
+- That space is emergent.
+- That a unique metric follows from relations.
+- That dimension, locality, or topology necessarily emerge.
+- That spacetime or gravity can be derived from this construction.
+- That the hypothesis explains cosmic expansion.
+- That the construction is compatible with or derived from the OMEGA-ISOP Frozen Core.
+
+No theorem, proof, numerical test, empirical result, or physical validation is claimed here.
+
+==================================================
+9. RELATION TO OMEGA-ISOP GOVERNANCE
+==================================================
+
+This is a derivative exploratory research artifact only.
+
+It does not:
+- modify the Frozen Core;
+- modify Volume II, Volume III, or Volume V;
+- amend an existing theorem;
+- establish a transition between the six research stages;
+- create or register an RL record;
+- promote any result to CE or CE-V;
+- authorize Volume V integration;
+- establish a cosmological claim.
+
+FROZEN ≠ CLOSED remains in force. This direction may be developed mathematically, but any proposed change to protected theory requires the existing change-control process and explicit authorization.
+
+==================================================
+10. CURRENT HOLD AND RESTART CONDITION
+==================================================
+
+STATUS: HOLD / NOT ACTIVE FOR DEVELOPMENT.
+
+The user has explicitly prioritized completion and closure of the existing OMEGA-ISOP research lines, including THEOREM 91, THEOREM 91.6A-D, and earlier research, before beginning substantive development of the relational-emergence direction.
+
+This document is preserved as a research direction. No mathematical development under RQ1-RQ8 is authorized by this status update until the prior research completion sequence has been reviewed and the user confirms transition to this workstream.
+
+RESTART CONDITION:
+1. Complete all prior research tasks that are independently actionable.
+2. Resolve or explicitly disposition missing primary-source dependencies for THEOREM 91, 91.3, and 91.4.
+3. Produce a verified completion checkpoint identifying what is complete, conditional, unresolved, blocked, or not applicable.
+4. Obtain the user's instruction to begin the relational-emergence workstream.
+
+The original v0.1 document remains unchanged as the first archived statement of the hypothesis. This v0.2 version changes only the operational status and next-action boundary; it does not add scientific evidence or alter the hypothesis.
+
+END OF DOCUMENT
