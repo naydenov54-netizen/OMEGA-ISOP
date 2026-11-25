@@ -1,0 +1,97 @@
+OMEGA-ISOP
+THEOREM 91.6A-D
+CORRECTED SERIES REVIEW MAP
+
+VERSION: 1.0
+DATE: 2026-11-25
+STATUS: RESEARCH DEVELOPMENT / REVIEW CONTROL DOCUMENT
+BASELINE COMMIT: 7385ec76f9c1a232308cd942c487b353524c3a24
+BRANCH: audit/91.6A-D-corrected-v1-2026-11-25
+CANONICAL STATUS: NOT FROZEN
+FROZEN CORE: UNCHANGED
+
+==================================================
+1. PURPOSE
+==================================================
+
+This document identifies the corrected research versions prepared after comparing the independent Claude and Perplexity audits.
+
+It is a review map, not a new theorem and not a canonical acceptance record.
+
+==================================================
+2. CORRECTED FILE SET
+==================================================
+
+A:
+RESEARCH/DEVELOPMENT/THEOREM-91.6A-v0.2-CORRECTED-AUDIT-REVIEW.txt
+Primary correction: separate noise-ball separation from the compatible-state diameter bound. State explicitly that bounded nonzero noise does not guarantee unique recovery.
+
+B:
+RESEARCH/DEVELOPMENT/THEOREM-91.6B-v0.3-CORRECTED-AUDIT-REVIEW.txt
+Primary correction: replace the false broad claim "exact identifiability is not equivalent to stable invertibility" with the correct statement: each fixed finite n is Lipschitz-stably invertible, but inverse Lipschitz constants are unbounded over n. Also disclose that F_1 already identifies the state, so the full-history injectivity result is not evidence that infinitely many stages are necessary.
+
+C:
+RESEARCH/DEVELOPMENT/THEOREM-91.6C-v0.2-CORRECTED-AUDIT-REVIEW.txt
+Primary corrections: dimension-descent proof for the finite identifying subfamily; separate assumptions for common-kernel equivalence, finite witness, finite-valued history metric, continuity, positive history gain and stability; distinguish full history from a late tail and calculate the tail gain.
+
+D:
+RESEARCH/DEVELOPMENT/THEOREM-91.6D-v0.3-CORRECTED-AUDIT-REVIEW.txt
+Primary corrections: define local Lipschitz stability explicitly; retain x^3/cuberoot as a counterexample to local and global Lipschitz stability at zero; add exp/log as a valid example of local stability everywhere without global stability.
+
+==================================================
+3. SERIES RELATIONSHIPS
+==================================================
+
+A is a finite-dimensional linear observation baseline.
+B is an explicit parameterized two-coordinate model.
+C is a countable linear observation-history theorem under a supremum metric.
+D is an abstract metric-space factorization criterion for a target quantity.
+
+The four results are complementary. They are not asserted to be equivalent. No theorem in this series currently proves a formal bridge to THEOREM 91, the Frozen Core, a physical model, or the six-stage architecture.
+
+==================================================
+4. SHARED TERMINOLOGY CONTROL
+==================================================
+
+Use "identifiability", "distinguishability", "observation gain", and "stability" according to their mathematical definitions.
+
+Do not use "information preservation" as a synonym for injectivity unless explicitly qualified as informal and non-Shannon. None of A-D proves Shannon information preservation or loss.
+
+"Operational contraction" in B means Lip(F_n)<1 for the displayed map and metric. It is not automatically the non-expansion property in THEOREM 91.
+
+==================================================
+5. THEOREM 91 BOUNDARY
+==================================================
+
+The available Handoff formulation of THEOREM 91 and the separate conditional non-expansion audit identify a common probe-map identity as the essential premise. A single tau independent of M is sufficient for the displayed supremum inequality. A model-dependent tau admits a countermodel.
+
+However, the original primary source for THEOREM 91 has not been verified in this review stage. The exact quantifier text must be checked against that primary source before any canonical statement is changed.
+
+Do not treat a proposed quantifier expression as recovered primary text. Do not alter H3, Handoff, THEOREM 91, 91.3, 91.4, or the Frozen Core as part of this A-D correction.
+
+No formal dependency from A-D to THEOREM 91 has been established.
+
+==================================================
+6. PROVENANCE AND VERSION CONTROL
+==================================================
+
+All predecessor files remain unchanged.
+A remains explicitly a new construction, not a recovered historical original.
+D's predecessor filename includes v0.1 while its internal theorem version is 0.2. This metadata mismatch is recorded, not silently repaired by renaming the predecessor.
+The collection filename and its internal version metadata may also differ. Do not overwrite or rename historical artifacts during this review.
+
+==================================================
+7. REQUIRED REVIEW OUTCOME
+==================================================
+
+The next reviewer must independently:
+1. Recompute the mathematical claims, not merely compare the wording with the prior audits.
+2. Check every proof and every numerical constant.
+3. Attempt countermodels and test premise removal.
+4. Check local/global terminology and noise claims.
+5. Verify that no new statement exceeds its assumptions.
+6. Check the four documents against one another for notation and scope conflicts.
+7. Report any remaining defect, including defects introduced by this correction.
+8. Separate mathematical correctness from historical provenance, OMEGA-ISOP compatibility, physical interpretation, and canonical acceptance.
+
+END OF REVIEW MAP
