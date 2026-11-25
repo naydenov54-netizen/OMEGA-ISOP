@@ -1,0 +1,274 @@
+OMEGA-ISOP
+
+THEOREM 91.6A-D
+SERIES CONSISTENCY AND DEPENDENCY AUDIT
+
+DOCUMENT_ID: OI-THEOREM-91.6-A-D-CONSISTENCY-AUDIT-2026-11-25
+VERSION: 0.1
+DATE: 2026-11-25
+STATUS: NO INTERNAL MATHEMATICAL CONTRADICTION IDENTIFIED WITHIN REVIEWED SCOPE
+EVIDENCE_CLASS: ANALYTICAL AND LOGICAL REVIEW
+CANONICAL STATUS: NOT FROZEN
+ARCHITECTURAL STATUS: NO FROZEN CORE MODIFICATION
+
+==================================================
+1. AUDIT OBJECTIVE AND SCOPE
+==================================================
+
+Review the mathematical relationship, assumptions, domains, and dependency claims among:
+
+THEOREM 91.6A v0.1 - finite-dimensional finite linear observations.
+THEOREM 91.6B v0.2-AUDIT - differential contraction, finite-stage identifiability, asymptotic limit, and full history.
+THEOREM 91.6C v0.1 - countable uniformly bounded linear observation histories.
+THEOREM 91.6D v0.2 - exact and Lipschitz-stable identifiability of a target map.
+
+The purpose is not to prove that the four theorems form one theorem, nor to establish a physical interpretation. The purpose is to check whether their stated relationships are logically compatible and whether any result is promoted beyond its assumptions.
+
+==================================================
+2. SERIES ROLE CHECK
+==================================================
+
+A - FINITE LINEAR BASELINE
+
+Domain:
+Finite-dimensional state space R^m.
+
+Structure:
+Finite family of linear observation maps, stacked into one linear map.
+
+Main results:
+- Injectivity iff common kernel is trivial.
+- Injectivity iff stacked matrix has full column rank.
+- In finite dimensions, injectivity iff minimum observation gain is positive.
+- The inverse on the observation image is Lipschitz.
+- A sufficient noise-ball separation bound.
+
+Boundary:
+The rank and positive-gain conclusions depend on the finite-dimensional linear and Euclidean framework.
+
+B - CONCRETE DIFFERENTIAL-CONTRACTION MODEL
+
+Domain:
+R² with Euclidean metric.
+
+Structure:
+A concrete family F_n(u,v)=(u/(n+1),v/(n+1)^2), explicitly not assumed to be a composition of earlier maps.
+
+Main results:
+- Every finite F_n is injective.
+- Each F_n is a strict Banach contraction on the complete space R².
+- The pointwise limiting map is constant and non-injective.
+- The inverse Lipschitz constant grows as (n+1)^2.
+- The complete history is injective and bi-Lipschitz under the specifically defined supremum history metric.
+- The stated bounded-noise separation condition is model-dependent.
+
+Boundary:
+These are results for the constructed model and the stated metrics. They do not establish universal behavior for arbitrary observation families.
+
+C - COUNTABLE LINEAR HISTORY GENERALIZATION
+
+Domain:
+Finite-dimensional R^m.
+
+Structure:
+A countable family of linear maps A_n:R^m->R^p with uniform operator bound.
+
+Main results:
+- History injectivity iff the common kernel is trivial.
+- Under finite dimensionality and uniform boundedness, history injectivity iff the history gain is strictly positive.
+- Positive history gain gives a bi-Lipschitz estimate.
+- An injective complete history contains a finite identifying subfamily.
+
+Boundary:
+The compactness argument uses finite dimensionality. The continuity of the supremum response uses uniform boundedness. The chosen supremum history metric is part of the theorem.
+
+D - GENERAL TARGET IDENTIFIABILITY
+
+Domain:
+A set Theta, metric observation space Y, metric target space Q, maps F:Theta->Y and q:Theta->Q.
+
+Main results:
+- Exact identifiability iff q factors uniquely through F(Theta).
+- Global Lipschitz-stable identifiability iff the induced map on F(Theta) is globally Lipschitz.
+
+Boundary:
+This is an abstract map-and-metric result. It does not prove that any particular OMEGA-ISOP observation map is physically realizable or that a specific target is identifiable.
+
+==================================================
+3. CROSS-DEPENDENCY AUDIT
+==================================================
+
+A TO B:
+
+B's finite-stage model is a concrete instance of finite-dimensional linear multi-observation identifiability. Its finite-stage injectivity is consistent with A's common-kernel and rank criteria.
+
+B adds behavior not contained in A:
+- dependence on n;
+- contraction toward a non-injective limit;
+- growth of inverse Lipschitz constants;
+- full-history recovery.
+
+No claim is made that A alone proves these additional asymptotic properties.
+
+CLASSIFICATION: CONSISTENT SPECIALIZATION PLUS ADDITIONAL MODEL-SPECIFIC RESULTS.
+
+A TO C:
+
+C replaces a finite observation family by a countable uniformly bounded family and equips the complete history with a supremum metric.
+
+C's finite-dimensional history-gain result is consistent with A's finite-dimensional positive-gain argument. C's finite-subfamily theorem is an additional compactness result.
+
+C does not claim that the first r observations always suffice. Its finite witness may use indices distributed throughout the countable family.
+
+CLASSIFICATION: CONSISTENT GENERALIZATION OF THE COMMON-KERNEL STRUCTURE UNDER EXPLICIT ADDITIONAL ASSUMPTIONS.
+
+A TO D:
+
+A identifies the complete state in a finite-dimensional linear setting. D identifies a target q, which need not be the full state.
+
+D is more general at the level of maps and metric spaces. A supplies a concrete linear-algebraic characterization that D does not provide in arbitrary metric spaces.
+
+D does not use A as a proof premise. Their relationship is conceptual and mathematical, not a dependency of D on A.
+
+CLASSIFICATION: COMPATIBLE COMPLEMENTARY FORMULATIONS.
+
+B TO C:
+
+B's complete history is a particular countable family of linear observations on R² with a uniform operator bound. C's common-kernel and history-gain criteria apply to this family.
+
+For B's model, the first observation already identifies both coordinates jointly, so the history metric is bounded below by the first-stage observation. This agrees with C's positive history-gain conclusion.
+
+C's general theorem does not imply that every history has a non-injective limit, nor does B's example establish such a universal claim.
+
+CLASSIFICATION: B IS A CONCRETE INSTANCE WITH A PARTICULAR LIMIT BEHAVIOR; C IS A CONDITIONAL GENERAL RESULT.
+
+D RELATIVE TO A-C:
+
+D's factorization criterion can describe the target map associated with any of the observation maps in A, B, or C, provided the relevant target and metrics are specified.
+
+D does not automatically transfer A-C's finite-dimensional, linear, compactness, or history conclusions to other domains.
+
+A-C do not automatically establish the Lipschitz regularity of every induced target map in D.
+
+CLASSIFICATION: COMPATIBLE GENERAL TARGET FRAMEWORK; NO AUTOMATIC PROMOTION OR CROSS-IMPLICATION.
+
+==================================================
+4. MATHEMATICAL CONSISTENCY CHECKS
+==================================================
+
+CHECK 1 - FINITE INJECTIVITY VERSUS LIMIT NON-INJECTIVITY:
+
+B's F_n maps are injective for every finite n, while the pointwise limit is constant. This is mathematically possible because pointwise limits of injective maps need not be injective.
+
+RESULT: CONSISTENT.
+
+CHECK 2 - HISTORY VERSUS LIMIT:
+
+B and C distinguish the complete sequence of observations from its pointwise limiting map. The history metric retains information from finite indices even when the pointwise limit loses it.
+
+RESULT: CONSISTENT. The history and the limit are different mathematical objects.
+
+CHECK 3 - INJECTIVITY VERSUS STABILITY:
+
+A and C obtain positive lower gains under finite-dimensional compactness and their stated assumptions. B shows that a sequence of individually injective maps can have inverse constants that diverge. D shows that exact target identifiability in general metric spaces does not imply global Lipschitz stability.
+
+RESULT: CONSISTENT. The statements concern different uniformity conditions and domains.
+
+CHECK 4 - FINITE WITNESS:
+
+C's finite-subfamily conclusion follows from compactness of the finite-dimensional unit sphere and the open cover formed by nonzero observation responses.
+
+RESULT: CONSISTENT UNDER THE STATED FINITE-DIMENSIONAL AND UNIFORM-BOUNDEDNESS ASSUMPTIONS.
+
+CHECK 5 - TARGET VERSUS FULL PARAMETER:
+
+D allows q to be constant on fibers of F even when F is not injective. This does not conflict with A-C, which focus on recovery of a full state in their respective settings.
+
+RESULT: CONSISTENT.
+
+CHECK 6 - NOISE:
+
+A and B state sufficient separation conditions for bounded deterministic noise balls. Neither result establishes a universal stochastic noise theorem.
+
+RESULT: CONSISTENT WITH THEIR STATED LIMITATIONS.
+
+==================================================
+5. ASSUMPTION BOUNDARIES THAT MUST REMAIN VISIBLE
+==================================================
+
+1. A's rank criterion is a finite-dimensional linear-algebraic result.
+2. B's contraction and asymptotic statements concern its explicit constructed family.
+3. C's positive history gain depends on finite dimensionality, uniform boundedness, and the supremum history metric.
+4. D's exact factorization is set-theoretic; its Lipschitz result additionally requires the stated metrics and global inequality.
+5. Exact identifiability must not be described as automatic stable recovery.
+6. Complete-history identifiability must not be conflated with identifiability from the pointwise limit.
+7. Mathematical identifiability must not be promoted to physical realizability, statistical identifiability, or empirical validation.
+8. The existence of a finite identifying subfamily does not mean the first r observations suffice.
+9. The four results are not one universal theorem and do not establish universal applicability to every OMEGA-ISOP model.
+
+==================================================
+6. LOOP AND CONCLUSION-SMUGGLING CHECK
+==================================================
+
+No circular dependency among A-D was identified.
+
+A proves its common-kernel and rank equivalences from linearity and rank-nullity.
+
+B proves its finite-stage and limiting properties directly from the specified coefficient functions. It explicitly states that F_n is not a composition of earlier maps.
+
+C proves its history results from the common-kernel condition, uniform boundedness, finite-dimensional compactness, and the selected history metric.
+
+D constructs the factor map from fiber constancy and proves the Lipschitz equivalence from the metric inequality.
+
+No theorem is used as an unproved premise to establish itself. The cross-references among the four documents are explanatory relationships, not hidden proof dependencies.
+
+AUDIT CLASSIFICATION:
+
+NON-CIRCULAR WITHIN THE REVIEWED MATHEMATICAL SCOPE.
+
+==================================================
+7. FINDINGS AND RECOMMENDATIONS
+==================================================
+
+FINDING 1:
+The roles assigned to A, B, C, and D are mutually compatible.
+
+FINDING 2:
+No internal contradiction was identified in the reviewed theorem statements or their stated cross-references.
+
+FINDING 3:
+The assumptions and limitations are materially different and must remain attached to each result. In particular, C's finite-dimensional compactness result must not be generalized to arbitrary infinite-dimensional spaces.
+
+FINDING 4:
+D is a general target-identifiability criterion, not a physical theorem and not a proof that any particular OMEGA-ISOP target is identifiable.
+
+FINDING 5:
+A is explicitly a new construction, not a recovered historical original. This provenance statement must remain unchanged.
+
+RECOMMENDATION:
+Keep A-D as four separate research results within one collection. Do not merge their assumptions into a single theorem. Do not promote the collection to canonical or Frozen Core status on the basis of this consistency audit.
+
+==================================================
+8. AUDIT LIMIT
+==================================================
+
+This review is an analytical consistency audit of the available archived texts. It is not formal machine verification, peer review, empirical validation, physical validation, canonical acceptance, RL registration, or certification of the full OMEGA-ISOP framework.
+
+==================================================
+9. ARCHITECTURAL CONTROL
+==================================================
+
+THEOREM 91.6A: UNCHANGED.
+THEOREM 91.6B: UNCHANGED.
+THEOREM 91.6C: UNCHANGED.
+THEOREM 91.6D: UNCHANGED.
+
+FROZEN CORE: UNCHANGED.
+CANONICAL MASTER DOCUMENTS: UNCHANGED.
+RL REGISTRATION: NOT PERFORMED.
+NEW RL RECORD: NOT CREATED.
+CANONICAL ACCEPTANCE: NOT PERFORMED.
+VOLUME V INTEGRATION: NOT PERFORMED.
+ARCHITECTURAL MODIFICATION: NOT AUTHORIZED.
+
+END OF AUDIT
