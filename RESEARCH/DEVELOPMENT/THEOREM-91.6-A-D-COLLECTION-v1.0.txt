@@ -1,0 +1,2276 @@
+OMEGA-ISOP
+THEOREM 91.6 SERIES: A-D
+COLLECTED RESEARCH EDITION
+
+COLLECTION VERSION: 1.0
+DATE: 2026-11-25
+STATUS: RESEARCH DEVELOPMENT COLLECTION
+CANONICAL STATUS: NOT FROZEN
+ARCHITECTURAL STATUS: NO FROZEN CORE MODIFICATION
+
+==================================================
+COLLECTION SCOPE AND PROVENANCE
+==================================================
+
+This document collects THEOREM 91.6A, 91.6B, 91.6C and 91.6D in one place.
+
+IMPORTANT PROVENANCE NOTE:
+The historical original of THEOREM 91.6A was not recovered from the available Library or repository records. The A document in this collection is a new construction, explicitly labeled as such. It must not be represented as the lost historical original.
+
+THEOREM 91.6B and THEOREM 91.6C are included from their existing archived research-development records without changing their theorem text.
+
+THEOREM 91.6D is included as a standalone research-development record based on the previously established formulation in this research thread. Its inclusion does not make it a premise or foundation for A, B, or C.
+
+The collection is an organizational archive. It does not establish canonical acceptance, scientific validation beyond each theorem's stated proof status, RL registration, or Frozen Core integration.
+
+==================================================
+SERIES MAP
+==================================================
+
+THEOREM 91.6A
+FINITE MULTI-OBSERVATION IDENTIFIABILITY: COMMON KERNEL, RANK AND STABILITY
+Role: Finite-dimensional linear baseline.
+Status: New construction, not recovered original.
+
+THEOREM 91.6B
+DIFFERENTIAL MULTI-OBSERVABLE IDENTIFIABILITY UNDER OPERATIONAL CONTRACTION
+Role: Differential contraction, finite versus limiting identifiability, and full observation history.
+Status: Version 0.2-AUDIT.
+
+THEOREM 91.6C
+FINITE WITNESS AND STABLE IDENTIFIABILITY OF OBSERVATION HISTORIES
+Role: Countable uniformly bounded linear histories, positive history gain, and finite identifying subfamily.
+Status: Version 0.1.
+
+THEOREM 91.6D
+GENERAL IDENTIFIABILITY AND STABILITY CRITERION
+Role: Metric-space factorization criterion for exact and Lipschitz-stable identification of a target.
+Status: Version 0.1.
+
+==================================================
+MATHEMATICAL RELATIONSHIP AND DEPENDENCY CAUTION
+==================================================
+
+A provides a finite-dimensional linear-algebraic baseline.
+B studies a specific contracting multi-observation construction.
+C studies countable observation histories under uniform boundedness and finite-dimensionality.
+D provides a general metric-space criterion for identifying a target quantity.
+
+These theorems address related but distinct mathematical questions. This collection does not claim that they are equivalent, that each theorem proves every other theorem, or that their assumptions can be freely exchanged.
+
+A is not reconstructed from D. D is not used as a source or foundation for C. B and C remain unchanged.
+
+==================================================
+ARCHITECTURAL AND GOVERNANCE STATUS
+==================================================
+
+FROZEN CORE: UNCHANGED
+CANONICAL MASTER DOCUMENTS: UNCHANGED
+THEOREM CANONICAL ACCEPTANCE: NOT PERFORMED
+RL REGISTRATION: NOT PERFORMED
+CE / CE-V PROMOTION: NOT PERFORMED
+VOLUME V INTEGRATION: NOT PERFORMED
+ARCHITECTURAL MODIFICATION: NOT AUTHORIZED
+
+ARCHIVAL STATUS:
+This collection is a research-development archive only.
+
+==================================================
+BEGIN THEOREM 91.6A
+==================================================
+
+OMEGA-ISOP
+
+THEOREM 91.6A
+
+FINITE MULTI-OBSERVATION IDENTIFIABILITY: COMMON KERNEL, RANK AND STABILITY
+
+VERSION: 0.1
+DATE: 2026-11-25
+STATUS: NEW CONSTRUCTION / PROVED UNDER STATED ASSUMPTIONS
+SOURCE STATUS: NOT A RECOVERED HISTORICAL ORIGINAL
+CANONICAL STATUS: NOT FROZEN
+ARCHITECTURAL STATUS: NO FROZEN CORE MODIFICATION
+
+==================================================
+1. PURPOSE AND POSITION IN THE 91.6 SERIES
+==================================================
+
+This is a newly constructed foundational result for the 91.6 series. It is not represented as the lost historical THEOREM 91.6A.
+
+The purpose is to establish the finite-dimensional baseline for identifiability from a finite collection of linear observations.
+
+The theorem gives equivalent criteria based on:
+1. The common kernel of the observation operators.
+2. The rank of the stacked observation matrix.
+3. A strictly positive minimum observation gain.
+4. A quantitative Lipschitz bound for recovery.
+
+SERIES ROLE:
+
+A establishes the finite observation baseline.
+B studies differential operational contraction and asymptotic loss.
+C extends the analysis to countable observation histories and finite witnesses.
+D states a general metric-space criterion for identifying a target quantity.
+
+No result in this document is used to modify the Frozen Core.
+
+==================================================
+2. MATHEMATICAL FRAMEWORK
+==================================================
+
+Let the state space be:
+
+X = R^m
+
+with Euclidean norm ||.||.
+
+Let r be a positive integer. For each i = 1,...,r, let:
+
+A_i : R^m -> R^(p_i)
+
+be a linear observation operator.
+
+Define the combined observation map:
+
+A(x) = (A_1*x, A_2*x, ..., A_r*x)
+
+with observation space:
+
+Y = R^(p_1+...+p_r)
+
+and its standard product Euclidean norm.
+
+Equivalently, let A_stacked be the matrix obtained by stacking the matrices of A_1,...,A_r vertically. Then:
+
+A(x) = A_stacked*x
+
+Define the common kernel:
+
+K = intersection(i=1 to r) ker(A_i)
+
+==================================================
+3. EXACT IDENTIFIABILITY
+==================================================
+
+DEFINITION 91.6A-1:
+
+The state x is exactly identifiable from the combined observations if:
+
+A(x1) = A(x2) => x1 = x2
+
+for all x1,x2 in R^m.
+
+THEOREM 91.6A-1:
+
+The following statements are equivalent:
+
+(1) The combined observation map A is injective.
+
+(2) The common kernel is trivial:
+
+K = {0}
+
+(3) The stacked observation matrix has full column rank:
+
+rank(A_stacked) = m
+
+PROOF:
+
+(1) => (2):
+
+Suppose A is injective.
+
+Let z belong to K. Then:
+
+A_i*z = 0
+
+for every i.
+
+Therefore:
+
+A(z) = 0 = A(0)
+
+By injectivity:
+
+z = 0
+
+Thus K = {0}.
+
+(2) => (1):
+
+Suppose K = {0}.
+
+Assume:
+
+A(x1) = A(x2)
+
+By linearity:
+
+A_i*(x1-x2) = 0
+
+for every i.
+
+Therefore:
+
+x1-x2 belongs to K.
+
+Since K = {0}:
+
+x1 = x2
+
+Thus A is injective.
+
+(2) <=> (3):
+
+The kernel of the stacked matrix is exactly:
+
+ker(A_stacked) = intersection(i=1 to r) ker(A_i) = K
+
+By the rank-nullity theorem:
+
+rank(A_stacked) + dim ker(A_stacked) = m
+
+Therefore:
+
+K = {0}
+
+if and only if:
+
+rank(A_stacked) = m
+
+Q.E.D.
+
+==================================================
+4. STABILITY GAIN
+==================================================
+
+Define the minimum observation gain:
+
+gamma_A = inf(||z||=1) ||A_stacked*z||
+
+where the infimum is taken over the Euclidean unit sphere in R^m.
+
+Because the unit sphere is compact and the function:
+
+z -> ||A_stacked*z||
+
+is continuous, the infimum is attained.
+
+THEOREM 91.6A-2:
+
+The combined observation map A is injective if and only if:
+
+gamma_A > 0
+
+PROOF:
+
+If gamma_A > 0, then for every z:
+
+||A_stacked*z|| >= gamma_A*||z||
+
+If A(x1) = A(x2), then:
+
+||A_stacked*(x1-x2)|| = 0
+
+The lower bound implies:
+
+gamma_A*||x1-x2|| = 0
+
+Hence x1 = x2. Therefore A is injective.
+
+Conversely, suppose A is injective.
+
+By THEOREM 91.6A-1, its kernel is {0}. Thus:
+
+||A_stacked*z|| > 0
+
+for every unit vector z.
+
+The function is continuous on the compact unit sphere and is strictly positive everywhere on that sphere. Its attained minimum is therefore strictly positive.
+
+Hence:
+
+gamma_A > 0
+
+Q.E.D.
+
+==================================================
+5. LIPSCHITZ STABILITY OF RECOVERY
+==================================================
+
+Let:
+
+M_A = ||A_stacked||
+
+be the operator norm.
+
+THEOREM 91.6A-3:
+
+For all x1,x2 in R^m:
+
+gamma_A*||x1-x2||
+<=
+||A(x1)-A(x2)||
+<=
+M_A*||x1-x2||
+
+PROOF:
+
+By linearity:
+
+A(x1)-A(x2) = A_stacked*(x1-x2)
+
+The definition of gamma_A gives the lower bound:
+
+||A_stacked*(x1-x2)|| >= gamma_A*||x1-x2||
+
+The operator norm inequality gives the upper bound:
+
+||A_stacked*(x1-x2)|| <= M_A*||x1-x2||
+
+Combining them proves the claim.
+
+Q.E.D.
+
+CONSEQUENCE:
+
+If A is injective, the inverse map:
+
+A^(-1) : A(R^m) -> R^m
+
+is Lipschitz and satisfies:
+
+Lip(A^(-1)) <= 1/gamma_A
+
+Thus, for a finite-dimensional linear observation system, exact identifiability and Lipschitz-stable recovery are equivalent.
+
+This equivalence depends on finite dimensionality, linearity, and the stated Euclidean norms.
+
+==================================================
+6. NOISE SEPARATION BOUND
+==================================================
+
+Consider the observation model:
+
+y = A(x) + eta
+
+where:
+
+||eta|| <= epsilon
+
+For two candidate states x1 and x2, their possible observation sets are closed balls of radius epsilon centered at A(x1) and A(x2).
+
+A guaranteed separation of these two noise balls holds if:
+
+||A(x1)-A(x2)|| > 2*epsilon
+
+By THEOREM 91.6A-3, a sufficient condition is:
+
+||x1-x2|| > 2*epsilon/gamma_A
+
+This is a sufficient separation condition, not a necessary condition for every pair.
+
+If gamma_A is small, the sufficient state-space separation becomes large. If gamma_A = 0, this theorem supplies no positive uniform lower bound for recovery.
+
+==================================================
+7. EXAMPLE: TWO INSUFFICIENT OBSERVATIONS THAT JOINTLY IDENTIFY
+==================================================
+
+Let:
+
+X = R²
+
+Define:
+
+A_1(u,v) = (u,0)
+
+A_2(u,v) = (0,v)
+
+Neither A_1 nor A_2 is injective on R².
+
+The combined observation is:
+
+A(u,v) = (u,0,0,v)
+
+Its common kernel is:
+
+ker(A_1) intersection ker(A_2) = {(0,0)}
+
+Therefore the combined map is injective.
+
+For the stacked matrix, the nonzero singular values are both 1. Hence:
+
+gamma_A = 1
+
+and:
+
+M_A = 1
+
+Thus:
+
+||A(x1)-A(x2)|| = ||x1-x2||
+
+The combined observation preserves distances exactly, although neither component observation identifies the full state by itself.
+
+==================================================
+8. COUNTEREXAMPLE: EXACT IDENTIFIABILITY WITHOUT UNIFORM STABILITY IN AN INFINITE-DIMENSIONAL SETTING
+==================================================
+
+The finite-dimensional assumption matters.
+
+Let X be the Hilbert space l² of square-summable real sequences, and define a bounded linear operator T by:
+
+T(x1,x2,x3,...) = (x1, x2/2, x3/3, ...)
+
+T is injective because T(x)=0 implies every coordinate of x is zero.
+
+However, there is no constant gamma > 0 such that:
+
+||T(x)|| >= gamma*||x||
+
+for all x in l².
+
+To see this, let e_n be the sequence with 1 in coordinate n and 0 elsewhere. Then:
+
+||e_n|| = 1
+
+but:
+
+||T(e_n)|| = 1/n
+
+which tends to zero.
+
+Therefore T is injective but its inverse on its image is not bounded.
+
+This counterexample shows that the equivalence between injectivity and a positive minimum gain cannot be extended to arbitrary infinite-dimensional spaces without additional assumptions.
+
+==================================================
+9. RELATION TO THEOREMS 91.6B, 91.6C AND 91.6D
+==================================================
+
+RELATION TO B:
+
+THEOREM 91.6B studies a concrete finite-dimensional multi-observation system whose coordinate channels contract at different rates. Its finite-stage injectivity is an instance of the common-kernel principle in THEOREM 91.6A. B then adds asymptotic and operational-contraction behavior not established by A.
+
+RELATION TO C:
+
+THEOREM 91.6C replaces a finite family by a countable family of uniformly bounded linear observations. Its common-kernel criterion extends the exact-identifiability structure of A. C additionally establishes a finite identifying subfamily and a history-gain result under its own assumptions.
+
+RELATION TO D:
+
+THEOREM 91.6D treats identification of a target quantity q(theta), rather than necessarily identification of the entire state. It is more general in its metric-space formulation, while A supplies a concrete linear finite-dimensional case with a rank and singular-value characterization.
+
+These are mathematical relationships between the stated results. They do not imply that the four theorems are equivalent or that one proves every claim in another.
+
+==================================================
+10. LIMITATIONS
+==================================================
+
+This theorem does not establish:
+
+1. The same rank criterion for arbitrary nonlinear observations.
+2. A positive stability gain in arbitrary infinite-dimensional spaces.
+3. Robust recovery under arbitrary noise distributions.
+4. Universal Shannon information preservation.
+5. Physical realizability of any observation operator.
+6. A physical interpretation of the observation channels.
+7. Universal applicability to all OMEGA-ISOP models.
+8. Recovery when the common kernel is nontrivial.
+
+The theorem is a finite-dimensional linear-algebraic result under explicitly stated norms.
+
+==================================================
+11. LOOP AND COUNTERMODEL AUDIT
+==================================================
+
+TARGET:
+
+For a finite family of linear maps on R^m, injectivity of the stacked map is equivalent to a trivial common kernel and full column rank.
+
+DEPENDENCY:
+
+Linearity, the definition of the stacked map, the definition of kernel, and the rank-nullity theorem.
+
+CONCLUSION-SMUGGLING CHECK:
+
+The common-kernel condition is not assumed as a premise of injectivity. Each direction is proved from the definitions. Full column rank is connected through rank-nullity.
+
+COUNTERMODEL TEST:
+
+If the common kernel contains a nonzero z, then A(x+z)=A(x) for every x, directly violating injectivity. If the common kernel is trivial, equality of combined observations forces the difference to be zero. No countermodel satisfying the stated assumptions and violating the equivalence is possible by this argument.
+
+PREMISE-REMOVAL:
+
+Without linearity, the kernel argument and rank characterization do not apply in this form. Without finite dimensionality, injectivity need not imply a positive minimum gain, as shown by the l² counterexample.
+
+AUDIT CLASSIFICATION:
+
+NON-CIRCULAR DERIVATION WITHIN THE STATED FINITE-DIMENSIONAL LINEAR SCOPE.
+
+==================================================
+12. SCIENTIFIC STATUS
+==================================================
+
+PROVED UNDER STATED ASSUMPTIONS:
+
+- Common-kernel criterion.
+- Full-column-rank criterion.
+- Equivalence between injectivity and positive minimum gain in finite dimensions.
+- Lipschitz stability of the inverse on the observation image.
+- Sufficient noise-ball separation condition.
+- Infinite-dimensional counterexample to automatic uniform stability.
+
+NOT ESTABLISHED:
+
+- Universal nonlinear or infinite-dimensional extensions.
+- Physical interpretation or empirical validity.
+- Shannon information preservation.
+- Universal applicability to OMEGA-ISOP.
+
+==================================================
+13. ARCHITECTURAL CONTROL
+==================================================
+
+THEOREM 91.6A:
+NEW RESEARCH CONSTRUCTION / VERSION 0.1
+
+HISTORICAL ORIGINAL:
+NOT RECOVERED
+NO CLAIM OF TEXTUAL OR HISTORICAL IDENTITY
+
+THEOREM 91.6B: NOT MODIFIED
+THEOREM 91.6C: NOT MODIFIED
+THEOREM 91.6D: NOT MODIFIED
+
+FROZEN CORE: UNCHANGED
+CANONICAL MASTER DOCUMENTS: UNCHANGED
+RL REGISTRATION: NOT PERFORMED
+CANONICAL ACCEPTANCE: NOT PERFORMED
+ARCHITECTURAL MODIFICATION: NOT AUTHORIZED
+
+END OF THEOREM 91.6A
+
+
+==================================================
+BEGIN THEOREM 91.6B
+==================================================
+
+OMEGA-ISOP
+
+THEOREM 91.6B
+
+DIFFERENTIAL MULTI-OBSERVABLE IDENTIFIABILITY UNDER OPERATIONAL CONTRACTION
+
+VERSION: 0.2-AUDIT
+DATE: 2026-11-25
+STATUS: RESEARCH DEVELOPMENT
+CANONICAL STATUS: NOT FROZEN
+ARCHITECTURAL STATUS: NO FROZEN CORE MODIFICATION
+
+==================================================
+1. ЦЕЛ НА ИЗСЛЕДВАНЕТО
+==================================================
+
+ЦЕНТРАЛЕН ВЪПРОС:
+
+Може ли комбинация от няколко наблюдаеми величини
+да запази точната идентифицируемост, когато
+наблюдаемите величини претърпяват оперативно
+свиване с различни скорости?
+
+Изследват се:
+
+1. Единична наблюдаема идентифицируемост.
+2. Многонaблюдаема идентифицируемост.
+3. Крайна инективност.
+4. Асимптотична инективност.
+5. Стабилна обратимост.
+6. Практическа наблюдаемост при шум.
+7. Инективност на пълната история.
+
+Основна граница:
+
+Точна идентифицируемост не означава
+автоматично стабилна обратимост.
+
+Загуба на гранична идентифицируемост не означава
+автоматично унищожаване на цялата историческа
+информация.
+
+==================================================
+2. МАТЕМАТИЧЕСКИ МОДЕЛ
+==================================================
+
+Пространство на състоянията:
+
+X = R²
+
+Произволно първоначално състояние:
+
+x = (u,v)
+
+Метрика:
+
+d_X(x1,x2) =
+sqrt((u1-u2)² + (v1-v2)²)
+
+Две първоначални наблюдаеми величини:
+
+O1(u,v) = u
+
+O2(u,v) = v
+
+Комбинирано представяне:
+
+F(u,v) = (O1(u,v),O2(u,v))
+
+F(u,v) = (u,v)
+
+F е инективно.
+
+Следователно:
+
+F(x1) = F(x2) => x1 = x2
+
+==================================================
+3. ДИФЕРЕНЦИАЛНО ОПЕРАТИВНО СВИВАНЕ
+==================================================
+
+Дефинираме два коефициента:
+
+a_n = 1/(n+1)
+
+b_n = 1/(n+1)²
+
+за n >= 1.
+
+Техните свойства са:
+
+0 < b_n < a_n < 1
+
+lim(n→∞) a_n = 0
+
+lim(n→∞) b_n = 0
+
+Дефинираме семейство оперативни представяния:
+
+O1_n(u,v) = a_n*u
+
+O2_n(u,v) = b_n*v
+
+Комбинирано представяне:
+
+F_n(u,v) = (a_n*u,b_n*v)
+
+F_n(u,v) =
+(u/(n+1),v/(n+1)²)
+
+ВАЖНО УТОЧНЕНИЕ:
+
+F_n е семейство от крайни оперативни
+преобразувания.
+
+Не се приема, че F_n е композиция от
+предходните F_k.
+
+Това е параметризирано семейство,
+което се използва за изследване на
+диференциалното свиване.
+
+==================================================
+4. КРАЙНА ИНЕКТИВНОСТ
+==================================================
+
+Нека:
+
+F_n(u1,v1) = F_n(u2,v2)
+
+Тогава:
+
+u1/(n+1) = u2/(n+1)
+
+v1/(n+1)² = v2/(n+1)²
+
+Понеже:
+
+n+1 > 0
+
+следва:
+
+u1 = u2
+
+v1 = v2
+
+Следователно:
+
+F_n(x1) = F_n(x2) => x1 = x2
+
+ЗАКЛЮЧЕНИЕ:
+
+За всяко крайно n:
+
+F_n е инективно.
+
+Крайната точна идентифицируемост се запазва.
+
+==================================================
+5. ПРОВЕРКА НА ОПЕРАТИВНОТО СВИВАНЕ
+==================================================
+
+За произволни две състояния:
+
+d_Y(F_n(x1),F_n(x2))² =
+
+(u1-u2)²/(n+1)²
+
++
+
+(v1-v2)²/(n+1)⁴
+
+Тъй като:
+
+1/(n+1)² < 1
+
+и:
+
+1/(n+1)⁴ < 1
+
+получаваме:
+
+d_Y(F_n(x1),F_n(x2)) < d_X(x1,x2)
+
+за x1 ≠ x2.
+
+Още по-силно:
+
+d_Y(F_n(x1),F_n(x2))
+<= 1/(n+1) * d_X(x1,x2)
+
+Следователно:
+
+Lip(F_n) = 1/(n+1) < 1
+
+Понеже R² е пълно метрично пространство,
+всяко F_n е Banach contraction.
+
+ЗАКЛЮЧЕНИЕ:
+
+Всяко крайно представяне е едновременно:
+
+- инективно;
+- строго свиващо;
+- Banach contraction.
+
+==================================================
+6. ЕДИНИЧНА СРЕЩУ МНОГОНАБЛЮДАЕМА
+   ИДЕНТИФИЦИРУЕМОСТ
+==================================================
+
+Първа наблюдаема величина:
+
+O1_n(u,v) = u/(n+1)
+
+Тя не е инективна върху R².
+
+Например:
+
+O1_n(3,5) = O1_n(3,9)
+
+Втора наблюдаема величина:
+
+O2_n(u,v) = v/(n+1)²
+
+Тя също не е инективна върху R².
+
+Например:
+
+O2_n(3,5) = O2_n(8,5)
+
+Комбинирана система:
+
+F_n(u,v) = (O1_n(u,v),O2_n(u,v))
+
+Тя е инективна.
+
+Следователно:
+
+ЕДИНИЧНА НАБЛЮДАЕМОСТ:
+Не идентифицира цялото състояние.
+
+МНОГОНАБЛЮДАЕМОСТ:
+Идентифицира цялото състояние.
+
+РЕЗУЛТАТ:
+
+Комбинацията от отделно недостатъчни
+наблюдаеми величини може да осигури
+точна идентифицируемост.
+
+==================================================
+7. АСИМПТОТИЧНА ГРАНИЦА
+==================================================
+
+Разглеждаме:
+
+F_∞(u,v) = lim(n→∞) F_n(u,v)
+
+Понеже:
+
+lim(n→∞) u/(n+1) = 0
+
+lim(n→∞) v/(n+1)² = 0
+
+получаваме:
+
+F_∞(u,v) = (0,0)
+
+за всяко фиксирано (u,v) ∈ R².
+
+Следователно:
+
+F_∞(x1) = F_∞(x2)
+
+за произволни x1 и x2.
+
+Граничното представяне е неинективно.
+
+РЕЗУЛТАТ:
+
+Всяко крайно представяне е инективно,
+но граничното представяне не е инективно.
+
+КРАЙНА ИНЕКТИВНОСТ
+НЕ ГАРАНТИРА
+АСИМПТОТИЧНА ИНЕКТИВНОСТ.
+
+==================================================
+8. ТОЧНА ИДЕНТИФИЦИРУЕМОСТ
+   СРЕЩУ СТАБИЛНА ОБРАТИМОСТ
+==================================================
+
+Обратното преобразуване за крайно n:
+
+u = (n+1)*O1_n
+
+v = (n+1)²*O2_n
+
+Следователно:
+
+F_n⁻¹(y1,y2) =
+((n+1)*y1,(n+1)²*y2)
+
+Сингулярните числа на F_n са:
+
+sigma_max = 1/(n+1)
+
+sigma_min = 1/(n+1)²
+
+Норма на обратното преобразуване:
+
+Lip(F_n⁻¹) = (n+1)²
+
+Следователно:
+
+lim(n→∞) Lip(F_n⁻¹) = ∞
+
+Число на обусловеност:
+
+kappa(F_n) =
+sigma_max/sigma_min
+
+kappa(F_n) = n+1
+
+Следователно:
+
+lim(n→∞) kappa(F_n) = ∞
+
+ЗАКЛЮЧЕНИЕ:
+
+Крайната обратимост съществува.
+
+Но стабилността на обратното преобразуване
+се влошава неограничено.
+
+Точна идентифицируемост
+НЕ Е ЕКВИВАЛЕНТНА НА
+СТАБИЛНА ОБРАТИМОСТ.
+
+==================================================
+9. ПРАКТИЧЕСКА НАБЛЮДАЕМОСТ ПРИ ШУМ
+==================================================
+
+Нека измервателният модел бъде:
+
+y_n = F_n(x) + eta
+
+където:
+
+||eta|| <= epsilon
+
+За две състояния x1 и x2 измервателните
+области са евклидови топки с радиус epsilon.
+
+Гарантирано разграничаване има, когато:
+
+d_Y(F_n(x1),F_n(x2)) > 2*epsilon
+
+От долната оценка:
+
+d_Y(F_n(x1),F_n(x2))
+>= d_X(x1,x2)/(n+1)²
+
+получаваме достатъчно условие:
+
+d_X(x1,x2) > 2*epsilon*(n+1)²
+
+Тогава двете измервателни области
+са неприпокриващи се.
+
+Ако:
+
+d_Y(F_n(x1),F_n(x2)) <= 2*epsilon
+
+измервателните области се припокриват
+или допират.
+
+Следователно гарантираното разграничаване
+не е възможно при този модел на шум.
+
+ЗАКЛЮЧЕНИЕ:
+
+При фиксирана измервателна точност
+практическата идентифицируемост се влошава
+с нарастването на n.
+
+Това е практическа загуба на наблюдаемост,
+а не точна математическа загуба
+при крайно n.
+
+==================================================
+10. ПЪЛНА ИСТОРИЯ НА НАБЛЮДЕНИЯТА
+==================================================
+
+Дефинираме:
+
+H(u,v) = (F_1(u,v),F_2(u,v),F_3(u,v),...)
+
+Тоест:
+
+H(u,v) =
+
+((u/2,v/4),
+ (u/3,v/9),
+ (u/4,v/16),
+ ...)
+
+Нека:
+
+H(x1) = H(x2)
+
+Тогава равенството на първата координатна двойка
+дава:
+
+u1/2 = u2/2
+
+v1/4 = v2/4
+
+Следователно:
+
+u1 = u2
+
+v1 = v2
+
+Значи:
+
+H(x1) = H(x2) => x1 = x2
+
+Пълната история е инективна.
+
+За метрика върху пространството на историята
+дефинираме:
+
+d_H(H(x1),H(x2)) =
+
+sup(n>=1) d_Y(F_n(x1),F_n(x2))
+
+Понеже n=1 дава:
+
+d_Y(F_1(x1),F_1(x2))
+>= 1/4*d_X(x1,x2)
+
+и за всички n:
+
+d_Y(F_n(x1),F_n(x2))
+<= 1/2*d_X(x1,x2)
+
+получаваме:
+
+1/4*d_X(x1,x2)
+<= d_H(H(x1),H(x2))
+<= 1/2*d_X(x1,x2)
+
+Следователно H е би-липшицево вложение
+в пространството на историите с тази метрика.
+
+ЗАКЛЮЧЕНИЕ:
+
+Пълната история запазва не само
+точната идентифицируемост,
+но и стабилната обратимост
+спрямо избраната метрика.
+
+==================================================
+11. ОБЩ КРИТЕРИЙ ЗА ДИФЕРЕНЦИАЛНО
+    КООРДИНАТНО СВИВАНЕ
+==================================================
+
+Нека:
+
+X = R^m
+
+F(x) = (f1(x),f2(x),...,fm(x))
+
+Приемаме, че F е инективно.
+
+Дефинираме:
+
+F_n(x) =
+
+(a1(n)*f1(x),
+ a2(n)*f2(x),
+ ...
+ am(n)*fm(x))
+
+където:
+
+ai(n) > 0
+
+за всяко крайно n.
+
+ПРЕДЛОЖЕНИЕ 91.6B-1:
+
+Ако F е инективно и всички ai(n) са
+строго положителни, тогава всяко F_n
+е инективно.
+
+ДОКАЗАТЕЛСТВО:
+
+Нека:
+
+F_n(x1) = F_n(x2)
+
+Тогава:
+
+ai(n)*fi(x1) = ai(n)*fi(x2)
+
+Понеже ai(n) > 0:
+
+fi(x1) = fi(x2)
+
+за всички i.
+
+Следователно:
+
+F(x1) = F(x2)
+
+От инективността на F:
+
+x1 = x2
+
+QED.
+
+==================================================
+12. ГРАНИЧЕН КРИТЕРИЙ
+==================================================
+
+ПРЕДЛОЖЕНИЕ 91.6B-2:
+
+Ако:
+
+lim(n→∞) ai(n) = 0
+
+за всяко i,
+
+и fi(x) е крайна за всяко фиксирано x,
+
+тогава:
+
+F_∞(x) = 0
+
+за всяко x.
+
+Следователно F_∞ не е инективно,
+когато X съдържа повече от един елемент.
+
+ДОКАЗАТЕЛСТВО:
+
+За всяко фиксирано x:
+
+lim(n→∞) ai(n)*fi(x) = 0
+
+за всяко i.
+
+Следователно:
+
+F_∞(x) = (0,0,...,0)
+
+за всяко x.
+
+Значи:
+
+F_∞(x1) = F_∞(x2)
+
+дори когато x1 ≠ x2.
+
+QED.
+
+==================================================
+13. КРИТЕРИЙ ЗА ЗАПАЗВАНЕ НА
+    ГРАНИЧНАТА ИДЕНТИФИЦИРУЕМОСТ
+==================================================
+
+Приемаме, че:
+
+lim(n→∞) ai(n) = ai*
+
+за всяко i.
+
+Тогава:
+
+F_∞(x) =
+
+(a1* f1(x),
+ a2* f2(x),
+ ...
+ am* fm(x))
+
+Дефинираме множеството:
+
+S = {i : ai* ≠ 0}
+
+Тогава:
+
+F_∞ е инективно
+
+ТОГАВА И САМО ТОГАВА, КОГАТО
+
+F_S(x) = (fi(x), i ∈ S)
+
+е инективно.
+
+ОБОСНОВКА:
+
+Координатите с ненулеви гранични
+коефициенти могат да бъдат възстановени
+чрез деление на съответния коефициент.
+
+Координатите с нулеви гранични
+коефициенти изчезват от граничното
+представяне.
+
+Следователно идентифицируемостта
+зависи от инективността на останалата
+система от наблюдаеми величини.
+
+ВАЖНО:
+
+Това е критерий за разглеждания
+координатен клас.
+
+Не е универсален критерий за произволни
+нелинейни наблюдателни оператори.
+
+==================================================
+14. КОНТРАПРИМЕР:
+    НЕНУЛЕВ ГРАНИЧЕН КАНАЛ,
+    НО ЗАГУБЕНА ИДЕНТИФИЦИРУЕМОСТ
+==================================================
+
+Нека:
+
+X = R²
+
+F(u,v) = (u,v)
+
+Избираме:
+
+F_n(u,v) = (u,v/(n+1))
+
+Тогава всяко крайно F_n е инективно.
+
+Граничното представяне е:
+
+F_∞(u,v) = (u,0)
+
+То не е инективно.
+
+Следователно:
+
+Наличието на ненулев граничен канал
+само по себе си не е достатъчно.
+
+Останалите канали трябва да образуват
+инективна система.
+
+==================================================
+15. КОНТРАПРИМЕР:
+    ЗАПАЗЕНА ГРАНИЧНА ИДЕНТИФИЦИРУЕМОСТ
+==================================================
+
+Нека:
+
+O1(u,v) = u
+
+O2(u,v) = v
+
+O3(u,v) = v
+
+Избираме:
+
+a1(n) = 1
+
+a2(n) = 1/(n+1)
+
+a3(n) = 1/2
+
+Тогава:
+
+F_n(u,v) =
+
+(u,v/(n+1),v/2)
+
+Граничното представяне е:
+
+F_∞(u,v) = (u,0,v/2)
+
+От първата и третата координата
+възстановяваме:
+
+u = F_∞,1
+
+v = 2*F_∞,3
+
+Следователно F_∞ е инективно.
+
+РЕЗУЛТАТ:
+
+Многонaблюдаемостта може да запази
+асимптотичната идентифицируемост,
+когато оцелелите гранични наблюдения
+са достатъчни за възстановяване
+на първоначалното състояние.
+
+Този пример не противоречи на
+ПРЕДЛОЖЕНИЕ 91.6B-2, защото не всички
+канали се свиват до нула.
+
+==================================================
+16. ОСНОВНИ РЕЗУЛТАТИ
+==================================================
+
+R1:
+Различните скорости на свиване
+не гарантират асимптотична идентифицируемост.
+
+R2:
+Няколко отделно недостатъчни наблюдаеми
+величини могат съвместно да идентифицират
+първоначалното състояние.
+
+R3:
+Ако всички координатни канали се свиват
+до нула, граничното представяне губи
+инективност.
+
+R4:
+Пълната история може да запази
+идентифицируемостта, когато граничното
+представяне я губи.
+
+R5:
+Точната обратимост при крайно n
+не гарантира равномерна стабилност
+на обратното преобразуване.
+
+R6:
+Граничната идентифицируемост зависи
+от това дали оцелелите наблюдаеми канали
+образуват достатъчна система.
+
+R7:
+При ограничен измервателен шум
+практическата разграничимост може
+да изчезне преди математическата
+идентифицируемост.
+
+==================================================
+17. ОГРАНИЧЕНИЯ
+==================================================
+
+Не е доказано:
+
+1. Универсална теорема за произволни
+   нелинейни наблюдателни оператори.
+
+2. Универсално запазване на идентифицируемостта
+   чрез многонaблюдаемост.
+
+3. Универсален критерий за стабилна обратимост.
+
+4. Универсална Shannon information loss.
+
+5. Универсално запазване на информацията
+   при съхраняване на цялата история.
+
+6. Независимост от избраната метрика
+   върху пространството на историите.
+
+7. Поведение при произволни шумови модели.
+
+==================================================
+18. НАУЧЕН СТАТУС
+==================================================
+
+PROVEN FOR CONSTRUCTED MODEL:
+
+- Крайна инективност.
+- Строго Banach свиване.
+- Асимптотична неинективност.
+- Многонaблюдаема крайна идентифицируемост.
+- Влошаване на обратната Lipschitz-константа.
+- Инективност на пълната история.
+- Би-липшицева стабилност на историята
+  при избраната метрика.
+- Практическа граница при зададения
+  ограничен шумов модел.
+
+DERIVED / MODEL-DEPENDENT:
+
+- Предложения 91.6B-1 и 91.6B-2.
+- Критерият за оцелелите гранични канали.
+- Контрапримерите за ненулеви гранични канали.
+
+OPEN:
+
+- Универсална нелинейна формулировка.
+- Безкрайни семейства наблюдаеми величини.
+- Стабилна идентифицируемост при шум.
+- Информационно-теоретични граници.
+
+NOT VALIDATED:
+
+- Универсална физическа приложимост.
+- Shannon information loss.
+- Приложимост към всички модели на OMEGA-ISOP.
+
+==================================================
+19. ЗАКЛЮЧЕНИЕ
+==================================================
+
+THEOREM 91.6B установява, че крайната
+многонaблюдаема идентифицируемост може
+да съществува едновременно с асимптотична
+загуба на идентифицируемост.
+
+Различните скорости на свиване не са
+достатъчни за запазване на информацията
+в граничното представяне.
+
+Пълната история може да запази
+идентифицируемостта и стабилната
+обратимост, дори когато граничното
+представяне е неинективно.
+
+Ключовото разграничение е между:
+
+КРАЙНО ПРЕДСТАВЯНЕ;
+ГРАНИЧНО ПРЕДСТАВЯНЕ;
+ПЪЛНА ИСТОРИЯ.
+
+Тези три обекта не трябва да се
+идентифицират един с друг.
+
+==================================================
+20. АРХИТЕКТУРЕН КОНТРОЛ
+==================================================
+
+THEOREM 91.6B:
+RESEARCH DEVELOPMENT / VERSION 0.2-AUDIT
+
+THEOREM 91.6A: UNCHANGED
+THEOREM 91.3: UNCHANGED
+THEOREM 91.4: UNCHANGED
+
+RL-019: UNCHANGED
+RL-019.1: UNCHANGED
+RL-020: UNCHANGED
+RL-021: UNCHANGED
+RL-021.1: UNCHANGED
+
+FROZEN CORE: UNCHANGED
+CANONICAL MASTER DOCUMENTS: UNCHANGED
+VOLUME II: UNCHANGED
+VOLUME III: UNCHANGED
+VOLUME V: UNCHANGED
+BOOT-HANDOFF.txt: UNCHANGED
+
+RL REGISTRATION: NOT PERFORMED
+NEW RL RECORD: NOT CREATED
+GITHUB COMMIT: NOT PERFORMED
+CANONICAL ACCEPTANCE: NOT PERFORMED
+ARCHITECTURAL MODIFICATION: NOT AUTHORIZED
+
+END OF THEOREM 91.6B
+==================================================
+
+ARCHIVE NOTE:
+This file preserves the user-supplied THEOREM 91.6B text.
+No claim is made that it is canonically accepted.
+
+
+==================================================
+BEGIN THEOREM 91.6C
+==================================================
+
+OMEGA-ISOP
+
+THEOREM 91.6C
+
+FINITE WITNESS AND STABLE IDENTIFIABILITY OF OBSERVATION HISTORIES
+
+VERSION: 0.1
+DATE: 2026-11-25
+STATUS: PROVED MATHEMATICAL RESULT UNDER STATED ASSUMPTIONS
+CANONICAL STATUS: NOT FROZEN
+ARCHITECTURAL STATUS: NO FROZEN CORE MODIFICATION
+
+==================================================
+1. PURPOSE
+==================================================
+
+THEOREM 91.6B establishes that a complete observation history can preserve exact identifiability and stable recoverability even when the asymptotic observation loses identifiability.
+
+THEOREM 91.6C investigates a further question:
+
+Can an infinite family of individually non-injective observations provide stable identification of a finite-dimensional state, and can a finite subset of that family already be sufficient?
+
+The theorem establishes:
+
+1. A criterion for injectivity of the complete linear observation history.
+2. A sufficient and necessary condition for stable recovery under a bounded-history metric.
+3. The existence of a finite identifying subfamily.
+4. The distinction between asymptotic observation and historical observation.
+5. A quantitative stability bound for the complete history.
+
+==================================================
+2. MATHEMATICAL FRAMEWORK
+==================================================
+
+Let:
+
+X = R^m
+
+be a finite-dimensional state space with Euclidean norm.
+
+Let:
+
+Y = R^p
+
+be the observation space.
+
+Consider a countable family of linear observation operators:
+
+A_n : X → Y
+
+for n >= 1.
+
+Define the observation history:
+
+H(x) = (A_1*x, A_2*x, A_3*x, ...)
+
+Assume uniform boundedness:
+
+M = sup(n>=1) ||A_n|| < infinity
+
+where ||A_n|| denotes the operator norm.
+
+Define the history metric:
+
+d_H(H(x1),H(x2)) =
+sup(n>=1) ||A_n*(x1-x2)||
+
+The uniform boundedness assumption guarantees that this metric is finite.
+
+==================================================
+3. COMMON KERNEL CRITERION
+==================================================
+
+Define the common kernel:
+
+K = intersection(n>=1) ker(A_n)
+
+PROPOSITION 91.6C-1:
+
+The complete observation history H is injective if and only if:
+
+K = {0}
+
+PROOF:
+
+Suppose H(x1) = H(x2).
+
+Then:
+
+A_n*x1 = A_n*x2
+
+for every n.
+
+Therefore:
+
+A_n*(x1-x2) = 0
+
+for every n.
+
+Thus:
+
+x1-x2 ∈ K
+
+If K = {0}, then:
+
+x1 = x2
+
+Hence H is injective.
+
+Conversely, suppose K contains a nonzero vector z.
+
+Then:
+
+A_n*z = 0
+
+for every n.
+
+For any x:
+
+H(x+z) = H(x)
+
+although:
+
+x+z ≠ x
+
+Therefore H is not injective.
+
+Q.E.D.
+
+==================================================
+4. HISTORY GAIN
+==================================================
+
+Define the history gain:
+
+gamma_H =
+inf(||z||=1) sup(n>=1) ||A_n*z||
+
+The quantity gamma_H measures the minimum observation response over all unit state differences.
+
+Because:
+
+sup(n>=1) ||A_n|| = M < infinity
+
+the function:
+
+phi(z) = sup(n>=1) ||A_n*z||
+
+is continuous.
+
+The unit sphere in R^m is compact.
+
+Consequently, the infimum defining gamma_H is attained.
+
+THEOREM 91.6C-2:
+
+Under the stated assumptions:
+
+H is injective
+
+IF AND ONLY IF
+
+gamma_H > 0
+
+PROOF:
+
+If gamma_H > 0, then for every z:
+
+sup(n>=1) ||A_n*z|| >= gamma_H*||z||
+
+Therefore:
+
+H(x1) = H(x2)
+
+implies:
+
+gamma_H*||x1-x2|| = 0
+
+and consequently:
+
+x1 = x2
+
+Thus H is injective.
+
+Conversely, suppose H is injective.
+
+By PROPOSITION 91.6C-1:
+
+intersection(n>=1) ker(A_n) = {0}
+
+Therefore:
+
+phi(z) > 0
+
+for every unit vector z.
+
+Since phi is continuous and the unit sphere is compact, phi attains a strictly positive minimum.
+
+Hence:
+
+gamma_H > 0
+
+Q.E.D.
+
+==================================================
+5. BI-LIPSCHITZ STABILITY OF THE HISTORY
+==================================================
+
+THEOREM 91.6C-3:
+
+If:
+
+M = sup(n>=1) ||A_n|| < infinity
+
+and:
+
+gamma_H > 0
+
+then:
+
+gamma_H*||x1-x2||
+<=
+d_H(H(x1),H(x2))
+<=
+M*||x1-x2||
+
+for all x1,x2 ∈ X.
+
+PROOF:
+
+Set:
+
+z = x1-x2
+
+By definition:
+
+d_H(H(x1),H(x2)) =
+sup(n>=1) ||A_n*z||
+
+The definition of gamma_H gives:
+
+sup(n>=1) ||A_n*z||
+>= gamma_H*||z||
+
+The operator norm bound gives:
+
+||A_n*z|| <= ||A_n||*||z||
+
+for every n.
+
+Taking the supremum:
+
+sup(n>=1) ||A_n*z||
+<= M*||z||
+
+Combining the inequalities:
+
+gamma_H*||x1-x2||
+<= d_H(H(x1),H(x2))
+<= M*||x1-x2||
+
+Q.E.D.
+
+CONSEQUENCE:
+
+The inverse from the observation-history image H(X) to X is Lipschitz continuous, with:
+
+Lip(H⁻¹) <= 1/gamma_H
+
+Therefore, within this framework, exact injectivity of the complete history implies stable invertibility under the defined history metric.
+
+This conclusion depends on finite dimensionality, linearity, uniform boundedness and the selected history metric.
+
+==================================================
+6. FINITE WITNESS THEOREM
+==================================================
+
+THEOREM 91.6C-4:
+
+If the complete history H is injective, then there exists a finite set of observation indices:
+
+J = {n1,n2,...,nr}
+
+such that the finite observation map:
+
+H_J(x) =
+(A_n1*x, A_n2*x, ..., A_nr*x)
+
+is injective.
+
+PROOF:
+
+Since H is injective:
+
+intersection(n>=1) ker(A_n) = {0}
+
+For every unit vector z, there exists at least one index n such that:
+
+A_n*z ≠ 0
+
+Define:
+
+U_n = {z : ||z||=1 and ||A_n*z|| > 0}
+
+Each U_n is open relative to the unit sphere.
+
+The family of sets U_n covers the unit sphere.
+
+Since the unit sphere in R^m is compact, there exists a finite subcover:
+
+U_n1, U_n2, ..., U_nr
+
+Consequently:
+
+intersection(j=1 to r) ker(A_nj) = {0}
+
+Therefore H_J is injective.
+
+Q.E.D.
+
+IMPORTANT:
+
+The theorem establishes the existence of a finite identifying subfamily.
+
+It does not establish that the first r observations are always sufficient.
+
+The required finite indices may be distributed throughout the complete history.
+
+==================================================
+7. COUNTEREXAMPLE TO INDIVIDUAL IDENTIFIABILITY
+==================================================
+
+Let:
+
+X = R²
+
+Define:
+
+A_1(u,v) = (u,0)
+
+A_2(u,v) = (0,v)
+
+Neither A_1 nor A_2 is injective on R².
+
+However:
+
+H_2(u,v) = ((u,0),(0,v))
+
+If:
+
+H_2(u1,v1) = H_2(u2,v2)
+
+then:
+
+u1 = u2
+
+and:
+
+v1 = v2
+
+Therefore H_2 is injective.
+
+For the history metric:
+
+d_H(H_2(x1),H_2(x2)) =
+max(|u1-u2|,|v1-v2|)
+
+We obtain:
+
+1/sqrt(2)*d_X(x1,x2)
+<=
+d_H(H_2(x1),H_2(x2))
+<=
+d_X(x1,x2)
+
+Thus:
+
+gamma_H = 1/sqrt(2)
+
+M = 1
+
+The complete observation history is bi-Lipschitz, although neither individual observation identifies the complete state.
+
+==================================================
+8. DIFFERENCE BETWEEN HISTORY AND LIMIT
+==================================================
+
+Consider the sequence:
+
+A_1(u,v) = (u,0)
+
+A_2(u,v) = (0,v)
+
+A_3(u,v) = (u/2,0)
+
+A_4(u,v) = (0,v/2)
+
+A_5(u,v) = (u/3,0)
+
+A_6(u,v) = (0,v/3)
+
+and, generally:
+
+A_(2k-1)(u,v) = (u/k,0)
+
+A_(2k)(u,v) = (0,v/k)
+
+for k >= 1.
+
+Every individual observation is non-injective.
+
+The complete history is injective because its first two observations jointly identify both coordinates.
+
+The history metric satisfies:
+
+d_H(H(x1),H(x2)) =
+max(|u1-u2|,|v1-v2|)
+
+Therefore:
+
+1/sqrt(2)*d_X(x1,x2)
+<=
+d_H(H(x1),H(x2))
+<=
+d_X(x1,x2)
+
+However:
+
+lim(k→∞) A_(2k-1)(u,v) = (0,0)
+
+lim(k→∞) A_(2k)(u,v) = (0,0)
+
+The limiting observations do not identify the state.
+
+RESULT:
+
+The complete history can remain injective and stably invertible while every asymptotic channel vanishes.
+
+The limiting observation and the complete history are mathematically distinct objects.
+
+==================================================
+9. RELATION TO THEOREM 91.6B
+==================================================
+
+THEOREM 91.6B establishes a concrete model in which:
+
+- Every finite combined observation F_n is injective.
+- The limiting observation is non-injective.
+- The complete history remains injective.
+- The complete history is bi-Lipschitz under its selected metric.
+
+THEOREM 91.6C generalizes the historical part of that result.
+
+It establishes that, for a uniformly bounded family of linear observations on a finite-dimensional state space:
+
+1. The complete history is injective exactly when the common kernel is trivial.
+2. This injectivity is equivalent to a strictly positive history gain.
+3. A positive history gain gives bi-Lipschitz stability.
+4. An injective complete history always contains a finite identifying subfamily.
+
+The result does not require an individual observation operator to be injective.
+
+==================================================
+10. LIMITATIONS
+==================================================
+
+The theorem does not establish:
+
+1. The same result for arbitrary nonlinear observation operators.
+2. The same result in arbitrary infinite-dimensional spaces.
+3. Stability under every possible history metric.
+4. Robust recovery under arbitrary noise models.
+5. Universal preservation of Shannon information.
+6. Physical realizability of the observation operators.
+7. Universal applicability to all OMEGA-ISOP models.
+
+Uniform boundedness is essential to the stated continuity and stability argument.
+
+Finite dimensionality is essential to the compactness argument used to establish a positive history gain from injectivity.
+
+The history metric is defined using a supremum over observations. Other history metrics may produce different stability properties.
+
+==================================================
+11. SCIENTIFIC STATUS
+==================================================
+
+PROVEN UNDER STATED ASSUMPTIONS:
+
+- Common-kernel criterion for history injectivity.
+- Equivalence between history injectivity and positive history gain.
+- Bi-Lipschitz stability of an injective bounded linear history in finite dimensions.
+- Existence of a finite identifying subfamily.
+- A model in which individually non-injective observations jointly provide stable identification.
+- Separation between the complete history and its asymptotic limit.
+
+NOT ESTABLISHED:
+
+- Universal nonlinear extension.
+- Infinite-dimensional extension without additional assumptions.
+- Universal noise robustness.
+- Shannon information preservation.
+- Universal physical applicability.
+
+==================================================
+12. ARCHITECTURAL CONTROL
+==================================================
+
+THEOREM 91.6C:
+RESEARCH DEVELOPMENT / VERSION 0.1
+
+THEOREM 91.6A: NOT MODIFIED
+THEOREM 91.6B: NOT MODIFIED
+THEOREM 91.6D: NOT USED AS A SOURCE OR FOUNDATION
+
+THEOREM 91.3: UNCHANGED
+THEOREM 91.4: UNCHANGED
+
+RL-019: UNCHANGED
+RL-019.1: UNCHANGED
+RL-020: UNCHANGED
+RL-021: UNCHANGED
+RL-021.1: UNCHANGED
+
+FROZEN CORE: UNCHANGED
+CANONICAL MASTER DOCUMENTS: UNCHANGED
+VOLUME II: UNCHANGED
+VOLUME III: UNCHANGED
+VOLUME V: UNCHANGED
+BOOT-HANDOFF.txt: UNCHANGED
+
+RL REGISTRATION: NOT PERFORMED
+NEW RL RECORD: NOT CREATED
+GITHUB COMMIT: NOT PERFORMED
+CANONICAL ACCEPTANCE: NOT PERFORMED
+ARCHITECTURAL MODIFICATION: NOT AUTHORIZED
+
+COMPATIBILITY WITH THEOREM 91.6A:
+PENDING SOURCE VERIFICATION
+
+END OF THEOREM 91.6C v0.1
+
+ARCHIVE NOTE:
+This file preserves the research-development draft produced in this conversation.
+It is not canonically accepted or frozen.
+
+
+==================================================
+BEGIN THEOREM 91.6D
+==================================================
+
+OMEGA-ISOP
+
+THEOREM 91.6D
+
+GENERAL IDENTIFIABILITY AND STABILITY CRITERION
+
+VERSION: 0.1
+DATE: 2026-11-25
+STATUS: RESEARCH DEVELOPMENT / MATHEMATICAL RESULT UNDER STATED METRIC ASSUMPTIONS
+CANONICAL STATUS: NOT FROZEN
+ARCHITECTURAL STATUS: NO FROZEN CORE MODIFICATION
+
+==================================================
+1. PURPOSE
+==================================================
+
+This theorem gives a general metric-space criterion for identifying a target quantity from observations.
+
+The central distinction is between:
+1. Identifiability of the full parameter.
+2. Identifiability of a target quantity derived from that parameter.
+3. Exact identifiability.
+4. Lipschitz-stable identifiability.
+
+The theorem does not require the observation map to identify the full parameter. It requires only that parameters producing the same observation also produce the same target value.
+
+==================================================
+2. MATHEMATICAL FRAMEWORK
+==================================================
+
+Let:
+
+Theta
+
+be a nonempty admissible parameter set.
+
+Let (Y,d_Y) be a metric observation space and let:
+
+F : Theta -> Y
+
+be the observation map.
+
+Let (Q,d_Q) be a metric target space and let:
+
+q : Theta -> Q
+
+be the target quantity.
+
+No linearity or vector-space structure is assumed.
+
+==================================================
+3. EXACT IDENTIFIABILITY
+==================================================
+
+DEFINITION 91.6D-1:
+
+The target q is exactly identifiable from F if:
+
+F(theta1) = F(theta2)
+=>
+q(theta1) = q(theta2)
+
+for all theta1,theta2 in Theta.
+
+This condition says that q is constant on every fiber of F.
+
+THEOREM 91.6D-1:
+
+The target q is exactly identifiable from F if and only if there exists a unique function:
+
+g : F(Theta) -> Q
+
+such that:
+
+q = g o F
+
+PROOF:
+
+Suppose q is exactly identifiable.
+
+For every y in F(Theta), choose any theta with F(theta)=y and define:
+
+g(y) = q(theta)
+
+This is well-defined because if theta1 and theta2 both map to y, exact identifiability gives q(theta1)=q(theta2).
+
+Therefore:
+
+g(F(theta)) = q(theta)
+
+for every theta in Theta.
+
+Hence:
+
+q = g o F.
+
+Uniqueness follows because every y in F(Theta) has at least one preimage theta, and g(y) must equal q(theta).
+
+Conversely, suppose q=g o F for some function g.
+
+If:
+
+F(theta1)=F(theta2)
+
+then:
+
+q(theta1)=g(F(theta1))=g(F(theta2))=q(theta2).
+
+Thus q is exactly identifiable.
+
+Q.E.D.
+
+==================================================
+4. LIPSCHITZ-STABLE IDENTIFIABILITY
+==================================================
+
+DEFINITION 91.6D-2:
+
+The target q is Lipschitz-stably identifiable from F if there exists a finite constant K >= 0 such that:
+
+d_Q(q(theta1),q(theta2))
+<=
+K*d_Y(F(theta1),F(theta2))
+
+for all theta1,theta2 in Theta.
+
+THEOREM 91.6D-2:
+
+The target q is Lipschitz-stably identifiable from F if and only if the induced function:
+
+g : F(Theta) -> Q
+
+from THEOREM 91.6D-1 exists and is Lipschitz continuous.
+
+PROOF:
+
+If the stated inequality holds, exact identifiability follows immediately: when the observation distance is zero, the target distance is zero. Thus g exists by THEOREM 91.6D-1.
+
+For y1=F(theta1) and y2=F(theta2), define g(y)=q(theta) on the image. Then:
+
+d_Q(g(y1),g(y2))
+<=
+K*d_Y(y1,y2)
+
+so g is Lipschitz.
+
+Conversely, if g is Lipschitz with constant K and q=g o F, then:
+
+d_Q(q(theta1),q(theta2))
+=
+d_Q(g(F(theta1)),g(F(theta2)))
+<=
+K*d_Y(F(theta1),F(theta2)).
+
+Therefore q is Lipschitz-stably identifiable.
+
+Q.E.D.
+
+==================================================
+5. NON-IMPLICATIONS
+==================================================
+
+EXACT IDENTIFIABILITY DOES NOT IMPLY LIPSCHITZ STABILITY.
+
+Example:
+
+Theta = R
+Y = R
+Q = R
+
+F(x) = x^3
+q(x) = x
+
+F is injective, so q is exactly identifiable from F.
+
+However, the induced function is:
+
+g(y) = cube_root(y)
+
+This function is not globally Lipschitz on R. Indeed, for y>0:
+
+|g(y)-g(0)|/|y-0| = y^(-2/3)
+
+which is unbounded as y tends to zero.
+
+Therefore exact identifiability does not imply global Lipschitz-stable identifiability.
+
+CONTINUITY DOES NOT IMPLY LIPSCHITZ CONTINUITY.
+
+The same function g(y)=cube_root(y) is continuous everywhere but not globally Lipschitz.
+
+IDENTIFIABILITY DOES NOT PROVE PHYSICAL REALIZABILITY.
+
+The factorization q=g o F is a mathematical statement about maps and metric spaces. It does not establish that F is physically realizable, measurable in an experiment, or compatible with any specific physical theory.
+
+==================================================
+6. INTERPRETATION AND SCOPE
+==================================================
+
+The theorem separates two questions:
+
+A. Does the observation determine the target exactly?
+
+B. Does a small change in the observation guarantee a proportionally small change in the recovered target?
+
+The first is a fiber-constancy condition. The second is a quantitative regularity condition on the induced map over the observation image.
+
+The target q may be identifiable even when the full parameter theta is not identifiable.
+
+==================================================
+7. LIMITATIONS
+==================================================
+
+This theorem does not establish:
+
+1. Injectivity of F on the full parameter space.
+2. Existence of a Lipschitz constant without the stated inequality.
+3. Stability under every possible metric or topology.
+4. Statistical identifiability under a probabilistic observation model.
+5. Physical realizability or empirical validity.
+6. A universal connection to Shannon information.
+7. Automatic applicability to every OMEGA-ISOP construction.
+
+The Lipschitz condition is global on the stated domain. Local stability requires a separately stated local version.
+
+==================================================
+8. LOOP AND LOGICAL AUDIT
+==================================================
+
+TARGET:
+
+Exact identifiability of q is equivalent to existence of a unique factor map g on F(Theta), with q=g o F.
+
+DEPENDENCY:
+
+Definitions of F(Theta), fibers of F, exact identifiability, and function composition.
+
+CONCLUSION-SMUGGLING CHECK:
+
+The factor map is constructed from the target values on observation fibers. Its well-definedness is proved using the exact-identifiability condition. The factorization is not assumed in advance.
+
+COUNTERMODEL TEST:
+
+If exact identifiability fails, there are theta1,theta2 with equal observations but unequal target values. No single-valued g on F(Theta) can assign both target values to the same observation. Thus the equivalence is exact.
+
+AUDIT CLASSIFICATION:
+
+NON-CIRCULAR DERIVATION WITHIN THE STATED SET-THEORETIC AND METRIC FRAMEWORK.
+
+==================================================
+9. SCIENTIFIC STATUS
+==================================================
+
+PROVED UNDER STATED ASSUMPTIONS:
+
+- Exact identifiability is equivalent to factorization through the observation image.
+- The induced factor map is unique.
+- Lipschitz-stable identifiability is equivalent to Lipschitz continuity of the induced factor map.
+- Exact identifiability does not imply global Lipschitz stability.
+
+NOT ESTABLISHED:
+
+- Physical realization.
+- Statistical identifiability.
+- Universal stability.
+- Empirical validation.
+- Universal applicability to all OMEGA-ISOP models.
+
+==================================================
+10. ARCHITECTURAL CONTROL
+==================================================
+
+THEOREM 91.6D:
+RESEARCH DEVELOPMENT / VERSION 0.1
+
+THEOREM 91.6A: NOT USED AS A SOURCE
+THEOREM 91.6B: NOT USED AS A SOURCE
+THEOREM 91.6C: NOT USED AS A SOURCE
+
+FROZEN CORE: UNCHANGED
+CANONICAL MASTER DOCUMENTS: UNCHANGED
+RL REGISTRATION: NOT PERFORMED
+CANONICAL ACCEPTANCE: NOT PERFORMED
+ARCHITECTURAL MODIFICATION: NOT AUTHORIZED
+
+END OF THEOREM 91.6D
+
+
+==================================================
+END OF THEOREM 91.6 A-D COLLECTION
+==================================================
