@@ -1,0 +1,148 @@
+OMEGA-ISOP
+INSTRUCTIONS FOR INDEPENDENT CLAUDE RE-AUDIT
+
+DOCUMENT_ID: OI-CLAUDE-RE-AUDIT-91.6A-D-2026-11-25
+VERSION: 0.1
+DATE: 2026-11-25
+MODE: READ-ONLY INDEPENDENT AUDIT
+TARGET_BRANCH: audit/91.6A-D-corrected-v1-2026-11-25
+BASELINE_COMMIT: 7385ec76f9c1a232308cd942c487b353524c3a24
+
+==================================================
+1. PURPOSE
+==================================================
+
+Conduct a fresh independent audit of the corrected THEOREM 91.6A-D research drafts. Two prior audits (Claude and Perplexity) identified overlapping issues. The new drafts incorporate those findings. Do not assume that the corrections are valid merely because they were suggested by either prior audit.
+
+This is a read-only review. Do not edit files, create commits, change branches, update registries, or modify any canonical source.
+
+==================================================
+2. FILES TO AUDIT
+==================================================
+
+1. RESEARCH/DEVELOPMENT/THEOREM-91.6A-v0.2-CORRECTED-AUDIT-REVIEW.txt
+2. RESEARCH/DEVELOPMENT/THEOREM-91.6B-v0.3-CORRECTED-AUDIT-REVIEW.txt
+3. RESEARCH/DEVELOPMENT/THEOREM-91.6C-v0.2-CORRECTED-AUDIT-REVIEW.txt
+4. RESEARCH/DEVELOPMENT/THEOREM-91.6D-v0.3-CORRECTED-AUDIT-REVIEW.txt
+5. RESEARCH/DEVELOPMENT/THEOREM-91.6-A-D-CORRECTED-SERIES-REVIEW-MAP-v1.0.txt
+
+Read the complete contents of all five files. Compare each against its predecessor, but audit the new claims from first principles.
+
+Predecessors:
+- THEOREM-91.6A-v0.1-NEW-CONSTRUCTION.txt
+- THEOREM-91.6B-v0.2-AUDIT.txt
+- THEOREM-91.6C-v0.1.txt
+- THEOREM-91.6D-v0.1.txt (internal theorem version 0.2)
+
+==================================================
+3. MANDATORY AUDIT TASKS
+==================================================
+
+A:
+A1. Re-prove common-kernel iff injectivity iff full column rank.
+A2. Re-prove injectivity iff positive minimum gain under finite-dimensional Euclidean assumptions.
+A3. Verify both Lipschitz inequalities and the inverse bound.
+A4. Verify the exact noise-ball geometry.
+A5. Verify the compatible-state diameter bound ||x1-x2||<=2*epsilon/gamma_A.
+A6. Check whether any wording incorrectly claims unique recovery under nonzero bounded noise.
+A7. Check the infinite-dimensional l2 counterexample.
+
+B:
+B1. Verify singular values, Lip(F_n), exact inverse, inverse Lipschitz constant and condition number.
+B2. Confirm the corrected distinction: fixed-n bi-Lipschitz stability versus lack of a uniform-in-n inverse bound.
+B3. Verify the pointwise limit and its non-injectivity.
+B4. Verify the bounded-noise separation condition and whether it is described as sufficient or necessary.
+B5. Verify the complete-history metric constants 1/4 and 1/2.
+B6. Check the statement that F_1 is already injective and whether the history conclusion is correctly qualified as non-essential for identifiability.
+B7. Check the general positive-coordinate criterion and the surviving-coordinate limit criterion.
+B8. Check that "operational contraction" is not silently equated with THEOREM 91.
+
+C:
+C1. Verify the common-kernel criterion.
+C2. Verify the Lipschitz continuity of phi under uniform boundedness.
+C3. Verify injectivity iff gamma_H>0 under the finite-dimensional assumptions.
+C4. Verify the bi-Lipschitz inequalities.
+C5. Independently verify the dimension-descent finite-witness proof, including the claim that at most m indices suffice.
+C6. Verify the alternating-coordinate full-history metric.
+C7. Verify the late-tail metric and gamma_(H,K)=1/(sqrt(2)*K).
+C8. Check precisely which conclusions require uniform boundedness, finite dimensionality, compactness, or neither.
+C9. Check whether any statement incorrectly says that the first m observations suffice.
+
+D:
+D1. Verify the unique factorization iff fiber-constant exact-identifiability result.
+D2. Verify global Lipschitz stability iff the induced factor map is globally Lipschitz.
+D3. Verify that x^3/cuberoot is not globally or locally Lipschitz at zero.
+D4. Verify the local Lipschitz definition and the exp/log example.
+D5. Check that the topology/neighborhood language is mathematically adequate.
+D6. Check the q=id_Theta special case and its metric requirements.
+
+SERIES:
+S1. Check notation and assumptions across A-D.
+S2. Identify any false implication between A, B, C and D.
+S3. Check that no theorem is claimed equivalent to another without proof.
+S4. Check all claims about "information", Shannon information, operational contraction, and physical interpretation.
+S5. Check whether A-D has any formal derivation from or to THEOREM 91. Report NONE unless an explicit derivation is present.
+
+==================================================
+4. THEOREM 91 / H3 SOURCE CONTROL
+==================================================
+
+The available Handoff v1.9 and the separate conditional non-expansion audit discuss a common probe transformation tau. The conditional inequality is valid if one common tau:L_op->L_op works for every compared model and the response identity holds on the shared domain.
+
+However, do NOT assume that the proposed quantifier expression is the exact original H3. The primary source text for THEOREM 91 was not established as part of this correction. The exact primary source must be located and read before any historical or canonical claim about H3 is made.
+
+Do not infer a formal relation between 91.6A-D and THEOREM 91 from shared vocabulary.
+
+Do not modify Handoff v1.9, THEOREM 91, 91.3, 91.4, the Frozen Core, or any canonical source.
+
+==================================================
+5. REQUIRED AUDIT METHOD
+==================================================
+
+For every nontrivial claim:
+1. State the exact proposition and quantifiers.
+2. List all definitions and assumptions.
+3. Re-derive the result independently.
+4. Test edge cases and boundary values.
+5. Attempt countermodels.
+6. Remove or weaken assumptions and report what fails.
+7. Separate theorem correctness from provenance and applicability.
+8. Identify any defect introduced by the corrected versions.
+9. Report whether the proof is complete, conditional, incomplete, circular, or refuted.
+
+Numerical verification is supplementary. It does not replace proof inspection. Show calculations where constants are checked.
+
+==================================================
+6. OUTPUT FORMAT
+==================================================
+
+Return a structured audit report with:
+
+A. EXECUTIVE VERDICT
+B. FILES AND EXACT VERSIONS REVIEWED
+C. FINDINGS BY THEOREM A, B, C, D
+D. CROSS-SERIES CONSISTENCY
+E. NEW DEFECTS INTRODUCED BY CORRECTIONS
+F. COUNTERMODELS AND PREMISE-REMOVAL RESULTS
+G. THEOREM 91 / H3 SOURCE LIMITATION
+H. PROVENANCE AND HISTORICAL STATUS
+I. PHYSICAL / EMPIRICAL NON-IMPLICATIONS
+J. SEVERITY CLASSIFICATION: CRITICAL / HIGH / MEDIUM / LOW
+K. REQUIRED CORRECTIONS, IF ANY
+L. FINAL STATUS: PASS / PASS WITH CONDITIONS / REVISE / REJECT
+
+Do not issue a global certification of OMEGA-ISOP. Do not describe the work as formal machine verification, peer review, or physical validation.
+
+==================================================
+7. READ-ONLY AND ARCHITECTURAL CONTROL
+==================================================
+
+READ_ONLY: TRUE
+NO_FILE_MODIFICATION: TRUE
+NO_COMMIT: TRUE
+NO_BRANCH_UPDATE: TRUE
+NO_RL_REGISTRATION: TRUE
+NO_CANONICAL_ACCEPTANCE: TRUE
+FROZEN_CORE: PROTECTED / UNCHANGED
+
+END OF INSTRUCTIONS
