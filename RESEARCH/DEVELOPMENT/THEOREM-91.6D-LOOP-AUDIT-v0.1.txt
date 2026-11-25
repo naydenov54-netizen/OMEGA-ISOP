@@ -1,0 +1,345 @@
+OMEGA-ISOP
+
+THEOREM 91.6D
+INDEPENDENT LOGICAL AND LOOP AUDIT
+
+DOCUMENT_ID: OI-THEOREM-91.6D-LOOP-AUDIT-2026-11-25
+VERSION: 0.1
+DATE: 2026-11-25
+TARGET_ARTIFACT: RESEARCH/DEVELOPMENT/THEOREM-91.6D-v0.1.txt
+TARGET_CONTENT_VERSION: 0.2
+STATUS: AUDIT PASSED WITHIN THE STATED SET-THEORETIC AND METRIC FRAMEWORK
+EVIDENCE_CLASS: ANALYTICAL PROOF REVIEW
+CANONICAL STATUS: NOT FROZEN
+ARCHITECTURAL STATUS: NO FROZEN CORE MODIFICATION
+PURPOSE: Complete the LOOP_AUDIT_PROTOCOL review of both principal results in THEOREM 91.6D v0.2 and verify the stated non-implications and scope.
+
+==================================================
+1. AUDIT SCOPE
+==================================================
+
+Reviewed claims:
+
+D-1. Exact identifiability of q from F is equivalent to existence of a unique map g:F(Theta)->Q satisfying q=g o F.
+
+D-2. Lipschitz-stable identifiability of q from F is equivalent to Lipschitz continuity of the unique induced map g on F(Theta), equipped with the subspace metric inherited from d_Y.
+
+Additional checks:
+
+- The special case q=id_Theta.
+- The non-implication from exact identifiability to global Lipschitz stability.
+- The non-implication from continuity of g to global Lipschitz continuity.
+- The stated limitations and non-implications.
+- Whether any conclusion is embedded in a definition or imported as an unproved compatibility condition.
+
+This audit does not modify THEOREM 91.6D, the Frozen Core, canonical documents, or any registry.
+
+==================================================
+2. FRAMEWORK CHECK
+==================================================
+
+Given:
+
+Theta: nonempty set.
+(Y,d_Y): metric observation space.
+F:Theta->Y.
+(Q,d_Q): metric target space.
+q:Theta->Q.
+
+The image F(Theta) is equipped with the subspace metric inherited from d_Y.
+
+Observation:
+
+The metric on Q is not needed for the set-theoretic factorization result D-1. It is required for the metric inequality and Lipschitz statement D-2. Keeping Q metric in the common framework is harmless and makes the two results compatible.
+
+No topology on Theta is required for D-1 or D-2, except in the explicitly identified special case q=id_Theta, where Theta must also be the target metric space.
+
+No completeness, compactness, linearity, finite dimensionality, or vector-space structure is required for D-1 or D-2.
+
+==================================================
+3. LOOP AUDIT: THEOREM 91.6D-1
+==================================================
+
+TARGET_C:
+
+There exists a unique function g:F(Theta)->Q such that q=g o F if and only if:
+
+F(theta1)=F(theta2) implies q(theta1)=q(theta2)
+
+for all theta1,theta2 in Theta.
+
+PREMISES_AND_DEFINITIONS:
+
+1. F is a function from Theta to Y.
+2. F(Theta) is the image of Theta under F.
+3. q is a function from Theta to Q.
+4. Equality of observations and equality of target values have their ordinary set-theoretic meanings.
+5. Function composition is defined on the stated domains.
+
+DEPENDENCY_CHAIN:
+
+The forward direction uses only q=g o F and equality substitution.
+
+The reverse direction defines g(y)=q(theta) for any theta satisfying F(theta)=y. The fiber-constancy condition guarantees that this value is independent of the selected preimage.
+
+Uniqueness follows because every y in F(Theta) has at least one preimage.
+
+POSSIBLE_EQUIVALENT_OR_EMBEDDED_TARGET:
+
+The factorization q=g o F is not assumed in the reverse direction. It is constructed after well-definedness is established.
+
+The condition that q be constant on each fiber of F is the exact criterion being tested. It is not hidden inside the definition of g.
+
+INDEPENDENT_JUSTIFICATION:
+
+The proof follows directly from the definitions of image, function, fiber, and composition. No additional compatibility axiom is imported.
+
+COUNTERMODEL_ATTEMPT_AND_RESULT:
+
+If fiber constancy fails, there exist theta1,theta2 such that:
+
+F(theta1)=F(theta2)
+q(theta1) != q(theta2)
+
+A single-valued function g would have to assign two different values to the same argument F(theta1). Therefore no such g can exist.
+
+If fiber constancy holds, the proposed definition of g assigns the same value for every preimage of each point in F(Theta). It is therefore well-defined.
+
+No countermodel satisfying the stated fiber-constancy condition while violating the factorization was found; the direct construction excludes such a countermodel.
+
+PREMISE_REMOVAL_TEST:
+
+- Removing fiber constancy invalidates well-definedness, as shown by the counterexample above.
+- Removing the metric structure on Q does not invalidate D-1. D-1 is a set-theoretic result.
+- Removing a metric on Y does not invalidate D-1.
+- No metric on Theta is needed unless q=id_Theta is selected as a special case.
+
+CLASSIFICATION:
+
+NON-CIRCULAR DERIVATION.
+
+RESULT:
+
+D-1 is valid under its stated definitions. The induced map g exists exactly when q is constant on every fiber of F, and it is unique on F(Theta).
+
+==================================================
+4. LOOP AUDIT: THEOREM 91.6D-2
+==================================================
+
+TARGET_C:
+
+The inequality
+
+d_Q(q(theta1),q(theta2))
+<= K*d_Y(F(theta1),F(theta2))
+
+for all theta1,theta2 in Theta and some finite K>=0
+
+holds if and only if the induced map g:F(Theta)->Q exists and is Lipschitz.
+
+PREMISES_AND_DEFINITIONS:
+
+1. The metric spaces (Y,d_Y) and (Q,d_Q).
+2. The maps F and q.
+3. The exact-identifiability criterion from D-1.
+4. The subspace metric on F(Theta), inherited from d_Y.
+5. The ordinary definition of a globally Lipschitz map.
+
+DEPENDENCY_CHAIN:
+
+Direction A:
+
+The inequality implies exact identifiability because d_Y(F(theta1),F(theta2))=0 forces d_Q(q(theta1),q(theta2))=0. Since d_Q is a metric, the target values are equal.
+
+D-1 therefore supplies the unique induced map g.
+
+For any y1,y2 in F(Theta), choose preimages theta1,theta2. Substitution into the original inequality gives:
+
+d_Q(g(y1),g(y2)) <= K*d_Y(y1,y2)
+
+Thus g is globally Lipschitz on F(Theta).
+
+Direction B:
+
+Assume the unique induced map g exists and is globally Lipschitz with constant K.
+
+Using q=g o F:
+
+d_Q(q(theta1),q(theta2))
+= d_Q(g(F(theta1)),g(F(theta2)))
+<= K*d_Y(F(theta1),F(theta2)).
+
+This is exactly the required inequality.
+
+POSSIBLE_EQUIVALENT_OR_EMBEDDED_TARGET:
+
+The Lipschitz inequality in the definition is not assumed as a property of g in advance. In Direction A, it is transferred to the image F(Theta) and thereby proves that g is Lipschitz.
+
+In Direction B, Lipschitz continuity of g is explicitly the premise. The result is a conditional equivalence, not a derivation that g must be Lipschitz from exact identifiability alone.
+
+INDEPENDENT_JUSTIFICATION:
+
+The proof uses D-1 only to establish the existence and uniqueness of g after exact identifiability has been obtained. The quantitative bound is independently carried through the metric inequality.
+
+No unproved physical, statistical, or architectural compatibility condition is used.
+
+COUNTERMODEL_ATTEMPT_AND_RESULT:
+
+Take:
+
+Theta=R
+Y=R
+Q=R
+F(x)=x^3
+q(x)=x
+
+F is injective, so exact identifiability holds.
+
+The induced map is:
+
+g(y)=cube_root(y)
+
+For y>0:
+
+|g(y)-g(0)|/|y-0| = y^(-2/3)
+
+This ratio is unbounded as y approaches zero from above. Therefore g is not globally Lipschitz, and no finite global K satisfies the stability inequality.
+
+This is a valid counterexample to the stronger claim that exact identifiability alone implies Lipschitz-stable identifiability. It does not contradict D-2, because D-2 requires the Lipschitz property as the equivalent quantitative condition.
+
+PREMISE_REMOVAL_TEST:
+
+- Without metric structure on Y and Q, the Lipschitz statement is not defined.
+- Without exact identifiability, a single-valued induced map g may not exist.
+- Removing the global Lipschitz bound leaves only exact identifiability; it does not provide a finite global stability constant.
+- No completeness or compactness assumption is needed for this equivalence.
+- Replacing global Lipschitz continuity by local Lipschitz continuity would yield a different, local stability statement and must be formulated separately.
+
+CLASSIFICATION:
+
+NON-CIRCULAR DERIVATION.
+
+RESULT:
+
+D-2 is valid as a global metric-space equivalence under the stated assumptions.
+
+==================================================
+5. NON-IMPLICATION AUDIT
+==================================================
+
+CLAIM A:
+
+Exact identifiability does not imply global Lipschitz-stable identifiability.
+
+STATUS: VERIFIED.
+
+The example F(x)=x^3 and q(x)=x establishes exact identifiability while the induced cube-root map is not globally Lipschitz.
+
+CLAIM B:
+
+Continuity of the induced map g does not imply global Lipschitz continuity.
+
+STATUS: VERIFIED.
+
+The same induced map g(y)=cube_root(y) is continuous on R but not globally Lipschitz.
+
+PRECISION:
+
+Continuity is understood on F(Theta) with the subspace topology inherited from Y. The counterexample uses F(Theta)=R, so the continuity statement is unambiguous.
+
+CLAIM C:
+
+Identifiability of q does not imply identifiability of the full parameter theta.
+
+STATUS: VERIFIED BY THE GENERAL CRITERION.
+
+The factor map g can exist when multiple parameters lie in the same fiber of F, provided q has the same value on those parameters. Therefore q may be identifiable even when F is not injective.
+
+==================================================
+6. SPECIAL CASE q = id_Theta
+==================================================
+
+The special case is valid only when:
+
+Q=Theta
+
+and Theta is equipped with a metric d_Theta, with d_Q=d_Theta.
+
+Then exact identifiability of q=id_Theta means:
+
+F(theta1)=F(theta2) implies theta1=theta2.
+
+This is exactly injectivity of F.
+
+The metric qualification is necessary for the corresponding Lipschitz-stability statement. It is not needed for the bare set-theoretic statement that injectivity is equivalent to exact identification of the identity target.
+
+STATUS: VERIFIED.
+
+==================================================
+7. NON-IMPLICATIONS AND SCOPE
+==================================================
+
+D-1 and D-2 do not establish:
+
+1. Physical realizability of F or q.
+2. Statistical identifiability under a probabilistic observation model.
+3. Measurability or experimental accessibility of F.
+4. Global Lipschitz stability from exact identifiability alone.
+5. Local stability unless a local condition is separately stated.
+6. A result independent of the chosen metrics.
+7. Universal applicability to every OMEGA-ISOP construction.
+8. Shannon-information preservation or loss.
+9. A causal, dynamical, or cosmological law.
+
+The results are abstract mathematical criteria for maps between sets and metric spaces.
+
+==================================================
+8. FINAL LOOP CLASSIFICATION
+==================================================
+
+D-1: NON-CIRCULAR DERIVATION.
+D-2: NON-CIRCULAR DERIVATION.
+CONTINUITY-NOT-LIPSCHITZ EXAMPLE: VALID COUNTEREXAMPLE.
+EXACT-IDENTIFIABILITY-NOT-LIPSCHITZ EXAMPLE: VALID COUNTEREXAMPLE.
+SPECIAL CASE q=id_Theta: VALID WITH THE EXPLICIT METRIC REQUIREMENT.
+
+OVERALL CLASSIFICATION:
+
+NON-CIRCULAR DERIVATIONS WITHIN THE STATED SET-THEORETIC AND METRIC FRAMEWORK.
+
+AUDIT LIMIT:
+
+This is an independent logical and mathematical review of the written arguments. It is not formal machine verification, peer review, empirical validation, canonical acceptance, or proof of physical applicability.
+
+==================================================
+9. RECOMMENDATION
+==================================================
+
+No mathematical correction to the statements or proofs of THEOREM 91.6D v0.2 is required by this audit.
+
+The existing LOOP section is narrower than the complete theorem because it explicitly audits D-1 but does not separately record the dependency and countermodel audit for D-2.
+
+Recommended document-control action:
+
+Preserve THEOREM 91.6D v0.2 unchanged.
+Archive this independent audit as a separate derivative research artifact.
+If a future revision of THEOREM 91.6D is made, incorporate a concise D-2 audit record into the theorem itself and issue a new version. Do not silently alter v0.2.
+
+==================================================
+10. ARCHITECTURAL CONTROL
+==================================================
+
+THEOREM 91.6D v0.2: UNCHANGED.
+THEOREM 91.6A: UNCHANGED.
+THEOREM 91.6B: UNCHANGED.
+THEOREM 91.6C: UNCHANGED.
+
+FROZEN CORE: UNCHANGED.
+CANONICAL MASTER DOCUMENTS: UNCHANGED.
+RL REGISTRATION: NOT PERFORMED.
+NEW RL RECORD: NOT CREATED.
+CANONICAL ACCEPTANCE: NOT PERFORMED.
+VOLUME V INTEGRATION: NOT PERFORMED.
+ARCHITECTURAL MODIFICATION: NOT AUTHORIZED.
+
+END OF AUDIT
