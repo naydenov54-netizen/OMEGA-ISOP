@@ -137,7 +137,7 @@ RESEARCH/DEVELOPMENT/THEOREM-91.6A-v0.3-N5-CORRECTED.txt
 CHECKPOINT_FILE:
 checkpoints/OI-THEOREM-91.6A-N5-CLOSURE-2026-11-25-v1.0.txt
 
-Both files must be fetched after commit and compared with the intended contents before archival completion is claimed.
+Both files were fetched after commit. Their paths, version identifiers, line counts, end markers, N5/sharpness content, and architectural-status markers were verified by readback.
 
 ==================================================
 6. ARCHITECTURAL STATUS
@@ -147,7 +147,7 @@ RESEARCH_STAGE:
 COMPLETED FOR THE N5 CORRECTION AND THE STATED MATHEMATICAL SCOPE.
 
 GITHUB_ARCHIVAL:
-TO BE CONFIRMED BY POST-COMMIT READBACK.
+SUCCESSFULLY SAVED AND READBACK-VERIFIED.
 
 CANONICAL_ACCEPTANCE:
 NOT PERFORMED.
@@ -177,7 +177,7 @@ UNCHANGED.
 7. CLOSURE DECISION
 ==================================================
 
-N5 IS CLOSED AS A RESEARCH-DEVELOPMENT CORRECTION, conditional on successful GitHub commit and exact readback of both files.
+N5 IS CLOSED AS A RESEARCH-DEVELOPMENT CORRECTION. Both GitHub files were successfully committed and readback-verified.
 
 This closure applies only to the N5 bounded-noise recovery-uncertainty correction and its sharpness proof. It does not close unrelated dependencies in the 91.6A-D series, establish compatibility with unavailable primary-source records, or authorize canonical promotion.
 
