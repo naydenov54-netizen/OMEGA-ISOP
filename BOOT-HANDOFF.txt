@@ -141,5 +141,38 @@ Complete the remaining branch-ref cleanup through GitHub repository settings or 
 - no checkpoint files in the active tree;
 - all prior commits remain reachable from main history.
 
+==================================================
+8. REUSABLE TEMPORARY RESEARCH WORKSPACE — RLLAB
+==================================================
+
+A reusable temporary research area is maintained on a dedicated non-main working branch under:
+
+TEMP-RESEARCH/RLlab/
+
+WORKFLOW:
+RLlab -> RL -> possible CE -> possible Volume V inclusion.
+
+RLlab is the temporary workspace for the active investigation. It may contain working hypotheses, drafts, calculations, proof audits, counterexamples, and intermediate research material.
+
+PROMOTION AND CONTROL:
+1. Work-in-progress material remains in RLlab until reviewed.
+2. A result may move to the active Research Log (RL) only through a separate research-registration decision.
+3. CE inclusion is a separate, optional decision after the applicable review.
+4. Volume V inclusion is a separate, optional decision under its own document-control requirements.
+5. No material is promoted automatically. A commit, draft, calculation, or completed audit does not by itself constitute scientific validation or RL registration.
+
+REUSE AND HISTORY:
+1. When an investigation is closed, clear the current contents of TEMP-RESEARCH/RLlab/ and prepare that directory for the next investigation.
+2. Clearing the current directory contents means removing the working files from the branch's current tree. It does NOT mean deleting commits, rewriting history, or erasing prior investigation records from Git history.
+3. Git commits remain available as the historical record of changes. Preserve that history.
+4. Use the reusable RLlab area for subsequent investigations rather than creating a permanent project-master location there.
+
+BOUNDARIES:
+- RLlab is not the canonical project tree and is not the active Research Log.
+- Keep RLlab on a dedicated non-main working branch. Do not place its contents on main.
+- The active main-branch tree must continue to contain only BOOT-HANDOFF.txt.
+- Do not modify Frozen Core, canonical masters, controlled Volume documents, or the active RL without separate authorization.
+- Treat RLlab -> RL -> possible CE -> possible Volume V as distinct stages with explicit review and decisions at each transition.
+
 END OF BOOT-HANDOFF
 VERSION 1.1
