@@ -1,0 +1,224 @@
+OMEGA-ISOP
+PRIOR RESEARCH COMPLETION AND WORKSTREAM SEQUENCING PLAN
+
+DOCUMENT_ID: OI-PRIOR-RESEARCH-COMPLETION-PLAN
+VERSION: 0.1
+DATE: 2026-11-25
+STATUS: ACTIVE OPERATIONAL RESEARCH PLAN / NOT A SCIENTIFIC RESULT
+GOVERNING_HANDOFF: OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF-v1.9.txt
+
+==================================================
+1. PURPOSE
+==================================================
+
+This plan records the user's explicit priority:
+
+Complete and disposition the existing OMEGA-ISOP research lines before beginning substantive development of the relational-emergence hypothesis.
+
+The relational-emergence workstream is preserved but placed on HOLD. It must not displace, overwrite, reinterpret, or cause abandonment of Theorem 91, Theorem 91.6A-D, earlier RL investigations, the cosmology research, or the mathematical-to-physical foundation program.
+
+This is a sequencing and recovery-control document. It does not establish a theorem or strengthen any scientific evidence class.
+
+==================================================
+2. VERIFIED CURRENT GOVERNANCE STATE
+==================================================
+
+Current governing handoff:
+OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF-v1.9.txt
+
+Verified SHA:
+b483e4cce884c8f4a8de9376c6a5c9b511f8553a
+
+The old unversioned Handoff v1.8 file was deleted at the user's explicit request. Its deletion does not delete or invalidate research artifacts created while v1.8 was the governing handoff.
+
+Historical checkpoint:
+checkpoints/OI-THEOREM-91-CHECKPOINT-2026-11-25-02-v0.2.txt
+
+This checkpoint records the historical fact that the Theorem 91 audit was based on Handoff v1.8. That provenance statement must not be silently rewritten. For current work, v1.9 is the governing handoff. The checkpoint's reference to v1.8 is historical provenance, not a claim that v1.8 remains active.
+
+Frozen Core and protected canonical sources remain unchanged.
+
+==================================================
+3. THEOREM 91.6A-D: CURRENT DISPOSITION
+==================================================
+
+Verified research artifacts:
+- RESEARCH/DEVELOPMENT/THEOREM-91.6-A-D-COLLECTION-v1.0.txt (collection header identifies collection version 1.1).
+- RESEARCH/DEVELOPMENT/THEOREM-91.6-A-D-SERIES-CONSISTENCY-AUDIT-v0.1.txt
+- RESEARCH/DEVELOPMENT/THEOREM-91.6D-LOOP-AUDIT-v0.1.txt
+- checkpoints/OI-91.6A-D-CHECKPOINT-2026-11-25-01.txt
+
+Current evidence and scope:
+- 91.6A: finite-dimensional linear identifiability result under stated assumptions; explicitly a NEW CONSTRUCTION, not a recovered historical original.
+- 91.6B: differential multi-observable identifiability under its stated operational contraction and construction.
+- 91.6C: countable uniformly bounded linear observation histories, finite witness under stated finite-dimensional assumptions.
+- 91.6D v0.2: exact target identifiability and Lipschitz-stable identifiability criteria in the stated set-theoretic and metric framework. D-1 and D-2 independently passed the documented logical/LOOP audit.
+- The A-D cross-consistency audit found no internal contradiction in the archived texts. Their assumptions and scopes remain distinct.
+
+Disposition:
+INTERNAL MATHEMATICAL DEVELOPMENT AND DOCUMENTED AUDITS: COMPLETED WITHIN THE ARCHIVED SCOPE.
+CANONICAL ACCEPTANCE: NOT PERFORMED.
+RL REGISTRATION: NOT PERFORMED.
+FROZEN CORE INTEGRATION: NOT PERFORMED.
+FORMAL PROOF-ASSISTANT VERIFICATION, PEER REVIEW, EMPIRICAL VALIDATION: NOT PERFORMED.
+
+Required action:
+Do not repeat the completed A-D audits without new evidence, a defect, a counterexample, or a specific reproducibility requirement. Preserve the four results separately. Any future canonical or registry step is a separate decision and is not implied by the completed audits.
+
+==================================================
+4. THEOREM 91 AND RELATED 91.3 / 91.4 SOURCES
+==================================================
+
+Verified research artifact:
+RESEARCH/DEVELOPMENT/THEOREM-91-CONDITIONAL-NONEXPANSION-AUDIT-v0.1.txt
+
+Theorem 91 audit disposition:
+The operational non-expansion inequality follows conditionally when one common probe map tau:L_op->L_op is used uniformly for every model in the comparison class, with the same probe set, response space, norm, and comparison class retained.
+
+A finite countermodel shows that allowing tau to depend on the model can make the transformed distance increase from 1 to 101.
+
+H1 is not needed for the algebraic supremum inequality itself. H3 is the essential response-compatibility premise and has not been derived from the Frozen Core or general OMEGA-ISOP architecture.
+
+EVIDENCE STATUS:
+CONDITIONAL RESULT / ANALYTICAL AUDIT OF THE HANDOFF FORMULATION.
+
+SOURCE BLOCKER:
+The original primary source for Theorem 91 was not located. The audited statement was read from Handoff v1.8, Section 9. The audit is not a substitute for the original theorem source.
+
+The original primary sources for THEOREM 91.3 and THEOREM 91.4 were also not located in the repository or inspected Library sources during the documented search.
+
+Required actions:
+1. Preserve the existing conditional audit and countermodel.
+2. Do not alter a canonical theorem or claim that H3 is derived from the Frozen Core.
+3. For Theorem 91, 91.3, and 91.4, obtain or identify the exact primary source before making canonical comparisons or revisions.
+4. If primary sources are not available, mark source-dependent work BLOCKED, while continuing independent work that does not depend on them.
+5. When sources become available, compare exact definitions, quantifiers, assumptions, proof dependencies, versions, and provenance before proposing any change.
+
+==================================================
+5. EARLIER RL RESEARCH: PRESERVE EXISTING DISPOSITIONS
+==================================================
+
+Use Handoff v1.9 Section 7 as the controlling status summary.
+
+RL_021:
+CLOSED / ESTABLISHED within the stated question and assumptions. An internal relation alone does not identify dependence B -> X. Do not overgeneralize this result.
+
+RL_021_1:
+ESTABLISHED WITH EXPLICIT BOUNDARY CONDITIONS for the stated cases. The general characterization of H remains OPEN. The necessity of C_forward is refuted locally within the investigated construction.
+
+RL_027:
+Core domain-bounded identifiability results independently verified; overall research item remains under audit. TEST-I DRAFT-0.2 remains an audited working draft, not a frozen record. General framework, minimality, stability, computability, and external dependencies remain OPEN. A controlled copy labels RL-027 as registered, but independent authoritative registry confirmation is NOT established.
+
+Primary RL laboratory source files:
+Recorded as DESTROYED / NON-RECOVERABLE in the provenance disposition. Do not repeat searches for the same destroyed originals or ask the user to resubmit the same evidence. Reopen only on a specific new source, inconsistency, counterexample, reproducibility need, suspected defect, correction, or explicit request.
+
+Required action:
+Continue only the open, independently actionable RL-027 work. Keep mathematical status, source provenance, registry status, and canonical integration separate. Do not claim registry confirmation without authoritative readback.
+
+==================================================
+6. COSMOLOGY AND PHYSICALIZATION RESEARCH
+==================================================
+
+Cosmology research status recorded in Handoff v1.9 Section 10:
+
+OI-COSMO-IDENT-RL-PACKET-v2:
+CONDITIONAL ANALYTICAL CONSTRUCTION. Within smooth expanding flat-FLRW histories, two scale factors can agree through time T and differ in future event-horizon radii under the stated conditions. The effective-fluid reconstruction imports external Einstein-FLRW assumptions.
+
+OI-COSMO-EXPANSION-LAMBDA-001:
+Relational structure alone has not derived nonzero redshift, a cosmological constant Lambda, or unique cosmological dynamics. The OMEGA-specific realization and Phi remain insufficiently formalized. No OMEGA-specific observationally distinguishable cosmological prediction has yet been derived.
+
+Physicalization research sequence remains open:
+P1 choose a precise physical target.
+P2 specify the realization map and its domain.
+P3 derive dynamics rather than rename an existing equation.
+P4 define observables and measurement procedures.
+P5 derive a discriminating prediction.
+P6 attempt falsification.
+P7 consider a Core change only if independently justified and explicitly authorized.
+
+Required action:
+Preserve the existing conditional cosmological construction and its limitations. Continue formalization of the physicalization map Phi and choose a precise physical target before attempting any new physical derivation. Do not claim a derivation of cosmic expansion, dark energy, Lambda, or a unique cosmological model.
+
+==================================================
+7. SIX-STAGE MATHEMATICAL FOUNDATION PROGRAM
+==================================================
+
+Architecture:
+STAGE_1: DIFFERENCE
+STAGE_2: RELATION
+STAGE_3: CONSTRAINT
+STAGE_4: DYNAMICS
+STAGE_5: PERSISTENCE
+STAGE_6: ORGANIZATION
+
+The stages are a research architecture, not proven implications.
+
+Stage 1 remains a conditional candidate formalization with a closed audit scope; historical Task 01 was not recovered as an original source. Stages 2-6 remain open research.
+
+Required action:
+Review the exact outstanding Stage 1 boundary and the next independently actionable foundation-program task under Handoff v1.9. Do not treat the relational-emergence hypothesis as a completed Stage 2 result.
+
+==================================================
+8. ORDER OF WORK BEFORE RELATIONAL-EMERGENCE RESTART
+==================================================
+
+Priority A:
+Preserve all existing research files, audits, checkpoints, provenance, countermodels, and limitations. Do not delete or overwrite completed research.
+
+Priority B:
+Complete remaining independent mathematical clarification of Theorem 91, especially precise common-tau quantification and the roles of H1 and H4, without changing protected canonical sources.
+
+Priority C:
+Resolve the primary-source dependencies for Theorem 91, 91.3, and 91.4, or formally record them as blocked/non-recoverable if that is what authoritative evidence supports. Do not invent missing statements.
+
+Priority D:
+Continue the open RL-027 work only within its documented source and evidence limits. Respect the non-recoverable disposition of other RL primary sources.
+
+Priority E:
+Review and complete the outstanding cosmology and physicalization tasks, preserving the conditional status of existing results.
+
+Priority F:
+Review the Stage 1 boundary and identify the next justified task in the six-stage foundation program.
+
+Priority G:
+Create a consolidated completion checkpoint with a line-by-line disposition:
+COMPLETED / CONDITIONAL / OPEN / BLOCKED / CLOSED / NOT PERFORMED.
+The checkpoint must include exact sources, evidence classes, unresolved dependencies, and non-implications.
+
+Priority H:
+Only after the preceding work has been completed or explicitly dispositioned, and after the user instructs the transition, resume the relational-emergence workstream at RQ1.
+
+==================================================
+9. RELATIONAL-EMERGENCE WORKSTREAM STATUS
+==================================================
+
+The hypothesis that spatial geometry may emerge from a deeper non-spatial relational structure is preserved in:
+
+RESEARCH/DEVELOPMENT/OI-RELATIONAL-EMERGENCE-RESEARCH-DIRECTION-v0.1.txt
+
+Operational HOLD version:
+RESEARCH/DEVELOPMENT/OI-RELATIONAL-EMERGENCE-RESEARCH-DIRECTION-v0.2.txt
+
+The v0.1 file preserves the initial formulation. The v0.2 file places the workstream on HOLD pending prior research completion. No theorem, physical result, or Frozen Core implication is claimed.
+
+Restart requires:
+1. Prior research completion checkpoint.
+2. Explicit disposition of blocked primary-source dependencies.
+3. User instruction to begin the relational-emergence workstream.
+
+==================================================
+10. PROTECTED STATUS AND NON-IMPLICATIONS
+==================================================
+
+Frozen Core: UNCHANGED.
+Protected canonical documents: UNCHANGED.
+Theorem 91.6A-D canonical acceptance: NOT PERFORMED.
+Theorem 91 canonical amendment: NOT PERFORMED.
+RL registration or promotion: NOT PERFORMED by this plan.
+CE / CE-V promotion: NOT PERFORMED.
+Volume V integration: NOT PERFORMED.
+Relational-emergence hypothesis: NOT A THEOREM; ON HOLD.
+
+This plan does not certify the entire OMEGA-ISOP theory or imply that every earlier research item is complete.
+
+END OF DOCUMENT
