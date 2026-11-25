@@ -1,0 +1,269 @@
+OMEGA-ISOP
+
+THEOREM 91.6A
+FINITE MULTI-OBSERVATION IDENTIFIABILITY: COMMON KERNEL, RANK AND STABILITY
+
+VERSION: 0.2-CORRECTED-AUDIT-REVIEW
+DATE: 2026-11-25
+PREDECESSOR: THEOREM-91.6A-v0.1-NEW-CONSTRUCTION.txt
+STATUS: RESEARCH DEVELOPMENT / PROVED UNDER STATED ASSUMPTIONS
+PROVENANCE: NEW CONSTRUCTION; NOT A RECOVERED HISTORICAL ORIGINAL
+CANONICAL STATUS: NOT FROZEN
+FROZEN CORE: UNCHANGED
+
+==================================================
+1. PURPOSE AND SCOPE
+==================================================
+
+This version incorporates the convergent findings of the Claude and Perplexity audits. It preserves the original mathematical scope: finite-dimensional linear observations with Euclidean norms.
+
+The theorem establishes:
+1. Exact identifiability through a common-kernel and rank criterion.
+2. Equivalence between injectivity and positive minimum observation gain in finite dimensions.
+3. A Lipschitz bound for recovery on the observation image.
+4. Correctly separated statements for bounded-noise separation and recovery uncertainty.
+
+This remains a new research construction. No claim is made that it reproduces a lost historical THEOREM 91.6A.
+
+==================================================
+2. FRAMEWORK
+==================================================
+
+Let X = R^m with its Euclidean norm.
+Let r >= 1 be finite.
+For each i=1,...,r, let A_i:R^m->R^(p_i) be linear.
+
+Define the stacked observation map:
+
+A(x) = (A_1*x,...,A_r*x)
+
+The observation space is the product Euclidean space
+Y = R^(p_1+...+p_r).
+
+Let A_stacked be the matrix formed by vertically stacking the matrices A_i.
+
+Define the common kernel:
+
+K = intersection(i=1 to r) ker(A_i).
+
+Define:
+
+gamma_A = inf(||z||=1) ||A_stacked*z||
+
+M_A = ||A_stacked||.
+
+==================================================
+3. EXACT IDENTIFIABILITY
+==================================================
+
+THEOREM 91.6A-1:
+
+The following are equivalent:
+
+(1) A is injective.
+(2) K = {0}.
+(3) rank(A_stacked) = m.
+
+PROOF:
+
+If A is injective and z belongs to K, then A(z)=A(0), so z=0.
+
+If K={0} and A(x1)=A(x2), linearity gives
+A_i*(x1-x2)=0 for every i. Thus x1-x2 belongs to K, so x1=x2.
+
+The kernel of A_stacked is exactly K. By rank-nullity,
+rank(A_stacked)+dim(K)=m. Therefore K={0} iff rank(A_stacked)=m.
+
+Q.E.D.
+
+==================================================
+4. POSITIVE MINIMUM GAIN
+==================================================
+
+THEOREM 91.6A-2:
+
+For the stated finite-dimensional Euclidean setting:
+
+A is injective iff gamma_A>0.
+
+PROOF:
+
+If gamma_A>0, then
+||A_stacked*z|| >= gamma_A*||z||
+for every z. Equality of observations therefore forces the state difference to be zero.
+
+Conversely, if A is injective, its kernel is {0}. The continuous function
+z -> ||A_stacked*z||
+is strictly positive on the Euclidean unit sphere. The sphere is compact, so the function attains a strictly positive minimum.
+
+Q.E.D.
+
+The finite-dimensional compactness step is essential to this proof as written. The infinite-dimensional counterexample in Section 8 shows why injectivity alone does not generally imply a positive lower gain.
+
+==================================================
+5. LIPSCHITZ RECOVERY
+==================================================
+
+For all x1,x2 in R^m:
+
+gamma_A*||x1-x2||
+<= ||A(x1)-A(x2)||
+<= M_A*||x1-x2||.
+
+This follows directly from the definition of gamma_A and the operator norm.
+
+If A is injective, the inverse on the image,
+
+A^(-1):A(R^m)->R^m,
+
+is well-defined and satisfies:
+
+Lip(A^(-1)) <= 1/gamma_A.
+
+Thus, in this finite-dimensional linear setting, exact identifiability and global Lipschitz-stable recovery are equivalent. This equivalence is not asserted for arbitrary nonlinear maps or arbitrary infinite-dimensional spaces.
+
+==================================================
+6. BOUNDED NOISE: TWO DISTINCT CLAIMS
+==================================================
+
+Consider y=A(x)+eta with ||eta||<=epsilon.
+
+For a fixed candidate x, the compatible observation set is the closed epsilon-ball centered at A(x).
+
+SEPARATION CLAIM:
+
+For two fixed states x1,x2, their closed noise balls are disjoint iff:
+
+||A(x1)-A(x2)|| > 2*epsilon.
+
+If the center distance is <=2*epsilon, the balls intersect or touch. This means the two candidates cannot be guaranteed to be distinguished from every observation allowed by this bounded-noise model.
+
+SUFFICIENT STATE-SEPARATION CONDITION:
+
+Since
+||A(x1)-A(x2)|| >= gamma_A*||x1-x2||,
+
+the condition
+
+||x1-x2|| > 2*epsilon/gamma_A
+
+is sufficient for disjoint noise balls. It is not necessary for every pair.
+
+RECOVERY-UNCERTAINTY BOUND:
+
+If one observed y is compatible with both x1 and x2, then
+
+||A(x1)-A(x2)|| <= 2*epsilon.
+
+Consequently,
+
+||x1-x2|| <= 2*epsilon/gamma_A.
+
+This is a diameter bound on the set of states compatible with the same observation. It is not a guarantee of unique recovery. Unique recovery under nonzero bounded noise does not follow merely from injectivity of A.
+
+==================================================
+7. EXAMPLE
+==================================================
+
+Let X=R² and define:
+
+A_1(u,v)=(u,0)
+A_2(u,v)=(0,v).
+
+Neither component map is injective on R². The stacked map is:
+
+A(u,v)=(u,0,0,v).
+
+Its common kernel is {0}, and its two nonzero singular values are 1. Hence:
+
+gamma_A=1
+M_A=1.
+
+The combined map preserves Euclidean distances exactly.
+
+==================================================
+8. INFINITE-DIMENSIONAL COUNTEREXAMPLE
+==================================================
+
+On l² define:
+
+T(x1,x2,x3,...)=(x1,x2/2,x3/3,...).
+
+T is bounded and injective. For the standard unit vector e_n:
+
+||e_n||=1
+||T(e_n)||=1/n -> 0.
+
+Therefore no gamma>0 satisfies
+||T(x)||>=gamma*||x|| for all x.
+
+The inverse on the image is not bounded. Thus the finite-dimensional equivalence between injectivity and positive minimum gain does not extend automatically to infinite dimensions.
+
+==================================================
+9. RELATION TO B, C AND D
+==================================================
+
+A gives a finite-dimensional linear baseline.
+B is a concrete parameterized family illustrating finite-stage injectivity, asymptotic collapse, and non-uniform inverse stability.
+C studies countable linear observation histories under a specified supremum metric.
+D gives a general metric-space factorization criterion for identifying a target quantity.
+
+These are complementary mathematical results, not equivalent theorems. No formal derivation from A to B, C or D, or from any of A-D to THEOREM 91, is asserted here.
+
+==================================================
+10. NON-IMPLICATIONS AND LIMITATIONS
+==================================================
+
+This theorem does not establish:
+- results for arbitrary nonlinear observations;
+- positive minimum gain in arbitrary infinite-dimensional spaces;
+- unique recovery under nonzero noise;
+- statistical identifiability under a probability model;
+- Shannon information preservation or loss;
+- physical realizability, empirical validity, or a physical interpretation;
+- universal applicability to OMEGA-ISOP models.
+
+The proven content concerns mathematical distinguishability under the stated observation map and norms. The word "information" must not be used as a synonym for Shannon information in this theorem.
+
+==================================================
+11. LOOP AUDIT RECORD
+==================================================
+
+TARGET:
+Injectivity of the finite stacked linear map iff trivial common kernel iff full column rank; and, in finite dimensions, iff positive minimum gain.
+
+PREMISES:
+Finite-dimensional real vector space R^m; finite family of linear maps; stacked product Euclidean norm; rank-nullity; compactness of the unit sphere.
+
+DEPENDENCY:
+The common-kernel equivalence follows from linearity and definitions. The rank equivalence follows from rank-nullity. Positive gain follows from compactness and continuity, not from assuming the desired lower bound.
+
+COUNTERMODEL:
+The l² diagonal operator in Section 8 refutes an unrestricted infinite-dimensional extension.
+
+CLASSIFICATION:
+NON-CIRCULAR DERIVATION WITHIN THE STATED FINITE-DIMENSIONAL LINEAR SCOPE.
+
+NOISE AUDIT:
+Separation of two closed noise balls and the diameter bound for a common compatible observation are distinct statements. Neither is a claim of unique noisy recovery.
+
+==================================================
+12. VERSION AND ARCHITECTURAL CONTROL
+==================================================
+
+Changes from v0.1:
+1. Replaced the ambiguous noise discussion with separate ball-separation and compatible-state diameter statements.
+2. Explicitly stated that nonzero bounded noise does not yield unique recovery from injectivity alone.
+3. Clarified the finite-dimensional scope of injectivity iff positive minimum gain.
+4. Clarified that "information" here means distinguishability/identifiability, not Shannon information.
+5. Made the non-implications and relation to B-D explicit.
+
+THEOREM 91.6A v0.1: PRESERVED UNCHANGED.
+HISTORICAL ORIGINAL: NOT RECOVERED.
+FROZEN CORE: UNCHANGED.
+CANONICAL MASTER DOCUMENTS: UNCHANGED.
+RL REGISTRATION: NOT PERFORMED.
+CANONICAL ACCEPTANCE: NOT PERFORMED.
+PHYSICAL VALIDATION: NOT CLAIMED.
+
+END OF THEOREM 91.6A v0.2
