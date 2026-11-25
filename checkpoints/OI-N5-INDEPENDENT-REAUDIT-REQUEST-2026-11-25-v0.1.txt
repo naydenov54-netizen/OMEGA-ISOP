@@ -1,0 +1,86 @@
+OMEGA-ISOP
+READ-ONLY INDEPENDENT RE-AUDIT REQUEST
+THEOREM 91.6A / ISSUE N5
+
+DOCUMENT_ID: OI-N5-INDEPENDENT-REAUDIT-REQUEST-2026-11-25
+VERSION: 0.1
+DATE: 2026-11-25
+MODE: READ-ONLY INDEPENDENT MATHEMATICAL AUDIT
+TARGET_BRANCH: audit/91.6A-N5-correction-v1-2026-11-25
+
+TARGET FILE:
+RESEARCH/DEVELOPMENT/THEOREM-91.6A-v0.3-N5-CORRECTED.txt
+
+PREDECESSOR:
+RESEARCH/DEVELOPMENT/THEOREM-91.6A-v0.2-CORRECTED-AUDIT-REVIEW.txt
+
+ISSUE:
+N5: Section 6 previously omitted an explicit gamma_A>0 premise and a proof that 2*epsilon/gamma_A is the sharp universal compatible-state diameter constant.
+
+==================================================
+
+1. AUDIT PURPOSE
+
+Independently verify the N5 correction from first principles. Do not assume the correction is valid because the author or prior reviewer says it is.
+
+2. REQUIRED MATHEMATICAL CHECKS
+
+A. Verify that, in the finite-dimensional Euclidean setting, injectivity of A is equivalent to gamma_A>0.
+
+B. Verify the noise-ball geometry:
+Two closed Euclidean balls of radius epsilon are disjoint iff the distance between their centers is greater than 2*epsilon.
+
+C. Starting only from:
+y=A(x1)+eta1
+y=A(x2)+eta2
+||eta1||<=epsilon
+||eta2||<=epsilon
+derive the compatible-state bound and verify every inequality and constant.
+
+D. Verify that the set:
+C(y)={x:||y-A(x)||<=epsilon}
+has diameter at most 2*epsilon/gamma_A when gamma_A>0.
+
+E. Independently verify sharpness. Check:
+- existence of a minimizing unit vector;
+- the proposed x1, x2 and y;
+- both noise norms;
+- exact attainment of the state-distance bound.
+
+F. Check epsilon=0.
+
+G. Check gamma_A=0 and whether a finite uniform bound can exist.
+
+H. Check whether the sufficient pairwise state-separation condition is incorrectly presented as necessary.
+
+I. Check that no claim of unique recovery under nonzero bounded noise is made.
+
+J. Check consistency with Sections 2, 4 and 5 and with the finite-dimensional Euclidean scope.
+
+3. REQUIRED COUNTERMODEL / PREMISE REMOVAL
+
+Test what fails if:
+- injectivity is removed;
+- finite dimensionality is removed;
+- the Euclidean norm is replaced without re-establishing the compactness or minimum-gain assumptions;
+- epsilon is zero;
+- epsilon is positive.
+
+4. OUTPUT
+
+Return:
+1. Exact file and commit reviewed.
+2. Proposition-by-proposition derivation.
+3. Boundary-case analysis.
+4. Countermodels or defects found.
+5. Whether the sharpness construction is valid.
+6. Severity of any defect.
+7. Final N5 status: PASS / PASS WITH CONDITIONS / REVISE / REJECT.
+
+Do not issue a global certification of OMEGA-ISOP. Do not modify files or commits. Do not merge, freeze, or canonically accept anything.
+
+5. SCOPE LIMITS
+
+This is a mathematical audit of a finite-dimensional deterministic bounded-noise result. It is not physical validation, empirical validation, Shannon-information validation, formal machine verification, or peer review.
+
+END OF REQUEST
