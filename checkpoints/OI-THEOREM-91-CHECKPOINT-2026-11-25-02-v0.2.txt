@@ -1,0 +1,121 @@
+OMEGA-ISOP
+
+RESEARCH AND ARCHIVAL/RECOVERY CHECKPOINT
+
+CHECKPOINT_ID: OI-THEOREM-91-CHECKPOINT-2026-11-25-02
+VERSION: 0.2
+DATE: 2026-11-25
+PROJECT_AND_WORKSTREAM: OMEGA-ISOP / THEOREM 91 AND 91.6A-D
+CONTROLLING_HANDOFF: OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF.txt
+HANDOFF_VERSION: 1.8
+REPOSITORY: https://github.com/naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+
+==================================================
+LAYER 1 - RESEARCH CHECKPOINT
+==================================================
+
+RESEARCH_STAGE:
+Continuation of the 91.6A-D audit stage and independent audit of the conditional non-expansion statement labelled THEOREM 91 in Handoff v1.8.
+
+COMPLETED_WORK:
+
+1. THEOREM 91.6D v0.2:
+Both D-1 and D-2 passed the independent logical audit within their stated set-theoretic and metric assumptions. No mathematical correction to D v0.2 was required. The existing theorem's LOOP section is narrower than the complete theorem, so a separate audit artifact was archived rather than silently changing D v0.2.
+
+2. THEOREM 91.6A-D:
+The cross-consistency audit found no internal contradiction among the four archived research-development texts. Their assumptions and scopes remain distinct. A remains explicitly a new construction, not a recovered historical original.
+
+3. THEOREM 91 CONDITIONAL NON-EXPANSION:
+The inequality follows if H3 uses one common map tau:L_op->L_op, independent of M, for every model in the comparison class, and the same operational probe set, response norm, and comparison class are retained.
+
+If tau is allowed to depend on M, the conclusion does not follow in general. A finite countermodel was constructed in which the original distance is 1 while the transformed distance is 101.
+
+H1 is not used in the algebraic supremum inequality itself. It may be required as a structural admissibility condition. H4 should explicitly preserve the common probe set, response space, norm, and comparison class.
+
+Theorem 91 remains a CONDITIONAL RESULT. H3 is the essential response-compatibility premise; it has not been derived from the Frozen Core or the general OMEGA-ISOP architecture.
+
+SOURCE LIMITATION:
+The audited Theorem 91 statement was read from Handoff v1.8, Section 9. Its original primary theorem source was not located in this work stage. This audit is explicitly limited to the Handoff formulation and is not a substitute for primary-source inspection.
+
+PRIMARY SOURCE SEARCH:
+- Inspected the complete recursive GitHub repository tree. It contains the handoff, BOOT-HANDOFF, the 91.6A-D research-development files, the two audits, and checkpoints; it contains no separate 91.3 or 91.4 primary-source file.
+- Searched the Library for THEOREM 91.3 and THEOREM 91.4.
+- Inspected the available Frozen Core file; neither exact identifier nor 91.3/91.4 text was found.
+- Inspected the available Volume II governance addendum and Volume V controlled master; no primary 91.3 or 91.4 record was located.
+- No connected Drive, Docs, Colab, or equivalent source connector was available in the current tool set.
+
+EVIDENCE_CLASS:
+ANALYTICAL PROOF REVIEW / LOGICAL AUDIT OF THE HANDOFF FORMULATION.
+
+CHECKS_PERFORMED:
+- D-1 and D-2 LOOP audit.
+- A-D series dependency and scope audit.
+- Theorem 91 non-expansion inequality derivation.
+- Uniformity-of-tau countermodel.
+- H1/H4 premise-role analysis.
+- Repository and Library source-location checks for 91.3 and 91.4.
+
+CHECKS_NOT_PERFORMED:
+- Inspection of original primary source files for Theorem 91, 91.3, or 91.4.
+- Formal proof assistant verification.
+- Peer review.
+- Empirical or physical validation.
+- Any modification to the Frozen Core or canonical Theorem 91.
+
+OPEN DEPENDENCIES:
+1. Original primary source for THEOREM 91.
+2. Original primary source for THEOREM 91.3.
+3. Original primary source for THEOREM 91.4.
+
+MINIMUM RECOVERY ACTION:
+If work must proceed on the exact primary statements of 91.3 or 91.4, provide the precise source path or make the original source file available in the Library. The Handoff v1.8 and the 91.6A-D files do not need to be resubmitted.
+
+NEXT JUSTIFIED ACTION:
+Continue only with independent mathematical work that does not depend on the missing primary sources. For any canonical comparison or revision involving 91.3/91.4, stop until the exact primary source is accessible. If the source becomes available, compare its definitions, assumptions, proofs, and version provenance before proposing any change.
+
+ARCHITECTURAL INVARIANTS:
+- FROZEN ≠ CLOSED.
+- Frozen Core unchanged.
+- No canonical theorem amendment.
+- No RL registration.
+- No CE/CE-V promotion.
+- No Volume V integration.
+- No physical or information-conservation claim inferred from the non-expansion inequality.
+
+==================================================
+LAYER 2 - ARCHIVAL/RECOVERY CHECKPOINT
+==================================================
+
+CONTROLLING_HANDOFF:
+OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF.txt / VERSION 1.8.
+
+RELEVANT_FILES:
+- RESEARCH/DEVELOPMENT/THEOREM-91.6D-LOOP-AUDIT-v0.1.txt
+- RESEARCH/DEVELOPMENT/THEOREM-91.6-A-D-SERIES-CONSISTENCY-AUDIT-v0.1.txt
+- RESEARCH/DEVELOPMENT/THEOREM-91-CONDITIONAL-NONEXPANSION-AUDIT-v0.1.txt
+- checkpoints/OI-91.6A-D-CHECKPOINT-2026-11-25-01.txt
+- checkpoints/OI-THEOREM-91-CHECKPOINT-2026-11-25-02.txt
+
+GITHUB_COMMITS:
+- D LOOP audit: 6192f3bc3b2df34fecdc2e7203bd30984d3abbef
+- A-D series consistency audit: 583a9242737de5537a7c287f7ada005dcf836490
+- 91 conditional non-expansion audit: 56133fcc846a84370b2c0dcadfdfa782957baa8e
+- Prior checkpoint v0.1 and readback-status update: f9905904ec7418a96ba33824c755d53bbde872b3
+
+READBACK:
+- D LOOP audit: successful readback; expected sections and end marker verified.
+- A-D consistency audit: successful readback; theorem roles, consistency checks, provenance note, and end marker verified.
+- Theorem 91 audit: successful readback; LOOP sections, countermodel, conditional classification, source limitation, Frozen Core status, and end marker verified.
+- Checkpoint v0.1: successful readback after final status update.
+
+PROTECTED_SCOPE:
+No Frozen Core, canonical source, registry, CE/CE-V record, or Volume V master was modified.
+
+LATEST_REPOSITORY_STATE_BEFORE_THIS_CHECKPOINT:
+Theorem 91 audit commit was verified as the main branch head before creating this checkpoint.
+
+ARCHIVAL_STATUS:
+This checkpoint must be read back after creation before archival completion is claimed.
+
+END OF CHECKPOINT
