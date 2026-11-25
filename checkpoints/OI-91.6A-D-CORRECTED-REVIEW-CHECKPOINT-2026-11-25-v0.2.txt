@@ -1,0 +1,78 @@
+OMEGA-ISOP
+RESEARCH AND ARCHIVAL/RECOVERY CHECKPOINT
+
+CHECKPOINT_ID: OI-91.6A-D-CORRECTED-REVIEW-CHECKPOINT-2026-11-25-v0.2
+DATE: 2026-11-25
+PROJECT: OMEGA-ISOP / THEOREM 91.6A-D
+CONTROLLING_HANDOFF: OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF-v1.9.txt
+HANDOFF_VERSION: 1.9
+BASELINE_COMMIT: 7385ec76f9c1a232308cd942c487b353524c3a24
+WORK_BRANCH: audit/91.6A-N5-correction-v1-2026-11-25
+
+==================================================
+
+LAYER 1 - RESEARCH CHECKPOINT
+
+OBJECTIVE:
+Record the N5 correction to THEOREM 91.6A without modifying predecessor documents or protected canonical sources.
+
+N5 FINDING:
+The v0.2 statement in Section 6 used 2*epsilon/gamma_A without explicitly stating gamma_A>0 in that section and did not prove that the universal compatible-state diameter constant is sharp.
+
+CORRECTED ARTIFACT:
+RESEARCH/DEVELOPMENT/THEOREM-91.6A-v0.3-N5-CORRECTED.txt
+
+CORRECTION CONTENT:
+1. Explicitly assumes injectivity of A, equivalently gamma_A>0 by THEOREM 91.6A-2.
+2. Derives ||x1-x2||<=2*epsilon/gamma_A from the two equations for one common observation and the triangle inequality.
+3. States the result as a diameter bound on C(y)={x:||y-A(x)||<=epsilon}.
+4. Proves sharpness using a unit vector v attaining the minimum gain and a constructed pair of compatible states.
+5. Handles epsilon=0: the compatible set is a singleton under injectivity.
+6. Handles gamma_A=0: non-injectivity gives distinct states with the same exact observation, so no finite uniform diameter bound follows.
+7. Keeps the pairwise sufficient state-separation condition distinct from the worst-case diameter theorem.
+
+MATHEMATICAL SECOND-PASS:
+A separate first-principles re-derivation was performed for:
+- the noise-ball intersection criterion;
+- the triangle-inequality diameter bound;
+- attainment of the minimum gain on the compact unit sphere;
+- the exact sharpness construction;
+- the epsilon=0 and gamma_A=0 boundary cases.
+No algebraic or logical defect was found in the corrected Section 6 under the stated finite-dimensional Euclidean assumptions.
+
+EVIDENCE LIMIT:
+This second-pass check is an internal mathematical review, not an independent third-party audit, formal machine verification, peer review, or physical validation. N5 is therefore recorded as CORRECTED / SECOND-PASS CHECKED, with independent third-party confirmation still pending. Do not claim N5 has received independent external closure.
+
+SERIES STATUS:
+The other A-D findings remain governed by their own issue records. Correction Round 2 remains OPEN.
+
+==================================================
+
+LAYER 2 - ARCHIVAL CONTROL
+
+REPOSITORY:
+https://github.com/naydenov54-netizen/OMEGA-ISOP
+
+BRANCH:
+audit/91.6A-N5-correction-v1-2026-11-25
+
+BASE FOR THIS CORRECTION:
+f06c82feb0d50eb5810b36a114ecedbb6abb8910
+
+NEW A FILE:
+RESEARCH/DEVELOPMENT/THEOREM-91.6A-v0.3-N5-CORRECTED.txt
+
+REVIEW MAP:
+RESEARCH/DEVELOPMENT/THEOREM-91.6-A-D-CORRECTED-SERIES-REVIEW-MAP-v1.1.txt
+
+PROTECTED SCOPE:
+No main, Frozen Core, canonical master, Handoff v1.9, original theorem, RL registry, CE/CE-V record, or Volume V file is modified by this correction.
+
+NO ACTIONS CLAIMED:
+No merge, no freeze, no canonical acceptance, no RL registration, no CE/CE-V promotion, no Volume V integration.
+
+FINAL STATUS:
+N5 CORRECTION PREPARED AND INTERNALLY SECOND-PASS CHECKED; INDEPENDENT THIRD-PARTY CONFIRMATION PENDING.
+CORRECTION ROUND 2: OPEN.
+
+END OF CHECKPOINT v0.2
