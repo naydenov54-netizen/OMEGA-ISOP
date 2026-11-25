@@ -1,0 +1,95 @@
+OMEGA-ISOP
+CORRECTION ROUND 2
+N1 CLOSURE RECORD
+
+DATE: 2026-11-25
+RECORD TYPE: MATHEMATICAL CORRECTION CLOSURE
+STATUS: N1 CLOSED
+SCOPE: THEOREM 91.6D v0.4-N1-CORRECTED
+
+REPOSITORY
+naydenov54-netizen/OMEGA-ISOP
+
+CORRECTION BRANCH
+audit/91.6D-N1-correction-v1-2026-11-25
+
+CORRECTED FILE
+RESEARCH/DEVELOPMENT/THEOREM-91.6D-v0.4-N1-CORRECTED.txt
+
+CORRECTION COMMIT
+f06c82feb0d50eb5810b36a114ecedbb6abb8910
+
+INDEPENDENT REVIEW
+The independent read-only review dated 2026-11-25 concluded that N1 may be closed. The review recomputed the relevant claims from first principles and did not rely solely on the change log.
+
+BASIS FOR CLOSURE
+1. The domain is explicitly specified as a nonempty topological space (Theta,tau).
+2. Definition 91.6D-3 specifies local stability using a neighborhood U of theta_0 in (Theta,tau) and a finite constant K_U >= 0.
+3. The pairwise inequality is mathematically well-defined under the stated metric assumptions.
+4. The induced map g_U:F(U)->Q is well-defined and unique because the inequality forces q to be constant on each fiber of F restricted to U, and d_Q is a metric.
+5. The equivalence between the pairwise inequality and the Lipschitz property of g_U on F(U), with the subspace metric inherited from Y, is valid.
+6. The example F(x)=x^2, q(x)=x correctly demonstrates local stability around x_0=1 on U=(1/2,3/2), while global exact identifiability fails.
+7. At x_0=0, the stated local Lipschitz estimate fails.
+8. The distinction between local stability and global exact identifiability is correctly stated.
+9. D-1 and D-2 were independently compared with v0.3 and found mathematically unchanged.
+
+CLOSURE DECISION
+N1: CLOSED.
+Closure means that the specific defect concerning the missing topology in the local definition has been corrected and independently verified under the stated assumptions. It does not mean that the entire Theorem 91.6D is frozen, canonically accepted, physically validated, or empirically validated.
+
+RESIDUAL LOW-PRIORITY OBSERVATIONS
+R-1: OPEN, LOW.
+For a discrete topology, singleton neighborhoods make the local condition trivial. This should be clarified in a subsequent planned revision.
+
+R-2: OPEN, LOW.
+The exp example should explicitly justify the transfer from a neighborhood in the image to a neighborhood in the domain, either by stating continuity of exp or by giving the direct mean-value estimate.
+
+DOCUMENT-CONTROL OBSERVATIONS
+R-3: OPEN, LOW.
+Some minor textual and example changes in v0.4 are not individually itemized in the change log, although the independent review found no mathematical impact.
+
+R-4: OPEN, LOW.
+The v0.4 candidate exists on a separate branch, while the Review Map and checkpoint still refer to v0.3. The active-version/document-control relationship must be resolved before integration.
+
+ARCHITECTURAL AND CANONICAL STATUS
+- v0.4: NOT FROZEN.
+- Merge into the correction branch: NOT PERFORMED.
+- Merge into main: NOT PERFORMED.
+- main: no change was reported by the independent review.
+- Previous v0.3: preserved.
+- Frozen Core: NOT AUDITABLE directly from the material available to the independent reviewer.
+- Canonical acceptance: NOT GRANTED.
+- Formal connection to the primary Theorem 91: OPEN / NOT ESTABLISHED because the primary source was unavailable.
+- Physical or empirical validation: NOT CLAIMED.
+
+CORRECTION ROUND 2 OVERALL STATUS
+OPEN / NOT COMPLETE.
+
+Remaining issue statuses:
+N2: OPEN
+N3: OPEN
+N4: OPEN
+N5: OPEN
+N6: OPEN
+N7: OPEN
+N8: OPEN
+N9: OPEN
+N10: NOT AUDITABLE
+R-1: OPEN, LOW
+R-2: OPEN, LOW
+R-3: OPEN, LOW
+R-4: OPEN, LOW
+
+NEXT STEP
+Proceed with the planned consolidated correction work. Recommended priority:
+A: N5.
+B: N2 and N3.
+C: N4 and N8.
+D: R-1 and R-2.
+Cross-document nomenclature: N9.
+Resolve R-4 and update the Review Map/checkpoint during controlled integration. Mark N10 as NOT AUDITABLE unless the missing Perplexity audit is added.
+
+No further changes are authorized by this closure record. No merge, freeze, canonical promotion, or modification of the Frozen Core is authorized.
+
+FINAL PRINCIPLE
+N1 is closed on the basis of independent mathematical verification under stated assumptions. Correction Round 2 remains open until its remaining items are resolved and independently reviewed.
