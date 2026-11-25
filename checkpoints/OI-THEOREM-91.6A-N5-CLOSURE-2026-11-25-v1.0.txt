@@ -1,0 +1,184 @@
+OMEGA-ISOP
+
+N5 RESEARCH CLOSURE AND ARCHIVAL CHECKPOINT
+
+CHECKPOINT_ID: OI-THEOREM-91.6A-N5-CLOSURE-2026-11-25
+VERSION: 1.0
+DATE: 2026-11-25
+PROJECT_AND_WORKSTREAM: OMEGA-ISOP / THEOREM 91.6A / N5
+BRANCH: main
+CONTROLLING_HANDOFF: OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF.txt
+HANDOFF_VERSION: 2.1
+
+==================================================
+1. CLOSURE OBJECTIVE
+==================================================
+
+Close the N5 correction concerning the bounded-deterministic-noise recovery-uncertainty estimate in THEOREM 91.6A.
+
+The closure is limited to the finite-dimensional linear observation framework and Euclidean norms stated in THEOREM 91.6A v0.3-N5-CORRECTED.
+
+This checkpoint records research-stage completion and archival verification. It does not constitute canonical acceptance, RL registration, physical validation, or Frozen Core modification.
+
+==================================================
+2. COMPLETED RESEARCH RESULT
+==================================================
+
+THEOREM 91.6A v0.3-N5-CORRECTED has been archived as a new research-development version.
+
+The N5 correction explicitly states the required positive-gain premise:
+
+A injective iff gamma_A > 0
+
+for the stated finite-dimensional Euclidean setting.
+
+For a fixed observation y, if x1 and x2 are both compatible with the deterministic bounded-noise model
+
+y = A(x) + eta
+||eta|| <= epsilon
+
+then:
+
+A(x1-x2) = eta2-eta1
+
+and therefore:
+
+||A(x1-x2)|| <= 2*epsilon.
+
+Using the positive minimum gain:
+
+gamma_A*||x1-x2|| <= ||A(x1-x2)||
+
+gives:
+
+||x1-x2|| <= 2*epsilon/gamma_A.
+
+Consequently:
+
+diam(C(y)) <= 2*epsilon/gamma_A.
+
+The proof of sharpness constructs a minimizing unit vector v with:
+
+||v||=1
+||A(v)||=gamma_A
+
+and selects:
+
+x1=0
+x2=(2*epsilon/gamma_A)*v
+y=A(x2)/2.
+
+Both states are compatible with the same observation using noise vectors of norm epsilon, and their distance is exactly 2*epsilon/gamma_A.
+
+Therefore the universal diameter constant is sharp under the stated assumptions.
+
+The closure keeps separate:
+- disjointness of two candidate noise balls;
+- the sufficient pairwise state-separation condition;
+- the diameter of the compatible-state set for one observation.
+
+No unique recovery under nonzero bounded noise is claimed.
+
+==================================================
+3. AUDIT AND SCOPE
+==================================================
+
+RESEARCH_CLASSIFICATION:
+PROVED UNDER STATED ASSUMPTIONS.
+
+N5_CORRECTION:
+VERIFIED WITHIN THE STATED FINITE-DIMENSIONAL LINEAR SCOPE.
+
+SHARPNESS:
+PROVED BY EXPLICIT ATTAINING CONSTRUCTION.
+
+LOOP_AUDIT:
+RECORDED IN THE THEOREM TEXT.
+
+COUNTERMODEL:
+THE l² diagonal operator demonstrates that injectivity alone does not imply positive minimum gain in arbitrary infinite-dimensional spaces.
+
+LIMITATIONS:
+- No arbitrary nonlinear extension.
+- No automatic infinite-dimensional extension.
+- No unique recovery claim for epsilon>0.
+- No statistical identifiability claim.
+- No Shannon-information claim.
+- No physical or empirical validation.
+- No universal OMEGA-ISOP applicability claim.
+
+The proof has not been machine-checked by a proof assistant or independently peer-reviewed.
+
+==================================================
+4. VERSION AND PROVENANCE CONTROL
+==================================================
+
+ARCHIVED_VERSION:
+THEOREM 91.6A v0.3-N5-CORRECTED.
+
+PREDECESSOR DECLARED BY THE SUBMITTED ARTIFACT:
+THEOREM-91.6A-v0.2-CORRECTED-AUDIT-REVIEW.txt.
+
+EARLIER REPOSITORY BASELINE:
+THEOREM 91.6A v0.1-NEW-CONSTRUCTION.
+
+The v0.1 artifact is preserved unchanged. This checkpoint does not claim that v0.2 has been independently recovered or verified as a repository artifact.
+
+PROVENANCE:
+NEW CONSTRUCTION; NOT A RECOVERED HISTORICAL ORIGINAL.
+
+==================================================
+5. ARCHIVAL RECORD
+==================================================
+
+THEOREM_FILE:
+RESEARCH/DEVELOPMENT/THEOREM-91.6A-v0.3-N5-CORRECTED.txt
+
+CHECKPOINT_FILE:
+checkpoints/OI-THEOREM-91.6A-N5-CLOSURE-2026-11-25-v1.0.txt
+
+Both files must be fetched after commit and compared with the intended contents before archival completion is claimed.
+
+==================================================
+6. ARCHITECTURAL STATUS
+==================================================
+
+RESEARCH_STAGE:
+COMPLETED FOR THE N5 CORRECTION AND THE STATED MATHEMATICAL SCOPE.
+
+GITHUB_ARCHIVAL:
+TO BE CONFIRMED BY POST-COMMIT READBACK.
+
+CANONICAL_ACCEPTANCE:
+NOT PERFORMED.
+
+RL_REGISTRATION:
+NOT PERFORMED.
+
+FROZEN_CORE:
+UNCHANGED.
+
+CANONICAL_MASTER_DOCUMENTS:
+UNCHANGED.
+
+CE / CE-V:
+NO PROMOTION OR MODIFICATION.
+
+VOLUME V:
+NO INTEGRATION OR MODIFICATION.
+
+PHYSICAL_VALIDATION:
+NOT CLAIMED.
+
+THEOREM 91.6B, 91.6C AND 91.6D:
+UNCHANGED.
+
+==================================================
+7. CLOSURE DECISION
+==================================================
+
+N5 IS CLOSED AS A RESEARCH-DEVELOPMENT CORRECTION, conditional on successful GitHub commit and exact readback of both files.
+
+This closure applies only to the N5 bounded-noise recovery-uncertainty correction and its sharpness proof. It does not close unrelated dependencies in the 91.6A-D series, establish compatibility with unavailable primary-source records, or authorize canonical promotion.
+
+END OF N5 CLOSURE CHECKPOINT
