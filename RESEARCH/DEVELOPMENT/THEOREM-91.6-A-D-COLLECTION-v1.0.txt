@@ -2,7 +2,7 @@ OMEGA-ISOP
 THEOREM 91.6 SERIES: A-D
 COLLECTED RESEARCH EDITION
 
-COLLECTION VERSION: 1.0
+COLLECTION VERSION: 1.1
 DATE: 2026-11-25
 STATUS: RESEARCH DEVELOPMENT COLLECTION
 CANONICAL STATUS: NOT FROZEN
@@ -19,7 +19,7 @@ The historical original of THEOREM 91.6A was not recovered from the available Li
 
 THEOREM 91.6B and THEOREM 91.6C are included from their existing archived research-development records without changing their theorem text.
 
-THEOREM 91.6D is included as a standalone research-development record based on the previously established formulation in this research thread. Its inclusion does not make it a premise or foundation for A, B, or C.
+THEOREM 91.6D is included as a standalone research-development record, updated to Version 0.2 with the metric-domain and continuity clarifications recorded in this revision. Its inclusion does not make it a premise or foundation for A, B, or C.
 
 The collection is an organizational archive. It does not establish canonical acceptance, scientific validation beyond each theorem's stated proof status, RL registration, or Frozen Core integration.
 
@@ -45,7 +45,7 @@ Status: Version 0.1.
 THEOREM 91.6D
 GENERAL IDENTIFIABILITY AND STABILITY CRITERION
 Role: Metric-space factorization criterion for exact and Lipschitz-stable identification of a target.
-Status: Version 0.1.
+Status: Version 0.2.
 
 ==================================================
 MATHEMATICAL RELATIONSHIP AND DEPENDENCY CAUTION
@@ -1989,7 +1989,7 @@ THEOREM 91.6D
 
 GENERAL IDENTIFIABILITY AND STABILITY CRITERION
 
-VERSION: 0.1
+VERSION: 0.2
 DATE: 2026-11-25
 STATUS: RESEARCH DEVELOPMENT / MATHEMATICAL RESULT UNDER STATED METRIC ASSUMPTIONS
 CANONICAL STATUS: NOT FROZEN
@@ -2032,6 +2032,10 @@ q : Theta -> Q
 be the target quantity.
 
 No linearity or vector-space structure is assumed.
+
+SPECIAL CASE q = id_Theta:
+
+The notation q = id_Theta is admissible only when Q = Theta and Theta is equipped with a metric d_Theta. In that case, the target metric d_Q is d_Theta, and exact identifiability of q = id_Theta is equivalent to injectivity of F.
 
 ==================================================
 3. EXACT IDENTIFIABILITY
@@ -2170,9 +2174,9 @@ which is unbounded as y tends to zero.
 
 Therefore exact identifiability does not imply global Lipschitz-stable identifiability.
 
-CONTINUITY DOES NOT IMPLY LIPSCHITZ CONTINUITY.
+CONTINUITY OF THE INDUCED MAP g DOES NOT IMPLY LIPSCHITZ CONTINUITY.
 
-The same function g(y)=cube_root(y) is continuous everywhere but not globally Lipschitz.
+Continuity here means continuity of g on F(Theta), equipped with the subspace metric inherited from d_Y. The same function g(y)=cube_root(y), on F(Theta)=R, is continuous everywhere but not globally Lipschitz.
 
 IDENTIFIABILITY DOES NOT PROVE PHYSICAL REALIZABILITY.
 
@@ -2256,7 +2260,7 @@ NOT ESTABLISHED:
 ==================================================
 
 THEOREM 91.6D:
-RESEARCH DEVELOPMENT / VERSION 0.1
+RESEARCH DEVELOPMENT / VERSION 0.2
 
 THEOREM 91.6A: NOT USED AS A SOURCE
 THEOREM 91.6B: NOT USED AS A SOURCE
