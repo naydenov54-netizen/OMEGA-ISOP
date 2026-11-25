@@ -1,0 +1,271 @@
+OMEGA-ISOP
+
+THEOREM 91.6C
+FINITE WITNESS AND STABLE IDENTIFIABILITY OF OBSERVATION HISTORIES
+
+VERSION: 0.2-CORRECTED-AUDIT-REVIEW
+DATE: 2026-11-25
+PREDECESSOR: THEOREM-91.6C-v0.1.txt
+STATUS: PROVED UNDER STATED FINITE-DIMENSIONAL LINEAR ASSUMPTIONS
+CANONICAL STATUS: NOT FROZEN
+FROZEN CORE: UNCHANGED
+
+==================================================
+1. PURPOSE
+==================================================
+
+This version clarifies which conclusions require uniform boundedness, which require finite dimensionality, and why the finite-witness result is algebraic rather than dependent on compactness.
+
+The theorem concerns a countable family of linear observations and the specific supremum history metric defined below.
+
+==================================================
+2. FRAMEWORK
+==================================================
+
+Let X=R^m with Euclidean norm and Y=R^p.
+Let A_n:X->Y be linear for n>=1.
+
+Assume:
+
+M=sup(n>=1)||A_n||<infinity.
+
+Define:
+
+H(x)=(A_1*x,A_2*x,A_3*x,...)
+
+and:
+
+d_H(H(x1),H(x2))=sup(n>=1)||A_n*(x1-x2)||.
+
+Uniform boundedness makes this quantity finite and makes the history response function below Lipschitz continuous.
+
+Define the common kernel:
+
+K=intersection(n>=1)ker(A_n).
+
+Define:
+
+phi(z)=sup(n>=1)||A_n*z||
+
+gamma_H=inf(||z||=1)phi(z).
+
+==================================================
+3. HISTORY INJECTIVITY
+==================================================
+
+PROPOSITION 91.6C-1:
+
+H is injective iff K={0}.
+
+Proof:
+H(x1)=H(x2) iff A_n*(x1-x2)=0 for every n, which is equivalent to x1-x2 in K. Thus K={0} is equivalent to equality of histories forcing x1=x2.
+
+Q.E.D.
+
+This common-kernel equivalence itself does not require uniform boundedness. Uniform boundedness is imposed for the finite-valued supremum metric and the stability theorem.
+
+==================================================
+4. POSITIVE HISTORY GAIN
+==================================================
+
+Under uniform boundedness:
+
+|phi(z)-phi(w)| <= M*||z-w||.
+
+Therefore phi is continuous.
+
+THEOREM 91.6C-2:
+
+For X=R^m and the stated assumptions:
+
+H is injective iff gamma_H>0.
+
+Proof:
+If gamma_H>0, then phi(z)>=gamma_H||z||, so equal histories force equal states.
+
+If H is injective, Proposition 91.6C-1 gives K={0}. Thus phi(z)>0 for every unit vector z. Since phi is continuous and the unit sphere in finite-dimensional R^m is compact, phi attains a strictly positive minimum. Hence gamma_H>0.
+
+Q.E.D.
+
+The compactness step is the finite-dimensional ingredient. No automatic extension to arbitrary infinite-dimensional spaces is claimed.
+
+==================================================
+5. BI-LIPSCHITZ STABILITY
+==================================================
+
+For all x1,x2:
+
+gamma_H*||x1-x2||
+<= d_H(H(x1),H(x2))
+<= M*||x1-x2||.
+
+The lower bound follows from gamma_H. The upper bound follows from ||A_n||<=M and taking the supremum.
+
+If gamma_H>0, H is injective and its inverse on H(X) is Lipschitz with:
+
+Lip(H^(-1))<=1/gamma_H.
+
+The result is tied to the chosen supremum metric. Other history metrics may have different stability properties.
+
+==================================================
+6. FINITE IDENTIFYING SUBFAMILY
+==================================================
+
+THEOREM 91.6C-3:
+
+If H is injective on finite-dimensional X=R^m, then there exists a finite set J of indices such that the finite stacked map H_J is injective.
+
+PROOF BY DIMENSION DESCENT:
+
+Start with V_0=X.
+
+If V_k={0}, stop.
+
+If V_k is nonzero, then the intersection of all observation kernels is {0}. Therefore there exists an index n_(k+1) such that V_k is not contained in ker(A_n_(k+1)).
+
+Set:
+
+V_(k+1)=V_k intersection ker(A_n_(k+1)).
+
+This is a proper linear subspace of V_k, so:
+
+dim(V_(k+1))<dim(V_k).
+
+The dimension is a nonnegative integer initially equal to m. Therefore after at most m steps the resulting intersection is {0}.
+
+The selected finite family has trivial common kernel, so its stacked map is injective.
+
+Q.E.D.
+
+This proof does not use compactness or countability beyond the existence of the indexed family. It also shows that no more than m selected observations are needed, where each A_n may itself be vector-valued.
+
+The theorem does NOT say that the first m observations suffice.
+
+==================================================
+7. EXAMPLE AND METRIC CONSTANTS
+==================================================
+
+Let X=R² and:
+
+A_1(u,v)=(u,0)
+A_2(u,v)=(0,v).
+
+For this two-observation history with supremum metric:
+
+d_H=max(|delta_u|,|delta_v|).
+
+Therefore:
+
+(1/sqrt(2))*||delta_x|| <= d_H <= ||delta_x||.
+
+Thus:
+
+gamma_H=1/sqrt(2)
+M=1.
+
+Neither individual observation is injective, but the two-observation family is injective and bi-Lipschitz.
+
+==================================================
+8. FULL HISTORY VERSUS A LATE TAIL
+==================================================
+
+Consider the sequence:
+
+A_(2k-1)(u,v)=(u/k,0)
+A_(2k)(u,v)=(0,v/k), for k>=1.
+
+The full history is injective and its supremum metric is:
+
+d_H=max(|delta_u|,|delta_v|).
+
+Its history gain is 1/sqrt(2).
+
+Now restrict to the tail beginning at k>=K, where K>=1. The tail metric is:
+
+d_(H,K)=sup(k>=K) max(|delta_u|/k,|delta_v|/k)
+       =max(|delta_u|,|delta_v|)/K.
+
+Consequently its gain is:
+
+gamma_(H,K)=1/(sqrt(2)*K).
+
+As K tends to infinity, this tail gain tends to zero.
+
+Interpretation:
+The full history remains stably identifying because it contains early observations. The progressively later tail becomes arbitrarily poorly conditioned. Do not conflate the full history with its late tail.
+
+==================================================
+9. ASSUMPTION MAP
+==================================================
+
+COMMON-KERNEL EQUIVALENCE:
+Requires only the linear family and the definition of the history.
+
+FINITE WITNESS:
+Requires finite-dimensional X and trivial common kernel. The dimension-descent proof does not require uniform boundedness, compactness, or countability of the index set.
+
+FINITE-VALUED SUPREMUM HISTORY METRIC:
+Uniform boundedness ensures d_H is finite for every pair.
+
+CONTINUITY OF phi:
+Uniform boundedness gives the Lipschitz estimate for phi.
+
+INJECTIVITY IFF POSITIVE HISTORY GAIN:
+Uses finite-dimensionality, continuity of phi, and compactness of the unit sphere.
+
+BI-LIPSCHITZ UPPER BOUND:
+Uses uniform boundedness.
+
+BI-LIPSCHITZ LOWER BOUND:
+Uses positive gamma_H.
+
+==================================================
+10. LIMITATIONS AND NON-IMPLICATIONS
+==================================================
+
+This theorem does not establish:
+- the same result for arbitrary nonlinear observation operators;
+- automatic positive history gain in infinite dimensions;
+- stability under every history metric;
+- robust recovery under arbitrary noise models;
+- Shannon information preservation or loss;
+- physical realizability or empirical validity;
+- universal applicability to all OMEGA-ISOP models.
+
+The mathematical result concerns injectivity and metric stability of a specified observation history. It is not a theorem about Shannon information.
+
+==================================================
+11. LOOP AUDIT
+==================================================
+
+TARGET:
+Common-kernel characterization, positive history gain, bi-Lipschitz bounds, and existence of a finite identifying subfamily.
+
+DEPENDENCIES:
+Linear maps, finite-dimensional state space, uniform operator bound for the supremum metric and continuity, compactness of the unit sphere for positive gain, and finite-dimensional subspace dimension descent for the finite witness.
+
+COUNTERMODEL:
+The diagonal operator on l² from THEOREM 91.6A illustrates why injectivity need not yield a positive lower gain in infinite dimensions. The tail construction in Section 8 illustrates loss of uniform conditioning for later observations.
+
+CLASSIFICATION:
+NON-CIRCULAR DERIVATION WITHIN THE STATED FINITE-DIMENSIONAL LINEAR FRAMEWORK.
+
+==================================================
+12. CHANGE LOG AND ARCHITECTURAL CONTROL
+==================================================
+
+Changes from v0.1:
+1. Replaced the compactness-based finite-witness proof with a dimension-descent proof.
+2. Explicitly separated assumptions required for common-kernel equivalence, finite witness, finite-valued history metric, continuity, positive gain, and stability.
+3. Added an exact late-tail gain calculation and distinguished the full history from the tail.
+4. Clarified that the first m observations are not necessarily the identifying subfamily.
+5. Clarified that the result concerns metric identifiability, not Shannon information.
+
+THEOREM 91.6C v0.1: PRESERVED UNCHANGED.
+FROZEN CORE: UNCHANGED.
+CANONICAL DOCUMENTS: UNCHANGED.
+RL REGISTRATION: NOT PERFORMED.
+CANONICAL ACCEPTANCE: NOT PERFORMED.
+PHYSICAL VALIDATION: NOT CLAIMED.
+
+END OF THEOREM 91.6C v0.2
