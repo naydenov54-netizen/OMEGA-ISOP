@@ -1,0 +1,112 @@
+OMEGA-ISOP
+THEOREM 91.6A-D
+CORRECTED SERIES REVIEW MAP
+
+VERSION: 1.1
+DATE: 2026-11-25
+STATUS: RESEARCH DEVELOPMENT / REVIEW CONTROL DOCUMENT
+BASELINE COMMIT: 7385ec76f9c1a232308cd942c487b353524c3a24
+CURRENT CORRECTION BRANCH: audit/91.6A-N5-correction-v1-2026-11-25
+CANONICAL STATUS: NOT FROZEN
+FROZEN CORE: UNCHANGED
+
+==================================================
+
+1. PURPOSE
+
+This document identifies the corrected research versions prepared after comparing the independent Claude and Perplexity audits and records the subsequent N5 correction to THEOREM 91.6A.
+
+It is a review map, not a new theorem and not a canonical acceptance record.
+
+==================================================
+
+2. CURRENT RESEARCH FILE SET
+
+A:
+RESEARCH/DEVELOPMENT/THEOREM-91.6A-v0.3-N5-CORRECTED.txt
+Predecessor:
+RESEARCH/DEVELOPMENT/THEOREM-91.6A-v0.2-CORRECTED-AUDIT-REVIEW.txt
+Correction: explicitly assumes gamma_A>0 (equivalently injectivity in the stated finite-dimensional setting) before using 1/gamma_A; proves the compatible-state diameter bound; proves sharpness by an attaining minimizing direction; handles epsilon=0 and gamma_A=0. Mathematical second-pass review is recorded separately. Independent third-party confirmation remains pending.
+
+B:
+RESEARCH/DEVELOPMENT/THEOREM-91.6B-v0.3-CORRECTED-AUDIT-REVIEW.txt
+Primary correction: replace the false broad claim "exact identifiability is not equivalent to stable invertibility" with the correct statement: each fixed finite n is Lipschitz-stably invertible, but inverse Lipschitz constants are unbounded over n. Also disclose that F_1 already identifies the state, so the full-history injectivity result is not evidence that infinitely many stages are necessary.
+
+C:
+RESEARCH/DEVELOPMENT/THEOREM-91.6C-v0.2-CORRECTED-AUDIT-REVIEW.txt
+Primary corrections: dimension-descent proof for the finite identifying subfamily; separate assumptions for common-kernel equivalence, finite witness, finite-valued history metric, continuity, positive history gain and stability; distinguish full history from a late tail and calculate the tail gain.
+
+D:
+RESEARCH/DEVELOPMENT/THEOREM-91.6D-v0.3-CORRECTED-AUDIT-REVIEW.txt
+Primary corrections: define local Lipschitz stability explicitly; retain x^3/cuberoot as a counterexample to local and global Lipschitz stability at zero; add exp/log as a valid example of local stability everywhere without global stability.
+
+D N1 follow-up:
+RESEARCH/DEVELOPMENT/THEOREM-91.6D-v0.4-N1-CORRECTED.txt
+N1 was closed by the separate independent read-only review recorded in CORRECTION-ROUND-2-N1-CLOSURE-RECORD-2026-11-25.txt. The closure is limited to N1.
+
+==================================================
+
+3. SERIES RELATIONSHIPS
+
+A is a finite-dimensional linear observation baseline.
+B is an explicit parameterized two-coordinate model.
+C is a countable linear observation-history theorem under a supremum metric.
+D is an abstract metric-space factorization criterion for identifying a target quantity.
+
+The four results are complementary. They are not asserted to be equivalent. No theorem in this series currently proves a formal bridge to THEOREM 91, the Frozen Core, a physical model, or the six-stage architecture.
+
+==================================================
+
+4. SHARED TERMINOLOGY CONTROL
+
+Use "identifiability", "distinguishability", "observation gain", and "stability" according to their mathematical definitions.
+
+Do not use "information preservation" as a synonym for injectivity unless explicitly qualified as informal and non-Shannon. None of A-D proves Shannon information preservation or loss.
+
+"Operational contraction" in B means Lip(F_n)<1 for the displayed map and metric. It is not automatically the non-expansion property in THEOREM 91.
+
+==================================================
+
+5. THEOREM 91 BOUNDARY
+
+The available Handoff formulation of THEOREM 91 and the separate conditional non-expansion audit identify a common probe-map identity as the essential premise. A single tau independent of M is sufficient for the displayed supremum inequality. A model-dependent tau admits a countermodel.
+
+However, the original primary source for THEOREM 91 has not been verified in this review stage. The exact quantifier text must be checked against that primary source before any canonical statement is changed.
+
+Do not treat a proposed quantifier expression as recovered primary text. Do not alter H3, Handoff, THEOREM 91, 91.3, 91.4, or the Frozen Core as part of this A-D correction.
+
+No formal dependency from A-D to THEOREM 91 has been established.
+
+==================================================
+
+6. PROVENANCE AND VERSION CONTROL
+
+All predecessor files remain unchanged.
+A remains explicitly a new construction, not a recovered historical original.
+D's predecessor filename includes v0.1 while its internal theorem version is 0.2. This metadata mismatch is recorded, not silently repaired by renaming the predecessor.
+The collection filename and its internal version metadata may also differ. Do not overwrite or rename historical artifacts during this review.
+The N5-corrected A v0.3 is a separately versioned research artifact. It does not replace or rewrite A v0.2.
+
+==================================================
+
+7. ISSUE STATUS AND REQUIRED REVIEW OUTCOME
+
+N1: CLOSED, limited to the D local-topology defect, on the basis of the independent review recorded in its closure record.
+
+N5: CORRECTED IN A v0.3; MATHEMATICAL SECOND-PASS CHECK RECORDED; INDEPENDENT THIRD-PARTY CONFIRMATION PENDING. Do not label N5 independently closed until a read-only reviewer recomputes the bound and sharpness proof from first principles.
+
+N2, N3, N4, N6, N7, N8, N9: OPEN.
+N10: NOT AUDITABLE until the missing Perplexity audit source is added.
+D R-1, R-2, R-3, R-4: retain their separately recorded status; do not infer closure from the N1 decision.
+
+The next independent reviewer must:
+1. Recompute the mathematical claims, not merely compare the wording with prior audits.
+2. Check every proof and every numerical constant.
+3. Attempt countermodels and test premise removal.
+4. Check local/global terminology and noise claims.
+5. Verify that no new statement exceeds its assumptions.
+6. Check the four documents against one another for notation and scope conflicts.
+7. Report any remaining defect, including defects introduced by corrections.
+8. Separate mathematical correctness from provenance, OMEGA-ISOP compatibility, physical interpretation, and canonical acceptance.
+
+END OF REVIEW MAP v1.1
