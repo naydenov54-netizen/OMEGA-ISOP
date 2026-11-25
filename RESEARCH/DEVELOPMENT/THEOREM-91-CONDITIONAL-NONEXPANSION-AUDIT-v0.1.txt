@@ -1,0 +1,312 @@
+OMEGA-ISOP
+
+THEOREM 91
+CONDITIONAL NON-EXPANSION
+INDEPENDENT LOOP AND HYPOTHESIS AUDIT
+
+DOCUMENT_ID: OI-THEOREM-91-NONEXPANSION-AUDIT-2026-11-25
+VERSION: 0.1
+DATE: 2026-11-25
+TARGET_SOURCE: Handoff v1.8, Section 8 and Section 9
+SOURCE_STATUS: REVIEW OF THE HANDOFF FORMULATION; PRIMARY THEOREM SOURCE NOT LOCATED IN THIS STAGE
+STATUS: CONDITIONAL RESULT; UNIFORMITY OF THE PROBE MAP MUST BE EXPLICIT
+EVIDENCE_CLASS: ANALYTICAL LOGICAL AUDIT
+CANONICAL STATUS: NOT FROZEN
+ARCHITECTURAL STATUS: NO FROZEN CORE MODIFICATION
+
+==================================================
+1. SOURCE AND SCOPE CONTROL
+==================================================
+
+This audit concerns the statement labelled THEOREM 91: CONDITIONAL NON-EXPANSION in Section 9 of Handoff v1.8.
+
+It does not claim to have recovered or inspected the original primary theorem source.
+
+It is not an audit of any separately numbered THEOREM 91.3 or THEOREM 91.4. Those primary records were not located in the inspected GitHub repository or Library results during this work stage.
+
+The reviewed Handoff statement is:
+
+D_L(M1,M2) = sup over a in L_op of ||Resp_M1(a)-Resp_M2(a)||_Y
+
+with:
+H1: R exists, T is admissible, and R is preserved.
+H2: Y is normed.
+H3: There exists a map tau:L_op->L_op such that Resp_(T(M))(a)=Resp_M(tau(a)).
+H4: The operational criterion and comparison class remain fixed.
+
+Conclusion:
+D_L(T(M1),T(M2)) <= D_L(M1,M2).
+
+==================================================
+2. REQUIRED FORMAL DOMAIN
+==================================================
+
+For the inequality to be stated precisely, require:
+
+1. A nonempty operational probe set L_op.
+2. A normed response space Y.
+3. A comparison class C of admissible models.
+4. For every M in C, response maps Resp_M:L_op->Y.
+5. T(M) is defined for every M in C.
+6. The post-transformation response maps are defined on the same L_op and take values in the same Y.
+7. The same norm and operational comparison criterion are used before and after T.
+
+Under these conditions D_L is an extended pseudometric on C. It may take the value infinity. It is not necessarily a metric because distinct models may have identical response maps on L_op.
+
+==================================================
+3. LOOP AUDIT
+==================================================
+
+TARGET_C:
+
+For all M1,M2 in C:
+
+D_L(T(M1),T(M2)) <= D_L(M1,M2).
+
+PREMISES_AND_DEFINITIONS:
+
+- Definition of D_L as a supremum over the same probe set.
+- Norm structure on Y.
+- T maps each compared model into a model with a defined response map.
+- A common probe transformation tau maps L_op into L_op.
+- The response identity holds for every model in C and every probe a in L_op.
+
+DEPENDENCY_CHAIN:
+
+For a fixed pair M1,M2 and each a in L_op:
+
+||Resp_(T(M1))(a)-Resp_(T(M2))(a)||_Y
+
+= ||Resp_M1(tau(a))-Resp_M2(tau(a))||_Y
+
+<= sup over b in L_op of ||Resp_M1(b)-Resp_M2(b)||_Y
+
+= D_L(M1,M2),
+
+because tau(a) belongs to L_op.
+
+Taking the supremum over a in L_op gives:
+
+D_L(T(M1),T(M2)) <= D_L(M1,M2).
+
+POSSIBLE_EQUIVALENT_OR_EMBEDDED_TARGET:
+
+The response identity in H3 is not identical to the non-expansion conclusion. However, it is the essential compatibility premise that directly yields the inequality.
+
+The theorem therefore proves a conditional consequence of H3. It does not derive H3 from H1, from the Frozen Core, or from the general OMEGA-ISOP architecture.
+
+INDEPENDENT_JUSTIFICATION:
+
+The supremum inequality follows from set inclusion:
+
+tau(L_op) subseteq L_op.
+
+No assumption that tau is injective or surjective is needed for non-expansion.
+
+COUNTERMODEL_ATTEMPT_AND_RESULT:
+
+The quantification of tau is essential.
+
+If tau is allowed to depend on the model, the non-expansion conclusion need not hold.
+
+Take:
+
+L_op={a,b}
+Y=R
+
+Define two models by:
+
+Resp_M1(a)=0
+Resp_M1(b)=100
+
+Resp_M2(a)=1
+Resp_M2(b)=101
+
+Then:
+
+D_L(M1,M2)=1.
+
+Now allow separate maps:
+
+tau_M1(a)=a
+tau_M1(b)=a
+
+tau_M2(a)=b
+tau_M2(b)=b
+
+Define the transformed responses through the model-dependent identities:
+
+Resp_(T(M))(a)=Resp_M(tau_M(a)).
+
+Then:
+
+Resp_(T(M1))(a)=0
+Resp_(T(M1))(b)=0
+
+Resp_(T(M2))(a)=101
+Resp_(T(M2))(b)=101
+
+Therefore:
+
+D_L(T(M1),T(M2))=101>1=D_L(M1,M2).
+
+Thus a model-dependent probe map does not suffice.
+
+CLASSIFICATION OF THIS COUNTERMODEL:
+
+It refutes the weaker interpretation in which H3 permits a different tau for each M. It does not refute the theorem when H3 supplies one common tau for every model in the comparison class.
+
+PREMISE-REMOVAL_TEST:
+
+- Remove the common-tau requirement: the countermodel above shows the conclusion can fail.
+- Remove tau(L_op) subseteq L_op: the supremum comparison is no longer justified.
+- Remove the common response norm or common operational comparison class: the displayed comparison may not be defined on the same basis.
+- H1 is not used in the algebraic derivation of the inequality. It can serve as a structural admissibility condition for the intended OMEGA-ISOP interpretation, but its terms require independent definitions and verification.
+- H2 is necessary for the norm expression as written.
+- H4 must ensure that the same L_op, response codomain, norm, and comparison class are retained.
+
+CLASSIFICATION:
+
+CONDITIONAL RESULT, VALID WHEN H3 IS READ AS ONE COMMON MAP tau FOR ALL M IN THE COMPARISON CLASS AND THE SHARED-DOMAIN CONDITIONS ARE EXPLICIT.
+
+==================================================
+4. PRECISE FORMULATION RECOMMENDED
+==================================================
+
+Let C be a class of admissible models and let L_op be a nonempty set.
+
+Let (Y,||.||_Y) be a normed space.
+
+For every M in C, let:
+
+Resp_M:L_op->Y.
+
+Let T:C->C be defined on the comparison class.
+
+Assume there exists ONE map:
+
+tau:L_op->L_op
+
+independent of M, such that:
+
+for every M in C and every a in L_op,
+
+Resp_(T(M))(a)=Resp_M(tau(a)).
+
+Define:
+
+D_L(M1,M2)=sup(a in L_op) ||Resp_M1(a)-Resp_M2(a)||_Y.
+
+Then, for every M1,M2 in C:
+
+D_L(T(M1),T(M2)) <= D_L(M1,M2).
+
+PROOF:
+
+For every a in L_op:
+
+||Resp_(T(M1))(a)-Resp_(T(M2))(a)||_Y
+
+=||Resp_M1(tau(a))-Resp_M2(tau(a))||_Y
+
+<=D_L(M1,M2),
+
+because tau(a) is an element of L_op.
+
+Taking the supremum over all a in L_op yields:
+
+D_L(T(M1),T(M2))<=D_L(M1,M2).
+
+Q.E.D.
+
+No surjectivity of tau is required.
+
+If tau is surjective, then tau(L_op)=L_op and the same argument gives equality:
+
+D_L(T(M1),T(M2))=D_L(M1,M2).
+
+If tau is not surjective, strict decrease may occur because the transformed comparison samples only the subset tau(L_op) of the original operational probes.
+
+==================================================
+5. ROLE OF H1 AND H4
+==================================================
+
+H1:
+
+R exists, T is admissible, and R is preserved.
+
+H1 is not used in the metric inequality once T and the response maps are already defined. It may be required to ensure that T is structurally admissible within the intended framework. The exact meanings of R, admissibility, and preservation must be supplied by the authoritative source definitions.
+
+H4:
+
+The operational criterion and comparison class remain fixed.
+
+H4 is important for interpretation, but it should be made mathematically explicit by requiring the same probe set L_op, response space Y, norm, and model comparison class before and after T.
+
+Neither H1 nor H4, in its abbreviated current wording, independently proves the response identity in H3.
+
+==================================================
+6. INTERPRETATION AND NON-IMPLICATIONS
+==================================================
+
+The theorem establishes non-expansion of the specified operational response distance under a common probe-reparameterization identity.
+
+It does not establish:
+
+1. Universal information conservation.
+2. Shannon information conservation.
+3. Injectivity of T.
+4. Reversibility of T.
+5. Equality of operational response distances unless tau is surjective.
+6. Physical realization of T.
+7. That every admissible transformation satisfies H3.
+8. That H3 follows from the Frozen Core.
+9. A universal contraction law.
+10. A causal or dynamical law without additional definitions and evidence.
+
+If tau is not surjective, non-expansion may reflect that the transformed comparison probes only a subset of the original operational probes. A decrease in D_L therefore must not automatically be interpreted as physical information loss or conservation.
+
+==================================================
+7. FINAL FINDINGS
+==================================================
+
+FINDING 1:
+The non-expansion inequality follows rigorously from one common probe map tau:L_op->L_op and the response identity holding for all models in the comparison class.
+
+FINDING 2:
+The wording of H3 should explicitly quantify the same tau uniformly over every compared model. If tau is model-dependent, the conclusion is false in general.
+
+FINDING 3:
+H1 is a structural admissibility condition, not an algebraic premise needed for the supremum inequality itself.
+
+FINDING 4:
+H4 should explicitly preserve the probe set, response norm, and comparison class.
+
+FINDING 5:
+The result is conditional. It does not derive H3 or establish universal non-expansion for arbitrary transformations.
+
+RECOMMENDATION:
+
+Do not modify any canonical theorem source on the basis of this audit.
+Retain the result as a conditional theorem.
+Before any canonical revision, inspect the authoritative primary source and determine whether the common-tau quantifier is already explicit there.
+If a revision is later authorized, state H3 with a single tau independent of M and retain the exact domain and non-implications.
+
+==================================================
+8. ARCHITECTURAL CONTROL
+==================================================
+
+Handoff v1.8: UNCHANGED.
+THEOREM 91 PRIMARY SOURCE: NOT LOCATED / NOT MODIFIED.
+THEOREM 91.3 PRIMARY SOURCE: NOT LOCATED IN THIS STAGE.
+THEOREM 91.4 PRIMARY SOURCE: NOT LOCATED IN THIS STAGE.
+
+FROZEN CORE: UNCHANGED.
+CANONICAL MASTER DOCUMENTS: UNCHANGED.
+RL REGISTRATION: NOT PERFORMED.
+NEW RL RECORD: NOT CREATED.
+CANONICAL ACCEPTANCE: NOT PERFORMED.
+VOLUME V INTEGRATION: NOT PERFORMED.
+ARCHITECTURAL MODIFICATION: NOT AUTHORIZED.
+
+END OF AUDIT
