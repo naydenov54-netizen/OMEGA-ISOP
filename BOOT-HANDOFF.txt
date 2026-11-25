@@ -9,30 +9,7 @@ GITHUB_REPOSITORY: https://github.com/naydenov54-netizen/OMEGA-ISOP
 PURPOSE: This document consolidates the original two source documents and subsequent controlled
   operational status updates into one operational and research framework for continued OMEGA-ISOP
   work.
-DERIVATIVE_UPDATE: Version 1.3 added an RL status and source-recovery control based on Volume V
-  v2.4-C-1.5 and OI-RL-PRIMARY-SOURCE-PROVENANCE-DISPOSITION-2026-11-18. Version 1.4 adds an
-  explicit anti-circularity / anti-LOOP verification protocol to Section 1. Version 1.5 expands
-  Section 13 with a two-layer checkpoint standard (research checkpoint and archival/recovery
-  checkpoint), mandatory checkpoint fields, checkpoint timing, verification/readback requirements,
-  and explicit separation from canonical acceptance, RL registration, and GitHub commits. Section 19
-  is clarified to require reporting both checkpoint layers where applicable. Version 1.6 records the
-  governance principle FROZEN ≠ CLOSED in Sections 1 and 3 and aligns the change-control wording
-  with explicit authorization and version preservation. This is a governance clarification only: it
-  does not alter mathematical definitions, theorems, proofs, evidence classifications, RL status, or
-  physical claims. Version 1.7 adds a temporary GitHub research-workspace lifecycle rule under
-  Section 14: clear the temporary working folder between research cycles without deleting commits or
-  Git history; preserve the staged RLlab → RL → possible CE → possible Volume V progression as
-  conditional workflow, not automatic promotion. Version 1.9 adds an explicit Android copy-ready
-  rule for ALL user-facing OMEGA-ISOP chat messages, not only research artifacts: every such
-  response must be delivered in one clean, directly copyable plain-text code block, with formulas
-  and notation in plain text and no LaTeX unless explicitly requested. Version 2.0 adds a specific
-  GitHub text-file link delivery rule: provide a directly clickable Markdown link to the GitHub
-  rendered file page using the /blob/<branch>/<path> URL, never substitute a raw.githubusercontent.com
-  URL for the primary link, and do not place the clickable link inside a code block. This is an
-  explicit exception to RULE_12 solely for the link itself; copy-ready artifact content remains in
-  one plain-text block. The link must use a verified repository, branch, and exact file path. This is
-  an operational/output-format clarification only; it does not alter scientific content, Frozen Core,
-  registry status, or canonical acceptance.
+HANDOFF_STATE_POLICY: This document records the current operational state and rules. It is not a revision-history archive. Superseded HANDOFF versions do not need to remain as active files or be documented in a revision chronology here. Scientific history, evidence, provenance, and durable research progress belong in their designated research sources and checkpoints.
 SOURCE_DOCUMENT_1: OMEGA-ISOP MATHEMATICAL AND PHYSICAL FOUNDATION PROGRAM — CONSOLIDATED RESEARCH
   MASTER
 DOCUMENT_ID: OI-MATHEMATICAL-AND-PHYSICAL-FOUNDATION-PROGRAM-CONSOLIDATED-2026-11-18
@@ -156,6 +133,18 @@ RULE_13: GITHUB_TEXT_FILE_LINK_DELIVERY. Whenever a text file is created, update
   USER_WORKFLOW_TARGET: The link must open the rendered text file on github.com so the user can copy
   its contents directly or open the same GitHub page in Samsung Internet. Do not force the user to
   use the RAW view.
+
+RULE_14: HANDOFF_IS_CURRENT_OPERATIONAL_STATE_NOT_REVISION_ARCHIVE. This HANDOFF records the
+  current operational rules and state, not the history of its own revisions. The user may adapt,
+  replace, or reorganize HANDOFF rules as current work requires. Routine HANDOFF updates and
+  replacement of obsolete active HANDOFF files do not require asking the user for repeated approval
+  each time, provided the change stays within this policy and does not modify protected scientific
+  content or perform a separately restricted action. Do not preserve superseded HANDOFF versions as
+  active operational files, and do not maintain a revision-by-revision narrative inside the HANDOFF.
+  Keep scientific history, evidence, provenance, research results, and durable checkpoints in their
+  designated research records. Use the current HANDOFF as the operational starting state. This rule
+  does not authorize changes to the Frozen Core, protected scientific sources, canonical records,
+  RL registration, CE/CE-V status, or Volume V integration.
 
 LOOP_AUDIT_PROTOCOL:
 PURPOSE: Detect circular reasoning, hidden premise-conclusion equivalence, and conclusion-smuggling
