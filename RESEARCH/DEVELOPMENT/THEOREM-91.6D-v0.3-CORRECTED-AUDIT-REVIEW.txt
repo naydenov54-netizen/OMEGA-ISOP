@@ -1,0 +1,192 @@
+OMEGA-ISOP
+
+THEOREM 91.6D
+GENERAL IDENTIFIABILITY AND STABILITY CRITERION
+
+VERSION: 0.3-CORRECTED-AUDIT-REVIEW
+DATE: 2026-11-25
+PREDECESSOR: THEOREM-91.6D-v0.1.txt (internal theorem version 0.2)
+STATUS: PROVED UNDER STATED SET-THEORETIC AND METRIC ASSUMPTIONS
+CANONICAL STATUS: NOT FROZEN
+FROZEN CORE: UNCHANGED
+
+==================================================
+1. PURPOSE
+==================================================
+
+This theorem distinguishes identification of a full parameter from identification of a target quantity derived from that parameter. It also distinguishes exact identifiability, global Lipschitz stability, and local Lipschitz stability.
+
+==================================================
+2. FRAMEWORK
+==================================================
+
+Let Theta be a nonempty set.
+Let (Y,d_Y) and (Q,d_Q) be metric spaces.
+Let F:Theta->Y be an observation map.
+Let q:Theta->Q be a target map.
+
+==================================================
+3. EXACT IDENTIFIABILITY AND FACTORIZATION
+==================================================
+
+The target q is exactly identifiable from F iff:
+
+F(theta1)=F(theta2) => q(theta1)=q(theta2)
+
+for all theta1,theta2 in Theta.
+
+THEOREM 91.6D-1:
+
+q is exactly identifiable from F iff there exists a unique map
+g:F(Theta)->Q such that:
+
+q=g o F.
+
+Proof:
+If q is constant on each fiber of F, define g(y)=q(theta) for any theta with F(theta)=y. Fiber constancy makes this well-defined. Every y in F(Theta) has a preimage, so the definition is unique. Conversely, if q=g o F, equality of F values implies equality of q values.
+
+Q.E.D.
+
+When q=id_Theta, exact identifiability is equivalent to injectivity of F. This special case requires Q=Theta and a specified metric on Theta.
+
+==================================================
+4. GLOBAL LIPSCHITZ STABILITY
+==================================================
+
+The target q is globally Lipschitz-stably identifiable from F iff there exists K>=0 such that:
+
+d_Q(q(theta1),q(theta2))
+<=K*d_Y(F(theta1),F(theta2))
+
+for all theta1,theta2 in Theta.
+
+THEOREM 91.6D-2:
+
+Assuming exact identifiability, let g be the unique induced map on F(Theta). The global stability inequality holds iff g is globally Lipschitz on F(Theta), equipped with the subspace metric inherited from Y.
+
+Proof:
+Substitute q(theta)=g(F(theta)). The displayed inequality is exactly the Lipschitz inequality for g on pairs of points in F(Theta). Conversely, the Lipschitz inequality for g gives the stability inequality for q.
+
+Q.E.D.
+
+The global stability inequality itself implies exact identifiability because zero observation distance forces zero target distance.
+
+==================================================
+5. EXACT IDENTIFIABILITY DOES NOT IMPLY GLOBAL STABILITY
+==================================================
+
+Let Theta=R, Y=R, Q=R, with usual metrics:
+
+F(x)=x³
+q(x)=x.
+
+F is injective, so q is exactly identifiable. The induced map is:
+
+g(y)=cube_root(y).
+
+It is continuous on R but is not globally Lipschitz. For y>0:
+
+|g(y)-g(0)|/|y-0|=y^(-2/3),
+
+which is unbounded as y approaches zero.
+
+In fact, this example is not locally Lipschitz at zero either. Do not use it to illustrate a function that is locally Lipschitz everywhere.
+
+==================================================
+6. LOCAL LIPSCHITZ STABILITY
+==================================================
+
+DEFINITION 91.6D-3:
+
+The target q is locally Lipschitz-stably identifiable at theta_0 if there exist a neighborhood U of theta_0 in Theta, using the topology induced by the chosen domain metric when one is specified, and a finite K_U>=0 such that:
+
+d_Q(q(theta1),q(theta2))
+<=K_U*d_Y(F(theta1),F(theta2))
+
+for all theta1,theta2 in U.
+
+This is a pairwise local condition, not merely continuity at theta_0.
+
+If q is exactly identifiable on U, let g_U be its induced map on F(U). The local inequality is equivalent to g_U being Lipschitz on F(U) with the subspace metric.
+
+LOCAL-BUT-NOT-GLOBAL EXAMPLE:
+
+Let Theta=R, Y=(0,infinity), Q=R:
+
+F(x)=e^x
+q(x)=x.
+
+F is injective and the induced map is:
+
+g(y)=ln(y).
+
+For every y_0>0, ln(y) is Lipschitz on a sufficiently small closed interval around y_0 that stays inside (0,infinity), because its derivative 1/y is bounded there.
+
+However, ln(y) is not globally Lipschitz on (0,infinity), since 1/y is unbounded as y approaches zero.
+
+Thus local Lipschitz stability at every parameter value need not imply global Lipschitz stability.
+
+==================================================
+7. IDENTIFICATION OF A TARGET VERSUS THE FULL PARAMETER
+==================================================
+
+The condition for q to be identifiable is only that q be constant on each fiber of F. F itself need not be injective.
+
+If q=id_Theta, the condition becomes injectivity of F.
+
+This distinction is essential: an observation can identify a target quantity without identifying every component of the underlying parameter.
+
+==================================================
+8. LIMITATIONS AND NON-IMPLICATIONS
+==================================================
+
+This theorem does not establish:
+- statistical identifiability under a probability model;
+- stability for arbitrary metrics not specified in the theorem;
+- local stability without a domain topology/metric and neighborhood definition;
+- physical realizability or empirical validity;
+- Shannon information preservation or loss;
+- universal applicability to OMEGA-ISOP models;
+- any formal connection to THEOREM 91 or to A, B and C beyond the stated abstract mathematical comparison.
+
+The theorem's stability statements are metric statements about the induced factor map.
+
+==================================================
+9. LOOP AUDIT
+==================================================
+
+TARGET:
+Exact identifiability iff unique factorization through F(Theta); global Lipschitz stability iff the induced factor is globally Lipschitz; local stability under the explicit local definition.
+
+DEPENDENCIES:
+Definitions of fibers, image F(Theta), metric subspace, and Lipschitz maps.
+
+INDEPENDENCE:
+The factor map is constructed only after fiber constancy is established. Its well-definedness is proved, not assumed.
+
+COUNTEREXAMPLES:
+F(x)=x³ with q(x)=x refutes exact-identifiability => global Lipschitz stability and also refutes local Lipschitz stability at zero.
+F(x)=e^x with q(x)=x shows local Lipschitz stability at each point without global Lipschitz stability.
+
+CLASSIFICATION:
+NON-CIRCULAR DERIVATION WITHIN THE STATED SET-THEORETIC AND METRIC FRAMEWORK.
+
+==================================================
+10. CHANGE LOG AND ARCHITECTURAL CONTROL
+==================================================
+
+Changes from internal v0.2:
+1. Added a precise local Lipschitz-stability definition.
+2. Added a correct local-but-not-global example using F(x)=e^x and g(y)=ln(y).
+3. Explicitly stated that the cube-root example is not locally Lipschitz at zero.
+4. Clarified that local stability requires a domain topology/metric and a neighborhood.
+5. Preserved the exact factorization and global Lipschitz results.
+
+PREDECESSOR FILE: PRESERVED UNCHANGED.
+FROZEN CORE: UNCHANGED.
+CANONICAL DOCUMENTS: UNCHANGED.
+RL REGISTRATION: NOT PERFORMED.
+CANONICAL ACCEPTANCE: NOT PERFORMED.
+PHYSICAL VALIDATION: NOT CLAIMED.
+
+END OF THEOREM 91.6D v0.3
