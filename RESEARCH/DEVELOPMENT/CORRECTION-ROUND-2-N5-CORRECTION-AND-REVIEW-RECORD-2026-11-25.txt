@@ -1,0 +1,139 @@
+OMEGA-ISOP
+CORRECTION ROUND 2
+N5 CORRECTION AND REVIEW RECORD
+
+DATE: 2026-11-25
+RECORD TYPE: MATHEMATICAL CORRECTION / REVIEW STATUS
+STATUS: CORRECTED; INTERNAL SECOND-PASS CHECKED; INDEPENDENT THIRD-PARTY CONFIRMATION PENDING
+SCOPE: THEOREM 91.6A v0.3-N5-CORRECTED
+
+REPOSITORY:
+naydenov54-netizen/OMEGA-ISOP
+
+CORRECTION BRANCH:
+audit/91.6A-N5-correction-v1-2026-11-25
+
+BASE COMMIT:
+f06c82feb0d50eb5810b36a114ecedbb6abb8910
+
+CORRECTED FILE:
+RESEARCH/DEVELOPMENT/THEOREM-91.6A-v0.3-N5-CORRECTED.txt
+
+ISSUE:
+N5 (A §6: missing explicit gamma_A>0 premise and missing proof of sharpness).
+
+1. DEFECT IN THE PREDECESSOR
+
+A v0.2 stated:
+
+||x1-x2||<=2*epsilon/gamma_A
+
+without explicitly introducing gamma_A>0 as the premise of the Section 6 recovery-uncertainty argument. It also did not establish that the universal constant is optimal.
+
+The inequality is valid when gamma_A>0. The defect was an incomplete statement and proof, not a false bound under the intended injective assumptions.
+
+2. CORRECTION
+
+The v0.3 text explicitly assumes A is injective. By THEOREM 91.6A-2, this is equivalent to gamma_A>0 in the finite-dimensional Euclidean setting.
+
+If one observation y is compatible with x1 and x2, then:
+
+y=A(x1)+eta1
+y=A(x2)+eta2
+
+||eta1||<=epsilon
+||eta2||<=epsilon.
+
+Subtracting gives:
+
+A(x1-x2)=eta2-eta1.
+
+Therefore:
+
+||A(x1-x2)||<=2*epsilon.
+
+The positive minimum gain gives:
+
+gamma_A*||x1-x2||<=||A(x1-x2)||.
+
+Thus:
+
+||x1-x2||<=2*epsilon/gamma_A.
+
+For C(y)={x:||y-A(x)||<=epsilon}, this yields:
+
+diam(C(y))<=2*epsilon/gamma_A.
+
+3. SHARPNESS PROOF
+
+The continuous function z->||A(z)|| attains its minimum on the compact Euclidean unit sphere. Hence there is v with:
+
+||v||=1
+||A(v)||=gamma_A.
+
+For epsilon>0 choose:
+
+x1=0
+x2=(2*epsilon/gamma_A)*v
+y=A(x2)/2.
+
+Then:
+
+||y-A(x1)||=epsilon
+||y-A(x2)||=epsilon
+
+and:
+
+||x2-x1||=2*epsilon/gamma_A.
+
+Thus both states belong to C(y) and attain the upper bound exactly. No smaller universal diameter constant is valid under the stated assumptions.
+
+4. BOUNDARY CASES
+
+If epsilon=0 and gamma_A>0, exact injectivity makes C(y) a singleton for y in the image; the diameter is zero.
+
+If gamma_A=0, THEOREM 91.6A-2 gives non-injectivity in the finite-dimensional setting. A nonzero kernel direction produces arbitrarily distant states with exactly the same observation. Thus no finite uniform compatible-state diameter bound follows, even at zero noise.
+
+5. SECOND-PASS REVIEW
+
+The proof was re-derived from first principles, separately from the correction prose.
+
+Checks:
+- Closed equal-radius Euclidean noise balls intersect iff their centers are at distance <=2*epsilon.
+- The common-observation equations imply the observation difference is the difference of the two noise vectors.
+- The triangle inequality gives the factor 2, not 1.
+- Positive minimum gain is used only after gamma_A>0 is established.
+- Compactness supplies an attaining unit vector, so the sharpness construction is valid.
+- The constructed noise norms are exactly epsilon.
+- The distinction between a sufficient pairwise state-separation condition and a worst-case compatible-set diameter bound is retained.
+- Nonzero bounded noise is not claimed to permit unique recovery.
+
+SECOND-PASS RESULT:
+No mathematical defect found in the corrected N5 argument under the stated assumptions.
+
+INDEPENDENCE LIMIT:
+This is an internal second-pass mathematical review. It is not a fresh third-party audit. Therefore this record does not claim independent external closure. A read-only independent reviewer must verify the corrected file before N5 can be marked independently CLOSED.
+
+6. CLOSURE STATUS
+
+N5: CORRECTED / INTERNAL SECOND-PASS CHECKED.
+N5 INDEPENDENT THIRD-PARTY CLOSURE: PENDING.
+CORRECTION ROUND 2: OPEN.
+
+7. ARCHITECTURAL STATUS
+
+- A v0.2 preserved unchanged.
+- A v0.3 is a separately versioned research artifact.
+- main unchanged.
+- Frozen Core unchanged.
+- Handoff v1.9 unchanged.
+- THEOREM 91, 91.3 and 91.4 unchanged.
+- No merge performed.
+- No freeze performed.
+- No canonical acceptance granted.
+- No RL registration.
+- No CE/CE-V promotion.
+- No Volume V integration.
+- No physical or empirical validation claimed.
+
+END OF N5 CORRECTION AND REVIEW RECORD
