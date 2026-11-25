@@ -1,0 +1,156 @@
+OMEGA-ISOP
+
+RESEARCH AND ARCHIVAL/RECOVERY CHECKPOINT
+
+CHECKPOINT_ID: OI-91.6A-D-CHECKPOINT-2026-11-25-01
+DATE: 2026-11-25
+PROJECT_AND_WORKSTREAM: OMEGA-ISOP / THEOREM 91.6A-D
+CONTROLLING_HANDOFF: OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF.txt
+HANDOFF_VERSION: 1.8
+HANDOFF_STATUS: WORKING HANDOFF / NOT CANONICALLY ACCEPTED
+REPOSITORY: https://github.com/naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+
+==================================================
+LAYER 1 - RESEARCH CHECKPOINT
+==================================================
+
+RESEARCH_STAGE:
+Independent logical audit of THEOREM 91.6D v0.2 and cross-consistency review of THEOREM 91.6A-D.
+
+OBJECTIVE:
+Verify the factorization and Lipschitz-stability claims in D under the Handoff v1.8 LOOP_AUDIT_PROTOCOL, then verify that the roles and assumptions of A-D are mutually compatible without promoting the collection to canonical status.
+
+ESTABLISHED_RESULTS:
+
+1. THEOREM 91.6D-1 is a valid set-theoretic factorization criterion:
+q is exactly identifiable from F iff q is constant on every fiber of F, iff there exists a unique g:F(Theta)->Q with q=g o F.
+
+2. THEOREM 91.6D-2 is a valid global metric equivalence:
+the stated global Lipschitz stability inequality holds iff the unique induced map g on F(Theta), with its subspace metric, is globally Lipschitz.
+
+3. Exact identifiability does not imply global Lipschitz stability. The example F(x)=x^3, q(x)=x gives g(y)=cube_root(y), which is continuous but not globally Lipschitz.
+
+4. The special case q=id_Theta requires Q=Theta and a metric d_Theta on Theta. Under that condition, exact identifiability is equivalent to injectivity of F.
+
+5. The cross-consistency review found no internal mathematical contradiction among the stated roles of A, B, C, and D within the reviewed texts.
+
+6. A is explicitly a new construction, not a recovered historical original. This provenance qualification remains mandatory.
+
+PROVED RESULTS AND EXACT ASSUMPTIONS:
+- D-1 requires only the stated maps and fiber-constancy condition; its factorization is set-theoretic.
+- D-2 requires metric spaces Y and Q and the global Lipschitz condition.
+- A's rank and positive-gain results require finite-dimensional linear observations and the stated Euclidean structure.
+- B's contraction and limit claims apply to its explicit constructed family.
+- C's positive history-gain result requires finite dimensionality, uniform boundedness, and the stated supremum history metric.
+
+CONDITIONAL RESULTS:
+None newly promoted. All conclusions remain restricted to their stated domains and assumptions.
+
+EVIDENCE_CLASS:
+ANALYTICAL PROOF REVIEW / LOGICAL CONSISTENCY AUDIT.
+
+METHOD:
+Read the archived theorem texts from the repository; separately audited D-1 and D-2; tested the cube-root counterexample; reviewed cross-references and assumption boundaries among A-D.
+
+CHECKS_PERFORMED:
+- Exact-identifiability factorization audit.
+- Lipschitz-equivalence audit.
+- Counterexample test for exact identifiability versus global Lipschitz stability.
+- Continuity versus global Lipschitz check.
+- Special-case q=id_Theta check.
+- Cross-dependency and assumption consistency check for A-D.
+- Frozen Core and canonical-status boundaries checked.
+
+COUNTEREXAMPLES_AND_FAILURE_TESTS:
+The cube-root example disproves the stronger, unstated claim that exact identifiability implies global Lipschitz stability. No counterexample to D-1 or D-2 under their stated assumptions was identified.
+
+CHECKS_NOT_PERFORMED:
+- Formal proof assistant verification.
+- Peer review.
+- Empirical or physical validation.
+- Full audit of Theorem 91.3 and 91.4 primary sources.
+- Full OMEGA-ISOP source and Frozen Core audit.
+
+LIMITATIONS_AND_NON-IMPLICATIONS:
+The audit does not establish physical realizability, statistical identifiability, empirical validity, Shannon information preservation, universal applicability, or canonical acceptance. The series consistency finding is limited to the archived texts reviewed.
+
+OPEN_PROBLEMS:
+1. Verify the primary-source relationship and compatibility boundary between THEOREM 91.6A-D and the authoritative THEOREM 91.3 / 91.4 records.
+2. Resolve metadata naming mismatches without overwriting historical artifacts: collection filename includes v1.0 while its internal collection version is 1.1; D filename includes v0.1 while its internal theorem version is 0.2.
+3. Do not start a new 91.7 result until a precise target and dependency basis are identified.
+
+ARCHITECTURAL_INVARIANTS:
+- FROZEN ≠ CLOSED.
+- Frozen Core remains unchanged.
+- No canonical theorem amendment.
+- No RL registration.
+- No CE/CE-V promotion.
+- No Volume V integration.
+- No physical claim inferred from abstract identifiability results.
+
+H1_STATUS: NOT REASSESSED IN THIS CHECKPOINT.
+H3_STATUS: NOT REASSESSED IN THIS CHECKPOINT.
+CANONICAL_THEOREM_91_STATUS: NO CHANGE; NOT REASSESSED BEYOND THE 91.6 DEVELOPMENT RECORDS.
+FROZEN_CORE_STATUS: UNCHANGED / PROTECTED.
+
+NEXT_JUSTIFIED_ACTION:
+Locate and inspect the authoritative primary-source records for THEOREM 91.3 and THEOREM 91.4, then assess the exact compatibility boundary with the 91.6A-D research-development series. Do not modify protected sources. If those sources are unavailable, report the dependency and continue only with independent work.
+
+RESEARCH_CHECKPOINT_STATUS:
+COMPLETE FOR THE REVIEWED 91.6A-D STAGE.
+
+==================================================
+LAYER 2 - ARCHIVAL/RECOVERY CHECKPOINT
+==================================================
+
+PROJECT_AND_WORKSTREAM:
+OMEGA-ISOP / THEOREM 91.6A-D.
+
+CONTROLLING_HANDOFF_FILENAME_AND_VERSION:
+OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF.txt / VERSION 1.8.
+
+RELEVANT_SOURCE_REFERENCES:
+- Handoff v1.8 repository file: https://github.com/naydenov54-netizen/OMEGA-ISOP/blob/main/OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF.txt
+- THEOREM 91.6A-D collection: RESEARCH/DEVELOPMENT/THEOREM-91.6-A-D-COLLECTION-v1.0.txt (internal collection version 1.1).
+- THEOREM 91.6D: RESEARCH/DEVELOPMENT/THEOREM-91.6D-v0.1.txt (internal theorem version 0.2).
+- THEOREM 91.6B: RESEARCH/DEVELOPMENT/THEOREM-91.6B-v0.2-AUDIT.txt.
+- THEOREM 91.6C: RESEARCH/DEVELOPMENT/THEOREM-91.6C-v0.1.txt.
+- THEOREM 91.6A: RESEARCH/DEVELOPMENT/THEOREM-91.6A-v0.1-NEW-CONSTRUCTION.txt.
+
+COMPLETED_WORK:
+1. Independent LOOP audit of D-1 and D-2.
+2. Cross-consistency audit of A-D.
+3. Both audits archived as separate derivative research artifacts.
+
+FILES_CREATED:
+- RESEARCH/DEVELOPMENT/THEOREM-91.6D-LOOP-AUDIT-v0.1.txt
+- RESEARCH/DEVELOPMENT/THEOREM-91.6-A-D-SERIES-CONSISTENCY-AUDIT-v0.1.txt
+- checkpoints/OI-91.6A-D-CHECKPOINT-2026-11-25-01.txt
+
+GITHUB_COMMITS:
+- D LOOP audit: 6192f3bc3b2df34fecdc2e7203bd30984d3abbef
+- A-D series consistency audit: 583a9242737de5537a7c287f7ada005dcf836490
+
+READBACK_AND_VERIFICATION:
+- D LOOP audit was fetched after commit; required sections, theorem D-1 and D-2 audits, counterexample, classification, Frozen Core status, and end marker were verified.
+- A-D consistency audit was fetched after commit; all four theorem roles, consistency checks, A provenance qualification, Frozen Core status, and end marker were verified.
+- The main branch head after the second audit commit was verified as 583a9242737de5537a7c287f7ada005dcf836490.
+- The checkpoint itself must be read back after creation before claiming archival completion.
+
+PROTECTED_SCOPE_AND_PROHIBITIONS:
+Do not modify Frozen Core, canonical master documents, protected source files, authoritative RL registries, CE/CE-V records, or Volume V integration state. Do not infer scientific acceptance from GitHub archival.
+
+UNRESOLVED_DEPENDENCIES:
+Authoritative primary-source records for THEOREM 91.3 and THEOREM 91.4 have not yet been located or inspected in this work stage.
+
+RECOVERY_INSTRUCTIONS:
+1. Load Handoff v1.8.
+2. Read this checkpoint.
+3. Verify current main branch head before making any repository changes.
+4. Continue with the primary-source compatibility check for THEOREM 91.3 and 91.4.
+5. Preserve all theorem and audit files already archived.
+6. Keep canonical acceptance, RL registration, and Frozen Core status separate from research archival.
+
+FINAL STATUS:
+Research stage complete; archival/recovery checkpoint pending readback verification.
