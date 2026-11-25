@@ -1,0 +1,286 @@
+OMEGA-ISOP
+
+THEOREM 91.6D
+
+GENERAL IDENTIFIABILITY AND STABILITY CRITERION
+
+VERSION: 0.1
+DATE: 2026-11-25
+STATUS: RESEARCH DEVELOPMENT / MATHEMATICAL RESULT UNDER STATED METRIC ASSUMPTIONS
+CANONICAL STATUS: NOT FROZEN
+ARCHITECTURAL STATUS: NO FROZEN CORE MODIFICATION
+
+==================================================
+1. PURPOSE
+==================================================
+
+This theorem gives a general metric-space criterion for identifying a target quantity from observations.
+
+The central distinction is between:
+1. Identifiability of the full parameter.
+2. Identifiability of a target quantity derived from that parameter.
+3. Exact identifiability.
+4. Lipschitz-stable identifiability.
+
+The theorem does not require the observation map to identify the full parameter. It requires only that parameters producing the same observation also produce the same target value.
+
+==================================================
+2. MATHEMATICAL FRAMEWORK
+==================================================
+
+Let:
+
+Theta
+
+be a nonempty admissible parameter set.
+
+Let (Y,d_Y) be a metric observation space and let:
+
+F : Theta -> Y
+
+be the observation map.
+
+Let (Q,d_Q) be a metric target space and let:
+
+q : Theta -> Q
+
+be the target quantity.
+
+No linearity or vector-space structure is assumed.
+
+==================================================
+3. EXACT IDENTIFIABILITY
+==================================================
+
+DEFINITION 91.6D-1:
+
+The target q is exactly identifiable from F if:
+
+F(theta1) = F(theta2)
+=>
+q(theta1) = q(theta2)
+
+for all theta1,theta2 in Theta.
+
+This condition says that q is constant on every fiber of F.
+
+THEOREM 91.6D-1:
+
+The target q is exactly identifiable from F if and only if there exists a unique function:
+
+g : F(Theta) -> Q
+
+such that:
+
+q = g o F
+
+PROOF:
+
+Suppose q is exactly identifiable.
+
+For every y in F(Theta), choose any theta with F(theta)=y and define:
+
+g(y) = q(theta)
+
+This is well-defined because if theta1 and theta2 both map to y, exact identifiability gives q(theta1)=q(theta2).
+
+Therefore:
+
+g(F(theta)) = q(theta)
+
+for every theta in Theta.
+
+Hence:
+
+q = g o F.
+
+Uniqueness follows because every y in F(Theta) has at least one preimage theta, and g(y) must equal q(theta).
+
+Conversely, suppose q=g o F for some function g.
+
+If:
+
+F(theta1)=F(theta2)
+
+then:
+
+q(theta1)=g(F(theta1))=g(F(theta2))=q(theta2).
+
+Thus q is exactly identifiable.
+
+Q.E.D.
+
+==================================================
+4. LIPSCHITZ-STABLE IDENTIFIABILITY
+==================================================
+
+DEFINITION 91.6D-2:
+
+The target q is Lipschitz-stably identifiable from F if there exists a finite constant K >= 0 such that:
+
+d_Q(q(theta1),q(theta2))
+<=
+K*d_Y(F(theta1),F(theta2))
+
+for all theta1,theta2 in Theta.
+
+THEOREM 91.6D-2:
+
+The target q is Lipschitz-stably identifiable from F if and only if the induced function:
+
+g : F(Theta) -> Q
+
+from THEOREM 91.6D-1 exists and is Lipschitz continuous.
+
+PROOF:
+
+If the stated inequality holds, exact identifiability follows immediately: when the observation distance is zero, the target distance is zero. Thus g exists by THEOREM 91.6D-1.
+
+For y1=F(theta1) and y2=F(theta2), define g(y)=q(theta) on the image. Then:
+
+d_Q(g(y1),g(y2))
+<=
+K*d_Y(y1,y2)
+
+so g is Lipschitz.
+
+Conversely, if g is Lipschitz with constant K and q=g o F, then:
+
+d_Q(q(theta1),q(theta2))
+=
+d_Q(g(F(theta1)),g(F(theta2)))
+<=
+K*d_Y(F(theta1),F(theta2)).
+
+Therefore q is Lipschitz-stably identifiable.
+
+Q.E.D.
+
+==================================================
+5. NON-IMPLICATIONS
+==================================================
+
+EXACT IDENTIFIABILITY DOES NOT IMPLY LIPSCHITZ STABILITY.
+
+Example:
+
+Theta = R
+Y = R
+Q = R
+
+F(x) = x^3
+q(x) = x
+
+F is injective, so q is exactly identifiable from F.
+
+However, the induced function is:
+
+g(y) = cube_root(y)
+
+This function is not globally Lipschitz on R. Indeed, for y>0:
+
+|g(y)-g(0)|/|y-0| = y^(-2/3)
+
+which is unbounded as y tends to zero.
+
+Therefore exact identifiability does not imply global Lipschitz-stable identifiability.
+
+CONTINUITY DOES NOT IMPLY LIPSCHITZ CONTINUITY.
+
+The same function g(y)=cube_root(y) is continuous everywhere but not globally Lipschitz.
+
+IDENTIFIABILITY DOES NOT PROVE PHYSICAL REALIZABILITY.
+
+The factorization q=g o F is a mathematical statement about maps and metric spaces. It does not establish that F is physically realizable, measurable in an experiment, or compatible with any specific physical theory.
+
+==================================================
+6. INTERPRETATION AND SCOPE
+==================================================
+
+The theorem separates two questions:
+
+A. Does the observation determine the target exactly?
+
+B. Does a small change in the observation guarantee a proportionally small change in the recovered target?
+
+The first is a fiber-constancy condition. The second is a quantitative regularity condition on the induced map over the observation image.
+
+The target q may be identifiable even when the full parameter theta is not identifiable.
+
+==================================================
+7. LIMITATIONS
+==================================================
+
+This theorem does not establish:
+
+1. Injectivity of F on the full parameter space.
+2. Existence of a Lipschitz constant without the stated inequality.
+3. Stability under every possible metric or topology.
+4. Statistical identifiability under a probabilistic observation model.
+5. Physical realizability or empirical validity.
+6. A universal connection to Shannon information.
+7. Automatic applicability to every OMEGA-ISOP construction.
+
+The Lipschitz condition is global on the stated domain. Local stability requires a separately stated local version.
+
+==================================================
+8. LOOP AND LOGICAL AUDIT
+==================================================
+
+TARGET:
+
+Exact identifiability of q is equivalent to existence of a unique factor map g on F(Theta), with q=g o F.
+
+DEPENDENCY:
+
+Definitions of F(Theta), fibers of F, exact identifiability, and function composition.
+
+CONCLUSION-SMUGGLING CHECK:
+
+The factor map is constructed from the target values on observation fibers. Its well-definedness is proved using the exact-identifiability condition. The factorization is not assumed in advance.
+
+COUNTERMODEL TEST:
+
+If exact identifiability fails, there are theta1,theta2 with equal observations but unequal target values. No single-valued g on F(Theta) can assign both target values to the same observation. Thus the equivalence is exact.
+
+AUDIT CLASSIFICATION:
+
+NON-CIRCULAR DERIVATION WITHIN THE STATED SET-THEORETIC AND METRIC FRAMEWORK.
+
+==================================================
+9. SCIENTIFIC STATUS
+==================================================
+
+PROVED UNDER STATED ASSUMPTIONS:
+
+- Exact identifiability is equivalent to factorization through the observation image.
+- The induced factor map is unique.
+- Lipschitz-stable identifiability is equivalent to Lipschitz continuity of the induced factor map.
+- Exact identifiability does not imply global Lipschitz stability.
+
+NOT ESTABLISHED:
+
+- Physical realization.
+- Statistical identifiability.
+- Universal stability.
+- Empirical validation.
+- Universal applicability to all OMEGA-ISOP models.
+
+==================================================
+10. ARCHITECTURAL CONTROL
+==================================================
+
+THEOREM 91.6D:
+RESEARCH DEVELOPMENT / VERSION 0.1
+
+THEOREM 91.6A: NOT USED AS A SOURCE
+THEOREM 91.6B: NOT USED AS A SOURCE
+THEOREM 91.6C: NOT USED AS A SOURCE
+
+FROZEN CORE: UNCHANGED
+CANONICAL MASTER DOCUMENTS: UNCHANGED
+RL REGISTRATION: NOT PERFORMED
+CANONICAL ACCEPTANCE: NOT PERFORMED
+ARCHITECTURAL MODIFICATION: NOT AUTHORIZED
+
+END OF THEOREM 91.6D
