@@ -4,7 +4,7 @@ THEOREM 91.6D
 
 GENERAL IDENTIFIABILITY AND STABILITY CRITERION
 
-VERSION: 0.1
+VERSION: 0.2
 DATE: 2026-11-25
 STATUS: RESEARCH DEVELOPMENT / MATHEMATICAL RESULT UNDER STATED METRIC ASSUMPTIONS
 CANONICAL STATUS: NOT FROZEN
@@ -47,6 +47,10 @@ q : Theta -> Q
 be the target quantity.
 
 No linearity or vector-space structure is assumed.
+
+SPECIAL CASE q = id_Theta:
+
+The notation q = id_Theta is admissible only when Q = Theta and Theta is equipped with a metric d_Theta. In that case, the target metric d_Q is d_Theta, and exact identifiability of q = id_Theta is equivalent to injectivity of F.
 
 ==================================================
 3. EXACT IDENTIFIABILITY
@@ -185,9 +189,9 @@ which is unbounded as y tends to zero.
 
 Therefore exact identifiability does not imply global Lipschitz-stable identifiability.
 
-CONTINUITY DOES NOT IMPLY LIPSCHITZ CONTINUITY.
+CONTINUITY OF THE INDUCED MAP g DOES NOT IMPLY LIPSCHITZ CONTINUITY.
 
-The same function g(y)=cube_root(y) is continuous everywhere but not globally Lipschitz.
+Continuity here means continuity of g on F(Theta), equipped with the subspace metric inherited from d_Y. The same function g(y)=cube_root(y), on F(Theta)=R, is continuous everywhere but not globally Lipschitz.
 
 IDENTIFIABILITY DOES NOT PROVE PHYSICAL REALIZABILITY.
 
@@ -271,7 +275,7 @@ NOT ESTABLISHED:
 ==================================================
 
 THEOREM 91.6D:
-RESEARCH DEVELOPMENT / VERSION 0.1
+RESEARCH DEVELOPMENT / VERSION 0.2
 
 THEOREM 91.6A: NOT USED AS A SOURCE
 THEOREM 91.6B: NOT USED AS A SOURCE
