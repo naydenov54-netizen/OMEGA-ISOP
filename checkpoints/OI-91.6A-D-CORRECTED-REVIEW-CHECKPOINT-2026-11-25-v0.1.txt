@@ -1,0 +1,83 @@
+OMEGA-ISOP
+RESEARCH AND ARCHIVAL/RECOVERY CHECKPOINT
+
+CHECKPOINT_ID: OI-91.6A-D-CORRECTED-REVIEW-CHECKPOINT-2026-11-25-v0.1
+DATE: 2026-11-25
+PROJECT: OMEGA-ISOP / THEOREM 91.6A-D
+CONTROLLING_HANDOFF: OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF-v1.9.txt
+HANDOFF_VERSION: 1.9
+BASELINE_COMMIT: 7385ec76f9c1a232308cd942c487b353524c3a24
+WORK_BRANCH: audit/91.6A-D-corrected-v1-2026-11-25
+
+==================================================
+LAYER 1 - RESEARCH CHECKPOINT
+==================================================
+
+OBJECTIVE:
+Prepare new, separately versioned A-D research drafts incorporating convergent findings from the Claude and Perplexity audits, without modifying predecessor documents or protected canonical sources.
+
+INPUT AUDIT FINDINGS INCORPORATED:
+
+1. A: bounded-noise separation must not be conflated with unique recovery. Added the compatible-state diameter bound ||x1-x2||<=2*epsilon/gamma_A when the same observation is compatible with both candidates.
+2. B: corrected B-01. For each fixed finite n, F_n is bi-Lipschitz; however sup_n Lip(F_n^(-1)) is infinite. Clarified absence of uniform-in-n stability. Disclosed that F_1 already identifies the state, so the infinite-history injectivity result is non-essential as a necessity claim.
+3. C: separated the assumptions used by the different claims. Replaced the finite-witness compactness argument with finite-dimensional dimension descent. Distinguished full history from a late tail and gave gamma_(H,K)=1/(sqrt(2)*K) for the stated alternating-coordinate example.
+4. D: added an explicit local Lipschitz definition and the exp/log example. Clarified that the cube-root example is not locally Lipschitz at zero.
+
+CORRECTED ARTIFACTS:
+
+- RESEARCH/DEVELOPMENT/THEOREM-91.6A-v0.2-CORRECTED-AUDIT-REVIEW.txt
+- RESEARCH/DEVELOPMENT/THEOREM-91.6B-v0.3-CORRECTED-AUDIT-REVIEW.txt
+- RESEARCH/DEVELOPMENT/THEOREM-91.6C-v0.2-CORRECTED-AUDIT-REVIEW.txt
+- RESEARCH/DEVELOPMENT/THEOREM-91.6D-v0.3-CORRECTED-AUDIT-REVIEW.txt
+- RESEARCH/DEVELOPMENT/THEOREM-91.6-A-D-CORRECTED-SERIES-REVIEW-MAP-v1.0.txt
+
+EVIDENCE_CLASS:
+ANALYTICAL RESEARCH REVISION BASED ON TWO INDEPENDENT TEXTUAL AUDIT REPORTS; A FRESH THIRD-PARTY AUDIT IS REQUIRED.
+
+IMPORTANT LIMITATION:
+This checkpoint does not claim that every corrected proof has already received a fresh independent verification. The corrections are proposed research drafts pending renewed audit.
+
+THEOREM 91 BOUNDARY:
+The exact primary source for THEOREM 91 was not established as part of this correction. The common-tau condition remains a conditional result from the reviewed Handoff formulation. No H3 quantifier is promoted as recovered primary text. No formal bridge from 91.6A-D to THEOREM 91 is claimed.
+
+ARCHITECTURAL INVARIANTS:
+- FROZEN ≠ CLOSED.
+- Frozen Core unchanged.
+- Handoff v1.9 unchanged.
+- Original A-D predecessor files unchanged.
+- THEOREM 91, 91.3, 91.4 unchanged.
+- No RL registration.
+- No canonical acceptance.
+- No CE/CE-V promotion.
+- No Volume V integration.
+- No physical or Shannon-information claim.
+
+NEXT JUSTIFIED ACTION:
+Submit the corrected drafts and review map to Claude for a fresh independent audit. Require a line-by-line proof audit, countermodel search, assumption-removal analysis, cross-document consistency check, and explicit list of remaining OPEN items. Claude must not treat the prior audit conclusions as premises.
+
+==================================================
+LAYER 2 - ARCHIVAL/RECOVERY CHECKPOINT
+==================================================
+
+REPOSITORY:
+https://github.com/naydenov54-netizen/OMEGA-ISOP
+
+BRANCH:
+audit/91.6A-D-corrected-v1-2026-11-25
+
+BASE:
+7385ec76f9c1a232308cd942c487b353524c3a24
+
+READBACK:
+Pending. Every new artifact must be fetched from this branch and checked before archival completion is claimed.
+
+COMMIT STATUS:
+Files were added on a separate review branch. No changes were made to main by this checkpoint.
+
+PROTECTED SCOPE:
+No Frozen Core, canonical master, Handoff, original theorem, RL registry, CE/CE-V record, or Volume V file was modified.
+
+FINAL STATUS:
+CORRECTED RESEARCH DRAFTS PREPARED; INDEPENDENT RE-AUDIT PENDING.
+
+END OF CHECKPOINT
