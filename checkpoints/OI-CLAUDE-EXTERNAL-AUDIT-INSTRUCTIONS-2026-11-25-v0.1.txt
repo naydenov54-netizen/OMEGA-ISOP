@@ -1,0 +1,376 @@
+OMEGA-ISOP
+CLAUDE EXTERNAL AUDIT INSTRUCTIONS
+DOCUMENT_ID: OI-CLAUDE-EXTERNAL-AUDIT-INSTRUCTIONS-2026-11-25
+VERSION: 0.1
+DATE: 2026-11-25
+STATUS: EXTERNAL AUDIT REQUEST / NOT A SCIENTIFIC RESULT
+PURPOSE: Independent mathematical, logical, provenance, and scope audit of the publicly available OMEGA-ISOP research archive.
+CONTROLLING_HANDOFF: OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF-v1.9.txt
+AUDIT_BASE_COMMIT: 7385ec76f9c1a232308cd942c487b353524c3a24
+REPOSITORY: https://github.com/naydenov54-netizen/OMEGA-ISOP
+AUDIT_MODE: READ_ONLY. DO NOT MODIFY THE REPOSITORY, CREATE COMMITS, EDIT CANONICAL FILES, OR REGISTER RESULTS.
+
+============================================================
+0. DIRECTIVE TO THE INDEPENDENT AUDITOR
+============================================================
+
+Act as an independent, technically critical mathematical and logical auditor. Do not act as an advocate for OMEGA-ISOP and do not assume that its claims are correct. Do not attempt to protect the theory from negative findings.
+
+Inspect the repository at the exact AUDIT_BASE_COMMIT above. Use the source files themselves, not this instruction document or previous audit conclusions, as the primary material for your review. Read the current controlling Handoff v1.9 first, then inspect every relevant research artifact listed below. Verify paths, file contents, internal version labels, and cross-references.
+
+Independently reproduce the mathematical arguments. A prior internal audit is evidence of what was previously checked, not proof that the result is correct. Do not merely paraphrase or endorse previous audit records.
+
+If a source is absent, inaccessible, incomplete, or only summarized in the handoff, mark the dependent audit BLOCKED or NOT AUDITABLE. Do not reconstruct a missing primary source from summaries and do not treat a GitHub derivative archive as the original source.
+
+Be exact about scope. A defect in one theorem does not automatically refute unrelated results or the whole OMEGA-ISOP framework. Conversely, a result proved in an abstract mathematical model does not validate the physical theory.
+
+============================================================
+1. SOURCE REPOSITORY AND AUDIT SNAPSHOT
+============================================================
+
+Repository:
+https://github.com/naydenov54-netizen/OMEGA-ISOP
+
+Audit base commit:
+https://github.com/naydenov54-netizen/OMEGA-ISOP/commit/7385ec76f9c1a232308cd942c487b353524c3a24
+
+Controlling handoff:
+https://github.com/naydenov54-netizen/OMEGA-ISOP/blob/7385ec76f9c1a232308cd942c487b353524c3a24/OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF-v1.9.txt
+
+Inspect these research and checkpoint files at the same commit:
+
+1. RESEARCH/DEVELOPMENT/THEOREM-91-CONDITIONAL-NONEXPANSION-AUDIT-v0.1.txt
+2. RESEARCH/DEVELOPMENT/THEOREM-91.6-A-D-COLLECTION-v1.0.txt
+3. RESEARCH/DEVELOPMENT/THEOREM-91.6-A-D-SERIES-CONSISTENCY-AUDIT-v0.1.txt
+4. RESEARCH/DEVELOPMENT/THEOREM-91.6A-v0.1-NEW-CONSTRUCTION.txt
+5. RESEARCH/DEVELOPMENT/THEOREM-91.6B-v0.2-AUDIT.txt
+6. RESEARCH/DEVELOPMENT/THEOREM-91.6C-v0.1.txt
+7. RESEARCH/DEVELOPMENT/THEOREM-91.6D-LOOP-AUDIT-v0.1.txt
+8. RESEARCH/DEVELOPMENT/THEOREM-91.6D-v0.1.txt
+9. RESEARCH/DEVELOPMENT/OI-RELATIONAL-EMERGENCE-RESEARCH-DIRECTION-v0.1.txt
+10. RESEARCH/DEVELOPMENT/OI-RELATIONAL-EMERGENCE-RESEARCH-DIRECTION-v0.2.txt
+11. checkpoints/OI-91.6A-D-CHECKPOINT-2026-11-25-01.txt
+12. checkpoints/OI-THEOREM-91-CHECKPOINT-2026-11-25-02-v0.2.txt
+13. checkpoints/OI-PRIOR-RESEARCH-COMPLETION-PLAN-2026-11-25-v0.1.txt
+14. BOOT-HANDOFF.txt
+
+The handoff and repository are operational/archive sources. Do not elevate them above missing authoritative primary sources.
+
+============================================================
+2. MANDATORY PROVENANCE AND COMPLETENESS AUDIT
+============================================================
+
+First establish what is actually present in the repository at the pinned commit. Report the exact file inventory relevant to this audit.
+
+Explicitly check these known provenance and availability boundaries:
+
+A. The repository handoff identifies Handoff v1.9 as the current controlling working handoff. Confirm its version, date, status, and the distinction between working handoff and canonically accepted theory.
+
+B. Theorem 91 audit v0.1 reviews the formulation in Handoff v1.8, Section 9. Its own header says the original primary theorem source was not located. Preserve this historical provenance. Do not silently rewrite the audit as if it had originally reviewed v1.9.
+
+C. Theorem 91.3 and 91.4 primary sources are not present in the listed repository snapshot. Do not infer their contents.
+
+D. The historical original of Theorem 91.6A was not recovered. The available A text is explicitly a NEW CONSTRUCTION. Verify that no document improperly represents it as the historical original.
+
+E. Check internal filename/version mismatches, including:
+- 91.6 A-D collection filename contains v1.0 while its internal collection version is 1.1.
+- 91.6D filename contains v0.1 while the theorem text identifies version 0.2.
+Report whether these are harmless archival metadata discrepancies or create substantive ambiguity. Do not alter files.
+
+F. The Handoff references Volume V v2.4-C-1.5 controlled master and a primary-source provenance disposition document as bases for RL status. Verify whether these documents are actually available in this repository snapshot. If absent, state that their contents and claims cannot be independently checked from this repository alone.
+
+G. Verify whether the Frozen Core, protected canonical volumes, Volume V controlled master, original RL laboratory records, original cosmology packet(s), and any authoritative registry readback are present. Do not claim to have audited any item that is absent.
+
+H. The repository tree is a derivative archive. A repository copy is not automatically the original Drive/Colab/primary source.
+
+============================================================
+3. MATHEMATICAL AUDIT: THEOREM 91
+============================================================
+
+Audit the exact conditional non-expansion claim:
+
+D_L(M1,M2) = sup over a in L_op of ||Resp_M1(a)-Resp_M2(a)||_Y
+
+Claimed assumptions include:
+H1: R exists, T is admissible, and R is preserved.
+H2: Y is normed.
+H3: There exists a map tau:L_op->L_op such that Resp_(T(M))(a)=Resp_M(tau(a)).
+H4: The operational criterion and comparison class remain fixed.
+
+Claim:
+D_L(T(M1),T(M2)) <= D_L(M1,M2).
+
+Required checks:
+
+1. Write the exact quantifiers and formal domain. Specify the comparison class C, probe set L_op, response maps, codomain, norm, and domain/codomain of T.
+2. Determine whether H3 means ONE COMMON tau independent of M for every model in C. If the wording is ambiguous, report both readings.
+3. Independently derive or refute the inequality under the common-tau reading.
+4. Check whether tau(L_op) is necessarily a subset of L_op and whether that is sufficient for the supremum inequality.
+5. Check whether surjectivity of tau is needed for non-expansion, and what stronger conclusion follows if tau is surjective.
+6. Independently reproduce or improve the model-dependent-tau counterexample. Verify all numerical distances.
+7. Determine the precise role of H1, H2, and H4. In particular, identify which assumptions are not used in the algebraic inequality.
+8. Determine whether D_L is a metric or only an extended pseudometric under the stated conditions.
+9. Test edge cases: empty probe set, infinite supremum, non-invariant comparison class, mismatched response spaces or norms, and undefined transformed models.
+10. Apply the full LOOP audit. State clearly that a conditional theorem does not derive H3 from the Frozen Core or OMEGA-ISOP architecture.
+
+Do not call Theorem 91 a universal information-conservation theorem.
+
+============================================================
+4. MATHEMATICAL AUDIT: THEOREMS 91.6A, 91.6B, 91.6C, 91.6D
+============================================================
+
+Audit each theorem separately before reviewing the series as a whole. Re-derive the claims from their definitions and assumptions. Do not assume the previous internal audits are correct.
+
+THEOREM 91.6A:
+- Verify the equivalence between injectivity of the stacked finite-dimensional linear observation map, triviality of the common kernel, and full column rank.
+- Verify that in finite dimensions injectivity is equivalent to strictly positive minimum observation gain gamma_A.
+- Verify the two-sided Lipschitz estimate and the inverse Lipschitz bound.
+- Verify the stated noise-ball separation condition and distinguish sufficient from necessary conditions.
+- Verify the infinite-dimensional l2 counterexample and its exact implication.
+- Check every quantifier and norm assumption.
+- Preserve the provenance status: NEW CONSTRUCTION, not recovered historical original.
+
+THEOREM 91.6B:
+- Reconstruct the exact family F_n and its domain/codomain.
+- Verify finite-stage injectivity.
+- Verify the claimed contraction factor and whether each map is a strict Banach contraction on the stated complete metric space.
+- Verify the pointwise limit and its injectivity or non-injectivity.
+- Verify the inverse Lipschitz constant and its dependence on n.
+- Independently verify the full-history metric, injectivity, and any bi-Lipschitz claim.
+- Check the noise/separation argument and all dependence on the selected metric.
+- Check carefully that the family is not silently treated as a composition or dynamical semigroup if the text says it is not.
+- Identify any theorem whose conclusion depends on the special constructed family rather than a general observation system.
+
+THEOREM 91.6C:
+- Reconstruct the countable family of linear observations and the exact history space/metric.
+- Verify the common-kernel criterion for history injectivity.
+- Verify the positive history-gain equivalence under finite-dimensionality and uniform boundedness.
+- Inspect the compactness and continuity arguments.
+- Verify the finite identifying subfamily result and whether the finite witness must consist of the first n observations or may use arbitrary indices.
+- Check every use of uniform boundedness, finite dimensionality, and the supremum metric.
+- Search for hidden assumptions about the observation codomain, operator norms, or indexing.
+
+THEOREM 91.6D:
+- Independently prove or refute the factorization criterion q=g o F.
+- Verify existence and uniqueness of g on F(Theta).
+- Independently prove or refute the equivalence between the global Lipschitz stability inequality and Lipschitz continuity of the induced map.
+- Verify the special case q=id_Theta and its metric requirements.
+- Verify the example F(x)=x^3, q(x)=x showing exact identifiability without global Lipschitz stability.
+- Distinguish global from local stability.
+- Check all domains, codomains, metrics, and quantifiers.
+
+SERIES-LEVEL CHECK:
+- Verify the claimed relationships A->B, A->C, A->D, and B->C.
+- Check whether any result is incorrectly presented as a premise or proof of another.
+- Determine whether the four results are genuinely compatible within their stated assumptions.
+- Do not infer that the four theorems form one unified theorem, that their assumptions are interchangeable, or that they establish physical laws.
+- Check the collection text against the standalone theorem files for textual or mathematical drift.
+
+============================================================
+5. MANDATORY LOOP AUDIT
+============================================================
+
+For every nontrivial theorem and every claimed bridge, apply these eight steps explicitly:
+
+L1 TARGET: State the exact proposition, domain, quantifiers, and conditions.
+L2 DEPENDENCIES: List definitions, axioms, assumptions, lemmas, compatibility conditions, and external results.
+L3 CONCLUSION SMUGGLING: Test whether any premise or definition already contains the target or an equivalent consequence.
+L4 INDEPENDENCE: Identify the independent justification for every premise carrying essential content.
+L5 COUNTERMODEL: Attempt a model satisfying all premises while falsifying the target. Record the exact result. Do not claim no countermodel exists merely because none was found.
+L6 PREMISE REMOVAL: Remove or weaken premises individually and state what fails.
+L7 CLASSIFICATION: NON-CIRCULAR DERIVATION / CONDITIONAL RESULT / CIRCULAR / INCOMPLETE / REFUTED.
+L8 NON-IMPLICATIONS: State what does not follow, including generality, uniqueness, necessity, physical interpretation, and empirical validity.
+
+A valid conditional theorem must not be misreported as a derivation of its own essential compatibility assumption.
+
+============================================================
+6. OMEGA-ISOP ARCHITECTURE, PHYSICALIZATION, AND COSMOLOGY BOUNDARIES
+============================================================
+
+Audit only what the actual repository sources support.
+
+A. Check the handoff's six-stage architecture:
+STAGE_1 DIFFERENCE
+STAGE_2 RELATION
+STAGE_3 CONSTRAINT
+STAGE_4 DYNAMICS
+STAGE_5 PERSISTENCE
+STAGE_6 ORGANIZATION
+
+Verify that the handoff itself treats transitions as research questions rather than established implications. Determine whether the repository contains enough primary mathematical material to audit Stage 1 or the later stages. If not, mark them NOT AUDITABLE or OPEN, not proven.
+
+B. Check the stated mathematical-to-physical bridge:
+MATHEMATICAL_CONSTRUCTION -> MATHEMATICAL_PROOF -> STRUCTURAL_CORRESPONDENCE -> PHYSICAL_INTERPRETATION -> PHYSICAL_MODEL -> TESTABLE_CONSEQUENCES -> EMPIRICAL_CHECK.
+
+Determine whether any reviewed artifact jumps across a bridge without independent justification.
+
+C. Cosmology:
+The handoff reports:
+- OI-COSMO-IDENT-RL-PACKET-v2 as a conditional analytical construction involving smooth expanding flat-FLRW histories and future event-horizon radii.
+- Effective-fluid reconstruction imports external Einstein-FLRW assumptions.
+- OI-COSMO-EXPANSION-LAMBDA-001 does not derive nonzero redshift, Lambda, or unique dynamics from relational structure alone.
+- No OMEGA-specific observationally distinguishable cosmological prediction has yet been derived.
+
+Check whether the underlying cosmology packet and derivations exist in the repository. If absent, do not audit their mathematical correctness. Audit only whether the handoff states the limitations consistently and conservatively. Do not claim OMEGA-ISOP has derived cosmic expansion, dark energy, Lambda, or an observational prediction unless the actual derivation is present and valid.
+
+D. Relational emergence:
+Inspect v0.1 and v0.2. Verify that v0.2 places the workstream on HOLD and does not authorize substantive RQ1-RQ8 work before the stated prior-work completion and explicit restart. Do not treat this hypothesis as a theorem.
+
+============================================================
+7. RL STATUS AND REGISTRY AUDIT
+============================================================
+
+Inspect Handoff v1.9 Section 7 and the prior completion plan.
+
+Check whether the repository contains the primary evidence needed to independently validate:
+- RL_021;
+- RL_021_1;
+- RL_027 and TEST-I DRAFT-0.2;
+- the RL primary-source provenance disposition;
+- any authoritative RL registry entry and readback.
+
+If these sources are absent, report the RL claims as HANDOFF-REPORTED / NOT INDEPENDENTLY REVALIDATED IN THIS AUDIT. Do not repeat searches for primary RL files already formally marked DESTROYED / NON-RECOVERABLE unless a new concrete source is present.
+
+For RL_027, preserve the distinctions:
+- core domain-bounded identifiability results reportedly independently verified;
+- overall research item remains under audit;
+- general framework, minimality, stability, computability, and external dependencies remain open;
+- a controlled-copy label RL_REGISTERED is not authoritative registry confirmation.
+
+Do not promote any RL to CE, CE-V, or Volume V based only on this handoff.
+
+============================================================
+8. VOLUME V INTEGRATION ELIGIBILITY
+============================================================
+
+The Handoff v1.9 requires separate decisions:
+INTEGRATE / DO NOT INTEGRATE / DEFER.
+
+Determine whether the actual controlled Volume V master and its integration policy are available in the repository snapshot. If absent, a final integration decision is NOT AUDITABLE from this repository alone.
+
+Do not edit Volume V, do not create a substitute Volume V, and do not recommend automatic promotion.
+
+For each candidate result, provide a separate recommendation:
+- INTEGRATE;
+- DO NOT INTEGRATE;
+- DEFER;
+with exact reasons and source limitations.
+
+A negative result, conditional theorem, or limitation may be worth recording only if the actual Volume V policy allows it and the exact target section and rationale can be verified. If the master is absent, the default recommendation must be DEFER pending access to the authoritative master and its rules.
+
+============================================================
+9. REQUIRED OUTPUT FORMAT
+============================================================
+
+Produce a structured audit report with these sections:
+
+1. EXECUTIVE VERDICT
+   - Overall audit outcome.
+   - What passed.
+   - What failed.
+   - What remains conditional, open, blocked, or not auditable.
+   - Explicit statement that this is not global certification of OMEGA-ISOP.
+
+2. SOURCE INVENTORY AND PROVENANCE
+   - Exact commit audited.
+   - Exact files inspected.
+   - Missing primary and canonical sources.
+   - Version and filename discrepancies.
+   - Any provenance conflicts.
+
+3. THEOREM 91
+   - Exact formal statement.
+   - Independent derivation.
+   - H1-H4 analysis.
+   - Common-tau versus model-dependent-tau distinction.
+   - Countermodel and edge cases.
+   - LOOP classification.
+   - Exact non-implications.
+
+4. THEOREM 91.6A
+   - Claim-by-claim verification.
+   - Proof gaps or corrections.
+   - Scope and limitations.
+   - Provenance warning.
+
+5. THEOREM 91.6B
+   - Claim-by-claim verification.
+   - Recomputed contraction and history results.
+   - Counterexamples or corrections.
+   - Scope and limitations.
+
+6. THEOREM 91.6C
+   - Claim-by-claim verification.
+   - Compactness and uniform-boundedness analysis.
+   - Finite witness analysis.
+   - Scope and limitations.
+
+7. THEOREM 91.6D
+   - Factorization proof.
+   - Lipschitz equivalence.
+   - Counterexamples and limitations.
+
+8. A-D SERIES CONSISTENCY
+   - Valid dependencies.
+   - Invalid or unsupported dependencies.
+   - Whether any hidden premise exchange occurs.
+   - Overall classification.
+
+9. ARCHITECTURE AND PHYSICALIZATION
+   - What is actually proved mathematically.
+   - What remains an architectural research question.
+   - Unsupported mathematical-to-physical transitions.
+
+10. COSMOLOGY AND RL
+    - What can be verified from primary content.
+    - What is only handoff-reported.
+    - What is blocked by missing sources.
+    - No invented validation.
+
+11. VOLUME V DECISIONS
+    - Separate INTEGRATE / DO NOT INTEGRATE / DEFER recommendation per candidate.
+    - Exact target and rationale if integration can be assessed.
+    - If master/policy is missing, explicitly DEFER.
+
+12. CORRECTION REGISTER
+    For every issue:
+    ID, exact file/section, exact claim, severity, reason, counterexample or proof, minimal correction, dependent results affected, independent results unaffected.
+
+13. DEPENDENCY IMPACT MAP
+    If a premise or theorem fails, identify exactly which results depend on it and which do not. Do not claim that one local failure collapses the entire theory without a demonstrated dependency chain.
+
+14. FINAL CLASSIFICATION TABLE
+    For each item use only:
+    PROVED UNDER STATED ASSUMPTIONS
+    CONDITIONAL
+    INCOMPLETE
+    CIRCULAR
+    REFUTED
+    OPEN
+    BLOCKED
+    NOT AUDITABLE FROM AVAILABLE SOURCES
+    NOT PERFORMED
+
+15. RECOMMENDED NEXT ACTIONS
+    Rank actions by logical priority. Distinguish required source recovery from optional further research.
+
+============================================================
+10. AUDITOR CONDUCT AND ACCEPTANCE RULES
+============================================================
+
+- Be adversarial in method, neutral in tone, and exact in mathematics.
+- Recompute rather than trust prior audit labels.
+- Give explicit equations and counterexamples in plain text.
+- Cite exact repository file paths and section numbers for every finding.
+- Separate a mathematical error from a provenance failure, missing source, or governance issue.
+- Do not infer the validity of the Frozen Core from the fact that it is protected or frozen.
+- Do not infer physical validity from abstract mathematical correctness.
+- Do not infer empirical confirmation from simulations or analytic constructions.
+- Do not infer registry status from a GitHub label.
+- Do not rewrite project files or change any status.
+- Do not issue global certification.
+- Do not force a Volume V integration decision when the canonical master is unavailable.
+- If a claim fails, identify its exact scope and dependency consequences. Preserve mathematically independent results.
+- If no defect is found, state the exact search and proof scope; do not claim universal proof.
+
+END OF EXTERNAL AUDIT INSTRUCTIONS
