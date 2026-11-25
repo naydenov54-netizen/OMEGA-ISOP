@@ -1,0 +1,255 @@
+OMEGA-ISOP
+
+THEOREM 91.6B
+DIFFERENTIAL MULTI-OBSERVABLE IDENTIFIABILITY UNDER OPERATIONAL CONTRACTION
+
+VERSION: 0.3-CORRECTED-AUDIT-REVIEW
+DATE: 2026-11-25
+PREDECESSOR: THEOREM-91.6B-v0.2-AUDIT.txt
+STATUS: RESEARCH DEVELOPMENT / PROVED FOR THE EXPLICIT MODEL AND STATED GENERAL CRITERIA
+CANONICAL STATUS: NOT FROZEN
+FROZEN CORE: UNCHANGED
+
+==================================================
+1. PURPOSE AND CRITICAL CORRECTION
+==================================================
+
+This version preserves the explicit R² model and corrects the overbroad wording identified independently by Claude and Perplexity.
+
+CORRECT STATEMENT:
+For every fixed finite n, F_n is injective and has a Lipschitz inverse. However, the inverse Lipschitz constants are not uniformly bounded over n.
+
+INCORRECT STATEMENT REMOVED:
+"Exact identifiability is not equivalent to stable invertibility."
+
+For each fixed finite n in this model, exact identifiability DOES imply Lipschitz-stable invertibility. The actual result is the failure of UNIFORM-IN-n stability.
+
+==================================================
+2. EXPLICIT MODEL
+==================================================
+
+Let X=R² with Euclidean norm and x=(u,v).
+
+Define:
+
+a_n=1/(n+1)
+b_n=1/(n+1)²
+
+for n>=1.
+
+Define:
+
+F_n(u,v)=(a_n*u,b_n*v)
+       =(u/(n+1),v/(n+1)²).
+
+This is a parameterized family of maps. It is NOT defined as a composition of the preceding maps.
+
+==================================================
+3. FINITE-STAGE INJECTIVITY AND CONTRACTION
+==================================================
+
+For fixed finite n, if F_n(u1,v1)=F_n(u2,v2), positivity of a_n and b_n gives u1=u2 and v1=v2. Thus F_n is injective.
+
+For x1,x2:
+
+||F_n(x1)-F_n(x2)||²
+= (delta_u)²/(n+1)² + (delta_v)²/(n+1)^4.
+
+The singular values are:
+
+sigma_max(F_n)=1/(n+1)
+sigma_min(F_n)=1/(n+1)².
+
+Therefore:
+
+Lip(F_n)=1/(n+1)<1.
+
+Since R² is complete and F_n maps R² to R², each F_n is a Banach contraction.
+
+This statement concerns the Lipschitz constant of this explicit map. It does not establish a connection to THEOREM 91's operational non-expansion distance.
+
+==================================================
+4. ASYMPTOTIC LIMIT
+==================================================
+
+For every fixed (u,v):
+
+F_infinity(u,v)=lim(n->infinity)F_n(u,v)=(0,0).
+
+If X contains more than one point, F_infinity is not injective.
+
+Thus every finite-stage map is injective, while the pointwise limiting map is not.
+
+The finite maps and their pointwise limit are distinct mathematical objects.
+
+==================================================
+5. EXACT INVERSE AND UNIFORM STABILITY
+==================================================
+
+For fixed finite n:
+
+F_n^(-1)(y1,y2)=((n+1)*y1,(n+1)²*y2).
+
+Hence:
+
+Lip(F_n^(-1))=(n+1)².
+
+The condition number is:
+
+kappa(F_n)=sigma_max/sigma_min=n+1.
+
+Consequently:
+
+for every fixed finite n, F_n is bi-Lipschitz;
+
+but:
+
+sup(n>=1) Lip(F_n^(-1))=infinity.
+
+Therefore the family has no uniform inverse-Lipschitz bound as n varies.
+
+PRECISE CONCLUSION:
+Finite-stage exact identifiability and finite-stage Lipschitz stability both hold. The family is not uniformly stable in n.
+
+==================================================
+6. BOUNDED NOISE
+==================================================
+
+Let y_n=F_n(x)+eta with ||eta||<=epsilon.
+
+For two candidate states x1,x2, their closed observation-noise balls are disjoint exactly when:
+
+||F_n(x1)-F_n(x2)||>2*epsilon.
+
+Since:
+
+||F_n(x1)-F_n(x2)||
+>= ||x1-x2||/(n+1)²,
+
+a sufficient condition for disjointness is:
+
+||x1-x2||>2*epsilon*(n+1)².
+
+If the observation-center distance is <=2*epsilon, the noise balls intersect or touch, so guaranteed distinction is unavailable under this noise model.
+
+For fixed epsilon and fixed nonzero state separation, the sufficient separation requirement worsens with n. This is a practical noise-sensitivity statement, not loss of exact injectivity at finite n.
+
+==================================================
+7. INDIVIDUAL CHANNELS AND COMBINED OBSERVATION
+==================================================
+
+Define:
+
+O1_n(u,v)=u/(n+1)
+O2_n(u,v)=v/(n+1)².
+
+Each scalar channel alone is non-injective on R². The combined map F_n=(O1_n,O2_n) is injective.
+
+The result illustrates joint identifiability from individually insufficient scalar channels. It does not show that the channels become physically independent observables or that they preserve Shannon information.
+
+==================================================
+8. COMPLETE HISTORY: EXACT RESULT AND VACUITY LIMIT
+==================================================
+
+Define:
+
+H(u,v)=(F_1(u,v),F_2(u,v),F_3(u,v),...).
+
+The complete history is injective. In fact, F_1 alone is already injective. Therefore the history's injectivity is true but does not demonstrate that infinitely many stages are needed to recover the state.
+
+Use the history metric:
+
+d_H(H(x1),H(x2))=sup(n>=1)||F_n(x1)-F_n(x2)||.
+
+For every n:
+
+||F_n(x1)-F_n(x2)|| <= (1/2)||x1-x2||.
+
+At n=1:
+
+||F_1(x1)-F_1(x2)|| >= (1/4)||x1-x2||.
+
+Thus:
+
+(1/4)||x1-x2|| <= d_H(H(x1),H(x2)) <= (1/2)||x1-x2||.
+
+So H is bi-Lipschitz under this specific history metric.
+
+NON-VACUITY WARNING:
+The full-history result is not a finite-witness or synergy example, because the first history element already identifies the state. Any claim that the infinite history is necessary is false for this construction.
+
+A stronger nontrivial history example would require a separately defined family in which no single selected initial stage is injective and the complete family is needed. That is not added here.
+
+==================================================
+9. GENERAL POSITIVE-COORDINATE CRITERION
+==================================================
+
+Let F:X->R^m be injective, and define coordinate functions f_i:X->R.
+
+For each finite n, let a_i(n)>0 and define:
+
+F_n(x)=(a_1(n)f_1(x),...,a_m(n)f_m(x)).
+
+Then F_n is injective for every finite n.
+
+Proof: equality of F_n values and positivity of every a_i(n) imply equality of every f_i value, hence F(x1)=F(x2), and injectivity of F gives x1=x2.
+
+If a_i(n)->a_i* and all f_i(x) are finite for each fixed x, then the pointwise limit is:
+
+F_infinity(x)=(a_1* f_1(x),...,a_m* f_m(x)).
+
+Let S={i:a_i* != 0}. Then F_infinity is injective iff the reduced map x->(f_i(x))_(i in S) is injective. This criterion is specific to the stated coordinate-scaled construction.
+
+==================================================
+10. LIMITATIONS AND NON-IMPLICATIONS
+==================================================
+
+This theorem does not establish:
+- a universal result for arbitrary nonlinear observation families;
+- a universal preservation of asymptotic identifiability;
+- uniform inverse stability in n;
+- robustness to arbitrary noise distributions;
+- Shannon information preservation or loss;
+- a formal connection to THEOREM 91, H3, or any Frozen Core axiom;
+- physical realizability, empirical validation, or universal OMEGA-ISOP applicability.
+
+"Operational contraction" in this document means only Lip(F_n)<1 in the stated metric. It must not be conflated with the non-expansion theorem labelled THEOREM 91 without a separately proved bridge.
+
+==================================================
+11. LOOP AND COUNTERMODEL AUDIT
+==================================================
+
+TARGET:
+Prove finite-stage injectivity and compute the exact inverse stability constants for the explicit family F_n.
+
+PREMISES:
+Positive diagonal coefficients; Euclidean norms; explicit coordinate formula.
+
+DEPENDENCY:
+Injectivity follows by division by positive coefficients. Singular values follow from the diagonal matrix. The inverse Lipschitz constant is the operator norm of the inverse diagonal matrix.
+
+COUNTERMODEL:
+The pointwise limit F_infinity=0 is non-injective. The unbounded sequence Lip(F_n^(-1)) disproves any uniform-in-n inverse bound.
+
+CLASSIFICATION:
+NON-CIRCULAR DERIVATION FOR THE EXPLICIT MODEL.
+
+==================================================
+12. CHANGE LOG AND ARCHITECTURAL CONTROL
+==================================================
+
+Changes from v0.2:
+1. Corrected the false broad statement about exact identifiability versus stable invertibility.
+2. Replaced it with the precise distinction between fixed-n stability and lack of uniform-in-n stability.
+3. Explicitly stated that F_1 already identifies the state, making the complete-history injectivity result non-essential/vacuous as an infinite-history necessity claim.
+4. Separated the noise-ball statement from exact injectivity.
+5. Clarified that "operational contraction" is a model-local Lipschitz statement, not a proved connection to THEOREM 91.
+
+THEOREM 91.6B v0.2: PRESERVED UNCHANGED.
+FROZEN CORE: UNCHANGED.
+CANONICAL DOCUMENTS: UNCHANGED.
+RL REGISTRATION: NOT PERFORMED.
+CANONICAL ACCEPTANCE: NOT PERFORMED.
+PHYSICAL VALIDATION: NOT CLAIMED.
+
+END OF THEOREM 91.6B v0.3
