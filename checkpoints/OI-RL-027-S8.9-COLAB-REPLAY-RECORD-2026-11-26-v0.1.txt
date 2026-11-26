@@ -1,0 +1,77 @@
+OMEGA-ISOP RL-027
+CHECKPOINT: S8.9 COLAB REPLAY RECORD
+DATE: 2026-11-26
+VERSION: v0.1
+STATUS: RECORDED
+
+1. FROZEN STATUS
+FROZEN CORE: INTACT
+S7 ORIGINAL 62 FAILURES: UNRESOLVED
+
+2. PRIOR VALIDATION STATUS
+S8.5 MIN:
+ANALYTICAL + NUMERICAL CROSS-CHECK: PASS
+
+S8.6 MAX:
+ANALYTICAL + EXACT VERTEX CROSS-CHECK: PASS
+
+S8.8 EXACT RATIONAL AUDIT:
+USER-REPORTED PASS
+SEED: 20261126
+BASE_CASES: 20000
+ETA_CASES: 60000
+RANDOM_FEASIBLE_COMPARISONS: 191340
+RESULT: ALL_ASSERTIONS_PASSED
+NOTE: FINITE TESTS; NOT A SUBSTITUTE FOR ANALYTICAL PROOFS.
+
+3. S8.9 ORIGINAL COLAB REPLAY
+EVIDENCE SOURCE: COMPLETE EXECUTION OUTPUT PROVIDED BY THE USER IN CHAT.
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+SOURCE SCRIPT: checkpoints/rl027_s8_adversarial_audit.py
+
+REPLAY OUTPUT:
+MIN_EPIGRAPH_QP_CASES: 2000
+MIN_EPIGRAPH_QP_SUCCESSES: 2000
+MIN_MAX_ABS_PURITY_ERROR: 1.998e-15
+MAX_EXACT_VERTEX_CASES: 140
+MAX_EXACT_VERTICES_CHECKED: 50029
+BOUNDARY_AND_DEGENERACY_CASES: 7
+RESULT: ALL_ASSERTIONS_PASSED
+NOTE: FINITE COMPUTATIONAL AUDIT; ANALYTICAL PROOFS REMAIN PRIMARY.
+
+INTERPRETATION:
+S8.9 ORIGINAL SCRIPT REPLAY: PASS, BASED ON USER-SUPPLIED COLAB OUTPUT.
+The value 50029 is the number of feasible active-set solutions checked; it is not asserted here to be the number of unique vertices.
+
+4. ASSERTION-COVERAGE LIMITATION
+The original S8.9 script has incomplete assertion coverage:
+- The MIN maximum purity discrepancy is printed, but no explicit tolerance assertion enforces an upper bound.
+- The boundary tests do not explicitly assert every advertised property, including all trace-distance feasibility, rank-support, and MIN/MAX-ordering conditions.
+- Therefore ALL_ASSERTIONS_PASSED refers only to assertions implemented in the original script. It does not establish that every advertised audit property was programmatically asserted.
+
+This limitation is a test-coverage finding. It is not evidence that the S8.5 or S8.6 analytical results are incorrect.
+
+5. NEXT STAGE
+NEXT STAGE: S8.9-A ASSERTION COMPLETENESS AUDIT
+
+RULES:
+- Keep the original S8.9 source script unchanged.
+- Implement supplemental checks in a separate file.
+- State all numerical tolerances explicitly.
+- Distinguish exact rational checks from floating-point checks.
+- Do not promote results into the Frozen Core.
+- Do not close or reclassify the original S7 62 failures.
+- Do not declare overall RL-027 PASS on the basis of this checkpoint.
+
+6. OVERALL STATUS
+S8.5: ANALYTICAL PASS
+S8.6: ANALYTICAL PASS
+S8.8: USER-REPORTED EXACT RATIONAL AUDIT PASS
+S8.9 ORIGINAL COLAB REPLAY: PASS (USER-SUPPLIED OUTPUT)
+S8.9 ASSERTION COVERAGE: INCOMPLETE; SUPPLEMENTAL AUDIT REQUIRED
+S7 ORIGINAL 62 FAILURES: UNRESOLVED
+FROZEN CORE: INTACT
+RL-027 OVERALL: UNDER AUDIT
+
+PROVENANCE:
+This checkpoint records the execution output supplied by the user and the subsequent review of the original script's assertion coverage. It does not claim an independently executed Colab replay by the assistant.
