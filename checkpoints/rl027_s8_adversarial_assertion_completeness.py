@@ -43,7 +43,7 @@ def assert_float_spectrum(p, q, r, eta, label):
     assert float(np.min(q)) >= -NEGATIVITY_ATOL, (
         f"{label}: negative component"
     )
-    assert np.max(np.abs(q[r:])) <= NEGATIVITY_ATOL, (
+    assert not np.any(np.abs(q[r:]) > NEGATIVITY_ATOL), (
         f"{label}: support exceeds rank r"
     )
     assert np.all(q[:r] >= -NEGATIVITY_ATOL), (
