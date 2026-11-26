@@ -1,0 +1,126 @@
+OMEGA-ISOP
+RL-027 S8.7
+PRELIMINARY NUMERICAL CROSS-CHECK OF RANK-CONSTRAINED EXTREMA
+
+DOCUMENT_ID: OI-RL-027-S8.7-PRELIMINARY-NUMERICAL-CROSS-CHECK
+VERSION: 0.1
+DATE: 2026-11-26
+WORKSTREAM: RL-027
+STATUS: PRELIMINARY NUMERICAL VALIDATION RECORD
+PARENT: OI-RL-027-S8.5 / OI-RL-027-S8.6
+EVIDENCE_STATUS: SESSION-EXECUTED CROSS-CHECKS; COMMITTED AUDIT SCRIPT NOT YET REPLAYED
+BRANCH: main
+
+==================================================
+1. PURPOSE
+==================================================
+
+Record preliminary computational checks of the S8.5 MIN and S8.6 MAX formulas.
+These checks are supplementary to the analytical derivations and are not a formal proof.
+
+The reusable standard-library exact-rational audit script is:
+checkpoints/rl027_s8_rank_extrema_audit.py
+
+The script has been committed and fetched back from GitHub to verify persistence. It has not yet been executed from Colab or independently replayed from the committed file in this session.
+
+==================================================
+2. CHECKS EXECUTED IN THIS SESSION
+==================================================
+
+CHECK A: EXACT RATIONAL ACTIVE-SET CHECK
+
+A separately executed Fraction-based implementation was tested on:
+- 20,000 random base cases;
+- dimensions d=1..10;
+- rank cutoffs r=1..d;
+- 3 eta choices per base case, including random rational eta and rank-feasibility boundary cases.
+
+Total: 60,000 rational parameter cases.
+
+Assertions included:
+- infeasibility below eta_rank;
+- normalization and nonnegativity;
+- zero tail beyond rank r;
+- exact trace-distance feasibility;
+- exact MIN deficit/increase identities;
+- exact MAX partial-sum identity:
+  sum_{i=1}^k q*_i = min(1, P_k+eta), for k<=r;
+- purity ordering between the constructed MIN and MAX candidates.
+
+Result: all assertions passed.
+
+CHECK B: FLOAT RANDOM FEASIBLE-POINT COMPARISON
+
+A separate float implementation was tested on:
+- 1,000 random cases;
+- d=2..8;
+- r=1..d;
+- eta sampled from the feasible interval.
+
+For each case, random feasible simplex points were generated and checked against the proposed extrema.
+
+Total feasible random comparison points: 65,672.
+
+Observed:
+- no sampled feasible point had purity below the proposed MIN;
+- no sampled feasible point had purity above the proposed MAX.
+
+This is sampling evidence only, not a global optimality proof.
+
+CHECK C: SLSQP MIN COMPARISON
+
+The proposed MIN solution was compared with an independently formulated SLSQP constrained optimization on 500 random cases.
+
+Maximum absolute objective discrepancy among successful solver runs:
+approximately 9.33e-9.
+
+No discrepancy exceeded 1e-8.
+SLSQP remains a numerical oracle and can be affected by convergence tolerances and nonsmooth constraint handling.
+
+==================================================
+3. INTERPRETATION
+==================================================
+
+The checks are consistent with:
+- the S8.5 two-threshold MIN formula;
+- the S8.6 bottom-up removal MAX construction;
+- the rank-feasibility threshold eta_rank.
+
+The strongest evidence remains the analytical KKT proof for MIN and the majorization proof for MAX.
+
+The numerical checks do not:
+- identify or repair the original S7 implementation's 62 failures;
+- independently reproduce the user's original S7 test suite;
+- establish a formal computer-assisted proof;
+- authorize integration into Frozen Core or Volume V.
+
+==================================================
+4. REQUIRED REPLAY
+==================================================
+
+Run the committed file in Colab:
+
+python rl027_s8_rank_extrema_audit.py
+
+Expected terminal marker:
+RESULT=ALL_ASSERTIONS_PASSED
+
+The actual Colab output must be returned and compared with this checkpoint before changing the evidence status to independently replayed.
+
+==================================================
+5. PROJECT STATUS
+==================================================
+
+S8.5 MIN: ANALYTICAL CHARACTERIZATION DERIVED; PRELIMINARY NUMERICAL CHECKS PASS.
+S8.6 MAX: ANALYTICAL CHARACTERIZATION DERIVED; PRELIMINARY NUMERICAL CHECKS PASS.
+S8.7: PRELIMINARY NUMERICAL CROSS-CHECK RECORDED.
+COMMITTED AUDIT SCRIPT: PERSISTENCE VERIFIED; EXECUTION FROM COMMITTED FILE PENDING.
+S7 ORIGINAL 62 FAILURES: UNRESOLVED.
+RL-027 OVERALL: UNDER AUDIT.
+FROZEN CORE: INTACT.
+TEST-I DRAFT-0.2: NOT FROZEN.
+CE-V: NOT PROMOTED.
+VOLUME V: NO INTEGRATION AUTHORIZED.
+AUTHORITATIVE RL REGISTRY CONFIRMATION: NOT ESTABLISHED.
+
+END OF CHECKPOINT
