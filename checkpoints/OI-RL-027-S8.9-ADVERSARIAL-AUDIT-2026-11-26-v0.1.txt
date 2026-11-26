@@ -1,0 +1,192 @@
+OMEGA-ISOP
+RL-027 S8.9
+ADVERSARIAL AUDIT OF RANK-CONSTRAINED SPECTRAL EXTREMA
+
+DOCUMENT_ID: OI-RL-027-S8.9-ADVERSARIAL-AUDIT
+VERSION: 0.1
+DATE: 2026-11-26
+WORKSTREAM: RL-027
+STATUS: ANALYTICAL CROSS-CHECKS AND LOCAL COMPUTATIONAL AUDIT RECORDED
+PARENT: OI-RL-027-S8.5 / S8.6 / S8.8
+AUDIT SCRIPT: checkpoints/rl027_s8_adversarial_audit.py
+BRANCH: main
+
+==================================================
+1. PURPOSE
+==================================================
+
+Challenge the S8.5 MIN and S8.6 MAX results using:
+- an independent convex-QP formulation for MIN;
+- exact rational vertex enumeration for MAX in small dimensions;
+- explicit boundary and degeneracy cases;
+- a separate check of the spectral reduction and pure-state realization.
+
+This checkpoint records work executed in the assistant's analysis runtime. It is not an external independent replication. A reproducible Colab script has also been committed, but its execution is still pending.
+
+==================================================
+2. MIN: INDEPENDENT EPIGRAPH-QP COMPARISON
+==================================================
+
+The nonsmooth constraint:
+sum_i(p_i-q_i)_+ <= epsilon
+was independently reformulated with auxiliary variables s_i:
+
+s_i>=0,
+q_i+s_i>=p_i,
+sum_i s_i<=epsilon.
+
+The objective remains:
+minimize sum_i q_i^2,
+with q_i>=0 and sum_i q_i=1.
+
+This is a convex quadratic objective with linear constraints.
+
+Executed comparison:
+- 2,000 random cases;
+- d=2..8;
+- r=1..d;
+- random Dirichlet spectra;
+- eta sampled in the feasible interval;
+- SLSQP applied to the epigraph formulation.
+
+Result:
+- 2,000/2,000 solver runs successful;
+- maximum absolute purity discrepancy between S8.5 formula and epigraph-QP solution:
+  2.22e-15.
+
+A preliminary direct SLSQP formulation using the nonsmooth hinge constraint showed small objective discrepancies in 9/3,000 runs, with a maximum discrepancy around 9.31e-6. The linear epigraph formulation removed this discrepancy in the 2,000-case comparison. This is recorded as solver sensitivity, not as a counterexample to S8.5.
+
+==================================================
+3. MAX: EXACT RATIONAL VERTEX ENUMERATION
+==================================================
+
+For fixed r, the constraint:
+sum_i(p_i-q_i)_+<=epsilon
+is equivalent to the finite family:
+sum_{i in S}(p_i-q_i)<=epsilon
+for every subset S of {1,...,r}.
+
+Together with:
+q_i>=0,
+sum_i q_i=1,
+this gives an explicit rational polytope whenever p and eta are rational.
+
+All candidate vertices were enumerated using exact Fraction arithmetic in dimensions d=2..5.
+
+Executed comparison:
+- 140 rational test cases;
+- r=1..d;
+- 50,029 feasible vertices checked;
+- the S8.6 greedy candidate's exact rational purity equalled the maximum vertex purity in every case.
+
+Result: ZERO mismatches.
+
+This is finite-dimensional computational evidence. The general proof remains the majorization argument in S8.6.
+
+==================================================
+4. BOUNDARY AND DEGENERACY TESTS
+==================================================
+
+Seven exact rational cases were checked, including:
+- eta=eta_rank with a retained spectrum below 1/r;
+- eta=eta_rank with a retained spectrum above 1/r;
+- repeated largest eigenvalues;
+- uniform spectra;
+- eta=0 with no rank truncation;
+- r=1;
+- rank threshold and pure-spectrum boundary cases.
+
+All cases satisfied:
+- normalization;
+- nonnegativity;
+- rank support;
+- trace-distance feasibility;
+- MIN/MAX ordering.
+
+Representative exact case:
+p=(3/5,3/10,1/10), r=2, eta=1/10.
+
+q_MIN=(3/5,2/5,0)
+Tr(q_MIN^2)=13/25
+
+q_MAX=(7/10,3/10,0)
+Tr(q_MAX^2)=29/50
+
+Both attain trace distance eta=1/10.
+
+==================================================
+5. SPECTRAL REDUCTION AND PURE-STATE REALIZATION
+==================================================
+
+Let sigma_B and beta_B be density operators with descending eigenvalue lists p and q.
+
+For Hermitian matrices, the trace-norm eigenvalue inequality gives:
+sum_i |p_i-q_i| <= ||sigma_B-beta_B||_1.
+
+Therefore:
+D_spectral(p,q) <= D(sigma_B,beta_B).
+
+This proves that every operator-feasible beta_B produces a spectral vector feasible for the scalar trace-distance constraint.
+
+Conversely, for any probability vector q supported on at most r eigenvalue slots, choose beta_B diagonal in an eigenbasis of sigma_B with diagonal q. Then:
+D(sigma_B,beta_B)=1/2 sum_i|p_i-q_i|.
+
+Thus the scalar spectral feasible set has commuting operator representatives and gives the exact extrema, not merely an outer bound.
+
+Finally, every density operator beta_B with rank(beta_B)<=r<=d_A admits a purification on A tensor B by Schmidt decomposition. Hence both commuting extremizers are realizable as B-marginals of pure global states.
+
+This closes the logical bridge from the scalar rank-constrained optimization to the pure-global-state domain, under finite-dimensional assumptions.
+
+==================================================
+6. COMMITTED ADVERSARIAL AUDIT SCRIPT
+==================================================
+
+File:
+checkpoints/rl027_s8_adversarial_audit.py
+
+The script contains:
+- independent MIN epigraph-QP comparison using NumPy/SciPy;
+- exact Fraction-based MAX vertex enumeration;
+- boundary and degeneracy tests.
+
+Dependencies:
+numpy
+scipy
+
+The script has been committed to GitHub. Its Colab replay is pending and must be recorded separately when supplied.
+
+==================================================
+7. EVIDENCE STATUS
+==================================================
+
+S8.5 MIN analytical proof: RECORDED.
+S8.6 MAX analytical proof: RECORDED.
+S8.5-S8.6 exact rational audit: USER-REPORTED COLAB PASS (S8.8).
+Independent MIN epigraph-QP comparison: LOCAL SESSION PASS, 2,000 CASES.
+MAX exact rational vertex enumeration: LOCAL SESSION PASS, 140 CASES / 50,029 VERTICES.
+Boundary/degeneracy checks: LOCAL SESSION PASS, 7 CASES.
+Spectral reduction: ANALYTICAL ARGUMENT RECORDED.
+Pure-state realization: ANALYTICAL ARGUMENT RECORDED.
+Adversarial audit script Colab replay: PENDING.
+
+Original S7 62 failures: UNRESOLVED.
+RL-027 overall: UNDER AUDIT.
+
+FROZEN CORE: INTACT.
+TEST-I DRAFT-0.2: NOT FROZEN.
+CE-V: NOT PROMOTED.
+VOLUME V: NO INTEGRATION AUTHORIZED.
+AUTHORITATIVE RL REGISTRY CONFIRMATION: NOT ESTABLISHED.
+
+==================================================
+8. NEXT ACTION
+==================================================
+
+Run the committed file in Colab:
+python rl027_s8_adversarial_audit.py
+
+Return the complete output. Compare the MIN solver discrepancy, exact MAX vertex count, and final assertion marker.
+
+After that, perform a separate review of the theorem assumptions and notation before any controlled update to the RL-027 primary record.
+
+END OF CHECKPOINT
