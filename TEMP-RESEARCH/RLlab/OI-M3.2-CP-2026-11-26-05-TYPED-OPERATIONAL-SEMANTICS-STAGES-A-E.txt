@@ -1,0 +1,453 @@
+OMEGA-ISOP / M3.2 v2.1
+RESEARCH CHECKPOINT + TEMPORARY WORKSPACE RECORD
+
+CHECKPOINT_ID: OI-M3.2-CP-2026-11-26-05
+DATE: 2026-11-26
+WORKSTREAM: M3.2 / Operational-response dynamics / semantics of L_op
+TITLE: Typed operational semantics and common-domain requirements (Stages A-E)
+VERSION: 0.1
+EVIDENCE_CLASS: PRIMARY-SOURCE SEMANTIC AUDIT + CONDITIONAL FORMAL SPECIFICATION
+STATUS: TEMPORARY RESEARCH CHECKPOINT; NOT CANONICAL; NOT RL-REGISTERED
+
+==================================================
+1. OBJECTIVE AND BOUNDARY
+==================================================
+
+Continue from CP03 and the user-supplied CP04 research target.
+
+This checkpoint addresses Stages A-E:
+A. Identify primitive operational entities.
+B. Separate probes, interventions and adaptive protocols.
+C. Specify domains, admissibility and composition.
+D. Specify response semantics and response space Y.
+E. Determine whether a common operational domain exists.
+
+It does NOT construct a representation j, does NOT test Koopman invariance, does NOT define tau, and does NOT reassess H3. Those tasks remain deferred until Stages A-E have an independently justified realization.
+
+No Frozen Core, Volume II, Volume III, Theorem 91, theorem numbering, registry, CE/CE-V status, or Volume V content is modified.
+
+==================================================
+2. SOURCES INSPECTED
+==================================================
+
+PRIMARY SOURCE 1:
+OMEGA-ISOP Volume III v1.1-VAL-RESTORED, Part IV, Sections 18-20.
+
+Verified content:
+- L_op is the chosen class of operational probes or interventions.
+- Resp_M : L_op -> Y, where Y is normed.
+- Y = R is a special scalar case.
+- The operational response is representation-dependent and task-dependent.
+- Operational tolerance and D_L are defined by taking a supremum over L_op.
+- L_op is required to be nonempty for the stated extended-pseudometric property of D_L.
+
+PRIMARY SOURCE 2:
+OMEGA-ISOP Volume II v1.4-MF-AUDIT-RESTORED-GOVERNANCE-ADDENDUM, Sections VI-VIII.
+
+Verified content:
+- A realization has a state space X and admissible dynamics.
+- Deterministic dynamics may be represented by T : X -> X.
+- Stochastic dynamics may be represented by a Markov kernel kappa.
+- A Banach observable space B may contain functions f : X -> Y with stated closure requirements.
+- The Koopman and Markov operators act on observables in B.
+- L_op and Resp_M are introduced as an operational language and response map.
+- No internal syntax, typed operational semantics, or general composition law for L_op is supplied.
+- No representation j : L_op -> B is defined in the operational-language section.
+- Theorem 91 assumes a map tau : L_op -> L_op satisfying its response identity; it does not derive the operational semantics of L_op.
+
+SOURCE LIMIT:
+The sources specify an abstract operational interface. They do not select one concrete operational carrier or protocol semantics. The candidate structures below are therefore a typed research specification for a realization, not a claim that the primary sources already contain these definitions.
+
+==================================================
+3. STAGE A: PRIMITIVE OPERATIONAL ENTITIES
+==================================================
+
+For a concrete realization, the following entities must be distinguished.
+
+A1. REALIZED MODEL
+
+M contains at least:
+- a state space X;
+- a measurable structure Sigma_X when probabilistic or measurable operations are used;
+- a selected dynamics D_M, deterministic or stochastic;
+- the declared admissible control/intervention structure, if any;
+- the initialization convention, either included in M or supplied by each operational specification.
+
+This is realization-level data. It is not a new Frozen Core primitive.
+
+A2. INITIALIZATION / EXPERIMENTAL CONTEXT
+
+An execution requires an initial state x0 or initial probability measure mu0, and may require:
+- a time or iteration horizon;
+- boundary or environmental conditions;
+- a permitted control set;
+- a sampling convention;
+- an outcome/readout convention.
+
+The primary interface does not say whether this context is part of M or part of a in L_op. A realization must choose one convention explicitly and use it consistently.
+
+A3. OPERATIONAL SPECIFICATION
+
+An element a in L_op must denote a well-typed operational specification, not merely an untyped label.
+
+At minimum it must determine:
+- its operational role or type;
+- the model/context on which it is defined;
+- its admissibility conditions;
+- its outcome or state-update semantics;
+- its response/readout convention;
+- its protocol position or composition rule, when sequential.
+
+A4. OUTCOME / RESPONSE OBJECT
+
+The raw result of executing a may be a value, a random variable, a probability distribution, a trajectory, or a structured record. These are distinct possible outcome types and must not be silently identified.
+
+A5. RESPONSE SPACE
+
+Y is the normed response space in which the final reported responses are compared. Its norm and the mapping from raw outcomes to Y must be declared.
+
+A6. ADMISSIBILITY
+
+Adm(M,a) states whether operational specification a is defined and permitted for model M under the declared context.
+
+A7. COMPARISON CLASS
+
+C is the selected class of models being compared. It must be fixed before defining a shared operational domain or D_L over C.
+
+==================================================
+4. STAGE B: TYPE SEPARATION
+==================================================
+
+The phrase "probes or interventions" does not establish that all operational objects have one semantic type. At least the following types must be kept distinct.
+
+TYPE P: OBSERVATIONAL PROBE
+
+A pure observational probe obtains an outcome without including a system-state update as part of its specified action.
+
+A general stochastic outcome model may be written:
+Q_p : X -> Prob(O_p)
+
+where O_p is the outcome space and Q_p(x,.) is the outcome distribution at state x.
+
+A deterministic readout is a special case.
+
+Important limitation:
+A physical measurement may disturb the system. Such a measurement cannot be modeled as a non-disturbing probe unless that property is justified. If the measurement includes a post-measurement state update, the operational object must include that update and must be typed as an instrument or as a combined probe/intervention.
+
+TYPE I-D: DETERMINISTIC INTERVENTION
+
+A deterministic intervention is represented, at state level, by:
+A_i : X -> X
+
+It may be partial, in which case its domain and admissibility conditions must be specified.
+
+A readout may follow the intervention, but the readout is not identical to the intervention.
+
+TYPE I-S: STOCHASTIC INTERVENTION
+
+A stochastic intervention is represented by a kernel:
+pi_i : X x Sigma_X -> [0,1]
+
+with the probability-kernel conditions on the declared measurable state space.
+
+The intervention kernel is not identical to the system's uncontrolled Markov kernel unless that equality is independently specified.
+
+TYPE A: ADAPTIVE PROTOCOL
+
+An adaptive protocol is a history-dependent sequence of operational choices.
+
+A history may have the form:
+h_t = (o_0, a_0, o_1, a_1, ..., o_t)
+
+A policy may be represented by:
+alpha_t : H_t -> A_t
+
+where H_t is the admissible history space and A_t is the action set at step t.
+
+The protocol selects later actions using earlier outcomes. It is therefore a higher-level composition of probes and/or interventions, not automatically one primitive observable.
+
+TYPE RELATIONS
+
+These types are not assumed mutually exclusive at the level of a complete experiment:
+- an adaptive protocol may contain probes and interventions;
+- a measurement instrument may combine an outcome kernel with a post-measurement state-update kernel;
+- a protocol may alternate observation, control, and readout.
+
+The required distinction is semantic and typed: the outcome map, state-update map, and history-dependent policy must remain separately identifiable.
+
+==================================================
+5. STAGE C: DOMAINS, ADMISSIBILITY AND COMPOSITION
+==================================================
+
+C1. DOMAINS
+
+For each operational specification a, define its execution domain:
+Dom(a) subset of the declared model/context space.
+
+For each model M, define:
+L_adm(M) = {a : Adm(M,a) holds}.
+
+A specification is admissible only when:
+- its input type matches the state/outcome/context type;
+- its required measurable or probabilistic structure exists;
+- its control or intervention is permitted in M;
+- its required readout is defined;
+- its protocol order is executable;
+- its response is defined in the declared response space.
+
+These are realization-level requirements, not assumptions that every formal operation is physically available.
+
+C2. DETERMINISTIC COMPOSITION
+
+For state maps A1 and A2, sequential execution "A1 then A2" is:
+A2 o A1
+
+provided the image of A1 lies in the domain of A2.
+
+Order matters:
+A2 o A1 is not generally equal to A1 o A2.
+
+In particular, for system evolution T and intervention A:
+T o A and A o T are generally different protocols.
+
+No protocol order may be inferred from the words "probe" or "intervention" alone.
+
+C3. STOCHASTIC COMPOSITION
+
+If pi1 is executed first and pi2 second, their composite kernel is:
+(pi1 pi2)(x,E) = integral_X pi2(y,E) pi1(x,dy)
+
+This composition is defined only when the measurable spaces and kernels are compatible.
+
+The convention above explicitly means first pi1, then pi2. Other operator conventions must be stated rather than silently substituted.
+
+C4. ADAPTIVE COMPOSITION
+
+An adaptive protocol is executable only if:
+- each alpha_t is defined on the histories that can actually occur;
+- its selected action is admissible after that history;
+- the next system transition and outcome rule are defined;
+- the protocol specifies termination or a horizon.
+
+A policy defined on all imaginable histories is not required; it must be defined on the reachable admissible history domain relevant to the experiment.
+
+C5. PARTIAL COMPOSITION
+
+Operational composition is generally partial. Two actions cannot be composed merely because both belong to a set of labels. Their input/output types, domains, and order must match.
+
+==================================================
+6. STAGE D: RESPONSE SEMANTICS AND RESPONSE SPACE Y
+==================================================
+
+D1. EXECUTION-TO-RESPONSE PIPELINE
+
+A response semantics must specify a map from an executed operational specification to a reported element of Y.
+
+A generic realization-level decomposition is:
+
+RawOutcome(M,a) = outcome produced by executing a on M
+rho_a : RawOutcome(M,a) -> Y
+Resp_M(a) = rho_a(RawOutcome(M,a))
+
+This is a semantic decomposition for research. It does not assert that the primary source already defines RawOutcome or rho_a.
+
+D2. POSSIBLE RESPONSE TYPES
+
+Depending on the task, the raw outcome may be:
+- a deterministic value;
+- a random variable;
+- an empirical sample;
+- a probability distribution;
+- a finite or infinite trajectory;
+- a structured multi-channel record.
+
+A response in Y may be a scalar, vector, function, or another element of a declared normed space. The scalar case Y=R is explicitly allowed by Volume III, but it is not universal.
+
+D3. EXPECTATION RESPONSE IS OPTIONAL
+
+An expectation response such as:
+Resp_mu(a) = integral f_a(x) dmu(x)
+
+is one possible semantics for a passive observable under a specified measure and integrability conditions.
+
+It is not the only possible response semantics and is not supplied as the universal definition of Resp_M in the primary sources.
+
+D4. COMPARABILITY REQUIREMENT
+
+For the operational distance:
+D_L(M1,M2) = sup over a in L_op of ||Resp_M1(a) - Resp_M2(a)||_Y
+
+the compared responses must:
+- be defined for both models for every a in L_op;
+- belong to the same normed response space Y;
+- use the same norm and compatible response interpretation.
+
+If the models return different raw outcome types, an explicit common reporting map into Y is required before subtraction/norm comparison is meaningful.
+
+D5. CONTEXT PLACEMENT
+
+The initial state/distribution, horizon, environment, and sampling convention must be included either in M or in the full operational specification a. Leaving them implicit can make Resp_M(a) ambiguous.
+
+The sources do not choose between these placements. A concrete realization must declare one.
+
+==================================================
+7. STAGE E: COMMON OPERATIONAL DOMAIN
+==================================================
+
+Let C be a fixed comparison class of models.
+
+For each M in C, let L_adm(M) be the set of operational specifications admissible for M.
+
+Define the common operational domain:
+L_common(C) = intersection over M in C of L_adm(M).
+
+This definition is a candidate set-theoretic construction, not a claim that the intersection is nonempty.
+
+A common operational language suitable for D_L requires:
+
+E1. NONEMPTY:
+L_common(C) is not empty.
+
+E2. SHARED SPECIFICATION:
+Each a in L_common(C) denotes the same operational task/protocol across the compared models, not merely similarly named model-specific actions.
+
+E3. RESPONSE TOTALITY:
+For every M in C and every a in L_common(C), Resp_M(a) is defined.
+
+E4. COMMON CODOMAIN:
+All such responses lie in one fixed normed space Y with one declared norm.
+
+E5. FIXED COMPARISON CLASS:
+C and the common protocol semantics are fixed for the comparison.
+
+Then one may set:
+L_op := L_common(C)
+
+for that specified comparison problem, and define D_L on C under the stated conditions.
+
+If L_common(C) is empty, or if it contains only labels whose meanings differ across models, the common operational distance is not established by the primary formula. Model-specific distances may still be defined, but they are not automatically comparable through the same L_op.
+
+The primary sources do not prove that L_common(C) is nonempty for an arbitrary comparison class. Existence is a realization-specific obligation.
+
+==================================================
+8. L1-L8 DEPENDENCY / LOOP CHECK FOR THE COMMON-DOMAIN REQUIREMENT
+==================================================
+
+TARGET_C:
+For a comparison class C, a common operational domain suitable for the stated D_L formula must consist of operational specifications on which every compared response map is defined and returns values in a common normed space Y.
+
+PREMISES_AND_DEFINITIONS:
+- Volume III defines Resp_M on L_op and D_L by a supremum over L_op.
+- Volume III requires Y to be normed and L_op nonempty for the stated extended-pseudometric property.
+- A function must be defined on its declared domain.
+- A norm difference requires two elements of the same normed space.
+
+DEPENDENCY_CHAIN:
+The supremum formula compares Resp_M1(a) and Resp_M2(a) for each a in L_op.
+Therefore both response values must exist for each such a.
+The subtraction and norm require a shared codomain and norm.
+The nonempty-domain condition is explicitly stated in the Volume III operational-distance section.
+
+POSSIBLE_EQUIVALENT_OR_EMBEDDED_TARGET:
+The common-domain requirement is not inserted as an additional physical axiom. It follows from the well-formedness of the response comparison already written in D_L.
+The existence of a nonempty common domain is not definitionally guaranteed by defining the intersection.
+
+INDEPENDENT_JUSTIFICATION:
+This is a type/domain check on the existing response and distance definitions. It does not rely on H3, tau, Koopman invariance, or the desired non-expansion conclusion.
+
+COUNTERMODEL_ATTEMPT_AND_RESULT:
+Take two models M1 and M2 with disjoint admissible protocol sets:
+L_adm(M1) = {a}
+L_adm(M2) = {b}
+where a and b are not the same shared protocol specification.
+Then:
+L_common({M1,M2}) = empty.
+The primary source does not exclude this possibility.
+Thus a nonempty common domain does not follow from the abstract existence of individual operational languages.
+
+PREMISE_REMOVAL_TEST:
+- Remove response totality: the supremum expression may contain undefined terms.
+- Remove the common codomain/norm: the difference or norm may be undefined.
+- Remove nonemptiness: the stated Volume III extended-pseudometric condition is not met; an empty-supremum convention must not be used to imply operational indistinguishability.
+- Remove shared protocol meaning: the comparison may conflate different tasks under identical labels.
+
+CLASSIFICATION:
+CONDITIONAL FORMAL REQUIREMENT.
+The common-domain conditions are necessary for the stated cross-model D_L comparison to be well-formed. Nonemptiness and semantic compatibility remain unproved for any particular OMEGA-ISOP realization.
+
+NON-IMPLICATIONS:
+This does not prove that a common domain exists in every realization.
+It does not identify the intended operational carrier.
+It does not define j.
+It does not establish a common tau.
+It does not establish H3 or Theorem 91 beyond its existing conditional status.
+It does not establish physical measurement semantics or empirical accessibility.
+
+==================================================
+9. RESULTS AND CURRENT STAGE STATUS
+==================================================
+
+RESULT A:
+The primary sources provide an abstract operational interface, not a complete typed operational semantics.
+
+RESULT B:
+At minimum, observation/readout, state update/intervention, and history-dependent protocol selection must be semantically distinguished.
+
+RESULT C:
+A probe may be non-disturbing, but this cannot be assumed universally. If a measurement changes the state, its state-update semantics must be included explicitly.
+
+RESULT D:
+Operational composition is typed and generally order-sensitive. Deterministic maps and stochastic kernels have distinct composition rules; adaptive protocols require a history domain and policy.
+
+RESULT E:
+The response map requires a declared execution context and a map from raw outcomes to a common normed response space Y. Expectation response is one possible realization, not a universal definition.
+
+RESULT F:
+For cross-model D_L, the shared operational domain must be nonempty, semantically common, response-total, and valued in one common normed space. The primary sources do not establish that such a domain exists for a given comparison class.
+
+STAGE A:
+PARTIALLY SPECIFIED AT ABSTRACT INTERFACE LEVEL; PRIMITIVE SEMANTIC TYPES IDENTIFIED AS REQUIRED REALIZATION DATA.
+
+STAGE B:
+TYPED DISTINCTION ESTABLISHED AS A NECESSARY SPECIFICATION REQUIREMENT; ACTUAL OMEGA-ISOP PROTOCOL TYPES UNRESOLVED.
+
+STAGE C:
+CANDIDATE DOMAIN / ADMISSIBILITY / COMPOSITION RULES SPECIFIED; REALIZATION-SPECIFIC ADMISSIBILITY UNRESOLVED.
+
+STAGE D:
+RESPONSE PIPELINE AND COMMON CODOMAIN REQUIREMENTS SPECIFIED; ACTUAL RESPONSE SEMANTICS AND Y FOR THE TARGET REALIZATION UNRESOLVED.
+
+STAGE E:
+COMMON DOMAIN DEFINED AS AN INTERSECTION; NONEMPTINESS AND SHARED SEMANTIC MEANING UNRESOLVED.
+
+OVERALL:
+STAGES A-E: FORMAL REQUIREMENTS CLARIFIED; TARGET REALIZATION NOT YET IDENTIFIED.
+OPERATIONAL CARRIER: UNRESOLVED.
+REPRESENTATION j: NOT CONSTRUCTED.
+KOOPMAN INVARIANCE: NOT TESTED.
+COMMON tau: NOT TESTED.
+H3: NOT REASSESSED.
+FROZEN CORE: UNCHANGED.
+THEOREM 91: UNCHANGED.
+THEOREMS 92-94: UNCHANGED.
+NO NEW THEOREM NUMBER.
+CANONICAL ACCEPTANCE: NONE.
+RL REGISTRATION: NONE.
+
+==================================================
+10. NEXT JUSTIFIED ACTION
+==================================================
+
+Search only for genuinely new primary realization records or concrete operational protocols that independently identify:
+- the intended measurement/probe objects;
+- interventions and their admissible controls;
+- adaptive or sequential protocol rules;
+- initialization and experimental context;
+- response readout and response space;
+- the model comparison class.
+
+If no such record exists, the next step is to ask for or construct an explicitly labeled candidate realization specification, without presenting it as recovered primary semantics.
+
+Only after the operational carrier and Stages A-E are fixed for a target realization may Stage F investigate whether a representation j exists. No representation may be selected to force Koopman closure.
+
+END OF CHECKPOINT
