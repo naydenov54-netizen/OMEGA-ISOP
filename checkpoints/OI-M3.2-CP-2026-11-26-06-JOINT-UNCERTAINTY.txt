@@ -1,0 +1,189 @@
+OMEGA-ISOP / M3.2 v2.1
+RESEARCH CHECKPOINT + ARCHIVAL RECOVERY RECORD
+
+CHECKPOINT_ID: OI-M3.2-CP-2026-11-26-06
+DATE: 2026-11-26
+WORKSTREAM: M3.2 v2.1 / Finite-state Markov model / Parameter identifiability
+RESEARCH_STAGE: Joint deterministic uncertainty in observations and preparation matrix
+TITLE: Joint uncertainty in observations and preparation distributions
+VERSION: 0.1
+STATUS: ANALYTICAL DERIVATION; RESULTS VALID UNDER EXPLICIT ASSUMPTIONS BELOW
+PREDECESSOR: OI-M3.2-CP-2026-11-26-05-ROBUST-IDENTIFIABILITY.txt
+
+==================================================
+1. OBJECTIVE AND ARCHITECTURAL BOUNDARY
+==================================================
+Extend Experiment 13 by allowing uncertainty in both the observed scalar values and the two-preparation observation matrix. Derive an exact error identity, sufficient invertibility conditions, a deterministic norm bound, a first-order approximation, and the exact perturbed determinant.
+No Frozen Core definition, transition architecture, transition-matrix entry, canonical proof, or physical interpretation is modified.
+
+==================================================
+2. MODEL AND ASSUMPTIONS
+==================================================
+The true observation model remains:
+A*theta = y_true
+
+theta = [alpha, beta]^T
+A = [[a,b],[c,d]]
+D = det(A) = a*d - b*c
+
+Observed data:
+y_obs = A*theta + eta
+
+The matrix used by the estimator is uncertain:
+A_hat = A + E
+E = [[e11,e12],[e21,e22]]
+
+Estimator, when A+E is invertible:
+theta_hat = (A+E)^(-1)*y_obs
+
+Define:
+Delta_theta = theta_hat - theta
+All norms below are induced Euclidean/spectral 2-norms unless stated otherwise. E and eta are deterministic perturbations. No probability distribution is assumed.
+
+==================================================
+3. EXPERIMENT 14A — EXACT JOINT ERROR IDENTITY
+==================================================
+Substitute y_obs = A*theta + eta:
+
+theta_hat = (A+E)^(-1)*(A*theta + eta)
+
+Subtract theta and use A = (A+E)-E:
+
+Delta_theta = (A+E)^(-1)*(eta - E*theta)
+
+This identity is exact whenever A+E is invertible. It cleanly separates observation error eta and preparation-matrix error E, while showing that preparation error is weighted by the true parameter vector theta.
+
+==================================================
+4. EXPERIMENT 14B — SUFFICIENT INVERTIBILITY CONDITION
+==================================================
+Let sigma_min(A) be the smallest singular value of A. Weyl's singular-value perturbation inequality gives:
+
+sigma_min(A+E) >= sigma_min(A) - ||E||2
+
+Therefore, the sufficient condition:
+
+||E||2 < sigma_min(A)
+
+implies sigma_min(A+E) > 0, hence A+E is invertible.
+
+Equivalent sufficient condition from the Neumann-series criterion:
+||A^(-1)*E||2 < 1, assuming A is invertible.
+
+These are sufficient conditions, not necessary conditions. A+E can remain invertible even when the bound is inconclusive.
+
+==================================================
+5. EXPERIMENT 14C — JOINT DETERMINISTIC ERROR BOUND
+==================================================
+From the exact identity and the singular-value bound:
+
+||Delta_theta||2 <= ||eta - E*theta||2 / sigma_min(A+E)
+
+Using triangle inequality and Weyl:
+
+||Delta_theta||2 <= (||eta||2 + ||E||2*||theta||2) /
+                    (sigma_min(A) - ||E||2)
+
+provided ||E||2 < sigma_min(A).
+
+This is a deterministic worst-case bound. It is not a stochastic confidence interval, empirical error estimate, or probability statement.
+
+==================================================
+6. EXPERIMENT 14D — FIRST-ORDER PERTURBATION
+==================================================
+For small E, use:
+
+(A+E)^(-1) = A^(-1) - A^(-1)*E*A^(-1) + higher-order terms.
+
+The first-order parameter error is:
+
+Delta_theta ~= A^(-1)*eta - A^(-1)*E*theta.
+
+The first term is the observation-noise contribution. The second is the preparation-uncertainty contribution. Depending on their directions, the two contributions can reinforce or partially cancel. Such cancellation is not guaranteed.
+
+For an exact remainder representation, set B=A^(-1)*E and q=A^(-1)*eta. Then, when I+B is invertible:
+
+Delta_theta = (I+B)^(-1)*(q - B*theta).
+
+The first-order expression is q-B*theta. Its difference from the exact expression is:
+
+R = -B*(I+B)^(-1)*(q - B*theta).
+
+This identity follows from (I+B)^(-1)-I = -B*(I+B)^(-1). It provides an explicit higher-order remainder representation.
+
+==================================================
+7. EXPERIMENT 14E — EXACT DETERMINANT PERTURBATION
+==================================================
+For:
+A = [[a,b],[c,d]]
+E = [[e11,e12],[e21,e22]]
+
+D_hat = det(A+E)
+
+Exact expansion:
+D_hat = D
+       + a*e22 + d*e11 - b*e21 - c*e12
+       + e11*e22 - e12*e21.
+
+The exact invertibility condition for the two-dimensional estimator is:
+D_hat != 0.
+
+The first-order determinant perturbation is:
+Delta_D^(1) = a*e22 + d*e11 - b*e21 - c*e12.
+The remaining term det(E)=e11*e22-e12*e21 is second order in the entries of E.
+
+==================================================
+8. EXPERIMENT 14F — BASIS-PREPARATION SPECIAL CASE
+==================================================
+For the Experiment 13 design A=I:
+
+sigma_min(A)=1
+kappa2(A)=1
+
+A sufficient condition for invertibility is:
+||E||2 < 1.
+
+The joint error bound becomes:
+
+||Delta_theta||2 <= (||eta||2 + ||E||2*||theta||2)/(1-||E||2).
+
+This does not imply zero sensitivity to preparation uncertainty. It shows that the ideal identity design has a unit singular-value margin under the stated spectral-norm perturbation model. The condition is sufficient, not necessary.
+
+==================================================
+9. PREPARATION-DOMAIN CAVEATS
+==================================================
+The true preparation rows obey the probability constraints recorded in checkpoint 05. The perturbation E is not automatically an arbitrary physically admissible preparation change. If A_hat is itself estimated from valid probability distributions, its entries and row coordinates may satisfy coupled simplex constraints. Those constraints have not yet been incorporated into a sharper feasible-perturbation bound.
+
+The present results treat E as a deterministic matrix perturbation. They do not establish laboratory realizability, calibration statistics, finite-sample performance, stochastic independence, or a noise covariance model.
+
+==================================================
+10. EVIDENCE CLASS AND AUDIT
+==================================================
+EVIDENCE_CLASS: ANALYTICAL MATRIX-PERTURBATION DERIVATION.
+
+PROVED UNDER STATED ASSUMPTIONS:
+- Exact joint error identity.
+- Sufficient invertibility condition from the smallest singular value.
+- Joint deterministic spectral-norm error bound.
+- First-order perturbation formula.
+- Exact remainder identity.
+- Exact determinant perturbation formula.
+- Specialization to A=I.
+
+SCOPE LIMITS:
+- No stochastic noise model.
+- No constrained-simplex optimization for E.
+- No numerical simulation or Monte Carlo test.
+- No physical feasibility claim.
+- No inference about the full transition matrix R.
+- No amendment to Frozen Core or canonical theorem status.
+
+ANTI-LOOP AUDIT:
+The exact identity is obtained by algebraic substitution and subtraction. The invertibility condition follows from singular-value perturbation. The norm bound follows from the exact identity, the triangle inequality, and Weyl's inequality. The determinant formula is direct expansion. No conclusion is used as a premise.
+
+==================================================
+11. NEXT JUSTIFIED ACTION
+==================================================
+EXPERIMENT 15: STRUCTURED PREPARATION UNCERTAINTY UNDER SIMPLEX CONSTRAINTS.
+Determine the admissible structure of E when each estimated preparation is a valid probability distribution, including nonnegativity and normalization constraints. Derive tighter feasible perturbation bounds for the observed coordinates (00 and 10), distinguish unconstrained spectral bounds from probability-constrained bounds, and test whether the A=I design remains optimal under a specified calibration-error budget.
+
+END OF CHECKPOINT
