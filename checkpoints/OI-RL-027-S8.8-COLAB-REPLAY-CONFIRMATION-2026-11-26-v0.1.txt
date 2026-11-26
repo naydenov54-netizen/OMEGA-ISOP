@@ -1,0 +1,99 @@
+OMEGA-ISOP
+RL-027 S8.8
+COLAB REPLAY CONFIRMATION: S8.5-S8.6 EXACT RATIONAL AUDIT
+
+DOCUMENT_ID: OI-RL-027-S8.8-COLAB-REPLAY-CONFIRMATION
+VERSION: 0.1
+DATE: 2026-11-26
+WORKSTREAM: RL-027
+STATUS: COLAB REPLAY REPORTED PASS
+PARENT: OI-RL-027-S8.5 / OI-RL-027-S8.6 / OI-RL-027-S8.7
+AUDIT SCRIPT: checkpoints/rl027_s8_rank_extrema_audit.py
+BRANCH: main
+
+==================================================
+1. USER-REPORTED COLAB OUTPUT
+==================================================
+
+The user executed the committed S8.5-S8.6 audit script in Google Colab and supplied the following complete output:
+
+S8.5-S8.6 EXACT RATIONAL AUDIT
+seed=20261126
+base_cases= 20000
+eta_cases= 60000
+random_feasible_comparisons= 191340
+RESULT=ALL_ASSERTIONS_PASSED
+NOTE=finite tests; not a substitute for the analytical proofs
+
+This checkpoint records the output as user-reported execution evidence. The assistant did not independently access the user's Colab runtime.
+
+==================================================
+2. WHAT THIS REPLAY CONFIRMS
+==================================================
+
+The committed standard-library Python audit script completed without assertion failure in the user's Colab environment.
+
+Reported test scope:
+- 20,000 random base cases.
+- 60,000 rational eta cases.
+- 191,340 random feasible-point comparisons.
+- Deterministic seed: 20261126.
+
+The script assertions cover:
+- rank-feasibility threshold eta_rank;
+- normalization and nonnegativity;
+- zero spectral tail beyond rank r;
+- trace-distance feasibility;
+- exact MIN deficit and increase identities;
+- exact MAX partial-sum/majorization identity;
+- purity ordering against sampled feasible points.
+
+==================================================
+3. EVIDENCE LIMITS
+==================================================
+
+This is a successful replay of the committed script in Colab, reported by the user.
+
+It is not:
+- a formal proof assistant verification;
+- an independent second implementation;
+- an exhaustive search over all feasible states;
+- a reproduction of the original S7 test suite;
+- an explanation or repair of the original 62 S7 failures.
+
+The analytical arguments remain the basis for global optimality:
+- S8.5: strict convexity and KKT sufficiency for MIN;
+- S8.6: majorization for MAX.
+
+==================================================
+4. STATUS UPDATE
+==================================================
+
+S8.5 MIN analytical derivation: RECORDED.
+S8.6 MAX analytical derivation: RECORDED.
+S8 audit script persistence: VERIFIED.
+S8 audit script Colab replay: USER-REPORTED PASS.
+S8.5-S8.6 finite numerical audit: PASS.
+Original S7 62 failures: UNRESOLVED.
+RL-027 overall: UNDER AUDIT.
+
+FROZEN CORE: INTACT.
+TEST-I DRAFT-0.2: NOT FROZEN.
+CE-V: NOT PROMOTED.
+VOLUME V: NO INTEGRATION AUTHORIZED.
+AUTHORITATIVE RL REGISTRY CONFIRMATION: NOT ESTABLISHED.
+
+==================================================
+5. NEXT RESEARCH STEP
+==================================================
+
+Proceed to a separate adversarial audit of the S8.5-S8.6 derivations and implementation:
+1. test degeneracies and boundary cases explicitly;
+2. compare MIN against independent convex optimization;
+3. compare MAX against exact vertex enumeration in small dimensions;
+4. check the spectral trace-distance reduction and realization of extremizers as pure-state marginals;
+5. keep S7's original 62 failures isolated until their original implementation is available.
+
+Do not promote the results into Frozen Core or Volume V on the basis of this replay alone.
+
+END OF CHECKPOINT
