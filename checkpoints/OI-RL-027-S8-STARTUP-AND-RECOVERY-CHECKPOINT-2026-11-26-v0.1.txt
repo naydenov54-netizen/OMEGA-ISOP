@@ -1,0 +1,193 @@
+OMEGA-ISOP
+RL-027 S8 STARTUP AND RECOVERY CHECKPOINT
+
+DOCUMENT_ID: OI-RL-027-S8-STARTUP-AND-RECOVERY-CHECKPOINT
+VERSION: 0.1
+DATE: 2026-11-26
+WORKSTREAM: RL-027
+RESEARCH_STAGE: S8 STARTUP / RECOVERY BOUNDARY
+STATUS: ARCHIVAL RECOVERY CHECKPOINT
+EVIDENCE_STATUS: NO NEW S8 SCIENTIFIC RESULT ESTABLISHED
+REPOSITORY: https://github.com/naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+
+==================================================
+1. PURPOSE
+==================================================
+
+Preserve the verified starting state and exact next task for RL-027-S8 so that work can resume in a later conversation without reconstructing context from chat history.
+
+This is a recovery checkpoint. It does not claim that S8 has been completed, does not validate the S7 code or its analytical proof, and does not amend the RL-027 scientific record.
+
+==================================================
+2. CURRENT TASK
+==================================================
+
+CURRENT_TASK:
+Continue RL-027 from the S7 spectral-extremum work toward S8: determine under what conditions information about rho_B, known exactly or approximately, can constrain the subsystem purity Q_A = Tr(rho_A^2), given an admissible domain of global bipartite states rho_AB.
+
+The four requested cases are:
+1. Exactly equal reduced states.
+2. Approximately equal reduced states.
+3. Independent global perturbations.
+4. Correlated global states.
+
+The task is to connect local spectral extrema to the original domain-dependent identifiability question. Do not assume in advance that a stronger general result than the existing RL-027 record follows.
+
+==================================================
+3. VERIFIED PROJECT STATE AND SOURCE HIERARCHY
+==================================================
+
+A. Current operational instructions were read from the repository file:
+OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF.txt
+VERSION: 2.1
+DATE: 2026-11-25
+STATUS: ACTIVE WORKING DOCUMENT
+
+The Handoff is operational guidance only and has no scientific authority.
+
+B. The current Handoff and the prior-research plan state:
+- RL-027 core domain-bounded identifiability results are independently verified within their stated domains.
+- Overall RL-027 remains UNDER AUDIT.
+- TEST-I DRAFT-0.2 is an audited working draft and is NOT FROZEN.
+- General framework, minimality, stability, computability, and external dependencies remain OPEN.
+- Primary RL laboratory source files are recorded as DESTROYED / NON-RECOVERABLE in the provenance disposition. Do not repeat searches for those same destroyed originals. Reopen only on a specific new source, inconsistency, counterexample, reproducibility need, suspected defect, correction, or explicit request.
+
+C. The Library file read during this session:
+OMEGA-ISOP_RL-027_CONSOLIDATED.txt
+contains the consolidated RL-027 mathematical record, including:
+- finite-dimensional bipartite setting;
+- rho_A = Tr_B(rho_AB), rho_B = Tr_A(rho_AB);
+- Q_A = Tr(rho_A^2);
+- the domain-wise fibre criterion for existence of F with Q_A = F(rho_B);
+- pure-global-state result Q_A = Tr(rho_B^2), by Schmidt decomposition;
+- mixed-global-domain counterexample to identifiability;
+- for fixed rho_B = sigma and d_A >= 2, the attainable purity interval [1/d_A, 1] in the full mixed domain, via product states.
+
+D. Registry-status caution:
+The Library consolidated record labels RL-027 RL_REGISTERED. The current operational Handoff / prior-research plan states that independent authoritative registry confirmation is NOT established and must not be claimed without authoritative registry readback. Preserve this discrepancy. Do not infer authoritative registry confirmation from the controlled copy or from a GitHub commit.
+
+E. GitHub repository verified:
+Repository: naydenov54-netizen/OMEGA-ISOP
+Default branch: main
+Pre-checkpoint branch head:
+355f8caa9c53e85ec63f574196f98ea42586edf2
+The repository was inspected before this checkpoint. The target path was not present in the inspected checkpoints tree.
+
+==================================================
+4. S7 STATUS AND LIMITATION
+==================================================
+
+The user supplied Python functions:
+- purity_min_spectrum(p, eta)
+- purity_max_spectrum(p, eta)
+- purity(q)
+
+The accompanying user-provided status description says:
+- spectral reduction: analytically established;
+- minimization: two-sided water-filling;
+- maximization: concentration;
+- optimality: analytical justification;
+- degenerate eigenvalues: covered;
+- boundary cases: derived;
+- independent numerical verification: pending.
+
+This checkpoint records those as USER-SUPPLIED STATUS CLAIMS, NOT as independently re-audited or independently numerically verified results.
+
+No independent numerical verification of the supplied code was performed in this checkpoint.
+No proof-level audit of the supplied S7 algorithms was performed in this checkpoint.
+Do not promote these claims beyond their supplied status without the corresponding derivation and checks.
+
+==================================================
+5. PREVIOUS S8 RESPONSE: NON-ACCEPTANCE NOTICE
+==================================================
+
+A preliminary assistant response proposed:
+- a general trace-distance purity inequality;
+- a consequence for globally close states;
+- a special-case argument for pure global states;
+- a broad characterization of the four S8 cases.
+
+That response was not checked against the full S8 target, the admissible perturbation model, and the LOOP AUDIT protocol. It is NOT an accepted RL-027 result and must not be treated as a completed derivation.
+
+In particular, re-derive and audit any proposed inequality from the exact definitions before using it. Distinguish:
+- closeness of reduced states;
+- closeness of global states;
+- equality of reduced states;
+- restrictions on the admissible global-state domain.
+
+These are different assumptions and must not be interchanged.
+
+==================================================
+6. EXACT NEXT ACTION
+==================================================
+
+Proceed with RL-027-S8.1 by formalizing the target before attempting a theorem.
+
+Define:
+- the admissible domain D of global states;
+- the map rho_AB -> rho_B;
+- the target Q_A(rho_AB);
+- the perturbation metric and its domain (global or reduced);
+- whether the comparison concerns two states in D or a whole fibre over fixed / approximately fixed rho_B.
+
+Then treat the four requested cases separately.
+
+For each proposed bound:
+1. State the exact quantified proposition.
+2. List definitions and assumptions.
+3. Derive the dependency chain.
+4. Apply LOOP_AUDIT L1-L8.
+5. Attempt a countermodel.
+6. Perform premise-removal tests.
+7. State non-implications and exact domain of validity.
+8. Only then decide whether the result is analytical, conditional, refuted, or unresolved.
+
+Do not repeat the already established pure-domain and full-mixed-domain identifiability results unless a specific new dependency, counterexample, or correction requires it.
+
+==================================================
+7. ARCHITECTURAL INVARIANTS
+==================================================
+
+FROZEN CORE: INTACT / UNCHANGED.
+CE-V: NOT PROMOTED.
+VOLUME V: NO INTEGRATION AUTHORIZED.
+RL-027: OVERALL UNDER AUDIT.
+TEST-I DRAFT-0.2: AUDITED WORKING DRAFT / NOT FROZEN.
+RL-027.1: REGISTRATION / TERMINOLOGY CORRECTION MODULE; FORMER RL-028.
+NEW RL: NOT AUTHORIZED OR REQUIRED BY THIS CHECKPOINT.
+CANONICAL ACCEPTANCE: NOT PERFORMED.
+AUTHORITATIVE RL REGISTRY READBACK: NOT ESTABLISHED BY THIS CHECKPOINT.
+
+No content in this checkpoint modifies a protected source, the Frozen Core, CE-V, Volume V, or the RL registry.
+
+==================================================
+8. EVIDENCE AND COMPLETION CLASSIFICATION
+==================================================
+
+ESTABLISHED WITHIN STATED DOMAIN:
+The consolidated RL-027 core results listed in Section 3C, as recorded in the consolidated research record and current project status.
+
+USER-SUPPLIED / NOT RE-AUDITED HERE:
+S7 algorithm and proof-status claims listed in Section 4.
+
+UNRESOLVED:
+S8 general analysis; stability; perturbation distinctions; any stronger result using global constraints; full TEST-I framework; minimality; computability; external dependencies; independent authoritative registry confirmation.
+
+NOT PERFORMED:
+Independent numerical verification of S7 code; fresh proof audit of S7; proof-assistant verification; peer review; empirical validation; canonical acceptance; CE-V promotion.
+
+==================================================
+9. RECOVERY INSTRUCTIONS
+==================================================
+
+On resumption:
+1. Load the latest readable operational Handoff from Library and confirm it remains the governing instruction set.
+2. Read this checkpoint and the current RL-027 consolidated research record.
+3. Respect the recorded non-recoverable disposition of the original RL laboratory source files. Do not repeat the same recovery searches without a reopening condition.
+4. Start at Section 6 of this checkpoint.
+5. Keep all user-facing OMEGA-ISOP research output in one continuous Android-copyable PLAIN TEXT block.
+6. Create a new checkpoint only at the next meaningful completed research stage, material correction, counterexample, or branch transition.
+7. Verify every GitHub save and readback. Keep checkpoint, commit, RL registration, canonical acceptance, and CE-V status separate.
+
+END OF CHECKPOINT
