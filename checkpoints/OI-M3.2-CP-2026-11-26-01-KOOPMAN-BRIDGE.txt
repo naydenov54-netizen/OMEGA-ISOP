@@ -1,0 +1,256 @@
+OMEGA-ISOP / M3.2 v2.1
+RESEARCH CHECKPOINT + ARCHIVAL RECOVERY RECORD
+
+CHECKPOINT_ID: OI-M3.2-CP-2026-11-26-01
+DATE: 2026-11-26
+WORKSTREAM: M3.2 v2.1 / Operational-response dynamics / Koopman bridge
+RESEARCH_STAGE: Deterministic and stochastic realization-level bridge analysis
+TITLE: Conditional Koopman-to-operational-language bridge for deterministic and Markov dynamics
+VERSION: 1.0
+STATUS: RESEARCH CHECKPOINT CREATED; CONDITIONAL RESULTS ONLY
+
+==================================================
+1. OBJECTIVE
+==================================================
+Determine whether the existing mathematical foundations independently connect:
+(1) state space X;
+(2) admissible dynamics T or Markov kernel κ;
+(3) operational language L_op;
+(4) response maps Resp_M;
+(5) operational equivalence and distance D_L.
+
+The specific question is whether a common transformation τ of operational probes can be derived from a Koopman or Markov-Koopman action, rather than postulated as H3.
+
+==================================================
+2. VERIFIED PRIMARY-SOURCE FRAME
+==================================================
+Volume II, Mathematical Foundations, v1.4:
+- V.1 defines realization mapping Φ : Real(R) → M.
+- V.2 defines X_R and admissible dynamics A(R;Φ) subset Evol(X).
+- V.3 defines deterministic dynamics T : X → X and x_(t+1)=T(x_t).
+- V.4 defines Markov kernel κ : X × Σ_X → [0,1].
+- V.5 states that R constrains admissible dynamics but does not generally select a unique law.
+- VI.1 defines the deterministic Koopman operator K_T f = f ∘ T on an appropriate observable space B.
+- VI.2 defines the Markov operator K_κ f(x)=∫f(y)κ(x,dy).
+- VII.3 defines L_op and Resp_M : L_op → Y generally; it does not identify L_op with B or define a map j : L_op → B.
+
+Volume III, Validation Framework, v1.1:
+- §18 defines L_op as a selected class of operational probes/interventions and Resp_M : L_op → Y.
+- §19 defines ε-operational equivalence.
+- §20 defines D_L(M1,M2)=sup_(a∈L_op)||Resp_M1(a)-Resp_M2(a)||_Y.
+
+Theorem 91 handoff assumptions:
+H1: R exists, T is admissible, and R is preserved.
+H2: Y is normed.
+H3: There exists τ : L_op → L_op such that Resp_(T(M))(a)=Resp_M(τ(a)).
+H4: Operational criterion and comparison class are fixed.
+
+Source references inspected/retrieved in this workstream:
+- Volume II: Library search refs turn6file0, turn6file5, turn6file6, turn6file9.
+- Volume III: Library search ref turn6file2.
+- M3.2 handoff: turn6file1, turn6file3; further checkpoint policy and archival instructions inspected at turn10file0 through turn10file4.
+- Research identity/future program: turn6file7, turn6file8.
+Note: these are retrieval references from the working conversation, not canonical scientific registrations.
+
+==================================================
+3. ESTABLISHED STRUCTURAL FINDING
+==================================================
+The primary definitions independently provide state/dynamics structures and operational response structures, but do not provide a map j : L_op → B, do not establish that response factors through observable evaluation/integration, and do not establish a common action of T or κ on L_op.
+
+Therefore H3 is NOT derived from the Frozen Core / currently inspected primary definitions.
+This is a non-derivability finding from the available definitions, not a proof that H3 is false.
+
+A logical countermodel to the implication "structural preservation alone implies H3" was recorded:
+X={0,1}; T(0)=1; T(1)=0; L_op={a}; Y=R;
+Resp_M(a)=0; Resp_(T(M))(a)=1.
+The only map τ on the singleton L_op is identity, so Resp_(T(M))(a) != Resp_M(τ(a)).
+This is a logical countermodel to that implication, not a physical counterexample to OMEGA-ISOP.
+
+==================================================
+4. DETERMINISTIC REALIZATION-LEVEL BRIDGE
+==================================================
+Consider a particular class of deterministic operational models with state x_M in X, admissible interventions A_a : X → X, and readout q : X → Y.
+
+Define:
+Resp_M(a) = q(A_a(x_M))
+j(a) = q ∘ A_a
+j(a)(x) = q(A_a(x))
+
+Assume j(a) belongs to a common observable space B and define the transformed model state by x_(T(M))=T(x_M).
+The Koopman operator is:
+K_T f = f ∘ T
+
+If the intervention class is closed under precomposition by T, in the specified protocol order, then for every a there exists τ(a) such that:
+A_(τ(a)) = A_a ∘ T
+
+Consequently:
+j(τ(a)) = K_T(j(a))
+Resp_(T(M))(a)
+= q(A_a(T(x_M)))
+= q(A_(τ(a))(x_M))
+= Resp_M(τ(a))
+
+If j is injective, τ = j^(-1) ∘ K_T ∘ j. If j is not injective, the action must instead be well-defined on the quotient A/~ where a1~a2 iff j(a1)=j(a2).
+
+This proves H3 only for this particular realization class under the stated assumptions. It does not prove that these assumptions are supplied by the Frozen Core.
+
+Important protocol-order limitation: the construction represents the sequence state → T → intervention A_a → readout q. It cannot be silently reused for state → intervention → T → readout; the operator composition changes.
+
+==================================================
+5. STOCHASTIC MARKOV-KOOPMAN REALIZATION-LEVEL BRIDGE
+==================================================
+Consider a Markov model with state space X, initial probability measure μ_M, Markov kernel κ, intervention A_a : X → X, and readout q : X → Y.
+
+Define:
+j(a)=q∘A_a
+Resp_M(a)=∫j(a)(x)dμ_M(x)
+
+Define the Markov-Koopman operator:
+K_κ f(x)=∫f(y)κ(x,dy)
+
+Define the evolved measure:
+μ'_M(E)=∫κ(x,E)dμ_M(x)
+μ'_M=μ_M κ
+
+Then:
+Resp_(κ(M))(a)
+=∫j(a)(y)dμ'_M(y)
+=∫[∫j(a)(y)κ(x,dy)]dμ_M(x)
+=∫K_κ(j(a))(x)dμ_M(x)
+
+If the observable representation is common and the closure condition holds:
+K_κ(j(a))=j(τ(a)) for every a in L_op,
+then:
+Resp_(κ(M))(a)=Resp_M(τ(a)).
+
+Thus H3 is conditionally derived for this Markov realization class. If j is injective, τ=j^(-1)∘K_κ∘j. Otherwise the induced action must be well-defined on the quotient by equality of represented observables.
+
+Required conditions (SK1–SK7):
+SK1: A common state space X.
+SK2: A common observable space B.
+SK3: Each operational probe has a representation j(a) in B.
+SK4: Response factors through integration of j(a) against μ_M.
+SK5: A common Markov kernel κ acts on the entire comparison class, or the induced action is otherwise shown to be common.
+SK6: K_κ(j(L_op)) is contained in j(L_op), or the corresponding quotient image is invariant.
+SK7: The functions are measurable/integrable and the required integrals exist.
+
+Deterministic consistency check:
+κ_T(x,E)=1_E(T(x)) gives K_(κ_T)f(x)=f(T(x))=K_T f(x).
+The deterministic bridge is therefore a special case of the Markov construction.
+
+Non-Markov limitation:
+If future evolution depends on history beyond the current state, a Markov kernel on the original X is insufficient. A history-augmented state space may restore a Markov description only if it contains sufficient predictive information and the required measurable structure exists. This is an additional construction, not automatic.
+
+==================================================
+6. CONDITIONAL CONSEQUENCE FOR OPERATIONAL DISTANCE
+==================================================
+If a common τ : L_op → L_op satisfies H3 for all models in the comparison class, then:
+D_L(κ(M1),κ(M2))
+= sup_(a∈L_op)||Resp_M1(τ(a))-Resp_M2(τ(a))||_Y
+≤ D_L(M1,M2).
+
+This is non-expansion, not necessarily equality. Equality requires additional properties, for example suitable surjectivity/invertibility of τ over the operational language.
+
+==================================================
+7. EVIDENCE CLASS AND EXACT STATUS
+==================================================
+EVIDENCE_CLASS: ANALYTICAL DERIVATION UNDER EXPLICIT REALIZATION-LEVEL ASSUMPTIONS.
+
+PROVED WITHIN THE STATED CONSTRUCTIONS:
+- Deterministic Koopman bridge yields H3 when representation, response factorization, protocol order, and probe-class closure hold.
+- Markov-Koopman bridge yields H3 when SK1–SK7 hold.
+- The deterministic Dirac-kernel case is included in the Markov formulation.
+- A common H3 map implies non-expansion of D_L under the fixed operational language.
+
+NOT ESTABLISHED:
+- That the required representation j exists in the OMEGA-ISOP Frozen Core.
+- That every operational response factors through observable functions.
+- That SK6 or its deterministic analogue follows from the independently defined structure.
+- That a common τ exists for the full comparison class of OMEGA-ISOP models.
+- That H3 is universally true or false.
+- Any new physical consequence or empirical validation.
+
+H3_STATUS: NOT DERIVED FROM FROZEN CORE; CONDITIONALLY DERIVED IN SPECIFIC DETERMINISTIC AND MARKOV REALIZATION CLASSES.
+H1_STATUS: No change established by this checkpoint; retain prior verified project status.
+CANONICAL_THEOREM_91_STATUS: UNCHANGED; CONDITIONAL RESULT.
+FROZEN_CORE_STATUS: UNCHANGED.
+THEOREMS_92_94: CONDITIONAL / REALIZATION-LEVEL RESULTS.
+THEOREM_95: NOT STARTED.
+CANONICAL_ACCEPTANCE: NONE.
+RL_REGISTRATION: NONE PERFORMED OR CLAIMED.
+
+==================================================
+8. CHECKS PERFORMED
+==================================================
+- Reviewed the relevant primary definitions of realization space, admissible dynamics, deterministic dynamics, Markov kernels, Koopman operators, operational language, response maps, and operational distance through the retrieved Library source excerpts.
+- Completed the H3 independence audit at the structural-definition level.
+- Constructed a logical countermodel showing structural preservation alone does not imply H3.
+- Derived a deterministic realization-level Koopman bridge with explicit protocol order and closure condition.
+- Derived a stochastic Markov-Koopman bridge using measure evolution and kernel integration.
+- Checked reduction of the Markov formulation to the deterministic Dirac-kernel case.
+- Derived the conditional non-expansion inequality for D_L.
+
+CHECKS NOT PERFORMED:
+- No exhaustive reread of every Volume II/III page in this checkpoint operation.
+- No independent proof that the closure conditions follow from OMEGA-ISOP primary axioms.
+- No general treatment of controlled Markov kernels, stochastic interventions, path-dependent policies, or non-Markov response histories.
+- No computational verification, empirical test, or physical validation.
+- No repository inspection, Git commit, RL registration, or canonical integration is claimed by this Library checkpoint.
+
+==================================================
+9. LIMITATIONS AND NON-IMPLICATIONS
+==================================================
+- The bridge is realization-level and conditional, not a new Frozen Core primitive.
+- The closure condition is substantive and cannot be inserted merely to force H3.
+- Model-dependent kernels may induce model-dependent τ_M; this does not satisfy H3 unless a common action is proved over the comparison class.
+- If the intervention itself is stochastic, it should be represented by an appropriate kernel/policy and composition order must be made explicit.
+- If response depends on hidden variables, memory, path histories, or correlations omitted from X, the chosen state representation may be insufficient.
+- H3 implies the stated non-expansion inequality, not metric preservation or equality.
+- No theorem numbering or canonical status is assigned by this checkpoint.
+
+==================================================
+10. OPEN PROBLEMS / NEXT JUSTIFIED ACTION
+==================================================
+Primary next test:
+Determine whether K_κ(j(L_op)) ⊆ j(L_op), or a well-defined quotient analogue, follows from independently motivated properties of a non-artificially selected class of Markov operational models, rather than being postulated specifically to obtain H3.
+
+The test must:
+1. Fix a concrete class of Markov models and operational probes independently of H3.
+2. Specify the common state space, measurable structure, observable space, response functional, and protocol order.
+3. Test closure for the entire comparison class, not one selected model.
+4. Search for counterexamples where K_κ(j(a)) is not representable by any allowed probe.
+5. Distinguish a natural invariant probe class from a class engineered to guarantee closure.
+6. Preserve the current conditional status if closure is not derivable.
+
+Do not repeat the completed H3 independence audit unless new primary evidence, a concrete counterexample, or a corrected definition justifies reopening it.
+
+==================================================
+11. ARCHITECTURAL INVARIANTS / PROTECTED SCOPE
+==================================================
+- THEOREM 91: UNCHANGED.
+- FROZEN CORE: UNCHANGED.
+- Do not identify L_op with B without an independently justified definition.
+- Do not introduce j as a Frozen Core primitive without explicit authorization and change control.
+- Do not promote realization-level conditional results to universal theorems.
+- Do not change theorem numbering or canonical acceptance status.
+- Keep CORE THEORY, REALIZATION, and VALIDATION RESULT distinct.
+
+==================================================
+12. ARCHIVAL RECOVERY INFORMATION
+==================================================
+PROJECT_AND_WORKSTREAM: OMEGA-ISOP / M3.2 v2.1.
+CHECKPOINT_ID_AND_DATE: OI-M3.2-CP-2026-11-26-01 / 2026-11-26.
+CURRENT_OPERATIONAL_INSTRUCTIONS: OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF.txt, version 2.1, is the active operational handoff retrieved from Library during this work. It is guidance, not scientific evidence.
+EXACT_CURRENT_TASK: Test whether the Markov-Koopman probe-class closure condition can be independently derived for a natural class of operational Markov models.
+LAST_VERIFIED_STATE: Deterministic and stochastic Koopman bridges have been derived conditionally at realization level; neither is derived from the Frozen Core.
+COMPLETED_WORK: Structural H3 audit, logical countermodel, deterministic bridge, Markov bridge, Dirac reduction, conditional D_L non-expansion.
+UNRESOLVED_DEPENDENCIES: Independent basis for representation j, response factorization, and invariant probe-class closure; common action across comparison class; generalization to stochastic interventions and history-dependent systems.
+PROTECTED_SCOPE: Frozen Core, Theorem 91, primary Volume II/III definitions, theorem numbering, RL registry, CE/CE-V status, Volume V integration.
+FILES_CREATED_OR_MODIFIED: This checkpoint file is the intended research artifact. Save and readback status must be reported separately from GitHub archival.
+LIBRARY_SAVE_PATH: To be supplied only after successful Library upload.
+GITHUB_STATUS: Not inspected or modified as part of preparing this file. No commit SHA claimed.
+READBACK_AND_VERIFICATION: Pending successful Library save and readback.
+PRECISE_NEXT_ACTION: Test Markov-Koopman closure on a naturally specified operational probe class and construct a counterexample if closure fails.
+RECOVERY_INSTRUCTIONS: On resumption, retrieve this checkpoint and the active M3.2 v2.1 handoff; do not restart the H3 independence audit without new evidence. Continue from Section 10.
+
+END OF CHECKPOINT
