@@ -1,0 +1,180 @@
+OMEGA-ISOP
+RL-027 / S7
+INDEPENDENT SPECTRAL RECONSTRUCTION AND AUDIT LIMITS
+Date: 2026-11-26
+Status: PRELIMINARY ANALYTICAL RECONSTRUCTION; ORIGINAL S7 CODE AUDIT OPEN
+Parent: OI-RL-027-S8.2-APPROXIMATE-LOCAL-AND-CORRELATED-DOMAINS-2026-11-26-v0.1.txt
+
+0. EVIDENCE AND SCOPE
+
+The accessible canonical RL-027 consolidated record contains the pure-global-state identity
+Q_A = Tr(rho_B^2)
+but does not contain the S7 spectral-extremum derivation or the Python functions
+purity_min_spectrum(p, eta), purity_max_spectrum(p, eta), and purity(q).
+
+The accessible M3.2 handoff and Volume V controlled master likewise do not provide those exact functions, their full source, or a detailed S7 proof. A repository search for the function names returned no matching source file.
+
+Therefore:
+- The original S7 code has NOT been inspected in this audit.
+- Its exact definitions of p and eta have NOT been verified against a primary S7 source.
+- No claim of code correctness, independent reproduction, or S7 certification is made.
+- The analysis below is conditional on the natural spectral interpretation stated in Section 1.
+- This checkpoint records a new independent mathematical reconstruction, not a transcription or certification of the missing S7 source.
+
+1. CONDITIONAL MATHEMATICAL SETUP
+
+Assume:
+(a) sigma is a density operator on a d-dimensional Hilbert space;
+(b) p=(p_1,...,p_d) is the eigenvalue vector of sigma, ordered p_1 >= ... >= p_d >= 0, sum_i p_i=1;
+(c) eta>=0 is a trace-distance radius;
+(d) purity(q)=sum_i q_i^2.
+
+Define the probability simplex
+Delta_d = {q in R^d : q_i>=0, sum_i q_i=1}
+and total variation distance
+TV(p,q) = (1/2) sum_i |p_i-q_i|.
+
+The spectral optimization problem is
+P_min(p,eta) = min {sum_i q_i^2 : q in Delta_d, TV(p,q)<=eta},
+P_max(p,eta) = max {sum_i q_i^2 : q in Delta_d, TV(p,q)<=eta}.
+
+The trace-distance radius may be capped at 1, since the trace distance between density operators never exceeds 1.
+
+2. REDUCTION FROM QUANTUM STATES TO SPECTRA
+
+Let beta and sigma be density operators with decreasingly ordered eigenvalue vectors q and p.
+
+The Hermitian eigenvalue trace-norm inequality gives
+sum_i |q_i-p_i| <= ||beta-sigma||_1.
+Consequently,
+TV(p,q) <= D(beta,sigma),
+where D(beta,sigma)=(1/2)||beta-sigma||_1.
+
+Conversely, for every q in Delta_d satisfying TV(p,q)<=eta, choose beta diagonal in an eigenbasis of sigma, with diagonal entries q in the same ordered basis. Then
+D(beta,sigma)=TV(p,q).
+
+Thus the attainable purity extrema over the quantum trace-distance ball are exactly the extrema of sum_i q_i^2 over the simplex total-variation ball defined above. This equivalence is exact in finite dimensions.
+
+3. MINIMUM: TWO-SIDED WATER-FILLING
+
+Let u=(1/d,...,1/d), and define
+eta_flat = TV(p,u) = (1/2)sum_i |p_i-1/d|.
+
+If eta=0, the only feasible spectrum is q=p, so
+P_min(p,0)=sum_i p_i^2.
+
+If eta>=eta_flat, the uniform spectrum is feasible and is the global purity minimizer on Delta_d:
+q_min=u,
+P_min(p,eta)=1/d.
+
+For 0<eta<eta_flat, the minimizer has the two-sided clipping form
+q_i = min(U, max(L,p_i)),
+with 0<=L<=U,
+sum_i q_i=1,
+TV(p,q)=eta.
+
+This is the two-sided water-filling structure: components above U are lowered to U; components below L are raised to L; components between L and U are unchanged.
+
+Proof outline:
+The feasible set Delta_d intersected with the L1 ball is compact and convex. The objective sum_i q_i^2 is strictly convex, so the minimizer is unique.
+For an active L1 constraint, the KKT stationarity conditions give one common value for all components strictly raised above p_i and one common value for all components strictly lowered below p_i. Components not moved remain between these two thresholds. This yields the clipping form. The uniform state is the unconstrained simplex minimizer and is reached when eta reaches eta_flat.
+
+Threshold values can be non-unique in degenerate cases where no component lies in a threshold interval, but the minimizing vector q is unique because the objective is strictly convex.
+
+4. MAXIMUM: CONCENTRATION
+
+Let p be ordered decreasingly. Set
+m = min(eta, 1-p_1).
+
+Start with q=p. Add m to the largest component:
+q_1=p_1+m.
+
+Remove total mass m from the remaining components, starting with the smallest component p_d, then p_(d-1), and continuing upward. Each donor component is reduced to zero before mass is removed from the next donor.
+
+Equivalently, the maximizing operation concentrates all permitted transferred mass into one largest component and drains the smallest components first.
+
+If eta>=1-p_1, the pure spectrum (1,0,...,0) is feasible and
+P_max(p,eta)=1.
+
+Proof outline:
+Write every feasible change as nonnegative inflows and outflows of equal total mass delta<=eta. For fixed delta, convexity of the sum of squares makes concentration of all inflow into a largest initial component optimal. The donor contribution is maximized by taking mass from the smallest components first: removing a fixed amount from a smaller component incurs a smaller loss in squared purity than removing it from a larger component. Exchange of mass between a smaller receiver and a larger receiver, or between a larger donor and a smaller donor, cannot improve on this concentration rule. The transferred mass is used until eta is exhausted or the largest component reaches 1.
+
+Ties among largest components or among donor components can produce multiple maximizing spectra with the same purity. Zero eigenvalues are valid donors and are skipped once exhausted.
+
+5. BOUNDARY AND DEGENERACY REGISTER
+
+- d=1: the simplex contains only (1); minimum and maximum purity are both 1.
+- eta=0: q=p; both extrema equal the reference purity.
+- eta>=eta_flat: minimum saturates at 1/d.
+- eta>=1-p_1: maximum saturates at 1.
+- p uniform: eta_flat=0; the minimum is already 1/d at eta=0.
+- p pure: p_1=1; the maximum is already 1 at eta=0.
+- Repeated eigenvalues: optimizer values remain well-defined; maximizing vectors may be non-unique under tied donors/receivers.
+- Zero eigenvalues: water-filling may raise them for minimization; concentration can drain them without cost for maximization.
+- Input validation should reject non-finite entries, negative probabilities, a non-normalized p (unless normalization is an explicitly documented API feature), negative eta, and inconsistent vector shapes. Silent renormalization can conceal upstream errors.
+- Numerical implementations need explicit tolerances for threshold solving, normalization, and boundary comparisons. These tolerances must not change the mathematical definition.
+
+6. PURE-GLOBAL-STATE RANK CONSTRAINT
+
+In RL-027, a local state beta_B is the marginal of a pure state on H_A tensor H_B if and only if
+rank(beta_B)<=d_A.
+
+The unconstrained S7 spectral problem above does not encode d_A. Therefore, if d_A<d_B, its minimum and maximum cannot automatically be used as the exact pure-global-domain extrema.
+
+A necessary and sufficient feasibility threshold for the local trace-distance ball to contain at least one spectrum of rank at most d_A is
+eta >= eta_rank,
+where
+eta_rank = sum_{i=d_A+1}^{d_B} p_i
+for p ordered decreasingly (with eta_rank=0 when d_A>=d_B).
+
+Reason:
+Any rank-d_A spectrum has at least d_B-d_A zero entries. The smallest possible mass of sigma outside a support of size d_A is the sum of its d_A smallest eigenvalues, namely the displayed tail sum. This mass is a lower bound on total variation distance. It is attained by retaining the d_A largest-eigenvalue support and redistributing the removed tail mass within that support.
+
+The rank-constrained minimum remains a separate optimization:
+min sum_i q_i^2 subject to q in Delta_d, TV(p,q)<=eta, and |supp(q)|<=d_A.
+The rank condition is non-convex as a union of support-restricted faces. The unrestricted water-filling minimizer may have rank greater than d_A and therefore may be unrealizable as a pure-state marginal.
+
+For eta>=eta_rank, the concentration maximizer described in Section 4 drains the smallest eigenvalues first and therefore has support size at most d_A; thus the unconstrained maximum construction is compatible with the rank condition once the pure-state feasible set becomes nonempty. This does not remove the need for a separate rank-constrained minimum.
+
+7. COMPUTATIONAL SANITY CHECK, LIMITED
+
+A separate implementation of the threshold-clipping construction was compared with a generic constrained numerical minimization routine on randomly generated low-dimensional spectra. The nonsmooth L1 constraint caused some optimizer outputs to stop at feasible points that were not as good as the analytic candidate; optimizer success flags alone were therefore not accepted as proof or reliable certification.
+
+A separate exhaustive simplex-grid sanity check was performed for 24 randomly selected cases in dimensions 2, 3, and 4, using grid coordinates in increments of 0.01. In every case, the analytic candidate minimum was no greater than the minimum over the feasible grid points, and the analytic candidate maximum was no less than the maximum over the feasible grid points.
+
+This grid test is only a finite-resolution consistency check. It does not prove the formulas, establish exact numerical extrema, validate the original S7 code, or replace the analytical arguments.
+
+8. AUDIT DISPOSITION
+
+ANALYTICAL RECONSTRUCTION:
+The unrestricted finite-dimensional spectral optimization has been reconstructed under the explicit interpretation in Section 1.
+
+ORIGINAL S7 PROOF:
+NOT INSPECTED; SOURCE NOT PRESENT IN THE ACCESSED CANONICAL RL-027 / HANDOFF RECORDS.
+
+ORIGINAL S7 PYTHON FUNCTIONS:
+NOT INSPECTED; EXACT SOURCE NOT LOCATED IN THE ACCESSED LIBRARY OR REPOSITORY SEARCH.
+
+CODE CORRECTNESS:
+NOT ESTABLISHED.
+
+INDEPENDENT NUMERICAL VALIDATION:
+LIMITED SANITY CHECK ONLY; NOT A CERTIFICATION.
+
+PURE-DOMAIN APPLICATION:
+CONDITIONAL. The rank(beta_B)<=d_A constraint must be included. The unrestricted minimum formula is not generally sufficient when d_A<d_B.
+
+NO CHANGE:
+Frozen Core unchanged.
+TEST-I status unchanged.
+CE-V not promoted.
+Volume V unchanged.
+RL registry unchanged.
+
+9. NEXT REQUIRED EVIDENCE / ACTION
+
+To complete the actual S7 code audit, the exact S7 source functions and the original definitions of p and eta must be read from an authoritative surviving artifact. The audit must then compare each implementation branch with the mathematical formulas above, including eta=0, eta_flat, 1-p_1, repeated eigenvalues, zero eigenvalues, and floating-point tolerance behavior.
+
+If the original source cannot be recovered from an authorized surviving artifact, the audit must remain explicitly limited to this independent reconstruction; no claim about the correctness of the previously supplied implementation may be made.
+
+END OF CHECKPOINT
