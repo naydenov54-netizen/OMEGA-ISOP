@@ -1,0 +1,193 @@
+OMEGA-ISOP
+RL-027 S8.6
+EXACT RANK-CONSTRAINED MAXIMUM-PURITY SOLUTION
+
+DOCUMENT_ID: OI-RL-027-S8.6-RANK-CONSTRAINED-MAXIMUM-PURITY
+VERSION: 0.1
+DATE: 2026-11-26
+WORKSTREAM: RL-027
+STATUS: WORKING ANALYTICAL RESULT
+PARENT: OI-RL-027-S8.5-RANK-CONSTRAINED-MINIMUM-PURITY
+EVIDENCE_STATUS: MAJORIZATION CHARACTERIZATION DERIVED; INDEPENDENT IMPLEMENTATION TESTS PENDING
+BRANCH: main
+
+==================================================
+1. SETUP
+==================================================
+
+Let p=(p_1,...,p_d) be sorted nonincreasingly:
+p_1>=...>=p_d>=0,
+sum_i p_i=1.
+
+Let r=min(d_A,d_B), and define:
+P_k=sum_{i=1}^k p_i,
+P_r=sum_{i=1}^r p_i,
+t=1-P_r.
+
+The rank-r spectral feasible set is:
+F_r(p,eta)={
+q_i>=0,
+sum_i q_i=1,
+q_{r+1}=...=q_d=0,
+(1/2)sum_i|p_i-q_i|<=eta
+}.
+
+It is nonempty iff eta>=t.
+
+For q supported on the first r coordinates:
+D(p,q)=t+sum_{i=1}^r(p_i-q_i)_+.
+Set epsilon=eta-t.
+
+The MAX problem is:
+maximize sum_{i=1}^r q_i^2
+subject to:
+q_i>=0,
+sum_{i=1}^r q_i=1,
+sum_{i=1}^r(p_i-q_i)_+<=epsilon.
+
+==================================================
+2. EXACT MAXIMIZER
+==================================================
+
+CASE 1: eta>=1-p_1.
+
+The pure spectrum is feasible:
+q*=(1,0,...,0).
+It has purity 1, which is the largest possible value for any probability vector. Therefore it is a global maximizer.
+
+CASE 2: t<=eta<1-p_1.
+
+Set epsilon=eta-t.
+
+Construct q* as follows:
+1. Set q*_1=p_1+eta.
+2. Starting from i=r and moving downward to i=2, remove total mass epsilon from p_i, never removing more than the current component:
+   take_i=min(p_i, remaining_removal).
+3. Set q*_i=p_i-take_i for i=2,...,r.
+4. Set q*_i=0 for i>r.
+
+Equivalently, the removed mass epsilon is taken from the smallest retained components first.
+
+The construction is feasible because:
+epsilon < 1-p_1-t = P_r-p_1 = sum_{i=2}^r p_i.
+
+It preserves the descending order of the retained spectrum.
+
+Its purity is the exact global maximum over F_r.
+
+==================================================
+3. PROOF BY MAJORIZATION
+==================================================
+
+For any feasible q, define:
+a=sum_i(p_i-q_i)_+.
+Then 0<=a<=epsilon.
+
+Since sum_i q_i=1 and sum_{i=1}^r p_i=1-t:
+sum_i(q_i-p_i)_+=t+a.
+
+For any subset S of {1,...,r}:
+q(S)-p(S)
+<= sum_i(q_i-p_i)_+
+=t+a
+<=t+epsilon
+=eta.
+
+Therefore, for the k largest components of q:
+sum_{i=1}^k q_i^down
+<= P_k+eta.
+Also every partial sum is at most 1, so:
+sum_{i=1}^k q_i^down <= min(1,P_k+eta).
+
+Now consider the constructed q* in Case 2.
+It places all positive excess mass eta into the first component and removes epsilon from the smallest retained components first.
+
+For every k<=r, the amount of the removed epsilon that can be taken from indices greater than k is:
+min(epsilon, P_r-P_k).
+
+Consequently:
+sum_{i=1}^k q*_i
+= P_k+eta-epsilon+min(epsilon,P_r-P_k)
+= P_k+t+min(epsilon,P_r-P_k)
+= min(1,P_k+eta).
+
+For k>r, the partial sum of q* is 1.
+
+Thus q* attains the upper bound on every ordered partial sum and majorizes every feasible q.
+
+The function x -> sum_i x_i^2 is strictly Schur-convex. Therefore:
+sum_i(q*_i)^2 >= sum_i(q_i^down)^2 = sum_i q_i^2
+for every feasible q.
+
+Hence q* is a global maximizer. The maximizing sorted spectrum is unique; assignments among degenerate eigenspaces may differ by permutation. QED.
+
+Case 1 is already settled by the purity upper bound 1.
+
+==================================================
+4. FEASIBILITY AND BOUNDARY CHECKS
+==================================================
+
+At eta=t:
+epsilon=0.
+The retained components i=2,...,r are unchanged.
+q*_1=p_1+t.
+The entire discarded tail mass t is transferred to the largest retained eigenvalue.
+
+At eta=1-p_1:
+epsilon=P_r-p_1.
+All retained components except the largest can be reduced to zero.
+The result is q*=e_1, with D(p,e_1)=1-p_1.
+
+For eta>1-p_1:
+the same pure spectrum remains feasible; the distance constraint is inactive.
+
+For r=1:
+t=1-p_1, so every feasible eta satisfies eta>=1-p_1 and q*=e_1.
+
+Degenerate largest eigenvalues:
+any one of the tied largest components may receive the added mass. The resulting sorted maximizing spectrum is the same.
+
+==================================================
+5. COMBINED PURE-DOMAIN EXTREMA
+==================================================
+
+For eta<t:
+the pure-global-state local uncertainty set is empty.
+
+For eta>=t:
+- MIN is given by S8.5.
+- MAX is given by this checkpoint.
+
+Therefore the pure-domain attainable purity interval is bounded by:
+Q_min^pure(p,eta,d_A) <= Tr(beta_B^2) <= Q_max^pure(p,eta,d_A),
+where both extrema are attained by commuting beta_B and are realizable as B-marginals of pure states on A tensor B because their ranks are at most r<=d_A.
+
+This statement concerns the pure-global-state domain only. It does not replace the unrestricted mixed-domain S7 result.
+
+==================================================
+6. STATUS AND NEXT ACTION
+==================================================
+
+ESTABLISHED ANALYTICALLY:
+- Exact rank-r MAX construction.
+- Exact majorization proof.
+- Boundary between active and inactive trace-distance constraint.
+- Together with S8.5, exact analytic characterization of both rank-constrained spectral extrema.
+
+PENDING:
+- Independent implementation of S8.5 and S8.6.
+- Exact rational and numerical cross-checks.
+- Comparison with vertex enumeration for small dimensions.
+- Integration into the broader RL-027 record, which remains under audit.
+- Resolution of the original 62 S7 implementation failures.
+
+PROJECT INVARIANTS:
+RL-027 overall: UNDER AUDIT.
+S7 original implementation failures: UNRESOLVED.
+FROZEN CORE: INTACT.
+TEST-I DRAFT-0.2: NOT FROZEN.
+CE-V: NOT PROMOTED.
+VOLUME V: NO INTEGRATION AUTHORIZED.
+Authoritative RL registry confirmation: NOT ESTABLISHED.
+
+END OF CHECKPOINT
