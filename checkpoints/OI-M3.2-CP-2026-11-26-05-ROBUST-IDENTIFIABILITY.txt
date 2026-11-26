@@ -1,0 +1,200 @@
+OMEGA-ISOP / M3.2 v2.1
+RESEARCH CHECKPOINT + ARCHIVAL RECOVERY RECORD
+
+CHECKPOINT_ID: OI-M3.2-CP-2026-11-26-05
+DATE: 2026-11-26
+WORKSTREAM: M3.2 v2.1 / Finite-state Markov model / Parameter identifiability
+RESEARCH_STAGE: Deterministic robustness and optimal two-preparation design
+TITLE: Robust identifiability of alpha and beta under bounded observation error
+VERSION: 1.0
+STATUS: ANALYTICAL CHECKPOINT; RESULTS VALID UNDER THE EXPLICIT ASSUMPTIONS BELOW
+PREDECESSOR: OI-M3.2-CP-2026-11-26-04-IDENTIFIABILITY.txt
+ARCHIVAL_TARGET: /checkpoints/OI-M3.2-CP-2026-11-26-05-ROBUST-IDENTIFIABILITY.txt
+
+==================================================
+1. OBJECTIVE
+==================================================
+Continue from Experiments 10-12 by deriving deterministic error propagation for the two-preparation inverse problem, a spectral sensitivity expression, and the optimality of the two basis preparations over the stated preparation domain.
+No Frozen Core definition, transition architecture, transition-matrix entry, or canonical proof is modified.
+
+==================================================
+2. MODEL AND ASSUMPTIONS
+==================================================
+State space: S = {00, 01, 10, 11}.
+Parameters: alpha = c + epsilon; beta = c - epsilon.
+Observation functional: r(mu) = alpha*mu00 + beta*mu10.
+Known preparations: mu and nu.
+Preparation constraints:
+mu00 >= 0; mu10 >= 0; mu00 + mu10 <= 1.
+nu00 >= 0; nu10 >= 0; nu00 + nu10 <= 1.
+The remaining coordinates are nonnegative and complete normalization to one.
+Two measured scalar values are r(mu) and r(nu).
+
+Define:
+A = [[mu00, mu10], [nu00, nu10]]
+theta = [alpha, beta]^T
+y = [r(mu), r(nu)]^T
+D = mu00*nu10 - nu00*mu10
+
+Exact observation equation:
+y = A*theta.
+Noisy observation equation:
+y_obs = A*theta + eta, where eta = [eta1, eta2]^T.
+The preparation matrix A is assumed known exactly in this checkpoint. Preparation uncertainty is not yet included.
+
+==================================================
+3. EXPERIMENT 13A — EXACT ERROR PROPAGATION
+==================================================
+For D != 0:
+A^(-1) = (1/D)*[[nu10, -mu10], [-nu00, mu00]].
+
+The estimator based on the observed values is:
+theta_est = A^(-1)*y_obs.
+
+Therefore:
+theta_est - theta = A^(-1)*eta.
+
+Componentwise:
+Delta_alpha = (nu10*eta1 - mu10*eta2)/D.
+Delta_beta = (-nu00*eta1 + mu00*eta2)/D.
+
+This identity is exact for the stated linear model and exact knowledge of A.
+
+==================================================
+4. EXPERIMENT 13B — BOUNDED DETERMINISTIC NOISE
+==================================================
+Assume:
+|eta1| <= delta and |eta2| <= delta.
+
+Then:
+|Delta_alpha| <= delta*(|nu10| + |mu10|)/|D|.
+|Delta_beta| <= delta*(|nu00| + |mu00|)/|D|.
+
+Thus small |D| can amplify bounded observation errors. These are deterministic worst-case bounds; no probability distribution is assumed.
+
+==================================================
+5. EXPERIMENT 13C — SPECTRAL SENSITIVITY
+==================================================
+Define:
+F = mu00^2 + mu10^2 + nu00^2 + nu10^2.
+
+The squared singular values of A are the roots of:
+lambda^2 - F*lambda + D^2 = 0.
+
+Hence the largest eigenvalue of A^T*A is:
+lambda_max = (F + sqrt(F^2 - 4*D^2))/2.
+
+For D != 0:
+||A^(-1)||2 = sqrt((F + sqrt(F^2 - 4*D^2))/(2*D^2)).
+
+Therefore:
+||theta_est - theta||2 <= ||A^(-1)||2 * ||eta||2.
+
+This is the exact induced Euclidean-norm sensitivity factor for the inverse map. It is not an empirical noise estimate.
+
+==================================================
+6. EXPERIMENT 13D — OPTIMAL PREPARATION DESIGN
+==================================================
+Under the preparation constraints, all four entries of A are nonnegative and each row sum is at most one.
+
+By the triangle inequality:
+|D| = |mu00*nu10 - nu00*mu10|
+     <= mu00*nu10 + nu00*mu10
+     <= (mu00 + mu10)*(nu00 + nu10)
+     <= 1.
+
+The bound is attained by:
+mu = (1,0,0,0)
+nu = (0,0,1,0)
+
+For these preparations:
+A = [[1,0],[0,1]]
+D = 1
+A^(-1) = I
+kappa2(A) = 1
+||A^(-1)||2 = 1.
+
+Since every invertible matrix has spectral condition number kappa2(A) >= 1, this design is optimally conditioned. It also attains the maximum possible absolute determinant over the stated preparation domain.
+
+The observations become:
+r(mu) = alpha
+r(nu) = beta.
+
+Consequently:
+Delta_alpha = eta1
+Delta_beta = eta2.
+
+No amplification occurs in the two parameter coordinates for this design.
+
+==================================================
+7. EVIDENCE CLASS AND LOOP AUDIT
+==================================================
+EVIDENCE_CLASS: ANALYTICAL DERIVATION / PROVED UNDER EXPLICIT FINITE-DIMENSIONAL ASSUMPTIONS.
+
+TARGETS:
+(A) Exact error propagation for D != 0.
+(B) Componentwise bounded-noise estimates.
+(C) Spectral inverse sensitivity.
+(D) Optimality of the basis-preparation design in the specified domain.
+
+DEPENDENCIES:
+The two-by-two linear observation equation, exact knowledge of preparation coordinates, D != 0, nonnegative preparation coordinates, and row sums no greater than one.
+
+CONCLUSION SMUGGLING:
+No target conclusion is inserted into the definitions. The error identity follows by multiplying the observation equation by A^(-1). The design bound follows from nonnegativity, the row-sum constraints, and the determinant formula.
+
+COUNTERMODEL ATTEMPT:
+No counterexample exists within the stated algebraic assumptions to the exact inverse identity when D != 0. This is an algebraic identity, not a claim about physical realizability.
+
+CLASSIFICATION:
+NON-CIRCULAR ALGEBRAIC DERIVATION within the stated domain.
+
+==================================================
+8. LIMITATIONS AND NON-IMPLICATIONS
+==================================================
+1. The preparation matrix A is assumed exactly known. Uncertainty in preparation probabilities is not analyzed.
+2. The observation error is bounded deterministically; no stochastic, correlated, systematic-bias, or finite-sample noise model is established.
+3. Physical admissibility and laboratory realizability of the basis preparations are not established.
+4. No numerical error budget or experimental performance is claimed.
+5. No identifiability result for the full transition matrix R follows.
+6. The temporal trace-distance statement from Experiment 10 remains subject to verification against the explicit R and horizon-n observation map, as recorded in checkpoint 04.
+7. No Frozen Core amendment, canonical acceptance, RL registration, CE/CE-V promotion, or Volume V integration is implied.
+
+==================================================
+9. CHECKS PERFORMED
+==================================================
+- Derived A^(-1) explicitly.
+- Substituted y_obs = A*theta + eta and obtained exact parameter-error identities.
+- Applied componentwise triangle bounds under |eta_i| <= delta.
+- Derived the eigenvalues of A^T*A from its trace F and determinant D^2.
+- Derived the spectral sensitivity factor.
+- Proved |D| <= 1 under the stated preparation constraints.
+- Verified that the two basis preparations attain |D| = 1 and A = I.
+- Used kappa2(A) >= 1 to establish optimal spectral conditioning.
+
+CHECKS NOT PERFORMED:
+- Numerical simulation.
+- Monte Carlo noise analysis.
+- Stochastic or correlated-noise analysis.
+- Preparation-uncertainty propagation.
+- Experimental or physical feasibility checks.
+- Independent verification against the explicit transition matrix R.
+
+==================================================
+10. ARCHITECTURAL STATUS
+==================================================
+Frozen Core: unchanged and protected.
+M3.2 transition architecture: unchanged.
+Experiments 10-12: preserved as in checkpoint 04.
+Experiment 13: completed analytically within the stated assumptions.
+Canonical theorem status: no change.
+RL registration status: no change and not claimed.
+GitHub archival status: separate operation; must be verified independently.
+
+==================================================
+11. NEXT JUSTIFIED ACTION
+==================================================
+EXPERIMENT 14: JOINT UNCERTAINTY IN OBSERVATIONS AND PREPARATION DISTRIBUTIONS.
+Derive first-order and, where possible, exact perturbation bounds when A itself is estimated with error. Identify conditions under which the perturbed matrix remains invertible and quantify the role of the smallest singular value. Keep stochastic noise models separate from deterministic bounds.
+
+END OF CHECKPOINT
