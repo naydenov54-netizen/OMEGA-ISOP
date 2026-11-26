@@ -150,8 +150,17 @@ def run_max_exact_supplement():
                 assert_exact_spectrum(
                     p, q_formula, r, eta, f"MAX formula d={d},r={r},case={case}"
                 )
+                # exact_vertex_max returns only the r supported coordinates;
+                # restore the full d-dimensional spectrum before trace-distance
+                # and rank-support checks.
+                assert len(q_vertex) == r, (
+                    f"MAX vertex d={d},r={r},case={case}: "
+                    "vertex solver returned wrong supported dimension"
+                )
+                q_vertex_full = list(q_vertex) + [F(0)]*(d-r)
                 assert_exact_spectrum(
-                    p, q_vertex, r, eta, f"MAX vertex d={d},r={r},case={case}"
+                    p, q_vertex_full, r, eta,
+                    f"MAX vertex d={d},r={r},case={case}"
                 )
 
                 formula_value = sum(x*x for x in q_formula)
