@@ -157,7 +157,14 @@ def run_max_exact_supplement():
                     f"MAX vertex d={d},r={r},case={case}: "
                     "vertex solver returned wrong supported dimension"
                 )
-                q_vertex_full = list(q_vertex) + [F(0)]*(d-r)
+                # The vertex enumerator optimizes over the supported
+                # coordinates but does not impose an ordering convention.
+                # The objective sum(q_i^2) is permutation-invariant. Since p
+                # is sorted, sorting q in the same order minimizes the L1
+                # pairing distance (rearrangement inequality), so feasibility
+                # is preserved or improved by this canonicalization.
+                q_vertex_sorted = sorted(q_vertex, reverse=True)
+                q_vertex_full = list(q_vertex_sorted) + [F(0)]*(d-r)
                 assert_exact_spectrum(
                     p, q_vertex_full, r, eta,
                     f"MAX vertex d={d},r={r},case={case}"
