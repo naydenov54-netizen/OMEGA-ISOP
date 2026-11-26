@@ -1,1 +1,398 @@
-The requested file reference is not currently visible. Use files.search or files.list to rediscover the file, then retry with a returned ref_id or file_id.
+OMEGA-ISOP / M3.2 v2.1
+RESEARCH CHECKPOINT + ARCHIVAL RECOVERY RECORD
+
+CHECKPOINT_ID: OI-M3.2-CP-2026-11-26-03
+DATE: 2026-11-26
+WORKSTREAM: M3.2 v2.1 / Finite-state operational dynamics / Markov memory and minimal realization
+RESEARCH_STAGE: Finite deterministic and stochastic Markov-model experiments 01-04
+TITLE: Finite two-state model: noncommuting operators, adaptive stochastic composition, memory augmentation, and minimal observed realization
+VERSION: 1.0
+STATUS: COMPLETED MODEL-LOCAL ANALYTICAL STUDY; NOT A CORE-THEORY RESULT
+
+==================================================
+1. OBJECTIVE
+==================================================
+
+Construct and analyze a finite Markov-style model as a controlled test bed for:
+1. operator composition and noncommutativity;
+2. state-dependent stochastic selection of operators;
+3. failure of the Markov property under an insufficient state representation;
+4. Markovization by state augmentation;
+5. minimal realization under a fixed deterministic protocol and a specified observable output.
+
+The purpose is to obtain exact finite results and expose assumptions before attempting any broader operational or OMEGA-ISOP bridge.
+
+==================================================
+2. VERIFIED PROJECT FRAME AND PROTECTED SCOPE
+==================================================
+
+The active operational handoff is OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF.txt, VERSION 2.1, retrieved from the Library during this session.
+
+Relevant instructions applied:
+- Section 13: research checkpoint contents, archival recovery contents, verification, and separation of checkpoint, archival, canonical acceptance, RL registration, and GitHub commit statuses.
+- Section 14: derivative research archival, repository inspection, commit verification, and readback.
+- LOOP_AUDIT_PROTOCOL L1-L8: exact target, dependency chain, conclusion-smuggling test, independence, countermodel, premise-removal, evidence classification, and non-implications.
+- RULE 12: Android copy-ready plain text.
+- RULE 13: deliver GitHub rendered-file links for repository text artifacts.
+
+Repository inspected:
+https://github.com/naydenov54-netizen/OMEGA-ISOP
+Branch: main
+Pre-change branch commit: 8f947585eeb2cd51a984f9bd22b72ac490002a04
+Existing target directory: checkpoints/
+Existing M3.2 checkpoints 01 and 02 were inspected. This record is a distinct finite-state experiment series, not a duplicate of the Markov-Koopman closure test in checkpoint 02.
+
+Protected invariants:
+THEOREM 91: UNCHANGED.
+FROZEN CORE: UNCHANGED.
+CANONICAL ACCEPTANCE: NONE.
+RL REGISTRATION: NONE PERFORMED OR CLAIMED.
+CE / CE-V STATUS: UNCHANGED.
+VOLUME V: UNCHANGED.
+
+==================================================
+3. DEFINITIONS AND NOTATION
+==================================================
+
+Finite state space:
+X = {0,1}.
+
+Two deterministic maps:
+A(0)=1, A(1)=0.
+B(0)=0, B(1)=0.
+
+Thus A is the swap map and B is the reset-to-zero map.
+
+For row-vector probability distributions p, use the convention:
+p' = p K.
+Every transition matrix is row-stochastic: each row sums to 1.
+
+The corresponding matrices are:
+K_A = [[0,1],[1,0]]
+K_B = [[1,0],[1,0]]
+
+Let C be the constant-one map:
+C(0)=1, C(1)=1,
+K_C = [[0,1],[0,1]].
+
+Function composition f∘g means apply g first and then f. Under row-vector distributions, the matrix for f∘g is K_g K_f.
+
+==================================================
+4. EXPERIMENT 01: FINITE OPERATOR SEMIGROUP
+==================================================
+
+Direct evaluation gives:
+A∘A = I.
+B∘B = B.
+B∘A = B.
+A∘B = C.
+
+The two mixed compositions differ:
+A∘B = C,
+B∘A = B,
+and C != B.
+
+Therefore A and B do not commute.
+
+The set {I,A,B,C} is closed under composition:
+- I is the identity;
+- A∘A=I;
+- B∘B=B;
+- B∘A=B;
+- A∘B=C;
+- compositions involving C remain in {B,C}, since B∘C=B, A∘C=B, C∘A=C, C∘B=C, and C∘C=C.
+
+Matrix check under the declared row-vector convention:
+K_B K_A = K_C, corresponding to A∘B.
+K_A K_B = K_B, corresponding to B∘A.
+
+RESULT 01:
+A finite noncommutative operator semigroup is explicitly realized on X={0,1}. This is an exact algebraic result for the specified maps.
+
+==================================================
+5. EXPERIMENT 02: STATE-DEPENDENT STOCHASTIC COMPOSITION
+==================================================
+
+Define a state-dependent random choice:
+- At x=0: choose A with probability 0.8 and B with probability 0.2.
+- At x=1: choose A with probability 0.3 and B with probability 0.7.
+
+Evaluate the output using the actual maps:
+At x=0:
+A(0)=1 and B(0)=0.
+Therefore P(output=0 | x=0)=0.2 and P(output=1 | x=0)=0.8.
+
+At x=1:
+A(1)=0 and B(1)=0.
+Therefore P(output=0 | x=1)=1 and P(output=1 | x=1)=0.
+The 0.3 probability of choosing A does NOT produce output 1, because A(1)=0.
+
+The correct row-stochastic transition matrix is:
+K_Pi = [[0.2,0.8],
+        [1.0,0.0]].
+
+Both rows sum to 1.
+
+MATERIAL CORRECTION:
+An earlier informal calculation assigned P(output=1 | x=1)=0.3. That is incorrect and is explicitly superseded here. It confused the probability of selecting A with the probability of obtaining output 1. The actual map A sends 1 to 0.
+
+RESULT 02:
+The adaptive stochastic policy induces the transition matrix above. The kernel determines the next-state distribution, but it does not, by itself, retain which operator was selected or the full intervention history.
+
+==================================================
+6. EXPERIMENT 03: MEMORY AND FAILURE OF THE MARKOV PROPERTY ON X
+==================================================
+
+Define the protocol:
+At time t, if x(t-1)=x(t), apply A to x(t).
+Otherwise apply B to x(t).
+
+Use the pair state:
+S(t) = (x(t-1), x(t)).
+
+The deterministic transitions are:
+(0,0) -> (0,1)
+(0,1) -> (1,0)
+(1,0) -> (0,0)
+(1,1) -> (1,0)
+
+The projected process x(t) on X={0,1} is not Markov under this protocol.
+
+Counterexample:
+Two histories can have the same current state x(t)=0:
+- History (0,0): equality holds, so A is applied and the next state is 1.
+- History (1,0): equality fails, so B is applied and the next state is 0.
+
+Thus the conditional next-state value depends on the preceding state even after the current x(t) is fixed:
+P(x(t+1)=1 | x(t)=0, x(t-1)=0)=1,
+P(x(t+1)=1 | x(t)=0, x(t-1)=1)=0.
+
+Therefore the first-order Markov property fails on the projected state space X.
+
+On the augmented state space:
+X' = X × X = {(0,0),(0,1),(1,0),(1,1)},
+the transition is deterministic and first-order Markov, because the next pair is a function of the current pair.
+
+RESULT 03:
+The Markov property is representation-dependent. The process is non-Markov on the insufficient projected state x(t), but Markov on the augmented state S(t)=(x(t-1),x(t)).
+
+==================================================
+7. EXPERIMENT 04: MINIMAL OBSERVATION-PRESERVING REALIZATION
+==================================================
+
+Fix the deterministic protocol from Experiment 03 and define the observable output as the current component:
+o(a,b)=b.
+
+The four augmented states have outputs:
+output(00)=0
+output(01)=1
+output(10)=0
+output(11)=1
+
+The minimal output-preserving partition is:
+Q0 = {(0,0)}
+Q1 = {(1,0)}
+Q2 = {(0,1),(1,1)}
+
+The quotient transitions are:
+Q0 -> Q2
+Q2 -> Q1
+Q1 -> Q0
+
+Why this partition is valid:
+- States 01 and 11 have the same current output 1 and both transition to 10. They therefore have identical future output traces under the fixed protocol.
+- States 00 and 10 both have current output 0, but their next outputs differ: 00 transitions to 01 with output 1, while 10 transitions to 00 with output 0. They cannot be merged.
+
+Why three classes are minimal:
+- Output 1 states cannot be merged with output 0 states because their current observations differ.
+- The two output-0 states 00 and 10 are distinguishable by their next output.
+- The two output-1 states 01 and 11 are equivalent because they have the same output and the same successor state.
+
+Therefore exactly three equivalence classes are required for the fixed protocol and the specified output semantics.
+
+SCOPE LIMIT:
+This minimality result is specific to the fixed deterministic protocol and observation function o(a,b)=b. It does not establish a universal minimal realization across arbitrary adaptive policies, alternative output maps, or stochastic extensions.
+
+RESULT 04:
+The four-state augmented Markov model admits an exact three-state quotient preserving all future output traces for the fixed protocol.
+
+==================================================
+8. LOOP AUDIT L1-L8
+==================================================
+
+L1 - EXACT TARGETS:
+T1: Determine whether A and B commute under the defined function composition. They do not.
+T2: Determine the transition kernel induced by the specified state-dependent random choice. It is K_Pi as given in Section 5.
+T3: Determine whether x(t) alone is first-order Markov under the memory-dependent protocol. It is not.
+T4: Determine the minimal deterministic realization preserving the specified output traces for that protocol. It has three quotient classes.
+
+L2 - DEPENDENCY CHAIN:
+Only the explicit finite state space, maps A and B, policy rule, pair-state update, and output function are used. No OMEGA-ISOP axiom, Frozen Core proposition, physical law, or unproved bridge is used.
+
+L3 - CONCLUSION-SMUGGLING TEST:
+The transition table and quotient are calculated directly from the maps and protocol. The Markov property is not assumed for x(t); it is tested and refuted by two histories with the same current state and different next outputs. The three-class quotient is not defined by stipulation; its validity and minimality follow from output and successor comparisons.
+
+L4 - INDEPENDENCE:
+The maps, policy, and observable output are fixed before the properties are tested. No premise encodes noncommutativity, projected non-Markovianity, or the three-class minimality conclusion.
+
+L5 - COUNTERMODEL TEST:
+The histories (0,0) and (1,0) form an explicit counterexample to the claim that the projected process x(t) is Markov on X. They share current state 0 but have different next states.
+
+L6 - PREMISE-REMOVAL TEST:
+- If the memory-dependent policy is removed, the specific projected non-Markov counterexample no longer follows; the result is protocol-dependent.
+- If the previous-state component is removed from the state representation while the policy remains unchanged, the transition is not determined by the current projected state.
+- If the output function or policy is changed, the three-class minimality result must be recomputed.
+- The stochastic selection probabilities in Experiment 02 are not needed for Experiments 01, 03, or 04.
+
+L7 - EVIDENCE CLASS:
+ANALYTICAL PROOF / EXACT FINITE ENUMERATION for the stated finite model.
+The findings are exact within the definitions and assumptions recorded here. They are not a theorem about arbitrary Markov processes or OMEGA-ISOP.
+
+L8 - NON-IMPLICATIONS:
+These experiments do not establish:
+- a new primitive, theorem, or axiom of OMEGA-ISOP;
+- a result about the Frozen Core or Theorem 91;
+- a general theorem about all adaptive or stochastic policies;
+- a universal minimal-state theorem;
+- a physical or cosmological interpretation;
+- empirical validation;
+- any H1 or H3 status change;
+- canonical acceptance or RL registration.
+
+==================================================
+9. ESTABLISHED RESULTS / PROVED RESULTS / CONDITIONAL RESULTS
+==================================================
+
+ESTABLISHED WITHIN THE MODEL:
+1. A and B do not commute.
+2. {I,A,B,C} is closed under composition.
+3. The correct state-dependent stochastic kernel is K_Pi = [[0.2,0.8],[1.0,0.0]] under row-vector convention.
+4. The projected process x(t) is not first-order Markov for the memory-dependent protocol.
+5. The pair-state process is first-order Markov.
+6. The minimal output-preserving quotient for the fixed deterministic protocol has three classes.
+
+PROVED RESULTS AND EXACT ASSUMPTIONS:
+All six statements above follow by direct finite evaluation from Sections 3-7. No limiting argument or probabilistic approximation is involved.
+
+CONDITIONAL RESULTS:
+The minimal quotient is conditional on the fixed protocol and output map. It is not policy-uniform.
+
+UNRESOLVED:
+- Stochastic extension of the memory-dependent protocol.
+- Minimal stochastic Markov realization under probabilistic output-trace equivalence.
+- General policy classes and the correct equivalence notion across all admissible future policies.
+- Any mathematically justified mapping from these toy models into OMEGA-ISOP operational structures.
+
+==================================================
+10. CHECKS PERFORMED
+==================================================
+
+- Direct evaluation of all compositions among I, A, B, and C.
+- Verification of noncommutativity by explicit mixed compositions.
+- Matrix convention fixed as row-stochastic with p'=pK.
+- Row-sum check of K_A, K_B, and K_Pi.
+- Independent recalculation of the x=1 row in Experiment 02; corrected the earlier probability error.
+- Explicit enumeration of all four pair-state transitions.
+- Two-history counterexample to the projected Markov property.
+- Output-partition refinement and distinguishability check for all four augmented states.
+- LOOP_AUDIT L1-L8 applied to the finite-model claims.
+- Repository branch, current commit, target directory, and relevant existing checkpoint files inspected before archival.
+
+==================================================
+11. CHECKS NOT PERFORMED
+==================================================
+
+- No code execution or external computational verification.
+- No stochastic minimization algorithm or probabilistic bisimulation calculation.
+- No exhaustive analysis of arbitrary adaptive policies.
+- No connection proof to primary OMEGA-ISOP definitions or Frozen Core.
+- No H1/H3 audit or theorem-numbering action.
+- No physical, empirical, or cosmological validation.
+- No RL registration.
+- No canonical integration.
+
+==================================================
+12. LIMITATIONS AND NON-IMPLICATIONS
+==================================================
+
+This is a finite illustrative realization. Exactness inside the toy model does not imply generality outside it.
+
+The corrected stochastic matrix is important: selection probability and output probability are not interchangeable. A selected map can send the input to an output different from the map-selection label's intuitive expectation.
+
+The Markov property belongs to a process together with its chosen state representation. A process can fail to be Markov after projection and become Markov after state augmentation.
+
+The three-state quotient is minimal only for the specified deterministic protocol and current-state observation. Any broader policy quantification requires a separately defined policy class and equivalence relation.
+
+No core-theory change is proposed.
+
+==================================================
+13. ARCHITECTURAL INVARIANTS
+==================================================
+
+THEOREM 91: UNCHANGED.
+FROZEN CORE: UNCHANGED.
+H1 STATUS: NOT ASSESSED; NO CHANGE.
+H3 STATUS: NOT ASSESSED; NO CHANGE.
+CANONICAL THEOREM STATUS: NO CHANGE.
+RL REGISTRATION: NONE.
+CE / CE-V: NO CHANGE.
+VOLUME V: NO CHANGE.
+CORE THEORY / REALIZATION / VALIDATION: THIS ARTIFACT IS A MODEL-LOCAL REALIZATION STUDY ONLY.
+
+==================================================
+14. ARCHIVAL RECOVERY INFORMATION
+==================================================
+
+PROJECT_AND_WORKSTREAM:
+OMEGA-ISOP / M3.2 v2.1 / Finite-state operational dynamics.
+
+CHECKPOINT_ID_AND_DATE:
+OI-M3.2-CP-2026-11-26-03 / 2026-11-26.
+
+CURRENT_OPERATIONAL_INSTRUCTIONS:
+OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF.txt, version 2.1, retrieved from Library. It is operational guidance, not scientific evidence.
+
+RELEVANT_SOURCE_REFERENCES:
+- Current research session, Experiments 01-04.
+- M3.2 v2.1 HANDOFF, Sections 13 and 14, and LOOP_AUDIT_PROTOCOL L1-L8.
+- Existing GitHub checkpoints OI-M3.2-CP-2026-11-26-01-KOOPMAN-BRIDGE.txt and OI-M3.2-CP-2026-11-26-02-MARKOV-CLOSURE-TEST.txt, inspected as archival context only.
+
+EXACT_CURRENT_TASK:
+Preserve the completed finite-state Markov experiment series, including the material correction to Experiment 02 and the model-local scope of the minimal realization result.
+
+LAST_VERIFIED_STATE:
+GitHub repository naydenov54-netizen/OMEGA-ISOP exists and is writable by the authenticated user.
+Branch main existed at pre-change commit 8f947585eeb2cd51a984f9bd22b72ac490002a04.
+The checkpoints/ directory existed and contained prior M3.2 records.
+
+FILES_CREATED_OR_MODIFIED:
+Intended new artifact:
+checkpoints/OI-M3.2-CP-2026-11-26-03-FINITE-MARKOV-MODEL.txt
+
+LIBRARY_SAVE_PATH:
+ /OMEGA-ISOP/checkpoints/OI-M3.2-CP-2026-11-26-03-FINITE-MARKOV-MODEL.txt
+
+GITHUB_STATUS:
+Created on branch main. Initial file-creation commit SHA: dd9c3c8589b6ec49454459e003a7b504582557d2.
+The file was read back from GitHub. The final status-update commit SHA is reported in the session completion record.
+
+READBACK_AND_VERIFICATION_STATUS:
+The final Library and GitHub copies were read back after the status update. Their text content matched exactly.
+
+PRECISE_NEXT_ACTION:
+Continue with the stochastic extension of the memory-dependent protocol. Define the stochastic transition kernel on the augmented pair state, then define probabilistic output-trace equivalence and perform partition refinement.
+
+RECOVERY_INSTRUCTIONS:
+Resume with the stochastic extension of the memory-dependent protocol. First define the stochastic transition kernel on the augmented pair state. Then define probabilistic output-trace equivalence and perform partition refinement. Do not generalize the deterministic three-class result without this work.
+
+==================================================
+15. FINAL STATUS
+==================================================
+
+RESEARCH_CHECKPOINT: COMPLETED FOR THE SPECIFIED FINITE MODEL.
+ARCHIVAL_CHECKPOINT: SAVED TO LIBRARY AND GITHUB; INITIAL READBACKS MATCHED EXACTLY.
+GITHUB_COMMIT: INITIAL FILE-CREATION COMMIT VERIFIED; FINAL STATUS-UPDATE COMMIT TO BE RECORDED IN THE SESSION REPORT.
+CANONICAL_ACCEPTANCE: NONE.
+RL_REGISTRATION: NONE.
+FROZEN CORE: UNCHANGED.
+NEXT JUSTIFIED ACTION: STOCHASTIC MEMORY-DEPENDENT EXTENSION AND PROBABILISTIC MINIMAL-REALIZATION TEST.
