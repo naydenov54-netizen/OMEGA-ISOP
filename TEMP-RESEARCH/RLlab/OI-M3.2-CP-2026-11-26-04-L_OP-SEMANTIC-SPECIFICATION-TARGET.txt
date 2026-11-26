@@ -1,0 +1,92 @@
+OMEGA-ISOP / M3.2 v2.1
+RESEARCH TARGET: L_op SEMANTIC SPECIFICATION
+
+RECORD TYPE: USER-SUPPLIED RESEARCH DIRECTIVE
+DATE: 2026-11-26
+STATUS: ACTIVE RESEARCH TARGET
+EVIDENCE CLASS: SCOPE / METHODOLOGY / OPEN RESEARCH SPECIFICATION
+CANONICAL STATUS: NONE
+THEOREM STATUS: NO NEW THEOREM
+REGISTRATION: NONE
+
+==================================================
+RESEARCH TARGET
+==================================================
+
+L_op SEMANTIC SPECIFICATION
+
+STAGE A:
+Identify primitive operational entities.
+
+STAGE B:
+Separate probes, interventions and adaptive protocols.
+
+STAGE C:
+Specify their domains, admissibility and composition.
+
+STAGE D:
+Specify response semantics and response space Y.
+
+STAGE E:
+Determine whether a common operational domain exists.
+
+STAGE F:
+Investigate construction of representation j.
+
+STAGE G:
+Only then investigate Koopman invariance and common tau.
+
+STAGE H:
+Reassess H3 under LOOP_AUDIT L1-L8.
+
+==================================================
+MANDATORY CONSTRAINTS
+==================================================
+
+- No assumption that L_op = B_b(X).
+- No construction of j designed to guarantee closure.
+- No assumption that probes and interventions are equivalent.
+- No modification of Frozen Core.
+- No modification of Theorem 91.
+- No new theorem number.
+
+==================================================
+CURRENT CLASSIFICATION
+==================================================
+
+PRIMARY SEMANTICS: PARTIALLY SPECIFIED.
+OPERATIONAL CARRIER: UNRESOLVED.
+RESEARCH STAGE: OPEN.
+
+==================================================
+OPERATIONAL INTERPRETATION
+==================================================
+
+This directive defines the order of investigation, not its outcome.
+
+Stages A-E must be addressed before attempting to construct j.
+Stage F must be investigated without selecting a representation merely
+because it makes the image invariant under a Koopman operator.
+Stage G is conditional on an independently justified operational carrier,
+admissibility structure, response semantics, and representation.
+Stage H must reassess H3 against the existing LOOP_AUDIT L1-L8; the audit
+criteria must be recovered from their authoritative source and must not
+be reconstructed from memory or guessed.
+
+Do not infer that the current classification "partially specified" means
+that the operational carrier has already been identified. The carrier
+remains explicitly unresolved.
+
+==================================================
+WORKSPACE RECORD
+==================================================
+
+Repository: naydenov54-netizen/OMEGA-ISOP
+Branch: temp/91-6C-research-workspace
+Directory: TEMP-RESEARCH/RLlab/
+
+The branch, directory, and workspace README were verified before saving.
+This file is a temporary research directive/checkpoint, not a canonical
+artifact and not a scientific validation.
+
+END OF RECORD
