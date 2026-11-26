@@ -1,0 +1,242 @@
+OMEGA-ISOP
+M3.2 / L_op / KOOPMAN BRIDGE
+PRIMARY OPERATIONAL SOURCE SEARCH
+CHECKPOINT: OI-M3.2-CP-2026-11-26-06
+DATE: 2026-11-26
+STATUS: BOUNDED SOURCE SEARCH COMPLETED; OPERATIONAL CARRIER UNRESOLVED
+SCOPE: Existing primary realization records and concrete operational protocols relevant to L_op, Resp_M, j, and H3.
+ARCHITECTURAL STATUS: NO FROZEN CORE OR THEOREM 91 MODIFICATION.
+
+============================================================
+1. OBJECTIVE AND SEARCH BOUNDARY
+============================================================
+
+The task was to locate existing primary OMEGA-ISOP records that independently specify concrete operational entities or protocols sufficient to identify the intended L_op and Resp_M semantics.
+
+The search targeted:
+- operational probes, observations, measurements, and readouts;
+- deterministic and stochastic interventions;
+- control actions, adaptive policies, and sequential protocols;
+- initial states or distributions and measurement context;
+- response outcomes and the response space Y;
+- an explicitly selected comparison class;
+- the authoritative LOOP_AUDIT_PROTOCOL L1-L8.
+
+This checkpoint records a bounded search result. It does not claim that no such material exists anywhere outside the inspected repository and retrieved Library results.
+
+============================================================
+2. REPOSITORY SEARCH
+============================================================
+
+Repository:
+naydenov54-netizen/OMEGA-ISOP
+
+Branches inspected:
+- main
+- temp/91-6C-research-workspace
+
+Repository tree results:
+- main: recursive tree returned 41 entries; no standalone file path identified as a concrete operational-protocol or measurement-semantics specification.
+- temp/91-6C-research-workspace: recursive tree returned 6 entries; it contains the M3.2 CP03, CP04, and CP05 research checkpoints, but no independent primary protocol source.
+
+GitHub code searches were attempted for:
+- operational protocol / probe / measurement / intervention / control / adaptive / readout / response;
+- THEOREM-91.6D-LOOP-AUDIT and L1-L8;
+- L_op / Resp_M / initialization / operational carrier.
+
+The code-search endpoint returned no relevant protocol file for the first and third queries. A result for THEOREM-91.6D-LOOP-AUDIT identified the audit file described in Section 5 below.
+
+The repository tree is a finite, explicit search boundary. It does not prove global absence from all historical or inaccessible material.
+
+============================================================
+3. PRIMARY SOURCE REVIEW
+============================================================
+
+A. VOLUME II v1.4 GOVERNANCE ADDENDUM
+
+Reviewed the mathematical foundations sections covering:
+- realization map Φ and admissible dynamics A(R;Φ);
+- deterministic dynamics T and Markov kernel κ;
+- Banach observable space B and Koopman operators;
+- operational response classes in Section VII.3;
+- operational language and response maps in Section VIII.1;
+- Theorem 91 and its conditional H3 assumption.
+
+The source defines the abstract objects and relationships, but does not supply:
+- a typed syntax or internal construction of L_op;
+- a concrete measurement/probe protocol;
+- a distinction with execution semantics for passive observations versus active interventions;
+- a general composition law for operational actions;
+- a representation j:L_op→B;
+- a response factorization through j.
+
+B. VOLUME III v1.1 VALIDATION FRAMEWORK
+
+Section 18 states:
+L_op = chosen class of operational probes or interventions.
+Resp_M : L_op → Y, with Y normed.
+
+The source explicitly says the operational response is representation-dependent and task-dependent.
+
+Sections 10-13 specify broad dynamical classes, including deterministic and Markov dynamics. Section 24 lists possible computational realizations such as finite graphs, automata, transition systems, Markov models, adaptive systems, and multi-agent systems.
+
+These are realization categories, not concrete operational protocols. The source does not select a particular probe class, intervention semantics, initialization convention, readout map, or comparison class.
+
+C. VOLUME IV v1.4-R RESTORED
+
+The recovered source is explicitly partial. Its observerhood section refers to specified observation, measurement, intervention, or response relations, but does not provide a complete typed operational protocol or identify the M3.2 operational carrier.
+
+D. FROZEN CORE FC10.2 AND VOLUME V CONTROLLED MASTER
+
+Library search surfaced general operational-language and response-map definitions, but no concrete protocol specification that closes the missing L_op semantics or independently defines j.
+
+E. RELATED RESEARCH RECORDS
+
+The Library search surfaced OI-M3.2-CP01 and CP02.
+
+CP01 contains deterministic and stochastic realization-level bridge constructions using intervention maps, readout maps, and an observable representation. It explicitly limits those constructions to particular realization classes and states that their assumptions are not established by the Frozen Core. It is derivative research material, not recovered primary semantics.
+
+CP02 tests:
+- the maximal bounded-measurable class B_b(X);
+- a separate threshold-detector class under Gaussian Markov noise.
+
+Those are deliberately selected mathematical test classes. CP02 explicitly does not claim that either is the actual OMEGA-ISOP operational language.
+
+Additional retrieved records RL-026 and RL-027 did not expose operational-probe, measurement-protocol, intervention, readout, or L_op semantics in the inspected text. Their presence in the Library search results is not evidence that they define the intended M3.2 carrier.
+
+============================================================
+4. AUTHORITATIVE LOOP_AUDIT_PROTOCOL L1-L8 RECOVERED
+============================================================
+
+The active M3.2 handoff on main contains the authoritative LOOP_AUDIT_PROTOCOL in its operational-instructions section. The exact eight stages are:
+
+L1 - STATE THE TARGET:
+Write the exact proposition C to be proved. Identify its logical form, domain, quantifiers, and conditions. Do not use an informal paraphrase as the target.
+
+L2 - EXPOSE THE DEPENDENCY CHAIN:
+List every definition, axiom, assumption, lemma, compatibility condition, operator property, and external result used by the proof. Trace the dependency chain of each item to its actual justification.
+
+L3 - TEST FOR CONCLUSION SMUGGLING:
+For every premise P and every defining clause, ask whether P is identical to C, logically implies C in the stated domain, or is equivalent to C after a change of notation or representation. Check whether an intermediate object was defined so that the desired conclusion is built into its definition.
+
+L4 - CHECK INDEPENDENCE:
+Any premise that carries the essential content of C must have an independent justification that does not rely on C or on an equivalent statement. If no such justification exists, the derivation is circular or incomplete. Renaming C, encoding it in an operator, or expressing it as covariance, invariance, equivariance, compatibility, or a response identity does not make it independent.
+
+L5 - COUNTERMODEL TEST:
+Attempt to construct a model in which all stated premises and definitions hold while C fails. If such a model exists, record the countermodel and the exact failed implication. If no countermodel is found, do not claim that none exists; record only that the attempted search did not find one.
+
+L6 - PREMISE-REMOVAL TEST:
+Remove or weaken each non-foundational premise in turn and determine whether the proof still works. This identifies which premise actually carries the conclusion. Do not remove a premise silently or claim a stronger theorem than the remaining assumptions support.
+
+L7 - CLASSIFY THE RESULT:
+Use one of these statuses:
+NON-CIRCULAR DERIVATION;
+CONDITIONAL RESULT;
+CIRCULAR;
+INCOMPLETE;
+REFUTED.
+A passed audit is not by itself proof of correctness.
+
+L8 - REPORT NON-IMPLICATIONS:
+State what the proof does not establish, including broader domains, uniqueness, necessity, universality, physical interpretation, or empirical validity where these do not follow.
+
+Source: OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF.txt, main branch, section LOOP_AUDIT_PROTOCOL. The handoff is operational guidance, not scientific evidence.
+
+============================================================
+5. IMPORTANT AUDIT-FILE DISAMBIGUATION
+============================================================
+
+The repository contains:
+RESEARCH/DEVELOPMENT/THEOREM-91.6D-LOOP-AUDIT-v0.1.txt
+
+Its content audits THEOREM 91.6D on exact identifiability and Lipschitz-stable identifiability. It does NOT audit the M3.2 Koopman bridge or H3.
+
+Therefore it is not the authoritative M3.2 L1-L8 audit record and must not be used as a substitute for the handoff's LOOP_AUDIT_PROTOCOL.
+
+The exact general L1-L8 protocol was recovered from the active handoff. CP02's copied L1-L8 discussion is consistent with that protocol, but remains a derivative application rather than the source of the protocol.
+
+============================================================
+6. RESULT OF THE SEARCH
+============================================================
+
+PRIMARY OPERATIONAL SEMANTICS:
+PARTIALLY SPECIFIED.
+
+L_op:
+DEFINED ONLY AS A CHOSEN CLASS OF OPERATIONAL PROBES OR INTERVENTIONS; THE ACTUAL CLASS IS NOT IDENTIFIED.
+
+Resp_M:
+ABSTRACT MAP L_op→Y; THE RESPONSE PIPELINE AND TASK-SPECIFIC READOUT ARE NOT SPECIFIED.
+
+OPERATIONAL CARRIER:
+UNRESOLVED.
+
+PROTOCOL TYPES:
+PASSIVE OBSERVATION, MEASUREMENT WITH STATE UPDATE, DETERMINISTIC INTERVENTION, STOCHASTIC INTERVENTION, AND ADAPTIVE/SEQUENTIAL PROTOCOLS ARE NOT FULLY TYPED IN THE PRIMARY SOURCES REVIEWED.
+
+COMMON DOMAIN:
+NOT ESTABLISHED FOR A CONCRETE COMPARISON CLASS.
+
+REPRESENTATION j:
+NOT DEFINED BY THE PRIMARY SOURCES REVIEWED.
+
+KOOPMAN INVARIANCE:
+NOT TESTED FOR THE INTENDED OMEGA-ISOP OPERATIONAL CLASS.
+
+COMMON tau:
+NOT ESTABLISHED.
+
+H3:
+NOT DERIVED FROM THE PRIMARY ARCHITECTURE BY THIS SEARCH.
+
+This is a bounded underdetermination finding, not a proof that no such source exists in every historical or external record.
+
+============================================================
+7. CONSEQUENCE AND NEXT JUSTIFIED ACTION
+============================================================
+
+The existing primary definitions do not identify the concrete operational carrier required to proceed to representation j and Koopman invariance.
+
+The next step cannot legitimately be to select B_b(X), threshold detectors, or an intervention class merely because one choice gives a convenient closure result.
+
+A future candidate realization specification must be explicitly labeled CANDIDATE / NOT PRIMARY SOURCE and must independently state:
+1. the model/state space and measurable structure;
+2. initialization or initial distribution;
+3. passive probe and measurement semantics;
+4. state-update semantics when measurement is disturbing;
+5. deterministic and/or stochastic intervention semantics;
+6. sequential composition order and adaptive protocol rules;
+7. raw outcomes and readout map;
+8. response space Y, norm, and response functional;
+9. admissibility conditions and the common comparison class.
+
+The candidate must be selected for an independently justified task or physical/computational domain, not to force H3 or its failure.
+
+Until that domain is selected and specified:
+- do not construct j;
+- do not test Koopman invariance as if the carrier were established;
+- do not define a common tau;
+- do not reassess H3;
+- do not alter Theorem 91 or Frozen Core;
+- do not add theorem numbers;
+- do not claim canonical acceptance or RL registration.
+
+============================================================
+8. ARCHITECTURAL AND RECORD CONTROL
+============================================================
+
+Frozen Core: UNCHANGED.
+Theorem 91: UNCHANGED.
+Theorems 92-94: UNCHANGED.
+Theorem numbering: UNCHANGED.
+RL registration: NOT PERFORMED.
+Canonical acceptance: NOT PERFORMED.
+CE / CE-V status: UNCHANGED.
+Volume V integration: NOT PERFORMED.
+j construction: NOT PERFORMED.
+Koopman invariance test for intended L_op: NOT PERFORMED.
+Common tau: NOT ESTABLISHED.
+
+This checkpoint records a source-search result and source disambiguation only. It is not a primary scientific definition, canonical artifact, or registration decision.
+
+END OF CHECKPOINT
