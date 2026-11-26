@@ -1,0 +1,68 @@
+OMEGA-ISOP RL-027
+CHECKPOINT: S8.9-A ASSERTION COMPLETENESS AUDIT
+DATE: 2026-11-26
+VERSION: v0.1
+STATUS: IMPLEMENTED; EXECUTION PENDING
+
+1. PURPOSE
+Supplement the original S8.9 audit with explicit assertions for properties that were not fully enforced by the original script.
+
+2. SOURCE PRESERVATION
+Original S8.9 source:
+checkpoints/rl027_s8_adversarial_audit.py
+STATUS: UNCHANGED
+
+New supplemental source:
+checkpoints/rl027_s8_adversarial_assertion_completeness.py
+
+3. SUPPLEMENTAL ASSERTIONS
+Floating-point MIN/QP checks:
+- normalization
+- nonnegativity
+- rank-r support
+- non-increasing supported spectrum
+- trace-distance feasibility
+- explicit MIN purity agreement tolerance: 1e-10
+- formula objective not worse than independent QP objective beyond tolerance
+
+Exact rational MAX checks:
+- exact normalization
+- nonnegativity
+- rank-r support
+- non-increasing supported spectrum
+- exact trace-distance feasibility
+- exact equality of greedy formula and vertex-enumeration maximum purity
+
+Boundary checks:
+- MIN and MAX feasibility
+- rank support and normalization
+- trace-distance feasibility
+- MIN purity not greater than MAX purity
+
+Other floating-point tolerances:
+FEASIBILITY_ATOL = 1e-10
+NORMALIZATION_ATOL = 1e-12
+ORDER_ATOL = 1e-10
+NEGATIVITY_ATOL = 1e-12
+
+4. EXECUTION STATUS
+CODE CREATED IN REPOSITORY.
+CODE FETCHED BACK FROM REPOSITORY TO VERIFY FILE EXISTENCE AND CONTENT.
+NO EXECUTION RESULT IS CLAIMED YET.
+S8.9-A RESULT: PENDING COLAB EXECUTION.
+
+5. EXECUTION COMMAND
+From the repository root in Colab:
+python checkpoints/rl027_s8_adversarial_assertion_completeness.py
+
+The original S8.9 audit must remain unchanged and may be run separately for comparison.
+
+6. PROJECT STATUS
+FROZEN CORE: INTACT
+S7 ORIGINAL 62 FAILURES: UNRESOLVED
+S8.9 ORIGINAL COLAB REPLAY: PASS BASED ON USER-SUPPLIED OUTPUT
+S8.9-A: IMPLEMENTED; EXECUTION PENDING
+RL-027 OVERALL: UNDER AUDIT
+
+LIMITATION
+This is a finite computational assertion audit. It does not replace analytical proofs, alter the Frozen Core, or resolve the original S7 failures.
