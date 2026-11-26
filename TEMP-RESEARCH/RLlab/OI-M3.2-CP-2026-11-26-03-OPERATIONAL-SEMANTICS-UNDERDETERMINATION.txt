@@ -1,0 +1,279 @@
+OMEGA-ISOP / M3.2 v2.1
+RESEARCH CHECKPOINT + TEMPORARY WORKSPACE RECORD
+
+CHECKPOINT_ID: OI-M3.2-CP-2026-11-26-03
+DATE: 2026-11-26
+WORKSTREAM: M3.2 / Operational-response dynamics / semantics of L_op
+RESEARCH_STAGE: Primary-source semantic audit and finite-state underdetermination test
+TITLE: The primary operational framework leaves L_op semantically underdetermined; Markov closure is not derivable without a realization-specific probe semantics
+VERSION: 0.1
+EVIDENCE_CLASS: ANALYTICAL AUDIT + FINITE MATHEMATICAL COUNTERMODEL
+STATUS: TEMPORARY RESEARCH CHECKPOINT; NOT CANONICAL; NOT RL-REGISTERED
+
+==================================================
+1. OBJECTIVE
+==================================================
+
+Continue from OI-M3.2-CP-2026-11-26-02.
+
+Determine what the primary Volume II and Volume III definitions actually fix about the operational language L_op, and whether those definitions independently determine:
+(a) what an element a in L_op is;
+(b) a representation j : L_op -> B;
+(c) a response factorization through observables or interventions;
+(d) an action induced by deterministic or Markov dynamics;
+(e) invariance/closure of the represented probe class;
+(f) a common transformation tau across a comparison class.
+
+==================================================
+2. PRIMARY-SOURCE FINDINGS
+==================================================
+
+VOLUME II v1.4, Sections V-VI:
+- V.3 defines deterministic dynamics T : X -> X.
+- V.4 defines Markov dynamics through a kernel kappa : X x Sigma_X -> [0,1].
+- VI.1 defines a Banach observable space B and the Koopman operator K_T f = f o T, where the chosen B is closed under the relevant composition.
+- VI.2 defines K_kappa f(x) = integral f(y) kappa(x,dy).
+- These are operators on observables. They do not by themselves define an action on L_op.
+
+VOLUME II v1.4, Section VII.3:
+- L_op is introduced as an operational language.
+- Resp_M : L_op -> Y is introduced as the response map.
+- No syntax, algebraic structure, topology, sigma-algebra, protocol semantics, or composition law on L_op is specified there.
+- No map j : L_op -> B is defined.
+- No response factorization through evaluation or integration of represented observables is stated.
+
+VOLUME II v1.4, Section VIII.1:
+- L_op is again an operational language.
+- Resp_M : L_op -> Y.
+- An optional transformation class G may be introduced for operational identity.
+- This still does not specify the internal mathematical type of a probe or a dynamic action on probes.
+
+VOLUME III v1.1, Section 18:
+- L_op is described as the chosen class of operational probes or interventions.
+- Resp_M : L_op -> Y, with Y normed.
+- The class is explicitly chosen and representation-/task-dependent.
+- The text does not distinguish passive observations from active interventions or specify their protocol order.
+
+VOLUME III Sections 19-20:
+- Operational tolerance and D_L are defined by taking suprema over the chosen L_op.
+- These definitions require response values but do not supply a realization of L_op or a Koopman representation.
+
+SOURCE-LEVEL CONCLUSION:
+The primary sources specify an abstract operational interface, not a complete operational semantics. They do not select a unique probe class and do not independently define j, response factorization, or an induced action tau.
+
+==================================================
+3. SEMANTIC GAP: DISTINCT OBJECT TYPES ARE COLLAPSED
+==================================================
+
+At least three mathematically distinct interpretations are compatible with the phrase "probes or interventions":
+
+TYPE O: PASSIVE OBSERVABLE
+a is represented by a measurable function f_a : X -> Y.
+For a probability measure mu:
+Resp_mu(a) = integral f_a(x) dmu(x).
+The Markov action is K_kappa f_a.
+
+TYPE I: DETERMINISTIC INTERVENTION
+a is represented by a state transformation A_a : X -> X, together with a readout q.
+For a state x:
+Resp_x(a) = q(A_a(x)).
+The relevant composition depends on protocol order. "Evolution then intervention" gives A_a o T at the state-map level; "intervention then evolution" gives T o A_a. These are generally different.
+
+TYPE S: STOCHASTIC INTERVENTION
+a is represented by a kernel pi_a(x,dy), together with a readout q.
+For an initial measure mu:
+Resp_mu(a) = integral [integral q(y) pi_a(x,dy)] dmu(x).
+Combining this with system evolution requires an explicit order and kernel-composition convention.
+
+These types are not interchangeable without additional structure. In particular, a Koopman operator acts on observables; it does not automatically act on an abstract intervention label.
+
+==================================================
+4. FINITE MARKOV COUNTERMODEL
+==================================================
+
+This model shows that even a simple, natural observable semantics does not make every restricted L_op invariant.
+
+Let:
+X = {0,1}
+Sigma_X = P(X)
+
+Define the deterministic-flip Markov kernel:
+kappa(0,{1}) = 1
+kappa(1,{0}) = 1
+
+Let the initial probability measure be:
+mu_p({1}) = p
+mu_p({0}) = 1-p
+for p in [0,1].
+
+Choose a singleton operational language:
+L_op = {a}
+
+Represent its only probe by:
+j(a) = f_a
+where:
+f_a(0) = 0
+f_a(1) = 1.
+
+Define the response by expectation:
+Resp_mu(a) = integral f_a dmu = p.
+
+After one Markov step:
+mu_p kappa = mu_(1-p).
+
+Therefore:
+Resp_(mu_p kappa)(a) = 1-p.
+
+Because L_op is a singleton, every map tau : L_op -> L_op must satisfy:
+tau(a) = a.
+
+H3 would require:
+1-p = p
+for every p in [0,1].
+
+This is false, for example at p=0.
+
+Operator form:
+K_kappa f_a(0) = 1
+K_kappa f_a(1) = 0
+so:
+K_kappa f_a = 1 - f_a.
+
+But:
+1 - f_a is not in j(L_op) = {f_a}.
+
+Hence:
+K_kappa(j(L_op)) is not a subset of j(L_op).
+
+This is a finite, exact counterexample to the claim that Markov dynamics alone guarantees closure of an arbitrary restricted operational language. It is not a physical counterexample to OMEGA-ISOP.
+
+==================================================
+5. POSITIVE CONTROL: ENLARGING THE PROBE CLASS
+==================================================
+
+Keep X, kappa, and the response convention unchanged, but take:
+L_op_plus = {a_0,a_1}
+j(a_0) = 1_{ {0} }
+j(a_1) = 1_{ {1} }.
+
+Then:
+K_kappa j(a_0) = j(a_1)
+K_kappa j(a_1) = j(a_0).
+
+Define:
+tau(a_0) = a_1
+tau(a_1) = a_0.
+
+The closure condition holds and H3 follows for every initial measure mu:
+Resp_(mu kappa)(a) = Resp_mu(tau(a)).
+
+Thus the same Markov system supports:
+- failure of closure for a restricted singleton probe class;
+- exact closure for an enlarged two-probe class.
+
+The decisive variable is the pair (dynamics, represented operational language), not Markov structure alone.
+
+==================================================
+6. LOOP AUDIT
+==================================================
+
+TARGET:
+Infer a common tau and H3 from the primary abstract operational definitions plus Markov dynamics.
+
+PREMISES:
+- L_op is a chosen class of probes/interventions.
+- Resp_M : L_op -> Y.
+- A Markov kernel kappa exists for the selected realization.
+- K_kappa acts on an appropriate observable space B.
+
+MISSING DEPENDENCIES:
+- No specified map j : L_op -> B.
+- No response factorization through j.
+- No definition of whether probes are observables, interventions, or stochastic policies.
+- No protocol order for composing probes and dynamics.
+- No common comparison-class kernel requirement.
+- No invariance premise for j(L_op).
+
+COUNTERMODEL:
+Section 4 satisfies the Markov and expectation-response assumptions but fails closure and H3 for the singleton probe class.
+
+CLASSIFICATION:
+INCOMPLETE as a derivation from the primary abstract framework.
+The stronger generic implication "Markov dynamics => closure of every restricted operational language" is REFUTED by the finite countermodel.
+Conditional H3 results remain valid when the missing representation, factorization, protocol, and closure assumptions are explicitly supplied and independently justified.
+
+NON-IMPLICATIONS:
+This audit does not prove that the intended OMEGA-ISOP L_op is non-invariant. It proves that the primary text does not specify enough to decide the issue.
+
+==================================================
+7. RESEARCH RESULT
+==================================================
+
+RESULT R1:
+The present primary definitions do not uniquely determine the semantic type of an operational probe.
+
+RESULT R2:
+The primary definitions do not define j : L_op -> B or establish response factorization through j.
+
+RESULT R3:
+The Markov-Koopman operator on B cannot be transferred to L_op without an independently defined representation and compatible action.
+
+RESULT R4:
+Even under a natural expectation-response realization, Markov closure depends on the chosen represented probe class. The finite two-state example gives exact failure and exact positive control.
+
+RESULT R5:
+The next task is not to assume a probe class. It is to recover or specify an independently justified operational protocol for the target realization, then test its induced representation and closure.
+
+==================================================
+8. NEXT JUSTIFIED ACTION
+==================================================
+
+1. Search the primary operational sources and relevant realization records for a concrete protocol defining what counts as an operational probe/intervention.
+2. Determine whether the intended objects are passive observables, deterministic interventions, stochastic interventions, or a typed combination.
+3. Fix protocol order explicitly.
+4. Only then define a candidate representation j and response factorization.
+5. Test closure for the full independently justified probe class and the full comparison class.
+6. If j is non-injective, determine whether K_kappa induces a well-defined action on the quotient by equality of represented observables.
+7. Preserve conditional status if any of these ingredients remain unsupported.
+
+Do not introduce a new Frozen Core axiom or silently amend the primary definitions.
+
+==================================================
+9. PROTECTED STATUS
+==================================================
+
+FROZEN CORE: UNCHANGED.
+THEOREM 91: UNCHANGED; CONDITIONAL.
+THEOREMS 92-94: CONDITIONAL / REALIZATION-LEVEL.
+THEOREM 95: NOT STARTED (as recorded in the preceding checkpoint; not independently re-audited here).
+CANONICAL ACCEPTANCE: NONE.
+RL REGISTRATION: NONE.
+CE / CE-V STATUS: UNCHANGED.
+VOLUME V INTEGRATION: NONE.
+
+==================================================
+10. VERIFICATION AND RECOVERY
+==================================================
+
+PRIMARY SOURCES INSPECTED:
+- OMEGA-ISOP Volume II v1.4, Sections V-VIII and status boundaries.
+- OMEGA-ISOP Volume III v1.1, Sections 12-20 and operational validation definitions.
+
+PREVIOUS CHECKPOINTS:
+- OI-M3.2-CP-2026-11-26-01-KOOPMAN-BRIDGE.txt
+- OI-M3.2-CP-2026-11-26-02-MARKOV-CLOSURE-TEST.txt
+
+TEMPORARY WORKSPACE:
+Repository: naydenov54-netizen/OMEGA-ISOP
+Branch: temp/91-6C-research-workspace
+Directory: TEMP-RESEARCH/RLlab/
+This path was verified from the branch tree and TEMP-RESEARCH/RLlab/README.txt.
+
+FILE:
+OI-M3.2-CP-2026-11-26-03-OPERATIONAL-SEMANTICS-UNDERDETERMINATION.txt
+
+STATUS:
+Temporary checkpoint only. No canonical integration, RL registration, or Frozen Core change.
+Readback verification must be performed after save.
+
+END OF CHECKPOINT
