@@ -1,0 +1,220 @@
+OMEGA-ISOP
+RL-027-S8.1 FORMAL SETUP AND TRACE-DISTANCE BOUND
+
+DOCUMENT_ID: OI-RL-027-S8.1-FORMAL-SETUP-AND-TRACE-DISTANCE-BOUND
+VERSION: 0.1
+DATE: 2026-11-26
+WORKSTREAM: RL-027
+STAGE: S8.1
+STATUS: WORKING MATHEMATICAL CHECKPOINT
+EVIDENCE_STATUS: ONE GENERAL ANALYTICAL BOUND DERIVED; FULL S8 OPEN
+BRANCH: main
+
+==================================================
+1. PURPOSE AND SCOPE
+==================================================
+
+Formalize the S8 question by separating uncertainty in the reduced state rho_B from perturbation of the global state rho_AB. Record a general trace-distance bound for global perturbations and define a domain-relative uncertainty width linking S7 spectral extrema to the original RL-027 identifiability question.
+
+This checkpoint is not a completion of S8, not a canonical RL-027 amendment, and not a validation of the user-supplied S7 implementation.
+
+==================================================
+2. DEFINITIONS
+==================================================
+
+Finite-dimensional bipartite system:
+
+G = H_A tensor H_B
+
+rho_AB in D, where D is an explicitly specified admissible domain of bipartite density operators.
+
+rho_A = Tr_B(rho_AB)
+rho_B = Tr_A(rho_AB)
+
+Q_A(rho_AB) = Tr(rho_A^2)
+
+Trace distance:
+
+D(rho,sigma) = (1/2)||rho - sigma||_1
+
+where ||.||_1 denotes trace norm.
+
+==================================================
+3. FOUR S8 CASES: OPERATIONAL SEPARATION
+==================================================
+
+A. EXACT LOCAL EQUALITY
+
+rho_B = rho'_B.
+
+Question: does equality of reduced states imply equality of Q_A on the selected domain D?
+
+Known RL-027 status:
+- On the pure-global-state domain, Q_A = Tr(rho_B^2), hence exact identifiability.
+- On the full mixed-global-state domain and d_A >= 2, exact identifiability fails.
+- For fixed rho_B = sigma in the full mixed domain, the attainable Q_A interval is [1/d_A, 1].
+
+These are existing RL-027 results and are not reproved here.
+
+B. APPROXIMATE LOCAL EQUALITY
+
+D(rho_B, sigma) <= eta, with sigma a fixed reference density operator.
+
+Two distinct questions must be kept separate:
+(i) pairwise variation between two admissible global states;
+(ii) the full range of Q_A over all admissible global states whose B-marginal lies in the eta-ball around sigma.
+
+On the full mixed domain, product states tau tensor sigma are admissible and have the exact B-marginal sigma while Q_A = Tr(tau^2) spans [1/d_A,1]. Therefore local uncertainty alone does not narrow this interval, even at eta = 0.
+
+On the pure-global-state domain, Q_A = Tr(rho_B^2). Thus the uncertainty range reduces to purity extrema of rho_B over the trace-distance ball around sigma. S7 spectral extrema are relevant here, conditional on independent validation of the S7 derivation and implementation.
+
+C. GLOBAL PERTURBATION
+
+Operational meaning adopted for this subcase:
+
+D(rho_AB, rho'_AB) <= epsilon.
+
+This assumption is stronger and different from approximate equality of B-marginals. It yields a general bound on Q_A, derived in Section 4.
+
+D. CORRELATED GLOBAL STATES
+
+The word "correlated" alone does not define a mathematical domain or constraint. A future subcase must specify what is fixed or bounded, e.g. global purity, mutual information, a correlation operator, Schmidt data for pure states, or another explicit invariant/constraint.
+
+No general theorem for this case is claimed in this checkpoint.
+
+==================================================
+4. ANALYTICAL RESULT: GLOBAL TRACE-DISTANCE LIPSCHITZ BOUND
+==================================================
+
+PROPOSITION:
+
+For any finite-dimensional bipartite density operators rho_AB and rho'_AB,
+
+|Q_A(rho_AB) - Q_A(rho'_AB)|
+<= 2 D(rho_AB, rho'_AB).
+
+PROOF:
+
+Partial trace is a completely positive trace-preserving map, so trace-distance contractivity gives:
+
+D(rho_A, rho'_A) <= D(rho_AB, rho'_AB).
+
+For arbitrary density operators rho and sigma, write:
+
+Tr(rho^2) - Tr(sigma^2)
+= Tr[(rho - sigma)rho] + Tr[sigma(rho - sigma)].
+
+Let X = rho - sigma. Then X is Hermitian and traceless. For every effect E satisfying 0 <= E <= I:
+
+|Tr(XE)| <= (1/2)||X||_1 = D(rho,sigma).
+
+Both rho and sigma are effects, since they are density operators and hence 0 <= rho,sigma <= I. Applying the inequality to E = rho and E = sigma, and using the triangle inequality:
+
+|Tr(rho^2) - Tr(sigma^2)| <= 2D(rho,sigma).
+
+Set rho = rho_A and sigma = rho'_A, then use contractivity:
+
+|Q_A(rho_AB) - Q_A(rho'_AB)|
+<= 2D(rho_A,rho'_A)
+<= 2D(rho_AB,rho'_AB).
+
+QED.
+
+STATUS:
+Analytical derivation established in this working checkpoint. The constant 2 is a valid general upper-bound constant. Optimality/tightness of the constant has NOT been established.
+
+==================================================
+5. DOMAIN-RELATIVE UNCERTAINTY WIDTH
+==================================================
+
+Define the set of admissible Q_A values for a reference B-marginal sigma and local uncertainty radius eta:
+
+U_Q(D; sigma, eta)
+= { Q_A(rho_AB) :
+    rho_AB in D,
+    D(rho_B, sigma) <= eta }.
+
+Define its width:
+
+W_Q(D; sigma, eta)
+= sup U_Q(D; sigma, eta) - inf U_Q(D; sigma, eta).
+
+Interpretation:
+- W_Q(D; sigma, 0) = 0 is exact identifiability on the fibre over sigma, provided the fibre is nonempty.
+- W_Q(D; sigma, eta) measures the total Q_A uncertainty allowed by local information with radius eta.
+- lim_{eta -> 0+} W_Q(D; sigma, eta) = 0 expresses local stability at sigma.
+- Uniform stability requires the corresponding convergence uniformly over the relevant admissible reference marginals.
+
+This is a definition / formal diagnostic, not a claim that stability has been established for RL-027.
+
+For the full mixed domain and d_A >= 2, product states tau tensor sigma show:
+
+W_Q(D_all; sigma, 0) = 1 - 1/d_A.
+
+Thus the width does not vanish as eta approaches zero on the full mixed domain.
+
+For the pure-global-state domain, Q_A = Tr(rho_B^2), and the width is reduced to the spectral purity range over the allowed local trace-distance ball. Connection to S7 is conditional on S7 audit/validation.
+
+==================================================
+6. LOOP AUDIT: INITIAL CHECK
+==================================================
+
+L1 Definitions:
+Trace distance, partial trace, subsystem purity, and global perturbation condition explicitly defined.
+
+L2 Quantifiers:
+The proposition applies to every pair of finite-dimensional bipartite density operators satisfying the stated global trace-distance condition.
+
+L3 Dependency chain:
+Global trace-distance bound -> contractivity under partial trace -> subsystem trace-distance bound -> purity Lipschitz inequality.
+
+L4 Hidden assumptions:
+Finite-dimensional density operators; normalized positive trace-one states; trace distance convention includes factor 1/2.
+
+L5 Countermodel attempt:
+No countermodel can violate the stated inequality under these assumptions because the proof uses standard trace-distance duality and contractivity. No tightness claim is made.
+
+L6 Premise removal:
+Without a bound on global trace distance, this proposition supplies no useful pairwise bound. A bound on rho_B alone does not imply a bound on Q_A over the full mixed domain.
+
+L7 Non-implications:
+The result does not establish identifiability from rho_B alone, does not establish S8-D correlated-state results, and does not prove the constant 2 optimal.
+
+L8 Scope:
+Finite-dimensional quantum density operators. No extension to infinite-dimensional systems or other metrics is claimed.
+
+This is an initial LOOP AUDIT recorded with the derivation; a full audit of all S8 subcases remains open.
+
+==================================================
+7. STATUS AND NEXT ACTION
+==================================================
+
+ESTABLISHED IN THIS CHECKPOINT:
+- Formal distinction between exact local equality, approximate local uncertainty, global perturbation, and constrained/correlated domains.
+- General analytical bound:
+  |Delta Q_A| <= 2 D(rho_AB, rho'_AB).
+- Domain-relative uncertainty width W_Q(D; sigma, eta).
+- Full mixed-domain obstruction: local uncertainty does not narrow the [1/d_A,1] range.
+
+CONDITIONAL:
+- Use of S7 spectral extrema for the pure-global-state local uncertainty ball, pending independent validation of S7 derivation and implementation.
+
+OPEN:
+- Precise S8-D correlation constraints and resulting bounds.
+- Optimality/tightness of constant 2.
+- Full S8 case-by-case characterization.
+- S7 independent numerical verification and any further proof audit.
+- TEST-I general framework, minimality, stability, computability, external dependencies.
+
+PROJECT INVARIANTS:
+RL-027 overall: UNDER AUDIT.
+TEST-I DRAFT-0.2: NOT FROZEN.
+FROZEN CORE: INTACT.
+CE-V: NOT PROMOTED.
+VOLUME V: NO INTEGRATION AUTHORIZED.
+Authoritative RL registry confirmation: NOT ESTABLISHED by this checkpoint.
+
+NEXT TASK:
+RL-027-S8.2: analyze approximate-local uncertainty separately on (i) the full mixed domain and (ii) the pure-global-state domain, making the S7 dependency explicit; then define one or more mathematically precise correlated-global-state domains for S8-D.
+
+END OF CHECKPOINT
