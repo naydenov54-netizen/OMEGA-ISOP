@@ -410,6 +410,28 @@ CHECKPOINT_RULES: Create checkpoints for meaningful completed research work. Do 
   checkpoints without new information. Verify successful file creation and read back saved content.
   Never claim a checkpoint exists without successful verification. A checkpoint is not a canonical
   theory amendment, RL registration, GitHub commit, or scientific certification.
+TEMPORARY_WORKSPACE_CHECKPOINT_WORKFLOW:
+1. For OMEGA-ISOP research from this point forward, write each meaningful research checkpoint to the
+  already designated temporary research workspace. Do not use an arbitrary path or create a parallel
+  temporary workspace. First identify and verify the existing designated workspace path and branch
+  from repository evidence.
+2. Keep checkpoint files in that temporary workspace while the research result is provisional,
+  conditional, under audit, or otherwise not yet justified for archival commit.
+3. When a result reaches the archival threshold defined in Section 14, create the durable research
+  artifact in the designated derivative research workspace and commit it under the existing
+  GitHub/version-control procedure.
+4. After the commit succeeds, read back the committed artifact and verify that its content matches
+  the intended result. Only then delete the corresponding temporary checkpoint file(s) that are
+  fully represented by that verified commit.
+5. Delete only the specific temporary checkpoint files covered by the verified commit. Never delete
+  unrelated temporary work, uncommitted changes, source documents, protected files, or the only
+  copy of material not preserved by the commit.
+6. If commit, readback, or content comparison fails, retain the temporary checkpoint files and report
+  the exact failure. Never clear the temporary workspace merely because a commit was attempted.
+7. Record the temporary path, checkpoint filenames, destination artifact path, commit SHA, readback
+  result, and exact cleanup result in the research-stage report when applicable.
+8. This workflow governs research checkpoint files only. It does not change the separate HANDOFF
+  update policy, RL registration, canonical acceptance, or Frozen Core change-control requirements.
 CHECKPOINT_LAYER_1_RESEARCH:
 PURPOSE: Preserve the exact scientific and mathematical state reached at a completed research stage,
   including what is proved, conditional, unresolved, refuted, or not established. REQUIRED_CONTENT:
@@ -529,26 +551,38 @@ AFTER_COMMIT:
   commit succeeded without verification. Do not confuse a checkpoint with a commit or a commit with
   an RL registration.
 TEMPORARY_RESEARCH_WORKSPACE_LIFECYCLE:
-PURPOSE: Reuse a designated temporary GitHub working folder for successive research cycles without
-  losing the audit trail.
-1. The temporary folder is a working area, not the authoritative history store.
-2. At the end of a completed research cycle, preserve all meaningful work through the required Git
-  commits and any separately required RL/checkpoint records before clearing the temporary folder.
-3. The temporary folder may then be emptied and prepared for the next research cycle. Remove only
-  its current working contents that are explicitly within the temporary-folder scope; do not delete
-  protected files or unrelated repository content.
-4. Clearing the folder does NOT delete, rewrite, or reset Git commits, branches, tags, or repository
-  history. Git commit history remains preserved unless a separately authorized history-changing
-  operation is explicitly requested and reviewed.
-5. Verify the target folder and repository state before and after cleanup. Record what was cleared
-  and confirm that the relevant commit SHA(s) remain reachable in repository history.
-6. Never use force-push, history rewrite, branch deletion, or repository reset as a substitute for
-  clearing the temporary working folder.
-7. Treat the research progression as: RLlab → RL → possible CE → possible Volume V (V5). Each
+PURPOSE: Reuse the already designated temporary research workspace for successive research cycles
+  without losing provisional work or the authoritative audit trail.
+1. The temporary folder is a provisional working area, not the authoritative history store. The
+  designated path and branch must be recovered from verified repository evidence before writing.
+  Never guess the path, create a competing workspace, or silently substitute another directory.
+2. Write meaningful interim research checkpoints to this temporary workspace as specified in
+  Section 13. Keep provisional, conditional, incomplete, and under-audit results there until they
+  meet the archival threshold.
+3. When a research result reaches a meaningful, sufficiently documented, and durable stage under
+  AUTOMATIC_ARCHIVAL_TRIGGERS, preserve it as a durable artifact in the designated derivative
+  research workspace. Inspect the branch, current commit, target path, and changed-file scope before
+  committing. Apply all protected-file and evidence-classification rules.
+4. A temporary checkpoint is eligible for deletion only after the corresponding durable artifact has
+  been committed successfully, read back from the repository, and verified to match the intended
+  content. A commit attempt, returned SHA without readback, or unrelated commit is insufficient.
+5. After successful verification, delete only the exact temporary checkpoint file(s) whose complete
+  contents are represented in the verified committed artifact(s). Retain all other temporary files,
+  uncommitted changes, unresolved evidence, and unique source material.
+6. If commit, readback, or content comparison fails, do not delete the checkpoint. Preserve it and
+  report the exact failure.
+7. Record the temporary path, deleted filenames, durable destination path, commit SHA, readback
+  result, and cleanup result. Verify the target scope before and after cleanup.
+8. Clearing eligible temporary files does NOT delete, rewrite, or reset Git commits, branches, tags,
+  or repository history. Git history remains preserved unless a separately authorized
+  history-changing operation is explicitly requested and reviewed.
+9. Never use force-push, history rewrite, branch deletion, or repository reset as a substitute for
+  clearing eligible temporary checkpoint files.
+10. Treat the research progression as: RLlab → RL → possible CE → possible Volume V (V5). Each
   transition is conditional on its own evidence, validation, authorization, and acceptance
   requirements. No stage is automatic, and completion of one stage does not imply approval of the
   next.
-8. A folder cleanup is an operational housekeeping action only. It is not an RL registration, CE
+11. Temporary-folder cleanup is operational housekeeping only. It is not an RL registration, CE
   acceptance, canonical integration, or Volume V promotion.
 
 ================================================== SECTION 15. COLAB AND COMPUTATIONAL WORK ==================================================
