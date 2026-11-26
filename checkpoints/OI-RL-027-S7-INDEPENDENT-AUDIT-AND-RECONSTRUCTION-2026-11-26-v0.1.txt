@@ -1,0 +1,167 @@
+OMEGA-ISOP
+RL-027 S7 INDEPENDENT AUDIT AND RECONSTRUCTION CHECKPOINT
+
+DOCUMENT_ID: OI-RL-027-S7-INDEPENDENT-AUDIT-AND-RECONSTRUCTION
+VERSION: 0.1
+DATE: 2026-11-26
+WORKSTREAM: RL-027
+STAGE: S7 AUDIT / S8.2 CONTINUATION
+STATUS: WORKING CHECKPOINT
+EVIDENCE_STATUS: ANALYTICAL RECONSTRUCTION RECORDED; ORIGINAL IMPLEMENTATION DEFECT UNRESOLVED
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: main
+
+==================================================
+1. PURPOSE
+==================================================
+
+Preserve the user-supplied independent mathematical and numerical audit of RL-027 S7, including the executable Python reconstruction. This checkpoint records the audit as a working research artifact. It does not amend the canonical RL-027 record, alter Frozen Core, validate the missing original implementation, or close RL-027.
+
+The full Python source is stored separately:
+checkpoints/rl027_s7_audit.py
+
+==================================================
+2. FIRST FAILURE: ESTABLISHED DIAGNOSIS
+==================================================
+
+Original random-test report:
+- 1000 tests
+- 62 failures
+- first failure:
+  p = [0.61370612, 0.12481632, 0.11683150, 0.08137840, 0.06239827, 0.00086939]
+  eta = 0.09344593349461805
+  reported q_min = (1/6,...,1/6)
+  reported distance_min = 0.4470394556261942
+
+Under D(p,q) = 0.5 * sum_i |p_i-q_i|:
+- D(p,u) is approximately 0.44703945, greater than eta.
+- Therefore u is outside the feasible trace-distance ball.
+- The reported q_min is inadmissible for the constrained MIN problem.
+- A purity-order check alone does not detect this infeasibility.
+- Confusion between L1 and L1/2 does not explain the failure because the reported distance exceeds 2*eta.
+
+The precise defective line/branch in the original code is unknown because the original code and its nine test conditions were not supplied. Proposed causes H1-H4 remain hypotheses, not findings.
+
+==================================================
+3. RECONSTRUCTED MATHEMATICAL RESULTS
+==================================================
+
+Problem:
+F(p,eta) = {q >= 0 : sum_i q_i = 1, D(p,q) <= eta}
+purity(q) = sum_i q_i^2
+
+MIN:
+- If D(p,u) <= eta, the unique minimizer is u.
+- If eta = 0, the minimizer is p.
+- Otherwise the minimizer is q_i = clip(p_i, beta, alpha), where alpha and beta satisfy:
+  sum_i (p_i-alpha)+ = eta
+  sum_i (beta-p_i)+ = eta
+- The supplied proof uses strict convexity and a variational inequality. It is mathematically coherent under the stated finite-dimensional probability-simplex assumptions.
+
+MAX:
+- Let p be sorted descending and delta = min(eta, 1-p_1).
+- Add delta to a largest component and remove mass delta from the smallest components, bottom-up.
+- The supplied proof uses partial-sum bounds and majorization. It is mathematically coherent under the stated assumptions.
+- The maximizing vector is unique only up to permutations in degenerate cases.
+
+Spectral reduction:
+The stated trace-distance spectral inequality gives the necessary spectral TV bound. Commuting states attain equality, so the spectral optimization captures the attainable purity extrema for a fixed reference spectrum and trace-distance ball, under the stated finite-dimensional setting.
+
+==================================================
+4. NUMERICAL CLAIMS: PROVENANCE AND LIMITS
+==================================================
+
+The user-supplied audit reports:
+T1: 100000 float tests, n=1..30, no A1-A5 failures, maximum TV excess 3.3e-16.
+T2: 20000 exact-rational cases, all listed assertions passed.
+T3: 3000 vertex-enumeration cases for MAX; reported maximum discrepancy 2.9e-12.
+T4: 3000 SLSQP comparisons for MIN; 2 solver non-convergences excluded; reported maximum discrepancy 8.7e-15.
+T5: 20000 noncommuting density-matrix cases; reported maximum bound violation 3.4e-16.
+
+These are USER-SUPPLIED EXECUTION CLAIMS. The source code is preserved, but this checkpoint does not claim that these runs were independently executed or reproduced here.
+
+Important limitation:
+A1-A5 do not prove optimality. A5 only checks purity ordering relative to p. Feasibility and optimality must be assessed separately. T2 contains a stronger exact certificate for MIN and exact partial-sum checks for MAX. T3 is a meaningful independent-style oracle for MAX, but vertex enumeration alone does not certify a convex MIN problem. SLSQP is numerical evidence, not proof. All reported tests originate from one audit author and are not external independent replication.
+
+Implementation note:
+check_input accepts normalization error up to 1e-9, while audit defaults to 1e-12. Since the solver does not renormalize p, this tolerance contract is inconsistent near the acceptance boundary. Fix only in a clearly versioned audit implementation; do not silently change the mathematical problem.
+
+==================================================
+5. FIRST-FAILURE RECONSTRUCTED SOLUTION
+==================================================
+
+The audit reports:
+q_min =
+(0.520260186505382,
+ 0.12481632,
+ 0.11683150,
+ 0.08137840,
+ 0.07835679674730903,
+ 0.07835679674730903)
+
+q_max =
+(0.7071520534946181,
+ 0.12481632,
+ 0.11683150,
+ 0.05120012650538195,
+ 0,
+ 0)
+
+Both are reported on the boundary D(p,q)=eta, within numerical precision.
+The MIN solution clips two low components to beta; it is not a one-component correction.
+
+Reported purities:
+purity(q_min) = 0.318801393973
+purity(p) = 0.416380658781
+purity(q_max) = 0.531914192846
+
+The printed p is rounded to eight decimal places. Exact replay must use repr() or full-precision input.
+
+==================================================
+6. REVIEW NOTES / REQUIRED CAUTIONS
+==================================================
+
+A. The MIN proof and MAX majorization proof appear valid under their stated assumptions. This is a mathematical review, not formal proof-assistant verification.
+
+B. The code's audit() function does not independently certify optimality. A1-A5 PASS is not equivalent to solver correctness.
+
+C. The section-9 wording in the supplied audit needs correction: a purity value outside the reference interval does not by itself prove infeasibility. It may indicate a defective reference solver. Check constraints and optimality separately.
+
+D. The normalization tolerance mismatch should be corrected in a later explicitly versioned code revision.
+
+E. No source-code line from the original implementation has been identified as the cause of the 62 failures.
+
+F. Do not conflate this S7 spectral reconstruction with the separate S8.1/S8.2 workstream. The dependency of pure-global-state local-purity bounds on S7 remains conditional until S7 receives the required validation.
+
+==================================================
+7. PROJECT STATUS
+==================================================
+
+RL-027 overall: UNDER AUDIT.
+S7: independent mathematical reconstruction recorded; original implementation's 62 failures unresolved.
+S8.1: existing working checkpoint contains the global trace-distance Lipschitz bound.
+S8.2: existing working checkpoint is the next active stage and must be read before continuation.
+TEST-I DRAFT-0.2: AUDITED WORKING DRAFT / NOT FROZEN.
+FROZEN CORE: INTACT / UNCHANGED.
+CE-V: NOT PROMOTED.
+VOLUME V: NO INTEGRATION AUTHORIZED.
+Authoritative RL registry confirmation: NOT ESTABLISHED by this checkpoint.
+
+==================================================
+8. NEXT ACTION
+==================================================
+
+Continue from the existing RL-027-S8.2 checkpoint. Do not restart S8.1.
+
+Read:
+checkpoints/OI-RL-027-S8.2-APPROXIMATE-LOCAL-AND-CORRELATED-DOMAINS-2026-11-26-v0.1.txt
+
+Then:
+1. Check S8.2 derivations for exact quantifiers, assumptions, and countermodels.
+2. Keep full mixed and pure-global domains separate.
+3. Make every use of S7 spectral extrema explicitly conditional on the S7 validation status.
+4. Define correlated-global-state domains mathematically before deriving bounds.
+5. Do not claim S7's original 62 failures are resolved.
+6. Create a new checkpoint only after a meaningful completed stage or material correction.
+
+END OF CHECKPOINT
