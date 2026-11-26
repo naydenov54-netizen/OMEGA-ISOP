@@ -137,7 +137,7 @@ MATERIAL CORRECTION:
 An earlier informal calculation assigned P(output=1 | x=1)=0.3. That is incorrect and is explicitly superseded here. It confused the probability of selecting A with the probability of obtaining output 1. The actual map A sends 1 to 0.
 
 RESULT 02:
-The adaptive stochastic policy induces the transition matrix above. The induced one-step kernel preserves the final-state distribution but does not, by itself, encode which operator was selected or the full intervention history.
+The adaptive stochastic policy induces the transition matrix above. The kernel determines the next-state distribution, but it does not, by itself, retain which operator was selected or the full intervention history.
 
 ==================================================
 6. EXPERIMENT 03: MEMORY AND FAILURE OF THE MARKOV PROPERTY ON X
@@ -373,13 +373,14 @@ LIBRARY_SAVE_PATH:
  /OMEGA-ISOP/checkpoints/OI-M3.2-CP-2026-11-26-03-FINITE-MARKOV-MODEL.txt
 
 GITHUB_STATUS:
-To be completed and recorded only after the create operation returns a commit SHA and the exact file is read back from main.
+Created on branch main. Initial file-creation commit SHA: dd9c3c8589b6ec49454459e003a7b504582557d2.
+The file was read back from GitHub. The final status-update commit SHA is reported in the session completion record.
 
 READBACK_AND_VERIFICATION_STATUS:
-Pending at the time this artifact is prepared. Must be updated only from actual tool results.
+The Library copy and GitHub copy were both read back. Their text content matched exactly after the initial save. A final status update is being applied to both copies and will be verified separately.
 
 PRECISE_NEXT_ACTION:
-Save this exact artifact to the Library checkpoints folder and GitHub checkpoints/ directory. Read back both saved copies and compare their content with this intended artifact. Record the actual GitHub commit SHA and verification outcome.
+Continue with the stochastic extension of the memory-dependent protocol. Define the stochastic transition kernel on the augmented pair state, then define probabilistic output-trace equivalence and perform partition refinement.
 
 RECOVERY_INSTRUCTIONS:
 Resume with the stochastic extension of the memory-dependent protocol. First define the stochastic transition kernel on the augmented pair state. Then define probabilistic output-trace equivalence and perform partition refinement. Do not generalize the deterministic three-class result without this work.
@@ -389,8 +390,8 @@ Resume with the stochastic extension of the memory-dependent protocol. First def
 ==================================================
 
 RESEARCH_CHECKPOINT: COMPLETED FOR THE SPECIFIED FINITE MODEL.
-ARCHIVAL_CHECKPOINT: PENDING SAVE AND READBACK.
-GITHUB_COMMIT: PENDING.
+ARCHIVAL_CHECKPOINT: SAVED TO LIBRARY AND GITHUB; INITIAL READBACKS MATCHED EXACTLY.
+GITHUB_COMMIT: INITIAL FILE-CREATION COMMIT VERIFIED; FINAL STATUS-UPDATE COMMIT TO BE RECORDED IN THE SESSION REPORT.
 CANONICAL_ACCEPTANCE: NONE.
 RL_REGISTRATION: NONE.
 FROZEN CORE: UNCHANGED.
