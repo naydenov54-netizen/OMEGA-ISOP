@@ -1,0 +1,230 @@
+OMEGA-ISOP
+RL-027-S8.2
+APPROXIMATE LOCAL UNCERTAINTY AND PRECISE CORRELATED DOMAINS
+Date: 2026-11-26
+Status: WORKING ANALYTICAL RESULT; NOT FROZEN
+Parent checkpoint: OI-RL-027-S8.1-FORMAL-SETUP-AND-TRACE-DISTANCE-BOUND-2026-11-26-v0.1.txt
+
+0. SCOPE AND STATUS
+
+This checkpoint records the S8.2 analysis only. It does not modify the Frozen Core, TEST-I status, CE-V status, Volume V, or any RL registry state.
+
+The analysis separates:
+(i) the full mixed global-state domain;
+(ii) the pure-global-state domain;
+(iii) a mathematically precise non-product (correlated) global-state domain.
+
+No claim is made that this is a more general result than S5/S6. No unverified S5/S6 premise is imported.
+
+Notation:
+H_A and H_B are finite-dimensional Hilbert spaces, with dimensions d_A and d_B.
+rho_AB is a density operator.
+rho_A = Tr_B(rho_AB), rho_B = Tr_A(rho_AB).
+Q_A(rho_AB) = Tr(rho_A^2).
+D(rho,sigma) = (1/2)||rho-sigma||_1.
+
+For a reference state sigma_B and eta >= 0, define
+B_eta(sigma_B) = { beta_B : beta_B is a density operator and D(beta_B,sigma_B) <= eta }.
+
+For a global domain D, define
+U_Q(D;sigma_B,eta)
+= { Q_A(rho_AB) : rho_AB in D and rho_B in B_eta(sigma_B) },
+and
+W_Q(D;sigma_B,eta)
+= sup U_Q(D;sigma_B,eta) - inf U_Q(D;sigma_B,eta),
+provided the admissible set is nonempty.
+
+W_Q is the width of the attainable purity range. It is not, by itself, a probability or an operational error bar.
+
+1. FULL MIXED DOMAIN: EXACT RESULT
+
+Let D_all be the set of all density operators on H_A tensor H_B.
+
+For every fixed sigma_B and every eta >= 0, the admissible set contains all product states
+rho_AB = tau_A tensor sigma_B,
+where tau_A is an arbitrary density operator on H_A, because
+rho_B = sigma_B and D(rho_B,sigma_B)=0 <= eta.
+
+For these product states,
+Q_A(rho_AB) = Tr(tau_A^2).
+
+For a d_A-dimensional system, the purity of a density operator ranges over the exact interval
+1/d_A <= Tr(tau_A^2) <= 1.
+The lower endpoint is attained by tau_A=I_A/d_A. The upper endpoint is attained by a pure tau_A.
+
+No density operator on A can have purity outside this interval. Therefore, for d_A >= 2,
+U_Q(D_all;sigma_B,eta) = [1/d_A,1],
+and
+W_Q(D_all;sigma_B,eta) = 1 - 1/d_A
+for every eta >= 0.
+
+This is an exact result. Approximate knowledge of rho_B does not reduce the uncertainty in Q_A on the full mixed domain, even at eta=0. Increasing eta cannot reduce the admissible set, and the exact width remains unchanged.
+
+2. PURE GLOBAL DOMAIN: EXACT REDUCTION TO A SPECTRAL OPTIMIZATION
+
+Let D_pure be the set of pure states on H_A tensor H_B.
+
+For every rho_AB in D_pure, the Schmidt decomposition implies
+Q_A(rho_AB) = Tr(rho_B^2).
+
+A density operator beta_B can occur as the B-marginal of a pure state on A tensor B if and only if
+rank(beta_B) <= d_A.
+This rank condition is essential when d_A < d_B.
+
+Define the feasible local set
+S_eta(sigma_B;d_A)
+= { beta_B :
+    beta_B is a density operator,
+    D(beta_B,sigma_B) <= eta,
+    rank(beta_B) <= d_A }.
+
+If S_eta is empty, there is no pure global state in the requested local ball and W_Q is undefined for that empty admissible class.
+
+If S_eta is nonempty, then
+U_Q(D_pure;sigma_B,eta)
+= { Tr(beta_B^2) : beta_B in S_eta(sigma_B;d_A) },
+and
+W_Q(D_pure;sigma_B,eta)
+= max_{beta_B in S_eta(sigma_B;d_A)} Tr(beta_B^2)
+  - min_{beta_B in S_eta(sigma_B;d_A)} Tr(beta_B^2).
+
+The extrema exist in finite dimensions: the density-operator set is compact, the trace-distance constraint is closed, and the rank-at-most-d_A condition is closed.
+
+At eta=0, if rank(sigma_B)<=d_A, the only feasible local state is sigma_B, hence
+W_Q(D_pure;sigma_B,0)=0,
+and
+Q_A=Tr(sigma_B^2).
+If rank(sigma_B)>d_A, the exact fibre is empty: sigma_B cannot be the marginal of a pure state on the specified A tensor B system.
+
+S7 DEPENDENCY:
+The pure-domain problem is now precisely reduced to spectral purity minimization and maximization over a trace-distance ball, with the additional rank constraint rank(beta_B)<=d_A.
+Any use of the S7 formulae or Python functions is CONDITIONAL on independent audit of both the mathematical derivation and implementation.
+If S7 was derived for unrestricted density operators without the rank constraint, its results apply directly only when the rank constraint is automatically satisfied (for example, d_A>=d_B), or after a separate proof that the relevant extrema satisfy the rank constraint.
+No S7 result is certified by this checkpoint.
+
+3. A PRECISE CORRELATED DOMAIN: NON-PRODUCT STATES
+
+The phrase "correlated global states" is not a mathematical domain until a condition is supplied.
+
+One precise choice is
+D_nonprod = { rho_AB : rho_AB is a density operator and rho_AB != rho_A tensor rho_B }.
+
+In finite dimensions, this is equivalently the set of states with strictly positive quantum mutual information:
+I(A:B)_rho = S(rho_A)+S(rho_B)-S(rho_AB) > 0.
+This definition imposes nonzero correlation but no positive lower bound on its magnitude.
+
+The following exact-width result holds.
+
+Proposition:
+Assume d_A>=2 and rank(sigma_B)>=2. For every eta>=0,
+sup U_Q(D_nonprod;sigma_B,eta) - inf U_Q(D_nonprod;sigma_B,eta)
+= 1 - 1/d_A.
+
+Proof:
+Let P_B be the support of sigma_B. On P_B, sigma_B is strictly positive. Since rank(sigma_B)>=2, there exists a nonzero traceless Hermitian operator Y_B supported on P_B. Since d_A>=2, there exists a nonzero traceless Hermitian operator X_A on H_A.
+
+For the lower endpoint, choose tau_A=I_A/d_A and define
+rho_AB(t) = (I_A/d_A) tensor sigma_B + t X_A tensor Y_B.
+The partial traces of X_A and Y_B vanish, so
+rho_A(t)=I_A/d_A,
+rho_B(t)=sigma_B.
+For sufficiently small nonzero real t, rho_AB(t) remains positive: the unperturbed product state is strictly positive on H_A tensor P_B, and positivity is stable under sufficiently small Hermitian perturbations on that support. The state is normalized because the perturbation is traceless. It is not a product state because its nonzero correlation term X_A tensor Y_B cannot be absorbed into the product of its unchanged marginals.
+Consequently,
+Q_A(rho_AB(t))=1/d_A.
+Thus the lower endpoint is attained inside D_nonprod while the local marginal is exactly sigma_B.
+
+For the upper supremum, choose a full-rank sequence tau_A(epsilon) whose purity tends to 1 as epsilon tends to 0+, for example
+tau_A(epsilon) = (1-epsilon)|0><0| + epsilon/(d_A-1) sum_{j=1}^{d_A-1}|j><j|,
+with 0<epsilon<1.
+For each fixed epsilon, tau_A(epsilon) tensor sigma_B is strictly positive on H_A tensor P_B. Using the same nonzero traceless X_A and Y_B, choose a sufficiently small nonzero t_epsilon so that
+rho_AB(epsilon) = tau_A(epsilon) tensor sigma_B + t_epsilon X_A tensor Y_B
+is a density operator.
+Its marginals remain tau_A(epsilon) and sigma_B, and it is non-product. Therefore
+Q_A(rho_AB(epsilon))=Tr(tau_A(epsilon)^2) -> 1.
+The global upper bound Q_A<=1 shows that the supremum over D_nonprod is exactly 1, although it is not attained: a pure marginal rho_A forces every bipartite state to factorize across A:B.
+
+Combining the attained infimum 1/d_A with the supremum 1 gives the claimed width.
+Because rho_B=sigma_B exactly in both constructions, they belong to every eta-ball with eta>=0. QED.
+
+Important qualification:
+If rank(sigma_B)=1, no correlated state can have that pure marginal: every global state with a pure reduced state on B is a product across A:B. In that case the fibre of D_nonprod over sigma_B is empty. If rank(sigma_B)>=2, the proposition applies.
+
+Interpretation:
+Merely requiring nonzero correlations does not improve local identifiability or local stability. Arbitrarily weak nonzero correlations can preserve the same local marginal while allowing Q_A to approach its full-domain supremum and attain its minimum. A quantitative correlation-strength restriction would be a different problem.
+
+4. STRONGER CORRELATION RESTRICTIONS: NOT SOLVED HERE
+
+Examples of genuinely stronger, mathematically precise domains include:
+D_I(kappa) = {rho_AB : I(A:B)_rho >= kappa},
+for a specified kappa>0; or
+D_C(c) = {rho_AB : ||rho_AB-rho_A tensor rho_B||_1 >= c},
+for a specified c>0.
+
+These are not equivalent constraints. Their feasible fibres depend on dimensions, the fixed local marginal, and the chosen threshold. No claim is made here that their Q_A widths equal the non-product width, nor that they admit a universal formula. They require separate analysis and feasibility checks.
+
+A fixed-global-purity domain
+D_P = {rho_AB : Tr(rho_AB^2)=P}
+is another precise restriction, but it is not synonymous with a correlation constraint: product states can belong to it.
+
+5. DEPENDENCY AND NON-IMPLICATION REGISTER
+
+Established in this S8.2 analysis:
+- Full mixed domain: exact width 1-1/d_A for every eta>=0.
+- Pure global domain: exact reduction to purity extrema on the local trace-distance ball with rank(beta_B)<=d_A.
+- Non-product domain: exact width 1-1/d_A for rank(sigma_B)>=2 and d_A>=2, for every eta>=0.
+
+Conditional:
+- Any explicit evaluation of the pure-domain extrema through S7 is conditional on independent S7 proof and code validation, and on respecting the rank constraint.
+
+Not established:
+- Optimality/tightness of the constant 2 in the S8.1 global trace-distance Lipschitz bound.
+- Any result for D_I(kappa), D_C(c), or other quantitatively correlated domains.
+- A general theorem beyond the already registered pure/full-mixed identifiability statements.
+- Infinite-dimensional extensions.
+- Operational or physical interpretation beyond the stated mathematical domains.
+
+6. LOOP AUDIT FOR S8.2
+
+L1 — Definitions:
+Density operators, partial traces, purity, trace distance, approximate local ball, pure domain, and non-product domain are explicitly defined.
+
+L2 — Quantifiers:
+The full-mixed result is for every finite d_A>=2, every fixed density operator sigma_B, and every eta>=0.
+The pure-domain reduction is for every finite d_A,d_B and every nonempty feasible set S_eta.
+The non-product proposition is for every finite d_A>=2, every sigma_B with rank at least 2, and every eta>=0.
+
+L3 — Dependency chain:
+Full mixed: product-state inclusion -> full attainable marginal purity interval -> exact width.
+Pure: Schmidt decomposition -> rank feasibility condition -> optimization of Tr(beta_B^2) over the constrained local set.
+Non-product: full-rank product reference on H_A tensor supp(sigma_B) -> small traceless correlation perturbation preserving both marginals -> lower endpoint attained and upper endpoint approached.
+
+L4 — Assumptions:
+Finite dimensions; normalized positive density operators; trace distance with the factor 1/2; d_A>=2 for nontrivial width; rank(sigma_B)>=2 for the non-product construction.
+
+L5 — Countermodel/edge checks:
+For rank(sigma_B)=1, the non-product fibre is empty, so the rank qualification is necessary.
+For d_A=1, Q_A=1 identically and the width formula 1-1/d_A gives zero.
+For pure global states, rank(rho_B)<=d_A is necessary; omitting it can create a false nonempty feasible set.
+
+L6 — Premise removal:
+Without the pure-global restriction, Q_A need not equal Tr(rho_B^2).
+Without the rank condition, a proposed pure-state marginal may be unrealizable.
+Without a quantitative lower bound on correlation strength, non-product alone does not reduce the uncertainty width.
+
+L7 — Non-implications:
+These results do not prove S7.
+They do not establish a positive stability modulus for the full mixed or non-product domains.
+They do not solve fixed-mutual-information or fixed-correlation-distance domains.
+They do not prove the S8.1 constant 2 is optimal.
+They do not promote RL-027 to CE or CE-V.
+
+L8 — Scope:
+Finite-dimensional bipartite quantum systems only. No infinite-dimensional, field-theoretic, or cosmological extrapolation is made.
+
+7. NEXT ACTIONS
+
+1. Independently audit the S7 spectral derivation and implementation, including rank constraints relevant to pure global states.
+2. If a quantitative notion of correlation is required, select the intended constraint (for example I(A:B)>=kappa or trace-norm correlation >=c) before deriving bounds.
+3. Continue the S8 audit without changing Frozen Core, TEST-I freeze state, CE-V, Volume V, or RL registry status.
+
+END OF CHECKPOINT
