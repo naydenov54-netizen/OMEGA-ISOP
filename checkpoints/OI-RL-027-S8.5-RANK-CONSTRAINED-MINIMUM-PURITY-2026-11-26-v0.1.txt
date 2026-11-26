@@ -1,0 +1,220 @@
+OMEGA-ISOP
+RL-027 S8.5
+EXACT RANK-CONSTRAINED MINIMUM-PURITY SOLUTION
+
+DOCUMENT_ID: OI-RL-027-S8.5-RANK-CONSTRAINED-MINIMUM-PURITY
+VERSION: 0.1
+DATE: 2026-11-26
+WORKSTREAM: RL-027
+STATUS: WORKING ANALYTICAL RESULT
+PARENT: OI-RL-027-S8.4-FIXED-SUPPORT-RANK-REDUCTION
+EVIDENCE_STATUS: CONVEX OPTIMIZATION CHARACTERIZATION DERIVED; INDEPENDENT IMPLEMENTATION TESTS PENDING
+BRANCH: main
+
+==================================================
+1. SETUP
+==================================================
+
+Let p=(p_1,...,p_d) be a probability vector sorted nonincreasingly.
+Let r=min(d_A,d_B), and define:
+P_r = sum_{i=1}^r p_i
+t = 1-P_r
+epsilon = eta-t
+
+The pure-global-state rank-constrained spectral feasible set is:
+F_r(p,eta) = {
+q in R^d :
+q_i>=0,
+sum_i q_i=1,
+q_{r+1}=...=q_d=0,
+(1/2)sum_i |p_i-q_i|<=eta
+}.
+
+By S8.3, this set is nonempty iff eta>=t.
+
+For q supported on the first r coordinates:
+D(p,q) = t + sum_{i=1}^r (p_i-q_i)_+,
+where x_+=max(x,0).
+Therefore, for eta>=t, the constraint is equivalent to:
+sum_{i=1}^r (p_i-q_i)_+ <= epsilon.
+
+The rank-constrained MIN problem is consequently:
+minimize sum_{i=1}^r q_i^2
+subject to:
+q_i>=0,
+sum_{i=1}^r q_i=1,
+sum_{i=1}^r (p_i-q_i)_+ <= epsilon.
+
+==================================================
+2. EXACT SOLUTION
+==================================================
+
+Define the rank-r uniform vector:
+u_r=(1/r,...,1/r).
+
+Define its required additional deficit budget:
+epsilon_uniform = sum_{i=1}^r (p_i-1/r)_+.
+
+CASE 1:
+If epsilon>=epsilon_uniform, then u_r is feasible and is the unique global minimizer:
+q_i*=1/r for i<=r,
+q_i*=0 for i>r.
+
+CASE 2:
+If 0<=epsilon<epsilon_uniform, then the unique minimizer has the clipped form:
+q_i*=min(max(p_i,beta),alpha), for i<=r,
+q_i*=0, for i>r,
+
+where alpha and beta satisfy:
+sum_{i=1}^r (p_i-alpha)_+ = epsilon,
+sum_{i=1}^r (beta-p_i)_+ = t+epsilon.
+
+Boundary convention:
+If epsilon=0, the first equation has a non-unique alpha interval. Choose alpha=max_i p_i. The resulting q is independent of any larger alpha.
+In Case 2, beta is uniquely determined and beta<1/r; alpha can be chosen with alpha>1/r and alpha>=beta.
+
+The equations imply:
+sum_i q_i
+= P_r - epsilon + (t+epsilon)
+= 1.
+
+They also imply:
+D(p,q*)=t+epsilon=eta.
+
+Thus the trace-distance constraint is active in Case 2.
+
+==================================================
+3. PROOF
+==================================================
+
+The feasible set is convex and compact:
+- q_i>=0 is convex;
+- sum q_i=1 is affine;
+- sum(p_i-q_i)_+<=epsilon is a convex inequality.
+
+The objective f(q)=sum q_i^2 is strictly convex. Hence a feasible minimizer exists and is unique.
+
+Case 1:
+The vector u_r is feasible exactly when:
+sum_i(p_i-1/r)_+<=epsilon.
+It is the unique minimizer of sum q_i^2 over the entire r-dimensional probability simplex, by Cauchy-Schwarz:
+sum_i q_i^2 >= (sum_i q_i)^2/r = 1/r,
+with equality iff q_i=1/r for all i.
+
+Case 2:
+Set q_i*=clip(p_i,beta,alpha).
+The threshold equations give:
+sum_i(p_i-q_i*)_+=epsilon,
+sum_i(q_i*-p_i)_+=t+epsilon,
+and hence sum_i q_i*=1 and q* is feasible.
+
+KKT certificate:
+Let g(q)=sum_i(p_i-q_i)_+-epsilon.
+The Lagrangian is:
+L(q,lambda,mu)=sum_i q_i^2 + lambda(sum_i q_i-1) + mu*g(q),
+with mu>=0.
+
+Choose:
+lambda=-2*beta,
+mu=2*(alpha-beta)>=0.
+
+For p_i>alpha, q_i*=alpha and a valid subgradient of (p_i-q_i)_+ is -1. Stationarity becomes:
+2*alpha - 2*beta - 2*(alpha-beta)=0.
+
+For p_i<beta, q_i*=beta and the subgradient is 0. Stationarity becomes:
+2*beta - 2*beta=0.
+
+For beta<=p_i<=alpha, q_i*=p_i. At the kink p_i=q_i*, the subgradient of (p_i-q_i)_+ with respect to q_i is the interval [-1,0]. Choose:
+s_i=(beta-p_i)/(alpha-beta),
+which lies in [-1,0]. Then:
+2*p_i - 2*beta + 2*(alpha-beta)*s_i=0.
+
+If alpha=beta, the uniform boundary case is already covered by Case 1; the active nonuniform case has alpha>beta.
+
+Complementary slackness holds because g(q*)=0 in Case 2. All KKT conditions are satisfied. Convexity makes them sufficient for global optimality. Strict convexity makes the minimizer unique. QED.
+
+==================================================
+4. INTERPRETATION
+==================================================
+
+The unrestricted S7 MIN solution is a two-sided clipping/water-filling solution.
+
+The pure-domain rank constraint changes the problem in two exact ways:
+1. The tail mass t must be transferred into the allowed first r coordinates before any additional redistribution budget is available.
+2. The effective additional deficit budget is epsilon=eta-t.
+
+The upper clipping level alpha is set by the permitted removal epsilon from the retained top-r part.
+The lower clipping level beta is set by the required addition t+epsilon to that part.
+
+This is not the unrestricted S7 formula with the tail simply deleted. The lower and upper threshold equations have different right-hand sides.
+
+==================================================
+5. ALGORITHM
+==================================================
+
+Input:
+p sorted nonincreasingly, sum p_i=1;
+r=min(d_A,d_B);
+eta>=0.
+
+1. Compute:
+t=1-sum_{i=1}^r p_i.
+If eta<t, return INFEASIBLE.
+
+2. Compute:
+epsilon=eta-t.
+epsilon_uniform=sum_{i=1}^r max(p_i-1/r,0).
+
+3. If epsilon>=epsilon_uniform:
+return q=(1/r,...,1/r,0,...,0).
+
+4. Otherwise solve the monotone piecewise-linear equations:
+sum_{i=1}^r max(p_i-alpha,0)=epsilon,
+sum_{i=1}^r max(beta-p_i,0)=t+epsilon.
+
+5. Return:
+q_i=min(max(p_i,beta),alpha), i<=r;
+q_i=0, i>r.
+
+The thresholds can be obtained by sorting/prefix-sum scans in O(r log r), or by monotone bisection to a chosen numerical tolerance. Since p is already sorted, the active sets are contiguous.
+
+Special cases:
+- r=1: q=(1,0,...,0) whenever eta>=t.
+- eta=t and t>0: epsilon=0; alpha=max_i p_i and beta solves sum(beta-p_i)_+=t.
+- eta=0 and t=0: q=p, the feasible set is a singleton.
+- eta>=t+epsilon_uniform: the rank-r uniform vector is feasible and is the minimizer.
+
+==================================================
+6. WHAT IS ESTABLISHED / WHAT REMAINS OPEN
+==================================================
+
+ESTABLISHED ANALYTICALLY:
+- Exact rank-r feasible-set reduction, conditional on the pure-state marginal rank theorem and spectral trace-distance inequality.
+- Exact nonemptiness threshold eta_rank=t.
+- Exact rank-constrained MIN optimizer as a two-threshold clipping solution with asymmetric budgets epsilon and t+epsilon.
+- Uniqueness of the MIN optimizer.
+- KKT proof under the stated finite-dimensional assumptions.
+
+NOT YET ESTABLISHED:
+- Independent implementation and numerical replication of this formula.
+- Rank-constrained MAX closed form.
+- Any claim that the original S7 implementation's 62 failures have been identified or repaired.
+- Any change to the canonical RL-027 record or Frozen Core.
+
+==================================================
+7. NEXT ACTION
+==================================================
+
+Derive the rank-constrained MAX.
+The feasible set is a compact polytope and the objective is convex, so a maximum occurs at a vertex. The next task is to characterize those vertices and determine whether a greedy majorization construction gives the exact maximum.
+
+PROJECT INVARIANTS:
+RL-027 overall: UNDER AUDIT.
+S7 original implementation failures: UNRESOLVED.
+FROZEN CORE: INTACT.
+TEST-I DRAFT-0.2: NOT FROZEN.
+CE-V: NOT PROMOTED.
+VOLUME V: NO INTEGRATION AUTHORIZED.
+Authoritative RL registry confirmation: NOT ESTABLISHED.
+
+END OF CHECKPOINT
