@@ -50,7 +50,7 @@ The canonical temporary Library folder /checkpoints now contains numbered checkp
 
 8. VERIFICATION
 Library destination: /checkpoints/OI-M3.2-CP-2026-11-27-08-ARCHIVAL-REMEDIATION.txt
-Library save/readback status: to be confirmed after write.
-GitHub status: to be confirmed after commit and readback.
+Library save/readback status: SUCCEEDED; complete 56-line file re-read, required checkpoint markers present.
+GitHub status: SUCCEEDED; exact content read back from branch main. Initial archival commit SHA: f41ec1de3e5ea3d6956b369fd2ebccf3a38d4aae.
 
 END OF CHECKPOINT
