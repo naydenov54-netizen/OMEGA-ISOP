@@ -1,0 +1,517 @@
+OMEGA-ISOP
+STAGE 3 / RLlab
+RESEARCH CHECKPOINT S3.18
+
+TITLE:
+REALIZATION-SPECIFIC BRIDGE AUDIT: FROM ABSTRACT RELATIONAL PULLBACKS TO OMEGA-ISOP
+
+DATE:
+2026-11-27
+
+STATUS:
+OPEN RESEARCH
+PARTIAL BRIDGE ESTABLISHED FOR THE BOOLEAN APARTNESS REDUCT
+FULL TRANSFER TO RELATIONAL CONSTRAINTS, OPERATIONS, DYNAMICS, AND REALIZATIONS NOT ESTABLISHED
+
+DOCUMENT_ROLE:
+TEMPORARY RLlab WORKING ARTIFACT
+
+CANONICAL_STATUS:
+NOT CANONICALLY ACCEPTED
+
+RL_STATUS:
+NOT REGISTERED
+
+FROZEN_CORE_STATUS:
+UNCHANGED
+
+VOLUME_V_STATUS:
+UNCHANGED
+
+
+============================================================
+1. OBJECTIVE
+============================================================
+
+Audit whether S3.12-S3.17 can be transferred from the abstract finite-relational setting to the actual mathematical constructions recorded in OMEGA-ISOP.
+
+The audit distinguishes:
+
+A. The Boolean apartness reduct used in P2.3.
+B. Additional ordinary relational symbols introduced in P2.4.
+C. Quotient-invariant relational expansions in P2.4.2.
+D. Operations, realization maps, admissible dynamics, and operational structures in Volume II.
+
+The objective is not to assume a general bridge. It is to identify exactly where the abstract theorem applies, where it does not, and what additional hypotheses are required.
+
+
+============================================================
+2. PRIMARY OMEGA-ISOP SOURCE CONDITIONS
+============================================================
+
+The controlled Volume II mathematical foundations specify:
+
+2.1 Primitive relational substrate
+
+A = (U0,#)
+
+with Boolean-valued apartness in the selected realization.
+
+The standard apartness conditions are:
+
+A1: not(x # x)
+A2: x # y iff y # x
+A3: x # y implies (x # z) or (z # y), for every z.
+
+The document explicitly treats these as one admissible realization, not the only possible realization.
+
+2.2 Indistinguishability
+
+Under a complete Boolean apartness realization:
+
+x ~ y iff not(x # y).
+
+Under A1-A3 and classical logic, this complement relation is an equivalence relation.
+
+The quotient:
+
+DS = U0 / ~
+
+is derived conditionally. It is not primitive.
+
+2.3 Configuration embeddings
+
+An embedding f:C1->C2 is injective and satisfies:
+
+x #_1 y iff f(x) #_2 f(y).
+
+Thus the OMEGA-ISOP configuration embedding condition is an induced embedding for the single binary relation #.
+
+2.4 P2.3 quotient-based strong amalgam
+
+For a span of apartness embeddings C->A and C->B:
+
+- quotient each carrier by its apartness-indistinguishability relation;
+- form the pushout Q of the quotient sets;
+- form the pushout carrier S_P of the underlying sets over C;
+- define pi_P:S_P->Q by the quotient-class maps;
+- define:
+
+x #_P y iff pi_P(x) != pi_P(y).
+
+Under the explicit assumptions recorded in the HANDOFF, this constructs a strong amalgam for Boolean apartness structures with injective embeddings preserving and reflecting apartness.
+
+The construction is not claimed to be a categorical pushout in the category of apartness structures.
+
+2.5 P2.4 additional relations
+
+P2.4.1 defines a free relational amalgam by taking the union of the A-side and B-side relation tuples on the P2.3 carrier. Mixed tuples not inherited from either side are false.
+
+This is proved only for pure relational signatures with no extra axioms coupling the additional relations to apartness, subject to agreement on the common substructure.
+
+P2.4.2 states that an n-ary relation descends to S/~ exactly when it is coordinatewise invariant:
+
+(x1~y1 AND ... AND xn~yn)
+IMPLIES
+(R(x1,...,xn) IFF R(y1,...,yn)).
+
+The HANDOFF marks the general quotient-level relational amalgamation as conditional and requiring further proof audit.
+
+2.6 Richer structures
+
+Volume II separately introduces:
+
+- realization maps Phi: Real(R)->M;
+- admissible dynamics A(R;Phi);
+- deterministic maps T;
+- Markov kernels;
+- Koopman and Markov operators;
+- operational response maps and persistence structures.
+
+These are not primitive elements of the relational substrate. They are realization-dependent extensions.
+
+
+============================================================
+3. EXACT MATCH: S3.12 AND THE P2.3 APARTNESS REDUCT
+============================================================
+
+Let Q be the quotient-set pushout used in P2.3.
+
+Equip Q with the discrete Boolean apartness relation:
+
+q #_Q r iff q != r.
+
+Let pi_P:S_P->Q be the P2.3 projection.
+
+By the P2.3 definition:
+
+x #_P y iff pi_P(x) != pi_P(y)
+          iff pi_P(x) #_Q pi_P(y).
+
+Therefore the apartness relation on P is exactly the relational pullback of the apartness relation on Q along pi_P.
+
+For the single-symbol relational signature Sigma={#}, this is precisely the construction required by S3.12.
+
+The embedding condition in Volume II:
+
+x #_F y iff e(x) #_P e(y)
+
+is exactly the induced-embedding condition used in S3.12, including both preservation and reflection.
+
+CONCLUSION 3.1:
+
+The S3.12 fiber-capacity theorem applies to the Boolean apartness reduct of the P2.3 construction whenever the forbidden pattern F is finite and the stated classical Boolean assumptions hold.
+
+This is a genuine realization-specific bridge, not merely an analogy.
+
+It does not yet extend to P2.4 additional relations or to richer OMEGA-ISOP structures.
+
+
+============================================================
+4. SPECIALIZATION OF THE FIBER CRITERION TO APARTNESS
+============================================================
+
+Let F be a finite Boolean apartness structure satisfying A1-A3.
+
+Define:
+
+x ~_F y iff not(x #_F y).
+
+Then ~_F is an equivalence relation under the stated assumptions.
+
+Because Q has discrete apartness:
+
+q #_Q r iff q != r,
+
+a map h:F->Q is an induced relational map exactly when:
+
+x #_F y iff h(x) != h(y).
+
+Equivalently:
+
+h(x)=h(y) iff x~_F y.
+
+Therefore every induced relational map h:F->Q:
+
+1. is constant on each ~_F-equivalence class;
+2. maps distinct ~_F-equivalence classes to distinct points of Q.
+
+Thus h factors through an injective map:
+
+F/~_F -> Q.
+
+If Q has fewer points than F/~_F, no such h exists.
+
+If Q has at least |F/~_F| points, such maps exist, and every nonempty h-fiber is exactly one ~_F-equivalence class.
+
+Consequently, when Q has enough quotient points:
+
+kappa_F(Q) = max { |[x]_(~_F)| : x in F }.
+
+Otherwise:
+
+kappa_F(Q) = infinity.
+
+For nonuniform fibers of pi_P, S3.12 gives the sharper pointwise condition:
+
+|[x]_(~_F)| <= |pi_P^(-1)({h(x)})|
+
+for each quotient class assigned to h(x).
+
+This is the exact specialization of S3.12 to the P2.3 apartness pullback.
+
+INTERPRETATION:
+
+The fiber-capacity condition measures how many distinct representatives are available in P for each indistinguishability class of F.
+
+It does not by itself establish the existence or nonexistence of every possible amalgam. It characterizes induced copies inside this specified pullback carrier.
+
+
+============================================================
+5. IMPORTANT CATEGORY DISTINCTION
+============================================================
+
+In the OMEGA-ISOP configuration category, morphisms are injective embeddings preserving and reflecting apartness.
+
+The map h in S3.12 is generally not injective.
+
+Therefore h is not generally an admissible configuration embedding or a morphism in the category C_METACORE.
+
+It is an auxiliary induced relational map used to characterize when an embedding into a pullback can be lifted.
+
+Do not identify:
+
+induced relational map h:F->Q
+
+with:
+
+admissible OMEGA-ISOP configuration embedding.
+
+The factorization through F/~_F in Section 4 explains the role of h in the special P2.3 case. It does not change the morphism definition in Volume II.
+
+
+============================================================
+6. TRANSFER FAILURE: P2.4 FREE RELATIONAL AMALGAM IS NOT GENERALLY A PULLBACK
+============================================================
+
+S3.12 applies to a relation defined exactly by pullback:
+
+R_P(x1,...,xn)
+iff
+R_Q(pi(x1),...,pi(xn)).
+
+P2.4.1 instead defines the free relational amalgam by taking the union of the A-side and B-side tuples and leaving mixed tuples false.
+
+These are different constructions in general.
+
+A concrete counterexample shows that the free relation need not even descend to the P2.3 quotient.
+
+COUNTEREXAMPLE:
+
+Let the common structure C have carrier:
+
+S_C={c}.
+
+Let:
+
+S_A={c,a}
+S_B={c,b}.
+
+Put the apartness relation equal to the empty relation on A and B.
+
+The structures agree on C.
+
+All three elements c,a,b belong to the same apartness-indistinguishability class in the P2.3 amalgam.
+
+Add one unary relation symbol R.
+
+Interpret it by:
+
+R_A={c,a}
+R_B={c}.
+
+The two structures agree on C because R(c) is true on both sides.
+
+The P2.4.1 free relational amalgam has carrier:
+
+S_P={c,a,b}
+
+and relation:
+
+R_P={c,a}.
+
+But:
+
+a~b
+
+while:
+
+R_P(a)=true
+R_P(b)=false.
+
+Hence coordinatewise invariance fails:
+
+a~b does not imply (R_P(a) iff R_P(b)).
+
+Therefore R_P does not descend to a well-defined unary relation on the quotient S_P/~.
+
+This free relational amalgam is valid as a free relational amalgam of the expanded structures, but it is not the pullback of a quotient-level unary relation along pi_P.
+
+CONCLUSION 6.1:
+
+P2.4.1 cannot be treated as an instance of S3.12 merely because its underlying carrier comes from P2.3.
+
+The free relational expansion and the quotient pullback must remain distinct unless quotient invariance is independently proved.
+
+
+============================================================
+7. WHAT P2.4.2 DOES AND DOES NOT PROVIDE
+============================================================
+
+For an n-ary relation R on S_P, coordinatewise invariance under ~ is necessary and sufficient for R to descend to a relation on S_P/~.
+
+This is a valid quotient-descent criterion.
+
+However, it does not by itself establish:
+
+- that the relation inherited from A and B is coordinatewise invariant;
+- that the descended relation agrees with both quotient-side relations;
+- that the resulting quotient expansion satisfies additional axioms;
+- that the pullback recovers the original free relational amalgam;
+- that all constraints of OMEGA-ISOP are preserved;
+- that a general amalgam exists or is unique.
+
+Thus P2.4.2 is a necessary technical bridge for a quotient-level relational construction, not a general compatibility or amalgamation theorem.
+
+
+============================================================
+8. OPERATIONS AND DYNAMICS ARE OUTSIDE THE S3.12 SIGNATURE
+============================================================
+
+S3.12 is stated for purely relational signatures.
+
+It does not include:
+
+- function symbols;
+- constants;
+- algebraic operations;
+- transition maps;
+- Markov kernels;
+- Koopman operators;
+- realization maps;
+- operational response maps;
+- global or dynamical constraints.
+
+A relational reduct may satisfy the S3.12 hypotheses while an additional operation fails to descend to the quotient.
+
+For a unary operation f_P to induce an operation f_Q on Q through pi_P, at minimum the compatibility condition must hold:
+
+pi_P(f_P(x)) = f_Q(pi_P(x))
+
+for every x in P.
+
+For an n-ary operation, the corresponding condition is:
+
+pi_P(f_P(x1,...,xn))
+=
+f_Q(pi_P(x1),...,pi_P(xn)).
+
+These conditions are not consequences of the relational pullback definition.
+
+For dynamics, an analogous intertwining or compatibility condition must be stated for the selected realization and state-space maps.
+
+Volume II explicitly treats realization and dynamics as additional, realization-dependent structures. Their transfer cannot be inferred from S3.12.
+
+
+============================================================
+9. AMALGAM EXISTENCE VERSUS ONE SPECIFIED PULLBACK
+============================================================
+
+S3.12 characterizes whether a finite induced structure F occurs in one specified pullback P^pi.
+
+It does not characterize whether some other admissible amalgam D exists.
+
+Therefore:
+
+P^pi not in K
+
+does not imply:
+
+there is no admissible amalgam D in K.
+
+This limitation is already explicit in S3.15 and remains fully active in the OMEGA-ISOP setting.
+
+For P2.3, the existence of the stated strong apartness amalgam is established by its own quotient-based construction under its explicit assumptions.
+
+For richer constraint classes, existence must be proved separately.
+
+A failure of the P2.4 free expansion to satisfy a selected constraint does not rule out a different admissible amalgam unless a separate nonexistence argument is supplied.
+
+
+============================================================
+10. BRIDGE STATUS MATRIX
+============================================================
+
+B1. Boolean apartness reduct of P2.3:
+STATUS = EXACT MATCH TO S3.12 PULLBACK FORM.
+SCOPE = FINITE FORBIDDEN PATTERNS; CLASSICAL BOOLEAN APARTNESS; SPECIFIED P2.3 MAP.
+
+B2. Configuration embeddings:
+STATUS = EXACT MATCH TO INDUCED EMBEDDINGS FOR THE SINGLE RELATION #.
+SCOPE = INJECTIVE PRESERVATION AND REFLECTION.
+
+B3. Auxiliary maps h in S3.12:
+STATUS = NOT GENERALLY OMEGA-ISOP MORPHISMS.
+SCOPE = FACTOR THROUGH INDISTINGUISHABILITY CLASSES IN THE P2.3 SPECIAL CASE.
+
+B4. P2.4.1 free relational expansion:
+STATUS = NOT GENERALLY A QUOTIENT PULLBACK.
+SCOPE = PURE RELATIONAL FREE AMALGAM; NO EXTRA AXIOMS COUPLING RELATIONS TO APARTNESS.
+
+B5. P2.4.2 quotient descent:
+STATUS = EXACT CRITERION FOR A RELATION TO DESCEND.
+SCOPE = DOES NOT GUARANTEE INVARIANCE OR CONSTRAINT PRESERVATION.
+
+B6. Operations and algebraic structure:
+STATUS = OUTSIDE S3.12.
+REQUIRED = CONGRUENCE / OPERATION-COMPATIBILITY CONDITIONS.
+
+B7. Dynamics and realization:
+STATUS = OUTSIDE S3.12.
+REQUIRED = EXPLICIT REALIZATION MAPS AND DYNAMICAL INTERTWINING / PRESERVATION CONDITIONS.
+
+B8. General constraint compatibility:
+STATUS = OPEN.
+REQUIRED = PRECISE CONSTRAINT LANGUAGE, MODEL CLASS, MORPHISMS, AND AMALGAM DEFINITION.
+
+B9. Nonexistence of every admissible amalgam:
+STATUS = NOT ESTABLISHED BY PULLBACK FAILURE.
+REQUIRED = SEPARATE NONEXISTENCE THEOREM.
+
+
+============================================================
+11. ADVERSARIAL FINDINGS
+============================================================
+
+FINDING A — NO REFUTATION OF S3.12:
+
+The abstract theorem transfers exactly to the Boolean apartness reduct of the P2.3 construction.
+
+FINDING B — NO GENERAL TRANSFER TO P2.4:
+
+The explicit unary-relation counterexample shows that a valid free relational amalgam can fail quotient invariance. Therefore it need not be representable as a quotient pullback.
+
+FINDING C — CATEGORY MISMATCH:
+
+The non-injective map h used by S3.12 is not generally a morphism in the OMEGA-ISOP configuration category.
+
+FINDING D — RICH-STRUCTURE GAP:
+
+Operations, dynamics, realization maps, and global constraints are absent from the S3.12 signature. Their compatibility must be established independently.
+
+FINDING E — AMALGAM SCOPE:
+
+Failure of one specified pullback cannot establish nonexistence of all admissible amalgams.
+
+No contradiction to the P2.3 strong amalgam theorem is found here. No contradiction to S3.12-S3.17 is found here.
+
+
+============================================================
+12. NEXT JUSTIFIED RESEARCH ACTION
+============================================================
+
+S3.19 should formalize a finite relational constraint fragment that extends the single apartness relation without silently imposing quotient invariance.
+
+Required sequence:
+
+1. Fix the signature containing apartness # and one additional relation symbol R.
+2. Specify the exact class of allowed structures and all axioms coupling R to #, if any.
+3. Define embeddings and the common-substructure span.
+4. Construct the P2.3 carrier and the P2.4.1 free relational expansion.
+5. Test whether the free expansion preserves the selected axioms.
+6. Test quotient invariance separately.
+7. Compare the free expansion with any quotient-pullback expansion.
+8. Determine whether the selected application asks for preservation of one construction or existence of some admissible amalgam.
+9. Produce either a necessary-and-sufficient criterion for the selected fragment or a minimal counterexample.
+10. Keep operations and dynamics outside this stage until the relational fragment is audited.
+
+No Frozen Core or canonical source modification is justified by this checkpoint.
+
+
+============================================================
+13. ARCHITECTURAL STATUS
+============================================================
+
+Frozen Core: UNCHANGED.
+Volume II: READ-ONLY SOURCE FOR THIS AUDIT.
+Volume V: UNCHANGED.
+P2.3: EXISTING CONDITIONAL STRONG APARTNESS AMALGAM NOT REFUTED.
+P2.4.1: FREE RELATIONAL EXPANSION SCOPE CONFIRMED.
+P2.4.2: QUOTIENT DESCENT CONDITION; GENERAL COMPATIBILITY STILL OPEN.
+S3.12-S3.17: ABSTRACT RESULTS NOT REFUTED.
+FULL OMEGA-ISOP TRANSFER: NOT ESTABLISHED.
+RL REGISTRATION: NOT PERFORMED.
+CANONICAL ACCEPTANCE: NOT PERFORMED.
+VOLUME V INTEGRATION: NOT PERFORMED.
+
+END OF RESEARCH CHECKPOINT
