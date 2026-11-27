@@ -53,8 +53,8 @@ CP01–CP08 were verified against their GitHub counterparts before Library clean
 The N5 final closure and transition record already exists in GitHub at:
 checkpoints/OI-N5-FINAL-CLOSURE-AND-TRANSITION-RECORD-2026-11-25-v1.0.txt
 The Library copy differs only by a terminal newline; the substantive text matches.
-Additional non-core Library research records are being migrated under RESEARCH/ARCHIVE/.
-The three RL-LAB provenance clarification Library files were compared and found byte-identical; one canonical GitHub archive file is sufficient.
+Seven additional non-core Library research records have been migrated under RESEARCH/ARCHIVE/ and passed exact GitHub readback.
+The three RL-LAB provenance clarification Library files were compared and found byte-identical; one canonical GitHub archive file was created and verified. The duplicate GitHub root Handoff copy was removed from main after the Library Handoff was designated canonical; the prior GitHub commit history remains available.
 
 9. NON-IMPLICATION
 This storage policy does not certify the mathematical validity of archived claims, promote research to canonical theory, or authorize changes to the Frozen Core.
