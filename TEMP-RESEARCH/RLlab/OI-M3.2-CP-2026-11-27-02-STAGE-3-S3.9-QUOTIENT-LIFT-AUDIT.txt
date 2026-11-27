@@ -1,0 +1,420 @@
+OMEGA-ISOP
+RESEARCH CHECKPOINT — STAGE 3 / S3.9
+CHECKPOINT_ID: OI-M3.2-CP-2026-11-27-02
+DATE: 2026-11-27
+WORKSTREAM: MATHEMATICAL FOUNDATION / STAGE 3 — CONSTRAINT
+TITLE: Quotient-Lift Audit of P2.3 and Relational Amalgamation (S3.9)
+STATUS: OPEN RESEARCH — PROVISIONAL AUDIT RESULT
+DOCUMENT_ROLE: TEMPORARY RLlab WORKING ARTIFACT
+CANONICAL_STATUS: NOT CANONICALLY ACCEPTED
+RL_STATUS: NOT REGISTERED
+FROZEN_CORE_STATUS: UNCHANGED
+VOLUME_V_STATUS: UNCHANGED
+
+============================================================
+1. OBJECTIVE
+============================================================
+
+Audit the quotient-based strong amalgamation construction P2.3 against the relational requirements identified in S3.8. Separate:
+
+(A) validity of P2.3 for Boolean apartness structures;
+(B) descent of side relations to quotient sets;
+(C) formation of a relational amalgam on the quotient pushout;
+(D) lifting that quotient relational structure back to the underlying set pushout;
+(E) preservation of the free relational amalgam and of Stage 3 constraint classes.
+
+The target is not to re-prove a broader theorem than the stated assumptions support.
+
+============================================================
+2. SOURCE AND EVIDENCE BOUNDARY
+============================================================
+
+P2.3 specification audited:
+Active OMEGA-ISOP HANDOFF, Section 22.2, version 2.2 as read from the ChatGPT Library on 2026-11-27. The HANDOFF is operational guidance and is not treated as scientific evidence or as the original primary proof source.
+
+Foundational apartness definitions:
+OMEGA-ISOP Frozen Core v2.0-FC10.2, Section 1.7 and the corresponding apartness definitions in the controlled Volume II material available in the Library.
+
+Prior Stage 3 research:
+OI-M3.2-CP-2026-11-27-01-STAGE-3-RELATIONAL-CONSTRAINTS-S3.3-S3.8.txt
+GitHub commit: 6ed8e49f2ba42be3e82ad5aac8ae4bc7078a21b2
+Branch: temp/91-6C-research-workspace
+
+SOURCE LIMITATION:
+The exact P2.3 construction is available in the current HANDOFF, but the original standalone P2.3 derivation/source document was not located in the inspected Library search. This checkpoint audits the stated construction directly. It does not claim comparison against an unavailable original derivation manuscript.
+
+============================================================
+3. FORMAL SETUP
+============================================================
+
+Let A=(S_A,#_A), B=(S_B,#_B), and C=(S_C,#_C) be Boolean apartness structures.
+
+Assume:
+A1: NOT(x # x).
+A2: x # y IFF y # x.
+A3: x # y IMPLIES (x # z) OR (z # y), for every z.
+
+Define:
+x ~_A y IFF NOT(x #_A y),
+and analogously for B and C.
+
+Under A1-A3 and classical Boolean logic, ~_A, ~_B, and ~_C are equivalence relations.
+
+Let f:C->A and g:C->B be injective apartness embeddings:
+x #_C y IFF f(x) #_A f(y),
+x #_C y IFF g(x) #_B g(y).
+
+Let:
+Q_A = S_A/~_A,
+Q_B = S_B/~_B,
+Q_C = S_C/~_C.
+
+The induced maps:
+f_bar:Q_C->Q_A,
+g_bar:Q_C->Q_B
+are injective.
+
+Let Q be the pushout of sets Q_A and Q_B over Q_C, with canonical injections:
+j_A:Q_A->Q,
+j_B:Q_B->Q.
+
+Let S_P be the pushout of underlying sets S_A and S_B over S_C, with canonical injections:
+i_A:S_A->S_P,
+i_B:S_B->S_P.
+
+Their images intersect exactly in the common image of C.
+
+Define pi_P:S_P->Q by:
+pi_P(i_A(a)) = j_A([a]_A),
+pi_P(i_B(b)) = j_B([b]_B).
+
+This map is well-defined because the two expressions agree on identified elements from C.
+
+Define:
+x #_P y IFF pi_P(x) != pi_P(y).
+
+============================================================
+4. S3.9.1 — P2.3 QUOTIENT-LEVEL INJECTIVITY
+============================================================
+
+CLAIM:
+The induced maps f_bar and g_bar are injective.
+
+PROOF:
+Suppose f_bar([c1]_C)=f_bar([c2]_C).
+Then [f(c1)]_A=[f(c2)]_A.
+Therefore NOT(f(c1) #_A f(c2)).
+Since f preserves and reflects apartness:
+NOT(c1 #_C c2).
+Thus [c1]_C=[c2]_C.
+The proof for g_bar is identical.
+
+RESULT:
+ESTABLISHED UNDER THE EXPLICIT APARTNESS-EMBEDDING ASSUMPTIONS.
+
+============================================================
+5. S3.9.2 — EXACT INTERSECTION IN THE SET PUSHOUTS
+============================================================
+
+For a pushout of sets along injective maps, the canonical maps from each side are injective and their images intersect exactly in the image of the common set.
+
+Applying this fact first to Q_A <- Q_C -> Q_B and then to S_A <- S_C -> S_B gives:
+
+j_A(Q_A) intersect j_B(Q_B) = j_A(f_bar(Q_C)) = j_B(g_bar(Q_C)),
+
+and:
+
+i_A(S_A) intersect i_B(S_B) = i_A(f(S_C)) = i_B(g(S_C)).
+
+RESULT:
+ESTABLISHED AS A SET-THEORETIC PROPERTY OF THE TWO PUSHOUTS.
+
+IMPORTANT DISTINCTION:
+The common part in Q is a quotient-level common part. A quotient class in that common part may have representatives in S_A or S_B that are not themselves elements of the original common substructure C.
+
+============================================================
+6. S3.9.3 — DESCENT OF SIDE RELATIONS
+============================================================
+
+Let R_A and R_B be n-ary relations on S_A and S_B, agreeing on C and preserved and reflected by f and g.
+
+For R_A to descend to a well-defined relation on Q_A, the exact condition is coordinatewise invariance:
+
+(x1~_A y1 AND ... AND xn~_A yn)
+IMPLIES
+(R_A(x1,...,xn) IFF R_A(y1,...,yn)).
+
+The analogous condition applies to R_B and R_C.
+
+Under this condition define:
+Rbar_A([x1]_A,...,[xn]_A) IFF R_A(x1,...,xn).
+
+This is well-defined. The same applies to B and C.
+
+Because the original embeddings preserve and reflect R and the quotient relations are well-defined, the induced quotient maps preserve and reflect the descended relations.
+
+RESULT:
+ESTABLISHED FOR EACH SIDE, PROVIDED COORDINATEWISE INVARIANCE AND AGREEMENT ON C HOLD.
+
+NON-IMPLICATION:
+This proves only that each side relation descends. It does not prove that the free relational amalgam on S_P descends through pi_P.
+
+============================================================
+7. S3.9.4 — COUNTEREXAMPLE: QUOTIENT LIFT CREATES MIXED TUPLES
+============================================================
+
+This is the decisive obstruction.
+
+Take:
+S_C={c}
+S_A={c,a}
+S_B={c,b}
+
+Let all apartness relations be empty:
+#_A = #_B = #_C = empty.
+
+Then every pair of elements in each structure is equivalent under ~.
+
+All quotient sets are singletons:
+Q_A={q_A},
+Q_B={q_B},
+Q_C={q_C}.
+
+Their set pushout Q is also a singleton:
+Q={q}.
+
+The underlying set pushout is:
+S_P={c,a,b}.
+
+The map pi_P sends all three elements to q:
+pi_P(c)=pi_P(a)=pi_P(b)=q.
+
+Now use a binary relation R.
+
+Define:
+R_A = S_A x S_A,
+R_B = S_B x S_B,
+R_C = {(c,c)}.
+
+Thus R_A and R_B are universal binary relations on their respective carriers and agree on C.
+
+All three relations are coordinatewise invariant under their respective equivalence relations, because each relation is universal on its carrier.
+
+The descended quotient relations are:
+Rbar_A={(q_A,q_A)},
+Rbar_B={(q_B,q_B)},
+Rbar_C={(q_C,q_C)}.
+
+The free relational amalgam on Q has:
+Rbar_Q={(q,q)}.
+
+Pulling this quotient relation back along pi_P gives:
+R_P^quot = S_P x S_P.
+
+In particular:
+R_P^quot(a,b)=TRUE,
+R_P^quot(b,a)=TRUE.
+
+But the free relational amalgam on the underlying set pushout is:
+R_P^free = R_A union R_B,
+
+so:
+R_P^free =
+{(c,c),(c,a),(a,c),(a,a),(c,b),(b,c),(b,b)}.
+
+Therefore:
+(a,b) NOT IN R_P^free,
+(b,a) NOT IN R_P^free.
+
+Hence:
+R_P^quot != R_P^free.
+
+The quotient pullback creates mixed tuples that are absent from the free relational amalgam.
+
+EVIDENCE_CLASS:
+EXPLICIT FINITE COUNTEREXAMPLE WITH DIRECT VERIFICATION.
+
+SCOPE:
+This counterexample does not refute P2.3 as an apartness strong amalgamation construction. It refutes the inference that P2.3 automatically lifts every quotient-level relational amalgam to the free relational amalgam on S_P.
+
+It also does not refute P2.4.1. P2.4.1 constructs the free relational expansion directly on S_P. The example shows that this free expansion need not be invariant under the equivalence relation induced by pi_P, and therefore need not be the pullback of a relation on Q.
+
+============================================================
+8. S3.9.5 — EXACT LIFT-COMPATIBILITY CRITERION
+============================================================
+
+Let R_P^free be the free union relation on S_P:
+R_P^free = i_A(R_A) union i_B(R_B),
+where each side relation is transported to the corresponding tuples in S_P.
+
+Let Rbar_Q be the quotient-level relation on Q, obtained by the free union of the descended side relations.
+
+The quotient pullback is:
+R_P^pull(x1,...,xn)
+IFF
+Rbar_Q(pi_P(x1),...,pi_P(xn)).
+
+The side descent assumptions guarantee that the pullback restricts to the original relations on A and B.
+
+However:
+R_P^pull = R_P^free
+holds if and only if R_P^free is saturated under the fibers of pi_P.
+
+Explicitly, the necessary-and-sufficient condition is:
+
+For all x1,...,xn,y1,...,yn in S_P,
+
+(pi_P(x1)=pi_P(y1) AND ... AND pi_P(xn)=pi_P(yn))
+IMPLIES
+(R_P^free(x1,...,xn) IFF R_P^free(y1,...,yn)).
+
+Call this the FIBER-SATURATION CONDITION.
+
+Proof:
+If R_P^free is the pullback of a relation on Q, its truth value is constant on every coordinatewise product of pi_P-fibers. Hence fiber saturation is necessary.
+
+Conversely, if R_P^free is fiber-saturated, define a relation on Q by declaring a tuple of quotient classes to belong exactly when one, equivalently every, tuple of representatives belongs to R_P^free. Fiber saturation makes this definition well-defined, and its pullback is exactly R_P^free.
+
+Therefore fiber saturation is necessary and sufficient for the free union relation to descend through pi_P without changing the underlying relation.
+
+The counterexample in Section 7 violates this condition:
+pi_P(a)=pi_P(b), but
+R_P^free(a,a)=TRUE,
+R_P^free(a,b)=FALSE.
+
+RESULT:
+A PRECISE NECESSARY-AND-SUFFICIENT LIFT-COMPATIBILITY CRITERION HAS BEEN DERIVED FOR EACH RELATION.
+
+LIMIT:
+This criterion is relation-specific. It is not automatically guaranteed by P2.3, by sidewise coordinatewise invariance, or by exact intersection of the quotient pushouts.
+
+============================================================
+9. S3.9.6 — SUFFICIENT STRUCTURAL CONDITION AND STATUS OF S3.8-T1
+============================================================
+
+A useful sufficient condition for avoiding cross-side fiber mixing is:
+
+Every pi_P-fiber that meets both i_A(S_A) and i_B(S_B) is contained in the common image i_A(f(S_C))=i_B(g(S_C)).
+
+In words:
+No quotient class shared by the two sides may contain a representative outside the actual common substructure on either side.
+
+Under this condition, a tuple from one side cannot acquire a representative from the opposite non-common part by changing representatives inside its pi_P-fibers. Together with sidewise coordinatewise invariance, this is sufficient for the free union relation to be fiber-saturated.
+
+This structural condition is SUFFICIENT, not claimed necessary. The exact necessary-and-sufficient condition remains relation-specific fiber saturation from Section 8.
+
+S3.8-T1 STATUS:
+The abstract preservation argument for a class K in a quotient relational strong amalgam remains valid under its stated assumptions on the quotient structures.
+
+However, applying that lemma to Q does not by itself prove that the lifted structure on S_P belongs to K. The missing implication is precisely the lift-compatibility condition audited here.
+
+Therefore:
+- S3.8-T1 may be used at quotient level when its assumptions are verified.
+- Its conclusion must not be transferred automatically to the underlying set pushout.
+- For transfer to S_P, verify fiber saturation for every relevant relation, or use a stronger sufficient structural condition.
+- P2.3 alone does not establish those additional conditions.
+
+============================================================
+10. LOOP AUDIT
+============================================================
+
+TARGET C:
+The quotient-based relational construction on Q, when pulled back to S_P, coincides with the free relational amalgam on S_P.
+
+DEPENDENCIES:
+1. Apartness axioms A1-A3 and classical Boolean logic.
+2. Apartness embeddings f and g.
+3. Set pushout constructions on quotient carriers and underlying carriers.
+4. Coordinatewise invariance of each side relation.
+5. Free union of the quotient-level relations.
+6. Pullback along pi_P.
+
+CONCLUSION-SMUGGLING CHECK:
+No premise among 1-5 implies that the free union on S_P is saturated under pi_P-fibers. The finite counterexample in Section 7 satisfies the premises and falsifies C.
+
+RESULT:
+The unrestricted target C is FALSE.
+
+CORRECTED TARGET:
+The quotient pullback equals the free union on S_P if and only if the free union is fiber-saturated under pi_P.
+
+This corrected statement is proved directly in Section 8 and does not assume the desired equality as an independent premise.
+
+============================================================
+11. AUDIT SUMMARY
+============================================================
+
+S3.9.1 — INJECTIVITY OF QUOTIENT EMBEDDINGS:
+PASS, under the stated apartness-embedding assumptions.
+
+S3.9.2 — EXACT INTERSECTION OF PUSHOUT IMAGES:
+PASS, as a set-theoretic pushout property.
+
+S3.9.3 — COORDINATEWISE INVARIANCE:
+PASS as the necessary-and-sufficient sidewise quotient-descent condition.
+
+S3.9.4 — NO NEW MIXED TUPLES AFTER LIFT:
+FAILS IN GENERAL. Explicit finite counterexample supplied.
+
+S3.9.5 — PRESERVATION/REFLECTION OF INDUCED EMBEDDINGS:
+PASS at the quotient side under sidewise descent and induced original embeddings. This does not establish free-amalgam identity after pullback.
+
+S3.9.6 — APPLICATION OF S3.8-T1 TO P2.3:
+CONDITIONAL. Quotient-level preservation does not automatically transfer to S_P. Fiber saturation or a stronger sufficient condition must be independently verified.
+
+============================================================
+12. ESTABLISHED RESULTS, LIMITATIONS, AND NON-IMPLICATIONS
+============================================================
+
+ESTABLISHED WITHIN THIS AUDIT:
+1. The stated P2.3 set-pushout construction satisfies the required injectivity and exact-intersection properties under its explicit assumptions.
+2. Sidewise coordinatewise invariance is sufficient and necessary for each relation to descend to its side quotient.
+3. Quotient pullback can create mixed tuples absent from the free relational amalgam on S_P.
+4. Fiber saturation is necessary and sufficient for equality between the free union on S_P and the pullback of the quotient relation.
+5. A structural condition preventing non-common representatives in shared quotient fibers is sufficient for fiber saturation.
+
+NOT ESTABLISHED:
+1. That every P2.3 instance fails relational lifting.
+2. That every relation or every constraint class fails under quotient lifting.
+3. That fiber saturation follows from the current Frozen Core.
+4. That the original P2.3 manuscript has been independently source-compared.
+5. That a particular OMEGA-ISOP relational constraint class satisfies fiber saturation.
+6. That any physical, dynamical, or empirical conclusion follows.
+
+NON-IMPLICATIONS:
+P2.3 apartness strong amalgamation does not imply free relational amalgamation after quotient pullback.
+Sidewise quotient descent does not imply global free-union descent.
+Exact intersection of quotient pushout images does not imply that shared quotient fibers contain only representatives from the actual common substructure.
+Quotient-level preservation of a hereditary relational class does not automatically imply preservation by its pullback to S_P.
+
+============================================================
+13. NEXT JUSTIFIED ACTION
+============================================================
+
+S3.10:
+Choose the exact finite relational constraint fragment K to be tested.
+For each relation in its signature:
+1. Determine whether the free union relation is fiber-saturated under pi_P.
+2. If not, test whether the quotient-pullback amalgam nevertheless remains in K.
+3. Separate preservation of K from preservation of the free-amalgam property.
+4. Seek a finite counterexample before stating any general criterion.
+5. Apply the LOOP_AUDIT_PROTOCOL to the exact target theorem.
+
+Do not generalize to functions, operations, dynamics, or physical interpretation before this relational audit is complete.
+
+============================================================
+14. ARCHITECTURAL INVARIANTS
+============================================================
+
+Frozen Core: UNCHANGED.
+Volume V: UNCHANGED.
+Stage 3: OPEN RESEARCH.
+P2.3: NOT REFUTED AS AN APARTNESS STRONG AMALGAM.
+P2.4.1: NOT REFUTED; FREE RELATIONAL EXPANSION ON S_P REMAINS A DISTINCT CONSTRUCTION.
+P2.4.2: SIDEWISE DESCENT CONDITION RETAINED; LIFT COMPATIBILITY REQUIRES ADDITIONAL AUDIT.
+S3.8-T1: QUOTIENT-LEVEL CONDITIONAL LEMMA; NO AUTOMATIC LIFT CONCLUSION.
+RL REGISTRATION: NOT PERFORMED.
+CANONICAL ACCEPTANCE: NOT PERFORMED.
+VOLUME V INTEGRATION: NOT PERFORMED.
+
+END OF RESEARCH CHECKPOINT
