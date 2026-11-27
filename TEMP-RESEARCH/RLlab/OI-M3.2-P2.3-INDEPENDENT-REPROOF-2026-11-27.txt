@@ -1,0 +1,554 @@
+OMEGA-ISOP
+INDEPENDENT MATHEMATICAL RESEARCH RECORD — P2.3
+RECORD_ID: OI-M3.2-P2.3-INDEPENDENT-REPROOF-2026-11-27
+DATE: 2026-11-27
+WORKSTREAM: MATHEMATICAL FOUNDATION / STAGE 2 — APARTNESS AND AMALGAMATION
+TITLE: Independent Re-Derivation, Structural Characterization, and Categorical Boundary of P2.3
+STATUS: INDEPENDENT PROOF AUDIT — PROVED UNDER EXPLICIT ASSUMPTIONS
+DOCUMENT_ROLE: NON-CANONICAL RESEARCH ARTIFACT IN TEMPORARY RLlab
+CANONICAL_STATUS: NOT CANONICALLY ACCEPTED
+RL_STATUS: NOT REGISTERED
+FROZEN_CORE_STATUS: UNCHANGED
+VOLUME_V_STATUS: UNCHANGED
+
+============================================================
+1. PURPOSE AND SOURCE-INDEPENDENCE
+============================================================
+
+This record independently reconstructs and proves P2.3 from the stated Boolean apartness axioms and the definition of apartness embedding.
+
+The proof is not copied from, or logically dependent on, the operational HANDOFF's proof sketch. The HANDOFF was used only to identify the intended proposition and its declared scope.
+
+The exact historical standalone P2.3 derivation manuscript was not located in the inspected Library or in the current repository tree. Consequently, this record establishes an independent proof of the mathematical proposition, but it does not claim a historical line-by-line comparison with the unavailable manuscript.
+
+The independent proof is intended to remove dependence on the unavailable derivation for future mathematical verification. It cannot establish what the unavailable historical manuscript said.
+
+============================================================
+2. EXACT THEOREM
+============================================================
+
+Let A=(S_A,#_A), B=(S_B,#_B), and C=(S_C,#_C) be Boolean apartness structures.
+
+Assume for each structure:
+
+(A1) Irreflexivity:
+For every x, NOT(x # x).
+
+(A2) Symmetry:
+For every x,y, x # y IFF y # x.
+
+(A3) Cotransitivity:
+For every x,y,z, if x # y, then (x # z) OR (z # y).
+
+The argument uses Boolean-valued relations and classical negation.
+
+Let:
+f:C->A,
+g:C->B
+
+be injective apartness embeddings, meaning:
+
+x #_C y IFF f(x) #_A f(y),
+x #_C y IFF g(x) #_B g(y).
+
+Define:
+x ~_A y IFF NOT(x #_A y),
+and analogously ~_B and ~_C.
+
+Let S_P be the pushout of the underlying sets S_A and S_B over S_C. Write its canonical maps as:
+i_A:S_A->S_P,
+i_B:S_B->S_P.
+
+Then there exists a Boolean apartness relation #_P on S_P such that:
+
+1. (S_P,#_P) satisfies A1-A3.
+2. i_A and i_B are injective apartness embeddings.
+3. i_A(S_A) intersect i_B(S_B) is exactly the common image of S_C.
+
+Thus every span of injective apartness embeddings in this class has a strong amalgam.
+
+This is the strong amalgamation property for the category with these structures as objects and injective apartness embeddings as morphisms.
+
+============================================================
+3. LEMMA 1 — INDISTINGUISHABILITY IS AN EQUIVALENCE RELATION
+============================================================
+
+For any Boolean apartness structure (S,#), define:
+
+x ~ y IFF NOT(x # y).
+
+Proof:
+
+REFLEXIVITY:
+A1 gives NOT(x # x). Hence x~x.
+
+SYMMETRY:
+If x~y, then NOT(x#y). By A2, x#y IFF y#x. Therefore NOT(y#x), so y~x.
+
+TRANSITIVITY:
+Assume x~y and y~z.
+Thus:
+NOT(x#y),
+NOT(y#z).
+
+Suppose x#z. By A3, with intermediary y:
+(x#y) OR (y#z).
+
+Both alternatives contradict the assumptions. Therefore NOT(x#z), so x~z.
+
+Hence ~ is reflexive, symmetric, and transitive.
+
+RESULT:
+~ is an equivalence relation.
+
+The proof of transitivity is independent of any amalgamation construction. It follows directly from A3 and the two assumed non-apartness statements.
+
+============================================================
+4. LEMMA 2 — APARTNESS IS QUOTIENT INEQUALITY
+============================================================
+
+Let [x] denote the equivalence class of x under ~.
+
+By the definition of quotient equality:
+[x]=[y] IFF x~y
+IFF NOT(x#y).
+
+Because # is Boolean-valued:
+x#y IFF NOT(NOT(x#y))
+IFF [x] != [y].
+
+Therefore:
+
+x # y IFF [x] != [y].
+
+This representation is derived from A1-A3 and classical Boolean logic. It is not an additional axiom.
+
+============================================================
+5. LEMMA 3 — EMBEDDINGS INDUCE INJECTIVE QUOTIENT MAPS
+============================================================
+
+Let f:C->A be an injective apartness embedding.
+
+Define:
+f_bar:Q_C->Q_A
+by:
+f_bar([c]_C)=[f(c)]_A.
+
+WELL-DEFINEDNESS:
+If [c1]_C=[c2]_C, then NOT(c1#_C c2).
+Since f preserves and reflects apartness:
+NOT(f(c1)#_A f(c2)).
+Thus [f(c1)]_A=[f(c2)]_A.
+
+INJECTIVITY:
+Suppose:
+f_bar([c1]_C)=f_bar([c2]_C).
+Then:
+[f(c1)]_A=[f(c2)]_A.
+Hence NOT(f(c1)#_A f(c2)).
+Reflection of apartness gives NOT(c1#_C c2).
+Therefore [c1]_C=[c2]_C.
+
+So f_bar is injective. The proof for g_bar is identical.
+
+RESULT:
+Both induced quotient maps are well-defined and injective.
+
+============================================================
+6. INDEPENDENT CONSTRUCTION I — TWO SET PUSHOUTS
+============================================================
+
+Form:
+Q_A=S_A/~_A,
+Q_B=S_B/~_B,
+Q_C=S_C/~_C.
+
+Use Lemma 3 to obtain injective maps:
+f_bar:Q_C->Q_A,
+g_bar:Q_C->Q_B.
+
+Let:
+Q=Q_A coproduct_(Q_C) Q_B
+be the pushout in Set, with canonical maps:
+j_A:Q_A->Q,
+j_B:Q_B->Q.
+
+Because f_bar and g_bar are injective, j_A and j_B are injective. Their images intersect exactly in the common image of Q_C.
+
+Independently form:
+S_P=S_A coproduct_(S_C) S_B
+with canonical maps i_A and i_B.
+
+Because f and g are injective, i_A and i_B are injective and:
+i_A(S_A) intersect i_B(S_B)
+=
+i_A(f(S_C))
+=
+i_B(g(S_C)).
+
+Define:
+pi_P:S_P->Q
+
+by:
+pi_P(i_A(a))=j_A([a]_A),
+pi_P(i_B(b))=j_B([b]_B).
+
+WELL-DEFINEDNESS:
+The only identifications imposed in S_P identify i_A(f(c)) with i_B(g(c)).
+For such an element:
+j_A([f(c)]_A)
+=
+j_A(f_bar([c]_C))
+=
+j_B(g_bar([c]_C))
+=
+j_B([g(c)]_B).
+
+Therefore pi_P is well-defined.
+
+The map pi_P is surjective because every element of the set pushout Q is represented by an element from Q_A or Q_B.
+
+Define:
+x #_P y IFF pi_P(x) != pi_P(y).
+
+============================================================
+7. PROOF THAT P SATISFIES A1-A3
+============================================================
+
+A1 — IRREFLEXIVITY:
+For every x in S_P:
+pi_P(x)=pi_P(x).
+Therefore NOT(pi_P(x)!=pi_P(x)).
+Hence NOT(x#_P x).
+
+A2 — SYMMETRY:
+For all x,y:
+pi_P(x)!=pi_P(y)
+IFF
+pi_P(y)!=pi_P(x).
+Therefore:
+x#_P y IFF y#_P x.
+
+A3 — COTRANSITIVITY:
+Assume x#_P y.
+Then:
+pi_P(x)!=pi_P(y).
+
+Let z be any element of S_P.
+
+Suppose both alternatives fail:
+NOT(x#_P z) and NOT(z#_P y).
+
+By definition:
+pi_P(x)=pi_P(z),
+pi_P(z)=pi_P(y).
+
+By transitivity of equality:
+pi_P(x)=pi_P(y),
+contradicting x#_P y.
+
+Therefore at least one alternative holds:
+x#_P z OR z#_P y.
+
+Thus A3 holds.
+
+RESULT:
+(S_P,#_P) is a Boolean apartness structure.
+
+============================================================
+8. PROOF THAT THE CANONICAL MAPS ARE APARTNESS EMBEDDINGS
+============================================================
+
+Take a,a' in S_A.
+
+By definition:
+i_A(a)#_P i_A(a')
+IFF
+pi_P(i_A(a)) != pi_P(i_A(a')).
+
+Substitute the definition of pi_P:
+IFF
+j_A([a]_A) != j_A([a']_A).
+
+Since j_A is injective:
+IFF
+[a]_A != [a']_A.
+
+By Lemma 2:
+IFF
+a#_A a'.
+
+Therefore:
+a#_A a' IFF i_A(a)#_P i_A(a').
+
+The map i_A is injective as a set-pushout map. Hence it is an injective apartness embedding.
+
+The same proof applies to i_B.
+
+============================================================
+9. PROOF OF STRONGNESS
+============================================================
+
+The underlying set S_P is the pushout of S_A and S_B over S_C along injective maps.
+
+For such a set pushout, the canonical maps are injective and their images intersect exactly in the common image.
+
+Thus:
+i_A(S_A) intersect i_B(S_B)
+=
+i_A(f(S_C))
+=
+i_B(g(S_C)).
+
+No additional cross-identifications are introduced into the carrier S_P.
+
+Together with Sections 7 and 8, this proves that P is a strong amalgam.
+
+============================================================
+10. INDEPENDENT CONSTRUCTION II — GENERATED EQUIVALENCE RELATION
+============================================================
+
+The two-pushout construction admits a more direct reformulation.
+
+Work on the already formed carrier S_P.
+
+Transport the side equivalence relations to S_P:
+E_A = {(i_A(a),i_A(a')) : a~_A a'},
+E_B = {(i_B(b),i_B(b')) : b~_B b'}.
+
+Let E be the smallest equivalence relation on S_P containing E_A and E_B.
+
+Equivalently, E is the reflexive, symmetric, transitive closure of E_A union E_B.
+
+CLAIM:
+For all x,y in S_P:
+x E y IFF pi_P(x)=pi_P(y).
+
+PROOF, FIRST DIRECTION:
+If x E_A y, then x and y are represented on side A by equivalent elements. Their A-quotient classes agree, so their images under pi_P agree.
+The same holds for E_B.
+Equality of pi_P-images is itself an equivalence relation. Therefore it contains the equivalence relation generated by E_A and E_B.
+Hence:
+x E y IMPLIES pi_P(x)=pi_P(y).
+
+PROOF, REVERSE DIRECTION:
+The quotient S_P/E has the following universal property.
+
+A function h:S_P->X factors through S_P/E if and only if it is constant on E-classes.
+
+By the definition of E, this is equivalent to:
+- h restricted to i_A(S_A) is constant on ~_A-classes;
+- h restricted to i_B(S_B) is constant on ~_B-classes.
+
+Since S_P is the set pushout over C, the two restrictions also agree on the identified common elements.
+
+These data are equivalent to a pair of functions:
+h_A:Q_A->X,
+h_B:Q_B->X,
+which agree on Q_C.
+
+That is precisely the universal property defining the set pushout:
+Q=Q_A coproduct_(Q_C) Q_B.
+
+Therefore S_P/E is canonically bijective to Q, and the quotient map S_P->S_P/E has exactly the same fibers as pi_P.
+
+Consequently:
+pi_P(x)=pi_P(y) IFF x E y.
+
+RESULT:
+The quotient classes used in P2.3 are exactly the equivalence classes generated by the two side indistinguishability relations after the common substructure has been identified.
+
+This is an independent one-carrier characterization of the P2.3 construction.
+
+============================================================
+11. STRUCTURAL CONSEQUENCE — P2.3 CHOOSES THE LEAST IDENTIFICATION
+============================================================
+
+The relation E from Section 10 is the smallest equivalence relation on S_P that contains the two side equivalence relations.
+
+P2.3 defines:
+x#_P y IFF NOT(x E y).
+
+Consider any other Boolean apartness relation #_D on the same carrier S_P for which the canonical side maps remain apartness embeddings.
+
+Let:
+x E_D y IFF NOT(x#_D y).
+
+By Lemma 1, E_D is an equivalence relation.
+
+Because the side maps preserve and reflect apartness, E_D contains E_A and E_B. Since E is the smallest equivalence relation containing those side relations:
+E is a subset of E_D.
+
+Taking Boolean complements:
+#_D is a subset of #_P.
+
+Thus, among all Boolean apartness relations on this fixed set-pushout carrier that make both canonical maps apartness embeddings, P2.3 gives the greatest apartness relation under set inclusion.
+
+Equivalently:
+- P2.3 makes no cross-side identifications except those forced by the side equivalences and the common span.
+- Any other admissible equivalence relation on this same carrier may identify additional cross-side classes.
+- Such additional identifications can only remove apartness pairs; they cannot add new apartness pairs.
+
+This is a precise extremal characterization. It does not assert uniqueness of all strong amalgams.
+
+============================================================
+12. CATEGORICAL PUSHOUT IS A STRICTLY STRONGER CLAIM
+============================================================
+
+P2.3 proves existence of a strong amalgam. It does not prove a categorical pushout in the category whose morphisms are injective apartness embeddings.
+
+A counterexample shows why.
+
+Let:
+C be the empty structure,
+A have one element a,
+B have one element b.
+
+There are no nontrivial apartness pairs in either singleton.
+
+The P2.3 carrier has two distinct elements:
+S_P={a,b}.
+
+Their quotient classes are distinct because the quotient pushout is taken over the empty set. Hence:
+a#_P b.
+
+Now let D be a one-element structure:
+S_D={d}.
+
+There is an injective apartness embedding:
+u:A->D,
+and an injective apartness embedding:
+v:B->D.
+
+They agree on C because C is empty.
+
+If P2.3 were a categorical pushout in the category of injective apartness embeddings, there would have to be a morphism:
+h:P->D
+extending u and v.
+
+But extension requires:
+h(a)=d,
+h(b)=d.
+
+Since a and b are distinct, h is not injective. Therefore h is not a morphism in this category.
+
+No such categorical pushout mediator exists.
+
+CONCLUSION:
+The P2.3 object is a strong amalgam, but not a categorical pushout in the embedding category in general.
+
+This confirms the exact boundary stated for P2.3. It is not a defect in the strong-amalgamation proof.
+
+============================================================
+13. DEPENDENCY AND LOOP AUDIT
+============================================================
+
+TARGET:
+Every span of injective apartness embeddings between Boolean structures satisfying A1-A3 has a strong amalgam.
+
+DEPENDENCIES:
+1. A1-A3 on each input structure.
+2. Classical Boolean apartness and negation.
+3. Injectivity and preservation/reflection of apartness by f and g.
+4. Equivalence-class quotients of the side carriers.
+5. Set pushouts along injective maps.
+6. Ordinary equality and inequality in the quotient pushout.
+
+NO CONCLUSION-SMUGGLING:
+The target strong amalgam property is not included in the definition of the quotient, the map pi_P, or the relation #_P.
+
+The relation #_P is defined by inequality in a set pushout. A1-A3 are then verified directly from equality properties.
+
+The embedding property is verified using injectivity of the quotient-side canonical maps and the quotient representation of apartness.
+
+Strongness is verified independently from the set-pushout intersection property.
+
+COUNTERMODEL TEST:
+The proof does not claim categorical pushout. Section 12 gives a counterexample to that stronger claim.
+
+RESULT:
+No circular premise or conclusion-smuggling was identified in the strong-amalgamation proof.
+
+============================================================
+14. ASSUMPTIONS, SCOPE, AND LIMITATIONS
+============================================================
+
+THEOREM SCOPE:
+- Boolean-valued apartness.
+- A1 irreflexivity.
+- A2 symmetry.
+- A3 cotransitivity.
+- Classical logic.
+- Injective maps preserving and reflecting apartness.
+- The category of these structures and embeddings.
+
+NOT ESTABLISHED:
+1. The theorem for arbitrary constructive apartness structures where Boolean negation or quotient equivalence is unavailable.
+2. The theorem for weaker apartness realizations that do not make ~ an equivalence relation.
+3. Amalgamation for arbitrary extra operations, relational axioms, constraints, or dynamics.
+4. Categorical pushout in the category of injective embeddings.
+5. A universal axiom system for all OMEGA-ISOP realizations.
+6. A physical interpretation or empirical consequence.
+
+IMPORTANT FROZEN CORE COMPATIBILITY:
+Frozen Core v2.0-FC10.2, Section 1.3 describes A1-A3 as an example formalization, not a universal axiom requirement.
+Section 1.4 states that indistinguishability is an equivalence relation only when the selected realization's assumptions establish all equivalence properties.
+P2.3 is therefore a conditional theorem for the selected Boolean apartness realization. It must not be promoted into a universal theorem about every possible OMEGA-ISOP distinction structure.
+
+============================================================
+15. FINAL RESULT
+============================================================
+
+P2.3 STRONG AMALGAMATION:
+PROVED INDEPENDENTLY UNDER THE EXPLICIT ASSUMPTIONS.
+
+QUOTIENT REPRESENTATION:
+PROVED.
+
+INDUCED QUOTIENT EMBEDDINGS:
+PROVED.
+
+SET-PUSHOUT INJECTIVITY AND EXACT INTERSECTION:
+PROVED.
+
+WELL-DEFINED QUOTIENT MAP pi_P:
+PROVED.
+
+A1-A3 FOR THE AMALGAM:
+PROVED.
+
+PRESERVATION AND REFLECTION OF APARTNESS:
+PROVED.
+
+STRONGNESS:
+PROVED.
+
+GENERATED-EQUIVALENCE CHARACTERIZATION:
+PROVED.
+
+MAXIMAL-APARTNESS CHARACTERIZATION ON THE FIXED SET-PUSHOUT CARRIER:
+PROVED.
+
+CATEGORICAL PUSHOUT:
+NOT PROVED; IN GENERAL FALSE IN THE CATEGORY OF INJECTIVE APARTNESS EMBEDDINGS, AS SHOWN BY THE EMPTY-SPAN COUNTEREXAMPLE.
+
+HISTORICAL SOURCE COMPARISON:
+NOT PERFORMED, BECAUSE THE ORIGINAL STANDALONE DERIVATION WAS NOT LOCATED.
+The independent proof removes dependence on that missing source for mathematical validation of the stated theorem. It does not establish historical identity with the unavailable manuscript.
+
+============================================================
+16. ARCHITECTURAL STATUS
+============================================================
+
+Frozen Core: UNCHANGED.
+Volume V: UNCHANGED.
+Stage 2: This independent proof audit is complete within the stated scope.
+Stage 3: OPEN RESEARCH; S3.9-S3.11 remain separate relational-lifting investigations.
+P2.3: INDEPENDENTLY RE-PROVED UNDER EXPLICIT BOOLEAN APARTNESS ASSUMPTIONS.
+P2.3 CATEGORICAL PUSHOUT CLAIM: EXCLUDED.
+P2.4: Not modified by this record.
+RL REGISTRATION: NOT PERFORMED.
+CANONICAL ACCEPTANCE: NOT PERFORMED.
+VOLUME V INTEGRATION: NOT PERFORMED.
+
+END OF INDEPENDENT P2.3 RESEARCH RECORD
