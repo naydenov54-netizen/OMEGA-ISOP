@@ -1,0 +1,285 @@
+OMEGA-ISOP
+RESEARCH CHECKPOINT — STAGE 3 / S3.10
+CHECKPOINT_ID: OI-M3.2-CP-2026-11-27-03
+DATE: 2026-11-27
+WORKSTREAM: MATHEMATICAL FOUNDATION / STAGE 3 — CONSTRAINT
+TITLE: Finite Forbidden-Class Test of Quotient-Pullback Preservation
+STATUS: OPEN RESEARCH — PROVISIONAL COUNTEREXAMPLE
+DOCUMENT_ROLE: TEMPORARY RLlab WORKING ARTIFACT
+CANONICAL_STATUS: NOT CANONICALLY ACCEPTED
+RL_STATUS: NOT REGISTERED
+FROZEN_CORE_STATUS: UNCHANGED
+VOLUME_V_STATUS: UNCHANGED
+
+============================================================
+1. OBJECTIVE
+============================================================
+
+Continue S3.9 by testing whether preservation of a hereditary relational constraint class on the quotient pushout Q implies preservation after pulling the quotient structure back to the underlying set pushout S_P.
+
+Use a finite relational signature and a class K defined by a single finite forbidden induced structure. The test must distinguish:
+
+(A) preservation by the free relational amalgam on S_P;
+(B) preservation by the quotient-level amalgam Q;
+(C) preservation by the quotient-pullback structure on S_P.
+
+============================================================
+2. SIGNATURE AND FORBIDDEN STRUCTURE
+============================================================
+
+Use the finite relational signature:
+Sigma={R},
+where R is binary.
+
+Let F be the three-element Sigma-structure:
+S_F={u,v,w},
+R_F=S_F x S_F.
+
+Thus R_F contains all nine ordered pairs:
+(u,u),(u,v),(u,w),
+(v,u),(v,v),(v,w),
+(w,u),(w,v),(w,w).
+
+F is irreducible in the relational sense used in S3.4:
+for every pair of distinct elements x,y in F, the tuple (x,y) belongs to R_F and therefore a relation tuple contains both x and y.
+
+Define:
+K=Forb(F),
+
+where Forb(F) is the class of all Sigma-structures containing no induced copy of F.
+
+K is hereditary under induced substructures.
+
+Under the single-finite-forbidden-structure criterion established in S3.4-T1, irreducibility of F implies that K has the free amalgamation property for induced embeddings in the pure relational setting.
+
+============================================================
+3. INPUT SPAN
+============================================================
+
+Let:
+S_C={c},
+S_A={c,a},
+S_B={c,b}.
+
+Let all apartness relations be empty:
+#_A=#_B=#_C=empty.
+
+Then all elements on each side are equivalent under ~.
+
+Define the binary relations:
+R_A=S_A x S_A,
+R_B=S_B x S_B,
+R_C={(c,c)}.
+
+The embeddings of C into A and B are induced embeddings for both apartness and R.
+
+The side relations agree on C.
+
+Coordinatewise invariance holds on each side because each side relation is universal on its carrier.
+
+Membership:
+A in K, because |S_A|=2 and F has three elements.
+B in K, because |S_B|=2 and F has three elements.
+C in K, because |S_C|=1.
+
+============================================================
+4. FREE RELATIONAL AMALGAM ON THE UNDERLYING SET PUSHOUT
+============================================================
+
+The underlying set pushout is:
+S_P={c,a,b}.
+
+The free relational amalgam is:
+R_P^free=R_A union R_B.
+
+Explicitly:
+R_P^free =
+{(c,c),(c,a),(a,c),(a,a),(c,b),(b,c),(b,b)}.
+
+The two mixed tuples are absent:
+(a,b) NOT IN R_P^free,
+(b,a) NOT IN R_P^free.
+
+The only possible three-element induced copy of F in S_P would use all of {c,a,b}. It is not a copy of F because R_P^free omits (a,b) and (b,a).
+
+Therefore:
+P_free in K.
+
+This is the expected free-amalgamation preservation result for this span.
+
+============================================================
+5. QUOTIENT PUSHOUT
+============================================================
+
+Because all apartness relations are empty, each side quotient is a singleton:
+Q_A={q_A},
+Q_B={q_B},
+Q_C={q_C}.
+
+The quotient pushout is:
+Q={q}.
+
+The descended quotient relations are:
+Rbar_A={(q_A,q_A)},
+Rbar_B={(q_B,q_B)},
+Rbar_C={(q_C,q_C)}.
+
+The quotient free amalgam has:
+Rbar_Q={(q,q)}.
+
+Since Q has one element and F has three elements:
+Q in K.
+
+Thus the quotient-level relational amalgam belongs to K.
+
+============================================================
+6. QUOTIENT PULLBACK TO S_P
+============================================================
+
+The canonical map is:
+pi_P:S_P->Q,
+
+with:
+pi_P(c)=pi_P(a)=pi_P(b)=q.
+
+Pull back Rbar_Q:
+R_P^pull(x,y) IFF Rbar_Q(pi_P(x),pi_P(y)).
+
+Since Rbar_Q={(q,q)} and every element maps to q:
+R_P^pull=S_P x S_P.
+
+Therefore:
+R_P^pull=R_P^free union {(a,b),(b,a)}.
+
+In particular, the induced substructure on {c,a,b} is exactly F.
+
+Hence:
+P_pull NOT IN K.
+
+============================================================
+7. COUNTEREXAMPLE RESULT
+============================================================
+
+The same input span satisfies:
+A in K,
+B in K,
+C in K.
+
+The free relational amalgam satisfies:
+P_free in K.
+
+The quotient-level relational amalgam satisfies:
+Q in K.
+
+But the quotient-pullback structure does not satisfy:
+P_pull NOT IN K.
+
+Therefore the implication:
+
+Q in K
+IMPLIES
+the quotient-pullback structure on S_P belongs to K
+
+is FALSE in general, even when:
+- Sigma is finite and purely relational;
+- F is finite and irreducible;
+- K=Forb(F) has the free amalgamation property;
+- the side embeddings are induced;
+- the side relations agree on C;
+- each side relation is coordinatewise invariant under its apartness-equivalence relation;
+- the quotient maps and set pushouts have the injectivity and exact-intersection properties of P2.3.
+
+EVIDENCE_CLASS:
+EXPLICIT FINITE COUNTEREXAMPLE WITH DIRECT VERIFICATION.
+
+============================================================
+8. RELATION TO S3.9 AND P2.3-P2.4
+============================================================
+
+This result sharpens S3.9.4-S3.9.6.
+
+P2.3:
+NOT REFUTED. The apartness strong amalgam remains valid in this example.
+
+P2.4.1:
+NOT REFUTED. The free relational amalgam on S_P exists and belongs to K.
+
+P2.4.2:
+Sidewise coordinatewise invariance is satisfied and each relation descends to its side quotient. Nevertheless, the quotient pullback adds mixed tuples.
+
+S3.8-T1:
+Its quotient-level conclusion Q in K is true in this example. That conclusion does not imply that the quotient-pullback structure on S_P is in K.
+
+S3.9 FIBER-SATURATION CONDITION:
+The free union relation is not saturated under pi_P-fibers:
+pi_P(a)=pi_P(b),
+R_P^free(a,a)=TRUE,
+R_P^free(a,b)=FALSE.
+
+This is exactly why the quotient pullback differs from the free union and leaves K.
+
+============================================================
+9. LOGICAL AUDIT
+============================================================
+
+TARGET:
+For every hereditary class K of finite relational structures, if A and B belong to K and their quotient-level relational amalgam Q belongs to K, then the quotient-pullback structure on S_P also belongs to K.
+
+STATUS:
+REFUTED.
+
+COUNTERMODEL:
+The finite structure F and the span A,B,C defined in Sections 2-3 satisfy all stated side assumptions, while Q belongs to K and P_pull does not.
+
+NO CIRCULARITY:
+The failure is demonstrated by explicit carriers and relation tables. Membership and non-membership are checked directly by induced-substructure comparison. No desired conclusion is assumed in the construction.
+
+============================================================
+10. LIMITATIONS AND NON-IMPLICATIONS
+============================================================
+
+This counterexample does not show that every quotient-pullback amalgam fails.
+
+It does not show that every hereditary relational class fails under quotient pullback.
+
+It does not invalidate the free relational amalgam on S_P.
+
+It does not invalidate P2.3 as an apartness strong amalgamation construction.
+
+It does not invalidate the sidewise quotient-descent criterion of P2.4.2.
+
+It shows that quotient-level preservation of K is insufficient, by itself, to establish preservation by the pullback structure on S_P.
+
+The fiber-saturation condition from S3.9 is a sufficient-and-necessary condition for equality of the free union relation and the quotient pullback relation. Whether a weaker condition suffices for preservation of a particular K remains class-dependent and requires separate testing.
+
+============================================================
+11. NEXT JUSTIFIED ACTION
+============================================================
+
+S3.11:
+Investigate whether preservation of a selected hereditary class K can hold under quotient pullback even when the free union relation is not fiber-saturated.
+
+Separate:
+1. Equality of the free union and quotient pullback.
+2. Membership of the quotient pullback in K.
+3. Existence of some other amalgam in K.
+4. Strong amalgamation versus ordinary amalgamation.
+
+Seek necessary conditions only after testing explicit finite examples.
+
+============================================================
+12. ARCHITECTURAL INVARIANTS
+============================================================
+
+Frozen Core: UNCHANGED.
+Volume V: UNCHANGED.
+Stage 3: OPEN RESEARCH.
+P2.3: NOT REFUTED.
+P2.4.1: NOT REFUTED.
+P2.4.2: SIDEWISE DESCENT DOES NOT GUARANTEE K-PRESERVATION AFTER PULLBACK.
+S3.8-T1: QUOTIENT-LEVEL ONLY; NO AUTOMATIC LIFT.
+RL REGISTRATION: NOT PERFORMED.
+CANONICAL ACCEPTANCE: NOT PERFORMED.
+VOLUME V INTEGRATION: NOT PERFORMED.
+
+END OF RESEARCH CHECKPOINT
