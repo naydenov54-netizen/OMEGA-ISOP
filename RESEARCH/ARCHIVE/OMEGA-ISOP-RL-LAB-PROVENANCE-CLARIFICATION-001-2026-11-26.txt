@@ -1,0 +1,35 @@
+OMEGA-ISOP
+RL-LAB PROVENANCE CLARIFICATION 001
+DATE: 2026-11-26
+STATUS: AUTHOR-CONFIRMED PROVENANCE CLARIFICATION / DOCUMENTARY ADDENDUM
+APPLIES TO: RL RECORDS GENERALLY, INCLUDING RL-021, RL-021.1, AND RL-027
+RELATED CONTROLLED DOCUMENT: OMEGA-ISOP-VOLUME-V-v2.4-C-1.5-CONTROLLED-MASTER-2026-11-22.txt
+RELATED SECTION: APPENDIX F.3, PRIMARY RL SOURCE RECORDS
+
+1. AUTHOR-CONFIRMED PROVENANCE STATEMENT
+
+The author confirms that the original laboratory source materials were intentionally destroyed after the corresponding results had been derived and transferred into the RL records. The purpose was to avoid retaining a large volume of intermediate laboratory material when the intended retained outputs were the final RL results. At the time of that decision, the later need for systematic validation and partial certification of OMEGA-ISOP had not been anticipated.
+
+Accordingly, the destruction of those laboratory materials is to be recorded as an intentional post-derivation retention decision, not as accidental loss, an unresolved archival omission, or evidence that the RL results were not derived from laboratory work.
+
+2. OPERATIONAL TREATMENT OF RL RECORDS
+
+For ongoing OMEGA-ISOP work, the surviving RL records are to be treated as the retained final results derived from the laboratory work, on the basis of the author's explicit provenance confirmation. The RL records remain the operative documentary and mathematical objects for subsequent review, validation, and assessment within their stated scopes and assumptions.
+
+The same RL results are not to be recreated solely to generate a second set of laboratory records or to preserve equivalent RL-LAB materials. Repeating an identical derivation without a concrete scientific or reproducibility reason is not required and is not considered a useful substitute for the original derivation history.
+
+Do not restart searches for the same intentionally destroyed laboratory materials, and do not request their resubmission. Reopen this disposition only if new evidence, a genuinely new source path, a concrete inconsistency, a suspected defect or counterexample, a specific reproducibility requirement, a necessary correction, or an explicit author request provides a substantive reason.
+
+3. LIMITS AND STATUS SEPARATION
+
+This clarification records the author's account of provenance and the intended operational treatment of the RL corpus. It does not recreate the destroyed laboratory materials, restore their raw data, notebooks, or intermediate records, or constitute an independent source-by-source audit of those materials.
+
+Mathematical validity, documentary provenance, experimental reproducibility, registry status, and canonical integration remain distinct questions. The provenance clarification does not by itself upgrade any RL mathematical status, close any open audit item, confirm a registration not otherwise established, promote any RL to CE-V, allocate CE-V-07, or modify the Frozen Core.
+
+Independent experimental repetition from the destroyed primary materials cannot be claimed. Mathematical and logical review of the surviving RL definitions, derivations, proofs, assumptions, and counterexamples remains possible and should proceed on the evidence actually preserved in the RL records.
+
+4. CONTROLLED-DOCUMENT RELATIONSHIP
+
+This is an additive provenance clarification associated with Volume V Appendix F.3. It does not silently rewrite or replace the v2.4-C-1.5 Controlled Master. Its content should be incorporated by reference in the next authorized controlled Volume V revision, with the existing document-control and revision procedures observed.
+
+END OF RL-LAB PROVENANCE CLARIFICATION 001
