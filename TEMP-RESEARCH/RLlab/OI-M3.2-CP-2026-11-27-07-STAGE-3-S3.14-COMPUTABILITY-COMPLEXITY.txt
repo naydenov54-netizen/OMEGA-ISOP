@@ -1,0 +1,335 @@
+OMEGA-ISOP
+STAGE 3 / RLlab
+RESEARCH CHECKPOINT S3.14
+
+TITLE:
+COMPUTABILITY AND COMPLEXITY OF THE FIBER-AMPLIFICATION THRESHOLD
+
+DATE:
+2026-11-27
+
+STATUS:
+OPEN RESEARCH
+ALGORITHMIC ANALYSIS DERIVED FROM S3.13
+
+============================================================
+1. PURPOSE
+============================================================
+
+S3.13 defined the threshold kappa_F(Q) for a nonempty finite relational structure F and a finite relational structure Q:
+
+kappa_F(Q) = min over induced relational maps h:F->Q of
+             max over q in h(F) of |h^(-1)({q})|,
+
+with value infinity if no induced relational map exists.
+
+S3.14 asks:
+
+(A) Is kappa_F(Q) computable for finite input structures?
+(B) What is the direct algorithm?
+(C) What are its upper complexity bounds?
+(D) Can the general decision problem be expected to be polynomial-time?
+
+The answer must distinguish computability from tractability.
+
+============================================================
+2. INPUT MODEL AND ASSUMPTIONS
+============================================================
+
+For the algorithmic statements, assume:
+
+1. Sigma is a fixed finite relational signature.
+2. Every relation symbol has a fixed finite arity.
+3. F and Q are finite Sigma-structures given by explicit finite encodings.
+4. F is nonempty.
+5. An induced relational map h:F->Q satisfies, for every relation R and every tuple in F of the appropriate arity:
+
+   R_F(v_1,...,v_r) iff R_Q(h(v_1),...,h(v_r)).
+
+Repeated-coordinate tuples are included.
+
+These assumptions ensure that checking one proposed map is polynomial in the explicit input size.
+
+The complexity conclusions may change under succinct encodings, variable/unbounded arity conventions, or infinite structures. Those cases are not silently included.
+
+============================================================
+3. DIRECT FINITE ALGORITHM
+============================================================
+
+Let n=|F| and q=|Q|.
+
+Enumerate every function h:F->Q.
+
+There are exactly q^n candidate functions when Q is nonempty.
+
+For each candidate h:
+
+STEP 1:
+Check whether h is an induced relational map.
+
+For every relation symbol R of arity r and every tuple
+(v_1,...,v_r) in F^r, test:
+
+R_F(v_1,...,v_r) = R_Q(h(v_1),...,h(v_r)).
+
+Reject h immediately if any test fails.
+
+STEP 2:
+If h passes, compute every nonempty fiber:
+
+b_h(x)=|h^(-1)({x})|, for x in h(F).
+
+Compute:
+
+c(h)=max { b_h(x) : x in h(F) }.
+
+STEP 3:
+Keep the smallest c(h) among all accepted maps.
+
+If no map is accepted, return infinity.
+
+Otherwise return the minimum retained collision number.
+
+This algorithm terminates because F and Q are finite and the set of candidate functions is finite.
+
+If Q is empty and F is nonempty, no function F->Q exists, so the answer is infinity.
+
+============================================================
+4. CORRECTNESS OF THE ALGORITHM
+============================================================
+
+THEOREM S3.14-A:
+
+The direct finite algorithm returns exactly kappa_F(Q).
+
+PROOF:
+
+Every function F->Q is enumerated exactly once.
+
+The induced-map test accepts exactly those functions satisfying the defining relation equivalences for every relation symbol and every tuple.
+
+For each accepted function, the algorithm computes exactly its collision number c(h).
+
+The algorithm returns the minimum collision number over all accepted induced relational maps.
+
+This is the definition of kappa_F(Q).
+
+If no candidate is accepted, there is no induced relational map, and the prescribed value is infinity.
+
+Therefore the algorithm is correct.
+
+============================================================
+5. DECISION VERSION AND CERTIFICATES
+============================================================
+
+Define the decision problem:
+
+FIBER-THRESHOLD:
+Input: finite F, finite Q, positive integer m.
+Question: Is kappa_F(Q)<=m?
+
+A YES certificate is a function h:F->Q.
+
+A verifier checks:
+
+1. h is a well-defined function;
+2. h is induced relational, by checking every relation tuple;
+3. every fiber has size at most m.
+
+The certificate has polynomial size under the explicit finite encoding.
+
+The verifier runs in polynomial time for a fixed finite relational signature of bounded arity.
+
+Therefore:
+
+THEOREM S3.14-B:
+
+FIBER-THRESHOLD belongs to NP under the stated input assumptions.
+
+For a finite forbidden family Fset, define:
+
+FIBER-CLASS-THRESHOLD:
+Input: Q, finite Fset, positive integer m.
+Question: Is kappa_K(Q)<=m, where K=Forb(Fset)?
+
+A certificate consists of one F in Fset and an induced relational map h:F->Q with maximum fiber size at most m.
+
+When Fset is explicitly given as a finite list, this decision problem also belongs to NP.
+
+============================================================
+6. NP-HARDNESS AT THRESHOLD ONE
+============================================================
+
+For m=1, every map h with maximum fiber size at most one is injective.
+
+Consequently:
+
+kappa_F(Q)<=1
+
+iff
+
+there is an injective induced relational map F->Q
+
+iff
+
+F embeds as an induced substructure of Q.
+
+For the fixed signature of simple undirected graphs, this is exactly the induced-subgraph embedding problem.
+
+The induced-subgraph embedding problem is NP-complete when both the pattern graph F and host graph Q are part of the input.
+
+Therefore the general FIBER-THRESHOLD problem is NP-hard already at m=1.
+
+Combined with S3.14-B:
+
+THEOREM S3.14-C:
+
+For finite simple undirected graphs, FIBER-THRESHOLD is NP-complete when F, Q, and m are input and m is allowed to equal 1.
+
+The same NP-hardness transfers to the finite-forbidden-family threshold problem by taking a singleton forbidden family Fset={F}.
+
+This is a worst-case classification. It does not imply that every fixed-signature instance or every restricted class is hard.
+
+============================================================
+7. EXACT COMPUTATION AND UPPER BOUNDS
+============================================================
+
+If n=|F| and q=|Q|, direct enumeration examines q^n functions.
+
+For a fixed finite signature with maximum arity r, one candidate can be checked by examining at most a constant-signature multiple of n^r tuples, assuming explicit relation membership access.
+
+A simple upper bound is therefore:
+
+O(q^n * poly(input size)).
+
+The collision number of any map F->Q lies between 1 and n.
+
+Thus exact computation can also be performed by testing thresholds m=1,2,...,n and finding the first YES answer.
+
+If no threshold succeeds, return infinity.
+
+The decision problem being NP-complete means that this straightforward exponential upper bound is not known to be replaceable by a polynomial-time algorithm in general.
+
+It does not prove that no polynomial-time algorithm exists unless P differs from NP.
+
+============================================================
+8. FIXED-PATTERN TRACTABILITY
+============================================================
+
+If F is fixed and only Q varies, then n=|F| is a constant.
+
+The number q^n of candidate maps is polynomial in q, with a degree depending on the fixed size of F.
+
+Therefore kappa_F(Q) is computable in polynomial time in the size of Q for each fixed F, under the stated explicit representation.
+
+If Fset is a fixed finite family of forbidden structures, then:
+
+kappa_K(Q)=min { kappa_F(Q) : F in Fset }
+
+is also computable in polynomial time in Q, because only finitely many fixed patterns must be checked.
+
+This is a meaningful tractable regime.
+
+It must not be confused with the general problem in which F or Fset varies with the input.
+
+============================================================
+9. RESTRICTED STRUCTURES AND POSSIBLE OPTIMIZATION
+============================================================
+
+The NP-completeness result leaves room for tractable subclasses.
+
+Potential restrictions to investigate include:
+
+- bounded size of F;
+- bounded treewidth or other decomposition parameters;
+- fixed Q;
+- restricted relational signatures;
+- forbidden families with special combinatorial structure;
+- strong restrictions on allowable non-injective induced maps.
+
+No polynomial-time result for these restrictions is claimed in S3.14.
+
+A useful next research task is to identify structural hypotheses under which the collision-threshold problem admits dynamic programming, bounded-state search, or a polynomial algorithm.
+
+Any such claim requires a separate proof and explicit complexity model.
+
+============================================================
+10. COMPUTABILITY LIMITS FOR INFINITE FORBIDDEN FAMILIES
+============================================================
+
+The finite algorithm computes kappa_F(Q) for one finite F.
+
+For a finite explicitly listed family Fset, it computes kappa_K(Q) by taking a finite minimum.
+
+For an infinite forbidden family, the expression
+
+kappa_K(Q)=min { kappa_F(Q) : F in Fset }
+
+does not by itself provide an algorithm.
+
+An effective presentation of Fset is needed, together with a method to determine whether a smaller threshold can occur in a not-yet-enumerated forbidden structure.
+
+Without such additional information, no general computability claim is made for infinite Fset.
+
+============================================================
+11. CONSEQUENCES FOR S3.12 AND S3.13
+============================================================
+
+S3.12 provides the exact pointwise capacity criterion for a fixed, possibly nonuniform surjection.
+
+S3.13 compresses the uniform case into one integer threshold.
+
+S3.14 establishes:
+
+1. The threshold is computable for finite explicit F and Q.
+2. A direct exhaustive algorithm is available.
+3. The decision problem is in NP for fixed finite bounded-arity relational signatures.
+4. The general graph case is NP-complete already at threshold one.
+5. Fixed forbidden patterns give a polynomial-time regime.
+6. Infinite forbidden families require additional effective structure.
+
+The results do not alter the mathematical equivalence proved in S3.12 or S3.13.
+
+============================================================
+12. RESULT
+============================================================
+
+S3.14-A PROVED:
+The direct finite enumeration algorithm computes exactly kappa_F(Q).
+
+S3.14-B PROVED:
+The decision problem kappa_F(Q)<=m belongs to NP under the stated finite explicit encoding assumptions.
+
+S3.14-C PROVED:
+The general graph decision problem is NP-complete, already for m=1, by equivalence with induced-subgraph embedding.
+
+FIXED-PATTERN RESULT:
+For fixed F, the threshold is computable in polynomial time in Q.
+
+FINITE FORBIDDEN LIST:
+For fixed finite Fset, kappa_K(Q) is computable in polynomial time in Q.
+
+INFINITE FORBIDDEN FAMILY:
+No general computability result without an effective presentation and further bounds.
+
+IMPORTANT LIMIT:
+NP-completeness is not an impossibility theorem. It is a classification of the general worst-case decision problem, subject to the usual P versus NP qualification.
+
+============================================================
+13. ARCHITECTURAL STATUS
+============================================================
+
+Frozen Core: UNCHANGED.
+Volume V: UNCHANGED.
+Stage 3: OPEN RESEARCH.
+S3.12: FIXED-SURJECTION FIBER-CAPACITY CRITERION.
+S3.13: UNIFORM FIBER-AMPLIFICATION THRESHOLD.
+S3.14: FINITE COMPUTABILITY AND GENERAL NP-COMPLETENESS CLASSIFICATION UNDER STATED ASSUMPTIONS.
+P2.3: NOT REFUTED.
+P2.4.1: NOT MODIFIED.
+P2.4.2: NOT MODIFIED.
+RL REGISTRATION: NOT PERFORMED.
+CANONICAL ACCEPTANCE: NOT PERFORMED.
+VOLUME V INTEGRATION: NOT PERFORMED.
+
+END OF RESEARCH CHECKPOINT
