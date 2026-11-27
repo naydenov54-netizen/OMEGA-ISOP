@@ -1,0 +1,435 @@
+OMEGA-ISOP
+RESEARCH CHECKPOINT — STAGE 3 / S3.12
+CHECKPOINT_ID: OI-M3.2-CP-2026-11-27-05
+DATE: 2026-11-27
+WORKSTREAM: MATHEMATICAL FOUNDATION / STAGE 3 — CONSTRAINT
+TITLE: Exact Fiber-Capacity Criterion for Forbidden Induced Structures Under Quotient Pullback
+STATUS: OPEN RESEARCH — GENERAL FINITE-RELATIONAL CRITERION PROVED
+DOCUMENT_ROLE: TEMPORARY RLlab WORKING ARTIFACT
+CANONICAL_STATUS: NOT CANONICALLY ACCEPTED
+RL_STATUS: NOT REGISTERED
+FROZEN_CORE_STATUS: UNCHANGED
+VOLUME_V_STATUS: UNCHANGED
+
+============================================================
+1. OBJECTIVE
+============================================================
+
+S3.9 established that equality between the free union relation and quotient pullback is equivalent to fiber saturation.
+
+S3.10 showed that quotient pullback can create a forbidden induced structure.
+S3.11 showed that failure of fiber saturation does not necessarily destroy membership in a particular hereditary class.
+
+S3.12 seeks an exact criterion for the appearance of a finite forbidden induced structure after pullback.
+
+The target is a necessary-and-sufficient condition expressed through:
+- the forbidden structure F;
+- the quotient relational structure Q;
+- the fibers of pi_P;
+- the number of distinct representatives available in each fiber.
+
+The result is restricted to purely relational signatures. No functions, constants, or dynamics are included.
+
+============================================================
+2. FORMAL SETUP
+============================================================
+
+Let Sigma be a relational signature. Each relation symbol R has a fixed finite arity n_R.
+
+Let:
+pi:P->Q
+
+be a surjective map of underlying sets.
+
+Let Q be a Sigma-structure. Define the pullback Sigma-structure P^pi on P by:
+
+R_P(x1,...,xn_R)
+IFF
+R_Q(pi(x1),...,pi(xn_R)).
+
+Let F be a finite Sigma-structure with finite carrier V_F.
+
+An induced embedding e:F->P^pi means:
+1. e is injective;
+2. for every relation symbol R and every tuple (v1,...,vn_R) in V_F^n_R:
+
+R_F(v1,...,vn_R)
+IFF
+R_P(e(v1),...,e(vn_R)).
+
+The equivalence is required for both positive and negative relation instances, including tuples with repeated coordinates.
+
+Define the fiber:
+P_q = pi^(-1)({q}).
+
+============================================================
+3. DEFINITION — INDUCED RELATIONAL MAP NOT REQUIRED TO BE INJECTIVE
+============================================================
+
+Call a map:
+h:V_F->Q
+
+an induced relational map if, for every relation symbol R of arity n_R and every tuple (v1,...,vn_R) in V_F^n_R:
+
+R_F(v1,...,vn_R)
+IFF
+R_Q(h(v1),...,h(vn_R)).
+
+Unlike an induced embedding, h is not required to be injective.
+
+This distinction is central:
+- An induced embedding of F into Q must be injective.
+- A map h as defined above may identify distinct vertices of F.
+- Such identifications can be lifted to distinct elements of P when the corresponding fibers contain enough representatives.
+
+No terminology beyond this explicit definition is needed for the theorem.
+
+============================================================
+4. MAIN THEOREM — EXACT FIBER-CAPACITY CRITERION
+============================================================
+
+THEOREM S3.12.
+
+Let F be finite and let P^pi be the pullback of Q along the surjection pi:P->Q.
+
+Then F embeds as an induced substructure of P^pi if and only if there exists an induced relational map:
+
+h:V_F->Q
+
+such that, for every q in h(V_F):
+
+|h^(-1)({q})| <= |pi^(-1)({q})|.
+
+The inequality is cardinal comparison. Since F is finite, each left-hand side is finite.
+
+Equivalently:
+Every quotient value used by h must have enough distinct representatives in its pi-fiber to lift all vertices of F mapped to that value.
+
+============================================================
+5. PROOF — NECESSITY
+============================================================
+
+Assume there is an induced embedding:
+e:F->P^pi.
+
+Define:
+h = pi o e.
+
+Thus:
+h(v)=pi(e(v)).
+
+For every relation symbol R and every tuple (v1,...,vn_R):
+
+R_F(v1,...,vn_R)
+IFF
+R_P(e(v1),...,e(vn_R))
+
+because e is an induced embedding.
+
+By the definition of pullback:
+
+R_P(e(v1),...,e(vn_R))
+IFF
+R_Q(pi(e(v1)),...,pi(e(vn_R))).
+
+Substituting h:
+
+R_F(v1,...,vn_R)
+IFF
+R_Q(h(v1),...,h(vn_R)).
+
+Therefore h is an induced relational map.
+
+Now fix q in h(V_F).
+
+Every vertex v in h^(-1)({q}) is sent by e to an element of pi^(-1)({q}).
+
+Because e is injective, distinct vertices in h^(-1)({q}) are sent to distinct elements of that fiber.
+
+Hence there is an injection:
+h^(-1)({q}) -> pi^(-1)({q}).
+
+Therefore:
+|h^(-1)({q})| <= |pi^(-1)({q})|.
+
+Necessity is proved.
+
+============================================================
+6. PROOF — SUFFICIENCY
+============================================================
+
+Assume there exists an induced relational map:
+h:V_F->Q
+
+satisfying, for every q in h(V_F):
+
+|h^(-1)({q})| <= |pi^(-1)({q})|.
+
+For each such q, choose an injection:
+s_q:h^(-1)({q})->pi^(-1)({q}).
+
+Because distinct fibers of pi are disjoint, these injections combine into a single map:
+e:V_F->P
+
+defined by:
+e(v)=s_(h(v))(v).
+
+The map e is injective:
+- vertices mapped by h to different q-values land in disjoint pi-fibers;
+- vertices mapped by h to the same q-value are separated by the chosen injection s_q.
+
+Also:
+pi(e(v))=h(v).
+
+For every relation symbol R and every tuple (v1,...,vn_R):
+
+R_P(e(v1),...,e(vn_R))
+IFF
+R_Q(pi(e(v1)),...,pi(e(vn_R)))
+IFF
+R_Q(h(v1),...,h(vn_R))
+IFF
+R_F(v1,...,vn_R).
+
+Thus e is an induced embedding F->P^pi.
+
+Sufficiency is proved.
+
+Therefore the theorem is established.
+
+============================================================
+7. COROLLARY — EXACT PRESERVATION TEST FOR A FORBIDDEN FAMILY
+============================================================
+
+Let K=Forb(ForbSet), where ForbSet is any family of finite Sigma-structures.
+
+Then:
+
+P^pi belongs to K
+
+IFF
+
+for every F in ForbSet, there is no induced relational map h:F->Q satisfying:
+
+|h^(-1)({q})| <= |pi^(-1)({q})|
+
+for every q in h(F).
+
+This is a necessary-and-sufficient criterion for quotient-pullback preservation of the forbidden family.
+
+If Q itself belongs to K, then no such h can be injective, because an injective induced relational map would be an induced embedding F->Q.
+
+Consequently, under Q in K, pullback failure occurs exactly when some forbidden F has a NON-INJECTIVE induced relational map into Q whose quotient fibers have enough representatives to lift it injectively into P.
+
+This identifies the precise gap between:
+- absence of induced forbidden copies in Q;
+- appearance of induced forbidden copies in P^pi.
+
+============================================================
+8. TEST AGAINST S3.10
+============================================================
+
+S3.10 used:
+F with three vertices and universal binary relation R_F=V_F x V_F.
+
+Q is a singleton {q}, with R_Q={(q,q)}.
+
+Define h:F->Q by mapping all three vertices to q.
+
+This h is an induced relational map:
+every tuple is R_F-true, and every image tuple is R_Q-true.
+
+The fiber has:
+|pi^(-1)({q})|=3.
+
+The h-preimage has:
+|h^(-1)({q})|=3.
+
+Thus:
+3<=3.
+
+The theorem predicts an induced copy of F in P^pi.
+
+Indeed P^pi has three elements and universal R, so it is exactly F.
+
+S3.10 is recovered by the criterion.
+
+============================================================
+9. TEST AGAINST S3.11
+============================================================
+
+S3.11 used:
+F={u,v},
+R_F={(u,v)} only.
+
+Q is a singleton {q}, with:
+R_Q={(q,q)}.
+
+Any map h:F->{q} must be constant.
+
+For the tuple (u,u):
+R_F(u,u)=FALSE,
+but R_Q(h(u),h(u))=R_Q(q,q)=TRUE.
+
+Therefore h is not an induced relational map.
+
+There is no alternative map because Q has only one element.
+
+The criterion predicts that no induced copy of F exists in the pullback, regardless of the fiber's cardinality.
+
+Indeed the pullback relation on P is universal. Every two-element induced substructure has all four ordered pairs, so it is not isomorphic to F.
+
+S3.11 is recovered by the criterion.
+
+IMPORTANT:
+The difference between S3.10 and S3.11 is not merely the size of F or the failure of fiber saturation. It is whether the complete positive-and-negative relation pattern of F can be represented after identifying vertices in Q.
+
+============================================================
+10. CONSEQUENCE — QUOTIENT COLLAPSE PATTERNS
+============================================================
+
+For a fixed forbidden structure F, every map h:F->Q determines a partition of V_F into blocks:
+
+v ~_h w IFF h(v)=h(w).
+
+The map is an induced relational map precisely when this partition is compatible with every relation table of F and the relation tables of Q.
+
+A block may contain several vertices only if identifying those vertices does not create a positive/negative relation conflict in Q.
+
+The fiber-capacity condition then asks whether each block can be represented by distinct points of the corresponding pi-fiber.
+
+Thus a forbidden induced structure can appear after pullback through two simultaneous mechanisms:
+
+(A) RELATIONAL COMPATIBILITY:
+The quotient Q admits a non-injective induced relational map from F.
+
+(B) REPRESENTATIVE CAPACITY:
+Each identified block has enough distinct representatives in its pi-fiber.
+
+Both conditions are necessary. Together they are sufficient.
+
+This is an exact characterization, not merely a sufficient obstruction.
+
+============================================================
+11. CONSEQUENCE — WHEN QUOTIENT MEMBERSHIP DOES GUARANTEE PULLBACK MEMBERSHIP
+============================================================
+
+Assume Q belongs to K=Forb(ForbSet).
+
+A sufficient condition for P^pi to belong to K is:
+
+For every F in ForbSet, every induced relational map h:F->Q is injective.
+
+Proof:
+If P^pi contained an induced copy of some F, Theorem S3.12 would give an induced relational map h:F->Q.
+By the stated condition h would be injective.
+An injective induced relational map is an induced embedding, contradicting Q in Forb(ForbSet).
+
+This condition is sufficient and may be stronger than necessary for a particular map pi, because some non-injective h may fail the fiber-capacity inequalities.
+
+The exact necessary-and-sufficient criterion remains the combined relational-map plus fiber-capacity test in Sections 4-7.
+
+============================================================
+12. CONSEQUENCE — FIBER SIZE BOUND
+============================================================
+
+Suppose every fiber of pi has cardinality at most m.
+
+Then a forbidden F can appear in P^pi only through an induced relational map h:F->Q whose every fiber block has size at most m.
+
+In particular, if every induced relational map h:F->Q necessarily has some block larger than m, then F cannot appear in P^pi.
+
+For finite P and Q, the criterion is algorithmically decidable by:
+1. Enumerating maps h:V_F->Q.
+2. Checking the full induced relation equivalence for every relation symbol and every tuple.
+3. Counting each h-fiber.
+4. Comparing its size with the corresponding pi-fiber.
+
+This is a finite decision procedure for each finite F, P, and Q.
+
+============================================================
+13. LOGICAL DISTINCTIONS PRESERVED
+============================================================
+
+S3.12 does not conflate the following:
+
+(A) STRUCTURAL EQUALITY:
+R_P^free=R_P^pull.
+This is characterized by fiber saturation in S3.9.
+
+(B) CLASS MEMBERSHIP:
+P^pi in K.
+This is characterized for finite forbidden families by S3.12's induced-map and fiber-capacity criterion.
+
+(C) EXISTENCE OF SOME AMALGAM IN K:
+This is a separate existence problem. The fact that P^pi is or is not in K does not by itself settle whether another amalgam in K exists.
+
+(D) STRONG AMALGAMATION:
+This concerns whether the two side images intersect exactly in the common image. It is a carrier/map property and must not be inferred from class membership alone.
+
+============================================================
+14. SCOPE AND LIMITATIONS
+============================================================
+
+PROVED:
+The exact fiber-capacity criterion for finite forbidden induced structures in pullbacks of purely relational structures.
+
+PROVED:
+Recovery of S3.10 and S3.11 as two different outcomes of the criterion.
+
+PROVED:
+A sufficient quotient-side condition for K-preservation.
+
+NOT CLAIMED:
+1. A corresponding theorem for signatures with functions or constants.
+2. A theorem for arbitrary infinitary relation arities.
+3. A classification of all hereditary classes beyond those represented as forbidden induced families.
+4. A result about the existence of some other amalgam in K.
+5. A result about categorical pushouts.
+6. A physical interpretation.
+
+The theorem itself does not require F to be irreducible. Irreducibility is relevant to free-amalgamation results such as the S3.4 criterion, but not to the pullback characterization proved here.
+
+============================================================
+15. EVIDENCE AND LOOP AUDIT
+============================================================
+
+TARGET:
+Characterize exactly when a finite forbidden induced structure F appears in P^pi.
+
+DEPENDENCIES:
+1. Definition of relational pullback.
+2. Definition of induced embedding.
+3. Set-theoretic cardinal comparison for finite subsets.
+4. Choice of finitely many distinct representatives in each relevant fiber.
+
+NO CONCLUSION-SMUGGLING:
+The induced relational map h is derived from an assumed induced embedding in the necessity direction.
+In the sufficiency direction, the fiber-capacity inequalities are used to construct an injective lift, and the full relation equivalence is checked afterward.
+
+Positive and negative relation instances are both checked. Repeated-coordinate tuples are included.
+
+The proof does not assume that Q belongs to K. That assumption is introduced only in the corollary interpreting the non-injective obstruction.
+
+RESULT:
+NECESSARY-AND-SUFFICIENT CRITERION PROVED UNDER THE STATED PURELY RELATIONAL ASSUMPTIONS.
+
+============================================================
+16. ARCHITECTURAL STATUS
+============================================================
+
+Frozen Core: UNCHANGED.
+Volume V: UNCHANGED.
+Stage 3: OPEN RESEARCH.
+S3.9: FIBER SATURATION CHARACTERIZES STRUCTURAL EQUALITY.
+S3.10: QUOTIENT MEMBERSHIP CAN FAIL TO LIFT.
+S3.11: NON-SATURATION DOES NOT FORCE CLASS FAILURE.
+S3.12: EXACT FINITE-FORBIDDEN-STRUCTURE PULLBACK CRITERION PROVED.
+P2.3: NOT REFUTED.
+P2.4.1: NOT MODIFIED.
+P2.4.2: NOT MODIFIED.
+RL REGISTRATION: NOT PERFORMED.
+CANONICAL ACCEPTANCE: NOT PERFORMED.
+VOLUME V INTEGRATION: NOT PERFORMED.
+
+END OF RESEARCH CHECKPOINT
