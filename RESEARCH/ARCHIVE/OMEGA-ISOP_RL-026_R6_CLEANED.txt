@@ -1,0 +1,277 @@
+OMEGA-ISOP / RL-026
+
+REVISION: R6
+
+TITLE:
+MATHEMATICAL REFINEMENT:
+TRANSVERSAL OVERLAP AND CARTESIAN-PRODUCT STRUCTURE
+
+DATE: 2026-10-26
+STATUS: CLOSED
+
+1. PURPOSE AND SCOPE
+
+This artifact establishes a finite-set characterization connecting pairwise overlap among minimal transversals with Cartesian-product structure.
+
+Let P be a finite, nonempty family of finite, nonempty sets.
+Let Min(P) denote the inclusion-minimal members of P.
+Let Tr(P) denote the family of inclusion-minimal transversals of P.
+
+Define:
+OVL_Tr(P) = TRUE
+if and only if there exist distinct A,B in Tr(P) such that:
+A ∩ B ≠ ∅
+Otherwise:
+OVL_Tr(P) = FALSE
+
+For pairwise-disjoint, nonempty blocks V1,...,Vk, define:
+CKP(V1,...,Vk) =
+{ {v1,...,vk} : vi ∈ Vi for every i=1,...,k }
+
+Thus CKP contains every set obtained by choosing exactly one element from each block.
+
+2. BASIC REDUCTION
+
+Lemma 1.
+Tr(P) = Tr(Min(P)).
+
+Reason:
+A set intersects every member of P if and only if it intersects every inclusion-minimal member of P. Minimality of a transversal is therefore preserved.
+
+Consequently, by finite blocker duality:
+Tr(Tr(P)) = Min(P).
+
+3. FINITE BLOCKER DUALITY
+
+Lemma 2.
+For every finite clutter C consisting of nonempty sets:
+Tr(Tr(C)) = C.
+
+Here, a clutter is a family in which no distinct member contains another.
+
+Proof:
+
+Part A: C ⊆ Tr(Tr(C)).
+
+Fix C0 ∈ C.
+Every transversal T ∈ Tr(C) intersects C0. Therefore C0 is a transversal of Tr(C).
+
+To establish minimality, fix x ∈ C0.
+For each C' ∈ C with C' ≠ C0, the clutter property implies that C' is not a subset of C0. Choose:
+y_C' ∈ C' \ C0
+
+Define:
+Y = {x} ∪ {y_C' : C' ∈ C, C' ≠ C0}
+
+Y intersects every member of C and:
+Y ∩ C0 = {x}
+
+Choose an inclusion-minimal transversal T of C contained in Y.
+Then T ∩ C0 = {x}.
+Hence C0 \ {x} fails to intersect T.
+
+This holds for every x ∈ C0. Therefore C0 is an inclusion-minimal transversal of Tr(C).
+
+Part B: Tr(Tr(C)) ⊆ C.
+
+Let X ∈ Tr(Tr(C)).
+Suppose no C0 ∈ C satisfies C0 ⊆ X.
+For every C0 ∈ C, choose:
+c_C0 ∈ C0 \ X
+
+Define:
+Y = {c_C0 : C0 ∈ C}
+
+Then Y is a transversal of C and Y ∩ X = ∅.
+Choose an inclusion-minimal transversal T of C contained in Y.
+Since X is a transversal of Tr(C), X must intersect T.
+But T ⊆ Y and Y ∩ X = ∅. This is a contradiction.
+
+Therefore some C0 ∈ C satisfies C0 ⊆ X.
+Since X is a minimal transversal of Tr(C), and C0 itself is a transversal of Tr(C), minimality forces X = C0.
+
+Thus:
+Tr(Tr(C)) = C.
+
+4. CARTESIAN-PRODUCT LEMMAS
+
+Lemma 3.
+For pairwise-disjoint, nonempty blocks V1,...,Vk:
+Tr({V1,...,Vk}) = CKP(V1,...,Vk).
+
+Proof:
+A minimal transversal must intersect every block. Since the blocks are pairwise disjoint, inclusion-minimality requires exactly one selected element from each block.
+
+Lemma 4.
+For T contained in the union of V1,...,Vk:
+T is a transversal of CKP(V1,...,Vk)
+if and only if
+T contains at least one entire block Vi.
+
+Proof:
+If T contains an entire block Vi, every member of CKP intersects T through its selected element in Vi.
+
+Conversely, suppose T contains no entire block. For every i, choose vi ∈ Vi \ T.
+Then {v1,...,vk} belongs to CKP and is disjoint from T.
+Hence T is not a transversal.
+
+Lemma 5.
+Tr(CKP(V1,...,Vk)) = {V1,...,Vk}.
+
+Proof:
+By Lemma 4, every transversal of CKP must contain an entire block.
+Each block is itself a transversal. Its proper subsets contain no entire block because the blocks are pairwise disjoint.
+Therefore each block is minimal, and every minimal transversal is one of these blocks.
+
+5. MAIN THEOREM
+
+Theorem 1.
+For every finite, nonempty family P of finite, nonempty sets:
+OVL_Tr(P) = FALSE
+if and only if there exist pairwise-disjoint, nonempty blocks V1,...,Vk such that:
+Min(P) = CKP(V1,...,Vk).
+
+Proof:
+Let M = Min(P).
+
+Forward direction:
+Assume OVL_Tr(P) = FALSE.
+Then every two distinct members of Tr(P) are disjoint.
+By finite blocker duality:
+M = Tr(Tr(P)).
+Set H = Tr(P). Its members are pairwise disjoint and nonempty.
+By Lemma 3:
+Tr(H) = CKP(H).
+Since H = Tr(P):
+M = Tr(Tr(P)) = CKP(H).
+
+Reverse direction:
+Assume:
+M = CKP(V1,...,Vk)
+for pairwise-disjoint, nonempty blocks V1,...,Vk.
+By Lemma 1:
+Tr(P) = Tr(M).
+By Lemma 5:
+Tr(M) = {V1,...,Vk}.
+The blocks are pairwise disjoint, so no two distinct members of Tr(P) overlap.
+Therefore OVL_Tr(P) = FALSE.
+
+This proves the theorem.
+
+6. STRUCTURAL RECOGNITION CRITERION
+
+Let M = Min(P), and let V(M) be the union of all members of M.
+Construct a simple graph G on V(M), where two distinct vertices are adjacent exactly when they occur together in at least one member of M.
+Let Gᶜ be the complement graph.
+Let V1,...,Vk be the vertex sets of the connected components of Gᶜ.
+
+Condition A:
+Every connected component of Gᶜ is a clique.
+
+Condition B:
+Every E ∈ M intersects each component Vi in exactly one element.
+
+Condition C:
+|M| = ∏ᵢ₌₁ᵏ |Vi|
+
+Recognition theorem:
+M = CKP(V1,...,Vk)
+if and only if Conditions A, B, and C all hold.
+
+Proof:
+If M is a Cartesian product over pairwise-disjoint blocks, two distinct vertices occur together in a member of M exactly when they lie in different blocks. Therefore Gᶜ has precisely the blocks as its connected components, and Conditions A and B hold.
+The product family has cardinality ∏ᵢ |Vi|, giving Condition C.
+
+Conversely, Condition A identifies the connected components of Gᶜ as pairwise-disjoint cliques. Condition B places each member of M among the possible one-per-component choices. Condition C states that M has the same cardinality as the full Cartesian-product family.
+Since M is a subfamily of that finite product family and the cardinalities agree, M equals the full product family.
+
+7. COMPUTATIONAL COMPLEXITY
+
+For an explicitly represented finite family P, the recognition procedure is polynomial in the total input encoding length.
+
+The procedure:
+1. Computes Min(P) by pairwise inclusion comparisons.
+2. Constructs G and Gᶜ.
+3. Finds the connected components of Gᶜ.
+4. Checks Conditions A, B, and C.
+
+The number of pairwise set-inclusion comparisons in Step 1 is O(|P|²). This count alone is not a full runtime bound; the total runtime is polynomial in the total encoding length of the explicitly supplied family.
+
+This result concerns recognition of the stated structure. It does not imply that generating all minimal transversals of an arbitrary hypergraph is polynomial-time solvable.
+
+8. EXAMPLES
+
+Example 1: Triangle.
+Let M = {{a,b},{b,c},{a,c}}.
+Its minimal transversals are:
+Tr(M) = {{a,b},{b,c},{a,c}}.
+Distinct minimal transversals overlap, so OVL_Tr(P) = TRUE.
+The family is not a Cartesian product over pairwise-disjoint blocks.
+
+Example 2: Star.
+Let M = {{a,b},{a,c},{a,d}}.
+Its minimal transversals are:
+Tr(M) = {{a},{b,c,d}}.
+These two transversals are disjoint, so OVL_Tr(P) = FALSE.
+The original family has the Cartesian-product representation:
+M = CKP({a},{b,c,d}).
+
+Example 3: Same degree sequence, different overlap status.
+For K3,3, the two bipartition classes are disjoint minimal vertex covers. Thus its minimal-transversal overlap status is OVL = FALSE.
+
+For the triangular prism with vertex set {a,b,c,d,e,f}, take edge family:
+{{a,b},{b,c},{c,a},{d,e},{e,f},{f,d},{a,d},{b,e},{c,f}}.
+
+Two minimal vertex covers are:
+T1 = {a,b,d,f}
+T2 = {a,b,e,f}
+
+Both cover every edge and are inclusion-minimal. They are distinct, and:
+T1 ∩ T2 = {a,b,f} ≠ ∅
+
+Therefore the triangular prism has OVL = TRUE.
+Both K3,3 and the triangular prism are 3-regular graphs on six vertices, yet their minimal-transversal overlap status differs.
+
+9. INTERPRETIVE BOUNDARIES
+
+The theorem is a finite-set structural characterization under the stated assumptions.
+The exhaustive computational check covered all nonempty families of nonempty subsets over ground sets of sizes one through four. It found no mismatch between the theorem and the recognition criterion.
+This finite computational check is a sanity check, not a substitute for the general proof.
+The theorem's mathematical scope is not limited to the tested cases.
+No claim of novelty, independent external verification, empirical physical validation, CE-V completion, or registration is made.
+
+10. CHANGE CONTROL AND CLOSURE
+
+Artifact: OMEGA-ISOP / RL-026
+Revision: R6
+Closure date: 2026-10-26
+Status: CLOSED
+
+MATHEMATICAL CORE:
+The theorem and supporting arguments are stated for all finite families satisfying the explicit assumptions in this artifact.
+
+COMPUTATIONAL SANITY CHECK:
+Passed for exhaustively enumerated nonempty families over ground sets of up to four elements.
+
+INDEPENDENT EXTERNAL VERIFICATION:
+Not claimed.
+
+NOVELTY ASSESSMENT:
+Not claimed.
+
+CE-V:
+Not claimed.
+
+RL REGISTRATION:
+Not claimed.
+
+FROZEN CORE:
+Unchanged.
+
+CHANGE CONTROL:
+No Frozen Core modification.
+
+CLOSURE NOTE:
+RL-026 R6 is the completed current mathematical artifact. The theorem is not restricted to the computationally tested instances. Closure does not imply external registration, CE-V completion, or independent external validation.
+
+END OF RL-026 R6
