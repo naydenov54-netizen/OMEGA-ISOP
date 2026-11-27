@@ -1,0 +1,288 @@
+OMEGA-ISOP
+STAGE 3 / RLlab
+RESEARCH CHECKPOINT S3.17
+
+TITLE:
+INDEPENDENT VERIFICATION OF S3.15 — PARAMETERIZED HARDNESS AND PROOF-SCOPE AUDIT
+
+DATE:
+2026-11-27
+
+STATUS:
+OPEN RESEARCH
+INDEPENDENT VERIFICATION COMPLETED
+NO REFUTATION OF S3.12-S3.15 FOUND UNDER THEIR STATED ASSUMPTIONS
+
+DOCUMENT_ROLE:
+TEMPORARY RLlab WORKING ARTIFACT
+CANONICAL_STATUS:
+NOT CANONICALLY ACCEPTED
+RL_STATUS:
+NOT REGISTERED
+FROZEN_CORE_STATUS:
+UNCHANGED
+VOLUME_V_STATUS:
+UNCHANGED
+
+============================================================
+1. OBJECTIVE
+============================================================
+
+Independently verify the mathematical claims recorded in S3.15, including:
+- the exact fiber-capacity criterion in S3.12;
+- the uniform threshold reduction in S3.13;
+- the finite computability and NP classification in S3.14;
+- W[1]-hardness parameterized by |F|;
+- W[1]-hardness parameterized by tw(F) alone;
+- para-NP-hardness parameterized by m alone;
+- the logical distinction between one quotient pullback and existence of an arbitrary amalgam.
+
+This is a proof-level audit of the stated finite relational problems. It is not a software implementation audit.
+
+============================================================
+2. SOURCE STATE AND REPRODUCIBILITY
+============================================================
+
+REPOSITORY:
+naydenov54-netizen/OMEGA-ISOP
+
+BRANCH:
+temp/91-6C-research-workspace
+
+WORKSPACE:
+TEMP-RESEARCH/RLlab/
+
+BRANCH HEAD VERIFIED BEFORE THIS CHECKPOINT:
+f5aac638dd18e433f86f1041f6f00032410efaab
+
+PREVIOUS ARTIFACTS READ:
+- README.txt
+- OI-M3.2-CP-2026-11-27-05-STAGE-3-S3.12-FIBER-CAPACITY-CRITERION.txt
+- OI-M3.2-CP-2026-11-27-06-STAGE-3-S3.13-UNIFORM-FIBER-THRESHOLD.txt
+- OI-M3.2-CP-2026-11-27-07-STAGE-3-S3.14-COMPUTABILITY-COMPLEXITY.txt
+- OI-M3.2-CP-2026-11-27-08-STAGE-3-S3.15-ADVERSARIAL-AUDIT-AND-PARAMETERIZED-HARDNESS.txt
+
+The branch and exact RLlab paths were found through the repository tree and branch-ref endpoints. The prior failure to locate S3.15 was a search-method failure, not evidence that the file was absent.
+
+============================================================
+3. INDEPENDENT CHECK OF S3.12
+============================================================
+
+Claim:
+F embeds as an induced substructure of P^pi iff there exists an induced relational map h:F->Q such that
+|h^(-1)({q})| <= |pi^(-1)({q})|
+for every q in h(F).
+
+NECESSITY CHECK:
+Given an induced embedding e:F->P^pi, set h=pi o e.
+The pullback equivalence transfers every positive and negative relation instance from e to h.
+For each q, injectivity of e restricts to an injection from h^(-1)({q}) into pi^(-1)({q}).
+Thus the capacity inequality follows.
+
+SUFFICIENCY CHECK:
+Given h and the capacity inequalities, choose an injection from each finite h-fiber into its corresponding pi-fiber.
+Distinct pi-fibers are disjoint, so the chosen injections combine into an injective map e:F->P.
+Since pi o e=h, the full relation equivalence transfers from h to e by the pullback definition.
+
+AUDIT:
+No proof gap found under the stated assumptions:
+- F finite;
+- purely relational signature;
+- finite relation arities;
+- induced equivalence checked on all tuples, including repeated coordinates;
+- pullback defined exactly along pi.
+
+The theorem is not thereby extended to signatures with functions, constants, or other additional structure.
+
+============================================================
+4. INDEPENDENT CHECK OF S3.13
+============================================================
+
+For the uniform m-fold blow-up, every pi-fiber has exactly m elements.
+
+An induced embedding e:F->Q^(m), projected through pi_m, yields an induced relational map h:F->Q with every h-fiber of size at most m.
+
+Conversely, an induced relational map h with maximum collision number at most m can be lifted by assigning distinct copy indices in {1,...,m} within each h-fiber.
+
+Therefore:
+F embeds into Q^(m) iff kappa_F(Q)<=m.
+
+AUDIT:
+No counterexample or proof defect found for finite nonempty F under the stated relational assumptions.
+
+============================================================
+5. INDEPENDENT CHECK OF THE W[1]-HARDNESS REDUCTION
+============================================================
+
+PROBLEM:
+FIBER-THRESHOLD on finite simple undirected graphs.
+
+PARAMETER:
+n=|F|.
+
+SOURCE:
+k-CLIQUE, parameterized by k.
+
+REDUCTION:
+Given graph G and integer k>=2, set:
+F=K_k
+Q=G
+m=1.
+
+Then:
+kappa_(K_k)(G)<=1
+iff there is an induced relational map K_k->G with every fiber of size at most one
+iff there is an injective induced relational map K_k->G
+iff G contains a k-clique.
+
+The final equivalence holds because K_k has every off-diagonal edge and no loops; an injective induced embedding therefore selects exactly k pairwise adjacent distinct vertices of G.
+
+The construction is polynomial, and |F|=k.
+
+CONCLUSION:
+The problem is W[1]-hard parameterized by |F|.
+
+No W[1]-membership proof is supplied. Therefore W[1]-completeness is NOT claimed.
+
+The direct q^n enumeration is an XP upper bound, not an FPT upper bound. Unless FPT=W[1], an FPT algorithm parameterized by |F| does not exist for the unrestricted graph problem.
+
+AUDIT:
+Reduction is correct.
+
+============================================================
+6. INDEPENDENT CHECK OF TREEWIDTH-PARAMETER HARDNESS
+============================================================
+
+In the same reduction:
+F=K_k
+and
+tw(F)=k-1.
+
+The parameter transformation k -> k-1 is parameter-bounded and preserves the yes/no answer.
+
+CONCLUSION:
+The unrestricted problem is W[1]-hard when parameterized by tw(F) alone.
+
+SCOPE LIMIT:
+This does not establish hardness for any fixed constant treewidth bound.
+It does not rule out polynomial-time algorithms on each fixed-treewidth class.
+
+AUDIT:
+Reduction is correct for the parameter tw(F) alone.
+
+============================================================
+7. INDEPENDENT CHECK OF para-NP-HARDNESS BY m
+============================================================
+
+At m=1, FIBER-THRESHOLD is exactly induced-subgraph embedding:
+kappa_F(Q)<=1 iff F embeds as an induced substructure of Q.
+
+For finite simple undirected graphs, induced-subgraph embedding with both F and Q as input is NP-complete.
+
+Thus the problem is NP-hard on the slice m=1.
+
+If an algorithm of the form f(m)*poly(N) existed, fixing m=1 would give a polynomial-time algorithm for this NP-hard slice.
+
+CONCLUSION:
+The parameterization by m alone is para-NP-hard, unless P=NP.
+
+AUDIT:
+Correct. This does not imply hardness when another structural parameter is also bounded.
+
+============================================================
+8. CHECK OF S3.14 COMPUTABILITY AND NP CLAIMS
+============================================================
+
+For finite explicit F and Q, enumerate all maps h:F->Q.
+There are |Q|^|F| candidates.
+For a fixed finite signature of bounded arity, each candidate can be checked in polynomial time by testing all relation tuples and computing its fiber sizes.
+
+This gives a terminating exact algorithm and an XP upper bound.
+
+For the decision problem kappa_F(Q)<=m, a map h is a polynomial-size certificate. The verifier checks induced relational equivalence and the fiber-size bound.
+
+Under the stated fixed-signature, bounded-arity, explicit-encoding assumptions, membership in NP is valid.
+
+At m=1 the graph problem is induced-subgraph embedding, giving NP-hardness and hence NP-completeness.
+
+Fixed F, or a fixed finite forbidden family, yields polynomial time in Q because the exponent |F| is constant.
+
+AUDIT:
+No defect found under the stated encoding assumptions.
+Succinct encodings, unbounded arity, and infinite structures are outside this conclusion.
+
+============================================================
+9. LOGICAL SCOPE: PULLBACK VERSUS ARBITRARY AMALGAM
+============================================================
+
+S3.12-S3.14 characterize membership of one specific relational pullback P^pi in a forbidden class.
+
+Failure:
+P^pi not in K
+
+does not imply:
+there is no amalgam D in K.
+
+The distinction is real. A free relational amalgam may omit mixed cross-relations and remain in K even when the quotient pullback introduces a forbidden induced structure.
+
+Therefore any inference from failure of this pullback to nonexistence of every admissible amalgam requires an additional theorem and cannot be obtained from S3.12-S3.15 alone.
+
+AUDIT:
+The scope warning in S3.15 is correct and mathematically essential.
+
+============================================================
+10. FINAL CLASSIFICATION
+============================================================
+
+S3.12:
+NO REFUTATION FOUND; EXACT FIBER-CAPACITY PROOF CHECKED.
+
+S3.13:
+NO REFUTATION FOUND; UNIFORM THRESHOLD DERIVATION CHECKED.
+
+S3.14:
+NO REFUTATION FOUND; FINITE ENUMERATION, NP MEMBERSHIP, NP-COMPLETENESS AT m=1, AND FIXED-PATTERN TRACTABILITY CHECKED UNDER THE STATED INPUT MODEL.
+
+S3.15 W[1]-HARDNESS BY |F|:
+CONFIRMED.
+
+S3.15 W[1]-HARDNESS BY tw(F) ALONE:
+CONFIRMED.
+
+S3.15 para-NP-HARDNESS BY m ALONE:
+CONFIRMED.
+
+W[1]-COMPLETENESS:
+NOT ESTABLISHED.
+
+HARDNESS AT FIXED CONSTANT TREEWIDTH:
+NOT ESTABLISHED.
+
+PULLBACK FAILURE IMPLIES NO AMALGAM:
+FALSE AS A GENERAL INFERENCE; AN ADDITIONAL ARGUMENT IS REQUIRED.
+
+FULL OMEGA-ISOP TRANSFER:
+NOT ESTABLISHED BY THESE ABSTRACT RELATIONAL RESULTS ALONE.
+
+============================================================
+11. LIMITATIONS AND NEXT RESEARCH ACTIONS
+============================================================
+
+1. This audit verifies the abstract finite relational claims. It does not establish that the full OMEGA-ISOP realization satisfies the exact relational signature and morphism assumptions.
+2. The next mathematical target is the realization-specific bridge: identify all symbols, morphisms, quotient maps, extension rules, and axioms, then prove preservation.
+3. Investigate restricted pattern classes, especially fixed-constant-treewidth patterns, without extrapolating from the clique reduction.
+4. If the intended theorem concerns existence of some amalgam rather than the specified pullback, formulate and prove a separate existence criterion.
+5. No Frozen Core, canonical master, active Research Log, or Volume V file was modified.
+
+============================================================
+12. ARCHITECTURAL STATUS
+============================================================
+
+Frozen Core: UNCHANGED.
+Volume V: UNCHANGED.
+Stage 3: OPEN RESEARCH.
+RL REGISTRATION: NOT PERFORMED.
+CANONICAL ACCEPTANCE: NOT PERFORMED.
+VOLUME V INTEGRATION: NOT PERFORMED.
+
+END OF RESEARCH CHECKPOINT
