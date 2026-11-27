@@ -1,0 +1,344 @@
+OMEGA-ISOP
+STAGE 3 / RLlab
+RESEARCH CHECKPOINT S3.13
+
+TITLE:
+UNIFORM FIBER-AMPLIFICATION THRESHOLD FOR FORBIDDEN INDUCED RELATIONAL STRUCTURES
+
+DATE:
+2026-11-27
+
+STATUS:
+OPEN RESEARCH
+INDEPENDENT DERIVATION BASED ON S3.12
+
+============================================================
+1. PURPOSE
+============================================================
+
+S3.12 established an exact criterion for a fixed surjection pi:P->Q:
+a finite forbidden relational structure F occurs as an induced substructure of the pullback P^pi exactly when there is an induced relational map h:F->Q whose point-preimages fit inside the corresponding fibers of pi.
+
+S3.13 studies the uniform case in which every fiber has the same finite size m. The objective is to determine the first fiber size at which a forbidden structure appears, and to characterize preservation for all finite uniform amplifications.
+
+This checkpoint does not replace S3.12. It extracts a numerical threshold from its exact fiber-capacity criterion.
+
+============================================================
+2. FORMAL SETUP
+============================================================
+
+Let Sigma be a purely relational signature whose relation symbols have finite arities.
+
+Let Q be a Sigma-structure.
+
+Let F be a nonempty finite Sigma-structure.
+
+An induced relational map h:F->Q is a function such that, for every relation symbol R of arity n and every tuple (v_1,...,v_n) in F (including tuples with repeated coordinates),
+
+R_F(v_1,...,v_n) iff R_Q(h(v_1),...,h(v_n)).
+
+The map h is not required to be injective.
+
+For each induced relational map h:F->Q define its collision number:
+
+c(h) = max { |h^(-1)({q})| : q in h(F) }.
+
+If no induced relational map F->Q exists, the set of collision numbers is empty.
+
+Define the induced-map fiber threshold:
+
+kappa_F(Q) = min { c(h) : h:F->Q is an induced relational map }.
+
+Convention:
+
+kappa_F(Q) = infinity if there is no induced relational map F->Q.
+
+Because F is finite and nonempty, every c(h) is a positive integer. The minimum exists whenever the set is nonempty.
+
+For a positive integer m, define the uniform m-fold blow-up of Q:
+
+Q^(m) = Q x {1,...,m}
+
+with projection pi_m(q,i)=q.
+
+All relations are pulled back along pi_m. Thus, for every R of arity n,
+
+R_Q^(m)((q_1,i_1),...,(q_n,i_n))
+iff
+R_Q(q_1,...,q_n).
+
+Every fiber of pi_m has exactly m elements.
+
+Let K=Forb(Fset), where Fset is a family of nonempty finite Sigma-structures and membership means that no member of Fset embeds as an induced substructure.
+
+============================================================
+3. MAIN THRESHOLD THEOREM
+============================================================
+
+THEOREM S3.13-A:
+
+For every nonempty finite relational structure F and every positive integer m,
+
+F embeds as an induced substructure of Q^(m)
+iff
+kappa_F(Q) <= m.
+
+PROOF:
+
+(=>)
+
+Assume e:F->Q^(m) is an induced embedding.
+
+Define h=pi_m composed with e.
+
+Since Q^(m) is the pullback of Q along pi_m, the induced-relational equivalence for e implies that h is an induced relational map F->Q.
+
+For each q in h(F), the restriction of e to h^(-1)({q}) is an injective map into the fiber pi_m^(-1)({q}), which has exactly m elements.
+
+Therefore,
+
+|h^(-1)({q})| <= m
+
+for every q in h(F).
+
+Hence c(h)<=m, and by the definition of kappa_F(Q),
+
+kappa_F(Q)<=m.
+
+(<=)
+
+Assume kappa_F(Q)<=m.
+
+Then there exists an induced relational map h:F->Q with c(h)<=m.
+
+For every q in h(F), choose an injection
+
+s_q:h^(-1)({q})->{1,...,m}.
+
+Define
+
+e(v)=(h(v),s_(h(v))(v)).
+
+If v and w are distinct and h(v) differs from h(w), then e(v) and e(w) differ in their first coordinates.
+
+If h(v)=h(w), injectivity of s_(h(v)) makes their second coordinates different.
+
+Thus e is injective.
+
+Also pi_m composed with e equals h. Since all relations in Q^(m) are pulled back from Q, the induced-relational equivalence for h transfers directly to e.
+
+Therefore e is an induced embedding of F into Q^(m).
+
+This proves the theorem.
+
+============================================================
+4. CLASS-LEVEL THRESHOLD
+============================================================
+
+For K=Forb(Fset), define
+
+kappa_K(Q) = min { kappa_F(Q) : F in Fset }.
+
+If every kappa_F(Q) is infinity, set kappa_K(Q)=infinity.
+
+Then:
+
+THEOREM S3.13-B:
+
+For every positive integer m,
+
+Q^(m) belongs to K
+iff
+m < kappa_K(Q).
+
+PROOF:
+
+Q^(m) fails to belong to K exactly when at least one F in Fset embeds as an induced substructure of Q^(m).
+
+By S3.13-A, this is equivalent to the existence of F in Fset with kappa_F(Q)<=m.
+
+That is equivalent to kappa_K(Q)<=m.
+
+Negating both sides gives:
+
+Q^(m) belongs to K iff m<kappa_K(Q).
+
+The result follows.
+
+============================================================
+5. CONSEQUENCES WHEN THE QUOTIENT ALREADY BELONGS TO K
+============================================================
+
+Assume Q belongs to K.
+
+Then no forbidden F in Fset has an injective induced relational map into Q, because such a map would be an induced embedding and would contradict Q in K.
+
+Consequently, for every forbidden F:
+
+Either no induced relational map F->Q exists and kappa_F(Q)=infinity,
+
+or every induced relational map is non-injective and kappa_F(Q)>=2.
+
+Therefore:
+
+1. A forbidden structure cannot first appear at m=1 when Q is already in K.
+
+2. If kappa_K(Q)=r is finite, then all uniform blow-ups with m<r remain in K, while every uniform blow-up with m>=r fails to belong to K.
+
+3. If kappa_K(Q)=infinity, then every finite uniform blow-up Q^(m) belongs to K.
+
+4. Preservation under every finite uniform amplification is equivalent to the absence of every induced relational map from every forbidden F into Q, including non-injective maps.
+
+The fourth statement is stronger than Q in K. Membership of Q in K rules out injective induced maps, but does not rule out non-injective induced maps.
+
+============================================================
+6. RECOVERY OF S3.10 AND S3.11
+============================================================
+
+S3.10:
+
+F has three elements and the universal binary relation.
+
+Q has one element q and the loop R_Q(q,q).
+
+The constant map h:F->Q is induced because every ordered pair in F is related and the only ordered pair in Q is related.
+
+Its only nonempty point-preimage has size 3.
+
+Thus:
+
+kappa_F(Q)=3.
+
+Therefore:
+
+Q^(1) belongs to Forb(F),
+Q^(2) belongs to Forb(F),
+Q^(3) does not belong to Forb(F),
+and Q^(m) does not belong to Forb(F) for every m>=3.
+
+This recovers the three-point obstruction in S3.10 and identifies its exact onset.
+
+S3.11:
+
+F has two elements u,v and exactly one directed relation R_F(u,v).
+
+Q is a singleton with a loop.
+
+The only possible map h:F->Q is constant.
+
+It is not induced, because R_F(v,u) is false while R_Q(q,q) is true.
+
+Thus no induced relational map F->Q exists, and
+
+kappa_F(Q)=infinity.
+
+Consequently Q^(m) avoids F for every positive integer m.
+
+This recovers the preservation result in S3.11 for this forbidden structure.
+
+============================================================
+7. UNIFORM AND NONUNIFORM FIBERS
+============================================================
+
+S3.13 gives a single integer threshold only for uniform fibers.
+
+For a general surjection pi:P->Q, fiber sizes may vary.
+
+S3.12 remains the exact criterion:
+
+F embeds into P^pi iff there is an induced relational map h:F->Q such that
+
+|h^(-1)({q})| <= |pi^(-1)({q})|
+
+for every q in h(F).
+
+Thus the full nonuniform obstruction is a capacity vector indexed by h(F), not merely one maximum integer.
+
+The number kappa_F(Q) is the smallest uniform capacity sufficient for at least one induced map to lift.
+
+It does not replace the pointwise capacity inequalities for nonuniform fibers.
+
+============================================================
+8. SCOPE AND LIMITATIONS
+============================================================
+
+The results rely on:
+
+- a purely relational signature;
+- finite arity for each relation symbol;
+- nonempty finite forbidden structures;
+- induced embeddings defined by preservation and reflection of every relation;
+- the pullback interpretation of all relations.
+
+The proof does not automatically extend to signatures with function symbols or constants, because arbitrary choices of representatives in fibers need not preserve those operations.
+
+The proof also does not establish a corresponding theorem for infinitary relation arities or infinite forbidden structures.
+
+For an infinite forbidden structure, the finite integer collision threshold may not exist in this form. A separate cardinal-valued formulation would be required.
+
+No irreducibility assumption on forbidden structures is used.
+
+============================================================
+9. LOGICAL DISTINCTIONS PRESERVED
+============================================================
+
+S3.9:
+Structural equality between free relational amalgam and quotient pullback is characterized by fiber saturation.
+
+S3.12:
+For a fixed surjection, class membership is characterized by pointwise fiber capacities for induced maps from forbidden structures.
+
+S3.13:
+For uniform finite fibers, the first failure size is the minimum collision number among all induced maps from forbidden structures into Q.
+
+These are three different levels:
+
+(A) equality of relational structures;
+(B) membership in a forbidden class;
+(C) existence of some other amalgam in the class.
+
+S3.13 does not identify (A), (B), and (C).
+
+It does not prove that every failure of this particular pullback construction rules out every possible amalgam.
+
+It does not alter the independent P2.3 strong-amalgamation result.
+
+============================================================
+10. RESULT
+============================================================
+
+S3.13-A PROVED:
+F occurs in the uniform m-fold pullback exactly when kappa_F(Q)<=m.
+
+S3.13-B PROVED:
+Q^(m) belongs to Forb(Fset) exactly when m<kappa_K(Q).
+
+UNIFORM PRESERVATION PROVED:
+For Q in K, preservation under every finite uniform blow-up is equivalent to the absence of all induced relational maps, including non-injective ones, from every forbidden structure into Q.
+
+S3.10 RECOVERED:
+Exact threshold 3.
+
+S3.11 RECOVERED:
+Threshold infinity.
+
+NONUNIFORM CASE:
+S3.12 remains the exact criterion.
+
+============================================================
+11. ARCHITECTURAL STATUS
+============================================================
+
+Frozen Core: UNCHANGED.
+Volume V: UNCHANGED.
+Stage 3: OPEN RESEARCH.
+S3.12: FIXED-SURJECTION FIBER-CAPACITY CRITERION.
+S3.13: UNIFORM FIBER-AMPLIFICATION THRESHOLD PROVED UNDER STATED ASSUMPTIONS.
+P2.3: NOT REFUTED.
+P2.4.1: NOT MODIFIED.
+P2.4.2: NOT MODIFIED.
+RL REGISTRATION: NOT PERFORMED.
+CANONICAL ACCEPTANCE: NOT PERFORMED.
+VOLUME V INTEGRATION: NOT PERFORMED.
+
+END OF RESEARCH CHECKPOINT
