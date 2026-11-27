@@ -1,0 +1,282 @@
+OMEGA-ISOP
+STAGE 3 / RLlab
+RESEARCH CHECKPOINT S3.15
+
+TITLE:
+ADVERSARIAL AUDIT OF S3.12-S3.14: PARAMETERIZED HARDNESS AND THE AMALGAMATION SCOPE GAP
+
+DATE:
+2026-11-27
+
+STATUS:
+OPEN RESEARCH
+INDEPENDENT ADVERSARIAL AUDIT
+NO REFUTATION OF S3.12-S3.14 ESTABLISHED
+
+============================================================
+1. PURPOSE
+============================================================
+
+This checkpoint attempts to identify the weakest point in the S3.12-S3.14 chain.
+
+The audit separates three questions:
+
+(A) Is there a mathematical error in the exact fiber-capacity theorem?
+(B) Does the complexity analysis hide a stronger computational obstruction?
+(C) Are the results being used to support conclusions that they do not establish?
+
+The audit is adversarial. A limitation is not to be mislabeled as a counterexample to a theorem.
+
+============================================================
+2. AUDIT OF THE S3.12 PROOF
+============================================================
+
+S3.12 states:
+
+F embeds as an induced substructure of P^pi
+iff
+there exists an induced relational map h:F->Q such that
+|h^(-1)({q})| <= |pi^(-1)({q})|
+for every q in h(F).
+
+The proof was checked in both directions.
+
+NECESSITY:
+Given an induced embedding e:F->P^pi, define h=pi o e.
+The pullback definition transfers the full positive-and-negative relation equivalence from e to h.
+Injectivity of e gives an injection from each h-fiber into the corresponding pi-fiber.
+
+SUFFICIENCY:
+Given h and the pointwise capacity inequalities, choose an injection from each finite h-fiber into its corresponding pi-fiber.
+The pi-fibers are pairwise disjoint, so these injections combine into an injective map e:F->P.
+Since pi o e=h, every relation equivalence transfers from h to e by the pullback definition.
+
+AUDIT RESULT:
+No logical gap was found in this proof under the stated assumptions:
+- F is finite;
+- the signature is purely relational;
+- relation arities are finite;
+- all relation tuples, including repeated-coordinate tuples, are checked;
+- induced maps preserve and reflect relations;
+- the pullback is defined exactly by pi.
+
+This is not a proof that the theorem applies outside those assumptions.
+
+============================================================
+3. AUDIT OF THE S3.13 THRESHOLD
+============================================================
+
+For uniform m-fold fibers, S3.12 reduces to:
+
+F embeds into Q^(m)
+iff
+there exists an induced relational map h:F->Q with c(h)<=m.
+
+Taking the minimum collision number gives the S3.13 threshold.
+
+The two implications are direct:
+- an embedding projects to an induced map with at most m preimages per quotient point;
+- an induced map with collision number at most m can be lifted by assigning distinct copy indices within each fiber.
+
+AUDIT RESULT:
+No counterexample or proof defect was found under the stated purely relational, finite-pattern assumptions.
+
+============================================================
+4. S3.14 HAS A STRONGER PARAMETERIZED OBSTRUCTION
+============================================================
+
+S3.14 establishes:
+- an XP-style exhaustive upper bound O(|Q|^|F| * poly(input));
+- NP membership;
+- NP-completeness already at m=1 for finite simple undirected graphs.
+
+The NP-hardness reduction can be made explicit and also yields parameterized hardness.
+
+THEOREM S3.15-A — W[1]-HARDNESS PARAMETERIZED BY |F|.
+
+Consider FIBER-THRESHOLD on finite simple undirected graphs, parameterized by n=|F|.
+
+Reduce from k-CLIQUE.
+
+Given a graph G and integer k>=2, construct:
+F = K_k,
+Q = G,
+m = 1.
+
+Then:
+
+kappa_(K_k)(G) <= 1
+iff
+there exists an induced relational map K_k->G with every fiber of size at most 1
+iff
+there exists an injective induced map K_k->G
+iff
+G contains a k-clique.
+
+The construction is polynomial, and the parameter |F| equals k.
+
+Since k-CLIQUE is W[1]-complete, FIBER-THRESHOLD is W[1]-hard when parameterized by |F|.
+
+COROLLARY:
+The exhaustive O(|Q|^|F| * poly(input)) algorithm is an XP upper bound in parameter |F|, not an FPT algorithm.
+
+Unless FPT=W[1], no algorithm of the form:
+f(|F|) * poly(|F|+|Q|)
+exists for the unrestricted graph problem.
+
+No W[1]-membership claim is made here. Therefore the result is W[1]-hardness, not W[1]-completeness.
+
+============================================================
+5. TREEWIDTH ALONE DOES NOT REMOVE THE HARDNESS
+============================================================
+
+For the same reduction, the pattern is F=K_k.
+
+Its treewidth is:
+tw(F)=k-1.
+
+Thus the reduction also preserves the parameter up to a shift of one.
+
+Consequently, the unrestricted problem is W[1]-hard when parameterized by the treewidth of F alone.
+
+This rules out a general FPT algorithm parameterized only by tw(F), unless FPT=W[1].
+
+IMPORTANT LIMIT:
+This does NOT prove hardness when treewidth is bounded by a fixed constant.
+It does NOT rule out polynomial-time algorithms for every fixed treewidth bound.
+Those are separate questions and require separate analysis.
+
+============================================================
+6. PARAMETER m ALONE IS NOT A TRACTABILITY PARAMETER
+============================================================
+
+The problem is NP-hard already for the fixed value m=1.
+
+Therefore an algorithm running in:
+f(m) * poly(input size)
+
+would, at m=1, give a polynomial-time algorithm for an NP-hard problem.
+
+Hence parameterization by m alone is para-NP-hard, unless P=NP.
+
+This is a stronger warning than merely saying that the direct enumeration is expensive.
+
+============================================================
+7. FIXED-PATTERN TRACTABILITY REMAINS VALID BUT NONUNIFORM
+============================================================
+
+For each fixed F, the enumeration over maps F->Q is polynomial in |Q|.
+
+However, the polynomial degree depends on |F|.
+
+This is a nonuniform family of polynomial-time algorithms indexed by fixed patterns. It does not imply a single polynomial-time algorithm when F varies.
+
+For a fixed finite forbidden family, the finite minimum over its patterns is also polynomial-time computable in Q.
+
+These positive results remain valid and are not contradicted by W[1]-hardness of the variable-pattern problem.
+
+============================================================
+8. THE MORE SERIOUS LOGICAL SCOPE GAP: PULLBACK IS NOT AMALGAM EXISTENCE
+============================================================
+
+S3.12-S3.14 characterize one specific construction:
+the relational pullback P^pi.
+
+They do not characterize all possible amalgams of the same span.
+
+In particular:
+
+P^pi not in K
+
+does NOT imply:
+
+there exists no amalgam D in K.
+
+S3.10 already supplies the relevant warning:
+- the quotient pullback contains the forbidden universal three-point structure;
+- the free relational amalgam omits the mixed cross-relations and remains in K.
+
+Thus the same span can have:
+- a quotient pullback outside K;
+- another amalgam inside K.
+
+This is not a flaw in S3.12. It is a strict boundary on what S3.12 can prove.
+
+Any later argument that infers failure of amalgamation, failure of strong amalgamation, or nonexistence of every admissible amalgam solely from failure of P^pi membership is invalid unless it supplies an additional theorem.
+
+============================================================
+9. THE ACTUAL OMEGA-ISOP TRANSFER TEST
+============================================================
+
+Before using S3.12-S3.14 as a general OMEGA-ISOP result, the following bridge must be proved.
+
+BRIDGE REQUIREMENTS:
+
+1. The target OMEGA-ISOP structures must be representable in the purely relational signature used by the theorem.
+
+2. Every additional axiom defining the intended class must be included or separately shown to be preserved by the pullback.
+
+3. The relevant morphisms must match the preservation-and-reflection conditions used in the definition of induced relational map.
+
+4. Any functions, constants, operations, dynamics, or higher-order constraints must be handled separately. They are not covered merely because the relational reduct satisfies S3.12.
+
+5. The specific quotient map pi and pullback used by the OMEGA-ISOP construction must be shown to be the same construction as the abstract theorem's pullback.
+
+Until this bridge is established, S3.12 is a correct abstract theorem with conditional applicability, not a universal theorem about every OMEGA-ISOP realization.
+
+============================================================
+10. CURRENT ACHILLES-HEEL ASSESSMENT
+============================================================
+
+NO PROOF REFUTATION:
+No counterexample to S3.12 or S3.13 and no logical defect in their stated proofs has been found in this audit.
+
+ALGORITHMIC WEAKNESS:
+The unrestricted variable-pattern problem is W[1]-hard parameterized by |F| and by tw(F) alone. Parameter m alone is para-NP-hard.
+
+LOGICAL WEAKNESS:
+The results concern membership of one particular pullback in a forbidden class. They do not settle existence of some other amalgam.
+
+ARCHITECTURAL WEAKNESS:
+The transfer from the purely relational theorem to the full OMEGA-ISOP structure has not been established by S3.12-S3.14 themselves.
+
+The latter two are the strongest current attack points. The algorithmic result is a genuine complexity barrier, but it is not a mathematical contradiction.
+
+============================================================
+11. NEXT FALSIFICATION TARGETS
+============================================================
+
+The next audit should attempt, in order:
+
+A. Find an explicit OMEGA-ISOP structure whose additional axioms are not preserved by the relational pullback, despite the relational reduct satisfying S3.12.
+
+B. Find a span for which the intended OMEGA-ISOP amalgam conditions differ from the abstract relational amalgam conditions.
+
+C. Determine whether the target application requires only pullback membership or existence of any amalgam. If it requires the latter, S3.12 is insufficient by design.
+
+D. Investigate fixed-constant-treewidth patterns separately. The W[1]-hardness result does not settle that regime.
+
+E. Check whether a restricted forbidden family admits a stronger structural characterization that bypasses general induced-subgraph hardness.
+
+No proposed result in this section is treated as proved until its own proof or counterexample is supplied.
+
+============================================================
+12. STATUS
+============================================================
+
+S3.12: NOT REFUTED.
+S3.13: NOT REFUTED.
+S3.14: NOT REFUTED.
+S3.15-A: W[1]-HARDNESS BY |F| ESTABLISHED.
+TREEWIDTH-PARAMETER HARDNESS: ESTABLISHED FOR tw(F) ALONE.
+m-PARAMETER: PARA-NP-HARDNESS ESTABLISHED.
+PULLBACK VERSUS ARBITRARY AMALGAM: STRICT LOGICAL DISTINCTION CONFIRMED.
+FULL OMEGA-ISOP TRANSFER: NOT ESTABLISHED.
+FROZEN CORE: UNCHANGED.
+VOLUME V: UNCHANGED.
+STAGE 3: OPEN RESEARCH.
+RL REGISTRATION: NOT PERFORMED.
+CANONICAL ACCEPTANCE: NOT PERFORMED.
+VOLUME V INTEGRATION: NOT PERFORMED.
+
+END OF RESEARCH CHECKPOINT
