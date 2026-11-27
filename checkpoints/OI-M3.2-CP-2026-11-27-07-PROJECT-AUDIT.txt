@@ -1,0 +1,264 @@
+OMEGA-ISOP / M3.2 v2.1
+RESEARCH CHECKPOINT + ARCHIVAL RECOVERY RECORD
+
+CHECKPOINT_ID: OI-M3.2-CP-2026-11-27-07
+DATE: 2026-11-27
+WORKSTREAM: OMEGA-ISOP / M3.2 / Project-state, mathematical-status, and archive audit
+RESEARCH_STAGE: Read-only audit of Library, Frozen Core, controlled volumes, checkpoints, and GitHub repository
+TITLE: M3.2 project audit: mathematical status, checkpoint integrity, and repository reconciliation
+VERSION: 1.0
+STATUS: AUDIT COMPLETED; NO SCIENTIFIC SOURCE MODIFIED
+EVIDENCE_CLASS: DOCUMENTARY INSPECTION + ANALYTICAL REVIEW OF SELECTED CLAIMS
+
+==================================================
+1. OBJECTIVE AND SCOPE
+==================================================
+
+Perform a read-only audit of the OMEGA-ISOP work available in Library and the GitHub repository, with focus on M3.2 documentation and checkpoints 01-06.
+
+The audit checks:
+- the designated temporary Library folder /checkpoints;
+- checkpoint numbering and actual file locations;
+- Library/GitHub text identity for the M3.2 checkpoint series;
+- the M3.2 operational handoff and its GitHub copy;
+- the Frozen Core and selected Volume II/III definitions relevant to M3.2;
+- Theorem 91 and the separate Theorem 91.6A-D research line;
+- the mathematical status and unresolved dependencies of checkpoints 01-06;
+- repository branch and archival controls.
+
+This checkpoint is an audit record. It does not amend the Frozen Core, Volume II, Volume III, Volume V, Theorem 91, theorem numbering, RL registry, CE/CE-V status, or canonical acceptance.
+
+==================================================
+2. LIBRARY CHECKPOINT INVENTORY
+==================================================
+
+The exact designated folder /checkpoints was inspected before any new write.
+
+Files present in /checkpoints at audit start:
+1. OI-M3.2-CP-2026-11-26-01-KOOPMAN-BRIDGE.txt
+2. OI-M3.2-CP-2026-11-26-02-MARKOV-CLOSURE-TEST.txt
+3. OI-M3.2-CP-2026-11-26-04-IDENTIFIABILITY.txt
+4. OI-M3.2-CP-2026-11-26-05-ROBUST-IDENTIFIABILITY.txt
+5. OI-M3.2-CP-2026-11-26-06-JOINT-UNCERTAINTY.txt
+
+Checkpoint 03 was not in /checkpoints. It was found at:
+/OMEGA-ISOP/checkpoints/OI-M3.2-CP-2026-11-26-03-FINITE-MARKOV-MODEL.txt
+
+Therefore checkpoint 03 exists and numbering 01-06 is preserved, but its Library location violates the designated temporary-folder rule. It was not moved or deleted during this audit.
+
+The next checkpoint number after 06 is 07.
+
+==================================================
+3. LIBRARY / GITHUB CHECKPOINT RECONCILIATION
+==================================================
+
+Repository inspected:
+naydenov54-netizen/OMEGA-ISOP
+Branch:
+main
+
+Current branch HEAD at audit:
+d76d32723363555035421e808afcb4c386f90840
+
+Actual full-text readback comparison:
+
+CP01: Library and GitHub content match exactly.
+GitHub path: checkpoints/OI-M3.2-CP-2026-11-26-01-KOOPMAN-BRIDGE.txt
+GitHub blob SHA: 7b363fda8559681c17476c3792fe2a0c11948d05
+
+CP02: Library and GitHub content match exactly.
+GitHub path: checkpoints/OI-M3.2-CP-2026-11-26-02-MARKOV-CLOSURE-TEST.txt
+GitHub blob SHA: 3adb8faaef539498ce71d306801852ca6a9954c9
+
+CP03: Library copy at /OMEGA-ISOP/checkpoints and GitHub content match exactly.
+GitHub path: checkpoints/OI-M3.2-CP-2026-11-26-03-FINITE-MARKOV-MODEL.txt
+GitHub blob SHA: a61db1fc180fa0454030252269016ba64cf5cb2d
+Library location is incorrect relative to the designated /checkpoints folder.
+
+CP04: Present in Library /checkpoints. Exact GitHub target path was not found; GitHub fetch returned 404 and path-specific commit history returned no commits.
+GitHub archival status: NOT VERIFIED / NOT PRESENT AT THE CHECKED PATH.
+Do not delete this Library checkpoint.
+
+CP05: Library and GitHub content match exactly.
+GitHub path: checkpoints/OI-M3.2-CP-2026-11-26-05-ROBUST-IDENTIFIABILITY.txt
+GitHub blob SHA: 31a5f5bcbef32a58d3346b367914e663ca569d98
+
+CP06: Library and GitHub content match exactly.
+GitHub path: checkpoints/OI-M3.2-CP-2026-11-26-06-JOINT-UNCERTAINTY.txt
+GitHub blob SHA: 01747f07e4a9941b317f8e039f4b0c4139d32b5a
+
+Result: Five of six checkpoints have exact Library/GitHub content matches. CP04 is missing from the checked GitHub path. CP03 is archived but misplaced in Library.
+No checkpoint was moved or deleted during this audit.
+
+==================================================
+4. M3.2 HANDOFF RECONCILIATION
+==================================================
+
+Library operational handoff:
+OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF.txt
+Version 2.1, dated 2026-11-25.
+
+A GitHub copy exists at the repository root, but its content is not identical to the Library copy.
+Library text length read: 49,453 characters.
+GitHub text length read: 51,231 characters.
+The first substantive divergence occurs in LIBRARY_PERSISTENCE_AND_NEW_CHAT_BOOT: the Library copy contains PRIORITY_LOCATION_REMINDER specifying exactly /checkpoints, while the GitHub copy does not contain that reminder.
+
+The HANDOFF itself declares that it is mutable operational guidance with no scientific authority and that a GitHub copy is not required for HANDOFF archival. No HANDOFF change or synchronization was performed.
+
+==================================================
+5. MATHEMATICAL REVIEW OF M3.2 CHECKPOINTS
+==================================================
+
+CP01 — KOOPMAN BRIDGE
+The deterministic and Markov-Koopman bridges are valid within the explicitly stated realization-level assumptions: common observable representation, response factorization, correct protocol order, and closure of the represented operational-probe class.
+The required representation and closure are not derived from the Frozen Core.
+H3 remains NOT DERIVED FROM FROZEN CORE and CONDITIONALLY DERIVED only for the specified realization classes.
+Evidence status: CONDITIONAL ANALYTICAL DERIVATION.
+
+CP02 — MARKOV CLOSURE TEST
+The result correctly distinguishes maximal bounded measurable observable classes from restricted operational probe classes. Closure of the maximal class does not imply closure of an arbitrary restricted probe language.
+The finding is class-dependent and does not establish universal H3.
+Evidence status: CONDITIONAL / CLASS-DEPENDENT ANALYTICAL RESULT.
+
+CP03 — FINITE MARKOV MODEL
+The recorded finite-state calculations are exact within the specified maps, adaptive protocol, pair-state augmentation, and output function. The projected process can fail to be first-order Markov while the augmented pair-state process is Markov. The three-class output-preserving quotient is minimal only for the specified deterministic protocol and observation function.
+The correction distinguishing operator-selection probability from output probability is retained in the checkpoint.
+Evidence status: EXACT FINITE-MODEL RESULT; NO GENERAL OMEGA-ISOP THEOREM.
+
+CP04 — IDENTIFIABILITY
+The two-preparation inverse formulas for alpha and beta are algebraically correct when D != 0. The global injectivity result is valid when the complete admissible preparation family, including the two basis preparations, is accessible and the state coordinates are known.
+The stated horizon-independence of TV_n is explicitly not independently derived in CP04 because the transition matrix R and full horizon-n observation map are not included in that record. This claim remains OPEN FOR INDEPENDENT VERIFICATION.
+Evidence status: PARTIALLY PROVED; TEMPORAL CLAIM NOT INDEPENDENTLY AUDITED.
+
+CP05 — ROBUST IDENTIFIABILITY
+The inverse-error identity, componentwise deterministic noise bounds, spectral sensitivity formula, determinant bound, and optimal conditioning of the basis-preparation design are algebraically consistent under the stated exact-preparation and probability-coordinate constraints.
+The result does not include preparation uncertainty or physical feasibility.
+Evidence status: PROVED UNDER EXPLICIT FINITE-DIMENSIONAL ASSUMPTIONS.
+
+CP06 — JOINT UNCERTAINTY
+The exact identity
+Delta_theta = (A+E)^(-1)*(eta-E*theta)
+is correct when A+E is invertible. The sufficient condition ||E||2 < sigma_min(A), the Weyl-based deterministic bound, first-order expansion, exact remainder identity, and determinant perturbation formula are algebraically consistent.
+The perturbation E has not yet been optimized under the coupled probability-simplex constraints.
+Evidence status: ANALYTICAL MATRIX-PERTURBATION RESULT UNDER EXPLICIT ASSUMPTIONS.
+
+==================================================
+6. FROZEN CORE / VOLUME II / VOLUME III REVIEW
+==================================================
+
+Inspected Library sources:
+- &OMEGA-ISOP-v2.0-FC10.2-CONSOLIDATED-FROZEN-CORE.txt
+- OMEGA-ISOP-VOLUME-II-MATHEMATICAL-FOUNDATIONS-v1.4-GOVERNANCE-ADDENDUM-2026-11-24.txt
+- &OMEGA-ISOP-VOLUME-III-VALIDATION-FRAMEWORK-v1.1-VAL-RESTORED.txt
+
+The Core retains the conditional and realization-dependent framework boundary. Universal minimality is not derived. Unique dynamic selection remains open. The Core distinguishes admissibility from realization and mathematical representation from physical mechanism.
+
+No Frozen Core, Volume II, or Volume III source was modified.
+
+A GitHub search for the Frozen Core and the named Volume II/III primary documents did not locate corresponding repository copies in the checked repository search. The repository is therefore not demonstrated to be a full mirror of the Library scientific source set.
+
+==================================================
+7. THEOREM 91 AUDIT
+==================================================
+
+Theorem 91 states conditional non-expansion of operational response distance under H1-H4.
+The algebraic proof is valid if H3 means ONE COMMON MAP tau:L_op->L_op for every model in the fixed comparison class and every operational probe.
+Surjectivity of tau is not required for non-expansion.
+
+Two formulation points remain important:
+1. The model-independence of tau should be explicit in the quantified statement.
+2. H1 is not used in the algebraic inequality proof. It provides structural context but does not derive H3.
+
+The H3 response identity is the substantive compatibility premise. Theorem 91 does not derive H3 from the Frozen Core or from H1 alone.
+
+The separate Theorem 91.6A-D identifiability development is not the same theorem as Theorem 91. The available series-consistency audit reports no internal mathematical contradiction within its reviewed scope. Those records remain non-canonical research development and do not amend the Frozen Core.
+
+==================================================
+8. GITHUB GOVERNANCE OBSERVATIONS
+==================================================
+
+The repository main branch was readable and writable through the available GitHub connection.
+At audit time, main was not protected; required status checks were off.
+The latest commit metadata reported an unsigned commit (verification=false, reason=unsigned).
+
+These are repository governance weaknesses. They do not invalidate the mathematical content, but they reduce independent protection against accidental or unauthorized repository changes.
+
+No GitHub file was modified during the audit.
+No GitHub commit was created during the audit preparation.
+
+==================================================
+9. OPEN ISSUES AND NEXT JUSTIFIED ACTIONS
+==================================================
+
+PRIORITY 1 — CP04 MATHEMATICAL COMPLETION
+Recover the exact transition matrix R and the full finite-horizon observation map used in Experiment 10. Independently derive or refute the claim that TV_n is independent of n. Preserve the current caveat until this is done.
+
+PRIORITY 2 — CP04 ARCHIVAL GAP
+Determine whether CP04 should be archived to the repository path checkpoints/OI-M3.2-CP-2026-11-26-04-IDENTIFIABILITY.txt. Until an exact GitHub readback exists, CP04 must remain preserved in Library /checkpoints.
+
+PRIORITY 3 — CP03 LOCATION
+CP03 is already present in GitHub with matching text, but its Library copy is under /OMEGA-ISOP/checkpoints rather than /checkpoints. Any move or cleanup should be a separate deliberate operation after confirming the canonical target and readback.
+
+PRIORITY 4 — EXPERIMENT 15
+Continue with structured preparation uncertainty under probability-simplex constraints. Derive feasible perturbation bounds and reassess the A=I design under a specified calibration-error budget.
+
+PRIORITY 5 — H3 BRIDGE
+Keep the Koopman/Markov operational-probe closure problem separate from the finite-state identifiability branch. Do not promote H3 to a Frozen Core consequence without an independent derivation.
+
+==================================================
+10. CHECKS PERFORMED / NOT PERFORMED
+==================================================
+
+CHECKS PERFORMED:
+- Listed exact Library /checkpoints contents before creating this checkpoint.
+- Located CP03 in the alternate Library folder.
+- Read back all six M3.2 checkpoint texts from Library.
+- Retrieved GitHub checkpoint files and compared complete text for CP01, CP02, CP03, CP05, and CP06.
+- Verified CP04 is absent at the checked GitHub path and has no path-specific commit history.
+- Compared Library and GitHub copies of the M3.2 operational handoff.
+- Inspected current repository main branch, latest commit, and branch-protection status.
+- Inspected selected Frozen Core, Volume II, and Volume III content relevant to M3.2.
+- Reviewed the Theorem 91 conditional non-expansion proof and selected Theorem 91.6A-D audit records.
+- Checked the principal algebraic identities in CP04, CP05, and CP06.
+
+CHECKS NOT PERFORMED:
+- No exhaustive line-by-line proof audit of the entire Frozen Core or all controlled volumes.
+- No independent reconstruction of the CP04 horizon-n transition/observation calculation.
+- No physical or empirical validation.
+- No code execution or numerical simulation.
+- No RL registration, canonical theorem acceptance, CE/CE-V promotion, or Volume V integration.
+- No GitHub commit or Library cleanup performed as part of the audit findings recorded above.
+
+==================================================
+11. ARCHITECTURAL INVARIANTS
+==================================================
+
+FROZEN CORE: UNCHANGED.
+VOLUME II: UNCHANGED.
+VOLUME III: UNCHANGED.
+VOLUME V: UNCHANGED.
+THEOREM 91: UNCHANGED; CONDITIONAL RESULT.
+H3: NOT DERIVED FROM FROZEN CORE.
+THEOREMS 91.6A-D: SEPARATE NON-CANONICAL RESEARCH DEVELOPMENT.
+CANONICAL ACCEPTANCE: NONE PERFORMED OR CLAIMED.
+RL REGISTRATION: NONE PERFORMED OR CLAIMED.
+PHYSICAL VALIDATION: NONE PERFORMED OR CLAIMED.
+
+==================================================
+12. RECOVERY INFORMATION
+==================================================
+
+PROJECT: OMEGA-ISOP
+WORKSTREAM: M3.2 v2.1
+CHECKPOINT: OI-M3.2-CP-2026-11-27-07
+DESIGNATED LIBRARY CHECKPOINT FOLDER: /checkpoints
+LAST NUMBER BEFORE THIS AUDIT: 06
+NEXT RESEARCH TASK: Verify CP04 TV_n horizon-independence from the explicit transition matrix and observation map; then proceed to Experiment 15.
+PROTECTED SCOPE: Frozen Core, Volume II, Volume III, Volume V, Theorem 91, canonical theorem records, RL registry, CE/CE-V.
+
+LIBRARY SAVE PATH: /checkpoints/OI-M3.2-CP-2026-11-27-07-PROJECT-AUDIT.txt
+LIBRARY SAVE STATUS: SUCCEEDED; exact destination path confirmed by Library.
+LIBRARY READBACK STATUS: PASS; complete 264-line file returned with no truncation and required checkpoint markers present.
+GITHUB STATUS: PENDING; no commit SHA is claimed until GitHub creation and readback succeed.
+
+END OF CHECKPOINT
