@@ -1,0 +1,406 @@
+OMEGA-ISOP
+STAGE 3 / RLlab
+RESEARCH CHECKPOINT S3.16
+
+TITLE:
+P2.3 EXPANSION AUDIT — EXACT COUNTEREXAMPLE TO AUTOMATIC TRANSFER OF THE APARTNESS AMALGAM TO ADDITIONAL RELATIONS
+
+DATE:
+2026-11-27
+
+STATUS:
+OPEN RESEARCH
+EXPLICIT COUNTERMODEL ESTABLISHED
+NO REFUTATION OF P2.3 OR S3.12
+
+============================================================
+1. OBJECTIVE
+============================================================
+
+Find a concrete failure point in the transfer from:
+- P2.3, which constructs a strong amalgam for Boolean apartness structures;
+to:
+- S3.12-S3.14, which analyze pullbacks of purely relational structures;
+and ultimately to:
+- an expanded OMEGA-ISOP realization containing additional relational or algebraic constraints.
+
+The audit asks whether the P2.3 quotient construction uniquely and safely determines every additional relation in an expanded signature.
+
+It does not.
+
+An explicit finite countermodel below shows that:
+1. the P2.3 apartness amalgam exists and is strong;
+2. pulling an additional relation back from the quotient creates a forbidden induced structure;
+3. a different extension of the same side relations, namely the free relational amalgam, remains in the forbidden class.
+
+This is a counterexample to automatic transfer, not to P2.3 or S3.12.
+
+============================================================
+2. EXACT FORMAL SETUP
+============================================================
+
+Use the finite relational signature:
+
+Sigma = {#, R}
+
+where both # and R are binary relation symbols.
+
+Interpret # as Boolean apartness.
+
+Let the carrier sets be:
+
+S_C = {c}
+S_A = {c,a}
+S_B = {c,b}
+
+with a,b,c pairwise distinct in the set pushout.
+
+Define apartness on each side to be empty:
+
+#_C = empty
+#_A = empty
+#_B = empty
+
+Each is a Boolean apartness structure satisfying:
+
+A1: NOT(x # x)
+A2: x # y IFF y # x
+A3: x # y implies (x # z) OR (z # y)
+
+The canonical inclusions C->A and C->B are injective apartness embeddings.
+
+Define the additional relation R by:
+
+R_C = {(c,c)}
+R_A = S_A x S_A
+R_B = S_B x S_B
+
+The restrictions of R_A and R_B to C agree exactly with R_C.
+
+Define the hereditary class:
+
+K = Forb(F)
+
+where F has carrier:
+
+V_F = {u,v,w}
+
+and relation tables:
+
+#_F = empty
+R_F = V_F x V_F
+
+Thus F has the universal binary R-relation and empty apartness.
+
+A and B belong to K because each has only two elements and therefore cannot contain a three-element induced copy of F.
+
+============================================================
+3. P2.3 APARTNESS CONSTRUCTION
+============================================================
+
+Since apartness is empty on each side:
+
+Every two elements on a given side are indistinguishable.
+
+The quotient carriers Q_A, Q_B, and Q_C are all singletons.
+
+Their set pushout Q is a singleton:
+
+Q = {q}.
+
+The set pushout of the original carriers is:
+
+S_P = {c,a,b}.
+
+The P2.3 quotient map is:
+
+pi_P(c)=q
+pi_P(a)=q
+pi_P(b)=q
+
+P2.3 defines apartness by:
+
+x #_P y IFF pi_P(x) != pi_P(y).
+
+Since every image is q:
+
+#_P = empty.
+
+Therefore (S_P,#_P) satisfies A1-A3.
+
+The canonical maps from A and B:
+- are injective;
+- preserve and reflect apartness;
+- intersect exactly in the common image of C.
+
+Thus P2.3 gives a valid strong amalgam in the category of Boolean apartness structures.
+
+No P2.3 conclusion has failed.
+
+============================================================
+4. EXPANSION OPTION I — PULL BACK THE ADDITIONAL RELATION
+============================================================
+
+The quotient structures for the additional relation R are:
+
+Q_A = {q_A}, with R_QA={(q_A,q_A)}
+Q_B = {q_B}, with R_QB={(q_B,q_B)}
+Q_C = {q_C}, with R_QC={(q_C,q_C)}
+
+The quotient maps identify all three quotient points in their set pushout:
+
+Q={q}, with R_Q={(q,q)}.
+
+If the additional relation is defined on P by the relational pullback along pi_P, then:
+
+R_P^pi(x,y) IFF R_Q(pi_P(x),pi_P(y)).
+
+Because R_Q(q,q) is true and every pi_P-image equals q:
+
+R_P^pi = S_P x S_P.
+
+Therefore the three-element structure F embeds as an induced substructure of P^pi. In fact:
+
+(P^pi,#_P,R_P^pi) is isomorphic to F.
+
+Consequently:
+
+P^pi NOT IN K.
+
+This is exactly the S3.10 / S3.12 obstruction in an expansion that retains the P2.3 apartness reduct.
+
+S3.12 predicts this result:
+- h:F->Q is the constant map to q;
+- h is induced because #_F is empty and R_F is universal, matching the quotient relation tables;
+- |h^(-1)({q})|=3;
+- |pi_P^(-1)({q})|=3;
+- the capacity inequality 3<=3 holds.
+
+Thus the forbidden structure lifts.
+
+============================================================
+5. EXPANSION OPTION II — FREE RELATIONAL AMALGAM
+============================================================
+
+Keep exactly the same carrier:
+
+S_D={c,a,b}
+
+and exactly the same apartness:
+
+#_D=empty.
+
+But define the additional relation by the free union:
+
+R_D = R_A union R_B
+
+viewing both side relations on the set pushout.
+
+Explicitly:
+
+R_D =
+{(c,c),(c,a),(a,c),(a,a),(c,b),(b,c),(b,b)}.
+
+The mixed pairs are absent:
+
+(a,b) NOT IN R_D
+(b,a) NOT IN R_D.
+
+The canonical maps A->D and B->D:
+- are injective;
+- preserve and reflect #;
+- preserve and reflect R;
+- intersect exactly in C.
+
+Therefore D is a strong amalgam of the expanded relational structures.
+
+But D belongs to K:
+the only three-element candidate subset is {c,a,b}, and its induced R-relation is not universal because the two mixed pairs are absent.
+
+Hence:
+
+D IN K.
+
+============================================================
+6. EXACT COUNTERMODEL CONCLUSION
+============================================================
+
+The same side structures and the same P2.3 carrier/apartness construction admit two distinct expansions:
+
+PULLBACK EXPANSION:
+R_P^pi = S_P x S_P
+and
+P^pi NOT IN K.
+
+FREE-UNION EXPANSION:
+R_D = R_A union R_B
+and
+D IN K.
+
+Both expansions preserve the two side structures as induced substructures and are strong on the carrier.
+
+Therefore the P2.3 apartness construction alone does not determine how an additional relation R must be interpreted on the amalgam.
+
+If one imposes quotient-pullback semantics for R, class membership can fail.
+If one uses free relational amalgamation for R, class membership can hold.
+
+The choice is mathematical structure, not a notational detail.
+
+============================================================
+7. WHAT THIS DOES AND DOES NOT REFUTE
+============================================================
+
+REFUTED:
+
+The unrestricted implication:
+
+"P2.3 strong apartness amalgamation automatically extends to every additional relational constraint by quotient pullback while preserving every hereditary forbidden class."
+
+The countermodel satisfies the P2.3 assumptions and shows this implication is false.
+
+NOT REFUTED:
+
+1. P2.3 strong amalgamation for Boolean apartness structures.
+2. S3.12 exact fiber-capacity criterion for relational pullbacks.
+3. S3.13 uniform fiber threshold.
+4. S3.14 finite computability and complexity statements.
+
+S3.12 correctly predicts the failure of the pullback expansion. It does not claim that every other amalgam fails.
+
+The example also confirms that:
+
+P^pi NOT IN K
+
+does not imply:
+
+there exists no amalgam D IN K.
+
+============================================================
+8. CONNECTION TO THE FROZEN CORE
+============================================================
+
+Frozen Core v2.0-FC10.2 states:
+
+- Section 1.3: A1-A3 are an example formalization, not a universal axiom requirement.
+- Section 1.4: indistinguishability is an equivalence relation only when the selected realization establishes all required properties.
+- Section 1.8: the relational specification R is a constraint-generating structure, with existence and representation conditional on the selected category.
+- Section 1.9: the realization layer is not unique; graph, state-space, and algebraic realizations are possible.
+- Section 2.1: a realization map Phi is selected and is not necessarily unique.
+- Section 2.2: admissible dynamics and their preservation conditions are realization-dependent.
+
+Consequently, the Boolean apartness theorem P2.3 is conditional on one selected realization.
+
+The additional relation R in this countermodel is a formal test extension. This checkpoint does NOT claim that the Frozen Core mandates this particular binary relation or that every OMEGA-ISOP realization must contain it.
+
+The valid conclusion is narrower:
+The Frozen Core's realization-dependent architecture does not supply, by itself, a universal rule that extends every additional relational or algebraic structure through the P2.3 quotient.
+
+That bridge must be supplied by the chosen realization.
+
+============================================================
+9. THE MISSING BRIDGE — REQUIRED SPECIFICATION
+============================================================
+
+For any proposed expanded OMEGA-ISOP realization, the following must be fixed before P2.3 can be promoted from an apartness reduct to an expanded-structure amalgam.
+
+B1. SIGNATURE:
+List every relation, function, constant, operation, and additional predicate in the selected realization.
+
+B2. SIDE MORPHISMS:
+State exactly which symbols each embedding preserves and reflects, and whether maps are injective.
+
+B3. COMMON SUBSTRUCTURE:
+Verify that the two side structures agree on every symbol over C.
+
+B4. EXTENSION RULE:
+For each symbol, specify whether the amalgam uses:
+- quotient pullback;
+- free relational union;
+- an algebraic pushout;
+- a generated extension;
+- or another explicitly defined construction.
+
+B5. WELL-DEFINEDNESS:
+Prove that the extension rule is independent of representatives and respects every quotient identification.
+
+B6. AXIOM PRESERVATION:
+Prove every defining axiom of the target class in the constructed amalgam.
+
+B7. FORBIDDEN-CLASS TEST:
+If the class is hereditary and finitely forbidden, apply S3.12 to every forbidden structure under the exact pullback rule. Do not apply S3.12 to a free-union or algebraic extension as if it were a pullback.
+
+B8. AMALGAM EXISTENCE:
+Separate the claim that one chosen construction belongs to K from the claim that some amalgam in K exists.
+
+Until these items are specified, the expanded-structure transfer is INCOMPLETE.
+
+============================================================
+10. LOOP AUDIT L1-L8
+============================================================
+
+L1 — TARGET:
+Test whether the P2.3 apartness amalgam automatically extends to an expanded relational signature by quotient pullback while preserving a hereditary forbidden class.
+
+L2 — DEPENDENCIES:
+P2.3 set pushout, Boolean apartness axioms, additional relation R, quotient map pi_P, relational pullback, induced embeddings, and K=Forb(F).
+
+L3 — CONCLUSION SMUGGLING:
+The pullback rule is not part of P2.3 for additional symbols. It is an extra construction choice. Treating it as automatic would smuggle in an unproved bridge.
+
+L4 — INDEPENDENCE:
+The countermodel is finite and explicit. Both the pullback and free-union expansions are defined directly and checked against the side structures.
+
+L5 — COUNTERMODEL:
+The pullback expansion contains F; the free-union expansion avoids F. Both extend the same side data.
+
+L6 — PREMISE REMOVAL:
+Remove the requirement that R be a quotient pullback and choose the free union: the forbidden-class failure disappears.
+Remove the additional relation R entirely: the P2.3 apartness amalgam remains valid.
+
+L7 — CLASSIFICATION:
+AUTOMATIC EXPANDED-STRUCTURE TRANSFER BY QUOTIENT PULLBACK: REFUTED.
+P2.3: NOT REFUTED.
+S3.12-S3.14: NOT REFUTED.
+FULL OMEGA-ISOP TRANSFER: INCOMPLETE UNTIL A REALIZATION-SPECIFIC EXTENSION RULE IS SUPPLIED.
+
+L8 — NON-IMPLICATIONS:
+No claim is made that every actual OMEGA-ISOP realization contains R, that the free-union extension is always physically or mathematically preferred, or that all algebraic signatures admit an amalgam.
+
+============================================================
+11. RESULT AND STATUS
+============================================================
+
+S3.16-COUNTERMODEL:
+EXPLICIT FINITE COUNTERMODEL ESTABLISHED.
+
+P2.3:
+VALID FOR ITS STATED BOOLEAN APARTNESS SIGNATURE.
+
+S3.12:
+VALID FOR THE RELATIONAL PULLBACK IT DEFINES.
+
+AUTOMATIC TRANSFER TO EXPANDED SIGNATURE:
+REFUTED.
+
+REALIZATION-SPECIFIC BRIDGE:
+REQUIRED AND NOT YET SUPPLIED.
+
+FROZEN CORE:
+UNCHANGED.
+
+VOLUME V:
+UNCHANGED.
+
+STAGE 3:
+OPEN RESEARCH.
+
+RL REGISTRATION:
+NOT PERFORMED.
+
+CANONICAL ACCEPTANCE:
+NOT PERFORMED.
+
+VOLUME V INTEGRATION:
+NOT PERFORMED.
+
+END OF RESEARCH CHECKPOINT
