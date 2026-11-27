@@ -1,0 +1,491 @@
+OMEGA-ISOP
+RELATIONAL THEORY OF ORGANIZATIONAL CONDITIONS AND EMERGENT STRUCTURE
+
+RESEARCH IDENTITY, MATHEMATICAL DEVELOPMENT AND PHYSICAL META-THEORY
+
+DOCUMENT VERSION: 3.1
+PREDECESSOR: 3.0 (PRESERVED UNCHANGED)
+DATE: 2026-11-24
+STATUS: ACTIVE RESEARCH MANDATE
+FRAMEWORK STATUS: CONDITIONAL_STRUCTURAL_FRAMEWORK
+CORE STATUS: PRESERVED
+FROZEN CORE: INTACT; OPEN TO CONTROLLED REVISION
+GOVERNING PRINCIPLE: FROZEN ≠ CLOSED
+ARCHITECTURAL STATUS: CONSISTENT WITH FROZEN CORE
+M3.2 STATUS: CLAIM-CONTROLLED / ACTIVE
+RESEARCH STRATEGY: PROOF-DRIVEN DEVELOPMENT
+MATHEMATICAL DEVELOPMENT: PRIMARY RESEARCH PRIORITY
+PHYSICAL META-THEORY: OPEN FOR MATHEMATICALLY SUPPORTED EXPANSION
+CERTIFICATION OBJECTIVE: NONE
+UNIVERSALITY OR UNIQUENESS PROOF OBJECTIVE: NONE
+
+============================================================
+0. PURPOSE OF THIS DOCUMENT
+============================================================
+
+This document defines the research identity and future development strategy of OMEGA-ISOP.
+
+It preserves the existing Frozen Core and its architectural constraints. It does not replace the Frozen Core, controlled mathematical volumes, M3.2 handoff, Volume V, or individual research records.
+
+Its purpose is to establish a clear direction for future work:
+- develop the mathematical content of OMEGA-ISOP through precise formalization and valid proofs;
+- investigate the structural consequences of established mathematical results;
+- expand the physical part of the meta-theory only where mathematical constructions provide a justified basis;
+- preserve explicit boundaries between definitions, conjectures, proofs, mathematical models, physical interpretations, and empirical evidence.
+
+This document establishes a research mandate. It does not assert a new theorem, certify the framework, or change the Frozen Core.
+
+============================================================
+1. WHAT OMEGA-ISOP IS
+============================================================
+
+OMEGA-ISOP is a conditional structural framework for the formal investigation of conditions under which relational structures can support operational organization within a selected mathematical, physical, or computational realization.
+
+It does not claim that organization is a universal property of all structures. It does not assume that every admissible structure necessarily realizes organization.
+
+OMEGA-ISOP investigates conditional structural dependencies among:
+
+relational structure
+-> constraints
+-> admissible dynamics
+-> realized dynamics
+-> persistence
+-> operational identity
+-> operational organization
+
+This chain expresses formal dependency within a selected realization. It is not, by itself, a universal temporal sequence, causal sequence, or law of nature.
+
+The framework asks how organizational properties can be defined, constructed, analyzed, and tested under explicit assumptions and operational criteria.
+
+============================================================
+2. CENTRAL RESEARCH QUESTION
+============================================================
+
+How can relational structures support operational organization under explicitly specified constraints, dynamics, realization maps, operational criteria, and persistence conditions?
+
+OMEGA-ISOP does not assume:
+
+Relation -> Organization
+
+or:
+
+R -> Dynamics -> Organization
+
+A relational specification R constrains admissible dynamics but does not automatically determine one unique dynamics.
+
+For a fixed and explicitly specified realization Phi:
+
+A(R;Phi) subset Evol(X)
+
+A(R;Phi) denotes the class of evolutionary laws on X compatible with the realized relational structure.
+
+When Phi is fixed and unambiguous, the abbreviated notation may be used:
+
+A(R) := A(R;Phi)
+
+Without a fixed realization, retain A(R;Phi).
+
+In general:
+
+|A(R;Phi)| may be greater than 1.
+
+OMEGA-ISOP therefore does not contain an established universal principle of dynamic selection.
+
+============================================================
+3. WHAT THE FRAMEWORK FORMALIZES
+============================================================
+
+Within a selected realization, OMEGA-ISOP formalizes and investigates conditions under which:
+- admissible distinctions and configurations are specified;
+- a relational specification is constructed;
+- a realization map is selected and defined;
+- a class of admissible dynamics is determined;
+- a particular dynamics is realized or supplied by the model;
+- persistence is evaluated under declared conditions;
+- operational identity is defined relative to observations, transformations, and tolerances;
+- operational organization is assessed against an explicit criterion.
+
+Organization is a conditional and operationally defined property. It is not automatically identical to complexity, activity, persistence, invariance, robustness, physical reality, causality, consciousness, or agency.
+
+An organizational claim must identify the relevant operational criterion and the realization in which that criterion is evaluated.
+
+============================================================
+4. MATHEMATICAL DEVELOPMENT AS THE PRIMARY RESEARCH PRIORITY
+============================================================
+
+The principal task of future OMEGA-ISOP research is to strengthen its mathematical foundations and establish which structural claims follow rigorously from explicitly stated assumptions.
+
+The work may include:
+- precise definitions of mathematical objects and relations;
+- explicit assumptions and domain restrictions;
+- formal propositions, lemmas, and theorems;
+- complete proofs with all required dependencies stated;
+- counterexamples and boundary-case analysis;
+- necessary and sufficient conditions where they can be established;
+- existence, compatibility, stability, and classification results;
+- analytical and computational investigation, with their evidential status kept distinct.
+
+A mathematical proof establishes a particular claim under its stated assumptions. It does not automatically establish the universal validity of the entire framework or its physical interpretation.
+
+Research results must be classified accurately:
+
+DEFINITION:
+A formally specified construction or concept.
+
+PROPOSITION:
+A mathematical statement proposed for proof or established by proof, with its status stated explicitly.
+
+LEMMA:
+A proved auxiliary result used in a larger argument.
+
+THEOREM:
+A mathematical statement established by a valid proof under stated assumptions.
+
+CONJECTURE:
+A mathematically formulated claim that remains unproved.
+
+COUNTEREXAMPLE:
+A construction demonstrating that a proposed statement is false or that its scope must be restricted.
+
+NUMERICAL RESULT:
+A computational observation or result. It is not, by itself, an analytical proof.
+
+MODEL RESULT:
+A consequence obtained within a specified mathematical or computational model. Its assumptions and scope must remain explicit.
+
+The absence of a universal theorem does not invalidate a correct domain-specific theorem. A restricted result can be scientifically valuable when its assumptions, scope, and consequences are clear.
+
+============================================================
+5. RELATIONAL STRUCTURE AND ADMISSIBLE DYNAMICS
+============================================================
+
+For a fixed and explicitly specified realization Phi:
+
+A(R;Phi) subset Evol(X)
+
+where:
+
+R = relational specification;
+Phi = selected mathematical realization;
+X = state space;
+Evol(X) = class of evolutionary laws on X;
+A(R;Phi) = class of dynamics compatible with the realized relational structure.
+
+When Phi is fixed and unambiguous:
+
+A(R) := A(R;Phi)
+
+In general:
+
+|A(R;Phi)| may be greater than 1.
+
+The relational specification therefore need not determine a unique dynamics.
+
+Future mathematical work may investigate:
+- existence and non-existence of admissible dynamics;
+- conditions for compatibility between relations and dynamics;
+- constraints imposed on classes of evolutionary laws;
+- stability and persistence properties;
+- conditions under which selection mechanisms can be defined;
+- whether distinct realizations preserve or alter particular structural properties.
+
+These are research questions. Their answers must be established individually and must not be assumed in advance.
+
+============================================================
+6. PHYSICAL META-THEORY: MATHEMATICALLY SUPPORTED EXPANSION
+============================================================
+
+The physical part of OMEGA-ISOP remains open for development.
+
+Its expansion is to be guided by mathematical results, not by an obligation to produce a universal physical theory.
+
+A mathematical construction may motivate a physical interpretation only when a clear correspondence is specified between the mathematical objects and the physical quantities, states, processes, or observables under consideration.
+
+Potential research directions include:
+
+6.1. SPACE AND SPATIAL RELATIONS
+
+Investigate whether and under what assumptions spatial properties can be represented through relational structures, and determine which geometric properties follow from a selected construction.
+
+6.2. TIME AND DYNAMICS
+
+Investigate mathematical descriptions of temporal ordering, evolution, and dynamical dependence. Do not identify formal ordering with physical time without an explicit physical correspondence.
+
+6.3. PERSISTENCE AND PHYSICAL ORGANIZATION
+
+Study relations among structural persistence, dynamical stability, robustness, and operational organization. These concepts must remain distinct unless a theorem or model establishes a specific connection.
+
+6.4. QUANTUM SYSTEMS
+
+Investigate possible relational representations of quantum states, correlations, interactions, and dynamics. No derivation of quantum mechanics or quantum amplitudes is presumed from the Frozen Core alone.
+
+6.5. GRAVITATION AND GEOMETRY
+
+Investigate possible connections among relational structure, geometric properties, spacetime relations, and gravitational models. Any proposed correspondence with General Relativity or another gravitational theory requires explicit mathematical formulation and comparison.
+
+6.6. EMERGENCE AND LEVELS OF DESCRIPTION
+
+Study conditions under which new operational variables or stable explanatory properties arise in a specified realization, including relations between microscopic and macroscopic descriptions.
+
+6.7. PHYSICAL MODEL CONSTRUCTION
+
+Develop concrete models with explicitly defined variables, relations, dynamics, assumptions, and possible observables. Where possible, identify results that distinguish the model from existing alternatives and could be tested empirically.
+
+A physical extension is not established merely because it can be expressed mathematically. Its physical interpretation, compatibility, and empirical status must be assessed separately.
+
+============================================================
+7. EMERGENCE
+============================================================
+
+OMEGA-ISOP retains emergence as a subject for formal and physical investigation.
+
+Emergence is not assumed to be a universal law or an automatic consequence of relational structure.
+
+Within a selected realization and an explicitly stated criterion, a higher-level description may be treated as emergent when new operational variables or structural characteristics acquire stable operational or explanatory relevance relative to the lower-level description.
+
+Research may examine:
+- the appearance of new operational variables;
+- stable higher-level structural characteristics;
+- dependencies between organizational levels;
+- relations between micro-level and macro-level descriptions;
+- conditions for explanatory reduction or non-reduction.
+
+Every emergence claim requires a defined criterion, a specified realization, and an argument showing what is new and in what sense it is operationally or explanatorily relevant.
+
+============================================================
+8. OPERATIONAL ORGANIZATION
+============================================================
+
+Organization remains a central subject of OMEGA-ISOP.
+
+It is not automatically identical to:
+- complexity;
+- dynamical activity;
+- persistence;
+- invariance;
+- robustness;
+- physical existence;
+- causality;
+- consciousness;
+- agency.
+
+Organization must be assessed relative to an explicit operational criterion.
+
+Mathematical development may investigate:
+- structural conditions for organization;
+- sufficient or necessary conditions within specified domains;
+- persistence of organizational configurations;
+- operational identity under transformations and observations;
+- organizational invariants;
+- quantitative measures of organization.
+
+The organization measure Omega remains an open research target. No single universal measure is assumed to exist or required for progress.
+
+============================================================
+9. REALIZATION DEPENDENCE
+============================================================
+
+OMEGA-ISOP preserves the principle that one relational specification may admit different mathematical realizations.
+
+Therefore:
+
+same R != same realization
+same R != same dynamics
+one realization != universal realization
+
+Properties established in one realization do not automatically transfer to another.
+
+A physical interpretation must be justified for the particular realization to which it applies.
+
+Different realizations may be compared or connected when the relevant mappings, preserved properties, and limitations are explicitly established.
+
+============================================================
+10. RESEARCH OBJECTIVES THAT ARE NOT REQUIRED
+============================================================
+
+OMEGA-ISOP does not make the following prerequisites for research progress:
+- certification of the framework as a whole;
+- proof that the framework is universal;
+- proof that the framework is unique;
+- proof of a universal minimal structure;
+- proof of unique dynamic selection;
+- derivation of a universal emergence law;
+- derivation of one universal organizational metric;
+- construction of a complete physical theory.
+
+These questions may be investigated if a specific mathematical or physical result makes them relevant. They are not mandatory endpoints or conditions for the validity of narrower results.
+
+The absence of demonstrated uniqueness or universality does not invalidate a correctly proved result within a specified domain.
+
+The existence of multiple valid realizations is not, by itself, a defect. It is a condition that must be represented accurately in the theory.
+
+The research objective is not to maximize the strength or breadth of claims. It is to establish precise results and understand their consequences and limits.
+
+============================================================
+11. CLAIM CONTROL
+============================================================
+
+OMEGA-ISOP preserves strict control over the strength and status of its claims.
+
+The following distinctions remain mandatory:
+
+possibility != necessity
+admissibility != realization
+realization != selection
+selection != unique selection
+realized != universal
+persistence != robustness
+persistence != invariance
+invariance != ontology
+operational identity != ontological identity
+representation != mechanism
+relation != causation
+organization != causation
+correlation != causation
+simulation != proof
+numerical result != analytical theorem
+definition != derivation
+mathematical validity != physical realization
+mathematical structure != physical ontology
+physical interpretation != empirical confirmation
+
+A stronger claim cannot be inferred from a weaker structural condition without the required formal or empirical bridge.
+
+============================================================
+12. METHOD FOR FUTURE WORK
+============================================================
+
+Future OMEGA-ISOP research should use the following workflow where appropriate:
+
+STEP 1. SELECT A BOUNDED PROBLEM
+
+Choose a specific mathematical question or a physical problem connected to the existing architecture.
+
+STEP 2. FORMALIZE
+
+Define the mathematical objects, assumptions, domain, and constraints.
+
+STEP 3. INVESTIGATE
+
+Develop candidate propositions, lemmas, conjectures, models, and counterexamples.
+
+STEP 4. PROVE OR REFUTE
+
+Establish the claim by a valid proof, identify a counterexample, or retain it explicitly as unresolved.
+
+STEP 5. RECORD STRUCTURAL CONSEQUENCES
+
+Determine what the result changes or clarifies within the relevant part of OMEGA-ISOP. Do not automatically modify the Frozen Core.
+
+STEP 6. IDENTIFY POSSIBLE PHYSICAL CORRESPONDENCE
+
+If relevant, define the mapping between mathematical objects and physical quantities or processes.
+
+STEP 7. DEVELOP A PHYSICAL MODEL
+
+Specify the model, assumptions, dynamics, observables, and relation to established physical theories.
+
+STEP 8. ASSESS TESTABILITY AND LIMITS
+
+Identify possible empirical consequences, discriminating predictions, compatibility conditions, and unresolved limitations.
+
+Do not pursue every workstream simultaneously. Prefer one complete, bounded, well-supported result over many unfinished broad claims.
+
+A failed conjecture, counterexample, or demonstrated limitation is a legitimate research outcome and must be recorded accurately.
+
+============================================================
+13. EVIDENCE AND RESULT-STATUS CONTROL
+============================================================
+
+Mathematical validity, empirical support, provenance, independent verification, and registry status are separate dimensions.
+
+Do not:
+- promote a conjecture to a theorem without a valid proof;
+- treat a numerical result as an analytical proof;
+- treat a mathematical model as an established physical description without a justified correspondence;
+- claim independent verification unless it was actually performed and documented;
+- claim registration without authoritative confirmation and readback;
+- present a reconstruction as an original source record.
+
+Every result must retain its assumptions, scope, evidence, limitations, and exact status.
+
+Existing research-record statuses and provenance dispositions remain governed by the controlled records and M3.2 handoff. This document does not reopen closed source-recovery work, alter research-record statuses, or create new proof claims.
+
+============================================================
+14. FROZEN CORE AND CHANGE CONTROL
+============================================================
+
+FROZEN ≠ CLOSED
+Замразено ≠ затворено.
+
+The Frozen Core is a preserved, identified, and version-controlled scientific baseline. Its frozen status protects traceability and prevents silent changes; it does not prohibit justified scientific development or future revision.
+
+The Core remains open to revision when mathematical proof, a logical correction, a theoretically necessary consequence, or relevant empirical evidence demonstrates that a change is required.
+
+Research may develop outside the Frozen Core through separate models, proofs, tests, and controlled extensions. A result is not automatically integrated into the Core.
+
+Any Core revision requires:
+- the exact target and the identified problem or necessity;
+- mathematical, logical, theoretical, or empirical justification appropriate to the claim;
+- source evidence and a clear dependency analysis;
+- mathematical consequences and compatibility analysis;
+- risk and limitation analysis;
+- explicit user authorization and a documented change-control decision;
+- a new version identifier, with the predecessor preserved unchanged.
+
+No change is accepted solely for elegance, convenience, or preference. Mathematical evidence may justify a proposed revision, but it does not silently enact one.
+
+DEFAULT: NO UNAUTHORIZED OR UNDOCUMENTED CORE CHANGE. CONTROLLED REVISION REMAINS PERMITTED.
+
+============================================================
+15. FINAL IDENTITY STATEMENT
+============================================================
+
+OMEGA-ISOP is a CONDITIONAL_STRUCTURAL_FRAMEWORK for the formal investigation of conditions under which relational structures can realize and sustain operational organization within explicitly specified mathematical, physical, or computational realizations.
+
+Its primary research strategy is to develop mathematically precise and rigorously supported results. The structural consequences of those results may then support controlled extensions of the theory and the development of its physical meta-theory.
+
+OMEGA-ISOP does not require certification, uniqueness, or universality as prerequisites for research progress. It does not presume that every mathematical construction has a physical realization or that every physical extension follows from the Frozen Core.
+
+Its task is to establish what can actually be proved, identify what follows from those proofs, and develop physical interpretations and models only where the relevant mathematical and physical bridges are justified.
+
+The governing research principle is:
+
+MATHEMATICAL RESULTS FIRST.
+STRUCTURAL CONSEQUENCES NEXT.
+PHYSICAL META-THEORY THROUGH JUSTIFIED EXTENSIONS.
+
+============================================================
+16. FINAL STATUS
+============================================================
+
+OMEGA-ISOP = CONDITIONAL_STRUCTURAL_FRAMEWORK
+CORE = PRESERVED
+FROZEN CORE = PRESERVED; OPEN TO CONTROLLED REVISION
+GOVERNING PRINCIPLE = FROZEN ≠ CLOSED
+M3.2 = CLAIM-CONTROLLED / ACTIVE
+RESEARCH STRATEGY = PROOF-DRIVEN DEVELOPMENT
+MATHEMATICAL FORMALIZATION = PRIMARY RESEARCH PRIORITY
+MATHEMATICAL PROOFS = ACTIVE RESEARCH OBJECTIVE
+STRUCTURAL EXTENSIONS = PERMITTED UNDER CLAIM CONTROL
+PHYSICAL META-THEORY = OPEN FOR MATHEMATICALLY SUPPORTED DEVELOPMENT
+PHYSICAL INTERPRETATION = REQUIRES EXPLICIT CORRESPONDENCE
+EMPIRICAL INVESTIGATION = MODEL-DEPENDENT RESEARCH TRACK
+CERTIFICATION = NOT A RESEARCH OBJECTIVE
+UNIVERSALITY = NOT A PREREQUISITE
+UNIQUENESS = NOT A PREREQUISITE
+UNIVERSAL MINIMALITY = NOT A PREREQUISITE
+UNIQUE DYNAMIC SELECTION = NOT A PREREQUISITE
+UNIVERSAL EMERGENCE LAW = NOT CLAIMED
+ORGANIZATION MEASURE OMEGA = OPEN MATHEMATICAL RESEARCH PROBLEM
+CLAIM CONTROL = ACTIVE
+REALIZATION DEPENDENCE = PRESERVED
+CAUSALITY = NOT PRIMITIVE
+ONTOLOGICAL EMERGENCE = NOT CLAIMED
+PHYSICAL LAWS FROM FROZEN CORE ALONE = NOT DERIVED
+ARCHITECTURAL REWRITE = NONE
+FROZEN CORE MODIFICATION = GOVERNANCE CLARIFICATION ONLY; MATHEMATICAL CONTENT UNCHANGED
+
+============================================================
+END OF DOCUMENT
+============================================================
