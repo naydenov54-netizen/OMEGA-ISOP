@@ -1,0 +1,613 @@
+OMEGA-ISOP
+STAGE 3 / RLlab
+RESEARCH CHECKPOINT S3.22
+
+TITLE:
+MULTI-RELATIONAL GUARDED HORN CONSTRAINTS:
+PRESERVATION TEST AND THE FAILURE OF COLLECTIVE GUARDING
+
+DATE:
+2026-11-27
+
+STATUS:
+POSITIVE PRESERVATION RESULT DERIVED AS A MULTI-RELATIONAL
+APPLICATION OF S3.21; COLLECTIVE-GUARDING COUNTEREXAMPLE PROVED
+GENERAL FIRST-ORDER CLASSIFICATION OPEN
+
+DOCUMENT_ROLE:
+TEMPORARY RLlab WORKING ARTIFACT
+
+CANONICAL_STATUS:
+NOT CANONICALLY ACCEPTED
+
+RL_STATUS:
+NOT REGISTERED
+
+FROZEN_CORE_STATUS:
+UNCHANGED
+
+VOLUME_V_STATUS:
+UNCHANGED
+
+
+============================================================
+1. OBJECTIVE AND RELATION TO S3.21
+============================================================
+
+S3.21 established preservation for relationally guarded
+universal Horn theories over function-free relational signatures.
+
+The present task tests whether that result remains valid when
+constraints couple several relation symbols in one clause, and
+whether the guard requirement can be weakened from one atom
+covering every variable to several atoms whose variables
+collectively cover the clause.
+
+The investigation has two distinct outcomes:
+
+1. MULTI-RELATIONAL POSITIVE RESULT:
+   S3.21 applies without change to clauses whose bodies contain
+   several different relation symbols, provided one relational
+   atom contains every variable of the clause.
+
+2. COLLECTIVE-GUARDING NEGATIVE RESULT:
+   It is not sufficient that the union of the variables occurring
+   in several body atoms covers all variables. Those atoms may
+   be supported on opposite sides of an amalgam and jointly
+   activate a mixed trigger.
+
+The positive result is an application of S3.21, not a new
+independent general theorem. The negative example identifies
+a precise boundary against a tempting weakening of its guard
+condition.
+
+
+============================================================
+2. FORMAL SETUP
+============================================================
+
+Let Sigma be a finite function-free relational signature.
+Every relation symbol has a fixed finite arity. Equality means
+actual identity of elements.
+
+Let A and B be Sigma-structures with a common induced
+substructure C. Replace the embeddings by isomorphic copies so
+that:
+
+  A intersect B = C.
+
+The free relational amalgam D has universe:
+
+  |D| = |A| union |B|.
+
+For each n-ary relation symbol R in Sigma:
+
+  R_D = R_A union R_B.
+
+No mixed tuple is added unless it already belongs to one side.
+
+A positive universal Horn clause has the form:
+
+  forall x1,...,xn:
+    (A1 AND ... AND Ak) IMPLIES H
+
+where each body atom Ai is either:
+  - a relational atom; or
+  - a positive equality.
+
+The head H is either:
+  - a relational atom;
+  - a positive equality; or
+  - BOTTOM.
+
+Terms are variables only. There are no function symbols,
+disequality premises, or negated relational premises.
+
+A theory is finite in this checkpoint when it has finitely many
+clauses over the finite signature Sigma. The preservation proof
+below is clause-local and does not depend on finiteness.
+
+
+============================================================
+3. MULTI-RELATIONAL GUARDED FRAGMENT
+============================================================
+
+DEFINITION 3.1 - SINGLE-ATOM GLOBAL GUARD
+
+A clause is globally relationally guarded if its body contains
+one relational atom:
+
+  G(t1,...,tm)
+
+such that every variable occurring anywhere in the clause,
+including its head, occurs among t1,...,tm.
+
+The other body atoms may use any relation symbols in Sigma.
+They may express joins, cross-relational dependencies, type
+conditions, or additional positive equality conditions.
+
+The guard relation G need not be one of the relation symbols
+appearing in the head.
+
+DEFINITION 3.2 - FINITE MULTI-RELATIONAL GUARDED HORN THEORY
+
+A finite multi-relational guarded Horn theory is a finite set
+of globally relationally guarded universal Horn clauses over
+a finite function-free relational signature.
+
+No assumption is made that the guard relation is total.
+Consequently, a guard may make a clause vacuous on assignments
+where the guard atom is false.
+
+EXAMPLE:
+
+  forall x,y,z,w:
+    (G(x,y,z,w)
+     AND R(x,y)
+     AND S(y,z)
+     AND P(z,w))
+    IMPLIES T(x,w).
+
+The clause couples four relation symbols in its body and a
+fifth relation symbol in its head. G is a global guard because
+it contains every variable x,y,z,w.
+
+
+============================================================
+4. MULTI-RELATIONAL PRESERVATION THEOREM
+============================================================
+
+THEOREM 4.1
+
+Let A and B be models of a multi-relational guarded universal
+Horn theory T, and let D be their free relational amalgam over
+the common induced substructure C.
+
+Then D satisfies T.
+
+The conclusion permits relational, equality, and BOTTOM heads.
+
+PROOF
+
+Take an arbitrary clause of T and an arbitrary assignment s
+of its variables into D.
+
+If the body is false under s, the implication is satisfied.
+
+Suppose the body is true. In particular, its global guard atom
+is true:
+
+  G_D(s(t1),...,s(tm)).
+
+By the definition of free relational amalgamation:
+
+  G_D = G_A union G_B.
+
+Therefore the guard tuple belongs to G_A or G_B.
+
+Assume it belongs to G_A. Since the guard contains every
+variable of the clause, every value assigned by s belongs to A.
+Thus s is an assignment entirely into A.
+
+The induced-substructure condition implies that every
+relational body atom true in D under s is true in A under s.
+Every positive equality true in D is also true in A.
+
+Hence the complete body is true in A. Since A satisfies the
+clause, its head is true in A, or the body cannot be true if
+the head is BOTTOM.
+
+If the head is relational, its tuple remains in D because
+R_A is a subset of R_D. If the head is equality, actual identity
+is unchanged in D. The BOTTOM case is impossible because A
+satisfies the clause and its body is true.
+
+The argument is identical if the guard tuple belongs to B.
+
+Thus the clause is satisfied under every assignment into D.
+Since the clause was arbitrary, D satisfies T.
+
+QED.
+
+COROLLARY 4.2
+
+The class of models of a finite multi-relational guarded
+universal Horn theory has the free relational amalgamation
+property for induced embeddings over induced common
+substructures.
+
+The amalgam is strong because its underlying set pushout
+identifies only the common substructure.
+
+
+============================================================
+5. CROSS-RELATIONAL JOIN TEST
+============================================================
+
+Consider the clause:
+
+  forall x,y,z:
+    (R(x,y) AND S(y,z)) IMPLIES T(x,z).
+
+This is a cross-relational dependency. No single body atom
+contains all three variables.
+
+Take:
+
+  C = {c}
+
+  A = {a,c}
+  R_A = {(a,c)}
+  S_A = empty
+  T_A = empty
+
+  B = {c,b}
+  R_B = empty
+  S_B = {(c,b)}
+  T_B = empty
+
+The induced structures agree on C.
+
+A satisfies the clause because S_A is empty.
+B satisfies the clause because R_B is empty.
+
+Their free relational amalgam D contains:
+
+  R_D(a,c)
+  S_D(c,b)
+
+but does not contain:
+
+  T_D(a,b).
+
+Therefore D violates the clause under:
+
+  x=a, y=c, z=b.
+
+RESULT:
+
+The free relational amalgam of two models of this
+cross-relational Horn clause need not be a model of the clause.
+
+This is a mixed-trigger failure. The first premise is supplied
+by A and the second by B.
+
+
+============================================================
+6. COLLECTIVE VARIABLE COVERAGE IS NOT A GUARD
+============================================================
+
+The body of the clause in Section 5 collectively contains all
+variables:
+
+  Var(R(x,y)) union Var(S(y,z)) = {x,y,z}.
+
+Its body-variable incidence pattern is also connected through
+the shared variable y.
+
+Nevertheless, the clause fails under free amalgamation.
+
+Therefore neither of the following conditions is sufficient:
+
+  A. The union of variables occurring in body atoms contains
+     every variable of the clause.
+
+  B. The body-variable incidence pattern is connected.
+
+The proof of Theorem 4.1 requires one true relational atom
+whose tuple contains every variable. Several atoms can be
+supported on different sides.
+
+This counterexample does not prove that single-atom global
+guarding is necessary for every theory or every span. It proves
+only that collective variable coverage and connectedness,
+without an additional side-coherence condition, are insufficient
+as general preservation criteria.
+
+
+============================================================
+7. RESTORING PRESERVATION WITH A GLOBAL GUARD
+============================================================
+
+Extend the Section 5 signature by a ternary relation G and
+consider:
+
+  forall x,y,z:
+    (G(x,y,z)
+     AND R(x,y)
+     AND S(y,z))
+    IMPLIES T(x,z).
+
+For any assignment that activates the body in the free
+amalgam, G(x,y,z) must belong to G_A or G_B.
+
+Because G contains all three variables, the assignment lies
+entirely in that same side. The other body atoms are therefore
+also interpreted within that side, and the side model satisfies
+the clause.
+
+If the assignment is genuinely mixed, no guard tuple can be
+present in the free union, so the body is false.
+
+Thus the guarded clause is preserved.
+
+The guard is a sufficient syntactic device for excluding
+mixed triggers. It is not a necessary condition for
+preservation: a particular unguarded theory may still be
+preserved for other reasons.
+
+
+============================================================
+8. PULLBACK TEST FOR MULTIPLE RELATION SYMBOLS
+============================================================
+
+Let pi:X -> Q be surjective.
+
+For every n-ary relation symbol R, define its inverse-image
+interpretation on X by:
+
+  R_X(x1,...,xn) IFF
+  R_Q(pi(x1),...,pi(xn)).
+
+THEOREM 8.1
+
+If Q satisfies a positive universal Horn theory whose clauses
+have either a relational head or BOTTOM, then X satisfies the
+inverse-image theory.
+
+This remains valid when a clause contains arbitrarily many
+different relation symbols in its body and positive equality
+premises.
+
+PROOF
+
+Take a clause and an assignment s into X whose body is true.
+
+Every relational body atom is true in Q under pi composed
+with s, by the inverse-image definition.
+
+Every positive equality premise remains true after applying
+pi, because equal elements have equal images.
+
+Thus the projected assignment satisfies the complete body
+in Q.
+
+If the head is BOTTOM, this contradicts Q satisfying the
+clause. If the head is relational, it is true in Q and therefore
+its inverse image is true in X.
+
+Hence the clause is satisfied in X.
+
+QED.
+
+EQUALITY-HEAD LIMIT
+
+If the head is an equality u=v, quotient satisfaction gives:
+
+  pi(s(u)) = pi(s(v)).
+
+It does not in general give:
+
+  s(u) = s(v).
+
+For pullback preservation of this clause, the exact
+clause-specific fiber requirement is:
+
+For every assignment s into X satisfying the pulled-back body,
+if pi(s(u)) = pi(s(v)), then s(u) = s(v).
+
+This condition is necessary and sufficient for the equality
+head to hold for every body-satisfying assignment in X, given
+that Q satisfies the clause.
+
+Global injectivity of pi is sufficient but stronger than
+necessary. The relevant requirement concerns only pairs
+generated by assignments satisfying the particular clause body.
+
+The multi-relational form of the body does not remove this
+fiber obstruction.
+
+
+============================================================
+9. RESULT MATRIX
+============================================================
+
+FINITE MULTI-RELATIONAL GUARDED HORN:
+
+Free relational amalgamation:
+PRESERVED.
+
+Heads:
+Relational, equality, or BOTTOM.
+
+Inverse-image pullback:
+PRESERVED for relational heads and BOTTOM.
+
+Equality-head pullback:
+Requires clause-specific fiber separation.
+
+CROSS-RELATIONAL JOIN WITHOUT A GLOBAL GUARD:
+
+Free relational amalgamation:
+CAN FAIL.
+
+Collective variable coverage:
+INSUFFICIENT.
+
+Connected body-variable incidence:
+INSUFFICIENT.
+
+SINGLE-ATOM GLOBAL GUARD:
+
+Free relational amalgamation:
+PRESERVED under the stated assumptions.
+
+Necessity:
+NOT ESTABLISHED.
+
+
+============================================================
+10. LOOP AUDIT
+============================================================
+
+TARGET C1:
+
+For every finite multi-relational globally guarded universal
+Horn theory T, if A and B satisfy T, then their free relational
+amalgam D satisfies T.
+
+PREMISES AND DEFINITIONS:
+
+1. D interprets each relation as the union of its side
+   interpretations.
+2. A and B satisfy T.
+3. Each clause contains one relational guard atom.
+4. Every variable of the complete clause occurs in that guard.
+5. The common substructure is induced.
+6. Equality is actual identity.
+
+DEPENDENCY CHAIN:
+
+True guard atom in D
+-> guard tuple belongs to one side
+-> all clause variables are assigned into that side
+-> all body atoms are true in that side
+-> side-model satisfaction gives the head
+-> the head remains true in D.
+
+POSSIBLE CONCLUSION SMUGGLING:
+
+The conclusion is not part of the definition of a guard.
+The proof derives side-locality from the free-union semantics
+and the variable coverage condition.
+
+COUNTERMODEL ATTEMPT:
+
+The mixed R/S example in Section 5 is a counterexample when
+the global guard assumption is removed. It does not satisfy
+the hypotheses of C1 and therefore does not refute C1.
+
+CLASSIFICATION:
+
+NON-CIRCULAR DERIVATION within the stated fragment.
+
+TARGET C2:
+
+Inverse-image pullback preserves positive universal Horn
+clauses with relational heads or BOTTOM.
+
+INDEPENDENT PREMISES:
+
+1. Every relation on X is defined as the inverse image of the
+   corresponding relation on Q.
+2. Positive equality is preserved by every map.
+3. Q satisfies the clause.
+
+COUNTERMODEL:
+
+For equality heads, a non-injective map can identify distinct
+elements. The functionality example in S3.21 remains a valid
+counterexample to unrestricted equality-head pullback.
+
+CLASSIFICATION:
+
+NON-CIRCULAR DERIVATION for relational heads and BOTTOM.
+EQUALITY-HEAD CASE CONDITIONAL on the exact fiber requirement.
+
+NON-IMPLICATIONS:
+
+1. The result does not classify all first-order theories.
+2. Single-atom global guarding is not proved necessary.
+3. Collective variable coverage is not sufficient.
+4. Connectedness of the body-variable incidence pattern is
+   not sufficient.
+5. Free-union failure does not imply failure of every strong
+   amalgam.
+6. No operation symbols, function symbols, dynamics, Markov
+   kernels, response maps, or physical realization structures
+   are covered.
+7. No physical law or cosmological consequence follows.
+
+
+============================================================
+11. APPLICATION TO OMEGA-ISOP
+============================================================
+
+S3.21 already provides the general guarded-Horn preservation
+argument over relational signatures.
+
+S3.22 tests its multi-relational scope and identifies a
+specific failed weakening of its guard condition.
+
+For a proposed finite relational constraint layer over the
+P2.3 quotient construction:
+
+1. Specify the finite relational signature.
+2. Write each constraint as an explicit universal Horn clause.
+3. Identify whether one body atom contains every variable.
+4. If it does, free-union preservation follows under the
+   S3.21/S3.22 assumptions.
+5. If it does not, test mixed assignments explicitly.
+6. After quotient amalgamation, separately audit pullback.
+7. For equality-generating heads, state the exact fiber
+   requirement.
+8. Do not infer preservation of operations, dynamics,
+   realization, response, or persistence from this relational
+   result.
+
+This is a candidate finite syntax for a restricted relational
+layer. It is not established that the actual OMEGA-ISOP
+realization or dynamical structures satisfy these hypotheses.
+
+No change to P2.3, P2.4, the Frozen Core, or Volume V is
+proposed or enacted.
+
+
+============================================================
+12. FINAL STATUS
+============================================================
+
+S3.22 ESTABLISHES:
+
+1. Multi-relational guarded Horn preservation is a direct
+   application of S3.21 and remains valid when body clauses
+   couple multiple relation symbols.
+2. The guard may be a relation symbol distinct from all
+   relation symbols in the other body atoms and the head.
+3. Collective variable coverage across multiple body atoms
+   does not prevent mixed-trigger failures.
+4. Connectedness of the body-variable incidence pattern does
+   not prevent mixed-trigger failures.
+5. The cross-relational join example gives an explicit
+   countermodel to that proposed weakening.
+6. Multi-relational inverse-image pullback is preserved for
+   relational heads and BOTTOM.
+7. Equality-head pullback retains the clause-specific fiber
+   obstruction.
+
+EVIDENCE CLASS:
+
+MATHEMATICALLY PROVED UNDER THE EXPLICIT FUNCTION-FREE
+RELATIONAL ASSUMPTIONS; NOT CANONICALLY ACCEPTED.
+
+CANONICAL STATUS:
+NOT ACCEPTED.
+
+RL REGISTRATION:
+NONE.
+
+FROZEN CORE:
+UNCHANGED.
+
+VOLUME V:
+UNCHANGED.
+
+NEXT JUSTIFIED TASK:
+
+S3.23 - investigate whether a finite relational constraint
+language can combine guarded Horn clauses with selected
+non-guarded clauses using an explicit side-coherence condition,
+without reducing the criterion to the mixed-trigger test
+already established in S3.21.
+
+END OF S3.22
