@@ -1,0 +1,313 @@
+OMEGA-ISOP
+RL-022 / RL-023 CONSOLIDATED ARCHIVAL SUPPLEMENT
+DATE: 2026-11-24
+DOCUMENT TYPE: SUPPLEMENTARY ARCHIVAL RESEARCH RECORD
+SOURCE BASIS: USER-PROVIDED CONSOLIDATED RL-022 RECORD IN CHAT
+STATUS: ARCHIVAL COPY OF THE SUPPLIED RECORD; NOT A NEW RL ITEM
+
+======================================================================
+1. PURPOSE AND DOCUMENT CONTROL
+======================================================================
+
+This file preserves the supplied RL-022/RL-023 consolidated research record
+in a separate Library artifact. It supplements, and does not overwrite, the
+controlled Volume V master or any canonical CE-V record.
+
+RL-022 original directional boundary result and RL-023 dynamic/temporal
+global realization result are consolidated in the supplied record.
+
+Archival status: CLOSED / ARCHIVED / CONSOLIDATED.
+Parent: CE-V-06 (Global Realization Filtering of Local Organizational
+Realizations), source RL-006.
+CE-V traceability stated in the supplied record: CE-V-06.1.
+
+INTEGRATION QUALIFICATION:
+The supplied record states that integration requires an explicit integration
+decision under M3.2. No automatic CE-V promotion is permitted. In the absence
+of that explicit decision, CE-V-06.1 is to be read as an integration candidate.
+This qualification takes precedence over any unqualified shorthand that
+CE-V-06.1 is fully integrated.
+
+This supplement does not claim that the primary RL-006 source files have
+been recovered or independently re-derived. It preserves the user-supplied
+record and its stated provenance and limitations.
+
+======================================================================
+2. FORMAL CLAIMS
+======================================================================
+
+C1. The filtering dependency
+    R_global ->_F R_i ->_F A_i
+    does not entail the existence of
+    A_i ->_U R_global.
+
+C2. The same filtering dependency does not entail the absence of
+    A_i ->_U R_global.
+
+C3. The filtering construction may be conditionally extended to
+    S_global(t), provided A4 is satisfied.
+
+======================================================================
+3. DEFINITIONS
+======================================================================
+
+S_global = (M, Gamma, Theta)
+D_i subset M
+R_i in Restrict(R_global,D_i) intersect Compatible(Theta,D_i)
+
+D1. X ->_F Y (filtering dependency): Y is constrained by X through
+    Restrict intersect Compatible, or through the dependency
+    A_i(R_i; Phi_i).
+
+D2. X ->_U Y (update dependency): in the specified discrete-time model,
+    Y(t+1) depends non-constantly on X(t). That is, there exist admissible
+    x1 != x2 such that
+    Y(t+1 | X(t)=x1) != Y(t+1 | X(t)=x2).
+    Dependence may concern the whole state Y or an explicitly defined
+    component of Y.
+
+D3. X not-> _U Y := not (X ->_U Y), in the same model.
+
+D4. P does_not_entail Q (P |-not Q): Q is not derivable from P, demonstrated
+    by a model satisfying P and not-Q.
+
+======================================================================
+4. ASSUMPTIONS AND LIMITATIONS
+======================================================================
+
+A1. Global and local structures are explicitly defined.
+A2. Restriction from the global realization to a local domain is well-defined.
+A3. Compatibility conditions are explicitly specified.
+A4. For temporal extension, temporal structures, restriction operations,
+    compatibility conditions, and realization context are well-defined at
+    every relevant time t.
+A5. Global-to-local filtering is not assumed to be the only possible
+    directional dependency.
+A6. Universal global dynamics are not assumed.
+A7. Realization is distinguished from selection.
+A8. Admissibility is distinguished from realization.
+A9. Local organization is not identified with global realization.
+
+======================================================================
+5. TEMPORAL RESULT
+======================================================================
+
+Static setting:
+    S_global = (M, Gamma, Theta)
+    D_i subset M
+    R_i in Restrict(R_global,D_i) intersect Compatible(Theta,D_i)
+    A_i = A_i(R_i; Phi_i)
+
+Temporal setting, under A4:
+    S_global(t) = (M(t), Gamma(t), Theta(t))
+    D_i(t) subset M(t)
+    R_i(t) in Restrict(R_global(t),D_i(t))
+             intersect Compatible(Theta(t),D_i(t))
+    A_i(t) = A_i(R_i(t); Phi_i(t))
+
+C3: If restriction, compatibility, and realization-context operations remain
+well-defined at every relevant t, the CE-V-06 filtering construction extends
+conditionally to:
+    Global(t) ->_F Local(t) ->_F Admissible Dynamics(t)
+
+This does not require a static global realization and does not derive a
+specific law of global evolution.
+
+======================================================================
+6. DIRECTIONAL RESULT: COUNTERMODELS K1 AND K0
+======================================================================
+
+Common setting (A4, discrete time):
+    M = {a,b}
+    D_1 = {a}
+    R_global(t) = (x_t,y_t) in {0,1}^2
+    Theta imposes no additional restriction
+    R_1(t) = x_t
+    A_1(t) = A_1(R_1(t); Phi_1) = R_1(t)
+
+The filtering chain
+    R_global(t) ->_F R_1(t) ->_F A_1(t)
+
+holds at every t in both models.
+
+K1 (with feedback):
+    x_(t+1) = 1 - A_1(t)
+    y_(t+1) = y_t
+
+Therefore A_1(t) ->_U R_global(t+1), because the x-component depends
+non-constantly on A_1(t). K1 is the countermodel for the claim that filtering
+entails absence of reverse update-dependency.
+
+K0 (without feedback):
+    x_(t+1) = x_t
+    y_(t+1) = y_t
+
+Then R_global(t+1) does not depend on A_1(t), so
+    A_1 not-> _U R_global.
+K0 is the countermodel for the claim that filtering entails reverse
+update-dependency.
+
+Consequently:
+    CE-V-06 does_not_entail (A_i ->_U R_global)
+    CE-V-06 does_not_entail (A_i not-> _U R_global)
+
+K1 and K0 share the same filtering chain but differ in reverse
+update-dependency.
+
+======================================================================
+7. VERIFICATION AND FAILURE BOUNDARIES
+======================================================================
+
+Verification checks V1-V5, as recorded in the supplied source:
+- K1 and K0 satisfy A1-A4 and the filtering chain at every t.
+- The models differ only in the update rule for x.
+- K1 has non-constant dependence; K0 does not.
+- Frozen Core protection test: no modification, contradiction, or
+  reinterpretation.
+- Integration is not blocked, but the explicit M3.2 integration basis
+  remains required.
+
+Failure tests:
+A. Global -> Local entails Local not-> Global: FAILED, due to K1.
+B. Global -> Local entails Local -> Global: FAILED, due to K0.
+C. Temporal extension as a universal physical law: NOT DERIVED; temporal
+   applicability requires well-defined structures and operations.
+D. Selected global realization as uniquely derived: NOT DERIVED.
+E. Filtering extension when A4 fails: NOT APPLICABLE; the construction is
+   undefined rather than refuted.
+F. Interpreting ->_U as causation: NOT DERIVED; it is model-level functional
+   dependence.
+
+======================================================================
+8. RESULT CLASSIFICATION
+======================================================================
+
+I. Directional boundary:
+Global-to-local filtering entails neither universal absence nor universal
+presence of local-to-global influence. Reverse feedback remains open. This is
+a logical-consistency result established by K1/K0.
+
+II. Temporal boundary:
+Under A4, the filtering chain extends conditionally as
+    S_global(t) ->_F R_i(t) ->_F A_i(t).
+No universal global evolution law follows.
+
+The directional and temporal claims have separate conclusions. The K0/K1
+countermodels for the directional result are discrete-time models under A4.
+
+======================================================================
+9. NON-CLAIMS / FAILURE LIMITS
+======================================================================
+
+RL-022 does not establish:
+- local-to-global causation;
+- universal presence or absence of feedback;
+- bidirectional coupling;
+- universal no-feedback;
+- universal global evolution;
+- unique global realization or selection;
+- physical realization of the temporal extension;
+- cosmological necessity;
+- automatic local organization;
+- global realization from local organization;
+- a feedback law, stability, or convergence.
+
+Additional limitations:
+- The result is conditional on formal structures.
+- Temporal extension is model-dependent.
+- Directional result is a logical boundary, not an empirical claim.
+- K0/K1 use trivial Compatible(Theta,·); this establishes an existence result
+  and says nothing about every nontrivial Theta.
+- Global realization is distinct from global selection.
+- Admissibility is distinct from realization.
+- Filtering is distinct from causation.
+- Update-dependency is distinct from causation.
+- No Frozen Core modification is made.
+
+======================================================================
+10. M3.2 RESEARCH CLASSIFICATION
+======================================================================
+
+RL-022 original directional investigation:
+- N3: new logical dependency.
+- N6: new validity boundary.
+
+RL-023 temporal investigation:
+- N4: new domain/regime/boundary.
+- N6: new validity boundary.
+
+Post-consolidation:
+- Distinct, non-redundant results are retained.
+- Consolidation adds no new research claim.
+- No new RL item is generated.
+- K0/K1 are formalizations of the existing directional countermodel, not a
+  new research claim.
+
+Epistemic status: DERIVED / CONDITIONAL / MODEL-DEPENDENT.
+Archival status: CLOSED / CONSOLIDATED.
+RL-023: ABSORBED INTO CONSOLIDATED RL-022; temporal-source component remains
+identifiable in the consolidated record.
+CE-V-06: VALIDATED INTEGRATED PARENT.
+CE-V-06.1: subordinate integration record, subject to the explicit M3.2
+integration-decision qualification stated in Section 1 of this supplement.
+Frozen Core: unchanged.
+Canonical Theorem 91: unchanged.
+No new CE-V number.
+
+Traceability stated in supplied record:
+    CE-V-06 (source RL-006) -> CE-V-06.1 -> RL-022 / RL-023
+    -> consolidated RL-022
+
+Canonical archival record: RL-022.
+RL-023 content is retained and is not scientifically deleted.
+
+======================================================================
+11. RELATION TO THE OPEN CE-V-06 LOCAL-NONEMPTY-FIBER INVESTIGATION
+======================================================================
+
+This record supplies directional and temporal boundaries. It does not prove
+local nonemptiness.
+
+For the current local-fiber investigation, keep the working distinctions:
+    X_i := Restrict(R_global,D_i)
+    C_i := Compatible(Theta,D_i)
+    F_i := X_i intersect C_i
+
+The target condition is:
+    F_i != empty
+
+Equivalently, under the class-valued interpretation of Restrict and
+Compatible:
+    there exists R_i such that
+        R_i in Restrict(R_global,D_i)
+        AND
+        R_i in Compatible(Theta,D_i)
+
+A4 establishes temporal well-definedness of the relevant structures and
+operations. A4 alone does not establish pointwise nonemptiness of F_i(t).
+The supplied RL-022 record contains no explicit transition operator T_i
+mapping local candidates from t to t+1 and no preservation theorem showing
+that compatibility or admissibility is maintained through such a transition.
+
+Therefore, neither pointwise nonemptiness nor temporal propagation of
+nonemptiness is established by RL-022/RL-023. Any future propagation lemma
+would require separately defined transition dynamics and a proved
+successor-preservation condition. Such a lemma must not be attributed to
+RL-022 unless separately established and recorded.
+
+======================================================================
+12. ARCHITECTURAL PROTECTION
+======================================================================
+
+This supplement is a separate archival copy only.
+- No Frozen Core modification.
+- No Canonical Theorem 91 modification.
+- No CE-V-06 canonical-text modification.
+- No unconditional CE-V-06.1 integration claim.
+- No new RL item.
+- No new CE-V number.
+- No claim of independent re-derivation of destroyed RL-006 originals.
+- No Volume V controlled-master overwrite.
+- No GitHub commit.
+
+END OF SUPPLEMENT
