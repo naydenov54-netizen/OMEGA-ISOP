@@ -1,0 +1,107 @@
+OMEGA-ISOP
+VOLUME V — ПОЕТАПЕН ОДИТ ПРЕДИ РАЗМРАЗЯВАНЕ
+РАБОТЕН ДОКЛАД 0.1
+ДАТА: 2026-11-22
+
+DOCUMENT ID:
+OMEGA-ISOP-VOLUME-V-THAW-AUDIT-0.1-2026-11-22
+
+СТАТУС:
+INITIAL LIBRARY INVENTORY COMPLETED
+EVIDENCE AUDIT: PARTIAL / SOURCE-DEPENDENT
+NO MASTER REVISION ISSUED
+
+1. ЦЕЛ И ОБХВАТ
+Този документ регистрира първия етап от разрешената поетапна работа по Volume V: инвентаризация на контролирания Master, неговите приложения, архитектурните зависимости и наличните в Library контролни документи.
+Това е работен одитен запис, а не нова версия на Volume V и не математическа сертификация.
+
+2. ИДЕНТИФИКАЦИЯ НА ОПЕРАТИВНИЯ MASTER
+Намереният в Library оперативен документ е:
+OMEGA-ISOP-VOLUME-V-v2.4-C-1.5-CONTROLLED-MASTER-2026-11-22.txt
+Версия: v2.4-C-1.5
+Дата: 2026-11-22
+Размер: 135,479 bytes
+Дължина: 1,930 реда
+Library path: /OMEGA-ISOP-VOLUME-V-v2.4-C-1.5-CONTROLLED-MASTER-2026-11-22.txt (root level)
+
+C-1.5 е текущият контролиран документален Master и наследник на C-1.4. В него Appendix F е текущият документален контрол и reconciliation запис. Master-ът е документално замразен; това е governance статус, а не технически write lock.
+
+3. АРХИТЕКТУРНИ ЗАКЛЮЧВАНИЯ, КОИТО СЕ ЗАПАЗВАТ
+FROZEN CORE: PRESERVED / UNCHANGED.
+VOLUME V: ACTIVE RESEARCH ARCHITECTURE.
+CE-V-07: RESERVED / NOT ASSIGNED / NOT PROMOTED.
+GR-TRANSFER-06C: OPEN / INCONCLUSIVE.
+UNIVERSALITY: NOT ESTABLISHED.
+GLOBAL OMEGA-ISOP CERTIFICATION: NOT GRANTED.
+PHYSICAL LAW CLAIM: NONE.
+
+Нито една операция по този работен одит не променя тези статуси. Не се разрешава промяна на Frozen Core, CE-V преномериране, CE-V промоция, Newton/Krawczyk операция или повишаване на доказателствен статус.
+
+4. СЪСТАВ НА VOLUME V
+Контролираният Master съдържа:
+- Основно оперативно тяло, включително Sections XXVI-XXXII за текущата изследователска и доказателствена статусна картина.
+- Appendix A: запазена историческа транскрипция на предходния източник; не е гарантирано дословно копие.
+- Appendix B: математически и машинен audit supplement.
+- Appendix C: регистър на завършени работни продукти и ограничени резултати.
+- Appendix D: програма за физическо изследователско развитие.
+- Appendix E: исторически C-1.4 документален контрол и технически преглед.
+- Appendix F: текуща C-1.5 контролирана ревизия и reconciliation на констатациите.
+
+Appendix D изрично определя първата задача като систематичен одит на доказателствения материал във Volume V. Той забранява предварителен избор на физически пилот преди този одит.
+
+5. КОНТРОЛНИ ДОКУМЕНТИ, НАМЕРЕНИ В LIBRARY
+В папка /OMEGA-ISOP бяха открити следните контролни документи:
+- OMEGA-ISOP-v2.0-FC10.2-CONSOLIDATED-FROZEN-CORE.txt
+- OMEGA-ISOP-VOLUME-II-MATHEMATICAL-FOUNDATIONS-v1.3-MF-AUDIT-RESTORED-FINAL.txt
+- OMEGA-ISOP-VOLUME-III-VALIDATION-FRAMEWORK-v1.1-VAL-RESTORED.txt
+- OMEGA-ISOP-VOLUME-IV-UNIFIED-EXTENSION-FRAMEWORK-v1.4-R-RESTORED.txt
+- CE-V-OMEGA-ISOP-RETAINED-EXTENSIONS-STATUS-FINAL.txt
+- OMEGA-ISOP-CONDITIONAL-STRUCTURAL-FRAMEWORK-IDENTITY-2026-11-19.txt
+- текущият Volume V Master v2.4-C-1.5 е отделно в корена на Library, а не в папка /OMEGA-ISOP.
+
+В наличния рекурсивен Library списък (включително корена и папка /OMEGA-ISOP) не бяха открити отделни първични RL-001...RL-027 source файлове, CAPD notebook/raw-output пакет, пълен CAPD source/build/provenance пакет или оригинален predecessor source, необходим за възстановяване на Appendix A. Това е констатация за текущо видимото съдържание на Library, а не твърдение, че такива материали никога не са съществували.
+
+6. ПЪРВИЧНИ НАБЛЮДЕНИЯ ОТ ДОКУМЕНТАЛНАТА ПРОВЕРКА
+6.1. Контролът на архитектурните граници е последователен: Frozen Core остава отделен; CE-V архивът е подчинен на Core; CE-V-07 е резервиран.
+6.2. CE-V archive съдържа CE-V-01 до CE-V-06 и CE-V-06.1; в него има отделен documentary audit, който изрично не претендира за повторно извеждане на всички RL източници.
+6.3. Volume II съдържа математическите дефиниции и условни конструкции, към които Volume V трябва да проследи своите claims. Volume III е рамка за валидиране, не доказателство за универсалност. Volume IV е изрично частично възстановен и не трябва да се третира като пълен източник.
+6.4. Документът OMEGA-ISOP Conditional Structural Framework Identity потвърждава ограниченията: OMEGA-ISOP не извежда автоматично физически закони, уравнения на Айнщайн, квантови амплитуди или Standard Model gauge groups.
+
+7. АКТИВНИ КОНСТАТАЦИИ / ОТВОРЕНИ ОГРАНИЧЕНИЯ
+F-1 / CAPD one-step endpoint discrepancy: OPEN / NOT RESOLVED. Показаният CAPD интервал има долна граница под 1, докато показаният EXPECTED интервал започва от 1; така показаните интервали не удовлетворяват subset твърдението. Boolean output се пази само като исторически запис, не като доказателство за subset.
+F-2 / precedence between certification and physicalization: остава решение на автора; Appendix D не отменя отворената CAPD/GR-TRANSFER-06C работа.
+F-3 / RL primary source provenance: първичните лабораторни RL източници са записани като унищожени/невъзстановими според контролирания provenance disposition. Няма да твърдим, че са възстановени или независимо повторно проверени. Оцелелите контролирани копия са единствената налична документална база.
+F-4 / CE-V-04 identifier normalization: CLOSED EDITORIALLY.
+F-5 / N4 normed-space assumption: запазва се; твърдението, че metric-space е достатъчно, е съобщено, но не е независимо проверено в този преглед.
+F-6 / Appendix A transcription: историческо ограничение; липсващото форматиране/line breaks не се реконструира по предположение.
+
+8. ПРЕПОРЪЧАНА ПОСЛЕДОВАТЕЛНОСТ ЗА РАЗМРАЗЯВАНЕ
+Етап 1 — инвентаризация: завършена на документално ниво.
+Етап 2 — доказателствена карта: следваща задача. Създава се claim-by-claim регистър за Sections XXVI-XXXII и приложенията, със следните полета:
+- точен claim / theorem / construction;
+- точен източник и версия;
+- предпоставки и домейн;
+- доказателствена зависимост;
+- наличен тип доказателство (аналитично, source-level, recorded computation, arithmetic check, numerical cross-check);
+- текущ статус;
+- липсващи доказателства;
+- допустим следващ тест;
+- дали има разрешение за промяна (по подразбиране: не).
+
+Етап 3 — CAPD приоритетен технически audit: затваряне на F-1 само след инспекция на точния test source, EXPECTED construction, interval type/rounding semantics, raw endpoints, comparison expression и reproducible build/run evidence. Без тези материали статусът остава OPEN.
+
+Етап 4 — математическа traceability на RL/CE-V: използват се оцелелите контролирани копия; не се заявява възстановяване на унищожените първични RL файлове. Проверява се всяка формула/теорема спрямо наличните Volume II и CE-V записи, с маркиране на непроверимите provenance връзки.
+
+Етап 5 — избор на физически пилот: забранено е да се избира преди завършване на систематичната доказателствена карта и сравнителната оценка по Appendix D.
+
+9. ПРЕПОРЪКА ЗА ПЪРВИ КОНКРЕТЕН РАБОТЕН ПАКЕТ
+Да започнем доказателствената карта с оперативните Sections XXVI-XXXII, защото те са текущият статусен източник, а след това да проследим всяко твърдение към Appendix A/B/C и съответния контролен източник.
+Паралелно, CAPD F-1 да остане отделен блокиран closure item. Да не се използва като повод за редактиране на математическия резултат, докато липсва първичният test source.
+
+10. РЕШЕНИЕ ЗА ЗАПАЗВАНЕ НА MASTER-А
+Този доклад НЕ променя Volume V v2.4-C-1.5.
+Не е издадена v2.4-C-1.6.
+Не са променени математически формули, дефиниции, доказателства, CE-V статуси или Frozen Core.
+Докладът е отделен работен артефакт за проследимост и подготовка на следващия етап.
+
+КРАЙ НА РАБОТЕН ДОКЛАД 0.1
