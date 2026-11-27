@@ -259,6 +259,9 @@ PROTECTED SCOPE: Frozen Core, Volume II, Volume III, Volume V, Theorem 91, canon
 LIBRARY SAVE PATH: /checkpoints/OI-M3.2-CP-2026-11-27-07-PROJECT-AUDIT.txt
 LIBRARY SAVE STATUS: SUCCEEDED; exact destination path confirmed by Library.
 LIBRARY READBACK STATUS: PASS; complete 264-line file returned with no truncation and required checkpoint markers present.
-GITHUB STATUS: PENDING; no commit SHA is claimed until GitHub creation and readback succeed.
+GITHUB STATUS: ARCHIVED AND READ BACK.
+GITHUB INITIAL ARCHIVE COMMIT SHA: 944618bc7c6996a36a4d0ba7755aa8a591134be6
+GITHUB INITIAL READBACK: PASS; complete GitHub text matched the Library checkpoint exactly.
+GITHUB FINAL STATUS-UPDATE COMMIT: Recorded in the end-of-session report after verification.
 
 END OF CHECKPOINT
