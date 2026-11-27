@@ -1,0 +1,716 @@
+OMEGA-ISOP
+STAGE 3 / RLlab
+RESEARCH CHECKPOINT S3.21
+
+TITLE:
+A GUARDED HORN CRITERION FOR QUOTIENT-LEVEL FREE AMALGAMATION
+AND PULLBACK PRESERVATION
+
+DATE:
+2026-11-27
+
+STATUS:
+PROVED FOR THE EXPLICIT FUNCTION-FREE RELATIONAL FRAGMENT
+GENERAL FIRST-ORDER CONSTRAINT CLASSIFICATION OPEN
+
+DOCUMENT_ROLE:
+TEMPORARY RLlab WORKING ARTIFACT
+
+CANONICAL_STATUS:
+NOT CANONICALLY ACCEPTED
+
+RL_STATUS:
+NOT REGISTERED
+
+FROZEN_CORE_STATUS:
+UNCHANGED
+
+VOLUME_V_STATUS:
+UNCHANGED
+
+
+============================================================
+1. OBJECTIVE
+============================================================
+
+S3.20 established that individual constraints behave differently
+under free relational amalgamation and under pullback to the
+P2.3 carrier.
+
+S3.21 formulates a precise criterion for a delimited logical
+fragment. The target is not a classification of all first-order
+theories. It is a two-stage preservation result:
+
+  Stage A:
+  Determine when a free relational amalgam preserves a
+  universal Horn theory.
+
+  Stage B:
+  Determine when inverse-image pullback along the quotient map
+  preserves that theory.
+
+The central distinction is between:
+  (i) guarded, side-local Horn triggers;
+  (ii) mixed triggers whose variables can occupy both exclusive
+       sides of the amalgam;
+  (iii) equality-generating conclusions, which can fail under
+        non-injective pullback.
+
+No claim is made that all universal Horn theories are preserved.
+
+
+============================================================
+2. FORMAL SETUP
+============================================================
+
+Let Sigma be a finite or arbitrary function-free relational
+signature. Relation symbols have fixed finite arities. Equality
+is interpreted as actual identity.
+
+Let C be a common induced substructure of A and B. Replace the
+embeddings by isomorphic copies so that:
+
+  A intersect B = C.
+
+Let D be the free relational amalgam with universe:
+
+  |D| = |A| union |B|.
+
+For every n-ary relation symbol R in Sigma, define:
+
+  R_D = R_A union R_B.
+
+Thus a tuple belongs to R_D exactly when it belongs to at least
+one side relation. No new mixed tuple is added.
+
+The embeddings A -> D and B -> D are induced embeddings.
+
+A universal Horn clause has the form:
+
+  forall x1,...,xn:
+    (alpha1 AND ... AND alphak) IMPLIES beta
+
+where each alpha_i is either:
+  - a relational atom R(t1,...,tm); or
+  - a positive equality t=u.
+
+The head beta is one of:
+  - a relational atom;
+  - an equality;
+  - falsity, written BOTTOM.
+
+Terms are variables only, because the signature is function-free.
+
+The body contains no disequality and no negated relational atom.
+This restriction is essential for the pullback result below.
+
+A universal Horn theory T is a set of such clauses.
+
+
+============================================================
+3. SIDE-LOCALITY LEMMA
+============================================================
+
+For an assignment s of the variables of a clause into D, call
+the assignment SIDE-LOCAL if its entire range is contained in A
+or its entire range is contained in B.
+
+Call it MIXED if its range meets both:
+
+  A minus C
+  B minus C.
+
+LEMMA 3.1:
+If A and B satisfy a universal Horn clause and an assignment s
+is side-local, then the clause is satisfied in D under s.
+
+PROOF:
+
+Assume the range of s is contained in A.
+
+Every relational body atom true in D under s is true in A,
+because the relation on A is the induced restriction of the
+relation in D. Every positive equality true in D is also true
+in A.
+
+Therefore, if the body is true in D under s, it is true in A.
+Since A satisfies the clause, its head is true in A, or the
+body cannot be true when the head is BOTTOM.
+
+If the head is relational, its tuple remains present in D.
+If the head is equality, equality remains true in D.
+The BOTTOM case cannot occur with a true body.
+
+The proof for an assignment whose range is contained in B is
+identical.
+
+Therefore every possible violation of the clause in D must
+come from a mixed assignment.
+
+QED.
+
+
+============================================================
+4. EXACT MIXED-TRIGGER CRITERION
+============================================================
+
+THEOREM 4.1:
+Let T be a universal Horn theory in the fragment defined in
+Section 2. Let D be the free relational amalgam of A and B over
+C, and assume A and B satisfy T.
+
+Then:
+
+  D satisfies T
+
+IFF
+
+for every clause in T and every mixed assignment s into D,
+if the complete body is true under s, then the head is true
+under s.
+
+For a BOTTOM head, this means that no mixed assignment may make
+the body true.
+
+PROOF:
+
+Necessity is immediate from D satisfying T.
+
+For sufficiency, take any clause and any assignment s into D.
+If s is side-local, Lemma 3.1 gives satisfaction.
+If s is mixed, the stated criterion gives satisfaction.
+These two cases exhaust all assignments.
+
+Thus every clause in T is satisfied in D.
+
+QED.
+
+INTERPRETATION:
+
+The criterion isolates the exact failure mode of free
+amalgamation. The input structures already satisfy T. A failure
+can arise only when a clause receives a mixed assignment whose
+body becomes true across the two sides while its head is absent.
+
+This is an exact semantic test for a specified span and its
+free amalgam. It is not, by itself, a purely syntactic
+classification of all theories with the amalgamation property.
+
+
+============================================================
+5. GUARDED UNIVERSAL HORN FRAGMENT
+============================================================
+
+DEFINITION 5.1:
+A universal Horn clause is RELATIONALLY GUARDED if its body
+contains a relational atom G(t1,...,tm) such that every variable
+occurring anywhere in the clause occurs among
+t1,...,tm.
+
+The atom G is called a guard for the clause.
+
+Repeated variables in the guard are allowed. The guard may be
+any relation symbol of the signature.
+
+THEOREM 5.2:
+The free relational amalgam of two models of a relationally
+guarded universal Horn theory is again a model of that theory.
+
+PROOF:
+
+Take one guarded clause and an arbitrary assignment s into D.
+
+If its body is false, the implication is satisfied.
+
+Suppose its body is true. In particular, its guard atom is true
+in D under s.
+
+By definition of the free relation union, the guard tuple
+belongs to G_A or G_B. Since the guard contains every variable
+of the clause, the complete range of s lies in that same side.
+
+Thus s is side-local.
+
+By Lemma 3.1, the clause is satisfied in D under s.
+
+Since the clause and assignment were arbitrary, D satisfies
+the whole guarded theory.
+
+QED.
+
+COROLLARY 5.3:
+Every class axiomatized by a relationally guarded universal Horn
+theory has the free relational amalgamation property for
+induced embeddings, provided the common structure is an
+induced common substructure and the signature is function-free.
+
+The amalgam is strong because the underlying pushout identifies
+only the common substructure.
+
+SCOPE:
+
+This corollary concerns the free relational amalgam in the
+specified function-free relational setting. It does not cover
+arbitrary universal Horn theories, function symbols, arbitrary
+negated atoms, or additional realization and dynamical data.
+
+
+============================================================
+6. WHY THE S3.20 COUNTEREXAMPLES FALL OUTSIDE THE GUARDED
+FRAGMENT
+============================================================
+
+6.1 SYMMETRY
+
+Clause:
+
+  forall x,y:
+    R(x,y) IMPLIES R(y,x).
+
+The body atom R(x,y) contains every variable of the clause.
+It is a guard.
+
+Therefore free union preserves symmetry.
+
+6.2 IRREFLEXIVITY
+
+Clause:
+
+  forall x:
+    R(x,x) IMPLIES BOTTOM.
+
+The body atom contains every variable.
+It is a guard.
+
+Therefore free union preserves irreflexivity.
+
+6.3 TRANSITIVITY
+
+Clause:
+
+  forall x,y,z:
+    (R(x,y) AND R(y,z)) IMPLIES R(x,z).
+
+Neither body atom contains all three variables.
+The two premises can be supported by different sides.
+
+The S3.20 span:
+
+  C = {c}
+  A = {a,c}, R_A = {(a,c)}
+  B = {c,b}, R_B = {(c,b)}
+
+activates the body with x=a, y=c, z=b, but the free union
+does not contain R(a,b).
+
+Thus the clause is not preserved by free union in general.
+
+This does not rule out a non-free strong amalgam. S3.20 gave
+one by adding the required edge a R b.
+
+6.4 FUNCTIONALITY
+
+Clause:
+
+  forall x,y,z:
+    (R(x,y) AND R(x,z)) IMPLIES y=z.
+
+No single body atom contains all three variables.
+The two premises can be supported on opposite sides.
+
+In the S3.20 span, the free union contains R(c,a) and R(c,b)
+with a distinct from b. The equality head fails.
+
+This is a mixed-trigger failure. The same span has no strong
+amalgam in the class of functional relations.
+
+6.5 ACYCLICITY
+
+Acyclicity can be expressed by the infinite family of denial
+clauses forbidding directed cycles of each finite length.
+
+For a cycle of length at least three, its edge premises can be
+distributed across the two sides. There is no single edge atom
+covering all cycle variables.
+
+The S3.20 cycle-forcing span therefore lies outside the
+guarded fragment and has no acyclic amalgam at all.
+
+CONCLUSION:
+
+The guarded condition is a meaningful sufficient syntactic
+criterion. The S3.20 counterexamples do not refute it. They
+instead show why the broader claim that all universal Horn
+constraints are preserved would be false.
+
+
+============================================================
+7. PULLBACK PRESERVATION THEOREM
+============================================================
+
+Let pi:X -> Q be a surjective map. For each n-ary relation R_Q
+on Q, define its inverse-image relation on X by:
+
+  R_X(x1,...,xn) IFF R_Q(pi(x1),...,pi(xn)).
+
+This is the relational pullback used in the P2.3 quotient
+construction.
+
+THEOREM 7.1:
+Let T be a universal Horn theory in the fragment of Section 2.
+Assume every clause has either:
+  (a) a relational atom as its head; or
+  (b) BOTTOM as its head.
+
+Then:
+
+  Q satisfies T
+  IMPLIES
+  X satisfies T
+
+under the inverse-image interpretation of every relation.
+
+PROOF:
+
+Take a clause and an assignment s of its variables into X.
+Suppose the body is true in X.
+
+For every relational body atom, the definition of inverse image
+implies that the corresponding atom is true in Q under pi composed
+with s.
+
+For every positive equality in the body, equality of elements
+in X implies equality of their images in Q.
+
+Therefore the entire body is true in Q under the projected
+assignment.
+
+Since Q satisfies the clause, either:
+  (i) the head is BOTTOM, which is impossible with a true body;
+  (ii) the relational head is true in Q.
+
+In case (ii), the definition of inverse-image relation makes
+the head true in X under s.
+
+Thus the clause is satisfied in X. This holds for every clause
+and assignment.
+
+QED.
+
+IMPORTANT LIMIT:
+
+The theorem does not include equality as a possible head.
+A quotient equality pi(x)=pi(y) does not imply x=y.
+
+
+============================================================
+8. EQUALITY-GENERATING HEADS AND FIBER OBSTRUCTIONS
+============================================================
+
+A universal Horn clause with an equality head is an
+equality-generating dependency.
+
+Example: functionality
+
+  forall x,y,z:
+    (R(x,y) AND R(x,z)) IMPLIES y=z.
+
+Even if Q satisfies this clause, its pullback X need not.
+
+COUNTEREXAMPLE:
+
+Let:
+
+  Q = {q,r}
+  R_Q = {(q,r)}
+
+Then R_Q is functional.
+
+Let:
+
+  X = {x,y1,y2}
+  pi(x)=q
+  pi(y1)=r
+  pi(y2)=r
+  y1 != y2.
+
+The pullback contains:
+
+  R_X(x,y1)
+  R_X(x,y2).
+
+Functionality would require y1=y2, which is false.
+
+Therefore inverse-image pullback does not preserve functionality
+in general.
+
+CLAUSE-SPECIFIC FIBER CONDITION:
+
+For a clause whose head is the equality u=v, a sufficient
+condition for pullback preservation is:
+
+For every assignment in X that satisfies the clause body,
+the equality of the projected head values forced by Q must
+already be equality of the original values in X.
+
+For a functionality clause, this means that every target fiber
+over an R_Q-successor of a source point has size at most one.
+
+Global injectivity of pi is a stronger sufficient condition,
+but it is not generally available in a nontrivial quotient.
+
+Thus equality-generating constraints require a separate
+fiber audit. They cannot be treated as ordinary relational
+heads.
+
+
+============================================================
+9. COMBINED QUOTIENT-AMALGAMATION AND PULLBACK COROLLARY
+============================================================
+
+COROLLARY 9.1:
+
+Let A and B be models of a function-free relational theory T,
+with common induced substructure C. Form their free relational
+amalgam D.
+
+Assume:
+  1. T is relationally guarded universal Horn;
+  2. every clause head is either a relational atom or BOTTOM;
+  3. there are no function symbols, disequality premises, or
+     negated relational premises.
+
+Then:
+  (a) D satisfies T;
+  (b) for every surjective quotient map pi:X -> D, the
+      inverse-image relational structure on X also satisfies T;
+  (c) the resulting amalgam on X remains strong whenever the
+      underlying carrier construction is the P2.3 strong
+      amalgam and the embeddings are the P2.3 embeddings.
+
+PROOF:
+
+Part (a) is Theorem 5.2.
+Part (b) is Theorem 7.1.
+Part (c) follows from the underlying P2.3 carrier construction;
+the relational interpretation adds no new identifications.
+
+QED.
+
+EXTENSION WITH EQUALITY HEADS:
+
+If T includes equality-generating heads, part (a) remains valid
+for guarded clauses, because their assignments are side-local.
+Part (b) then requires the clause-specific fiber condition of
+Section 8. Global injectivity of pi is sufficient but often
+too strong.
+
+This is the two-stage criterion relevant to the P2.3 pipeline:
+
+  INPUT MODELS
+      |
+      v
+  FREE QUOTIENT RELATIONAL AMALGAM
+      |
+      | guarded Horn preservation
+      v
+  QUOTIENT MODEL OF T
+      |
+      | inverse-image pullback
+      v
+  P2.3 CARRIER MODEL OF T
+
+The two arrows have distinct proof obligations.
+
+
+============================================================
+10. LOOP AUDIT AND NON-IMPLICATIONS
+============================================================
+
+LOOP AUDIT:
+
+TARGET:
+Prove preservation for the explicitly defined guarded Horn
+fragment and the stated pullback fragment.
+
+INDEPENDENT PREMISES:
+- The free relation is the union of side relations.
+- Each input structure satisfies the Horn clauses.
+- A guard atom contains every variable of its clause.
+- Pullback relations are defined by inverse image.
+- Positive equality is preserved by applying a map.
+
+CONCLUSION-SMUGGLING CHECK:
+The conclusion is not built into the definition of a guard.
+The proof uses the guard to show that any assignment activating
+the body must lie entirely in one side. This is independently
+derived from the free-union semantics.
+
+PULLBACK CHECK:
+The proof uses only the inverse-image definition and the
+satisfaction of the quotient structure. It does not assume that
+the original carrier already satisfies the target constraint.
+
+NON-IMPLICATIONS:
+
+1. Not every universal Horn theory is guarded.
+2. Not every universal Horn theory is preserved by free
+   relational amalgamation.
+3. Free-union failure does not imply failure of all strong
+   amalgams.
+4. Failure of strong amalgamation does not imply failure of
+   every non-strong amalgam.
+5. Quotient-level satisfaction does not imply pullback
+   satisfaction for equality-generating heads.
+6. The result does not cover operations, dynamics, Markov
+   kernels, realization maps, response maps, or the complete
+   OMEGA-ISOP architecture.
+7. No physical interpretation or physical law follows from
+   this relational theorem.
+
+
+============================================================
+11. RESULT MATRIX
+============================================================
+
+Constraint fragment:
+Relationally guarded universal Horn
+
+Free quotient union:
+Preserved
+
+Pullback with relational head or BOTTOM:
+Preserved
+
+Pullback with equality head:
+Requires a fiber condition
+
+
+Constraint:
+Transitivity
+
+Guarded:
+No, in the standard binary formulation
+
+Free quotient union:
+Can fail
+
+Alternative strong amalgam:
+Exists in the S3.20 example
+
+
+Constraint:
+Functionality
+
+Guarded:
+No
+
+Free quotient union:
+Can fail
+
+Alternative strong amalgam:
+Impossible in the S3.20 example
+
+Pullback:
+Can fail even when the quotient relation is functional
+
+
+Constraint:
+Acyclicity
+
+Guarded:
+Not covered by the finite-cycle denial clauses
+
+Free quotient union:
+Can fail
+
+Alternative amalgam:
+Impossible in the S3.20 cycle-forcing example
+
+
+============================================================
+12. APPLICATION TO OMEGA-ISOP
+============================================================
+
+P2.3 supplies:
+  - the quotient sets Q_A, Q_B, Q_C;
+  - their set pushout Q;
+  - the strong carrier pushout S_P;
+  - the quotient projection pi_P:S_P -> Q;
+  - apartness defined by inequality of quotient images.
+
+S3.19 supplies the quotient-level relational construction for
+coordinatewise quotient-invariant relations.
+
+S3.20 shows that additional constraints must be checked under
+both quotient amalgamation and pullback.
+
+S3.21 adds a sufficient logical fragment:
+
+If the quotient-level constraints are relationally guarded
+universal Horn clauses with relational heads or BOTTOM, then
+the free quotient relational amalgam satisfies them, and their
+pullbacks to S_P satisfy them.
+
+If equality-generating heads are included, an additional
+fiber condition is required.
+
+This does not establish that the actual realization, dynamics,
+Markov, response, or persistence structures of Volume II satisfy
+the guard or pullback hypotheses. Those structures require
+separate typed definitions and compatibility proofs.
+
+No change to the definitions of P2.3, P2.4, or the Frozen Core
+is proposed or enacted.
+
+
+============================================================
+13. FINAL STATUS
+============================================================
+
+S3.21 RESULT:
+
+PROVED:
+1. Exact mixed-trigger criterion for a specified free
+   relational amalgam and universal Horn theory.
+2. Free-amalgam preservation for relationally guarded
+   universal Horn theories.
+3. Pullback preservation for universal Horn clauses with
+   relational heads or BOTTOM, under positive-equality bodies.
+4. Equality-head obstruction and a clause-specific fiber
+   condition.
+5. Combined two-stage preservation corollary for the stated
+   guarded fragment.
+
+NOT PROVED:
+1. Preservation of arbitrary universal Horn theories.
+2. A necessary-and-sufficient syntactic classification of all
+   theories with free amalgamation.
+3. General amalgamation for transitive, functional, or acyclic
+   relation classes.
+4. Preservation of all OMEGA-ISOP operations and dynamics.
+5. A complete Stage 3 compatibility theorem.
+
+EVIDENCE CLASS:
+MATHEMATICALLY PROVED UNDER THE EXPLICIT FUNCTION-FREE
+RELATIONAL ASSUMPTIONS; NOT CANONICALLY ACCEPTED.
+
+CANONICAL STATUS:
+NOT ACCEPTED.
+
+RL REGISTRATION:
+NONE.
+
+FROZEN CORE:
+UNCHANGED.
+
+VOLUME V:
+UNCHANGED.
+
+NEXT JUSTIFIED TASK:
+S3.22 - test the guarded-Horn criterion against multi-relation
+constraints and determine whether a useful finite constraint
+syntax can capture the relevant OMEGA-ISOP relational layer
+without importing operations or dynamics.
+
+END OF S3.21
