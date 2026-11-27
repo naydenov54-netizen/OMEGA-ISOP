@@ -1,0 +1,235 @@
+OMEGA-ISOP
+RESEARCH CHECKPOINT — STAGE 3 / S3.11
+CHECKPOINT_ID: OI-M3.2-CP-2026-11-27-04
+DATE: 2026-11-27
+WORKSTREAM: MATHEMATICAL FOUNDATION / STAGE 3 — CONSTRAINT
+TITLE: Class-Specific Preservation Despite Failure of Fiber Saturation
+STATUS: OPEN RESEARCH — PROVISIONAL FINITE TEST
+DOCUMENT_ROLE: TEMPORARY RLlab WORKING ARTIFACT
+CANONICAL_STATUS: NOT CANONICALLY ACCEPTED
+RL_STATUS: NOT REGISTERED
+FROZEN_CORE_STATUS: UNCHANGED
+VOLUME_V_STATUS: UNCHANGED
+
+============================================================
+1. OBJECTIVE
+============================================================
+
+S3.10 showed that quotient pullback can destroy membership in a hereditary class K, even when K has the free amalgamation property.
+
+S3.11 tests the converse possibility:
+Can quotient pullback preserve membership in a particular nontrivial hereditary class even when the free union relation is not fiber-saturated and therefore differs from the quotient pullback?
+
+The purpose is to prevent an invalid converse inference from S3.10.
+
+============================================================
+2. SIGNATURE AND FORBIDDEN STRUCTURE
+============================================================
+
+Use:
+Sigma={R},
+where R is binary.
+
+Let F have:
+S_F={u,v},
+R_F={(u,v)}.
+
+Thus F has exactly one ordered relation tuple and no loops or reverse tuple.
+
+F is irreducible under the S3.4 definition: its only pair of distinct elements, u and v, occurs together in the tuple (u,v).
+
+Define:
+K=Forb(F),
+
+where membership means that no induced two-element substructure is isomorphic to F.
+
+K is hereditary. By the single finite forbidden structure criterion S3.4-T1, irreducibility of F gives the free amalgamation property for induced embeddings in this pure relational setting.
+
+============================================================
+3. INPUT SPAN
+============================================================
+
+Let:
+S_C={c},
+S_A={c,a},
+S_B={c,b}.
+
+Let all apartness relations be empty:
+#_A=#_B=#_C=empty.
+
+Define:
+R_A=S_A x S_A,
+R_B=S_B x S_B,
+R_C={(c,c)}.
+
+The embeddings of C into A and B are induced for both apartness and R. The side relations agree on C.
+
+Each of A and B has two elements, but its induced two-element relation is universal and therefore is not isomorphic to F, which has only the tuple (u,v).
+
+Consequently:
+A in K,
+B in K,
+C in K.
+
+Each side relation is coordinatewise invariant under its side equivalence relation because it is universal.
+
+============================================================
+4. QUOTIENT AND PULLBACK
+============================================================
+
+All apartness-equivalence classes on each side are single classes.
+
+Therefore:
+Q_A={q_A},
+Q_B={q_B},
+Q_C={q_C},
+Q={q}.
+
+The descended quotient relation is:
+Rbar_Q={(q,q)}.
+
+The quotient Q belongs to K because it has one element and F has two.
+
+The underlying set pushout is:
+S_P={c,a,b}.
+
+The map pi_P sends every element to q.
+
+The quotient pullback is:
+R_P^pull=S_P x S_P.
+
+Every two-element induced substructure of P_pull has all four ordered pairs, including both loops and both directions.
+
+No such induced two-element substructure is isomorphic to F, which has exactly one ordered tuple (u,v).
+
+Therefore:
+P_pull in K.
+
+============================================================
+5. FREE UNION AND FAILURE OF FIBER SATURATION
+============================================================
+
+The free relational amalgam on S_P is:
+R_P^free=R_A union R_B.
+
+It omits:
+(a,b),
+(b,a).
+
+Every two-element induced substructure is either:
+- universal on {c,a};
+- universal on {c,b}; or
+- empty on {a,b}.
+
+None is isomorphic to F.
+
+Therefore:
+P_free in K.
+
+However:
+R_P^free != R_P^pull.
+
+In particular:
+pi_P(a)=pi_P(b),
+R_P^free(a,a)=TRUE,
+R_P^free(a,b)=FALSE.
+
+Thus R_P^free is not fiber-saturated.
+
+This confirms:
+- Fiber saturation is necessary and sufficient for equality of the free union and quotient pullback relations.
+- Fiber saturation is NOT necessary for membership of the quotient pullback in every particular hereditary class K.
+
+============================================================
+6. RESULT AND LOGICAL BOUNDARY
+============================================================
+
+In this example:
+Q in K,
+P_pull in K,
+P_free in K,
+
+while:
+R_P^pull != R_P^free.
+
+Therefore class membership may survive quotient pullback even when the relational structure changes.
+
+This does not contradict S3.10. S3.10 used a different forbidden structure F for which the added mixed tuples completed a forbidden induced configuration. Here the selected forbidden structure is not created by the saturation of the free union.
+
+The correct distinction is:
+
+(A) STRUCTURAL EQUALITY:
+R_P^pull = R_P^free.
+This is equivalent to fiber saturation.
+
+(B) CLASS PRESERVATION:
+P_pull in K.
+This is class-dependent and can hold even when (A) fails.
+
+(C) EXISTENCE OF AN AMALGAM IN K:
+There may exist an amalgam in K without the quotient-pullback structure being that amalgam. This is a separate question.
+
+============================================================
+7. EVIDENCE CLASS
+============================================================
+
+EXPLICIT FINITE TEST WITH DIRECT VERIFICATION.
+
+The example is finite and all relation tables are specified. Membership in K is checked by inspecting every two-element induced substructure.
+
+No general theorem about all hereditary classes is inferred from this example.
+
+============================================================
+8. COMPARISON WITH S3.10
+============================================================
+
+S3.10:
+F was the three-element structure with universal binary R.
+The quotient pullback completed F and left K.
+
+S3.11:
+F is the two-element structure with only R(u,v).
+The quotient pullback is universal on S_P and does not contain F as an induced substructure.
+K is preserved despite the failure of fiber saturation.
+
+Together, the two examples establish that no uniform implication in either direction is available from the current assumptions:
+
+- Quotient-level K preservation does not guarantee pullback K preservation.
+- Failure of fiber saturation does not guarantee failure of K preservation.
+
+The forbidden pattern and the exact saturation effect matter.
+
+============================================================
+9. NEXT JUSTIFIED ACTION
+============================================================
+
+S3.12:
+For a selected finite forbidden structure F, analyze the effect of coordinatewise fiber saturation on induced copies of F.
+
+Determine whether a useful criterion can be stated in terms of:
+1. The relation pattern of F.
+2. The equivalence classes of pi_P.
+3. The distribution of representatives across the two amalgam sides.
+4. Which missing mixed tuples are added by saturation.
+5. Whether those added tuples complete an induced copy of F.
+
+Do not claim a universal characterization until necessary and sufficient conditions are proved.
+
+============================================================
+10. ARCHITECTURAL INVARIANTS
+============================================================
+
+Frozen Core: UNCHANGED.
+Volume V: UNCHANGED.
+Stage 3: OPEN RESEARCH.
+P2.3: NOT REFUTED.
+P2.4.1: NOT REFUTED.
+P2.4.2: SIDEWISE DESCENT DOES NOT GUARANTEE FREE-UNION EQUALITY.
+S3.9: FIBER SATURATION CHARACTERIZES EQUALITY, NOT ALL CLASS-PRESERVATION.
+S3.10: QUOTIENT-LEVEL K-PRESERVATION CAN FAIL TO LIFT.
+S3.11: CLASS-PRESERVATION CAN HOLD DESPITE FAILURE OF FIBER SATURATION.
+RL REGISTRATION: NOT PERFORMED.
+CANONICAL ACCEPTANCE: NOT PERFORMED.
+VOLUME V INTEGRATION: NOT PERFORMED.
+
+END OF RESEARCH CHECKPOINT
