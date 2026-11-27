@@ -1,0 +1,796 @@
+OMEGA-ISOP
+STAGE 3 / RLlab
+RESEARCH CHECKPOINT S3.23
+
+TITLE:
+SIDE-COHERENCE FOR SELECTED UNGUARDED RELATIONAL HORN
+CONSTRAINTS UNDER FREE AMALGAMATION
+
+DATE:
+2026-11-27
+
+STATUS:
+CONDITIONAL PRESERVATION THEOREM PROVED FOR A CONNECTED
+BODY-OVERLAP FRAGMENT; BOUNDARY COUNTERMODELS VERIFIED
+GENERAL CLASSIFICATION OPEN
+
+DOCUMENT_ROLE:
+TEMPORARY RLlab WORKING ARTIFACT
+
+CANONICAL_STATUS:
+NOT CANONICALLY ACCEPTED
+
+RL_STATUS:
+NOT REGISTERED
+
+FROZEN_CORE_STATUS:
+UNCHANGED
+
+VOLUME_V_STATUS:
+UNCHANGED
+
+
+============================================================
+1. OBJECTIVE
+============================================================
+
+S3.21 established an exact semantic mixed-trigger criterion
+and a sufficient single-atom global-guard condition for
+free relational amalgamation.
+
+S3.22 showed that collective variable coverage and connected
+body-variable incidence do not, by themselves, prevent a
+mixed trigger. In the counterexample, the shared join variable
+belongs to the common substructure C, allowing one premise
+to be supported in A and another in B.
+
+S3.23 asks whether selected unguarded clauses can be preserved
+by a condition that is:
+  (a) independent of the clause head;
+  (b) stronger and more structural than checking whether a
+      mixed body trigger falsifies the head;
+  (c) applicable to clauses with several relational body atoms;
+  (d) explicit about the role of the common interface C.
+
+RESULT:
+
+A connected relational-body overlap condition is sufficient
+when every overlap used to connect adjacent body atoms is
+witnessed, under each body-satisfying assignment, by at least
+one element outside C.
+
+This permits selected unguarded clauses, including the
+transitivity clause, on spans where the join variables that
+connect the body atoms are outside the common interface.
+
+It does NOT give preservation for arbitrary spans. If a
+connecting variable lies in C, the S3.22 mixed-trigger
+counterexample remains available.
+
+
+============================================================
+2. FORMAL SETUP
+============================================================
+
+Let Sigma be a function-free relational signature.
+All relation symbols used as body atoms in this checkpoint
+have positive finite arity.
+
+Let A and B be Sigma-structures with a common induced
+substructure C. Identify the embeddings so that:
+
+  A intersect B = C.
+
+Let D be the free relational amalgam:
+
+  |D| = |A| union |B|
+
+and for every relation symbol R:
+
+  R_D = R_A union R_B.
+
+A tuple in a relation of D that contains an element of
+A minus C can only have come from A. Likewise, a tuple
+containing an element of B minus C can only have come from B.
+
+This uniqueness follows from:
+  A intersect B = C
+and the fact that the tuple contains an element outside C.
+
+A positive universal Horn clause has the form:
+
+  forall x1,...,xn:
+    (A1 AND ... AND Ak) IMPLIES H
+
+where each body atom is either:
+  - a relational atom; or
+  - a positive equality.
+
+The head H is a relational atom, a positive equality,
+or BOTTOM.
+
+Terms are variables only. No function symbols, disequality
+premises, or negated relational premises are allowed.
+
+Every variable of a clause considered under the new
+criterion must occur in at least one relational body atom.
+Thus equality-only variables and head-only variables are
+excluded from this fragment.
+
+
+============================================================
+3. RELATIONAL BODY-OVERLAP GRAPH
+============================================================
+
+DEFINITION 3.1 - BODY-OVERLAP GRAPH
+
+For a Horn clause with relational body atoms:
+
+  A1, A2, ..., Ak
+
+define its body-overlap graph H_B as follows:
+
+  - one graph vertex for each relational body atom Ai;
+  - an edge between Ai and Aj exactly when they share
+    at least one variable.
+
+The overlap set for an edge e=(Ai,Aj) is:
+
+  Ov(e) = Var(Ai) intersect Var(Aj).
+
+The graph records which body atoms are joined through
+shared variables. It does not record relation truth values
+or the clause head.
+
+DEFINITION 3.2 - CONNECTED BODY
+
+A clause has connected relational body if H_B is connected.
+
+For k=1, the graph is connected by convention. Such a clause
+is already globally guarded if its only relational body atom
+contains every clause variable.
+
+DEFINITION 3.3 - CONNECTING OVERLAP TREE
+
+For a connected body-overlap graph, choose a spanning tree
+Tau of H_B.
+
+Each edge e=(Ai,Aj) in Tau has a nonempty overlap set Ov(e).
+
+The tree is fixed for the clause. It does not depend on
+a particular structure or assignment.
+
+
+============================================================
+4. SIDE-COHERENCE CONDITION
+============================================================
+
+DEFINITION 4.1 - C-EXCLUSIVE OVERLAP WITNESS
+
+Let s be an assignment of the clause variables into D.
+
+An edge e=(Ai,Aj) of Tau has a C-exclusive overlap witness
+under s if there exists a variable v in Ov(e) such that:
+
+  s(v) belongs to A minus C
+or
+  s(v) belongs to B minus C.
+
+Equivalently:
+
+  s(v) is not an element of C.
+
+DEFINITION 4.2 - BODY SIDE-COHERENCE
+
+A clause is side-coherent on the span A <- C -> B, relative
+to the chosen tree Tau, if every assignment s into D that
+makes all relational body atoms true satisfies:
+
+  For every edge e in Tau, there exists v in Ov(e)
+  with s(v) outside C.
+
+This condition concerns only:
+  - the relational body atoms;
+  - their variable overlaps;
+  - the common substructure C;
+  - assignments that activate the relational body.
+
+It does not inspect the Horn head.
+
+DEFINITION 4.3 - SIDE-COHERENT HORN FRAGMENT
+
+A finite relational Horn theory is side-coherent on a
+specified span if every clause satisfies all of the following:
+
+  1. Every clause variable occurs in a relational body atom.
+  2. The relational body-overlap graph is connected.
+  3. There exists a fixed spanning tree Tau for that clause.
+  4. Every relational-body-satisfying assignment has a
+     C-exclusive overlap witness on every edge of Tau.
+
+Positive equality premises may also occur in the body.
+The head may be relational, equality, or BOTTOM.
+
+The theory is finite when it contains finitely many clauses
+over a finite relational signature. The proof below is
+clause-local and does not rely on finiteness.
+
+
+============================================================
+5. SIDE-LOCALITY LEMMA
+============================================================
+
+LEMMA 5.1
+
+Suppose s makes every relational body atom of a
+side-coherent clause true in D.
+
+Then the entire range of s is contained in A or the
+entire range is contained in B.
+
+PROOF
+
+Take any relational body atom Ai.
+
+Since Ai is true in D, its tuple belongs to the relation
+interpreted in A or in B.
+
+Consider an edge e=(Ai,Aj) of the spanning tree Tau.
+
+By side-coherence, there is a shared variable v in
+Var(Ai) intersect Var(Aj) such that s(v) is outside C.
+
+If s(v) belongs to A minus C, then the tuple of Ai can
+only belong to the A-side relation. The tuple of Aj also
+contains s(v), so it too can only belong to the A-side
+relation.
+
+Thus Ai and Aj are both supported in A.
+
+The same argument applies if s(v) belongs to B minus C.
+
+Therefore adjacent atoms in Tau are supported on the
+same side.
+
+Since Tau is connected, all relational body atoms are
+supported on one common side, either A or B.
+
+Every clause variable occurs in at least one relational
+body atom. Hence every value assigned by s occurs in a
+tuple supported on that same side.
+
+Consequently:
+
+  range(s) is a subset of A
+or
+  range(s) is a subset of B.
+
+QED.
+
+
+============================================================
+6. SIDE-COHERENCE PRESERVATION THEOREM
+============================================================
+
+THEOREM 6.1
+
+Let A and B be models of a positive universal Horn theory T
+in the fragment of Definition 4.3.
+
+If T is side-coherent on the span A <- C -> B, then the
+free relational amalgam D satisfies T.
+
+The conclusion permits:
+  - relational heads;
+  - positive equality heads;
+  - BOTTOM heads.
+
+PROOF
+
+Take any clause of T and any assignment s of its variables
+into D.
+
+If the complete body is false, the implication is satisfied.
+
+Suppose the complete body is true.
+
+Then all relational body atoms are true. By Lemma 5.1,
+the entire assignment range lies in A or in B.
+
+Assume it lies in A.
+
+Every relational body atom true in D under s is true in A
+under s because A is an induced substructure of D.
+
+Every positive equality premise true in D is also true in A.
+
+Therefore the complete body is true in A.
+
+Since A satisfies the clause, its head is true in A, or
+the body cannot be true if the head is BOTTOM.
+
+If the head is relational, its tuple remains present in D.
+If the head is equality, actual identity is unchanged in D.
+If the head is BOTTOM, a true body in A is impossible.
+
+Thus the clause is satisfied in D under s.
+
+The argument is identical if the assignment range lies
+in B.
+
+Since the clause and assignment were arbitrary, D satisfies
+every clause of T.
+
+QED.
+
+
+============================================================
+7. NON-GUARDED EXAMPLE: TRANSITIVITY
+============================================================
+
+Consider:
+
+  forall x,y,z:
+    (R(x,y) AND R(y,z)) IMPLIES R(x,z).
+
+The relational body-overlap graph has two vertices:
+
+  A1 = R(x,y)
+  A2 = R(y,z)
+
+and one edge with overlap:
+
+  Ov(A1,A2) = {y}.
+
+Neither body atom contains all three variables. The clause
+is therefore not globally guarded in the S3.21/S3.22 sense.
+
+However, if every body-satisfying assignment on a given
+span has:
+
+  s(y) outside C,
+
+then the overlap condition holds.
+
+Both edge tuples contain the same element s(y), which lies
+outside C and therefore belongs exclusively to one side.
+
+The two edges must be supported on that same side.
+The whole assignment is side-local, and transitivity in
+that side supplies R(x,z).
+
+SPECIAL CASE: DISJOINT AMALGAM BASE
+
+If C is empty, every element of D belongs to exactly one
+of A or B.
+
+For any assignment satisfying:
+
+  R(x,y) AND R(y,z),
+
+the shared value s(y) is outside C. Thus both edge tuples
+belong to the same side.
+
+Therefore transitivity is preserved by free relational
+amalgamation over the empty common substructure.
+
+This is a genuine unguarded preservation case.
+
+It does not imply preservation of transitivity over
+arbitrary nonempty common substructures.
+
+
+============================================================
+8. COUNTERMODEL WHEN THE OVERLAP CONDITION IS REMOVED
+============================================================
+
+Take the cross-relational clause:
+
+  forall x,y,z:
+    (R(x,y) AND S(y,z)) IMPLIES T(x,z).
+
+Let:
+
+  C = {c}
+
+  A = {a,c}
+  R_A = {(a,c)}
+  S_A = empty
+  T_A = empty
+
+  B = {c,b}
+  R_B = empty
+  S_B = {(c,b)}
+  T_B = empty
+
+Both A and B satisfy the clause.
+
+In the free relational amalgam D:
+
+  R_D(a,c)
+  S_D(c,b)
+
+but:
+
+  T_D(a,b) is false.
+
+The assignment:
+
+  x=a, y=c, z=b
+
+satisfies the relational body.
+
+The overlap variable y is mapped to c in C, so the
+C-exclusive overlap witness condition fails.
+
+The body atoms are supported on opposite sides.
+The Horn head is absent.
+
+Therefore D does not satisfy the clause.
+
+RESULT:
+
+Connectedness of the body-overlap graph alone is
+insufficient.
+
+The S3.22 counterexample is exactly a failure of the
+C-exclusive overlap requirement.
+
+
+============================================================
+9. COUNTERMODEL WHEN BODY CONNECTEDNESS IS REMOVED
+============================================================
+
+Consider:
+
+  forall x,y:
+    (R(x) AND S(y)) IMPLIES T(x,y).
+
+The relational body-overlap graph has two isolated vertices.
+There is no connecting overlap tree.
+
+Take C empty:
+
+  A = {a}
+  R_A = {a}
+  S_A = empty
+  T_A = {(a,a)}
+
+  B = {b}
+  R_B = empty
+  S_B = {b}
+  T_B = empty
+
+A satisfies the clause because its only possible pair
+(x,y)=(a,a) has T(a,a).
+
+B satisfies the clause because R_B is empty.
+
+The free amalgam contains R(a) and S(b), but not T(a,b).
+
+Thus the clause fails in D.
+
+This example shows why disconnected relational body
+components can be activated on opposite sides even when
+the common substructure is empty.
+
+RESULT:
+
+Variable coverage without a connected overlap structure
+does not establish side-coherence.
+
+
+============================================================
+10. WHY BODY VARIABLE COVERAGE IS REQUIRED
+============================================================
+
+Consider:
+
+  forall x,y:
+    R(x) IMPLIES T(x,y).
+
+The variable y occurs in the head but not in any relational
+body atom.
+
+Let:
+
+  C = {c}
+
+  A = {a,c}
+  R_A = {a}
+  T_A = {(a,a),(a,c)}
+
+  B = {b,c}
+  R_B = empty
+  T_B = empty
+
+A satisfies the clause for every assignment of y in A.
+B satisfies it vacuously.
+
+In the free amalgam, assign:
+
+  x=a, y=b.
+
+Then R(a) is true but T(a,b) is false.
+
+The body has no relational overlap capable of locating y
+on the same side as x.
+
+Thus every clause variable must be covered by the relational
+body for Lemma 5.1 to imply full assignment side-locality.
+
+This is a restriction of the present criterion, not a claim
+that every preservable Horn clause must satisfy it.
+
+
+============================================================
+11. WHAT THE CONDITION DOES AND DOES NOT CLASSIFY
+============================================================
+
+The side-coherence condition is a sufficient condition
+for a specified span A <- C -> B.
+
+It is not a necessary condition for free-amalgam preservation.
+
+A clause may be preserved even when a body trigger is mixed,
+because its head may independently be true in the amalgam.
+
+The present criterion deliberately avoids inspecting the
+head. It excludes a larger class of potentially dangerous
+mixed triggers by proving that every active relational
+body is side-local.
+
+The condition is also span-dependent.
+
+For example, the transitivity clause is side-coherent over
+the empty base, but not over every nonempty base.
+
+Therefore this is not a universal syntactic classification
+of all theories with the free amalgamation property.
+
+A finite theory can combine:
+  - globally guarded clauses covered by S3.21/S3.22;
+  - selected unguarded clauses covered by Theorem 6.1
+    on a specified class of spans.
+
+For a class of spans, the side-coherence requirement must
+hold for every span in that class. Only then does the
+preservation theorem apply uniformly to that class.
+
+
+============================================================
+12. PULLBACK IS A SEPARATE PROOF OBLIGATION
+============================================================
+
+Let pi:X -> Q be surjective, and define every relation on X
+as the inverse image of the corresponding relation on Q.
+
+The side-coherence theorem concerns free relational
+amalgamation. It does not alter the pullback results.
+
+For positive universal Horn clauses:
+  - relational heads are preserved by inverse-image pullback;
+  - BOTTOM heads are preserved by inverse-image pullback;
+  - positive equality premises remain true after projection.
+
+Equality heads require the clause-specific fiber condition.
+
+For a head u=v, every body-satisfying assignment s in X
+must satisfy:
+
+  pi(s(u)) = pi(s(v))
+  IMPLIES
+  s(u) = s(v).
+
+Global injectivity of pi is sufficient but stronger than
+necessary.
+
+No pullback conclusion for equality-generating heads follows
+from side-coherence alone.
+
+
+============================================================
+13. LOOP AUDIT
+============================================================
+
+TARGET:
+
+If A and B satisfy T, and T is side-coherent on the
+specified span, then their free relational amalgam D
+satisfies T.
+
+INDEPENDENT PREMISES:
+
+1. A and B intersect exactly in C.
+2. Every relation of D is the union of its side relations.
+3. The common substructure is induced.
+4. Every clause variable occurs in a relational body atom.
+5. The body-overlap graph is connected.
+6. A fixed spanning tree is selected.
+7. Every body-satisfying assignment has a C-exclusive
+   witness on every tree edge.
+8. A and B satisfy every clause.
+
+DEPENDENCY CHAIN:
+
+True relational body atoms in D
+-> each atom has a side support
+-> every tree edge has a shared variable outside C
+-> adjacent atom supports must be the same side
+-> connected tree forces all atom supports to one side
+-> variable coverage places the entire assignment there
+-> the complete body is true in that side
+-> side-model satisfaction gives the head
+-> the head remains true in D.
+
+CONCLUSION-SMUGGLING CHECK:
+
+The condition does not refer to the head.
+The proof derives side-locality solely from:
+  - the free-union relation semantics;
+  - the common-substructure intersection;
+  - the body-overlap tree;
+  - the exclusive-overlap witnesses.
+
+COUNTERMODEL CHECK:
+
+Removing the exclusive-overlap condition admits the
+S3.22 mixed R/S trigger with y in C.
+
+Removing connectedness admits the R(x) AND S(y) trigger
+distributed across disjoint sides.
+
+Removing body variable coverage admits a head-only
+variable to be assigned on the opposite side.
+
+CLASSIFICATION:
+
+NON-CIRCULAR CONDITIONAL DERIVATION
+under Definitions 4.1-4.3 and the stated span assumptions.
+
+The theorem is not a necessary-and-sufficient classification.
+
+
+============================================================
+14. COMPARISON WITH S3.21 AND S3.22
+============================================================
+
+S3.21:
+Single relational guard containing every clause variable.
+Result: free amalgam preservation for guarded Horn clauses.
+
+S3.22:
+Multiple relation symbols allowed in the body, but one
+global guard still contains every clause variable.
+Result: same preservation theorem; collective coverage
+and connectedness alone fail.
+
+S3.23:
+No single global guard is required.
+Instead, connected body atoms must be joined through
+overlap variables that are outside C in every active
+assignment.
+Result: conditional preservation for selected unguarded
+clauses on spans satisfying side-coherence.
+
+Logical relationship:
+
+S3.23 does not replace S3.21.
+It adds a span-relative sufficient criterion.
+
+S3.23 does not contradict the S3.22 counterexample.
+That counterexample violates the new overlap condition.
+
+S3.23 does not prove that the overlap condition is necessary.
+Other reasons may prevent a mixed trigger or may make its
+head true.
+
+
+============================================================
+15. APPLICATION TO OMEGA-ISOP
+============================================================
+
+For a proposed finite relational constraint layer over
+the P2.3 quotient construction:
+
+1. Write every constraint as an explicit positive universal
+   Horn clause.
+2. Identify all relational body atoms.
+3. Build the body-overlap graph.
+4. Check whether every clause variable occurs in a
+   relational body atom.
+5. If a clause is globally guarded, use S3.21/S3.22.
+6. If it is unguarded, select a body-overlap spanning tree.
+7. State the class of spans under consideration.
+8. Prove the C-exclusive overlap condition for every
+   body-satisfying assignment on those spans.
+9. Apply Theorem 6.1 only to those spans.
+10. Audit quotient pullback separately, especially for
+    equality-generating heads.
+
+Potential use:
+
+Some unguarded relational constraints may be admissible
+when the P2.3 common interface cannot carry the variables
+that connect their relational body atoms.
+
+This is a conditional structural possibility, not an
+established property of the actual OMEGA-ISOP realization.
+
+No claim is made that the current P2.3 quotient spans
+satisfy this condition.
+
+No operations, dynamics, Markov kernels, response maps,
+persistence structures, or physical realization claims
+are covered by this theorem.
+
+No change to P2.3, P2.4, the Frozen Core, or Volume V
+is proposed or enacted.
+
+
+============================================================
+16. FINAL STATUS
+============================================================
+
+S3.23 ESTABLISHES:
+
+1. A connected relational-body overlap graph can support
+   a side-locality proof without a single global guard.
+
+2. If every active overlap-tree edge has a shared variable
+   assigned outside C, adjacent body atoms must be supported
+   on the same side.
+
+3. If every clause variable occurs in a relational body atom,
+   connectedness propagates this side choice to the complete
+   assignment.
+
+4. Under these conditions, positive universal Horn clauses
+   with relational, equality, or BOTTOM heads are preserved
+   by the free relational amalgam.
+
+5. Transitivity is preserved over an empty common base by
+   this criterion, despite being unguarded.
+
+6. The S3.22 cross-relational counterexample violates the
+   exclusive-overlap condition because its join variable
+   lies in C.
+
+7. Disconnected body-overlap graphs and uncovered
+   head-only variables admit independent counterexamples.
+
+EVIDENCE CLASS:
+
+MATHEMATICALLY PROVED CONDITIONAL RESULT
+under the explicit function-free relational assumptions.
+
+NOT ESTABLISHED:
+
+1. A necessary-and-sufficient syntactic classification.
+2. Preservation over arbitrary nonempty common bases.
+3. Necessity of the chosen overlap-tree condition.
+4. Uniform applicability to all P2.3 spans.
+5. Preservation of operations, dynamics, or physical models.
+
+CANONICAL_STATUS:
+NOT ACCEPTED.
+
+RL_STATUS:
+NOT REGISTERED.
+
+FROZEN_CORE:
+UNCHANGED.
+
+VOLUME_V:
+UNCHANGED.
+
+NEXT JUSTIFIED TASK:
+
+S3.24 - investigate whether the span-relative
+C-exclusive overlap condition can be replaced by a
+finite interface signature or a checkable structural
+restriction on the common substructure, while retaining
+the unguarded transitivity case and excluding the
+S3.22 mixed-trigger counterexample.
+
+END OF S3.23
