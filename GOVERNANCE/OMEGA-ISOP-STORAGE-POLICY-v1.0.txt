@@ -1,0 +1,62 @@
+OMEGA-ISOP STORAGE POLICY
+VERSION: 1.0
+EFFECTIVE DATE: 2026-11-27
+STATUS: APPROVED BY PROJECT OWNER
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+DEFAULT BRANCH: main
+
+1. PURPOSE
+This policy establishes a single authoritative location for each class of OMEGA-ISOP project artifact and eliminates routine content duplication between ChatGPT Library and GitHub.
+
+2. LIBRARY: CANONICAL CORE DOCUMENTS ONLY
+The Library is reserved for the following current core documents:
+- Frozen Core: /OMEGA-ISOP/Frozen Core/&OMEGA-ISOP-v2.0-FC10.2-CONSOLIDATED-FROZEN-CORE.txt
+- Volume II: /OMEGA-ISOP/VOLUME II–V/OMEGA-ISOP-VOLUME-II-MATHEMATICAL-FOUNDATIONS-v1.4-GOVERNANCE-ADDENDUM-2026-11-24.txt
+- Volume III: /OMEGA-ISOP/VOLUME II–V/&OMEGA-ISOP-VOLUME-III-VALIDATION-FRAMEWORK-v1.1-VAL-RESTORED.txt
+- Volume IV: /OMEGA-ISOP/VOLUME II–V/&OMEGA-ISOP-VOLUME-IV-UNIFIED-EXTENSION-FRAMEWORK-v1.4-R-RESTORED.txt
+- Volume V / M3.2 v2.4 / C1.5 controlled master: /OMEGA-ISOP/VOLUME II–V/&OMEGA-ISOP-VOLUME-V-v2.4-C-1.5-CONTROLLED-MASTER-2026-11-22.txt
+- Operational Handoff: /OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF.txt
+
+These Library copies are canonical. Do not routinely copy their full contents into GitHub. GitHub may contain policy and index records identifying them, but not duplicate current content.
+
+3. GITHUB: ALL RESEARCH AND DEVELOPMENT ARTIFACTS
+GitHub is the sole canonical archive for:
+- numbered and unnumbered research checkpoints;
+- mathematical derivations, proofs, theorem records, audits and counterexamples;
+- RL research records, scripts, reproducibility materials and validation outputs;
+- archival supplements, transition records and other non-core project documents;
+- future durable research artifacts and their revision history.
+
+New durable research artifacts are committed directly to GitHub. The Library is not used as a parallel checkpoint or working archive.
+
+4. WRITE AND VERIFICATION PROTOCOL
+For each new or updated GitHub artifact:
+a. inspect the target path and current version before writing;
+b. create or update the file on the intended branch;
+c. record the commit SHA and resulting blob SHA when available;
+d. fetch the committed file again from GitHub;
+e. compare the readback with the intended content;
+f. report success only after the readback passes.
+If any step fails, preserve all existing copies and report the failure. Never infer a successful commit or synchronization.
+
+5. CLEANUP AND MIGRATION
+A Library copy of a non-core artifact may be deleted only after the corresponding GitHub file has been fetched and its content verified. Exact duplicate source files may be consolidated into one canonical GitHub artifact only after their contents have been compared and found identical. GitHub commit history is retained as the historical record.
+
+6. PROTECTED CORE
+The Frozen Core and the canonical Volume II–V, M3.2 v2.4 / C1.5 and Handoff documents must not be altered as part of storage migration. Any scientific or structural change requires its own explicit change-control decision.
+
+7. BACKUP AND RECOVERY
+The no-duplication rule applies to routine working storage. It does not prohibit a separately controlled disaster-recovery export of the canonical Library core documents. Such an export must be versioned, integrity-checked and stored independently; it must not silently become a second working master.
+
+8. CURRENT MIGRATION RECORD
+CP01–CP08 were verified against their GitHub counterparts before Library cleanup.
+The N5 final closure and transition record already exists in GitHub at:
+checkpoints/OI-N5-FINAL-CLOSURE-AND-TRANSITION-RECORD-2026-11-25-v1.0.txt
+The Library copy differs only by a terminal newline; the substantive text matches.
+Additional non-core Library research records are being migrated under RESEARCH/ARCHIVE/.
+The three RL-LAB provenance clarification Library files were compared and found byte-identical; one canonical GitHub archive file is sufficient.
+
+9. NON-IMPLICATION
+This storage policy does not certify the mathematical validity of archived claims, promote research to canonical theory, or authorize changes to the Frozen Core.
+
+END OF POLICY
