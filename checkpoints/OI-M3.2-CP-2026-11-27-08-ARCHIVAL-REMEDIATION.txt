@@ -1,0 +1,56 @@
+OMEGA-ISOP / M3.2
+ARCHIVAL REMEDIATION CHECKPOINT
+
+CHECKPOINT_ID: OI-M3.2-CP-2026-11-27-08
+DATE: 2026-11-27
+WORKSTREAM: M3.2 / Library and GitHub archival integrity
+STATUS: COMPLETED; VERIFIED BY READBACK
+
+1. SCOPE
+This checkpoint records corrective actions performed after the project audit CP07. It is an operational archival record, not a scientific result, not canonical acceptance, and not an amendment to the Frozen Core.
+
+2. PRE-WRITE LIBRARY CHECK
+Before creating this checkpoint, Library /checkpoints was listed and inspected. It contained numbered checkpoints 01, 02, 04, 05, 06, and 07. Checkpoint 03 was found in the incorrect folder /OMEGA-ISOP/checkpoints. No new folder was created.
+
+3. CHECKPOINT 03 LIBRARY RELOCATION
+Source:
+/OMEGA-ISOP/checkpoints/OI-M3.2-CP-2026-11-26-03-FINITE-MARKOV-MODEL.txt
+Destination:
+/checkpoints/OI-M3.2-CP-2026-11-26-03-FINITE-MARKOV-MODEL.txt
+Operation: Library move, using the exact Library file identity.
+Result: SUCCEEDED.
+Readback: PASS. The moved file was read again from its destination.
+Content verification: exact text equality with the already archived GitHub file was confirmed (18,277 characters).
+
+4. CHECKPOINT 04 GITHUB ARCHIVAL
+Source: Library /checkpoints/OI-M3.2-CP-2026-11-26-04-IDENTIFIABILITY.txt
+GitHub destination: checkpoints/OI-M3.2-CP-2026-11-26-04-IDENTIFIABILITY.txt
+Operation: GitHub create_file on branch main.
+Commit SHA: 83e968ca868077975421e85f4e731327612d744f
+GitHub blob SHA: 057b3896bfd4eaeac5806c3caf3a5881a407aec8
+Readback: PASS.
+Library/GitHub exact content equality: PASS (7,473 characters).
+
+5. RESULTING CHECKPOINT SERIES
+The canonical temporary Library folder /checkpoints now contains numbered checkpoints 01 through 07, plus this checkpoint 08. Checkpoints 01, 02, 03, 05, 06, and 07 have existing verified GitHub copies. Checkpoint 04 has now been committed and read back exactly. No checkpoint file was deleted.
+
+6. PRESERVED ITEMS AND NON-ACTIONS
+- Frozen Core was not modified.
+- The consolidated M3.2 document was not modified.
+- The operational HANDOFF was not modified.
+- No checkpoint was deleted.
+- The separate N5 transition record found in /OMEGA-ISOP/checkpoints was not moved or altered because it is a distinct artifact and was outside the specifically verified CP03 relocation scope.
+- No claim is made that GitHub branch protection or signed commits have been configured. The main branch was observed as unprotected.
+
+7. NEXT JUSTIFIED ACTIONS
+1. Independently complete the CP04 unresolved audit of horizon-independence of TV_n, using the explicit transition matrix R and the full finite-horizon observation construction.
+2. Review the separate N5 transition record and determine its canonical Library location before moving it.
+3. Consider repository governance improvements (branch protection and required checks) as a separate authorized maintenance task.
+4. Retain the rule that cleanup is permitted only for checkpoint files whose exact GitHub commit and readback have been verified. No cleanup was performed in this remediation.
+
+8. VERIFICATION
+Library destination: /checkpoints/OI-M3.2-CP-2026-11-27-08-ARCHIVAL-REMEDIATION.txt
+Library save/readback status: to be confirmed after write.
+GitHub status: to be confirmed after commit and readback.
+
+END OF CHECKPOINT
