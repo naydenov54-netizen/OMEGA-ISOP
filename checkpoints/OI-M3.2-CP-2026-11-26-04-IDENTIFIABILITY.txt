@@ -1,0 +1,173 @@
+OMEGA-ISOP / M3.2 v2.1
+RESEARCH CHECKPOINT + ARCHIVAL RECOVERY RECORD
+
+CHECKPOINT_ID: OI-M3.2-CP-2026-11-26-04
+DATE: 2026-11-26
+WORKSTREAM: M3.2 v2.1 / Finite-state Markov model / Parameter identifiability
+RESEARCH_STAGE: Arbitrary-initial-distribution robustness and inverse parameter recovery
+TITLE: Finite four-state model: trace-distance result and conditional global identifiability of alpha and beta
+VERSION: 1.0
+STATUS: ANALYTICAL CHECKPOINT; RESULTS SUBJECT TO THE SCOPE AND CAVEATS BELOW
+ARCHIVAL_TARGET: /checkpoints/OI-M3.2-CP-2026-11-26-04-IDENTIFIABILITY.txt
+
+==================================================
+1. OBJECTIVE
+==================================================
+Record EXPERIMENT 10 (arbitrary initial distribution robustness), EXPERIMENT 11 (two-experiment parameter recovery), and EXPERIMENT 12 (global identifiability under observational equivalence).
+The record does not modify the Frozen Core or the transition architecture.
+
+==================================================
+2. PROTECTED MODEL FRAME
+==================================================
+State space:
+S = {00, 01, 10, 11}
+
+Initial distributions:
+mu = (mu00, mu01, mu10, mu11)
+nu = (nu00, nu01, nu10, nu11)
+
+Normalization:
+SUM_i(mu_i) = 1
+SUM_i(nu_i) = 1
+
+Parameters:
+alpha = c + epsilon
+beta  = c - epsilon
+
+Observation:
+o(a,b) = b
+
+Definitions:
+m0(mu) = mu00 + mu10
+r(mu) = alpha*mu00 + beta*mu10
+Delta_m = m0(mu) - m0(nu)
+Delta_r = r(mu) - r(nu)
+Delta_z = (mu00 - mu10) - (nu00 - nu10)
+
+Transition notation remains:
+p -> q = p * R
+No transition-matrix entries or additional transition assumptions are introduced by this checkpoint.
+
+==================================================
+3. EXPERIMENT 10 — ARBITRARY INITIAL DISTRIBUTION ROBUSTNESS
+==================================================
+The supplied finite-horizon trace-distance expression, for every finite horizon n >= 1, is:
+
+TV_n(mu,nu) = 1/2 * ( |Delta_r| + |Delta_m - Delta_r| + |Delta_m| )
+
+Equivalent form:
+TV_n(mu,nu) = max( |Delta_r|, |Delta_m|, |Delta_m - Delta_r| )
+
+Parameterization:
+Delta_r = c*Delta_m + epsilon*Delta_z
+
+Therefore:
+TV_n(mu,nu) = max(
+  |c*Delta_m + epsilon*Delta_z|,
+  |Delta_m|,
+  |(1-c)*Delta_m - epsilon*Delta_z|
+)
+
+Reported temporal conclusion:
+TV_n(mu,nu) is independent of n for all n >= 1 in the specified model.
+
+STATUS / LIMITATION:
+The algebraic equivalence between the half-sum and maximum forms is valid for three real numbers of the form x, y-x, y. The time-independence conclusion is recorded as a result supplied by the experiment specification. It is not independently re-derived here because the actual transition matrix R and the full horizon-n observation map are not included in the present record. Verification against the explicit R remains required before treating the temporal statement as independently audited.
+
+==================================================
+4. EXPERIMENT 11 — TWO-DISTRIBUTION PARAMETER RECOVERY
+==================================================
+Assume the initial distributions mu and nu are known and the two scalar quantities r(mu), r(nu) are observable.
+Then:
+
+mu00*alpha + mu10*beta = r(mu)
+nu00*alpha + nu10*beta = r(nu)
+
+Determinant:
+D = mu00*nu10 - nu00*mu10
+
+If D != 0, the unique solution is:
+
+alpha = (r(mu)*nu10 - r(nu)*mu10) / D
+beta  = (mu00*r(nu) - nu00*r(mu)) / D
+
+Then:
+c       = (alpha + beta)/2
+epsilon = (alpha - beta)/2
+
+If D = 0, this two-measurement linear system is singular. The two initial preparations do not identify alpha and beta separately by this pair of scalar observations. Additional independent preparations or constraints may be required.
+
+Special basis preparations:
+mu = (1,0,0,0) gives r(mu) = alpha
+nu = (0,0,1,0) gives r(nu) = beta
+
+Thus alpha and beta are directly recovered if these preparations are admissible, known, and their corresponding r-values are genuinely measurable.
+
+STATUS:
+PROVED under the stated known-preparation and scalar-observation assumptions. This is an algebraic identifiability result, not yet a noise-robust estimation result.
+
+==================================================
+5. EXPERIMENT 12 — GLOBAL IDENTIFIABILITY UNDER OBSERVATIONAL EQUIVALENCE
+==================================================
+Compare two parameter pairs (alpha,beta) and (alpha_prime,beta_prime), with the same state labels, same preparation space, and same observation functional r.
+
+Define observational equivalence for this test by:
+r_(alpha,beta)(mu) = r_(alpha_prime,beta_prime)(mu)
+for every admissible initial distribution mu.
+
+Since the admissible simplex includes the basis distributions:
+mu^(1) = (1,0,0,0)
+mu^(2) = (0,0,1,0)
+
+The first equality gives:
+alpha = alpha_prime
+
+The second equality gives:
+beta = beta_prime
+
+Consequently:
+c = c_prime
+epsilon = epsilon_prime
+
+CONCLUSION:
+The parameter pair (alpha,beta) is globally identifiable from the complete family of scalar initial-observation values r(mu), provided all admissible initial distributions can be prepared or otherwise accessed, including the two basis preparations above, and the state coordinates are known and consistently labelled.
+
+IMPORTANT SCOPE RESTRICTION:
+This does not by itself prove global identifiability from a single fixed unknown initial distribution, from passive observations alone, or from the complete temporal process for an unspecified transition matrix R. It proves injectivity of the map (alpha,beta) -> [mu |-> r(mu)] on the stated preparation domain.
+
+==================================================
+6. ROBUST IDENTIFIABILITY — NEXT TEST, NOT YET COMPLETED
+==================================================
+The determinant D controls the conditioning of the two-preparation inverse problem. When D is close to zero, small errors in measured r(mu) and r(nu) can produce large parameter errors.
+
+Next required analysis:
+- derive the inverse sensitivity matrix;
+- quantify error amplification as a function of D and the measurement-noise model;
+- identify optimal or well-conditioned initial preparations under admissibility constraints;
+- distinguish structural identifiability from practical identifiability.
+
+No numerical condition number or noise bound is claimed in this checkpoint.
+
+==================================================
+7. SCIENTIFIC STATUS AND NON-IMPLICATIONS
+==================================================
+ESTABLISHED CONDITIONALLY:
+1. The two-measurement inverse formulas for alpha and beta when D != 0.
+2. Global injectivity of the parameter-to-observation-family map when all admissible initial distributions are available and r(mu) is observed exactly.
+
+RECORDED BUT NOT INDEPENDENTLY AUDITED HERE:
+3. Horizon-independence of TV_n, pending the explicit transition matrix R and the full finite-horizon observation construction.
+
+NOT ESTABLISHED:
+4. Noise-robust parameter estimation.
+5. Identifiability from one unknown or uncontrolled initial distribution.
+6. Identifiability of the full transition matrix R.
+7. Any modification, extension, or thawing of the Frozen Core.
+
+==================================================
+8. GOVERNANCE
+==================================================
+This file is a research checkpoint in the temporary Library checkpoint folder. It is not canonical acceptance, not a Frozen Core amendment, and not a claim of GitHub synchronization.
+Any later promotion to the M3.2 consolidated document or GitHub mirror requires the normal review, exact-content verification, and commit verification procedures.
+
+END OF CHECKPOINT
