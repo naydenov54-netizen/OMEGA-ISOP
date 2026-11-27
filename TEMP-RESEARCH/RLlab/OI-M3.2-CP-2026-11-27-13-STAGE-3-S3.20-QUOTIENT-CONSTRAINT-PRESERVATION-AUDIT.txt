@@ -1,0 +1,442 @@
+OMEGA-ISOP
+STAGE 3 / RLlab
+RESEARCH CHECKPOINT S3.20
+
+TITLE:
+QUOTIENT-LEVEL CONSTRAINT PRESERVATION UNDER RELATIONAL AMALGAMATION
+
+DATE:
+2026-11-27
+
+STATUS:
+EXPLICIT PRESERVATION AND FAILURE RESULTS PROVED
+GENERAL CONSTRAINT CLASSIFICATION OPEN
+
+DOCUMENT_ROLE:
+TEMPORARY RLlab WORKING ARTIFACT
+
+CANONICAL_STATUS:
+NOT CANONICALLY ACCEPTED
+
+RL_STATUS:
+NOT REGISTERED
+
+FROZEN_CORE_STATUS:
+UNCHANGED
+
+VOLUME_V_STATUS:
+UNCHANGED
+
+
+============================================================
+1. OBJECTIVE
+============================================================
+
+S3.19 proved a strong-amalgamation theorem for quotient-invariant
+pure-relational expansions of Boolean-apartness structures.
+
+The construction descends each relation to the quotient Q, forms
+a relational amalgam on Q, and pulls the result back to the P2.3
+carrier.
+
+S3.20 audits what happens when additional axioms are imposed on
+the quotient-level relations.
+
+The key question is not merely whether a relation descends.
+It is whether the chosen class of quotient relational structures
+is closed under the selected quotient-level amalgam.
+
+We test:
+  (i) symmetry;
+  (ii) irreflexivity;
+  (iii) transitivity;
+  (iv) functionality;
+  (v) acyclicity.
+
+We distinguish:
+  A. preservation by the free quotient union;
+  B. existence of some strong amalgam;
+  C. existence of any amalgam, possibly non-strong;
+  D. preservation of the property after pullback to S_P.
+
+
+============================================================
+2. COMMON SETUP
+============================================================
+
+Let C -> A and C -> B be embeddings of relational structures.
+Use disjoint copies over C, so:
+
+    A intersect B = C.
+
+For a binary relation R, the free relational amalgam on the
+pushout set is:
+
+    R_free = R_A union R_B.
+
+A pair whose two coordinates are not both supplied by one side
+is false unless it already belongs to a side relation.
+
+For the OMEGA-ISOP application, assume these are quotient
+structures Q_C, Q_A, Q_B obtained from the Boolean-apartness
+quotients in S3.19. The same examples can be realized as
+quotient structures by taking singleton fibers, or lifted to
+nontrivial fibers by replacing quotient points with
+indistinguishability classes.
+
+After constructing a quotient-level amalgam (Q,R_Q), the
+carrier-level relation is:
+
+    R_P(x,y) IFF R_Q(pi(x),pi(y)).
+
+This pullback is quotient-invariant by construction.
+
+
+============================================================
+3. PROPERTIES PRESERVED BY FREE QUOTIENT UNION
+============================================================
+
+3.1 Symmetry
+
+Assume R_A and R_B are symmetric.
+
+If (x,y) belongs to R_free, it belongs to R_A or R_B.
+Symmetry in that same side gives (y,x) in the same relation.
+Therefore (y,x) belongs to R_free.
+
+Conclusion:
+The free quotient union preserves symmetry.
+
+3.2 Irreflexivity
+
+Assume neither R_A nor R_B contains a loop.
+
+Every loop (x,x) in R_free would have to belong to R_A or R_B,
+because R_free is their union. This is impossible.
+
+Conclusion:
+The free quotient union preserves irreflexivity.
+
+3.3 Reflexivity
+
+Assume each side relation is reflexive on its own carrier.
+
+Every element of the pushout belongs to A or B. Its loop is
+therefore present in R_A or R_B, and hence in R_free.
+
+Conclusion:
+The free quotient union preserves reflexivity.
+
+These proofs do not depend on finiteness.
+
+
+============================================================
+4. TRANSITIVITY: FREE UNION CAN FAIL, BUT COMPLETION MAY WORK
+============================================================
+
+Let:
+
+    C = {c}
+    A = {a,c}, with R_A = {(a,c)}
+    B = {c,b}, with R_B = {(c,b)}.
+
+Both R_A and R_B are transitive: neither contains a composable
+pair of edges whose required composite is missing.
+
+The free union contains:
+
+    a R_free c
+    c R_free b
+
+but does not contain:
+
+    a R_free b.
+
+Therefore R_free is not transitive.
+
+However, this does not prove that no transitive amalgam exists.
+
+Define instead:
+
+    R_D = {(a,c),(c,b),(a,b)}.
+
+Then R_D is transitive, and its restrictions to A and B are
+exactly R_A and R_B. The embeddings remain induced.
+
+Thus this span has a strong transitive amalgam, but not the
+free relational union.
+
+Conclusion:
+Transitivity is not preserved by free union in general.
+For this span, a non-free strong amalgam exists.
+
+No general amalgamation theorem for all transitive relations
+is claimed here.
+
+
+============================================================
+5. FUNCTIONALITY: STRONG AMALGAM CAN FAIL
+============================================================
+
+Interpret R(x,y) as a partial-function graph, with functionality:
+
+    For all x,y,z:
+      (R(x,y) AND R(x,z)) IMPLIES y=z.
+
+Take:
+
+    C = {c}
+    A = {c,a}, R_A = {(c,a)}
+    B = {c,b}, R_B = {(c,b)}
+
+where a and b are distinct and outside C.
+
+Each input relation is functional.
+The restrictions to C agree: both have no pair in C x C.
+
+The free union contains:
+
+    R_free(c,a)
+    R_free(c,b)
+
+with a != b. Hence it is not functional.
+
+More strongly, no strong amalgam in the class of functional
+relations can preserve both embeddings.
+
+Proof:
+In any amalgam D, the images of a and b must remain distinct
+under a strong amalgam. But the preserved input relations require
+both R_D(c,a) and R_D(c,b). Functionality then forces a=b,
+contradicting strongness.
+
+A non-strong amalgam can identify a and b. Therefore this example
+shows failure of strong amalgamation, not failure of every
+possible amalgam.
+
+Conclusion:
+Functionality is not preserved by free union, and the class of
+functional binary relations does not have strong amalgamation
+for this span.
+
+
+============================================================
+6. ACYCLICITY: A SPAN WITH NO AMALGAM
+============================================================
+
+Interpret R as a directed edge relation. A directed cycle is
+a finite sequence:
+
+    x_0 R x_1 R ... R x_(n-1) R x_0.
+
+Let:
+
+    C = {c1,c2}, with no R-edges.
+
+Let A add a new point a and edges:
+
+    c1 R_A a
+    a R_A c2
+
+Let B add a distinct new point b and edges:
+
+    c2 R_B b
+    b R_B c1.
+
+A and B are individually acyclic.
+Their induced restrictions to C agree and are empty.
+
+Any amalgam preserving both embeddings contains the cycle:
+
+    c1 -> a -> c2 -> b -> c1.
+
+Adding more edges cannot remove this cycle. Identifying a and b
+does not remove it either.
+
+Therefore this span has no amalgam in the class of acyclic
+directed relations, strong or otherwise.
+
+Conclusion:
+Acyclicity is not preserved by free union, and for this specific
+span no alternative amalgam can exist.
+
+
+============================================================
+7. SUMMARY TABLE
+============================================================
+
+Property        Free union     Alternative amalgam result
+
+Symmetry        Preserved      Free union already works
+Irreflexivity   Preserved      Free union already works
+Reflexivity     Preserved      Free union already works
+Transitivity    Can fail       Strong completion exists in
+                               the explicit example
+Functionality   Can fail       No strong amalgam in the
+                               explicit example; a non-strong
+                               amalgam can identify outputs
+Acyclicity      Can fail       No amalgam in the explicit
+                               cycle-forcing example
+
+The table records proved statements for the displayed
+constructions. It is not a classification of every relational
+constraint or every possible span.
+
+
+============================================================
+8. EFFECT OF PULLBACK TO THE P2.3 CARRIER
+============================================================
+
+Let pi:S_P -> Q be the P2.3 quotient projection and define:
+
+    R_P(x,y) IFF R_Q(pi(x),pi(y)).
+
+Then:
+
+8.1 Properties preserved by inverse image under pi
+
+If R_Q is symmetric, R_P is symmetric.
+
+If R_Q is irreflexive, R_P is irreflexive:
+R_P(x,x) would imply R_Q(pi(x),pi(x)).
+
+If R_Q is reflexive, R_P is reflexive.
+
+If R_Q is transitive, R_P is transitive:
+R_P(x,y) and R_P(y,z) imply
+R_Q(pi(x),pi(y)) and R_Q(pi(y),pi(z));
+transitivity gives R_Q(pi(x),pi(z)), hence R_P(x,z).
+
+If R_Q is acyclic, R_P is acyclic:
+a directed cycle in S_P would project to a closed directed walk
+in Q, which contains a directed cycle.
+
+8.2 Functionality is not generally preserved
+
+Suppose R_Q(q,r), and the fiber pi^(-1)(r) contains two
+distinct elements y1 and y2.
+
+For any x in pi^(-1)(q), pullback gives:
+
+    R_P(x,y1)
+    R_P(x,y2).
+
+Thus R_P is not functional.
+
+Even if R_Q is functional, pullback need not be functional
+unless every relevant target fiber has size at most one.
+
+A sufficient condition for functionality of the pullback is:
+
+    For every q with an R_Q-successor r,
+    |pi^(-1)(r)| <= 1.
+
+This is a restrictive fiber condition, not a consequence of
+S3.19.
+
+Conclusion:
+A quotient-level axiom must be checked twice:
+first under quotient amalgamation, then under pullback to S_P.
+The quotient-level property alone does not guarantee its
+carrier-level preservation.
+
+
+============================================================
+9. CONSEQUENCES FOR THE S3.19 THEOREM
+============================================================
+
+S3.19 remains valid as stated for the class whose only extra
+condition is coordinatewise quotient invariance.
+
+S3.20 identifies the additional closure obligations.
+
+For a proposed quotient-level constraint K:
+
+K1. Determine whether each input quotient structure satisfies K.
+
+K2. Determine whether the free quotient union preserves K.
+
+K3. If not, test whether another quotient-level strong amalgam
+    can preserve K.
+
+K4. If no strong amalgam exists, test separately whether a
+    non-strong amalgam exists.
+
+K5. After selecting a quotient amalgam, test whether pullback
+    along pi preserves K on the P2.3 carrier.
+
+The examples show three genuinely different outcomes:
+  - symmetry/irreflexivity: free union succeeds;
+  - transitivity: free union fails but a strong completion
+    succeeds in the displayed span;
+  - functionality: strong amalgamation fails in the displayed
+    span, although a non-strong amalgam exists;
+  - acyclicity: a displayed span has no amalgam at all.
+
+Therefore no single inference from "free union fails" to
+"amalgamation fails" is valid.
+
+
+============================================================
+10. LIMITATIONS AND NEXT RESEARCH QUESTION
+============================================================
+
+This audit treats one binary relation at a time and the listed
+properties only.
+
+It does not classify:
+  - arbitrary first-order theories;
+  - combinations of constraints;
+  - constraints coupling multiple relation symbols;
+  - operations or function symbols in the OMEGA-ISOP language;
+  - dynamics, Markov kernels, realization maps, or response maps;
+  - the complete OMEGA-ISOP operational architecture.
+
+The next rigorous step is to formulate a constraint-preservation
+criterion in terms of quotient-level amalgamation, then test
+whether useful syntactic fragments (for example, selected
+universal Horn constraints) satisfy it.
+
+Do not claim that all universal Horn constraints are preserved.
+The functionality example already shows that such a blanket
+claim would be false.
+
+
+============================================================
+11. FINAL STATUS
+============================================================
+
+S3.20 RESULT:
+Explicit positive and negative constraint-preservation results
+have been established.
+
+POSITIVE:
+Free quotient union preserves symmetry, irreflexivity, and
+reflexivity.
+
+NEGATIVE:
+Free quotient union need not preserve transitivity,
+functionality, or acyclicity.
+
+STRONGER NEGATIVE:
+A specific functional-relation span has no strong amalgam.
+A specific acyclic-relation span has no amalgam at all.
+
+PULLBACK AUDIT:
+Symmetry, irreflexivity, reflexivity, transitivity, and
+acyclicity are preserved by inverse image along pi.
+Functionality is not generally preserved.
+
+CANONICAL STATUS:
+NOT ACCEPTED.
+
+RL REGISTRATION:
+NONE.
+
+FROZEN CORE:
+UNCHANGED.
+
+VOLUME V:
+UNCHANGED.
+
+END OF S3.20
