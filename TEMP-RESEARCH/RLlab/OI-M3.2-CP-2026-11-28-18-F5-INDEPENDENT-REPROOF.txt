@@ -1,0 +1,225 @@
+OMEGA-ISOP — TEMPORARY RESEARCH CHECKPOINT
+OI-M3.2-CP-2026-11-28-18-F5-INDEPENDENT-REPROOF
+
+DATE: 2026-11-28
+STATUS: NON-CANONICAL / RESEARCH ONLY / PROOF RECONSTRUCTION
+TARGET BRANCH: temp/91-6C-research-workspace
+SCOPE: Independent reconstruction of the F.5 amalgamation criterion for the test class {A1-A3, T_R, C_R*}.
+GOVERNANCE: FROZEN CORE UNCHANGED. No axioms added. No canonical theorem registered.
+
+1. PURPOSE AND SOURCE TRACE
+
+This checkpoint preserves the independent proof attempt developed in the conversation dated 2026-11-28.
+
+Primary comparison source:
+checkpoints/OI-INDEPENDENT-MATHEMATICAL-AUDIT-2026-11-28-P2.3-P2.4-S3-C3.md
+at commit fb1052f5875d417af97610a95958209ca13a0844.
+
+This checkpoint is not a replacement for the source audit and does not promote its test constraints into the canonical OMEGA-ISOP signature.
+
+2. CLAIM UNDER TEST
+
+Let A <-f- C -g-> B be a span in the stated class.
+
+The proposed forbidden configuration is the existence of:
+a in A\C, b in B\C, c,d in C
+
+such that:
+a~_A f(c), b~_B g(c)
+
+and either:
+R_A(a,f(d)) AND R_B(g(d),b)
+
+or:
+R_B(b,g(d)) AND R_A(f(d),a).
+
+Notation suppresses f and g when no confusion can arise.
+
+Proposed criterion:
+The span has an amalgam if and only if no such forbidden configuration exists.
+
+The stronger positive conclusion proposed is existence of a strong amalgam whenever the forbidden configuration is absent.
+
+3. EXPLICIT ASSUMPTIONS
+
+A. Boolean apartness # in each component.
+A1: NOT(x#x).
+A2: x#y -> y#x.
+A3: x#y -> (x#z OR z#y), for every z.
+
+Define x~y iff NOT(x#y). Under classical logic and A1-A3, ~ is an equivalence relation.
+
+B. R is a binary relation and is transitive in A, B and C:
+R(x,y) AND R(y,z) -> R(x,z).
+
+C. C_R* holds in each component:
+R(x,y) -> x#y.
+
+D. f and g are injective embeddings. They preserve and reflect # and R.
+
+E. C is an induced common substructure for R. In particular:
+R_A(c,d) iff R_C(c,d) iff R_B(c,d)
+for c,d in C, after applying the embeddings.
+
+F. P2.3 is available under its explicit hypotheses and supplies a strong apartness amalgam P with:
+i_A(A) intersect i_B(B) = i_C(C).
+
+For cross-component points:
+i_A(a)~_P i_B(b)
+iff there exists c in C such that
+a~_A f(c) and b~_B g(c).
+
+G. Transitive closure TC(E) means finite-path transitive closure, not reachability by an infinite path.
+
+4. NECESSITY: FORBIDDEN CONFIGURATION IMPLIES NO AMALGAM
+
+Suppose a forbidden configuration exists, in the first orientation:
+a~c, b~c, R_A(a,d), R_B(d,b).
+
+Assume an amalgam D with embeddings h_A and h_B exists.
+
+By preservation of R:
+R_D(h_A(a),h_C(d))
+R_D(h_C(d),h_B(b)).
+
+By transitivity:
+R_D(h_A(a),h_B(b)).
+
+By C_R*:
+h_A(a)#_D h_B(b).
+
+On the other hand, preservation of ~ (which follows from preservation of # in the required direction) gives:
+h_A(a)~_D h_C(c)
+h_B(b)~_D h_C(c).
+
+Since ~_D is an equivalence:
+h_A(a)~_D h_B(b).
+
+Contradiction.
+
+The second orientation is symmetric with the direction of the R path reversed. Symmetry of R is not assumed or used.
+
+Conclusion:
+Forbidden configuration -> no amalgam, including no non-strong amalgam.
+
+5. SUFFICIENCY: CONSTRUCTION OF A STRONG AMALGAM
+
+Assume no forbidden configuration exists.
+
+5.1. Start with the strong apartness amalgam P supplied by P2.3.
+
+Let:
+E = i_A(R_A) union i_B(R_B).
+
+Define:
+T = TC(E).
+
+Candidate amalgam:
+D = (S_P, #_P, T).
+
+T is transitive by construction.
+
+5.2. Reflection of T on each component
+
+Claim:
+T intersect i_A(A)^2 = i_A(R_A),
+T intersect i_B(B)^2 = i_B(R_B).
+
+Proof for A:
+
+Take a finite E-path whose endpoints lie in i_A(A).
+
+Every maximal run of edges belonging to B but not A has both endpoints in the intersection i_A(A) intersect i_B(B), hence in i_C(C), by strongness.
+
+Such a B-run has endpoints c,d in C. By transitivity of R_B, the whole run implies R_B(c,d). Since C is induced, R_C(c,d), and therefore R_A(c,d).
+
+Replace that B-run by the corresponding A-edge. Repeating this finite replacement for every B-run yields an A-path between the original endpoints. By transitivity of R_A, the endpoints are related by R_A.
+
+The reverse inclusion holds because every R_A edge belongs to E and hence T.
+
+The proof for B is symmetric.
+
+Thus both embeddings preserve and reflect R.
+
+5.3. Preservation of C_R*
+
+Suppose, towards contradiction, that T(x,y) but NOT x#_P y.
+
+By the definition of T, there is a finite E-path from x to y.
+
+If x and y belong to the same component, Section 5.2 implies that the corresponding component relation R holds. C_R* in that component gives x#_P y, contradiction.
+
+Therefore the endpoints must lie in opposite exclusive parts, say:
+x in A\C and y in B\C.
+
+Since x~_P y, the cross-component quotient formula from P2.3 gives a c in C such that:
+x~_A c and y~_B c.
+
+Consider the finite E-path from x to y. Mark each edge by a component in which it originates. A change from an A-edge to a B-edge, or conversely, can occur only at a vertex in the intersection, hence at a point of C.
+
+The first maximal run starts in A and ends at some v in C. The final maximal run starts at some u in C and ends in B. Every intermediate maximal run has both endpoints in C. By transitivity in its component and inducedness of C, every intermediate run can be replaced by an R_C edge. The resulting finite path inside C can be collapsed, by transitivity of R_C, to R_C(u,v).
+
+Combining the initial A-run with R_C(u,v), using transitivity of R_A, gives:
+R_A(x,v).
+
+The final B-run gives:
+R_B(v,y).
+
+Together with x~_A c and y~_B c, this is exactly a forbidden configuration of the first orientation, with d=v.
+
+This contradicts the assumption that no forbidden configuration exists.
+
+The reverse cross-component orientation is handled symmetrically.
+
+Therefore:
+T(x,y) -> x#_P y.
+
+So C_R* is preserved in D.
+
+5.4. Strongness
+
+The underlying apartness amalgam P is strong by P2.3. The relation T adds no points and changes no identifications. Therefore the same embeddings remain strong:
+i_A(A) intersect i_B(B) = i_C(C).
+
+6. PROVISIONAL CONCLUSION
+
+Under all assumptions in Section 3, the reconstructed argument establishes:
+
+Forbidden configuration exists -> no amalgam exists.
+
+No forbidden configuration exists -> the construction D=(S_P,#_P,TC(E)) is a strong amalgam.
+
+Thus, for this explicitly delimited test class:
+Span admits an amalgam iff no F.5 forbidden configuration exists.
+Moreover, whenever an amalgam exists, a strong amalgam exists.
+
+Status: INDEPENDENT PROOF RECONSTRUCTION / PROVISIONAL PROVED UNDER EXPLICIT CONDITIONS.
+Not a canonical OMEGA-ISOP theorem. Not a result for arbitrary S3-C3 constraints.
+
+7. REQUIRED ADVERSARIAL VERIFICATION
+
+Before treating this proof as closed, independently test:
+
+(1) The finite-run decomposition of an arbitrary finite E-path, especially paths with repeated visits to C and alternating A/B edge labels.
+
+(2) The claim that every maximal intermediate run has endpoints in C and collapses to an R_C edge.
+
+(3) The use of inducedness of C for R. If C is merely a substructure but not induced, the sufficiency proof may fail.
+
+(4) Whether the exact canonical definition of admissible span requires induced embeddings or only embeddings. Do not silently strengthen the source assumptions.
+
+(5) Whether the P2.3 cross-component ~ formula is available for the exact canonical apartness class and version under consideration.
+
+(6) Finite exhaustive model checking for small spans, including |C| >= 3, multiple exclusive points on both sides, and both orientations of the obstruction. Computation supports but does not replace proof.
+
+8. LIMITATIONS AND GOVERNANCE
+
+- C_R and C_R* are distinct constraints. This result concerns C_R* only.
+- The result is conditional on A1-A3, transitivity of R, induced common substructure for R, and the P2.3 strong apartness amalgam.
+- No claim is made for arbitrary relational signatures, arbitrary Horn constraints, or canonical S3-C3.
+- No Frozen Core, Volume, registry, or canonical theorem file is modified.
+- This is a temporary research checkpoint only.
+
+9. NEXT ACTION
+
+Perform an adversarial independent audit of Sections 5.2 and 5.3, then implement finite exhaustive enumeration of small spans. Only after both should the proof status be upgraded beyond provisional research status.
