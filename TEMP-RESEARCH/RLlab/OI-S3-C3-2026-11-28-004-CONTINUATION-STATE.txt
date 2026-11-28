@@ -1,0 +1,241 @@
+OMEGA-ISOP — S3-C3 RESEARCH CONTINUATION STATE
+CHECKPOINT: OI-S3-C3-2026-11-28-004
+DATE: 2026-11-28
+REPOSITORY: naydenov54-netizen/OMEGA-ISOP
+BRANCH: temp/91-6C-research-workspace
+DIRECTORY: TEMP-RESEARCH/RLlab/
+STATUS: WORKING RESEARCH MATERIAL; NOT CANONICAL
+
+PURPOSE
+This file transfers the current S3-C3 working state into the repository's designated temporary research workspace. It does not promote any result to RL, CE, or Volume V.
+
+WORKSPACE RULES
+- RLlab is the temporary area for drafts, calculations, proof audits, counterexamples, and intermediate research.
+- Work remains here until reviewed.
+- A separate decision is required to register a result in RL.
+- CE and Volume V inclusion are separate optional decisions.
+- Do not modify main, Frozen Core, canonical masters, or active Research Log.
+- A Git commit records a change; it does not validate a scientific result.
+
+PROTECTED RESEARCH CONSTRAINTS
+FROZEN CORE: UNCHANGED
+NO NEW AXIOMS
+NO CANONICAL DEFINITIONS ALTERED
+NO THEOREM REGISTRY CHANGES
+NO VOLUME II-V CORE CHANGES
+NO CLAIM OF GITHUB VALIDATION OR SCIENTIFIC PROMOTION
+
+EVIDENCE DISCIPLINE
+Distinguish:
+1. facts recovered from source;
+2. results proved under explicit assumptions;
+3. countermodels;
+4. conditional constructions requiring proof audit;
+5. hypotheses;
+6. open questions.
+
+Do not present Appendix G condition C_R as the original or complete frozen S3-C3 coupling condition.
+Do not claim universal impossibility of amalgamation or a universal connectivity criterion until the admissible class and decomposition semantics are fixed.
+
+S3-C3 RESEARCH QUESTION
+The current task statement is to characterize minimal forbidden configurations under the joint presence of:
+- ordinary relational relations;
+- Boolean apartness #;
+- equivalence ~ induced by #;
+- constraints coupling relations and apartness.
+
+Research target: determine whether the existing indecomposability criterion remains necessary and sufficient, or whether a more general structural-connectivity criterion is required.
+
+This task statement is user-supplied working context. It has not yet been independently recovered verbatim from a frozen primary source.
+
+SOURCE-RECOVERY LIMIT
+In the accessible/indexed source set examined so far, the following have not been recovered:
+- exact frozen S3-C3 relational signature and arities;
+- complete original coupling constraint list;
+- formal definition of decomposition/indecomposability;
+- exact admissible span and decomposition semantics.
+
+Do not claim the entire repository was exhaustively searched. The correct statement is that these items were not found in the accessible/indexed source set.
+
+APARTNESS AXIOMS RECOVERED IN SOURCE RECONCILIATION
+# : U x U -> {TRUE,FALSE}
+
+A1: NOT(x # x)
+
+A2: x # y IFF y # x
+
+A3: x # y IMPLIES (x # z) OR (z # y), for every z.
+
+x ~ y IFF NOT(x # y)
+
+Under A1-A3 and classical Boolean logic, ~ is an equivalence relation.
+
+Important: the triple a~b, b~c, a#c is not a countermodel in the frozen class, because A3 excludes it.
+
+Apartness embeddings must preserve and reflect:
+x #_A y IFF f(x) #_B f(y)
+
+Preservation alone is insufficient.
+
+RECOVERED SCOPE OF P2.3 / P2.4
+P2.3 is a quotient-based strong apartness amalgam under explicit assumptions. It is a pure-apartness result, not a theorem for arbitrary relational expansions with coupling constraints.
+
+P2.4.1 is a free relational amalgam only for pure relational signatures without additional coupling axioms, assuming agreement on the common substructure.
+
+P2.4.2:
+For an n-ary relation R, coordinatewise ~-invariance is necessary and sufficient for a well-defined quotient relation:
+(x1~y1 AND ... AND xn~yn) ->
+(R(x1,...,xn) IFF R(y1,...,yn))
+
+This alone is not a general compatibility criterion for arbitrary constraint theories.
+
+APPENDIX G CONDITIONS
+C_R:
+R(x,y) -> NOT(x # y)
+Equivalent to:
+R(x,y) -> x~y
+
+T_R:
+R(x,y) AND R(y,z) -> R(x,z)
+
+Comparison condition:
+C_R*:
+R(x,y) -> x # y
+
+C_R is the negative coupling condition tested in Appendix G. This does not establish that C_R is the original or complete frozen S3-C3 condition.
+
+Appendix G reports no obstruction in the minimal C_R + T_R path test. This is not a universal alternative amalgamation theorem.
+
+The transitive-closure alternative amalgam in Appendix G remains conditional and requires proof audit for inducedness, embeddings, quotient relations, all coupling constraints, and strong intersection.
+
+ESTABLISHED COUNTERMODEL: C_R + T_R DOES NOT IMPLY I_R
+U = {a,b}
+
+# = EMPTY
+
+~ = U x U
+
+R = {(a,a),(b,b)}
+
+Then A1, A2, A3 hold. C_R holds because all pairs are ~-related. T_R holds because the identity relation is transitive. But I_R fails:
+a~b
+a~a
+R(a,a) = TRUE
+R(b,a) = FALSE
+
+Therefore:
+C_R + T_R DOES NOT IMPLY I_R
+
+This establishes only that quotient descent does not follow from C_R + T_R. It does not establish impossibility of amalgamation.
+
+QUOTIENT-FIRST FRAMEWORK QD-1
+Research-only; not canonical.
+
+Let:
+DS = U / ~
+
+If every n-ary Ri is coordinatewise ~-invariant, define quotient relation Ri_bar on DS.
+
+Define quotient Gaifman graph G_Q: two distinct quotient classes are adjacent if they occur together in a tuple of some quotient relation.
+
+Conditional lemma QD-1:
+If quotient relations are well-defined, decomposition means a nontrivial disjoint relational union of induced substructures, and there are no additional cross-part constraints, then:
+Q is indecomposable IFF G_Q is connected.
+
+This is standard for that exact relational-decomposition semantics. It has not been established as the original S3-C3 criterion.
+
+A partition of DS lifts to U by whole ~-classes. Apartness between lifted parts remains TRUE, so this is not an ordinary disjoint union of the original apartness structures. Keep quotient decomposition separate from original-structure decomposition.
+
+RESULT QD-2: C_R + I_R COLLAPSES QUOTIENT RELATIONS
+For binary R:
+C_R:
+R(x,y) -> x~y
+
+I_R:
+x~x' AND y~y'
+->
+(R(x,y) IFF R(x',y'))
+
+Then:
+- For each equivalence class C, R restricted to C x C is either FULL or EMPTY.
+- For distinct classes C,D, R restricted to C x D is EMPTY.
+- Therefore:
+R_bar SUBSET ID_DS
+
+Proof:
+If R(a,b) is true for a,b in C, then for any x,y in C, x~a and y~b. By I_R, R(x,y) iff R(a,b), so every pair in C x C is true. If no such pair exists, the restriction is empty. C_R excludes R between distinct classes.
+
+For several binary relations Ri each satisfying C_Ri + I_Ri, the quotient Gaifman graph has no cross-class edges. If DS has more than one vertex, it is disconnected.
+
+This is proved only under explicit C_R + I_R assumptions. It does not show that the full S3-C3 structure is disconnected or decomposable. The actual signature and coupling constraints remain unrecovered.
+
+For n-ary relations, the analogous C_Rn must state that every true tuple has all coordinates in one and the same ~-class. Together with coordinatewise invariance, the relation is full or empty on C^n and has no cross-class tuple.
+
+CONNECTIVITY CANDIDATES AND LIMITATIONS
+A. Graph of apartness #:
+Under A1-A3, apartness is exactly inequality of ~-classes. The graph is complete multipartite; with at least two classes it is automatically connected. This is not a useful general dependency-based decomposition criterion.
+
+B. Quotient Gaifman graph from R:
+Under C_R + I_R, R has no cross-class tuples, so the quotient graph has no cross-class edges. It does not provide nontrivial connectivity among quotient classes.
+
+C. Hypergraph of structural dependencies:
+Potentially useful only if hyperedges/supports are derived from the exact original constraints and decomposition semantics. Do not treat every # or ~ pair as a positive dependency edge; that may make connectivity vacuous.
+
+A valid structural-connectivity criterion requires independently justified dependency/support semantics from the original S3-C3 decomposition definition.
+
+LIMIT OF TRANSITIVE CLOSURE
+Under C_R, every R-edge lies within one ~-class. Every finite R-path remains within that same class. Therefore transitive closure of R cannot create R-links between distinct quotient classes.
+
+This excludes only transitive closure of R as a source of cross-class connectivity under C_R. It does not prove that no other alternative amalgam exists.
+
+EVIDENCE CLASSIFICATION
+
+SOURCE-RECOVERED:
+1. A1-A3 and ~ = NOT # under classical Boolean logic.
+2. Preserve-and-reflect requirement for apartness embeddings.
+3. P2.3 pure-apartness strong amalgam under explicit conditions.
+4. P2.4.1 restricted free relational amalgam without coupling.
+5. Coordinatewise ~-invariance is necessary and sufficient for quotient descent.
+6. Appendix G distinguishes C_R and C_R* and states scope limits.
+
+PROVED UNDER EXPLICIT RESEARCH ASSUMPTIONS:
+1. C_R + T_R does not imply I_R; countermodel given above.
+2. QD-1: quotient Gaifman connectivity characterizes indecomposability for disjoint relational-union semantics without cross-part constraints.
+3. QD-2: C_R + I_R makes binary R a union of full equivalence-class squares; quotient relation is a subset of identity.
+4. Under C_R, transitive closure cannot create cross-class links.
+
+CONDITIONAL / REQUIRES PROOF AUDIT:
+1. Appendix G transitive-closure alternative amalgam.
+2. Compatibility with the full S3-C3 signature and all actual constraints.
+3. Embedding preservation/reflection and strong-intersection property.
+
+OPEN QUESTIONS:
+1. Exact frozen S3-C3 signature and arities.
+2. Exact original coupling constraints C.
+3. Exact decomposition/indecomposability semantics.
+4. Whether quotient invariance is imposed, derivable, or irrelevant in the actual S3-C3 class.
+5. Whether nontrivial cross-class dependencies exist in the original theory.
+6. Minimal forbidden configurations for the actual constrained class.
+7. Necessary-and-sufficient structural-connectivity criterion.
+8. Whether the original indecomposability criterion remains necessary and sufficient.
+
+NEXT ACTION: FOCUSED PRIMARY-SOURCE RECOVERY AND CONSTRAINT AUDIT
+Do not start large-scale enumeration yet.
+
+1. Search the accessible frozen OMEGA-ISOP source set for exact S3-C3 signature, all Ri symbols and arities, exact coupling constraints, and decomposition definition.
+2. If found, reconcile verbatim with file paths and source locations.
+3. For each Ri classify coupling type:
+   - within-class (Ri(tuple) implies all coordinates ~-equivalent, if this is the actual rule);
+   - cross-class / apartness-linked;
+   - quotient-invariant;
+   - not quotient-invariant;
+   - mixed or higher-arity condition.
+4. Determine whether constraints imply quotient invariance. Do not assume C_R + T_R.
+5. Determine whether true structural dependencies are represented by relation tuples, constraint supports, operations, or another frozen primitive.
+6. Only after exact decomposition semantics are recovered, construct minimal countermodels and test necessity/sufficiency.
+7. Preserve the distinction between ordinary amalgamation and strong amalgamation.
+
+STATUS OF PRIOR LIBRARY CHECKPOINT
+A separate Library checkpoint numbered OI-S3-C3-2026-11-28-003 exists as a backup/recovery artifact. It is not a substitute for this repository workspace. This file is the repository-side continuation state in RLlab. No Frozen Core or canonical project files have been changed.
+
+END OF WORKING CHECKPOINT
