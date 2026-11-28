@@ -1,0 +1,922 @@
+OMEGA-ISOP VOLUME II
+MATHEMATICAL FOUNDATIONS
+VERSION: v1.4-MF-AUDIT-RESTORED-GOVERNANCE-ADDENDUM
+PREDECESSOR: v1.3-MF-AUDIT-RESTORED-FINAL (PRESERVED UNCHANGED)
+DATE: 2026-11-24
+COMPATIBILITY: OMEGA-ISOP v2.0-FC10.1 / M3.2-FINAL
+STATUS: CONTROLLED CORE-GOVERNANCE ADDENDUM; MATHEMATICAL BODY PRESERVED
+ARCHITECTURAL STATUS: FROZEN CORE COMPONENT
+FORMAL STATUS: CORRECTED, CONTROLLED, CORE-ALIGNED
+CORE MODIFICATION: GOVERNANCE ONLY; MATHEMATICAL FOUNDATIONS UNCHANGED
+CORE MAXIM:
+"В извеждането е истината."
+
+============================================================
+CORE GOVERNANCE PRINCIPLE
+============================================================
+
+FROZEN ≠ CLOSED
+
+Замразено ≠ затворено.
+
+FROZEN означава запазена, идентифицирана и версионирана
+научна основа. То не означава забрана за бъдеща ревизия.
+
+CLOSED би означавало окончателно затваряне за развитие.
+Това НЕ е статутът на OMEGA-ISOP.
+
+Frozen Core остава отворено за математически, логически,
+теоретично или емпирично обоснована ревизия, когато
+проверими основания налагат такава.
+
+Всяка ревизия изисква:
+1. Точно посочване на засегнатия елемент.
+2. Ясно описание на проблема или необходимостта.
+3. Математическо доказателство, логически аргумент
+   или подходящо доказателство/данни според вида на твърдението.
+4. Анализ на последствията и съвместимостта с останалата
+   архитектура.
+5. Оценка на рисковете и ограниченията.
+6. Изрично разрешение и документирано решение.
+7. Нова версия с пълна проследимост.
+
+Предишната версия се запазва непроменена.
+Елегантност, удобство или предпочитание сами по себе си
+не са достатъчно основание за ревизия.
+
+Този принцип урежда управлението на версиите. Той не е
+нов математически постулат и сам по себе си не променя
+дефиниции, аксиоми, теореми, доказателства или научни
+статуси във Frozen Core.
+
+CHANGE-CONTROL DECISION:
+AUTHORIZED BY EXPLICIT USER INSTRUCTION — 2026-11-24.
+SCOPE: GOVERNANCE CLARIFICATION ONLY.
+MATHEMATICAL CONTENT CHANGE: NONE.
+
+I. PURPOSE AND FORMAL SCOPE
+Volume II provides the mathematical foundation of OMEGA-ISOP independently from its interpretational and application layers.
+Its purpose is to formalize, under explicitly declared assumptions and realizations:
+primitive distinction structures;
+configurations and compatibility;
+relational constraint structures;
+mathematical realization;
+admissible dynamics;
+persistence and invariant structures;
+operational response classes;
+operational identity;
+operational organization;
+hierarchical organization and conditional emergence;
+observer and agency constructions;
+mathematical and computational validation boundaries.
+The mathematical framework is conditional.
+No construction in Volume II establishes a universal theory of reality, a universal theory of organization, a universal causal theory, a universal emergence law, or a universal dynamic-selection principle.
+Minimality is relative to a specified task, comparison class, mathematical realization, and operational criterion.
+Mathematical representation is not by itself a mechanism.
+Relation is not causation.
+Organization is not causation.
+Persistence is not robustness.
+Persistence is not invariance.
+Invariance is not ontology.
+Operational identity is not ontological identity.
+Observerhood is not consciousness.
+Adaptive agency is not intention or free will.
+Admissibility is not realization.
+Possibility is not necessity.
+Definition is not derivation.
+Simulation is not proof.
+A numerical result is not an analytical theorem.
+Structural order is not necessarily canonical structural order.
+Description change is not physical system change.
+Physical system change is not automatically organization change.
+Historical dependence is not fundamental memory.
+Non-Markovianity is not fundamental memory.
+These distinctions are permanent claim-control conditions for the formal development.
+
+II. FOUNDATIONAL FORMAL CONVENTION
+The relational structure R is not identified directly with a unique physical or mathematical evolution.
+A realization map is introduced:
+Φ : Real(R) → M
+where:
+R = relational constraint structure;
+Real(R) = admissible mathematical realizations of R;
+M = selected mathematical model or state-space realization.
+For a fixed, explicitly declared realization Φ:
+A(R;Φ) ⊆ Evol(X)
+denotes the class of evolution laws on X compatible with the realized relational structure.
+When Φ is fixed and unambiguous, the shorthand
+A(R) := A(R;Φ)
+may be used.
+Without a fixed realization, A(R;Φ) must be retained.
+The relation
+R → A(R;Φ)
+means constraint on admissible dynamics.
+It does not mean:
+R → unique dynamics.
+In general:
+|A(R;Φ)| may be greater than 1.
+It is also possible that:
+A(R;Φ) = ∅.
+In that case the selected realization is dynamically incompatible with the relational constraints.
+A universal principle selecting one element of A(R;Φ) from R alone is not established.
+Therefore:
+R ↛ unique realized dynamics.
+
+III. PRIMITIVE RELATIONAL FOUNDATION
+III.1 Primitive Difference
+Primitive Difference, PD, is a meta-level formal starting condition.
+PD is not itself:
+an entity;
+a physical object;
+a process;
+a relation;
+a causal mechanism.
+PD establishes the admissibility of formal distinction.
+A formal carrier is then introduced:
+U0
+together with an apartness structure:
+A = (U0,#)
+where:
+# : U0 × U0 → {true,false}
+and
+x # y
+means that x and y are formally apart under the selected realization.
+III.2 Apartness Structure
+A standard example of an apartness relation satisfies:
+irreflexivity:
+not(x # x)
+symmetry:
+x # y iff y # x
+cotransitivity:
+x # y implies (x # z) or (z # y)
+for all z.
+These axioms are one admissible realization of apartness.
+They are not asserted as the only possible realization.
+The distinction between PD and # must be preserved:
+PD = meta-level admissibility of distinction.
+# = formal realization of apartness on U0.
+A witness of apartness is therefore a formal object within the selected mathematical realization and is not automatically a physical causal mechanism.
+III.3 Indistinguishability
+Define:
+x ~ y
+iff no admissible apartness witness separates x and y.
+Under a complete apartness realization this may be represented as:
+x ~ y iff not(x # y).
+Under the standard apartness assumptions above, ~ can be shown to satisfy the equivalence-relation properties.
+Accordingly:
+x ~ x;
+x ~ y implies y ~ x;
+x ~ y and y ~ z imply x ~ z.
+The quotient structure
+DS := U0 / ~
+is therefore derived when ~ is an equivalence relation.
+DS is not a primitive structure.
+Its construction depends on the formal properties of the selected apartness realization.
+III.4 Local Configurations
+A local configuration is represented as:
+C = (S_C,#_C)
+where:
+S_C ⊆ U0
+and:
+#_C = # restricted to S_C × S_C.
+A minimal nontrivial configuration satisfies:
+|S_C| ≥ 2.
+The exact admissibility conditions remain realization-dependent.
+The set of admissible configurations may be represented as a category:
+C_METACORE
+whose objects are admissible configurations and whose morphisms preserve the selected structural properties.
+III.5 Configuration Embeddings
+For configurations
+C1 = (S1,#1)
+and
+C2 = (S2,#2),
+an embedding
+f : C1 → C2
+is injective and preserves and reflects the selected apartness structure:
+x #1 y iff f(x) #2 f(y).
+The "if and only if" condition is essential.
+Preservation alone does not establish structural reflection.
+An embedding therefore represents structural correspondence within the chosen mathematical realization, not ontological identity.
+
+IV. COMPATIBILITY AND RELATIONAL SPECIFICATION
+IV.1 Compatibility
+For configurations C1 and C2 define:
+CC(C1,C2) = 1
+iff an admissible amalgamation of C1 and C2 exists.
+Otherwise:
+CC(C1,C2) = 0.
+The binary form is a minimal representation of compatibility.
+It is not claimed to be the unique possible representation.
+Compatibility is therefore a structural admissibility relation, not a causal relation.
+IV.2 Compatibility Diagram
+Let:
+D_CC
+denote the diagram generated by the selected configurations and their admissible compatibility relations.
+Where the required categorical construction exists, define:
+R := colim(D_CC).
+The resulting R is a relational constraint structure generated from the compatibility structure.
+The colimit, when it exists, is unique up to the relevant categorical equivalence.
+This does not mean that there is a unique canonical structural representation in every formalism.
+Structural order is not necessarily canonical structural order.
+IV.3 Existence Boundary
+The construction of R requires:
+a valid compatibility diagram;
+the relevant categorical structure;
+existence of the required colimit or an equivalent constraint-preserving construction.
+If these conditions fail, R is not automatically defined by the construction above.
+Therefore:
+R existence is conditional.
+No universal theorem of existence of R across all mathematical domains is asserted.
+
+V. REALIZATION AND DYNAMICS
+V.1 Realization Space
+A relational structure R may admit multiple realizations.
+For example:
+R → graph structures
+R → state spaces
+R → algebraic structures
+R → computational models.
+The mapping
+Φ : Real(R) → M
+therefore represents a realization choice rather than a unique interpretation.
+Different realizations may produce different state spaces, observables, and dynamics while preserving selected relational constraints.
+V.2 Realized State Space
+Given a realization with state space X, define:
+X_R = {x ∈ X | x satisfies the constraints induced by R}.
+The realization is dynamically admissible only if there exists at least one compatible evolution:
+A(R;Φ) ≠ ∅.
+If:
+A(R;Φ) = ∅,
+the selected realization is dynamically incompatible with R.
+This is a failure of the selected realization, not a contradiction of R itself.
+V.3 Deterministic Dynamics
+A deterministic evolution is:
+T : X → X
+with:
+x_(t+1) = T(x_t).
+When:
+T ∈ A(R;Φ),
+the evolution is compatible with the relational constraints in the selected realization.
+A reversible realization may be represented by:
+T ∈ Aut(X,R).
+An irreversible compatibility-preserving evolution may be represented by an appropriate endomorphism class:
+T ∈ End(X,R).
+V.4 Stochastic Dynamics
+A stochastic evolution is represented by a Markov kernel:
+κ : X × Σ_X → [0,1]
+such that for each x ∈ X:
+κ(x,·)
+is a probability measure, and for each measurable E:
+x ↦ κ(x,E)
+is measurable.
+The transition law therefore satisfies the standard kernel requirements.
+A deterministic map T can be represented by the Dirac kernel:
+κ_T(x,E) = δ_{T(x)}(E).
+Equivalently, the transition probability is concentrated at T(x).
+V.5 Dynamic Selection Boundary
+The relational structure constrains admissible dynamics.
+It does not select a unique dynamic law unless an independent selection principle is supplied.
+Therefore:
+R → A(R;Φ)
+does not imply:
+|A(R;Φ)| = 1.
+Dynamic selection remains an open problem.
+Selection is not unique selection.
+A realization may be compatible with multiple dynamics.
+A compatible dynamic is not thereby the uniquely realized dynamic.
+
+VI. OPERATORS AND INVARIANT STRUCTURES
+VI.1 Observable Space
+Let B be a Banach space of observables:
+f : X → Y
+with the required norm and closure properties.
+For deterministic T, define the Koopman operator:
+K_T f = f ∘ T.
+K_T is well-defined on B when:
+f ∘ T ∈ B
+for every f ∈ B.
+Its linearity follows from:
+K_T(af + bg) = aK_T f + bK_T g.
+For composition:
+K_(T2∘T1) = K_T1 K_T2.
+The order reversal is a consequence of operator composition.
+VI.2 Markov Operator
+For a Markov kernel κ, define the corresponding operator:
+K_κ f(x) = ∫ f(y) κ(x,dy).
+The deterministic case is recovered through the Dirac kernel.
+VI.3 Invariant Measures
+A probability measure ρ* is invariant under κ when:
+ρ* κ = ρ*.
+For a deterministic map T this reduces to:
+ρ*(T^(-1)(E)) = ρ*(E)
+for measurable E.
+Existence of an invariant measure is not automatic.
+An invariant structure must therefore be established under explicit assumptions.
+Invariance is not equivalent to persistence.
+Invariance is not equivalent to robustness.
+Invariance does not establish ontology.
+VI.4 Perturbation and Response
+For a perturbed evolution:
+T_ε = T + εΔT + O(ε²).
+For an observable f and invariant measure μ*_ε define:
+R_f(ε) = μ*_ε(f) - μ*_0(f).
+When differentiability exists, a response coefficient may be represented as:
+Λ_f = dR_f(ε)/dε |_(ε=0).
+The existence and regularity of such derivatives require independent assumptions.
+Resolvent methods, spectral analysis, Koopman analysis, Markov operators, and pseudospectral analysis are mathematical tools for analysis of realized dynamics.
+They are not primitive elements of the OMEGA-ISOP core.
+
+VII. PERSISTENCE, OPERATIONAL RESPONSE, AND ORGANIZATION
+VII.1 Persistence
+Persistence concerns the continuation of identity-relevant properties over an operational horizon.
+A property is operationally persistent when the relevant response class remains identifiable under the declared transitions and admissible perturbations.
+Persistence is therefore criterion-relative.
+Persistence does not require exact state invariance.
+Persistence does not require robustness in every metric.
+Persistence does not require an invariant measure.
+A persistent organization may therefore exist in a dynamically changing state.
+VII.2 Invariance, Persistence, and Robustness
+These concepts must remain distinct.
+Invariance:
+a mathematical object or property is preserved under a specified transformation or evolution.
+Persistence:
+identity-relevant operational properties remain within the selected response class over the operational horizon.
+Robustness:
+the response changes within a specified tolerance under perturbation.
+For example:
+||R(ε) - R(0)|| ≤ Cε
+is a robustness statement under specified assumptions.
+It is not by itself a persistence theorem.
+It is not by itself an organization theorem.
+VII.3 Operational Response Classes
+Let:
+L_op
+be an operational language.
+Let:
+Resp_M : L_op → Y
+be the response map of model M.
+The relevant response class consists of models or states that remain equivalent under the selected operational criterion.
+This provides the bridge from realized dynamics to operational identity.
+VII.4 Operational Organization
+Operational organization is defined relative to an explicitly selected organizational criterion.
+A relational dynamical structure qualifies as operationally organized when it maintains an operationally identifiable response class under specified admissible perturbations and operational conditions.
+A candidate organization may involve:
+distinguishable internal states or configurations;
+relational constraints;
+compatibility;
+admissible dynamics;
+persistence of identity-relevant response classes;
+operational distinguishability;
+response stability;
+other explicitly selected criterion-dependent properties.
+These are not all universal necessary conditions in every possible organizational criterion.
+In particular, functional closure is not a universal requirement of operational organization.
+Organization is not inferred from dynamical activity alone.
+Organization is defined by maintained relational coherence under explicit operational conditions.
+VII.5 Candidate Formal Representation
+A candidate operational organization may be represented by a tuple such as:
+O_org = (X_org,R_org,A_org,P_org,Resp_org,Id_org)
+where:
+X_org = selected state space;
+R_org = relational constraint structure;
+A_org = selected admissible dynamics;
+P_org = persistence structure;
+Resp_org = operational response structure;
+Id_org = operational identity criterion.
+An invariant structure may be included as an optional component where the selected organizational criterion requires it.
+No universal requirement that organization contain an invariant measure or fixed point is imposed.
+VII.6 Functional Closure
+Functional closure is an optional organizational extension.
+A selected system may satisfy functional closure when internal processes contribute to maintaining conditions required for continued organization.
+This does not imply:
+complete independence;
+self-creation;
+ontological autonomy;
+consciousness;
+agency in the intentional sense.
+Functional closure can therefore be used as an additional criterion or stronger organizational subclass.
+It is not part of the universal minimal definition of operational organization.
+VII.7 Candidate Organizational Pathway
+Under a fixed realization and operational criterion, a candidate pathway is:
+R → A(R;Φ) → realized dynamics → persistence structures → operational response classes → operational identity → operational organization.
+This is a mathematical dependency chain.
+It is not a temporal causal chain.
+It does not imply that every formalism instantiates each layer identically.
+
+VIII. OPERATIONAL IDENTITY AND RESPONSE GEOMETRY
+VIII.1 Operational Language
+Let:
+L_op
+be an operational language.
+For a model M:
+Resp_M : L_op → Y.
+Let Y be normed.
+Let:
+G
+be an optional transformation class.
+For tolerance ε ≥ 0 define:
+M1 ~_(L_op,ε,G) M2
+iff:
+||Resp_(g(M1))(a) - Resp_(g(M2))(a)|| ≤ ε
+for all:
+g ∈ G
+and:
+a ∈ L_op
+whenever the responses are defined.
+VIII.2 Exact and Approximate Identity
+For:
+ε = 0,
+the relation represents exact operational equivalence under the selected language and transformation class.
+For:
+ε > 0,
+the relation is generally not automatically transitive with the same ε.
+A two-step comparison can yield a bound of:
+2ε.
+Therefore approximate operational equivalence must not be silently treated as an exact equivalence relation.
+Operational identity is criterion-relative.
+It is not ontological identity.
+VIII.3 Operational Distance
+Define:
+D_L(M1,M2) = sup_(a∈L_op) ||Resp_M1(a) - Resp_M2(a)||_Y.
+When well-defined, D_L is an extended pseudometric.
+If:
+D_L(M1,M2) = 0,
+the models are operationally indistinguishable under L_op.
+This does not establish ontological identity.
+For tolerance ε:
+D_L(M1,M2) ≤ ε
+represents approximate operational indistinguishability.
+D_L itself does not depend on ε or G unless those are explicitly incorporated into the definition of the operational language or distance.
+VIII.4 Response Stability
+For a perturbed system, response stability may be studied using:
+R_f(ε)
+and its derivative or appropriate finite-difference bounds.
+Spectral and resolvent quantities may characterize transient amplification or sensitivity.
+Non-normality can generate transient amplification.
+Transient amplification is not by itself:
+organization;
+identity;
+causality;
+functional closure.
+VIII.5 Operational Response Non-Expansion
+THEOREM 91
+OPERATIONAL RESPONSE DISTANCE NON-EXPANSION UNDER RELATIONAL DYNAMICS
+Let:
+H1: R exists and T is admissible, with R preserved under T.
+H2: Y is a normed space.
+H3: there exists a map
+τ : L_op → L_op
+such that:
+Resp_(T(M))(a) = Resp_M(τ(a)).
+H4: the operational criterion and comparison class are fixed.
+Then:
+D_L(T(M1),T(M2)) ≤ D_L(M1,M2).
+Proof:
+For every a ∈ L_op:
+||Resp_(T(M1))(a) - Resp_(T(M2))(a)||
+= ||Resp_M1(τ(a)) - Resp_M2(τ(a))||
+≤ D_L(M1,M2).
+Taking the supremum over a gives:
+D_L(T(M1),T(M2)) ≤ D_L(M1,M2).
+No surjectivity of τ is required.
+The theorem does not establish universal information conservation.
+It establishes a conditional non-expansion property under the stated response-map compatibility.
+STATUS: CONDITIONAL THEOREM.
+
+IX. HIERARCHICAL ORGANIZATION AND EMERGENCE
+IX.1 Coarse-Graining
+Let:
+ξ : X_micro → X_macro
+be a coarse-graining map.
+A macro-level description is formally relevant only if the selected higher-level variables retain operational distinctions or invariants required by the task.
+The existence of ξ alone does not establish a higher-level organization.
+Description change is not physical system change.
+Physical system change is not automatically organization change.
+IX.2 Hierarchical Organization
+A higher-level organizational unit may be introduced when the selected coarse-graining provides:
+effective reduction of lower-level descriptive complexity;
+persistence of the macro-level structure;
+independent operational relevance of the higher-level variables.
+The map:
+ξ : X_micro → X_macro
+must preserve the selected operational distinctions and/or invariants required by the criterion.
+A higher-level unit is therefore criterion-relative.
+The construction does not establish a fundamental physical entity or ontology.
+Hierarchical emergence does not establish a fundamental memory mechanism.
+IX.3 Emergence
+Within the selected realization and operational criterion, a higher-level structure qualifies as emergent when:
+there is no primitive higher-level description within the selected prior description;
+new operational variables are introduced;
+the higher-level structure persists;
+the new description provides increased descriptive or explanatory effectiveness under the selected criterion.
+Aggregation alone is insufficient.
+A mere change of variables is insufficient unless the new variables satisfy the stated operational and persistence requirements.
+No universal emergence theorem is asserted.
+IX.4 Non-Emergence
+A construction does not qualify as emergence under the selected criterion when one or more of the relevant conditions fail, including:
+no new operational variables;
+no persistent higher-level structure;
+no relevant scale distinction;
+no increased descriptive or explanatory effectiveness.
+The result is criterion-relative and does not constitute a universal negative theorem about emergence.
+IX.5 Recursive Organization
+Organizations may themselves become relational units at a higher level.
+A recursive construction is admissible when the higher-level unit has stable operational identity under the selected coarse-graining and organizational criterion.
+No universal theorem of infinite hierarchical depth or universal termination is asserted.
+
+X. CAUSALITY BOUNDARY
+X.1 Relation and Causality
+Relational structure does not by itself establish causality.
+Asymmetry does not by itself establish causality.
+Organization does not by itself establish causality.
+A causal interpretation requires an independent formal or empirical bridge.
+X.2 Conditional Causality Emergence Principle
+THEOREM 110
+CONDITIONAL CAUSALITY EMERGENCE PRINCIPLE
+Consider a selected realization with:
+B1: a relevant asymmetry in the realized dynamics;
+B2: a structural representation of that asymmetry;
+B3: persistence of the relevant structure under the selected perturbations;
+B4: stable operational response classes;
+B5: an independently justified causal interpretation or causal semantics.
+Then a causal description may be constructed as an effective description of the selected realization under the stated conditions.
+This result does not derive causality from relation alone.
+It does not establish that every relational structure generates causality.
+It does not establish a universal causal ontology.
+The causal interpretation remains dependent on the independently supplied causal bridge.
+STATUS: CONDITIONAL PRINCIPLE / DOMAIN-DEPENDENT / NOT A UNIVERSAL CAUSAL THEOREM.
+
+XI. SELF-REFERENCE, OBSERVER, AND AGENCY
+XI.1 Self-Reference
+A relationally self-referential system may be represented as:
+D(x) = F(x,R_self(x))
+where D is an admissible deterministic or stochastic dynamic and:
+R_self(x)
+represents an internal relation concerning the system's own state or operational description.
+When the dynamics depend on this internal relation, a closed relational dependency loop exists.
+This establishes formal self-reference.
+It does not establish consciousness.
+XI.2 Relational Self-Reference Principle
+THEOREM 178
+RELATIONAL SELF-REFERENCE PRINCIPLE
+Assume:
+X exists;
+a dynamic D exists;
+an internal relation R_self exists;
+D depends on R_self.
+Then the realized system contains a closed relational dependency loop.
+STATUS: CONDITIONAL FORMAL PRINCIPLE.
+The result is structural.
+It does not establish subjective experience, consciousness, intentionality, or free will.
+XI.3 Observer
+An observer is defined operationally as an organizational mode capable of:
+forming records;
+maintaining stable response classes;
+operating under an operational language;
+distinguishing selected states or events under the declared resolution.
+A record may be represented as:
+C : X_past → X_present.
+An observer may be represented by:
+O = (X_O,R_O,A_O,M_O)
+where the components specify its selected state, relational, admissible-dynamic, and model structures.
+Observerhood is therefore an operational structural property.
+Observerhood is not consciousness.
+XI.4 Agency
+An adaptive agency map may be represented as:
+A_g : X → A(R).
+This represents adaptive control within the admissible dynamic space.
+Adaptive agency is not equivalent to:
+intention;
+free will;
+consciousness;
+primitive causality.
+Agency remains a derived operational concept.
+
+XII. RELATIONAL ORGANIZATION EMERGENCE
+XII.1 Conditional Organization Construction
+THEOREM 179
+RELATIONAL ORGANIZATION EMERGENCE PRINCIPLE
+Assume:
+a relational constraint structure R exists;
+A(R;Φ) ≠ ∅ for the selected realization;
+a persistent structure exists under the selected operational horizon;
+operationally relevant distinctions exist;
+an operational response class is identifiable;
+response stability holds under the selected admissible perturbations;
+an explicit organizational criterion has been declared.
+Then a candidate operational organization may be constructed within the selected realization.
+The result does not establish:
+universal organization;
+organization from relation alone;
+a universal organization metric;
+a universal causal mechanism;
+a universal emergence law.
+Functional closure is not a required hypothesis of the general principle.
+If functional closure is independently selected as part of a stronger organizational criterion, the resulting construction defines a narrower organizational subclass.
+STATUS: CANDIDATE / CONDITIONAL PRINCIPLE.
+XII.2 Organizational Criterion
+The general operational organization criterion may be represented conceptually as:
+organization =
+maintained relational coherence
+under explicit operational conditions.
+The exact criterion depends on:
+operational language;
+resolution;
+admissible perturbations;
+selected realization;
+persistence horizon;
+response criterion;
+relational constraints;
+admissible dynamics.
+No universal criterion is assumed.
+XII.3 Organizational Potential
+The organizational quantity
+Ω(org | L,O)
+is defined only as a research target:
+Ω(org | L,O) = F(C,P,D,S,Rel,A_D)
+where:
+L = operational scale;
+O = operational language;
+C = configuration;
+P = persistence;
+D = operational distinguishability;
+S = response stability;
+Rel = relational constraint structure;
+A_D = admissible dynamics.
+This expression is not a universal metric, theorem, law, causal function, or physical quantity.
+A mathematically valid Ω requires independent specification of:
+codomain;
+domain;
+normalization;
+invariance properties;
+monotonicity or ordering, if required;
+dependence on L and O;
+admissible transformations;
+empirical or mathematical validation.
+Therefore:
+Ω(org | L,O) = research target.
+It is not established as a universal organizational measure.
+
+XIII. COMPUTATIONAL REALIZATION AND VALIDATION
+XIII.1 Computational Scope
+Computational realizations may be used to test:
+constructibility;
+compatibility;
+failure of compatibility;
+persistence;
+response stability;
+operational distinguishability;
+candidate organization;
+differences between compatible dynamics.
+A computational model demonstrates a realization-specific result.
+It does not by itself establish a universal theorem.
+XIII.2 Numerical Evidence
+A numerical result is valid only relative to:
+the specified model;
+the numerical method;
+the parameter regime;
+the discretization;
+the initial and boundary conditions;
+the observable and measurement protocol.
+Numerical evidence does not automatically become an analytical theorem.
+Simulation is not proof.
+XIII.3 Computational Failure Conditions
+A selected realization may fail the organizational construction because:
+A(R;Φ) = ∅;
+no persistence exists under the criterion;
+operational distinctions collapse;
+the required response class is not identifiable;
+required response stability fails;
+required invariant structure does not exist, where invariance is part of the selected criterion;
+an optional functional-closure criterion fails, where such criterion has explicitly been selected;
+candidate organizations are incompatible;
+the comparison is invalid;
+observables are insufficient.
+Each failure is a result about the selected realization and criterion.
+It is not automatically a universal failure theorem.
+
+XIV. FORMAL LIMITS
+XIV.1 No Universal Dynamic Selection
+The framework does not derive:
+R → unique dynamics.
+An independent selection principle remains open.
+XIV.2 No Universal R-Existence Theorem
+The framework does not establish universal existence of the categorical relational construction R.
+XIV.3 No Universal Organization Metric
+The framework does not establish Ω as a universal metric.
+XIV.4 No Universal Causal Law
+The framework does not derive causality from relation alone.
+XIV.5 No Universal Emergence Law
+The framework does not derive a universal law of emergence.
+XIV.6 No Universal Consciousness Theory
+Observerhood and self-reference do not establish consciousness.
+XIV.7 No Universal Agency Theory
+Adaptive control does not establish intention or free will.
+XIV.8 No Universal Physical Derivation
+The mathematical framework does not derive:
+General Relativity;
+Quantum Field Theory;
+the Standard Model;
+universal physical constants;
+specific physical equations.
+Physical applications require independent realization and validation.
+
+XV. DEPENDENCY AND STATUS MAP
+The controlled mathematical dependency is:
+PD → U0 → # → Configurations → Compatibility → R → A(R;Φ) → Realized Dynamics → Persistence Structures → Operational Response Classes → Operational Identity → Operational Organization → Hierarchical Organization.
+The chain is mathematical and dependency-based.
+It is not a temporal causal chain.
+Additional structures such as:
+Operators
+Invariant Measures
+Self-Reference
+Observer Models
+Agency
+Functional Closure
+are conditional mathematical or organizational extensions.
+Functional closure is not inserted as a mandatory universal stage between persistence and organization.
+The dependency structure therefore remains compatible with the Frozen Core and M3.2.
+
+XVI. FORMAL STATUS OF MAJOR CONSTRUCTIONS
+Primitive Difference:
+STATUS = FOUNDATIONAL META-LEVEL ASSUMPTION
+Formal Carrier U0:
+STATUS = DEFINED
+Apartness #:
+STATUS = DEFINED / REALIZATION-DEPENDENT
+Indistinguishability ~:
+STATUS = DERIVED UNDER DECLARED APARTNESS CONDITIONS
+Distinction Structure DS:
+STATUS = DERIVED CONDITIONALLY
+Configuration:
+STATUS = DEFINED / REALIZATION-DEPENDENT
+Compatibility:
+STATUS = DEFINED
+Relational Structure R:
+STATUS = DERIVED CONDITIONALLY
+Colimit Construction:
+STATUS = CONDITIONAL ON EXISTENCE
+Realization Φ:
+STATUS = DEFINED
+Admissible Dynamics A(R;Φ):
+STATUS = DEFINED / REALIZATION-DEPENDENT
+Unique Dynamic Selection:
+STATUS = OPEN PROBLEM
+Invariant Structure:
+STATUS = CONDITIONAL
+Operational Response:
+STATUS = DEFINED
+Operational Identity:
+STATUS = CONDITIONAL / OPERATIONAL-CRITERION DEPENDENT
+Operational Persistence:
+STATUS = CONDITIONAL / MODEL-DEPENDENT
+Operational Organization:
+STATUS = CONDITIONAL / CRITERION-RELATIVE
+Functional Closure:
+STATUS = OPTIONAL / CRITERION-DEPENDENT EXTENSION
+Hierarchical Organization:
+STATUS = CONDITIONAL
+Emergence:
+STATUS = CONDITIONAL OPERATIONAL DEFINITION
+Theorem 91:
+STATUS = CONDITIONAL THEOREM
+Theorem 110:
+STATUS = CONDITIONAL PRINCIPLE / DOMAIN-DEPENDENT
+Theorem 178:
+STATUS = CONDITIONAL FORMAL PRINCIPLE
+Theorem 179:
+STATUS = CANDIDATE / CONDITIONAL PRINCIPLE
+Organization Metric Ω:
+STATUS = RESEARCH TARGET / NOT DERIVED
+Universal Minimality:
+STATUS = NOT DERIVED
+Unique OMEGA Identification from I,D Alone:
+STATUS = NOT ESTABLISHED
+Universal Causality:
+STATUS = NOT DERIVED
+Universal Emergence Law:
+STATUS = NOT DERIVED
+Universal Dynamic Selection:
+STATUS = NOT DERIVED
+Universal Consciousness Theory:
+STATUS = NOT DERIVED
+Universal Agency Theory:
+STATUS = NOT DERIVED
+
+XVII. CLAIM-CONTROL BOUNDARIES
+The following distinctions are mandatory:
+representation != mechanism
+relation != causation
+organization != causation
+persistence != robustness
+persistence != invariance
+invariance != ontology
+observerhood != consciousness
+adaptive agency != intention/free will
+admissibility != realization
+possibility != necessity
+definition != derivation
+simulation != proof
+numerical result != analytical theorem
+operational identity != ontological identity
+structural order != canonical structural order
+description change != physical system change
+physical system change != organization change
+historical dependence != fundamental memory
+non-Markovianity != fundamental memory.
+Where a bridge:
+C + B → U
+is used, U must not be silently reduced to:
+C → U
+unless B has independently been established.
+A domain-specific bridge remains domain-specific unless its universality is independently demonstrated.
+
+XVIII. FINAL FORMAL BOUNDARY
+Volume II establishes a conditional mathematical framework in which:
+relational constraints can be formally constructed;
+mathematical realizations can be explicitly selected;
+admissible dynamics can be defined relative to those realizations;
+persistence and response structures can be analyzed;
+operational identity can be defined relative to an observation language and tolerance;
+operational organization can be constructed under an explicit criterion;
+hierarchical organization and emergence can be described conditionally;
+self-reference, observerhood, and adaptive agency can be represented as derived structural extensions.
+It does not establish:
+a universal OMEGA structure for every theory;
+a universal minimal structural core;
+unique dynamics from relational structure alone;
+unique OMEGA identification from I,D alone;
+a universal organization metric;
+causality as a primitive;
+a universal emergence law;
+consciousness from observerhood;
+free will from agency;
+fundamental physical laws from relational structure alone.
+
+XIX. FINAL STATUS RECORD
+DOCUMENT:
+OMEGA-ISOP VOLUME II MATHEMATICAL FOUNDATIONS
+VERSION:
+v1.4-MF-AUDIT-RESTORED-GOVERNANCE-ADDENDUM
+PREDECESSOR VERSION:
+v1.3-MF-AUDIT-RESTORED-FINAL — PRESERVED UNCHANGED
+COMPATIBILITY:
+OMEGA-ISOP v2.0-FC10.1 / M3.2-FINAL
+ARCHITECTURAL STATUS:
+CONSISTENT WITH FROZEN CORE
+CORE STATUS:
+PRESERVED
+FORMAL STATUS:
+CORRECTED AND CONTROLLED
+REALIZATION CONVENTION:
+EXPLICIT AND CONTROLLED
+DYNAMIC SELECTION:
+OPEN PROBLEM
+INVARIANCE:
+CONDITIONAL
+PERSISTENCE:
+OPERATIONAL / MODEL-DEPENDENT
+OPERATIONAL IDENTITY:
+OBSERVABLE / TOLERANCE / TRANSFORMATION-DEPENDENT
+FUNCTIONAL CLOSURE:
+OPTIONAL / CRITERION-DEPENDENT
+OPERATIONAL ORGANIZATION:
+CONDITIONAL / CRITERION-RELATIVE
+HIERARCHICAL ORGANIZATION:
+CONDITIONAL
+EMERGENCE:
+CONDITIONAL / NOT UNIVERSAL
+CAUSALITY:
+NOT PRIMITIVE
+ORGANIZATION METRIC Ω:
+RESEARCH TARGET / NOT DERIVED
+UNIVERSAL MINIMALITY:
+NOT DERIVED
+UNIQUE OMEGA IDENTIFICATION:
+NOT ESTABLISHED FROM I,D ALONE
+UNIVERSAL DYNAMIC SELECTION:
+NOT DERIVED
+UNIVERSAL EMERGENCE:
+NOT DERIVED
+UNIVERSAL ORGANIZATION LAW:
+NOT DERIVED
+COMPUTATIONAL SCOPE:
+REALIZATION-DEPENDENT
+CE-V BACK-INTEGRATION:
+NONE
+RL BACK-INTEGRATION:
+NONE
+FROZEN CORE MODIFICATION:
+GOVERNANCE CLARIFICATION ONLY; MATHEMATICAL FOUNDATIONS UNCHANGED
+GOVERNING PRINCIPLE:
+FROZEN ≠ CLOSED
+ARCHITECTURAL REWRITE:
+NONE
+SEMANTIC ALIGNMENT:
+COMPLETED
+FORMAL CORRECTION:
+COMPLETED
+CLAIM CONTROL:
+ACTIVE
+FINAL RECORD STATUS:
+CONTROLLED CORE-ALIGNED FORMAL RECORD WITH GOVERNANCE ADDENDUM
