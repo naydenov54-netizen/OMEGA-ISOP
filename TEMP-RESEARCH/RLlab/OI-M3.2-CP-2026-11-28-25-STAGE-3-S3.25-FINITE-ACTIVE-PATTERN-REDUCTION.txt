@@ -307,26 +307,36 @@ additional model-theoretic or algorithmic assumptions.
 A disconnected active-exclusive graph does not imply
 failure of the Horn clause in the free amalgam.
 
-Example:
-Body:
-R(x) AND S(y).
+Concrete finite example:
+C = empty.
+A has domain {a,b} and:
+R_A = {a}
+S_A = {b}
+U_A = {a}.
 
-Head:
-U(x) OR, in single-head Horn form, U(x).
+B has domain {c} and:
+R_B = empty
+S_B = empty
+U_B = empty.
 
-Take a span in which all relevant body tuples and the
-head witness occur in A, while B contributes no body
-trigger. An assignment with x and y both outside C may
-make both unary atoms active, but the active graph has
-two disconnected vertices because the atoms share no
-variable class.
+Consider the Horn clause:
+R(x) AND S(y) -> U(x).
 
-The assignment range is nevertheless wholly in A.
-Since A is a model of the clause, U(x) is true in A and
-remains true in the free amalgam.
+A satisfies the clause: its only body-satisfying pair is
+x=a, y=b, and U(a) is true.
+B satisfies the clause vacuously because R_B is empty.
 
-Thus the clause is preserved despite failure of
-active-exclusive connectivity for that assignment.
+In the free amalgam, the assignment x=a, y=b satisfies
+both body atoms. Its pattern has two equality classes:
+X = {[x],[y]}.
+Both unary atoms are active, but their supports are
+disjoint, so the active graph has two isolated vertices.
+
+Nevertheless U(a) remains true in the free amalgam.
+The clause is preserved.
+
+Thus active-exclusive connectivity is not necessary for
+preservation, even on a finite span with C empty.
 
 Conclusion:
 The S3.24 condition, and its finite-pattern reformulation,
