@@ -1,0 +1,113 @@
+OMEGA-ISOP S3-C3 SOURCE RECONCILIATION ADDENDUM
+RECORD_ID: OI-S3-C3-2026-11-27-002
+DATE: 2026-11-27
+WORKSTREAM: S3-C3
+STATUS: RESEARCH ADDENDUM TO TEMPORARY CHECKPOINT 001
+CANONICAL_STATUS: NO CORE CHANGE; NO THEOREM REGISTRATION
+
+1. SOURCES INSPECTED
+
+A. OMEGA-ISOP-VOLUME-II-MATHEMATICAL-FOUNDATIONS-v1.4-GOVERNANCE-ADDENDUM-2026-11-24.txt
+Relevant source region: Section III.2-III.5 and IV.1, approximately source lines 137-211.
+
+B. OMEGA-ISOP-M3.2-CONSOLIDATED-RESEARCH-AND-OPERATIONAL-HANDOFF-v2.1-INTEGRATED-STORAGE-ARCHITECTURE(2).txt
+Relevant source region: Section 22.1-22.6, approximately source lines 886-990.
+
+2. FROZEN APARTNESS FRAMEWORK RECOVERED
+
+The declared Boolean apartness structure is A=(U0,#), with # : U0 x U0 -> {true,false}.
+The standard apartness realization used in the source satisfies:
+A1 IRREFLEXIVITY: NOT(x # x).
+A2 SYMMETRY: x # y IFF y # x.
+A3 COTRANSITIVITY: x # y IMPLIES (x # z) OR (z # y), for every z.
+
+The indistinguishability relation is defined by:
+x ~ y IFF NOT(x # y),
+under the complete Boolean apartness realization. The source states that A1-A3 establish that ~ is an equivalence relation. Its quotient is DS=U0/~.
+
+LOGIC BOUNDARY: The handoff explicitly uses classical logic and Boolean negation. Do not silently generalize the derivation to intuitionistic or non-Boolean apartness.
+
+3. CORRECTION TO CHECKPOINT 001
+
+Checkpoint 001 correctly warned that irreflexivity and symmetry of # alone do not imply transitivity of ~. However, the actual OMEGA-ISOP apartness framework recovered here includes A3 cotransitivity. Therefore, under the frozen A1-A3 assumptions and classical Boolean logic, the triple:
+a~b, b~c, a#c
+is NOT an admissible configuration. It is excluded by A3.
+
+The triple remains a valid abstract obstruction if A3 is omitted, but it must not be presented as an admissible S3-C3 forbidden configuration inside the recovered A1-A3 class.
+
+4. RECOVERED EMBEDDING AND AMALGAM FRAMEWORK
+
+A configuration embedding is injective and preserves AND reflects apartness:
+x #1 y IFF f(x) #2 f(y).
+Preservation alone is insufficient.
+
+Handoff P2.3 constructs a quotient-based strong amalgam:
+Q_A=S_A/~_A, Q_B=S_B/~_B, Q_C=S_C/~_C.
+Take the pushout Q of Q_A and Q_B over Q_C.
+Take the pushout S_P of the underlying sets S_A and S_B over S_C.
+Define pi_P on the two component images using the quotient maps into Q.
+Then define:
+x #_P y IFF pi_P(x) != pi_P(y).
+
+The handoff records that P satisfies A1-A3 and that the component embeddings preserve and reflect apartness, with intersection exactly the common image of C.
+
+STATUS IN SOURCE: PROVED UNDER EXPLICIT ASSUMPTIONS; independent proof audit required before formal registration.
+LIMITATIONS: This is a strong amalgam, not a proof of categorical pushout in the category of apartness structures. It does not establish amalgamation for arbitrary added relations, constraints, operations, or dynamics.
+
+5. RELATIONAL EXPANSIONS AND THE STAGE-3 GAP
+
+P2.4.1: For pure relational signatures, the free relational amalgam interprets each relation as the union of the A-side and B-side tuples, leaving mixed tuples false. Source status: proved only when there are NO extra axioms coupling those relations to apartness, and when the components agree on the common substructure.
+
+P2.4.2: For an n-ary relation R, coordinatewise ~-invariance is:
+(x1~y1 AND ... AND xn~yn) IMPLIES (R(x1,...,xn) IFF R(y1,...,yn)).
+This is necessary and sufficient for R to descend to a well-defined relation on S/~. It is NOT by itself a compatibility criterion for arbitrary constraint theories. The quotient-level relational amalgamation remains conditional and requires proof audit.
+
+Stage 3 constraints remain formally underspecified. The handoff requires specifying:
+- signature Sigma;
+- structures, induced substructures, embeddings, and common-substructure spans;
+- constraint syntax and semantics, such as a specified first-order fragment;
+- inherited local versus genuinely global constraints;
+- the selected class K and its amalgamation property;
+- whether strong amalgamation is required;
+- counterexample testing before any preservation claim.
+
+The handoff explicitly warns that saying an amalgam is compatible when it satisfies all combined constraints is close to restating the target, not a substantive necessary-and-sufficient theorem.
+
+6. WHAT THIS DOES AND DOES NOT RESOLVE FOR S3-C3
+
+RESOLVED FROM SOURCES:
+- The actual A1-A3 apartness axioms.
+- Equivalence of ~ under A1-A3 and classical Boolean logic.
+- Apartness embeddings must preserve and reflect.
+- A quotient-based strong amalgam exists for the pure apartness category under the stated assumptions.
+- Free relational amalgamation is established only without extra relation-apartness coupling axioms.
+- Coordinatewise ~-invariance characterizes quotient descent for a relation.
+
+NOT YET RECOVERED / OPEN:
+- The exact S3-C3 list of relation-apartness coupling constraints, if separately specified elsewhere.
+- A formal decomposition or indecomposability definition for the exact S3-C3 task.
+- A necessary-and-sufficient structural connectedness criterion.
+- Minimal forbidden configurations for the actual constrained relational class.
+- A proof that any hypergraph criterion matches the original decomposition semantics.
+
+7. REVISED STATUS LABELS
+
+PROVEN UNDER SOURCE ASSUMPTIONS:
+A1-A3 imply that ~ defined as NOT # is an equivalence relation in classical Boolean logic.
+The P2.3 quotient-based construction gives a strong amalgam for the stated pure apartness structures and embeddings, subject to independent proof audit before registration.
+
+PROVEN WITH RESTRICTED SCOPE:
+The free relational amalgam works for pure relational signatures without extra axioms coupling relations to apartness, assuming agreement on the common substructure.
+Coordinatewise ~-invariance is necessary and sufficient for quotient descent of an n-ary relation.
+
+OPEN:
+All general Stage-3 constraint compatibility claims, S3-C3 minimal forbidden configurations under coupled constraints, and the structural indecomposability criterion.
+
+8. NEXT JUSTIFIED ACTION
+
+Do not extend the earlier transitive-closure construction as if it were the recovered canonical amalgam. First reconcile the quotient-based P2.3 construction with the actual relational signature of S3-C3. Then identify the exact coupling constraints and decomposition definition from their primary source. If no such definitions exist in the frozen sources, record that absence explicitly and formulate a clearly marked research proposal without changing the Frozen Core.
+
+PROTECTED SCOPE:
+No Frozen Core, Volume II, Volume III, Volume V, theorem, registry, RL, CE, or CE-V status changed by this addendum.
+
+END OF ADDENDUM
