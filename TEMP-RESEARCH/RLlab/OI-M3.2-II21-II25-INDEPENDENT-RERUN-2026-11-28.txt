@@ -1,0 +1,361 @@
+OMEGA-ISOP
+INDEPENDENT RE-DERIVATION RECORD — II-21 TO II-25
+RECORD_ID: OI-M3.2-II21-II25-INDEPENDENT-RERUN-2026-11-28
+DATE: 2026-11-28
+WORKSTREAM: MATHEMATICAL FOUNDATION / NON-TOTAL TRANSITIVE RELATIONAL STRUCTURE
+TITLE: Независима реконструкция на преброима иррефлексивна транзитивна нетотална релация и графова неразложимост
+STATUS: PROVISIONAL INDEPENDENT RESEARCH RECORD
+DOCUMENT_ROLE: TEMPORARY RLlab WORKING ARTIFACT
+CANONICAL_STATUS: NOT CANONICALLY ACCEPTED
+RL_STATUS: NOT REGISTERED
+FROZEN_CORE_STATUS: UNCHANGED
+VOLUME_V_STATUS: UNCHANGED
+SOURCE_METHOD: DIRECT CONSTRUCTION AND FRESH PROOF
+HISTORICAL_COMPARISON: NOT CLAIMED
+
+============================================================
+0. PURPOSE AND EVIDENCE BOUNDARY
+============================================================
+
+Този запис съхранява повторно независимо построение и доказателство на резултатите, обсъдени като II-21 → II-25.
+
+Доказателството по-долу е пряко: задава се конкретно множество и конкретна бинарна релация, след което всяко свойство се проверява от дефиницията.
+
+Този запис НЕ твърди, че конструкцията е съвместима с Frozen Core, A1-A3, S3-C3 или с дефиницията R := colim(D_CC). Тези проверки са отделни и остават отворени.
+
+Терминът R-INDECOMPOSABILITY се използва само при изрично посочената графово-сепарационна дефиниция в раздел 8. Не се твърди, че тази дефиниция непременно съвпада с каноничната дефиниция във Frozen Core.
+
+Няма нови аксиоми и няма промяна на Frozen Core.
+
+============================================================
+1. EXPLICIT CONSTRUCTION
+============================================================
+
+Нека:
+
+N0 = {0,1,2,3,...}
+
+A = {a_i | i ∈ N0}
+B = {b_i | i ∈ N0}
+A ∩ B = ∅
+X = A ∪ B
+
+Дефинираме R ⊆ X × X чрез четирите случая:
+
+(1) R(a_i,a_j) IFF i < j.
+(2) R(b_i,b_j) IFF i < j.
+(3) R(a_i,b_j) IFF i < j.
+(4) R(b_i,a_j) IFF FALSE.
+
+Това изчерпва всички възможни типове наредени двойки от X × X и следователно дефинира еднозначно бинарна релация R върху X.
+
+Структурата е M = (X,R).
+
+Забележка: R е насочена и по принцип несиметрична. Не се отъждествява с апартност #.
+
+============================================================
+2. EXISTENCE
+============================================================
+
+X е непразно, например a_0 ∈ X.
+
+Четирите клаузи от раздел 1 определят членството на всяка двойка (x,y) ∈ X × X в R. Следователно R е добре дефинирано подмножество на X × X.
+
+Значи съществува структурата M = (X,R).
+
+RESULT: EXISTENCE — PROVED.
+
+============================================================
+3. IRREFLEXIVITY
+============================================================
+
+За всеки i ∈ N0:
+
+R(a_i,a_i) IFF i < i, което е FALSE.
+
+Също:
+
+R(b_i,b_i) IFF i < i, което е FALSE.
+
+Следователно:
+
+∀x ∈ X: NOT R(x,x).
+
+RESULT: IRREFLEXIVITY — PROVED.
+
+============================================================
+4. TRANSITIVITY
+============================================================
+
+Трябва да се докаже:
+
+∀x,y,z ∈ X:
+(R(x,y) AND R(y,z)) -> R(x,z).
+
+Ако R(x,y) и R(y,z), типът на междинния елемент y ограничава възможните случаи.
+
+Възможни композиции:
+
+A → A → A:
+R(a_i,a_j) и R(a_j,a_k) дават i<j и j<k, следователно i<k и R(a_i,a_k).
+
+A → A → B:
+R(a_i,a_j) и R(a_j,b_k) дават i<j и j<k, следователно i<k и R(a_i,b_k).
+
+A → B → B:
+R(a_i,b_j) и R(b_j,b_k) дават i<j и j<k, следователно i<k и R(a_i,b_k).
+
+B → B → B:
+R(b_i,b_j) и R(b_j,b_k) дават i<j и j<k, следователно i<k и R(b_i,b_k).
+
+Няма композиция с преход B → A, защото по дефиниция R(b_i,a_j) е винаги FALSE. Следователно изброените случаи са изчерпателни.
+
+Във всеки възможен случай следва R(x,z).
+
+RESULT: TRANSITIVITY — PROVED.
+
+============================================================
+5. ACYCLICITY AND LOOP-FREEDOM
+============================================================
+
+Иррефлексивността вече е доказана.
+
+Да допуснем краен насочен цикъл:
+
+x_0 R x_1, x_1 R x_2, ..., x_(n-1) R x_0.
+
+Чрез последователно прилагане на транзитивността получаваме R(x_0,x_0), което противоречи на иррефлексивността.
+
+Следователно няма насочени цикли.
+
+RESULT:
+NO SELF-LOOPS — PROVED.
+ACYCLICITY — PROVED.
+
+Ацикличността е следствие от транзитивността и иррефлексивността, а не допълнителна предпоставка.
+
+============================================================
+6. NON-TOTALITY AND ABSENCE OF UNIVERSAL COMPARABILITY ELEMENT
+============================================================
+
+За всеки i ∈ N0 разглеждаме различните елементи a_i и b_i.
+
+По дефиниция:
+
+R(a_i,b_i) IFF i<i, следователно FALSE.
+R(b_i,a_i) = FALSE.
+
+Значи a_i и b_i са несравними.
+
+Следователно R не е тотална релация.
+
+Дефинираме елемент x като универсално сравним, ако:
+
+∀y ∈ X, y != x:
+R(x,y) OR R(y,x).
+
+За всеки a_i елементът b_i е несравним с него.
+За всеки b_i елементът a_i е несравним с него.
+
+Следователно няма универсално сравним елемент:
+
+∀x ∈ X:
+NOT (∀y ∈ X, y != x: R(x,y) OR R(y,x)).
+
+RESULT:
+NON-TOTALITY — PROVED.
+NO UNIVERSALLY COMPARABLE ELEMENT — PROVED.
+
+Това е твърдение за липса на елемент, сравним с всеки друг елемент. То е по-силно от липса само на максимален или минимален елемент.
+
+============================================================
+7. CONNECTED COMPARABILITY GRAPH
+============================================================
+
+Дефинираме неориентирания граф на сравнимостта G_R=(X,E), където за различни x,y:
+
+{x,y} ∈ E IFF R(x,y) OR R(y,x).
+
+В A всеки два различни елемента a_i,a_j са сравними, защото за различни естествени числа точно едно от i<j или j<i е вярно. Следователно индуцираният граф върху A е пълен.
+
+Аналогично индуцираният граф върху B е пълен.
+
+Между двете части има ребро:
+
+R(a_0,b_1), защото 0<1.
+
+Значи G_R[A] и G_R[B] са свързани помежду си. Следователно целият граф G_R е свързан.
+
+RESULT: CONNECTED COMPARABILITY GRAPH — PROVED.
+
+============================================================
+8. R-INDECOMPOSABILITY — DEFINITION-RELATIVE RESULT
+============================================================
+
+За целите на този запис се използва следната дефиниция:
+
+R-разлагане е разлагане X=U∪V, където U и V са непразни, U∩V=∅, и за всяко u∈U, v∈V:
+
+NOT R(u,v) AND NOT R(v,u).
+
+Такава декомпозиция съществува тогава и само тогава, когато графът на сравнимостта G_R е несвързан.
+
+От раздел 7 G_R е свързан. Следователно R-разлагане от този вид не съществува.
+
+RESULT:
+R-INDECOMPOSABILITY — PROVED RELATIVE TO THE EXPLICIT GRAPH-SEPARATION DEFINITION ABOVE.
+
+CRITICAL LIMITATION:
+Това доказателство не установява, че горната дефиниция е идентична с точната R-indecомposability дефиниция във Frozen Core или в друг каноничен документ. До пряко съпоставяне с оригиналната дефиниция резултатът остава дефиниционно условен.
+
+============================================================
+9. CONSOLIDATED RESULT
+============================================================
+
+EXPLICIT COUNTABLE STRUCTURE — CONSTRUCTED.
+EXISTENCE — PROVED.
+IRREFLEXIVITY — PROVED.
+TRANSITIVITY — PROVED.
+LOOP-FREEDOM — PROVED.
+ACYCLICITY — PROVED.
+NON-TOTALITY — PROVED.
+NO UNIVERSALLY COMPARABLE ELEMENT — PROVED.
+CONNECTED COMPARABILITY GRAPH — PROVED.
+R-INDECOMPOSABILITY — PROVED UNDER THE EXPLICIT DEFINITION IN SECTION 8.
+
+The proof is direct and independent of the prior proof narrative. It uses only the explicit construction and elementary properties of the natural-number order.
+
+============================================================
+10. A1-A3 COMPATIBILITY AUDIT
+============================================================
+
+The separately recorded Boolean apartness conditions are:
+
+A1: NOT(x # x)
+A2: x # y IFF y # x
+A3: x # y -> (x # z OR z # y), for every z.
+
+Define x ~ y IFF NOT(x # y).
+
+Under classical Boolean logic, A1-A3 imply that ~ is an equivalence relation:
+
+Reflexivity follows from A1.
+Symmetry follows from A2.
+For transitivity, assume x~y and y~z. If x#z, A3 with intermediary y gives x#y OR y#z, contradicting both assumptions. Thus NOT(x#z), so x~z.
+
+Consequently, for the quotient map q(x)=[x], Boolean apartness is quotient inequality:
+
+x#y IFF [x] != [y].
+
+Therefore # on distinct quotient classes is total.
+
+The constructed R is not symmetric. For example:
+
+R(a_0,b_1) = TRUE,
+R(b_1,a_0) = FALSE.
+
+Hence R cannot itself be the relation # satisfying A2.
+
+A possible symmetrization is:
+
+x #_s y IFF R(x,y) OR R(y,x).
+
+But this symmetrization does not satisfy A3. Counterexample:
+
+x=a_0, y=a_1, z=b_0.
+
+Then:
+x #_s y = TRUE,
+x #_s z = FALSE,
+z #_s y = FALSE.
+
+Thus A3 fails.
+
+BOUNDARY:
+This disproves identification of the constructed R with #, and also disproves the proposed direct symmetrization as an A1-A3 apartness. It does NOT disprove compatibility if R is a distinct derived relation on a separately defined object and a valid bridge to # is supplied.
+
+RESULT:
+A1-A3 COMPATIBILITY FOR R AS # — DISPROVED.
+A1-A3 COMPATIBILITY FOR A DISTINCT R WITH AN INDEPENDENT # — OPEN.
+
+============================================================
+11. FROZEN CORE / S3-C3 / COLIMIT COMPATIBILITY
+============================================================
+
+The construction alone does not establish any of the following:
+
+1. That its carrier X is an object admitted by the Frozen Core.
+2. That its relation R is obtained as R := colim(D_CC).
+3. That the required diagram D_CC exists for this construction.
+4. That the relevant colimit exists in the specified category.
+5. That S3-C3 conditions hold.
+6. That the canonical R-indec decomposition notion agrees with Section 8.
+7. That no additional core constraints are violated.
+
+These require the exact definitions, domains, morphisms, and universal properties from the Frozen Core and S3-C3 records.
+
+RESULT:
+FROZEN CORE COMPATIBILITY — OPEN.
+S3-C3 APPLICABILITY — OPEN.
+COLIMIT REALIZATION R := colim(D_CC) — OPEN.
+CANONICAL R-INDECOMPOSABILITY MATCH — OPEN.
+
+============================================================
+12. DEPENDENCY AND LOGIC AUDIT
+============================================================
+
+No circularity is present in the direct proofs of existence, irreflexivity, transitivity, acyclicity, non-totality, absence of a universally comparable element, or connectedness of the comparability graph.
+
+The proof dependencies are:
+
+- Existence depends on the explicit set and exhaustive definition of R.
+- Irreflexivity depends on NOT(i<i).
+- Transitivity depends on transitivity of < on N0 and exhaustive case analysis.
+- Acyclicity depends on irreflexivity and transitivity.
+- Non-totality depends on the witness pair (a_i,b_i).
+- Absence of a universally comparable element depends on the same witness for every element.
+- Connectedness depends on completeness of the two induced subgraphs and the cross-edge R(a_0,b_1).
+- R-indec decomposability depends on the definition in Section 8 and connectedness.
+
+No claim of categorical or core-level compatibility is smuggled into these proofs.
+
+============================================================
+13. FINAL STATUS AND ARCHITECTURAL INVARIANTS
+============================================================
+
+INDEPENDENT ABSTRACT CONSTRUCTION:
+PROVED.
+
+A1-A3 FOR THE CONSTRUCTED R:
+NOT SATISFIED AS A DIRECT IDENTIFICATION R=#.
+
+A1-A3 FOR A DISTINCT CORE APARTNESS #:
+OPEN.
+
+S3-C3:
+OPEN.
+
+FROZEN CORE COMPATIBILITY:
+OPEN.
+
+R := colim(D_CC):
+OPEN.
+
+CANONICAL R-INDECOMPOSABILITY DEFINITION MATCH:
+OPEN.
+
+FROZEN CORE:
+UNCHANGED.
+
+VOLUME V:
+UNCHANGED.
+
+RL REGISTRATION:
+NOT PERFORMED.
+
+CANONICAL ACCEPTANCE:
+NOT PERFORMED.
+
+This is a non-canonical independent research record. Archival status does not constitute mathematical validation beyond the proofs and explicit scope stated here.
+
+END OF RECORD
