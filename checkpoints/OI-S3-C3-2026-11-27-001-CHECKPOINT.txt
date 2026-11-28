@@ -1,0 +1,300 @@
+OMEGA-ISOP RESEARCH CHECKPOINT
+CHECKPOINT_ID: OI-S3-C3-2026-11-27-001
+DATE: 2026-11-27
+TIME_UTC: 19:12
+WORKSTREAM: S3-C3
+RESEARCH_STAGE: Structural compatibility, amalgamation, and decomposition criteria
+TITLE: S3-C3 working-state checkpoint: apartness, induced equivalence, constraints, and amalgamation
+STATUS: TEMPORARY RESEARCH CHECKPOINT
+EVIDENCE_CLASS: Mixed; see individual classifications below
+CANONICAL_STATUS: No canonical theory change proposed or authorized
+FROZEN_CORE_STATUS: Unchanged; protected
+
+==================================================
+1. EXACT CURRENT TASK
+==================================================
+
+S3-C3 task statement supplied by the user:
+
+"Да се характеризират минималните забранени конфигурации при съвместно наличие на:
+1. Обикновени релационни отношения.
+2. Boolean apartness #.
+3. Еквивалентност ~, индуцирана от #.
+4. Ограничения, свързващи отношенията с apartness.
+Цел: Да се установи дали критерият за неразложимост остава необходим и достатъчен, или се появява по-общ критерий за структурна свързаност."
+
+The exact frozen OMEGA-ISOP definitions of the relations, constraints C, and decomposition/indecomposability criterion have not yet been reloaded from the primary scientific sources in this work segment. Therefore, the general structural-connectedness criterion remains unresolved and no proposed reformulation is to be treated as canonical.
+
+==================================================
+2. DEFINITIONS AND NOTATION USED IN THIS WORK SEGMENT
+==================================================
+
+Let U be a carrier set.
+
+Boolean apartness:
+# : U x U -> {true,false}.
+
+A common candidate definition of induced indistinguishability is:
+x ~ y iff not(x # y).
+
+Important logical qualification:
+If # is irreflexive and symmetric, then its Boolean complement ~ is reflexive and symmetric. Transitivity of ~ does NOT follow from irreflexivity and symmetry of # alone.
+
+For ~ to be an equivalence relation, transitivity must be separately required or derived from stronger apartness axioms/conditions.
+
+A sufficient transitivity condition written in # notation is:
+(not(x # y) and not(y # z)) implies not(x # z).
+
+Equivalently, a violation is witnessed by a triple:
+a ~ b,
+b ~ c,
+a # c.
+
+This is a minimal 3-element obstruction to transitivity when the relation is defined as above and the three displayed facts are jointly realizable.
+
+Do not state that this triple is a universal minimal forbidden configuration for all of S3-C3. It is specifically the minimal local obstruction to transitivity of ~.
+
+==================================================
+3. WORKING ANALYSIS OF MINIMAL FORBIDDEN CONFIGURATIONS
+==================================================
+
+The exact minimal forbidden configurations depend on:
+- the precise axioms imposed on #;
+- whether ~ is defined as the full Boolean complement of # or through admissible witnesses;
+- the exact ordinary relations R_i and their arities;
+- the exact compatibility constraints C;
+- whether constraints are local, global, universal, existential, or cardinality-based;
+- the chosen definition of decomposition.
+
+A two-element obstruction can arise if the constraints directly require incompatible statuses, for example:
+C1 requires a # b,
+C2 requires a ~ b.
+This is only an illustrative conditional obstruction. It is not a universal S3-C3 result.
+
+A three-element obstruction can arise from failure of transitivity as stated above.
+
+Larger obstructions may arise from higher-arity constraints, class-size bounds, or interactions among multiple relations. No universal bound on the size of minimal forbidden configurations has been established.
+
+==================================================
+4. RELATIONAL CONNECTEDNESS: CURRENT STATUS
+==================================================
+
+A proposed distinction was introduced between:
+- R-decomposability, determined only by ordinary relational relations;
+- full structural decomposability, determined by R together with #, ~, and constraints C.
+
+Working hypothesis:
+R-indecomposability need not be equivalent to full structural indecomposability.
+
+This is HYPOTHESIS / WORKING FRAMEWORK, not a proved theorem for the frozen OMEGA-ISOP architecture.
+
+A candidate hypergraph representation was discussed:
+H(M) = (V,E),
+E = E_R union E_C,
+where E_R represents supports of actual relational dependencies and E_C represents supports of constraints C.
+
+Critical qualification:
+Do not automatically treat every pair related by # or ~ as a positive dependency edge. If ~ is defined as the Boolean complement of #, every pair is classified by one of the two relations, and treating all such classifications as connectivity edges can make the connectedness criterion vacuous. The correct dependency/support semantics must be defined from the original OMEGA-ISOP decomposition notion.
+
+The hypergraph criterion is OPEN. It has not been shown necessary and sufficient for the original S3-C3 indecomposability criterion.
+
+==================================================
+5. MINIMAL AMALGAMATION CONSTRUCTION DISCUSSED
+==================================================
+
+For structures A and B with a common identified induced substructure C, a candidate minimal equivalence amalgamation was discussed.
+
+Carrier:
+V(P) = V(A) union V(B).
+
+Ordinary relations:
+R_i(P) = R_i(A) union R_i(B),
+subject to the intended common-substructure identification and relation compatibility.
+
+Equivalence:
+~P = TC(~A union ~B),
+where TC denotes transitive closure.
+
+Apartness:
+x #P y iff not(x ~P y).
+
+Candidate:
+A ⊕0 B = (V(P), R(P), #P, ~P).
+
+Conditional result:
+TC(~A union ~B) is the least equivalence relation containing both ~A and ~B. Once ~P is fixed, #P is uniquely determined by Boolean complementation under the stated definition.
+
+This is a minimal construction of this specified form. It is not a claim that it is the only possible admissible or richer amalgamation.
+
+==================================================
+6. EMBEDDING PRESERVATION RESULT
+==================================================
+
+A conditional preservation argument was established under strong assumptions:
+- A and B are identified along a common induced substructure C;
+- embeddings are strong/induced for the relevant relations;
+- the identifications are compatible;
+- ~A and ~B are equivalence relations;
+- the amalgam uses the stated transitive-closure construction.
+
+Under these assumptions, no new equivalences are created between elements internal to A or internal to B:
+~P intersect A^2 = ~A,
+~P intersect B^2 = ~B.
+
+Consequently, when # is defined as the Boolean complement of ~:
+#P intersect A^2 = #A,
+#P intersect B^2 = #B.
+
+Evidence class:
+PROVED UNDER CONDITIONS within the stated abstract construction.
+
+Caution:
+The assumptions must be checked against the exact frozen OMEGA-ISOP embedding and substructure definitions before importing this result into the project architecture.
+
+==================================================
+7. ASSOCIATIVITY RESULT
+==================================================
+
+For compatible identifications and the same transitive-closure construction:
+TC(TC(~A union ~B) union ~D)
+=
+TC(~A union ~B union ~D)
+=
+TC(~A union TC(~B union ~D)).
+
+The union operation on ordinary relations is associative. Apartness follows from the final equivalence relation by Boolean complementation.
+
+Therefore the minimal closure construction is associative up to the relevant isomorphism, provided:
+- identifications are coherent;
+- the strong induced-embedding assumptions hold;
+- all intermediate constructions are defined.
+
+Evidence class:
+PROVED UNDER CONDITIONS for the minimal closure construction.
+
+For the full structure including constraints C, associativity/admissibility additionally requires that C remain satisfied at the intermediate and final stages. This has not been established for arbitrary C.
+
+==================================================
+8. CONSTRAINT STABILITY AND COUNTEREXAMPLE
+==================================================
+
+It does not follow in general that:
+C(A) = true and C(B) = true
+implies
+C(A ⊕0 B) = true.
+
+Illustrative counterexample to arbitrary amalgamation stability:
+
+Constraint C1:
+Every equivalence class has at most 2 elements.
+
+Let:
+A = {a,b}, with a ~ b.
+B = {b,c}, with b ~ c.
+The common part is {b}.
+
+Each component separately satisfies C1.
+The transitive closure in the amalgam gives:
+a ~ b,
+b ~ c,
+a ~ c.
+Thus one equivalence class is {a,b,c}, which violates C1.
+
+Conclusion:
+Arbitrary constraints are not automatically preserved by the minimal amalgamation operation.
+
+Evidence class:
+COUNTEREXAMPLE / ESTABLISHED for the stated abstract example.
+
+==================================================
+9. EVIDENCE CLASSIFICATION
+==================================================
+
+PROVED UNDER CONDITIONS:
+1. If ~ is an equivalence relation on each component and the amalgam is formed by transitive closure of their union, that closure is the least equivalence relation containing both.
+2. Under strong induced embeddings over a common induced substructure, the stated transitive-closure amalgam does not create new equivalences internal to either component.
+3. Under coherent identifications and the stated assumptions, the minimal closure construction is associative up to isomorphism.
+
+ESTABLISHED LOGICAL QUALIFICATION:
+Irreflexivity and symmetry of # alone do not imply transitivity of its Boolean complement ~.
+
+CONDITIONAL MINIMAL OBSTRUCTION:
+The triple a~b, b~c, a#c is a minimal obstruction to transitivity of ~ under ~ = not #.
+
+COUNTEREXAMPLE:
+The constraint "each equivalence class has at most 2 elements" is not preserved by the described amalgamation in the A={a,b}, B={b,c} example.
+
+HYPOTHESIS:
+R-indecomposability may differ from full structural indecomposability once apartness, equivalence, and constraints are included.
+
+OPEN:
+1. Exact characterization of all minimal forbidden configurations for the actual S3-C3 signature and constraints.
+2. Whether a general structural-connectedness criterion exists and whether it is necessary and sufficient.
+3. Whether the original indecomposability criterion remains necessary and sufficient.
+4. Exact stability conditions on C under amalgamation.
+5. Whether the candidate hypergraph captures the original decomposition semantics.
+6. Compatibility of the abstract amalgamation assumptions with the frozen OMEGA-ISOP definitions.
+
+==================================================
+10. CRITICAL CORRECTIONS / ANTI-OVERCLAIM RULES
+==================================================
+
+Do not claim:
+- that ~ is automatically transitive from symmetry and irreflexivity of #;
+- that every pair carrying # or ~ is automatically a positive structural dependency;
+- that apartness alone necessarily prevents decomposition;
+- that the hypergraph criterion has been proved necessary and sufficient;
+- that arbitrary constraints C are preserved under amalgamation;
+- that the abstract amalgamation construction is already part of the frozen OMEGA-ISOP architecture;
+- that this work changes or amends the Frozen Core.
+
+The earlier intuition that the Boolean partition of every pair into # or ~ makes the whole structure connected is not a valid structural connectedness proof. Pairwise classification is not the same as a dependency relation that blocks decomposition.
+
+==================================================
+11. PROTECTED SCOPE
+==================================================
+
+No changes have been made or authorized to:
+- Frozen Core;
+- canonical definitions;
+- Volumes II-V;
+- theorem records;
+- RL records or registry state;
+- CE / CE-V status;
+- canonical acceptance status.
+
+This checkpoint records a working mathematical investigation only.
+
+==================================================
+12. PRECISE NEXT JUSTIFIED ACTION
+==================================================
+
+Before claiming a definitive S3-C3 theorem:
+
+1. Retrieve the primary frozen OMEGA-ISOP source that defines the exact relational signature, apartness axioms, induced equivalence, constraints C, embeddings, and decomposition/indecomposability.
+2. Extract those definitions verbatim or with exact source references. Do not silently substitute the abstract definitions used in this checkpoint.
+3. Formalize the exact class of finite structures and the notion of substructure/decomposition.
+4. Define minimal forbidden configuration relative to that class and its embeddings.
+5. Test the candidate amalgamation against every specified constraint C.
+6. Construct countermodels to test necessity and sufficiency of any proposed connectedness criterion.
+7. Only then classify the final criterion as proved, conditional, hypothesis, or unresolved.
+
+NEXT_ACTION:
+Resume S3-C3 by retrieving and reconciling its exact frozen definitions before extending the abstract amalgamation argument.
+
+==================================================
+13. STORAGE AND VERIFICATION STATUS
+==================================================
+
+INTENDED LOCATION:
+ChatGPT Library /checkpoints
+
+This is a temporary recovery checkpoint, not the permanent scientific archive.
+
+Permanent archival rule:
+Durable non-core research records belong in the OMEGA-ISOP GitHub repository after reaching an appropriate archival stage and must be verified by commit and readback. No GitHub commit is claimed by this checkpoint.
+
+CHECKPOINT_CREATION:
+File saved to the intended Library path. Final readback verification is recorded after the save operation and must be confirmed by the current session's readback.
+
+END OF CHECKPOINT
