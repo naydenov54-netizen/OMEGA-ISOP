@@ -1,0 +1,280 @@
+OMEGA-ISOP — S3-C3 O1/O2 PRIMARY-SOURCE RECOVERY
+RECORD: OI-S3-C3-2026-11-28-007
+DATE: 2026-11-28
+WORKSTREAM: S3-C3 / EXACT SIGNATURE AND COUPLING THEORY
+DOCUMENT ROLE: TEMPORARY RLlab SOURCE-RECOVERY CHECKPOINT
+STATUS: SOURCE RECOVERY COMPLETED FOR THE INSPECTED CANONICAL SOURCE SET
+CANONICAL STATUS: NOT CANONICAL
+RL STATUS: NOT REGISTERED
+
+REPOSITORY:
+naydenov54-netizen/OMEGA-ISOP
+
+BRANCH:
+temp/91-6C-research-workspace
+
+DIRECTORY:
+TEMP-RESEARCH/RLlab/
+
+============================================================
+0. SCOPE AND METHOD
+============================================================
+
+This checkpoint closes the focused source-recovery pass for:
+O1. Exact target model: complete S3-C3 signature, relation arities, selected apartness realization.
+O2. Exact coupling theory: complete source-defined constraints linking relations and apartness.
+
+The inspection distinguishes:
+(a) definitions actually present in canonical sources;
+(b) generic architecture that leaves a realization choice open;
+(c) later research assumptions that are not canonical definitions.
+
+No missing definition is reconstructed by inference.
+No research test condition is promoted to a Frozen Core axiom.
+No Frozen Core, Volume II, Volume III, Volume IV, or Volume V content is modified.
+
+============================================================
+1. SOURCES INSPECTED
+============================================================
+
+S1. Frozen Core:
+&OMEGA-ISOP-v2.0-FC10.2-CONSOLIDATED-FROZEN-CORE.txt
+Canonical Library file, version 1.
+Relevant source locations:
+- section 1.8, Relational Specification R, approximately lines 150-167;
+- relational dependency chain, approximately line 56;
+- later claim-control summary, approximately line 669.
+
+S2. Volume II:
+CORE/VOLUMES/OMEGA-ISOP-VOLUME-II-MATHEMATICAL-FOUNDATIONS-v1.4-GOVERNANCE-ADDENDUM-2026-11-24.txt
+GitHub main; blob SHA:
+a10dc1093638e1d6a0e8ad5c21df59cc56a59058
+Relevant sections:
+III.1-III.5; IV.1-IV.3.
+
+S3. Volume III:
+CORE/VOLUMES/&OMEGA-ISOP-VOLUME-III-VALIDATION-FRAMEWORK-v1.1-VAL-RESTORED.txt
+GitHub main; blob SHA:
+f4fe3443cea979e94b506460ec96dcadb1ffadf5
+Relevant section:
+Part II, sections 7-8; the D_CC formalization is explicitly open.
+
+S4. Volume V controlled master:
+CORE/VOLUMES/&OMEGA-ISOP-VOLUME-V-v2.4-C-1.5-CONTROLLED-MASTER-2026-11-22.txt
+GitHub main; blob SHA:
+3a80178685fc848ee5e650f374d5ac551187dfb1
+Full fetched text: 126,454 characters; 1,929 lines.
+The inspected master contains the generic relational/dynamical architecture, but no S3-C3 signature, complete relation list, relation arities, or S3-C3 decomposition definition.
+
+S5. Volume V Appendix G:
+CORE/VOLUMES/OMEGA-ISOP-VOLUME-V-APPENDIX-G-S3-C3-CONTROLLED-RESEARCH-ADDENDUM-v1.0-2026-11-28.txt
+This is a controlled research addendum, not the pre-existing canonical definition of the target class.
+Its sections G.8-G.10 explicitly retain the full coupling list and decomposition semantics as OPEN.
+
+S6. Earlier source reconciliation:
+checkpoints/OI-S3-C3-2026-11-27-002-SOURCE-RECONCILIATION.txt
+and Library record OI-S3-C3-2026-11-27-002-SOURCE-RECONCILIATION.txt.
+These explicitly state that the exact coupling list and decomposition definition were not recovered.
+
+============================================================
+2. WHAT IS ACTUALLY DEFINED
+============================================================
+
+2.1 Frozen Core relational specification
+
+The Frozen Core section 1.8 defines R generically as a constraint-generating mathematical structure.
+Its stated role is to define admissible relational configurations and restrict possible realizations.
+It does not enumerate all relations or prescribe a unique relational signature.
+
+The construction is conditional:
+R := colim(D_CC)
+where D_CC is a diagram of compatible configurations, when the required categorical construction exists.
+
+This is an architectural definition of a generic relational specification.
+It is NOT a definition of a particular S3-C3 relational signature.
+
+2.2 Volume II apartness and configurations
+
+Volume II defines:
+A = (U0,#)
+# : U0 x U0 -> {true,false}
+
+A1:
+NOT(x # x)
+
+A2:
+x # y IFF y # x
+
+A3:
+x # y IMPLIES (x # z) OR (z # y), for every z.
+
+These are explicitly one standard admissible realization, not the only possible realization.
+
+Indistinguishability is defined through absence of an admissible apartness witness.
+Under a complete Boolean realization it may be represented as:
+x ~ y IFF NOT(x # y)
+
+The quotient DS := U0/~ is conditional on ~ being an equivalence relation.
+
+A local configuration is:
+C = (S_C,#_C)
+where S_C subset U0 and #_C is the restriction of #.
+
+An embedding is injective and preserves AND reflects selected apartness:
+x #1 y IFF f(x) #2 f(y).
+
+Compatibility is:
+CC(C1,C2)=1 IFF an admissible amalgamation exists.
+
+These definitions specify the apartness/configuration layer and generic compatibility architecture.
+They do not define the complete S3-C3 expansion by additional relations.
+
+2.3 Volume III
+
+Volume III gives a generic compatibility and relational-specification discussion.
+It explicitly marks formalization of D_CC as an OPEN FORMALIZATION PROGRAM.
+It does not supply the missing S3-C3 relation signature or coupling list.
+
+============================================================
+3. O1 — EXACT TARGET SIGNATURE
+============================================================
+
+Recovered:
+- carrier U0;
+- binary apartness relation #;
+- realization-dependent indistinguishability ~;
+- local configuration C=(S_C,#_C);
+- generic relational specification R := colim(D_CC), conditionally.
+
+Not recovered as canonical S3-C3 data:
+- a named signature Sigma_S3-C3;
+- a list R1,...,Rn;
+- the arity of each Ri;
+- whether function or constant symbols occur in the S3-C3 target;
+- the complete class K of S3-C3 structures;
+- the exact selected apartness realization for every S3-C3 theorem.
+
+O1 CLASSIFICATION:
+NOT FORMALLY DEFINED for the exact S3-C3 target.
+
+Important qualification:
+The apartness reduct is formally specified under a selected realization.
+The absence concerns the expanded S3-C3 target signature, not the existence of the generic apartness foundation.
+
+============================================================
+4. O2 — EXACT COUPLING THEORY
+============================================================
+
+Recovered:
+- generic compatibility CC(C1,C2);
+- conditional generation of R from a compatibility diagram;
+- P2.4.1 restricted free relational amalgamation in the absence of extra relation-apartness coupling axioms;
+- P2.4.2 coordinatewise ~-invariance as the necessary-and-sufficient condition for one relation to descend to the quotient.
+
+For an n-ary relation R, the quotient-descent condition is:
+
+I_R:
+(x1~y1 AND ... AND xn~yn)
+->
+(R(x1,...,xn) IFF R(y1,...,yn))
+
+I_R is a theorem about quotient descent.
+It is not itself a source-defined coupling axiom for the complete S3-C3 theory.
+
+Not recovered:
+- a canonical complete constraint set Gamma_S3-C3;
+- any source-defined universal rule linking each Ri to # or ~;
+- whether quotient invariance is imposed, derivable, or irrelevant for each Ri;
+- whether constraints are local, universal, existential, Horn, equality-generating, cardinality-based, global, or mixed;
+- whether there are cross-relation constraints;
+- whether operations or dynamics participate in the coupling theory.
+
+C_R:
+R(x,y) -> x~y
+
+C_R*:
+R(x,y) -> x#y
+
+T_R:
+R(x,y) AND R(y,z) -> R(x,z)
+
+These occur in controlled research tests and Appendix G as explicitly selected test conditions.
+They are NOT recovered as canonical S3-C3 axioms.
+
+O2 CLASSIFICATION:
+NOT FORMALLY DEFINED for the exact S3-C3 target.
+
+============================================================
+5. SOURCE-LEVEL DISTINCTIONS THAT MUST NOT BE COLLAPSED
+============================================================
+
+1. Generic R is not a fixed S3-C3 signature Sigma.
+2. Generic CC compatibility is not a complete list of relation-apartness coupling axioms.
+3. I_R is quotient descent, not a universal constraint-preservation theorem.
+4. C_R and C_R* are different assumptions and neither is source-established as canonical.
+5. A1-A3 specify one standard apartness realization, not every possible realization.
+6. Failure of free relational amalgamation does not imply failure of every amalgam.
+7. A quotient-pullback failure does not imply Class III.
+8. No dependency graph or hypergraph can be declared canonical until the decomposition semantics are specified.
+
+============================================================
+6. O1/O2 CLOSURE RESULT
+============================================================
+
+O1 exact S3-C3 signature:
+NOT FORMALLY DEFINED.
+
+O2 exact S3-C3 coupling theory:
+NOT FORMALLY DEFINED.
+
+Generic apartness foundation:
+SOURCE-DEFINED, realization-dependent.
+
+Generic relational specification R:
+SOURCE-DEFINED, conditional on the required compatibility diagram and categorical construction.
+
+I_R quotient descent:
+PROVED as a mathematical criterion for a specified relation and equivalence relation.
+
+Canonical status of C_R, C_R*, T_R:
+NOT ESTABLISHED.
+
+The primary-source recovery pass therefore does not authorize a universal S3-C3 amalgamation or decomposition theorem.
+It also does not justify choosing one candidate signature or coupling set on the user's behalf.
+
+============================================================
+7. NEXT DECISION GATE
+============================================================
+
+The source-faithful path is now exhausted for O1/O2 in the inspected canonical source set.
+
+Two legitimate paths remain:
+
+PATH A — SOURCE-FAITHFUL HOLD
+Keep O1/O2 classified as NOT FORMALLY DEFINED.
+Do not run further universal S3-C3 proofs until the exact author-defined signature and coupling theory are supplied or recovered from another authoritative source.
+
+PATH B — EXPLICIT RESEARCH-ONLY MODEL
+Select a clearly labelled provisional signature Sigma* and constraint set Gamma* for mathematical exploration.
+Every theorem must be indexed by (Sigma*, Gamma*, realization, embeddings, and amalgamation strength).
+No result may be described as a theorem of canonical S3-C3.
+No Frozen Core definition, axiom, or registry entry changes.
+
+No path is selected by this checkpoint.
+An explicit owner decision is required before Path B is used.
+
+============================================================
+8. GOVERNANCE
+============================================================
+
+FROZEN CORE: UNCHANGED.
+VOLUMES II-V: UNCHANGED.
+NEW AXIOMS: NONE.
+CANONICAL DEFINITIONS: NONE ADDED OR ALTERED.
+THEOREM REGISTRY: UNCHANGED.
+RL REGISTRATION: NONE.
+CE / CE-V: UNCHANGED.
+GLOBAL CERTIFICATION: NOT CLAIMED.
+S3-C3: NOT CLOSED.
+
+END OF O1/O2 PRIMARY-SOURCE RECOVERY
