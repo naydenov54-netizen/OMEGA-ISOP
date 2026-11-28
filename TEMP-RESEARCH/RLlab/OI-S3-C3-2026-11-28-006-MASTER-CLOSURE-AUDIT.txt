@@ -1,0 +1,711 @@
+OMEGA-ISOP — S3-C3 MASTER MATHEMATICAL CLOSURE AUDIT
+RECORD: OI-S3-C3-2026-11-28-006
+DATE: 2026-11-28
+WORKSTREAM: S3-C3 / RELATIONAL-APARTNESS COUPLING / AMALGAMATION / DECOMPOSITION
+DOCUMENT ROLE: TEMPORARY RLlab MASTER RESEARCH AUDIT
+STATUS: SOURCE-RECONCILED CLOSURE MATRIX; CANONICAL TASK NOT CLOSED
+CANONICAL STATUS: NOT CANONICAL
+RL STATUS: NOT REGISTERED
+FROZEN CORE: UNCHANGED
+VOLUMES II-V: UNCHANGED
+NEW AXIOMS: NONE
+THEOREM REGISTRY: UNCHANGED
+
+REPOSITORY:
+naydenov54-netizen/OMEGA-ISOP
+
+BRANCH:
+temp/91-6C-research-workspace
+
+DIRECTORY:
+TEMP-RESEARCH/RLlab/
+
+============================================================
+0. PURPOSE AND EVIDENCE POLICY
+============================================================
+
+This audit follows the recovered RLlab records:
+- OI-S3-C3-2026-11-28-004-CONTINUATION-STATE.txt
+- OI-S3-C3-2026-11-28-005-PRIMARY-SOURCE-AND-CONSTRAINT-AUDIT.txt
+
+It also inspects the Stage 3 research sequence S3.3-S3.24, the independent P2.3 reproof, the F.5 proof reconstruction and its adversarial audit, Volume II v1.4 source sections III.2-III.5 and IV.1-IV.3, and Volume V Appendix G.
+
+Evidence classes used:
+1. PROVED: proof established for the exact stated proposition and definitions, without hiding additional assumptions.
+2. PROVED UNDER EXPLICIT ASSUMPTIONS: proof established only in the stated mathematical class or under listed hypotheses.
+3. REFUTED BY COUNTEREXAMPLE: the exact universal claim is false; scope of the counterexample is stated.
+4. OPEN: proposition is mathematically meaningful but no proof or refutation is established.
+5. NOT FORMALLY DEFINED: an essential object, class, signature, morphism, or semantic criterion is missing.
+
+A research checkpoint's own label is not accepted automatically. The audit checks its scope and dependencies. A finite search supports a conjecture only in its enumerated domain; it does not prove a universal theorem.
+
+============================================================
+1. PRIMARY-SOURCE RECOVERY — EXACT ARCHITECTURAL BOUNDARY
+============================================================
+
+1.1 Volume II primary source
+
+Source:
+CORE/VOLUMES/OMEGA-ISOP-VOLUME-II-MATHEMATICAL-FOUNDATIONS-v1.4-GOVERNANCE-ADDENDUM-2026-11-24.txt
+Branch: main
+Blob SHA: a10dc1093638e1d6a0e8ad5c21df59cc56a59058
+Relevant locations:
+III.2 line 144
+III.3 line 159
+III.4 line 175
+III.5 line 188
+IV.1 line 202
+IV.2 line 211
+IV.3 line 221
+
+1.2 What the primary source defines
+
+Apartness:
+A = (U0,#)
+# : U0 x U0 -> {true,false}
+
+A standard example realization satisfies:
+A1: NOT(x # x)
+A2: x # y IFF y # x
+A3: x # y IMPLIES (x # z) OR (z # y), for every z.
+
+CRITICAL SCOPE:
+A1-A3 are explicitly ONE admissible realization, not the only possible realization of OMEGA-ISOP apartness. They must not be universalized to every possible realization.
+
+Indistinguishability:
+x ~ y IFF no admissible apartness witness separates x and y.
+
+Under a complete Boolean apartness realization this MAY be represented as:
+x ~ y IFF NOT(x # y).
+
+Under the standard A1-A3 assumptions and classical Boolean logic, ~ is an equivalence relation. The quotient DS := U0/~ is conditional on ~ being an equivalence relation. It is not primitive.
+
+Local configuration:
+C = (S_C,#_C)
+S_C subset U0
+#_C = restriction of # to S_C x S_C.
+A minimal nontrivial configuration satisfies |S_C| >= 2.
+Admissibility remains realization-dependent.
+
+Configuration embedding:
+f:C1 -> C2 is injective and preserves AND reflects selected apartness:
+x #1 y IFF f(x) #2 f(y).
+
+Compatibility:
+CC(C1,C2)=1 iff an admissible amalgamation exists; otherwise 0.
+This is a minimal representation, not the unique possible representation.
+
+Conditional relational structure:
+R := colim(D_CC)
+where the required compatibility diagram, categorical setting, and colimit or equivalent constraint-preserving construction exist.
+
+1.3 What Volume II does NOT formally define for the present S3-C3 task
+
+The inspected primary source does NOT specify:
+- a named S3-C3 relational signature Sigma;
+- a list R1,...,Rn and their arities for S3-C3;
+- the complete relation-apartness coupling theory C;
+- whether C is local, universal, existential, Horn, global, cardinality-based, or mixed;
+- the formal decomposition/indecomposability relation for S3-C3;
+- a canonical R-indec predicate;
+- a necessary-and-sufficient structural-connectedness criterion;
+- a finite forbidden-configuration characterization for the full constrained class.
+
+R := colim(D_CC) does not by itself determine any particular graph, hypergraph, Gaifman graph, relation signature, or decomposition semantics.
+
+Therefore the exact original S3-C3 closure target is NOT FORMALLY DEFINED in the inspected primary source. This is a genuine dependency, not a proof gap that can be filled by guessing.
+
+============================================================
+2. FROZEN APARTNESS AND P2.3
+============================================================
+
+2.1 Equivalence result
+
+In the standard complete Boolean realization:
+A1-A3 + classical Boolean logic + (~ := NOT #)
+imply that ~ is an equivalence relation.
+
+The implication is conditional on that selected realization. It is not a universal theorem for all witness-based or non-Boolean realizations.
+
+Status:
+PROVED UNDER EXPLICIT ASSUMPTIONS.
+
+The triple:
+a~b, b~c, a#c
+is inadmissible in the standard A1-A3 Boolean realization. It is not an S3-C3 counterexample in that class.
+
+2.2 P2.3 independent reproof
+
+Artifact:
+OI-M3.2-P2.3-INDEPENDENT-REPROOF-2026-11-27.txt
+
+The independent reproof establishes:
+- quotient maps induced by injective preserve-and-reflect apartness embeddings are injective;
+- the set pushout along injective maps has injective component maps;
+- component images intersect exactly in the common image;
+- the quotient-based apartness relation satisfies A1-A3;
+- the component embeddings preserve and reflect apartness;
+- the resulting object is a strong amalgam.
+
+Status:
+PROVED UNDER EXPLICIT ASSUMPTIONS:
+standard complete Boolean A1-A3 apartness, classical logic, injective embeddings preserving and reflecting apartness.
+
+Boundary:
+P2.3 proves existence of a strong amalgam in this specified apartness category. It does NOT prove a categorical pushout in the category whose morphisms are injective apartness embeddings. The independent reproof gives a counterexample to that stronger categorical-pushout claim.
+
+Categorical pushout claim:
+REFUTED BY COUNTEREXAMPLE in the stated embedding category.
+
+P2.3 does not automatically extend arbitrary additional relations, operations, dynamics, or coupling axioms.
+
+============================================================
+3. QUOTIENT DESCENT — I_R
+============================================================
+
+For an n-ary relation R, define:
+
+I_R:
+(x1~y1 AND ... AND xn~yn)
+->
+(R(x1,...,xn) IFF R(y1,...,yn)).
+
+Then:
+I_R is necessary and sufficient for R to descend to a well-defined relation on S/~.
+
+Proof:
+If I_R holds, truth of R is independent of the chosen representatives, so R_bar([x1],...,[xn]) iff R(x1,...,xn) is well-defined.
+Conversely, if R_bar is well-defined, changing representatives within the same quotient classes cannot change truth of R; hence I_R.
+
+Status:
+PROVED.
+
+Important non-implication:
+I_R is a quotient-descent condition for one relation. It is not a general compatibility theorem for an arbitrary constraint theory.
+
+3.1 Counterexample: C_R + T_R does not imply I_R
+
+Let:
+U={a,b}
+# = empty
+~ = U x U
+R={(a,a),(b,b)}
+
+Then:
+A1-A3 hold.
+C_R holds, where C_R is R(x,y)->x~y.
+T_R holds, where T_R is R(x,y) AND R(y,z)->R(x,z).
+
+But I_R fails:
+a~b and a~a,
+R(a,a)=TRUE,
+R(b,a)=FALSE.
+
+Therefore:
+C_R + T_R DOES NOT IMPLY I_R.
+
+Status:
+REFUTED BY COUNTEREXAMPLE.
+
+This counterexample blocks any argument that silently uses C_R and T_R to obtain quotient descent.
+
+============================================================
+4. S3.3-S3.8 — PURE RELATIONAL FORBIDDEN-STRUCTURE THEORY
+============================================================
+
+These results concern a separately specified pure relational model:
+- relational signature Sigma;
+- finite relation arities;
+- induced embeddings;
+- common induced substructure;
+- free relational union with no mixed tuples;
+- hereditary classes defined by forbidden induced structures.
+
+They are NOT recovered as the original S3-C3 decomposition semantics.
+
+S3.3:
+A reducible forbidden finite structure can be reconstructed as the free amalgam of two proper induced substructures, so free amalgamation can fail for Forb(F).
+Status: PROVED UNDER EXPLICIT ASSUMPTIONS.
+
+S3.4-T1:
+For one finite forbidden structure F, Forb(F) has free amalgamation under induced embeddings over induced common substructures iff F is irreducible in the stated relational sense.
+Status: PROVED UNDER EXPLICIT ASSUMPTIONS.
+
+S3.5-T1:
+The criterion extends to arbitrary finite relation arities, with irreducibility defined by every pair of distinct elements occurring together in some relational tuple.
+Nullary relations require compatible interpretation.
+Status: PROVED UNDER EXPLICIT ASSUMPTIONS.
+
+S3.6-T1:
+For hereditary classes defined by finite forbidden induced structures, with every failure witnessed by a finite forbidden structure, free amalgamation is characterized by irreducibility of every minimal finite forbidden structure.
+Status: PROVED UNDER EXPLICIT ASSUMPTIONS.
+
+S3.7:
+Boundary audit for infinite carriers with finite witnesses, empty common base, nullary relations, repeated tuple coordinates, infinite finite-forbidden families, and infinite forbidden structures.
+The first cases are handled under the stated assumptions; infinite forbidden structures are outside the proof.
+Status: PROVED UNDER EXPLICIT ASSUMPTIONS for the stated boundary cases; OPEN for infinite forbidden structures.
+
+S3.8-T1:
+Conditional quotient-interface lemma. It requires, among other things:
+- injective quotient-side embeddings;
+- exact intersection over the common quotient;
+- coordinatewise invariance;
+- induced preservation and reflection of all relations;
+- no new mixed tuples outside the common part;
+- compatibility with the actual P2.3 quotient construction.
+
+The checkpoint explicitly states that application to P2.3 had not yet been established.
+Status: PROVED UNDER EXPLICIT ASSUMPTIONS as an abstract lemma; application to P2.3 was OPEN at S3.8 and is further refined by S3.9-S3.19.
+
+============================================================
+5. S3.9-S3.19 — QUOTIENT LIFT, FORBIDDEN CLASSES, AND CORRECTED AMALGAM
+============================================================
+
+S3.9:
+- quotient embeddings and exact intersection of set-pushout images are proved under P2.3 assumptions;
+- quotient relational descent is conditional on I_R;
+- a finite counterexample shows quotient pullback can create mixed tuples and differ from the free union on the original carrier;
+- quotient-level preservation does not automatically lift to preservation of the free amalgam on the original carrier.
+Status:
+PROVED UNDER EXPLICIT ASSUMPTIONS for the set/quotient facts; REFUTED BY COUNTEREXAMPLE for automatic equality of free union and quotient pullback; general lift compatibility OPEN.
+
+S3.10:
+A finite forbidden-class example shows that a quotient pullback can contain a forbidden induced structure even though a different free relational amalgam remains in the class.
+Status:
+REFUTED BY COUNTEREXAMPLE for the claim that quotient-pullback membership is automatic.
+This does NOT refute P2.3, S3.12, or existence of another amalgam.
+
+S3.11:
+A finite test shows that failure of fiber saturation does not necessarily destroy membership in every particular hereditary class.
+Status:
+PROVED UNDER EXPLICIT ASSUMPTIONS as a counterexample to the converse inference.
+Non-saturation alone is not a class-membership criterion.
+
+S3.12:
+Exact fiber-capacity theorem. For a surjection pi:P->Q, a finite forbidden relational structure F embeds as an induced substructure of the pullback P^pi iff there is an induced relational map h:F->Q, not necessarily injective, such that for every q in h(F):
+|h^(-1)({q})| <= |pi^(-1)({q})|.
+
+The proof checks both directions, including positive and negative relation instances and repeated-coordinate tuples.
+Status:
+PROVED UNDER EXPLICIT ASSUMPTIONS: finite forbidden F, purely relational finite-arity signature, induced embeddings, pullback of all relations.
+
+S3.13:
+Uniform finite fiber threshold:
+kappa_F(Q)=min_h max_q |h^(-1)({q})|,
+where h ranges over induced relational maps F->Q, and infinity if no such map exists.
+F occurs in the uniform m-fold pullback iff kappa_F(Q)<=m.
+The finite forbidden-family version takes the corresponding minimum.
+Status:
+PROVED UNDER EXPLICIT ASSUMPTIONS.
+
+S3.14:
+For finite explicit F,Q and fixed finite bounded-arity relational signature:
+- exact enumeration algorithm computes kappa;
+- decision kappa_F(Q)<=m is in NP;
+- general graph case is NP-complete already at m=1;
+- fixed F or fixed finite forbidden family gives polynomial-time computation in Q;
+- infinite forbidden families need an effective presentation and further bounds.
+Status:
+PROVED UNDER EXPLICIT COMPUTATIONAL ASSUMPTIONS.
+
+S3.15:
+Adversarial complexity audit:
+- W[1]-hardness parameterized by |F|;
+- W[1]-hardness parameterized by tw(F) alone;
+- para-NP-hardness parameterized by m alone;
+- no refutation of S3.12-S3.14 under their assumptions;
+- pullback failure does not imply no other amalgam.
+Status:
+PROVED UNDER EXPLICIT COMPLEXITY ASSUMPTIONS for the hardness claims; W[1]-completeness and hardness at fixed constant treewidth are NOT ESTABLISHED.
+
+S3.16:
+Explicit expansion countermodel:
+P2.3 apartness strong amalgam exists, but pulling an additional relation back from the quotient can create a forbidden induced structure, while another extension of the same side relations (free relational amalgam) remains in the forbidden class.
+Status:
+REFUTED BY COUNTEREXAMPLE for automatic transfer of P2.3 to arbitrary additional relations by quotient pullback.
+P2.3 itself is not refuted.
+
+S3.17:
+Independent verification of S3.12-S3.15:
+no proof defect found under the stated finite relational assumptions; confirms the distinction between one pullback and existence of some other amalgam.
+Status:
+PROVED UNDER EXPLICIT ASSUMPTIONS as independent verification; no universal OMEGA-ISOP transfer.
+
+S3.18:
+Partial realization-specific bridge:
+- S3.12 matches the Boolean apartness reduct of P2.3 under the standard complete Boolean realization;
+- the free relational expansion is not generally a quotient pullback;
+- additional operations, realization maps, dynamics, and operational constraints are outside the established bridge.
+Status:
+PROVED UNDER EXPLICIT ASSUMPTIONS for the Boolean apartness reduct; full transfer OPEN.
+
+S3.19:
+For the explicit pure-relational fragment with all added relations coordinatewise invariant under ~:
+- each relation descends to the quotient;
+- quotient-level free relational amalgam can be formed;
+- pulling back the quotient relations gives a strong amalgam in the stated fragment;
+- free union on the original carrier can fail the invariance condition.
+Status:
+PROVED UNDER EXPLICIT ASSUMPTIONS.
+Not a theorem for arbitrary first-order constraints, operations, dynamics, or the complete OMEGA-ISOP realization.
+
+============================================================
+6. S3.20-S3.24 — CONSTRAINT PRESERVATION
+============================================================
+
+S3.20 — Individual binary relation constraints
+
+Positive results:
+- symmetry is preserved by free quotient union;
+- irreflexivity is preserved;
+- reflexivity is preserved.
+
+Negative results:
+- transitivity can fail under free union, although a non-free strong transitive completion exists for the displayed span;
+- functionality can fail under free union, and the displayed span has no strong amalgam; a non-strong amalgam can identify the outputs;
+- acyclicity can fail, and the displayed cycle-forcing span has no amalgam at all in the acyclic directed-relation class.
+
+Status:
+PROVED UNDER EXPLICIT ASSUMPTIONS for the displayed preservation results and examples.
+The acyclic span is a genuine Class III obstruction for that specific acyclic-relation test class.
+The functional span is a strong-amalgamation obstruction but not an ordinary-amalgamation obstruction.
+Neither is thereby an obstruction for the complete S3-C3 class.
+
+S3.21 — Guarded universal Horn fragment
+
+Proves, under the explicit function-free relational assumptions:
+- exact mixed-trigger criterion for a specified free relational amalgam;
+- preservation for relationally guarded universal Horn clauses;
+- pullback preservation for clauses with relational heads or BOTTOM under positive-equality bodies;
+- equality-generating heads require a separate clause-specific fiber condition.
+
+Does not prove:
+- preservation of arbitrary universal Horn theories;
+- a necessary-and-sufficient syntactic classification of all theories with free amalgamation;
+- general amalgamation for transitive, functional, or acyclic relation classes;
+- preservation of operations or dynamics.
+
+Status:
+PROVED UNDER EXPLICIT ASSUMPTIONS.
+
+S3.22 — Multi-relational guarded Horn
+
+Proves:
+- extension of the guarded result to clauses coupling multiple relation symbols when one relational atom globally guards all clause variables;
+- collective variable coverage across multiple body atoms is not enough;
+- connectedness of the body-variable incidence pattern is not enough;
+- a cross-relational join countermodel refutes those weaker proposed guards;
+- pullback preservation for relational heads/BOTTOM under the stated assumptions;
+- equality-head fiber obstruction remains clause-specific.
+
+Status:
+PROVED UNDER EXPLICIT ASSUMPTIONS.
+General first-order classification OPEN.
+
+S3.23 — Unguarded Horn side-coherence
+
+Proves a sufficient side-coherence condition for selected unguarded positive universal Horn clauses under explicit assumptions:
+- every clause variable occurs in a relational body atom;
+- body-overlap graph is connected;
+- a fixed spanning tree is selected;
+- every body-satisfying assignment has the required C-exclusive overlap property;
+- common substructure is induced;
+- free relational amalgam and equality assumptions are as stated.
+
+Countermodels show why removing key overlap or coverage conditions can fail.
+The condition is not shown necessary.
+
+Status:
+PROVED UNDER EXPLICIT ASSUMPTIONS as a sufficient result; necessity and general classification OPEN.
+
+S3.24 — Adversarial refinement
+
+The S3.23 core survives under its stated assumptions. The fixed-tree condition is sufficient but over-restrictive. A weaker assignment-relative active-exclusive connectivity condition, with positive-equality closure, is proved sufficient. A multiway extension is proved for finite families with pairwise intersections exactly C.
+
+Not established:
+- necessity of the refined condition;
+- preservation over arbitrary nonempty common bases;
+- uniform applicability to all P2.3 spans;
+- general classification.
+
+Status:
+PROVED UNDER EXPLICIT ASSUMPTIONS as a refined sufficient criterion; full characterization OPEN.
+
+============================================================
+7. F.5 — POSITIVE-APARTNESS TEST CLASS {A1-A3, T_R, C_R*}
+============================================================
+
+Artifacts:
+OI-M3.2-CP-2026-11-28-18-F5-INDEPENDENT-REPROOF.txt
+OI-M3.2-CP-2026-11-28-19-F5-ADVERSARIAL-AUDIT.txt
+
+Test conditions:
+A1-A3 in the standard Boolean apartness realization.
+T_R:
+R(x,y) AND R(y,z) -> R(x,z).
+C_R*:
+R(x,y) -> x#y.
+Embeddings preserve and reflect # and R.
+C is induced for R.
+P2.3 strong apartness amalgam and its cross-component equivalence formula are assumed.
+
+Forbidden configuration:
+There exist a in A\C, b in B\C, c,d in C such that:
+a~c AND b~c
+and either:
+R_A(a,d) AND R_B(d,b)
+or:
+R_B(b,d) AND R_A(d,a).
+
+The reconstructed proof establishes under these assumptions:
+- forbidden configuration implies no amalgam, even non-strong;
+- absence of the configuration allows D=(S_P,#_P,TC(R_A union R_B));
+- finite-path run decomposition plus R-inducedness preserves and reflects R on each component;
+- absence of the obstruction preserves C_R*;
+- the resulting amalgam is strong.
+
+The adversarial audit repairs the zero-length intermediate path case. It also checks repeated visits to C and alternating side-labelled runs.
+
+Finite exhaustive enumeration:
+|C|=1: 16 valid spans, 0 obstructions, 0 violations.
+|C|=2: 433 valid spans, 4 obstruction spans, 4 C_R* violations, 0 non-obstruction violations, 0 R-reflection failures.
+|C|=3: 20,863 valid spans, 294 obstruction spans, 294 C_R* violations, 0 non-obstruction violations, 0 R-reflection failures.
+Total: 21,312 valid spans; 298 obstruction spans; exact agreement in this enumerated domain.
+
+Classification:
+PROVED UNDER EXPLICIT ASSUMPTIONS at the level of the reconstructed finite-path proof, with a repaired edge case.
+FINITE EXHAUSTIVE SUPPORT: 21,312 small spans in the stated bounded domain.
+GENERAL UNIVERSALITY: NOT YET ESTABLISHED against the exact canonical admissible-span definition.
+The source-level requirement that C is R-induced and the exact applicability of the P2.3 cross-component formula remain prerequisites.
+
+This is a meaningful candidate exact criterion for the test class, not a theorem for arbitrary S3-C3 constraints.
+
+C_R and C_R* must remain separate:
+C_R: R(x,y)->x~y.
+C_R*: R(x,y)->x#y.
+The F.5 theorem concerns C_R*, not C_R.
+
+============================================================
+8. QD-1 / QD-2 — QUOTIENT CONNECTIVITY CANDIDATES
+============================================================
+
+QD-1:
+If quotient relations are well-defined, decomposition means a nontrivial disjoint relational union of induced substructures, and there are no additional cross-part constraints, then quotient indecomposability is equivalent to connectedness of the quotient Gaifman graph.
+
+Status:
+PROVED UNDER EXPLICIT RESEARCH ASSUMPTIONS for that exact pure-relational decomposition semantics.
+NOT established as the original S3-C3 criterion.
+
+QD-2:
+For binary R, under:
+C_R: R(x,y)->x~y
+and I_R:
+x~x' AND y~y' -> (R(x,y) IFF R(x',y')),
+then:
+- R is empty between distinct equivalence classes;
+- on each class C, R restricted to C x C is either full or empty;
+- the quotient relation R_bar is a subset of the identity relation on DS.
+
+For several binary relations satisfying C_R+I_R, the quotient Gaifman graph has no cross-class edges. If DS has more than one vertex, it is disconnected.
+
+The analogous n-ary statement requires the coupling condition to force every true tuple to have all coordinates in one and the same equivalence class.
+
+Status:
+PROVED UNDER EXPLICIT RESEARCH ASSUMPTIONS.
+It does not prove that the full S3-C3 structure is disconnected or decomposable.
+
+Connectivity caution:
+The graph of apartness under the standard Boolean realization is complete multipartite (apartness is inequality of equivalence classes). Its automatic connectedness when there are at least two classes is not a structural dependency criterion and can be vacuous for decomposition.
+Do not turn every # or ~ pair into a positive dependency edge.
+
+============================================================
+9. CORRECTED MASTER CLOSURE MATRIX
+============================================================
+
+A. Primary source and foundational layer
+
+Item                                      Classification
+Volume II standard A1-A3 realization      PROVED UNDER EXPLICIT ASSUMPTIONS
+A1-A3 universal across all realizations   REFUTED by source scope; they are one example realization
+Witness-based definition of ~             SOURCE-DEFINED
+Boolean complement representation of ~    PROVED UNDER EXPLICIT ASSUMPTIONS
+Equivalence of ~ under A1-A3 + classical  PROVED UNDER EXPLICIT ASSUMPTIONS
+DS=U0/~                                   PROVED UNDER EXPLICIT ASSUMPTIONS when ~ is equivalence
+Local configuration C                     SOURCE-DEFINED
+Embedding preserve-and-reflect #           SOURCE-DEFINED
+CC(C1,C2) as admissible amalgam existence SOURCE-DEFINED
+R=colim(D_CC)                             PROVED UNDER EXPLICIT EXISTENCE CONDITIONS
+Exact S3-C3 signature and arities         NOT FORMALLY DEFINED
+Complete original coupling list           NOT FORMALLY DEFINED
+Original S3-C3 decomposition semantics    NOT FORMALLY DEFINED
+
+B. P2.3 and quotient descent
+
+P2.3 strong apartness amalgam             PROVED UNDER EXPLICIT ASSUMPTIONS
+P2.3 categorical pushout claim            REFUTED BY COUNTEREXAMPLE
+P2.4.1 pure relational free amalgam       PROVED UNDER EXPLICIT ASSUMPTIONS
+I_R iff quotient descent                  PROVED
+C_R + T_R implies I_R                     REFUTED BY COUNTEREXAMPLE
+I_R implies arbitrary constraint compat. REFUTED BY COUNTEREXAMPLE / invalid inference
+
+C. Pure relational forbidden structures
+
+S3.3 reducible-forbidden counterexample   PROVED UNDER EXPLICIT ASSUMPTIONS
+S3.4 finite Forb(F) irreducibility test   PROVED UNDER EXPLICIT ASSUMPTIONS
+S3.5 finite-arity extension               PROVED UNDER EXPLICIT ASSUMPTIONS
+S3.6 finite forbidden-family criterion    PROVED UNDER EXPLICIT ASSUMPTIONS
+S3.7 finite-witness boundary cases        PROVED UNDER EXPLICIT ASSUMPTIONS
+S3.7 infinite forbidden structures        OPEN
+S3.8 abstract quotient-interface lemma    PROVED UNDER EXPLICIT ASSUMPTIONS
+S3.8 automatic applicability to P2.3      OPEN at S3.8; later refined, not universally automatic
+
+D. Quotient pullback and finite forbidden classes
+
+S3.9 quotient set embeddings/intersection PROVED UNDER EXPLICIT ASSUMPTIONS
+S3.9 free union = quotient pullback       REFUTED BY COUNTEREXAMPLE in general
+S3.9 automatic pullback preservation      REFUTED BY COUNTEREXAMPLE in general
+S3.10 quotient pullback can create F      PROVED BY COUNTEREXAMPLE
+S3.11 non-saturation forces class failure REFUTED BY COUNTEREXAMPLE
+S3.12 exact fiber-capacity criterion      PROVED UNDER EXPLICIT ASSUMPTIONS
+S3.13 uniform fiber threshold             PROVED UNDER EXPLICIT ASSUMPTIONS
+S3.14 finite algorithm and NP results     PROVED UNDER EXPLICIT ASSUMPTIONS
+S3.15 parameterized hardness              PROVED UNDER EXPLICIT COMPLEXITY ASSUMPTIONS
+S3.15 W[1]-completeness                   OPEN / NOT ESTABLISHED
+S3.16 automatic P2.3 relational transfer  REFUTED BY COUNTEREXAMPLE
+S3.17 independent verification S3.12-15   PROVED UNDER EXPLICIT ASSUMPTIONS
+S3.18 Boolean-reduct bridge               PROVED UNDER EXPLICIT ASSUMPTIONS
+S3.18 full realization bridge             OPEN
+S3.19 quotient-invariant relational amalg PROVED UNDER EXPLICIT ASSUMPTIONS
+
+E. Constraint preservation
+
+S3.20 symmetry/reflexivity/irreflexivity   PROVED UNDER EXPLICIT ASSUMPTIONS
+S3.20 transitivity under free union       REFUTED BY COUNTEREXAMPLE
+S3.20 transitive alternative for example PROVED UNDER EXPLICIT ASSUMPTIONS
+S3.20 functionality strong amalgamation  REFUTED BY COUNTEREXAMPLE for a span
+S3.20 functionality ordinary amalgam     PROVED by non-strong identification in example
+S3.20 acyclicity amalgamation             REFUTED BY COUNTEREXAMPLE for a span
+S3.21 guarded Horn criterion              PROVED UNDER EXPLICIT ASSUMPTIONS
+S3.21 arbitrary Horn classification       OPEN
+S3.22 multi-relational guarded Horn        PROVED UNDER EXPLICIT ASSUMPTIONS
+S3.22 collective guard sufficiency        REFUTED BY COUNTEREXAMPLE
+S3.23 side-coherence sufficient criterion PROVED UNDER EXPLICIT ASSUMPTIONS
+S3.23 necessity of side-coherence         OPEN
+S3.24 active-exclusive refinement         PROVED UNDER EXPLICIT ASSUMPTIONS
+S3.24 necessity / full classification     OPEN
+S3.24 arbitrary span transfer             OPEN
+
+F. Selected apartness-coupling tests
+
+C_R + T_R -> I_R                         REFUTED BY COUNTEREXAMPLE
+C_R + I_R quotient collapse (QD-2)       PROVED UNDER EXPLICIT ASSUMPTIONS
+C_R + T_R general amalgamation           OPEN
+C_R* + T_R F.5 obstruction criterion     PROVED UNDER EXPLICIT ASSUMPTIONS in reconstructed test class
+F.5 universal canonical S3-C3 transfer   OPEN
+Class III acyclic span                    PROVED for acyclic-relation test class only
+Class III obstruction for full S3-C3      OPEN / NOT ESTABLISHED
+
+G. Decomposition and connectedness
+
+Pure relational irreducibility criterion PROVED UNDER EXPLICIT ASSUMPTIONS
+QD-1 quotient Gaifman criterion           PROVED UNDER EXPLICIT ASSUMPTIONS
+Original S3-C3 decomposition definition   NOT FORMALLY DEFINED
+Original indecomposability criterion      NOT FORMALLY DEFINED
+Necessary-and-sufficient full connectivity criterion OPEN
+Minimal forbidden configurations for full S3-C3 OPEN
+Finite bound on all full S3-C3 obstructions OPEN
+
+============================================================
+10. CORRECTIONS TO THE PREVIOUS MASTER AUDIT
+============================================================
+
+The previous response overstated the C_R and C_R* results. The following corrections are mandatory:
+
+1. C_R + T_R does NOT imply I_R. The explicit two-point countermodel in checkpoint 004 refutes that implication.
+
+2. C_R + I_R yields the QD-2 collapse for binary quotient relations. It does not show that the full S3-C3 structure is decomposable or disconnected.
+
+3. The minimal II-4 chain test for C_R* is not a universal amalgamation theorem. F.5 later identifies a larger forbidden configuration involving two exclusive points, a common equivalence witness, and a two-step R path through a common point.
+
+4. The F.5 result is for {A1-A3,T_R,C_R*} under induced-R common substructure and P2.3 assumptions. It must not be transferred to C_R or to the complete S3-C3 class.
+
+5. P2.3 is a strong amalgam theorem for the selected Boolean apartness category. It is not a categorical pushout theorem and not an automatic theorem for arbitrary relational expansions.
+
+6. A quotient-pullback failure is not a proof that every alternative amalgam fails. S3.10, S3.15, S3.16, and S3.20 demonstrate why this distinction is essential.
+
+7. A1-A3 are a standard admissible realization, not universal axioms across every OMEGA-ISOP realization.
+
+8. The earlier triple a~b, b~c, a#c is inadmissible under A1-A3 plus classical Boolean complement and must not be listed as an S3-C3 forbidden configuration.
+
+============================================================
+11. FINITE REMAINING PROOF OBLIGATIONS
+============================================================
+
+O1. Exact target model
+Recover or explicitly select the complete S3-C3 signature Sigma, all relation arities, and the selected apartness realization. If no frozen definition exists, maintain the distinction between source-faithful core and explicit research model.
+
+O2. Exact coupling theory
+Recover or explicitly define every constraint in Gamma. For each relation determine whether it is quotient-invariant, within-class, cross-class/apartness-linked, Horn, equality-generating, cardinality-based, or mixed. Do not treat C_R or C_R* as canonical without source evidence.
+
+O3. Exact admissible span and morphisms
+Specify whether embeddings preserve/reflect every relation, whether common substructures are induced, and whether ordinary or strong amalgamation is required. This is essential for S3.20 and F.5.
+
+O4. P2.3-to-expanded-structure bridge
+For each selected additional relation, prove quotient descent or specify a non-quotient extension. Check inducedness, preservation, reflection, exact intersection, and the strong property separately.
+
+O5. Constraint-preservation classification
+For the exact Gamma, prove each clause survives the chosen amalgam or provide a counterexample. Separate free union, quotient amalgam, alternative amalgam, ordinary amalgamation, and strong amalgamation.
+
+O6. F.5 source alignment
+Recover the canonical admissible-span definition and verify that it supplies R-inducedness and the P2.3 cross-component equivalence formula used by the F.5 proof. Extend the finite enumeration beyond one exclusive point per side; enumeration remains supporting evidence, not the universal proof.
+
+O7. Decomposition semantics
+Define precisely what a decomposition is for the target S3-C3 object: disjoint union, quotient decomposition, apartness-compatible decomposition, or another specified notion. Define nontriviality and the relevant induced substructures.
+
+O8. Connectivity theorem
+Only after O1-O7, define the dependency graph/hypergraph from actual relation tuples and constraint supports. Prove both directions:
+connectedness -> indecomposable;
+indecomposable -> connectedness.
+Otherwise classify the criterion as sufficient only or necessary only, not iff.
+
+O9. Minimal forbidden configurations
+Define minimality relative to the selected class, embeddings, and forbidden property. Prove the obstruction list is exhaustive, or state the exact finite/infinite bounds. Do not infer a finite obstruction basis without proof.
+
+O10. Final amalgamation classification
+For each admissible span, classify:
+Class I: canonical amalgam preserves Gamma;
+Class II: canonical construction fails but an alternative admissible amalgam exists;
+Class III: a specific admissible span has no amalgam of any allowed kind.
+A single counterexample to the canonical construction is not Class III.
+
+============================================================
+12. FINAL VERDICT
+============================================================
+
+MATHEMATICAL SUBRESULTS:
+Substantial parts of the abstract research program are proved under explicit assumptions:
+- P2.3 strong apartness amalgamation;
+- I_R quotient descent;
+- pure relational forbidden-structure irreducibility criterion;
+- finite fiber-capacity and uniform threshold theorems;
+- selected quotient-invariant amalgamation;
+- selected guarded-Horn and side-coherence preservation theorems;
+- selected Class III obstructions;
+- F.5 candidate iff criterion for its explicitly delimited test class, with repaired path case and bounded exhaustive support.
+
+FULL S3-C3:
+NOT CLOSED.
+
+Reason:
+The inspected primary source does not formally define the complete S3-C3 relational signature, complete coupling theory, or decomposition/indecomposability semantics. Therefore a universal S3-C3 closure theorem and a complete minimal-forbidden-configuration matrix cannot yet be truthfully certified.
+
+FROZEN CORE: UNCHANGED.
+VOLUMES II-V: UNCHANGED.
+NEW AXIOMS: NONE.
+CANONICAL DEFINITIONS: NONE ADDED OR ALTERED.
+THEOREM REGISTRY: UNCHANGED.
+RL REGISTRATION: NONE.
+CE / CE-V: UNCHANGED.
+GLOBAL CERTIFICATION: NOT CLAIMED.
+
+END OF MASTER MATHEMATICAL CLOSURE AUDIT
