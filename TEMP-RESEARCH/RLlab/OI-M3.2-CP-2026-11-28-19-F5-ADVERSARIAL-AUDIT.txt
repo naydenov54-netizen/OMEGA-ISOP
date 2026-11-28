@@ -1,0 +1,139 @@
+OMEGA-ISOP — TEMPORARY RESEARCH CHECKPOINT
+OI-M3.2-CP-2026-11-28-19-F5-ADVERSARIAL-AUDIT
+
+DATE: 2026-11-28
+STATUS: NON-CANONICAL / RESEARCH ONLY / ADVERSARIAL AUDIT
+TARGET BRANCH: temp/91-6C-research-workspace
+PARENT CHECKPOINT: OI-M3.2-CP-2026-11-28-18-F5-INDEPENDENT-REPROOF
+GOVERNANCE: FROZEN CORE UNCHANGED. No axioms added. No canonical theorem registered.
+
+1. PURPOSE
+
+This record audits the provisional F.5 proof reconstruction for the test class:
+{A1-A3, T_R, C_R*}
+
+It addresses:
+- finite-run decomposition, including repeated visits to C and alternating A/B edge labels;
+- the zero-length intermediate segment case;
+- finite exhaustive enumeration for |C| = 1, 2, 3 with exactly one exclusive point on each side.
+
+This checkpoint does not settle whether the exact canonical S3-C3 span definition requires R-induced embeddings. That source-level condition remains a prerequisite.
+
+2. PROOF-TEXT DEFECT FOUND AND REPAIRED
+
+The previous checkpoint's Section 5.3 stated that the intermediate path from u in C to v in C collapses to R_C(u,v).
+
+That statement omitted the case in which the initial A-run and final B-run meet directly at the same common point, so u=v and the intermediate path is empty.
+
+No reflexivity of R is available or may be assumed. In particular, C_R* together with irreflexive apartness prevents R(x,x).
+
+Corrected case split:
+
+Case I: u != v and there is at least one intermediate run.
+Each nonempty intermediate run has endpoints in C. By transitivity in its component, it yields R(c_i,c_{i+1}). Since C is induced for R, each such pair belongs to R_C. Transitivity of R_C then gives R_C(u,v).
+
+Case II: There is no intermediate run.
+The initial A-run ends at v in C and the final B-run starts at the same point, so u=v. The initial and final runs themselves give:
+R_A(x,v) and R_B(v,y).
+This is already the forbidden configuration with d=v. No R_C(v,v) is needed.
+
+Repeated visits to C do not create a further case: every finite path can be partitioned into its maximal nonempty A-labelled and B-labelled runs. A label change can occur only at a vertex in the intersection, which is exactly C by strongness. Every intermediate run therefore has endpoints in C. A path may revisit C arbitrarily many times; the finite sequence of intermediate C-to-C runs is still collapsible by transitivity.
+
+If an edge lies in both component relations, it has both endpoints in C. It may be assigned either label for the run decomposition; inducedness ensures it is also an R_C edge. This assignment does not alter the path or its endpoints.
+
+3. ADVERSARIAL AUDIT OF THE REFLECTION ARGUMENT
+
+For a finite E-path with both endpoints in A:
+- Any maximal B-run that is not also an A-run has endpoints in A intersect B.
+- By strongness, those endpoints lie in C.
+- Transitivity of R_B collapses the run to an R_B pair on C.
+- R-inducedness of C transfers that pair to R_A.
+- Replacing each such B-run by its corresponding A-edge yields an A-path.
+- Transitivity of R_A gives the endpoint pair in R_A.
+
+This argument permits repeated visits to C and any finite alternation of A/B labels. The proof for B is symmetric.
+
+Important dependency: this is a finite-path argument. TC(E) must mean finite-path transitive closure. It does not cover a nonstandard infinite-path closure.
+
+4. FINITE EXHAUSTIVE ENUMERATION
+
+A finite model checker enumerated all spans with:
+- |C| = 1, 2, or 3;
+- exactly one A-exclusive point and exactly one B-exclusive point;
+- every equivalence relation on A and B whose restrictions to C agree;
+- every transitive R_A and R_B satisfying C_R* (R(x,y) implies x#y);
+- agreement of R_A and R_B on C, so C is induced for R.
+
+The candidate amalgam was constructed on the set pushout:
+E = R_A union R_B
+T = TC(E)
+with apartness obtained from the quotient pushout of the component equivalence relations.
+
+Results:
+
+|C| = 1:
+valid spans = 16
+F.5 obstruction spans = 0
+T violates C_R* = 0
+non-obstruction violations = 0
+R-reflection failures = 0
+
+|C| = 2:
+valid spans = 433
+F.5 obstruction spans = 4
+T violates C_R* = 4
+non-obstruction violations = 0
+R-reflection failures = 0
+
+|C| = 3:
+valid spans = 20,863
+F.5 obstruction spans = 294
+T violates C_R* = 294
+non-obstruction violations = 0
+R-reflection failures = 0
+
+Across all three enumerations:
+valid spans = 21,312
+F.5 obstruction spans = 298
+candidate closure violates C_R* exactly on the 298 obstruction spans.
+No non-obstruction C_R* violation was found.
+No reflection failure was found.
+
+Interpretation:
+The enumeration supports the proposed finite criterion for this precisely bounded family of spans. It does not prove the theorem for larger exclusive parts, arbitrary finite spans, or infinite structures. It also does not verify that the exact canonical OMEGA-ISOP admissible-span definition supplies R-inducedness.
+
+5. WHAT THIS AUDIT DOES AND DOES NOT ESTABLISH
+
+Established within this audit:
+- The zero-length middle-segment omission in the previous proof text is repaired without assuming reflexivity.
+- The finite-run decomposition handles repeated C visits and alternating edge labels.
+- Exhaustive enumeration for the stated small-span domain found exact agreement between F.5 obstruction and failure of C_R* in the candidate transitive closure.
+- No finite counterexample to the reconstructed criterion was found in the enumerated domain.
+
+Still conditional / unresolved:
+- Whether the canonical S3-C3 span notion requires C to be induced for R.
+- Whether P2.3's quotient-pushout construction and cross-component equivalence formula apply without strengthening any canonical embedding assumption.
+- Whether the finite-run proof has been formalized against the exact canonical definitions rather than the explicit assumptions of checkpoint 18.
+- The general criterion for arbitrary finite or infinite spans.
+- Any extension from C_R* to C_R. These are distinct, opposite coupling conditions.
+
+No claim is made that finite enumeration proves a universal result.
+
+6. CURRENT STATUS
+
+F.5 for {A1-A3, T_R, C_R*}:
+PROVISIONAL PROOF RECONSTRUCTION WITH REPAIRED PATH CASE SPLIT.
+FINITE EXHAUSTIVE SUPPORT: 21,312 SMALL SPANS IN THE DOMAIN SPECIFIED ABOVE.
+CANONICAL STATUS: NOT REGISTERED.
+UNIVERSALITY: NOT YET ESTABLISHED AGAINST THE EXACT CANONICAL SPAN DEFINITION.
+
+7. NEXT REQUIRED ACTIONS
+
+1. Recover the exact primary definition of admissible S3-C3 spans and determine whether C is R-induced.
+2. Compare the exact P2.3 hypotheses with the cross-component equivalence formula used in this proof.
+3. Formalize the path-run lemma in the exact source notation.
+4. Extend finite enumeration to at least two exclusive points on one or both sides, using a symmetry-aware search or SAT/SMT encoding to control combinatorial growth.
+5. Keep C_R and C_R* separate.
+6. Do not edit Frozen Core, canonical volumes, or theorem registry.
+
+END OF TEMPORARY CHECKPOINT
