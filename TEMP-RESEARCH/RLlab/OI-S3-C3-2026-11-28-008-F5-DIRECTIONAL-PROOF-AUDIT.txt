@@ -1,0 +1,296 @@
+OMEGA-ISOP — F.5 DIRECTIONAL PROOF AUDIT
+RECORD: OI-S3-C3-2026-11-28-008
+DATE: 2026-11-28
+WORKSTREAM: S3-C3 / F.5 POSITIVE-APARTNESS AMALGAMATION
+STATUS: NON-CANONICAL / RESEARCH ONLY / PROOF AUDIT
+PARENT RECORDS:
+- OI-M3.2-CP-2026-11-28-18-F5-INDEPENDENT-REPROOF
+- OI-M3.2-CP-2026-11-28-19-F5-ADVERSARIAL-AUDIT
+GOVERNANCE: FROZEN CORE UNCHANGED.
+
+============================================================
+1. SINGLE TARGET
+============================================================
+
+Audit the F.5 iff criterion for the explicitly selected test class:
+
+A1-A3;
+T_R: R(x,y) AND R(y,z) -> R(x,z);
+C_R*: R(x,y) -> x#y.
+
+The purpose is narrowly limited to:
+(a) checking the P2.3 cross-component indistinguishability formula;
+(b) correcting and validating the directed finite-path argument;
+(c) stating exactly what remains missing for transfer to canonical S3-C3.
+
+No other S3 results are reopened.
+
+============================================================
+2. EXACT HYPOTHESES USED
+============================================================
+
+Let f:C->A and g:C->B be injective embeddings.
+
+H1. Each component carries Boolean apartness # satisfying A1-A3.
+Define x~y iff NOT(x#y). Classical logic and A1-A3 make ~ an equivalence relation.
+
+H2. R is binary and transitive in A, B and C.
+
+H3. C_R* holds in A, B and C:
+R(x,y) -> x#y.
+
+H4. The embeddings preserve AND reflect both # and R:
+x#_C y IFF f(x)#_A f(y), and similarly for g;
+R_C(x,y) IFF R_A(f(x),f(y)), and similarly for g.
+Thus C is induced for R. This is an explicit hypothesis, not a conclusion of pure P2.3.
+
+H5. The underlying apartness span is in the P2.3 class and P2.3's strong apartness amalgam P is available.
+
+H6. TC(E) means finite directed-path transitive closure.
+
+These hypotheses define the exact research test class audited here. They are not asserted to be the canonical S3-C3 definitions.
+
+============================================================
+3. P2.3 CROSS-COMPONENT FORMULA
+============================================================
+
+P2.3 forms:
+Q_A=A/~_A, Q_B=B/~_B, Q_C=C/~_C,
+then the set pushout Q of Q_A and Q_B over Q_C.
+
+Because f and g preserve and reflect #, they preserve and reflect ~.
+Consequently the induced maps Q_C->Q_A and Q_C->Q_B are injective.
+
+For a pushout of sets along injective maps, the images of Q_A and Q_B intersect exactly in the image of Q_C.
+
+Therefore, for a in A and b in B:
+i_A(a) ~_P i_B(b)
+IFF there exists c in C such that
+a ~_A f(c) AND b ~_B g(c).
+
+This establishes the cross-component formula used by F.5, under the stated P2.3 assumptions.
+
+The same set-pushout construction gives:
+i_A(A) intersect i_B(B) = i_C(C).
+
+Scope note:
+P2.3 is a pure-apartness amalgam. It does not by itself establish H4 or preserve any additional R relation.
+
+============================================================
+4. F.5 FORBIDDEN CONFIGURATION
+============================================================
+
+There exist:
+a in A\C, b in B\C, c,d in C
+
+such that:
+a~c AND b~c
+
+and either:
+R_A(a,d) AND R_B(d,b)
+
+or:
+R_B(b,d) AND R_A(d,a).
+
+============================================================
+5. NECESSITY: OBSTRUCTION PRECLUDES EVERY AMALGAM
+============================================================
+
+Assume the first orientation:
+a~c, b~c, R_A(a,d), R_B(d,b).
+
+Suppose an amalgam D exists with embeddings preserving # and R.
+
+From preservation of ~:
+h_A(a)~_D h_C(c)
+and
+h_B(b)~_D h_C(c).
+
+Since ~_D is an equivalence relation:
+h_A(a)~_D h_B(b).
+
+Preservation of R and transitivity in D give:
+R_D(h_A(a),h_B(b)).
+
+C_R* in D gives:
+h_A(a)#_D h_B(b).
+
+Contradiction.
+
+The reverse orientation is identical with the directed R path reversed.
+
+Therefore the F.5 obstruction rules out every amalgam in this test class, not merely the strong or canonical construction.
+
+============================================================
+6. SUFFICIENCY: CORRECTED DIRECTED-PATH PROOF
+============================================================
+
+Assume no F.5 forbidden configuration exists.
+
+Take P from P2.3 and define:
+E = i_A(R_A) union i_B(R_B).
+T = TC(E), using finite directed paths.
+
+Set:
+D = (P,#_P,T).
+
+6.1. Reflection of T to each component
+
+Consider a finite E-path whose endpoints lie in A.
+
+Every maximal B-labelled run that is not also an A-run has both endpoints in A intersect B. By strongness of P, these endpoints lie in C.
+
+By transitivity of R_B, the run implies an R_B pair between its endpoints.
+Since C is induced for R, that pair belongs to R_C and hence to R_A.
+
+Replace each such B-run by the corresponding A-edge.
+The resulting finite A-path implies the endpoint pair belongs to R_A by transitivity of R_A.
+
+Thus:
+T intersect A^2 = R_A.
+Symmetrically:
+T intersect B^2 = R_B.
+
+So both embeddings preserve and reflect R.
+
+6.2. Preservation of C_R*
+
+Suppose T(x,y) but NOT x#_P y.
+Then x~_P y.
+
+If x and y belong to the same component, Section 6.1 gives R in that component, and C_R* there implies x#_P y, contradiction.
+
+Thus, after possibly reversing the names of the sides:
+x belongs to A\C and y belongs to B\C.
+
+By the P2.3 cross-component formula, there is c in C such that:
+x~_A c AND y~_B c.
+
+Choose a finite directed E-path from x to y.
+
+Partition it into maximal nonempty runs labelled A or B.
+A change of label can occur only at a vertex in A intersect B, which is C by strongness.
+
+Let:
+p = endpoint of the first A-run;
+q = initial vertex of the final B-run.
+
+Then p,q belong to C.
+The initial run gives:
+R_A(x,p).
+The final run gives:
+R_B(q,y).
+
+Every intermediate run has both endpoints in C.
+By transitivity in its component and inducedness of C, each intermediate run yields an R_C edge.
+
+If at least one intermediate run exists, transitivity of R_C along the finite intermediate sequence gives:
+R_C(p,q).
+
+If no intermediate run exists, the initial and final runs meet at one common vertex, so p=q. No reflexivity of R is used.
+
+In either case, transitivity in A gives:
+R_A(x,q).
+
+We now have:
+x~_A c,
+y~_B c,
+R_A(x,q),
+R_B(q,y).
+
+This is the first F.5 forbidden configuration with d=q, contradiction.
+
+The opposite orientation is symmetric.
+
+Therefore:
+T(x,y) -> x#_P y.
+
+So C_R* is preserved in D.
+
+6.3. Strongness
+
+The construction adds only relation pairs to P and no new points or identifications.
+Hence:
+i_A(A) intersect i_B(B) = i_C(C).
+
+Thus D is a strong amalgam.
+
+============================================================
+7. AUDIT FINDING: DIRECTIONAL ERROR IN THE PRIOR TEXT
+============================================================
+
+The prior checkpoint 18, section 5.3, named:
+- v as the endpoint of the initial A-run;
+- u as the initial vertex of the final B-run;
+
+but then stated that the intermediate path yields R_C(u,v), and combined it with the initial and final runs in the opposite direction.
+
+For a directed path from x to y, the middle path runs from v to u, not u to v.
+
+Corrected notation in this record:
+p = endpoint of initial A-run;
+q = start of final B-run;
+middle path is p -> q;
+therefore R_C(p,q);
+then R_A(x,p) and R_C(p,q) imply R_A(x,q);
+final run gives R_B(q,y).
+
+If the middle path is empty, p=q and the same forbidden configuration follows directly.
+
+This is a genuine orientation error in the earlier proof text. It is repaired here. No symmetry or reflexivity of R is assumed.
+
+============================================================
+8. F.5 CLASSIFICATION AFTER THIS AUDIT
+============================================================
+
+For the explicitly stated class H1-H6:
+
+F.5 obstruction exists:
+NO amalgam exists.
+
+F.5 obstruction absent:
+A strong amalgam exists, constructed as:
+D=(P,#_P,TC(R_A union R_B)).
+
+Therefore:
+ordinary amalgamation iff no F.5 obstruction;
+strong amalgamation iff no F.5 obstruction.
+
+Classification:
+PROVED UNDER EXPLICIT ASSUMPTIONS, with the directed-path orientation corrected.
+
+The finite enumeration from checkpoint 19 is corroborating evidence only. The proof above, not enumeration, handles arbitrary finite directed paths and arbitrary numbers of exclusive points, subject to H1-H6.
+
+============================================================
+9. EXACT LIMIT OF TRANSFER TO CANONICAL S3-C3
+============================================================
+
+The proof requires:
+1. binary transitive R;
+2. C_R* in every component and in the amalgam class;
+3. embeddings preserving and reflecting R, equivalently inducedness of C for R;
+4. the P2.3 apartness realization and cross-component formula;
+5. finite-path transitive closure as the proposed relation construction.
+
+The inspected canonical sources establish the pure-apartness P2.3 architecture and warn that P2.3 does not automatically preserve additional relations or coupling constraints.
+
+The exact canonical S3-C3 signature, the status of C_R*, and the exact admissible-span/morphism definition are not formally specified in the inspected source set.
+
+Consequently:
+- the F.5 theorem is now closed for H1-H6 as a research theorem;
+- transfer to canonical S3-C3 remains NOT ESTABLISHED;
+- no universal S3-C3 theorem is claimed.
+
+============================================================
+10. GOVERNANCE
+============================================================
+
+FROZEN CORE: UNCHANGED.
+VOLUMES II-V: UNCHANGED.
+NEW AXIOMS: NONE.
+CANONICAL DEFINITIONS: NONE ADDED OR ALTERED.
+THEOREM REGISTRY: UNCHANGED.
+RL REGISTRATION: NONE.
+CE / CE-V: UNCHANGED.
+
+END OF F.5 DIRECTIONAL PROOF AUDIT
